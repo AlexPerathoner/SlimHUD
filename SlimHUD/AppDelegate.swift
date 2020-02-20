@@ -11,8 +11,12 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
+	@IBOutlet weak var statusMenu: NSMenu!
+	
+	@IBAction func quitCliked(_ sender: Any) {
+		NSApplication.shared.terminate(self)
+	}
+	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		// Insert code here to initialize your application
 	}
@@ -23,4 +27,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
 }
-

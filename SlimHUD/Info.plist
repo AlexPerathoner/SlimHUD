@@ -27,10 +27,14 @@
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
-	<string>NSApplication</string>
+	<string>SlimHUD.MediaApplication</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
+	<true/>
+	<key>LSUIElement</key>
+	<true/>
+	<key>LSBackgroundOnly</key>
 	<true/>
 </dict>
 </plist>

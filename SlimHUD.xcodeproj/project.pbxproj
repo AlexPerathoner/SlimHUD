@@ -10,7 +10,11 @@
 		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
 		FA69AC8923F9E2E600AA73FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8823F9E2E600AA73FD /* ViewController.swift */; };
 		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
-		FA69AC8E23F9E2E700AA73FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8C23F9E2E700AA73FD /* Main.storyboard */; };
+		FABE1FD823FEF176009AD01F /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD723FEF176009AD01F /* ProgressHUD.swift */; };
+		FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScript.swift */; };
+		FABE1FDC23FEF17E009AD01F /* MediaApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* MediaApplication.swift */; };
+		FABE1FDE23FEF182009AD01F /* JCGGProgressbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDD23FEF182009AD01F /* JCGGProgressbar.swift */; };
+		FABE1FE123FEF50D009AD01F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABE1FDF23FEF50D009AD01F /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,9 +22,13 @@
 		FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA69AC8823F9E2E600AA73FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA69AC8D23F9E2E700AA73FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA69AC8F23F9E2E700AA73FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
+		FABE1FD723FEF176009AD01F /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		FABE1FD923FEF17B009AD01F /* AppleScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScript.swift; sourceTree = "<group>"; };
+		FABE1FDB23FEF17E009AD01F /* MediaApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaApplication.swift; sourceTree = "<group>"; };
+		FABE1FDD23FEF182009AD01F /* JCGGProgressbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCGGProgressbar.swift; sourceTree = "<group>"; };
+		FABE1FE023FEF50D009AD01F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../prova/prova/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +62,14 @@
 			isa = PBXGroup;
 			children = (
 				FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */,
+				FABE1FDB23FEF17E009AD01F /* MediaApplication.swift */,
 				FA69AC8823F9E2E600AA73FD /* ViewController.swift */,
+				FABE1FDD23FEF182009AD01F /* JCGGProgressbar.swift */,
 				FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */,
-				FA69AC8C23F9E2E700AA73FD /* Main.storyboard */,
+				FABE1FDF23FEF50D009AD01F /* Main.storyboard */,
 				FA69AC8F23F9E2E700AA73FD /* Info.plist */,
+				FABE1FD723FEF176009AD01F /* ProgressHUD.swift */,
+				FABE1FD923FEF17B009AD01F /* AppleScript.swift */,
 				FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */,
 			);
 			path = SlimHUD;
@@ -121,8 +133,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABE1FE123FEF50D009AD01F /* Main.storyboard in Resources */,
 				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
-				FA69AC8E23F9E2E700AA73FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,18 +145,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABE1FDC23FEF17E009AD01F /* MediaApplication.swift in Sources */,
 				FA69AC8923F9E2E600AA73FD /* ViewController.swift in Sources */,
 				FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */,
+				FABE1FD823FEF176009AD01F /* ProgressHUD.swift in Sources */,
+				FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */,
+				FABE1FDE23FEF182009AD01F /* JCGGProgressbar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FA69AC8C23F9E2E700AA73FD /* Main.storyboard */ = {
+		FABE1FDF23FEF50D009AD01F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FA69AC8D23F9E2E700AA73FD /* Base */,
+				FABE1FE023FEF50D009AD01F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
