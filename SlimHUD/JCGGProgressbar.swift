@@ -18,8 +18,11 @@ open class JCGGProgressBar: NSView {
 	
     static let shared = JCGGProgressBar()
 	
+	public static let gray = NSColor.init(red: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
+	public static let blue = NSColor.init(red: 49/255.0, green: 130/255.0, blue: 247/255.0, alpha: 1)
+	
     // Progress bar color
-    @IBInspectable public var barColor: NSColor = NSColor.labelColor
+	@IBInspectable public var barColor: NSColor? = blue
 	
     // Track color
     @IBInspectable public var trackColor: NSColor = NSColor.secondaryLabelColor
@@ -85,7 +88,7 @@ open class JCGGProgressBar: NSView {
 
 			context.addPath(clipPath)
 			
-			context.setFillColor(barColor.cgColor)
+			context.setFillColor(barColor!.cgColor)
 			context.closePath()
 			context.fillPath()
 			context.restoreGState()

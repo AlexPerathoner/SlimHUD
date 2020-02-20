@@ -77,7 +77,9 @@ class ProgressHUD: NSView {
     // MARK: - Lifecycle
 
     static let shared = ProgressHUD()
-
+	
+	
+	
     private override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
 

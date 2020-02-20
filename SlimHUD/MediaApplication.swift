@@ -31,6 +31,7 @@ class MediaApplication: NSApplication {
             switch(key) {
             case NX_KEYTYPE_SOUND_DOWN, NX_KEYTYPE_SOUND_UP, NX_KEYTYPE_MUTE:
 				NotificationCenter.default.post(name: MediaApplication.volumeChanged, object: self)
+				
                 break
             default:
                 break
