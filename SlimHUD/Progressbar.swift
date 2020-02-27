@@ -1,25 +1,20 @@
 
 //
-//  JCGGProgressBar.swift
-//  JCGGProgressBar
+//  ProgressBar.swift
+//  SlimHUD
 //
-//  Created by Jacob Gold on 23/3/19.
-//  Copyright © 2019 Jacob Gold. All rights reserved.
-//
-//	Modified by Alexander Perathoner on 19/2/20
+//  Created by Alex Perathoner on 16/02/2020.
+//  Copyright © 2020 Alex Perathoner. All rights reserved.
 //
 
 import Cocoa
 
 @IBDesignable
-open class JCGGProgressBar: NSView {
+open class ProgressBar: NSView {
 
 	private var windowController: NSWindowController?
 	
-    static let shared = JCGGProgressBar()
-	
-	public static let gray = NSColor.init(red: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
-	public static let blue = NSColor.init(red: 49/255.0, green: 130/255.0, blue: 247/255.0, alpha: 1)
+    static let shared = ProgressBar()
 	
     // Progress bar color
 	@IBInspectable public var barColor: NSColor? = blue
@@ -28,11 +23,9 @@ open class JCGGProgressBar: NSView {
     @IBInspectable public var trackColor: NSColor = NSColor.secondaryLabelColor
     
 	
-    public var barThickness: CGFloat = 8
     // Progress amount
-    @IBInspectable public var progressValue: CGFloat = 0 {
+    @IBInspectable public var progressValue: Int = 0 {
         didSet {
-            progressValue = min(max(progressValue, 0), 100)
             needsDisplay = true
         }
     }
@@ -42,10 +35,8 @@ open class JCGGProgressBar: NSView {
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+		super.init(coder: aDecoder)
     }
-	
-	
 	
 	
     override open func draw(_ rect: CGRect) {
@@ -54,18 +45,15 @@ open class JCGGProgressBar: NSView {
         
 		guard let context = NSGraphicsContext.current?.cgContext else {return}
 		
-		let radius: CGFloat = 5
-		
         // Track Bar
 		
-		var rectWidth = barThickness
-		var rectHeight = frame.size.height - radius / 2
+		var rectHeight = frame.size.height - 5 / 2
 		// Find center of actual frame to set rectangle in middle
-		var xf:CGFloat = (self.frame.width  - rectWidth)  / 2
+		var xf:CGFloat = (self.frame.width  - 8)  / 2
 		var yf:CGFloat = (self.frame.height - rectHeight) / 2
 		context.saveGState()
-		var rect = CGRect(x: xf, y: yf, width: rectWidth, height: rectHeight)
-		var clipPath: CGPath = NSBezierPath(roundedRect: rect, xRadius: radius, yRadius: radius).cgPath
+		var rect = CGRect(x: xf, y: yf, width: 8, height: rectHeight)
+		var clipPath: CGPath = NSBezierPath(roundedRect: rect, xRadius: 5, yRadius: 5).cgPath
 
 		context.addPath(clipPath)
 		context.setFillColor(trackColor.cgColor)
@@ -77,14 +65,14 @@ open class JCGGProgressBar: NSView {
         // Progress Bar
 		
 		if(percentage() != 0) {
-			rectWidth = barThickness
-			rectHeight = (barThickness / 2) + percentage() + radius/2
+			
+			rectHeight = 4 + percentage() + 5/2
 			// Find center of actual frame to set rectangle in middle
-			xf = (self.frame.width  - rectWidth)  / 2
+			xf = (self.frame.width  - 8)  / 2
 			yf = 0
 			context.saveGState()
-			rect = CGRect(x: xf, y: yf, width: rectWidth, height: rectHeight)
-			clipPath = NSBezierPath(roundedRect: rect, xRadius: radius, yRadius: radius).cgPath
+			rect = CGRect(x: xf, y: yf, width: 8, height: rectHeight)
+			clipPath = NSBezierPath(roundedRect: rect, xRadius: 5, yRadius: 5).cgPath
 
 			context.addPath(clipPath)
 			
@@ -96,8 +84,8 @@ open class JCGGProgressBar: NSView {
     }
     
     private func percentage() -> CGFloat {
-        let screenWidth = frame.size.height - barThickness
-        return ((progressValue / 100) * screenWidth)
+        let screenWidth = frame.size.height - 8
+        return (CGFloat(progressValue) / 100) * screenWidth
     }
     
 }
@@ -114,6 +102,8 @@ public extension NSBezierPath {
 			case .lineTo: path.addLine(to: points[0])
 			case .curveTo: path.addCurve(to: points[2], control1: points[0], control2: points[1])
 			case .closePath: path.closeSubpath()
+			@unknown default:
+				NSLog("unknown case")
 			}
         }
         return path

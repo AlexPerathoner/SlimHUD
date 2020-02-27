@@ -13,12 +13,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="MediaApplication" customModule="SlimHUD" customModuleProvider="target"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="56" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="56" height="258"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEc-3L-76X" customClass="JCGGProgressBar" customModule="SlimHUD" customModuleProvider="target">
-                    <rect key="frame" x="20" y="21" width="16" height="230"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="OEc-3L-76X" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                    <rect key="frame" x="20" y="20" width="16" height="218"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
                             <color key="value" red="0.39607843139999999" green="0.3921568627" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -29,30 +28,33 @@
                     </userDefinedRuntimeAttributes>
                 </customView>
             </subviews>
-            <point key="canvasLocation" x="-73" y="154"/>
+            <constraints>
+                <constraint firstItem="OEc-3L-76X" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="4ns-c7-aG3"/>
+                <constraint firstAttribute="trailing" secondItem="OEc-3L-76X" secondAttribute="trailing" constant="20" symbolic="YES" id="5fm-cO-VPc"/>
+                <constraint firstItem="OEc-3L-76X" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="LV3-ui-kUF"/>
+                <constraint firstAttribute="bottom" secondItem="OEc-3L-76X" secondAttribute="bottom" constant="20" symbolic="YES" id="px4-Qk-dBh"/>
+            </constraints>
+            <point key="canvasLocation" x="-77" y="142"/>
         </customView>
         <customObject id="Llm-3p-9cC" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
             <connections>
-                <outlet property="bar" destination="OEc-3L-76X" id="pZ7-is-e4g"/>
                 <outlet property="statusMenu" destination="YXJ-wQ-xEi" id="kgH-40-Vta"/>
+                <outlet property="volumeBar" destination="OEc-3L-76X" id="pZ7-is-e4g"/>
             </connections>
         </customObject>
         <menu id="YXJ-wQ-xEi">
             <items>
+                <menuItem title="Settings..." id="2mT-hj-Cga">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
                 <menuItem title="Quit" id="2XM-N5-3Bx">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="quitCliked:" target="Llm-3p-9cC" id="47l-Pi-gVC"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Item 2" id="lAu-FI-Js9">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem title="Item 3" id="ha1-Zs-Bd9">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
             </items>
-            <point key="canvasLocation" x="-204" y="81"/>
+            <point key="canvasLocation" x="-291" y="-43"/>
         </menu>
     </objects>
 </document>

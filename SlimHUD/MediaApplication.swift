@@ -6,11 +6,8 @@ import Cocoa
 
 class MediaApplication: NSApplication {
 	
-	
-	var pausedByApp = false
-	
+
 	static let volumeChanged = Notification.Name("SlimHUD.volumeChanged")
-	
 	
 	override func sendEvent(_ event: NSEvent) {
 		if (event.type == .systemDefined && event.subtype.rawValue == 8) {
@@ -31,7 +28,6 @@ class MediaApplication: NSApplication {
             switch(key) {
             case NX_KEYTYPE_SOUND_DOWN, NX_KEYTYPE_SOUND_UP, NX_KEYTYPE_MUTE:
 				NotificationCenter.default.post(name: MediaApplication.volumeChanged, object: self)
-				
                 break
             default:
                 break
