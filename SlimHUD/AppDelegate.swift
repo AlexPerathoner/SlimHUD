@@ -20,9 +20,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	@IBOutlet weak var volumeBar: ProgressBar!
 	
+	@IBOutlet weak var brightnessBar: ProgressBar!
+	
 	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	
-	var hud = Hud()
+	var volumeHud = Hud()
+	var brightnessHud = Hud()
 	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		shell(.unload)
@@ -33,23 +36,48 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			button.image?.isTemplate = true
 		}
 		
-		
-		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD(_:)), name: MediaApplication.volumeChanged, object: nil)
+		//observers for volume
+		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD(_:)), name: ObserverApplication.volumeChanged, object: nil)
 		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD(_:)), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+		
+		//observers for brightness
+		NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD(_:)), name: ObserverApplication.brightnessChanged, object: nil)
+		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD(_:)), name: NSNotification.Name(rawValue: "com.apple.brightness.settingsChangedNotification"), object: nil)
 
-		hud.traslate(.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2)))
+		let position = CGPoint.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2))
+		volumeHud.traslate(position)
+		volumeHud.view = volumeBar
+		brightnessHud.traslate(position)
+		brightnessHud.view = brightnessBar
 	}
-	
 	
 	@objc func showVolumeHUD(_ sender: Any) {
 		volumeBar.setColor(disabled: isMuted())
 		volumeBar.progressValue = getOutputVolume()
 
-		hud.show(aview: volumeBar)
-		hud.dismiss(delay: 1.5)
+		volumeHud.show()
+		brightnessHud.hide(animated: false)
+		volumeHud.dismiss(delay: 1.5)
 	}
 	
-	///If the application closes without applicationWillTerminate() being called the default OSX hud won't be displayed again automatically. To enable it manually run "launchctl load -wF /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist"
+	@objc func showBrightnessHUD(_ sender: Any) {
+		let process = Process()
+		process.executableURL = Bundle.main.url(forResource: "dbrightness", withExtension: "")
+		let outputPipe = Pipe()
+		process.standardOutput = outputPipe
+		try? process.run()
+		let output = outputPipe.fileHandleForReading.readDataToEndOfFile()
+		let str = String(decoding: output, as: UTF8.self)
+		
+		let index = str.index(str.startIndex, offsetBy: 4)
+		let br = Int(Double(String(str[..<index]))! * 100)
+		brightnessHud.show()
+		volumeHud.hide(animated: false)
+		(brightnessHud.view as! ProgressBar).progressValue = br
+		brightnessHud.dismiss(delay: 1.5)
+	}
+	
+	//If the application closes without applicationWillTerminate() being called the default OSX hud won't be displayed again automatically. To enable it manually run "launchctl load -wF /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist"
 	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application
 		shell(.load)
@@ -93,3 +121,21 @@ func shell(_ load: LoadState) -> NSString? {
 
     return output
 }
+
+
+func getBrightness() -> Int {
+    var brightness: Float = 1.0
+    var service: io_object_t = 1
+    var iterator: io_iterator_t = 0
+    let result: kern_return_t = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("IODisplayConnect"), &iterator)
+
+    if result == kIOReturnSuccess {
+        while service != 0 {
+            service = IOIteratorNext(iterator)
+            IODisplayGetFloatParameter(service, 0, kIODisplayBrightnessKey as CFString, &brightness)
+            IOObjectRelease(service)
+        }
+    }
+    return Int(brightness*100)
+}
+

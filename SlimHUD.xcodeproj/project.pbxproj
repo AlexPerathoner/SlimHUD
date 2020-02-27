@@ -10,10 +10,11 @@
 		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
 		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
 		FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScript.swift */; };
-		FABE1FDC23FEF17E009AD01F /* MediaApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* MediaApplication.swift */; };
-		FABE1FDE23FEF182009AD01F /* Progressbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDD23FEF182009AD01F /* Progressbar.swift */; };
+		FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */; };
+		FABE1FDE23FEF182009AD01F /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDD23FEF182009AD01F /* ProgressBar.swift */; };
 		FABE1FE323FEF679009AD01F /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABE1FE223FEF679009AD01F /* BarView.xib */; };
 		FAF5F6532406D1480011B766 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5F6522406D1480011B766 /* Hud.swift */; };
+		FAF5F6552408445F0011B766 /* dbrightness in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6542408445F0011B766 /* dbrightness */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,10 +24,11 @@
 		FA69AC8F23F9E2E700AA73FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
 		FABE1FD923FEF17B009AD01F /* AppleScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScript.swift; sourceTree = "<group>"; };
-		FABE1FDB23FEF17E009AD01F /* MediaApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaApplication.swift; sourceTree = "<group>"; };
-		FABE1FDD23FEF182009AD01F /* Progressbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Progressbar.swift; sourceTree = "<group>"; };
+		FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverApplication.swift; sourceTree = "<group>"; };
+		FABE1FDD23FEF182009AD01F /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FABE1FE223FEF679009AD01F /* BarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
 		FAF5F6522406D1480011B766 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+		FAF5F6542408445F0011B766 /* dbrightness */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dbrightness; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +61,16 @@
 		FA69AC8523F9E2E600AA73FD /* SlimHUD */ = {
 			isa = PBXGroup;
 			children = (
+				FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */,
 				FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */,
 				FAF5F6522406D1480011B766 /* Hud.swift */,
-				FABE1FDB23FEF17E009AD01F /* MediaApplication.swift */,
+				FABE1FDD23FEF182009AD01F /* ProgressBar.swift */,
+				FABE1FD923FEF17B009AD01F /* AppleScript.swift */,
 				FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */,
 				FABE1FE223FEF679009AD01F /* BarView.xib */,
 				FA69AC8F23F9E2E700AA73FD /* Info.plist */,
-				FABE1FDD23FEF182009AD01F /* Progressbar.swift */,
-				FABE1FD923FEF17B009AD01F /* AppleScript.swift */,
 				FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */,
+				FAF5F6542408445F0011B766 /* dbrightness */,
 			);
 			path = SlimHUD;
 			sourceTree = "<group>";
@@ -130,6 +133,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF5F6552408445F0011B766 /* dbrightness in Resources */,
 				FABE1FE323FEF679009AD01F /* BarView.xib in Resources */,
 				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
 			);
@@ -142,10 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FABE1FDC23FEF17E009AD01F /* MediaApplication.swift in Sources */,
+				FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */,
 				FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */,
 				FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */,
-				FABE1FDE23FEF182009AD01F /* Progressbar.swift in Sources */,
+				FABE1FDE23FEF182009AD01F /* ProgressBar.swift in Sources */,
 				FAF5F6532406D1480011B766 /* Hud.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

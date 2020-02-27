@@ -25,7 +25,7 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 Alex Perathoner. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
-	<string>SlimHUD.MediaApplication</string>
+	<string>SlimHUD.ObserverApplication</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
 	<key>NSSupportsSuddenTermination</key>

@@ -58,14 +58,11 @@ class Hud: NSView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func show() {
-		show(aview: view)
-	}
 	
-	func show(aview: NSView) {
+	func show() {
 		guard let view = hudView else { return }
 		frame = view.frame
-		view.addSubview(aview)
+		view.addSubview(self.view)
 		
 		//animation only if not yet visible
 		if(isHidden) {
@@ -77,6 +74,7 @@ class Hud: NSView {
 					view.animator().setFrameOrigin(position)
 				}) {
 					self.isHidden = false
+					
 				}
 			} else {
 				self.isHidden = false
@@ -87,7 +85,7 @@ class Hud: NSView {
 	
 	
 	
-    private func hide() {
+	func hide(animated: Bool) {
 		guard let view = hudView else { return }
 		if(animated) {
 			NSAnimationContext.runAnimationGroup({ (context) in
@@ -110,7 +108,7 @@ class Hud: NSView {
 	
 	
 	@objc private func hideDelayed(_ animated: NSNumber?) {
-        hide()
+        hide(animated: animated != 0)
     }
 	
 	func dismiss(delay: TimeInterval) {

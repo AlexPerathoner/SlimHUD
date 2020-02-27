@@ -5,13 +5,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MediaApplication" customModule="SlimHUD" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="ObserverApplication" customModule="SlimHUD" customModuleProvider="target">
             <connections>
                 <outlet property="delegate" destination="Llm-3p-9cC" id="erQ-lO-qz3"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application" customClass="MediaApplication" customModule="SlimHUD" customModuleProvider="target"/>
+        <customObject id="-3" userLabel="Application" customClass="ObserverApplication" customModule="SlimHUD" customModuleProvider="target"/>
         <customView id="c22-O7-iKe">
             <rect key="frame" x="0.0" y="0.0" width="56" height="258"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -38,6 +38,7 @@
         </customView>
         <customObject id="Llm-3p-9cC" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
             <connections>
+                <outlet property="brightnessBar" destination="GPS-kh-j17" id="hCN-Em-WW9"/>
                 <outlet property="statusMenu" destination="YXJ-wQ-xEi" id="kgH-40-Vta"/>
                 <outlet property="volumeBar" destination="OEc-3L-76X" id="pZ7-is-e4g"/>
             </connections>
@@ -56,5 +57,32 @@
             </items>
             <point key="canvasLocation" x="-291" y="-43"/>
         </menu>
+        <customView id="RRc-vh-kfk">
+            <rect key="frame" x="0.0" y="0.0" width="56" height="258"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="GPS-kh-j17" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                    <rect key="frame" x="20" y="20" width="16" height="218"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                            <color key="value" red="0.39607843139999999" green="0.3921568627" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="progressValue">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barColor">
+                            <color key="value" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="GPS-kh-j17" firstAttribute="leading" secondItem="RRc-vh-kfk" secondAttribute="leading" constant="20" symbolic="YES" id="03h-6P-sRk"/>
+                <constraint firstAttribute="trailing" secondItem="GPS-kh-j17" secondAttribute="trailing" constant="20" symbolic="YES" id="WQa-xE-gL6"/>
+                <constraint firstAttribute="bottom" secondItem="GPS-kh-j17" secondAttribute="bottom" constant="20" symbolic="YES" id="X9f-6z-dkA"/>
+                <constraint firstItem="GPS-kh-j17" firstAttribute="top" secondItem="RRc-vh-kfk" secondAttribute="top" constant="20" symbolic="YES" id="zrd-Yt-Vkh"/>
+            </constraints>
+            <point key="canvasLocation" x="-190" y="142"/>
+        </customView>
     </objects>
 </document>

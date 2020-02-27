@@ -4,10 +4,10 @@
 import Cocoa
 
 
-class MediaApplication: NSApplication {
+class ObserverApplication: NSApplication {
 	
-
 	static let volumeChanged = Notification.Name("SlimHUD.volumeChanged")
+	static let brightnessChanged = Notification.Name("SlimHUD.brightnessChanged")
 	
 	override func sendEvent(_ event: NSEvent) {
 		if (event.type == .systemDefined && event.subtype.rawValue == 8) {
@@ -27,8 +27,11 @@ class MediaApplication: NSApplication {
         if (state) {
             switch(key) {
             case NX_KEYTYPE_SOUND_DOWN, NX_KEYTYPE_SOUND_UP, NX_KEYTYPE_MUTE:
-				NotificationCenter.default.post(name: MediaApplication.volumeChanged, object: self)
+				NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
                 break
+			case NX_KEYTYPE_BRIGHTNESS_UP, NX_KEYTYPE_BRIGHTNESS_DOWN:
+				NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
+				break
             default:
                 break
             }
