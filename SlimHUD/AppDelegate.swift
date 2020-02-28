@@ -19,8 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 	
 	@IBOutlet weak var volumeBar: ProgressBar!
+	@IBOutlet weak var volumeView: NSView!
 	
 	@IBOutlet weak var brightnessBar: ProgressBar!
+	@IBOutlet weak var brightnessView: NSView!
 	
 	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	
@@ -46,9 +48,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		let position = CGPoint.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2))
 		volumeHud.traslate(position)
-		volumeHud.view = volumeBar
+		volumeHud.view = volumeView
+		setupShadows()
+		
 		brightnessHud.traslate(position)
-		brightnessHud.view = brightnessBar
+		brightnessHud.view = brightnessView
+	}
+	
+	func setupShadows() {
+		volumeView.shadow = NSShadow()
+		volumeView.wantsLayer = true
+        volumeView.superview?.wantsLayer = true
+		volumeView.layer?.shadowOpacity = 1
+		volumeView.layer?.shadowColor = .black
+        volumeView.layer?.shadowOffset = NSMakeSize(0, 0)
+        volumeView.layer?.shadowRadius = 20
+		
+		brightnessView.shadow = NSShadow()
+		brightnessView.wantsLayer = true
+        brightnessView.superview?.wantsLayer = true
+		brightnessView.layer?.shadowOpacity = 1
+		brightnessView.layer?.shadowColor = .black
+        brightnessView.layer?.shadowOffset = NSMakeSize(0, 0)
+        brightnessView.layer?.shadowRadius = 20
 	}
 	
 	@objc func showVolumeHUD(_ sender: Any) {

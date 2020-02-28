@@ -39,8 +39,10 @@
         <customObject id="Llm-3p-9cC" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
             <connections>
                 <outlet property="brightnessBar" destination="GPS-kh-j17" id="hCN-Em-WW9"/>
+                <outlet property="brightnessView" destination="RRc-vh-kfk" id="FYv-qT-IYd"/>
                 <outlet property="statusMenu" destination="YXJ-wQ-xEi" id="kgH-40-Vta"/>
                 <outlet property="volumeBar" destination="OEc-3L-76X" id="pZ7-is-e4g"/>
+                <outlet property="volumeView" destination="c22-O7-iKe" id="rbh-oo-QGT"/>
             </connections>
         </customObject>
         <menu id="YXJ-wQ-xEi">
