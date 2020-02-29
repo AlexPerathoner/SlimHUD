@@ -8,7 +8,7 @@
 //
 
 import Cocoa
-
+/*
 @IBDesignable
 open class ProgressBar: NSView {
 
@@ -17,11 +17,11 @@ open class ProgressBar: NSView {
     static let shared = ProgressBar()
 	
     // Progress bar color
-	@IBInspectable public var barColor: NSColor? = blue
+	@IBInspectable public var barColor: NSColor = blue
 	
     // Track color
-    @IBInspectable public var trackColor: NSColor = NSColor.secondaryLabelColor
-    
+	@IBInspectable public var trackColor: NSColor = .init(white: 0.29, alpha: 0.56)
+
 	
     // Progress amount
     @IBInspectable public var progressValue: Int = 0 {
@@ -37,76 +37,115 @@ open class ProgressBar: NSView {
     public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
     }
-	
-	
+
     override open func draw(_ rect: CGRect) {
 		
 		super.draw(rect)
-        
-		guard let context = NSGraphicsContext.current?.cgContext else {return}
+		let track = NSBezierPath(roundedRect: .init(x: 0, y: 0, width: rect.width, height: rect.height), xRadius: rect.width/2, yRadius: rect.width/2)
+		trackColor.set()
+		track.fill()
 		
-        // Track Bar
-		
-		var rectHeight = frame.size.height - 5 / 2
-		// Find center of actual frame to set rectangle in middle
-		var xf:CGFloat = (self.frame.width  - 8)  / 2
-		var yf:CGFloat = (self.frame.height - rectHeight) / 2
-		context.saveGState()
-		var rect = CGRect(x: xf, y: yf, width: 8, height: rectHeight)
-		var clipPath: CGPath = NSBezierPath(roundedRect: rect, xRadius: 5, yRadius: 5).cgPath
-
-		context.addPath(clipPath)
-		context.setFillColor(trackColor.cgColor)
-
-		context.closePath()
-		context.fillPath()
-		context.restoreGState()
-		
-        // Progress Bar
-		
-		if(percentage() != 0) {
-			
-			rectHeight = 4 + percentage() + 5/2
-			// Find center of actual frame to set rectangle in middle
-			xf = (self.frame.width  - 8)  / 2
-			yf = 0
-			context.saveGState()
-			rect = CGRect(x: xf, y: yf, width: 8, height: rectHeight)
-			clipPath = NSBezierPath(roundedRect: rect, xRadius: 5, yRadius: 5).cgPath
-
-			context.addPath(clipPath)
-			
-			context.setFillColor(barColor!.cgColor)
-			context.closePath()
-			context.fillPath()
-			context.restoreGState()
-		}
+		let bar = NSBezierPath(roundedRect: CGRect(x: 0, y: 0, width: rect.width, height: CGFloat(progressValue)/100*rect.height), xRadius: rect.width/2, yRadius: rect.width/2)
+		barColor.set()
+		bar.fill()
+	}
+}*/
+/*
+open class ProgressBar: NSView {
+    override public init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        self.configureLayers()
     }
-    
-    private func percentage() -> CGFloat {
-        let screenWidth = frame.size.height - 8
-        return (CGFloat(progressValue) / 100) * screenWidth
+
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.configureLayers()
     }
-    
-}
 
-public extension NSBezierPath {
 
-    var cgPath: CGPath {
-        let path = CGMutablePath()
-        var points = [CGPoint](repeating: .zero, count: 3)
-        for i in 0 ..< self.elementCount {
-            let type = self.element(at: i, associatedPoints: &points)
-            switch type {
-			case .moveTo: path.move(to: points[0])
-			case .lineTo: path.addLine(to: points[0])
-			case .curveTo: path.addCurve(to: points[2], control1: points[0], control2: points[1])
-			case .closePath: path.closeSubpath()
-			@unknown default:
-				NSLog("unknown case")
-			}
+	@IBInspectable open var background: NSColor = .init(white: 0.29, alpha: 0.56) {
+        didSet {
+            self.notifyViewRedesigned()
         }
-        return path
     }
 
+	@IBInspectable open var foreground: NSColor = blue {
+        didSet {
+            self.notifyViewRedesigned()
+        }
+    }
+
+    @IBInspectable open var cornerRadius: CGFloat = 5.0 {
+        didSet {
+            self.notifyViewRedesigned()
+        }
+    }
+
+	
+	@IBInspectable open var animated: Bool = true
+
+   /// Value of progress now. Range 0..1
+   @IBInspectable open var progress: CGFloat = 0 {
+	   didSet {
+		   updateProgress()
+	   }
+   }
+
+	
+    open var borderLayer = CAShapeLayer()
+    open var progressLayer = CAShapeLayer()
+    
+    @IBInspectable open var borderColor: NSColor = .black {
+        didSet {
+            notifyViewRedesigned()
+        }
+    }
+
+    func notifyViewRedesigned() {
+        self.layer?.cornerRadius = self.frame.height / 2
+        borderLayer.borderColor = borderColor.cgColor
+        progressLayer.backgroundColor = foreground.cgColor
+    }
+
+    func configureLayers() {
+
+        borderLayer.frame = self.bounds
+        borderLayer.cornerRadius = borderLayer.frame.height / 2
+        borderLayer.borderWidth = 1.0
+        self.layer?.addSublayer(borderLayer)
+
+        progressLayer.frame = NSInsetRect(borderLayer.bounds, 3, 3)
+        progressLayer.frame.size.width = (borderLayer.bounds.width - 6)
+        progressLayer.cornerRadius = progressLayer.frame.height / 2
+        progressLayer.backgroundColor = foreground.cgColor
+        borderLayer.addSublayer(progressLayer)
+
+    }
+    
+    func updateProgress() {
+        CATransaction.begin()
+        if animated {
+            CATransaction.setAnimationDuration(0.1)
+        } else {
+            CATransaction.setDisableActions(true)
+        }
+        let timing = CAMediaTimingFunction(name: .easeOut)
+        CATransaction.setAnimationTimingFunction(timing)
+        progressLayer.frame.size.width = (borderLayer.bounds.width - 6) * progress
+        CATransaction.commit()
+    }
+}*/
+
+extension NSView {
+	func rotate(_ n: CGFloat) {
+		if let layer = self.layer, let animatorLayer = self.animator().layer {
+			layer.position = CGPoint(x: layer.frame.midX, y: layer.frame.midY)
+			layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+
+			NSAnimationContext.beginGrouping()
+			NSAnimationContext.current.allowsImplicitAnimation = true
+			animatorLayer.transform = CATransform3DMakeRotation(n*CGFloat.pi / 2, 0, 0, 1)
+			NSAnimationContext.endGrouping()
+		}
+	}
 }

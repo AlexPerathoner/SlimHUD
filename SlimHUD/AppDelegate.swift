@@ -31,6 +31,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		shell(.unload)
+		
+		//menu bar
 		statusItem.menu = statusMenu
 		if let button = statusItem.button {
 			button.title = "SlimHUD"
@@ -46,12 +48,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD(_:)), name: ObserverApplication.brightnessChanged, object: nil)
 		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD(_:)), name: NSNotification.Name(rawValue: "com.apple.brightness.settingsChangedNotification"), object: nil)
 
+		
+		//setting up huds
 		let position = CGPoint.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2))
 		volumeHud.traslate(position)
+		volumeBar.rotate(1)
+		volumeHud.view = volumeBar
 		volumeHud.view = volumeView
 		setupShadows()
 		
 		brightnessHud.traslate(position)
+		brightnessBar.rotate(1)
+		brightnessHud.view = brightnessBar
+		brightnessBar.background = .init(red: 0.77, green: 0.7, blue: 0.3, alpha: 1)
 		brightnessHud.view = brightnessView
 	}
 	
@@ -75,7 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	@objc func showVolumeHUD(_ sender: Any) {
 		volumeBar.setColor(disabled: isMuted())
-		volumeBar.progressValue = getOutputVolume()
+		volumeBar.progress = CGFloat(getOutputVolume())/100.0
 
 		volumeHud.show()
 		brightnessHud.hide(animated: false)
@@ -92,10 +101,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		let str = String(decoding: output, as: UTF8.self)
 		
 		let index = str.index(str.startIndex, offsetBy: 4)
-		let br = Int(Double(String(str[..<index]))! * 100)
+		let br = Double(String(str[..<index]))!
 		brightnessHud.show()
 		volumeHud.hide(animated: false)
-		(brightnessHud.view as! ProgressBar).progressValue = br
+		
+		(brightnessHud.view as! ProgressBar).progress = CGFloat(br)
 		brightnessHud.dismiss(delay: 1.5)
 	}
 	
@@ -107,57 +117,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
-let gray = NSColor.init(red: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
-let blue = NSColor.init(red: 49/255.0, green: 130/255.0, blue: 247/255.0, alpha: 1)
+let gray = NSColor.init(red: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 0.9)
+let blue = NSColor.init(red: 49/255.0, green: 130/255.0, blue: 247/255.0, alpha: 0.9)
 
 extension ProgressBar {
 	func setColor(disabled: Bool) {
 		if(disabled) {
-			self.barColor = gray
+			self.foreground = gray
 		} else {
-			self.barColor = blue
+			self.foreground = blue
 		}
 	}
 }
 
-enum LoadState {
-	case load
-	case unload
-}
+extension NSView {
+	func rotate(_ n: CGFloat) {
+		if let layer = self.layer, let animatorLayer = self.animator().layer {
+			layer.position = CGPoint(x: layer.frame.midX, y: layer.frame.midY)
+			layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
-@discardableResult
-func shell(_ load: LoadState) -> NSString? {
-
-    let task = Process()
-    task.launchPath = "/bin/launchctl/"
-    task.arguments = ["load","-wF","/System/Library/LaunchAgents/com.apple.OSDUIHelper.plist"]
-	if(load == .unload) {
-		task.arguments![0] = "unload"
+			NSAnimationContext.beginGrouping()
+			NSAnimationContext.current.allowsImplicitAnimation = true
+			animatorLayer.transform = CATransform3DMakeRotation(n*CGFloat.pi / 2, 0, 0, 1)
+			NSAnimationContext.endGrouping()
+		}
 	}
-    let pipe = Pipe()
-    task.standardOutput = pipe
-    task.launch()
-
-    let data = pipe.fileHandleForReading.readDataToEndOfFile()
-    let output = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-
-    return output
 }
-
-
-func getBrightness() -> Int {
-    var brightness: Float = 1.0
-    var service: io_object_t = 1
-    var iterator: io_iterator_t = 0
-    let result: kern_return_t = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("IODisplayConnect"), &iterator)
-
-    if result == kIOReturnSuccess {
-        while service != 0 {
-            service = IOIteratorNext(iterator)
-            IODisplayGetFloatParameter(service, 0, kIODisplayBrightnessKey as CFString, &brightness)
-            IOObjectRelease(service)
-        }
-    }
-    return Int(brightness*100)
-}
-
