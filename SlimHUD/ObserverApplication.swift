@@ -9,6 +9,8 @@ class ObserverApplication: NSApplication {
 	static let volumeChanged = Notification.Name("SlimHUD.volumeChanged")
 	static let brightnessChanged = Notification.Name("SlimHUD.brightnessChanged")
 	
+	
+	//from https://stackoverflow.com/a/32769093/6884062
 	override func sendEvent(_ event: NSEvent) {
 		if (event.type == .systemDefined && event.subtype.rawValue == 8) {
             let keyCode = ((event.data1 & 0xFFFF0000) >> 16)
@@ -27,6 +29,7 @@ class ObserverApplication: NSApplication {
         if (state) {
             switch(key) {
             case NX_KEYTYPE_SOUND_DOWN, NX_KEYTYPE_SOUND_UP, NX_KEYTYPE_MUTE:
+				print(key)
 				NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
                 break
 			case NX_KEYTYPE_BRIGHTNESS_UP, NX_KEYTYPE_BRIGHTNESS_DOWN:

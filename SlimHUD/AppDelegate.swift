@@ -29,6 +29,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		shell(.unload)
+		
+		//menu bar
 		statusItem.menu = statusMenu
 		if let button = statusItem.button {
 			button.title = "SlimHUD"
@@ -44,6 +46,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD(_:)), name: ObserverApplication.brightnessChanged, object: nil)
 		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD(_:)), name: NSNotification.Name(rawValue: "com.apple.brightness.settingsChangedNotification"), object: nil)
 
+		
+		//setting up huds
 		let position = CGPoint.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2))
 		volumeHud.traslate(position)
 		volumeBar.rotate(1)
@@ -52,6 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		brightnessHud.traslate(position)
 		brightnessBar.rotate(1)
 		brightnessHud.view = brightnessBar
+		brightnessBar.background = .init(red: 0.77, green: 0.7, blue: 0.3, alpha: 1)
 	}
 	
 	@objc func showVolumeHUD(_ sender: Any) {
