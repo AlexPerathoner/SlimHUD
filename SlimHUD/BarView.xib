@@ -19,11 +19,8 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="OEc-3L-76X" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
                     <rect key="frame" x="20" y="20" width="7" height="218"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
-                            <color key="value" red="0.39607843139999999" green="0.3921568627" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="progressValue">
-                            <real key="value" value="30"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                            <real key="value" value="0.34999999999999998"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customView>
@@ -64,9 +61,6 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="GPS-kh-j17" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
                     <rect key="frame" x="20" y="20" width="7" height="218"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
-                            <color key="value" red="0.39607843139999999" green="0.3921568627" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="progressValue">
                             <real key="value" value="30"/>
                         </userDefinedRuntimeAttribute>
