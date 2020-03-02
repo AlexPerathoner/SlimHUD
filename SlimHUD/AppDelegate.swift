@@ -8,20 +8,109 @@
 
 import Cocoa
 
+extension NSControl.StateValue {
+	func boolValue() -> Bool {
+		if(self.rawValue == 0) {
+			return false
+		}
+		return true
+	}
+}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+
 	
-	// TODO: Add option to hide images
-	//var shouldShowIcons = false
+	// MARK: - Default colors
+	let gray = NSColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+	let blue = NSColor.init(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
+	let yellow = NSColor.init(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
+	let azure = NSColor.init(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
 	
+	var disabledColor = NSColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+	var enabledColor = NSColor.init(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
 	
-	@IBOutlet var statusMenu: NSMenu!
+	// MARK: - Settings (actions + outlets)
+	@IBOutlet weak var backgroundColorOutlet: NSColorWell!
+	@IBOutlet weak var volumeEnabledColorOutlet: NSColorWell!
+	@IBOutlet weak var volumeDisabledColorOutlet: NSColorWell!
+	@IBOutlet weak var brightnessColorOutlet: NSColorWell!
+	@IBOutlet weak var keyboardColorOutlet: NSColorWell!
 	
-	@IBAction func quitCliked(_ sender: Any) {
-		shell(.load)
-		NSApplication.shared.terminate(self)
+	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
+		let val = !sender.state.boolValue()
+		volumeImage.isHidden = val
+		brightnessImage.isHidden = val
+		backlightImage.isHidden = val
 	}
+	
+	@IBAction func shouldShowShadows(_ sender: NSButton) {
+		setupShadows(enabled: sender.state.boolValue())
+	}
+	
+	func setupDefaultColors() {
+		backgroundColorOutlet.color = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
+		volumeEnabledColorOutlet.color = blue
+		volumeDisabledColorOutlet.color = gray
+		brightnessColorOutlet.color = yellow
+		keyboardColorOutlet.color = azure
+	}
+	
+	@IBAction func resetDefaults(_ sender: Any) {
+		setupDefaultColors()
+		let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
+		volumeBar.background = darkGray
+		brightnessBar.background = darkGray
+		backlightBar.background = darkGray
+		enabledColor = blue
+		disabledColor = gray
+		brightnessBar.foreground = yellow
+		backlightBar.foreground = azure
+	}
+	
+	@IBAction func backgroundColorChanged(_ sender: NSColorWell) {
+		volumeBar.background = sender.color
+		brightnessBar.background = sender.color
+		backlightBar.background = sender.color
+	}
+	@IBAction func volumeEnabledColorChanged(_ sender: NSColorWell) {
+		enabledColor = sender.color
+	}
+	@IBAction func volumeDisabledColorChanged(_ sender: NSColorWell) {
+		disabledColor = sender.color
+	}
+	@IBAction func brightnessColorChanged(_ sender: NSColorWell) {
+		brightnessBar.foreground = sender.color
+	}
+	@IBAction func keyboardBackLightColorChanged(_ sender: NSColorWell) {
+		backlightBar.foreground = sender.color
+	}
+	
+	private var settingsWindowController: NSWindowController?
+	@IBOutlet weak var settingsWindow: NSWindow!
+	
+	@IBAction func showWindow(_ sender: Any) {
+		
+		
+		let window = settingsWindow
+		settingsWindowController = NSWindowController(window: window)
+		NSApp.activate(ignoringOtherApps: true)
+		let controllerWindow = settingsWindowController?.window!
+		controllerWindow?.makeKeyAndOrderFront(self)
+//		settingsWindowController?.showWindow(self)
+//		settingsWindow.makeKeyAndOrderFront(self)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(deloccContr), name: NSWindow.willCloseNotification, object: settingsWindow)
+	}
+	
+	@objc func deloccContr() {
+		//settingsWindowController?.close()
+		settingsWindowController?.dismissController(self)
+		settingsWindowController = nil
+		settingsWindow = nil
+	}
+	
+	// MARK: - Views, bars & HUDs
 	
 	@IBOutlet weak var volumeBar: ProgressBar!
 	@IBOutlet weak var volumeView: NSView!
@@ -36,17 +125,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var brightnessImage: NSImageView!
 	@IBOutlet weak var backlightImage: NSImageView!
 	
-	
-	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-	
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
 	var backlightHud = Hud()
-
 	
+	// MARK: -
+	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+	
+	@IBOutlet var statusMenu: NSMenu!
+	
+	@IBAction func quitCliked(_ sender: Any) {
+		shell(.load)
+		NSApplication.shared.terminate(self)
+	}
+		
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		shell(.unload)
-		
 		//menu bar
 		statusItem.menu = statusMenu
 		if let button = statusItem.button {
@@ -54,6 +148,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			button.image = NSImage(named: "statusIcon")
 			button.image?.isTemplate = true
 		}
+		setupDefaultColors()
 		
 		//observers for volume
 		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
@@ -67,49 +162,58 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 		
 		//As with external keyboards the above instruction doesn't work a Runloop is necessary
-		let timer = Timer(timeInterval: 0.1, target: self, selector: #selector(checkChanges), userInfo: nil, repeats: true)
-		let mainLoop = RunLoop.main
-		mainLoop.add(timer, forMode: .common)
-		
+		setupTimer(with: 0.2)
 		
 		
 		//Setting up huds
 		let position = CGPoint.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2))
 		volumeHud.traslate(position)
 		volumeHud.view = volumeView
-		setupShadows()
+		setupShadows(enabled: true)
 		
 		brightnessHud.traslate(position)
-		brightnessBar.foreground = .init(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
+		brightnessBar.foreground = yellow
 		brightnessHud.view = brightnessView
 		
 		backlightHud.traslate(position)
-		backlightBar.foreground = .init(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
+		backlightBar.foreground = azure
 		backlightHud.view = backlightView
 		
 	}
 	
-	func setupShadows() {
-		volumeView.shadow = NSShadow()
-		volumeView.wantsLayer = true
-        volumeView.superview?.wantsLayer = true
-		volumeView.layer?.shadowOpacity = 1
-		volumeView.layer?.shadowColor = .black
-        volumeView.layer?.shadowOffset = NSMakeSize(0, 0)
-        volumeView.layer?.shadowRadius = 20
-		
-		brightnessView.shadow = NSShadow()
-		brightnessView.wantsLayer = true
-        brightnessView.superview?.wantsLayer = true
-		brightnessView.layer?.shadowOpacity = 1
-		brightnessView.layer?.shadowColor = .black
-        brightnessView.layer?.shadowOffset = NSMakeSize(0, 0)
-        brightnessView.layer?.shadowRadius = 20
+	// MARK: - Setups
+	
+	func setupTimer(with t: TimeInterval) {
+		let timer = Timer(timeInterval: t, target: self, selector: #selector(checkChanges), userInfo: nil, repeats: true)
+		let mainLoop = RunLoop.main
+		mainLoop.add(timer, forMode: .common)
 	}
+	
+	func setupShadows(enabled: Bool) {
+		setupShadow(for: volumeView, enabled)
+		setupShadow(for: backlightView, enabled)
+		setupShadow(for: brightnessView, enabled)
+	}
+	
+	func setupShadow(for view: NSView, _ enabled: Bool) {
+		if(enabled) {
+			view.shadow = NSShadow()
+			view.wantsLayer = true
+			view.superview?.wantsLayer = true
+			view.layer?.shadowOpacity = 1
+			view.layer?.shadowColor = .black
+			view.layer?.shadowOffset = NSMakeSize(0, 0)
+			view.layer?.shadowRadius = 20
+		} else {
+			view.shadow = nil
+		}
+	}
+	
+	// MARK: - Displayers
 	
 	@objc func showVolumeHUD() {
 		let disabled = isMuted()
-		volumeBar.setColor(disabled)
+		setColor(for: volumeBar, disabled)
 		if(disabled) {
 			volumeImage.image = NSImage(named: "noVolume")
 		} else {
@@ -133,6 +237,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		brightnessHud.hide(animated: false)
 		backlightHud.dismiss(delay: 1.5)
 	}
+	
+	// MARK: - Check functions
 	
 	@objc func checkChanges() {
 		checkBacklightChanges()
@@ -170,6 +276,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 	}
 	
+	// MARK: -
+	
+	func setColor(for bar: ProgressBar, _ disabled: Bool) {
+		if(disabled) {
+			bar.foreground = disabledColor
+		} else {
+			bar.foreground = enabledColor
+		}
+	}
+	
 	//If the application closes without applicationWillTerminate() being called the default OSX hud won't be displayed again automatically. To enable it manually run "launchctl load -wF /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist"
 	//PS: auto toggling of the system agent only works if SIP (Sistem Integrity Protection) is disabled. -> see "csrutil status"
 	func applicationWillTerminate(_ aNotification: Notification) {
@@ -177,19 +293,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		shell(.load)
 	}
 
-}
-
-let gray = NSColor.init(red: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 0.9)
-let blue = NSColor.init(red: 49/255.0, green: 130/255.0, blue: 247/255.0, alpha: 0.9)
-
-extension ProgressBar {
-	func setColor(_ disabled: Bool) {
-		if(disabled) {
-			self.foreground = gray
-		} else {
-			self.foreground = blue
-		}
-	}
 }
 
 extension NSView {
