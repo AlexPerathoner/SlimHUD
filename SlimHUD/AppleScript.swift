@@ -32,8 +32,8 @@ func getVolumeSettings() -> (outPutVolume: Int, inputVolume: Int, alertVolume: I
 	return (o1, o2, o3, o4)
 }
 
-func getOutputVolume() -> Int {
-	return Int(runAS(script: "return output volume of (get volume settings)") ?? "1")!
+func getOutputVolume() -> Float {
+	return Float(runAS(script: "return output volume of (get volume settings)") ?? "1")! / 100.0
 }
 
 
@@ -62,20 +62,30 @@ func shell(_ load: LoadState) -> NSString? {
     return output
 }
 
+func getDisplayBrightness() -> Float {
+	var brightness: Float = 0
+	var service: io_object_t = 1
+	var iterator: io_iterator_t = 0
+	let result: kern_return_t = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("IODisplayConnect"), &iterator)
+	if result == kIOReturnSuccess {
+		while service != 0 {
+			service = IOIteratorNext(iterator)
+			IODisplayGetFloatParameter(service, 0, kIODisplayBrightnessKey as CFString, &brightness)
+			IOObjectRelease(service)
+		}
+	}
+	return brightness
+}
 
-func getBrightness() -> Int {
-    var brightness: Float = 1.0
-    var service: io_object_t = 1
-    var iterator: io_iterator_t = 0
-    let result: kern_return_t = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("IODisplayConnect"), &iterator)
-
-    if result == kIOReturnSuccess {
-        while service != 0 {
-            service = IOIteratorNext(iterator)
-            IODisplayGetFloatParameter(service, 0, kIODisplayBrightnessKey as CFString, &brightness)
-            IOObjectRelease(service)
-        }
-    }
-    return Int(brightness*100)
+func getKeyboardBrightness() -> Float {
+	let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleHIDKeyboardEventDriverV2"))
+	defer {
+		IOObjectRelease(service)
+	}
+	let ser: CFTypeRef = IORegistryEntryCreateCFProperty(service, "KeyboardBacklightBrightness" as CFString, kCFAllocatorDefault,0).takeUnretainedValue()
+	if let result = ser as? Float {
+		return result / 342 //max value is 342, proportioning to %
+	}
+	return 0
 }
 

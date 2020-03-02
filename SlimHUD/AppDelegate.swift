@@ -8,9 +8,14 @@
 
 import Cocoa
 
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+	
+	// TODO: Add option to hide images
+	//var shouldShowIcons = false
+	
+	
 	@IBOutlet var statusMenu: NSMenu!
 	
 	@IBAction func quitCliked(_ sender: Any) {
@@ -24,10 +29,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var brightnessBar: ProgressBar!
 	@IBOutlet weak var brightnessView: NSView!
 	
+	@IBOutlet weak var backlightBar: ProgressBar!
+	@IBOutlet weak var backlightView: NSView!
+	
+	@IBOutlet weak var volumeImage: NSImageView!
+	@IBOutlet weak var brightnessImage: NSImageView!
+	@IBOutlet weak var backlightImage: NSImageView!
+	
+	
 	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
+	var backlightHud = Hud()
+
 	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		shell(.unload)
@@ -41,27 +56,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 		
 		//observers for volume
-		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD(_:)), name: ObserverApplication.volumeChanged, object: nil)
-		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD(_:)), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
+		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
 		
 		//observers for brightness
-		NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD(_:)), name: ObserverApplication.brightnessChanged, object: nil)
-		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD(_:)), name: NSNotification.Name(rawValue: "com.apple.brightness.settingsChangedNotification"), object: nil)
-
+		NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD), name: ObserverApplication.brightnessChanged, object: nil)
 		
-		//setting up huds
+		//observers for keyboard backlight
+		NotificationCenter.default.addObserver(self, selector: #selector(showBackLightHUD), name: ObserverApplication.keyboardIlluminationChanged, object: nil)
+		
+		
+		//As with external keyboards the above instruction doesn't work a Runloop is necessary
+		let timer = Timer(timeInterval: 0.1, target: self, selector: #selector(checkChanges), userInfo: nil, repeats: true)
+		let mainLoop = RunLoop.main
+		mainLoop.add(timer, forMode: .common)
+		
+		
+		
+		//Setting up huds
 		let position = CGPoint.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2))
 		volumeHud.traslate(position)
-		volumeBar.rotate(1)
-		volumeHud.view = volumeBar
 		volumeHud.view = volumeView
 		setupShadows()
 		
 		brightnessHud.traslate(position)
-		brightnessBar.rotate(1)
-		brightnessHud.view = brightnessBar
-		brightnessBar.background = .init(red: 0.77, green: 0.7, blue: 0.3, alpha: 1)
+		brightnessBar.foreground = .init(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
 		brightnessHud.view = brightnessView
+		
+		backlightHud.traslate(position)
+		backlightBar.foreground = .init(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
+		backlightHud.view = backlightView
+		
 	}
 	
 	func setupShadows() {
@@ -82,34 +107,71 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         brightnessView.layer?.shadowRadius = 20
 	}
 	
-	@objc func showVolumeHUD(_ sender: Any) {
-		volumeBar.setColor(disabled: isMuted())
-		volumeBar.progress = CGFloat(getOutputVolume())/100.0
-
+	@objc func showVolumeHUD() {
+		let disabled = isMuted()
+		volumeBar.setColor(disabled)
+		if(disabled) {
+			volumeImage.image = NSImage(named: "noVolume")
+		} else {
+			volumeImage.image = NSImage(named: "volume")
+		}
 		volumeHud.show()
 		brightnessHud.hide(animated: false)
+		backlightHud.hide(animated: false)
 		volumeHud.dismiss(delay: 1.5)
 	}
 	
-	@objc func showBrightnessHUD(_ sender: Any) {
-		let process = Process()
-		process.executableURL = Bundle.main.url(forResource: "dbrightness", withExtension: "")
-		let outputPipe = Pipe()
-		process.standardOutput = outputPipe
-		try? process.run()
-		let output = outputPipe.fileHandleForReading.readDataToEndOfFile()
-		let str = String(decoding: output, as: UTF8.self)
-		
-		let index = str.index(str.startIndex, offsetBy: 4)
-		let br = Double(String(str[..<index]))!
+	@objc func showBrightnessHUD() {
 		brightnessHud.show()
 		volumeHud.hide(animated: false)
-		
-		(brightnessHud.view as! ProgressBar).progress = CGFloat(br)
+		backlightHud.hide(animated: false)
 		brightnessHud.dismiss(delay: 1.5)
+	}
+	@objc func showBackLightHUD() {
+		backlightHud.show()
+		volumeHud.hide(animated: false)
+		brightnessHud.hide(animated: false)
+		backlightHud.dismiss(delay: 1.5)
+	}
+	
+	@objc func checkChanges() {
+		checkBacklightChanges()
+		checkBrightnessChanges()
+		checkVolumeChanges()
+	}
+	
+	var oldVolume = getOutputVolume()
+	func checkVolumeChanges() {
+		let newVolume = getOutputVolume()
+		if(oldVolume != newVolume) {
+			NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
+			volumeBar.progress = CGFloat(newVolume)
+			oldVolume = newVolume
+		}
+	}
+	
+	var oldBacklight = getKeyboardBrightness()
+	func checkBacklightChanges() {
+		let newBacklight = getKeyboardBrightness()
+		if(oldBacklight != newBacklight) {
+			NotificationCenter.default.post(name: ObserverApplication.keyboardIlluminationChanged, object: self)
+			backlightBar.progress = CGFloat(newBacklight)
+			oldBacklight = newBacklight
+		}
+	}
+	
+	var oldBrightness = getDisplayBrightness()
+	func checkBrightnessChanges() {
+		let newBrightness = getDisplayBrightness()
+		if(oldBrightness != newBrightness) {
+			NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
+			brightnessBar.progress = CGFloat(newBrightness)
+			oldBrightness = newBrightness
+		}
 	}
 	
 	//If the application closes without applicationWillTerminate() being called the default OSX hud won't be displayed again automatically. To enable it manually run "launchctl load -wF /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist"
+	//PS: auto toggling of the system agent only works if SIP (Sistem Integrity Protection) is disabled. -> see "csrutil status"
 	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application
 		shell(.load)
@@ -121,7 +183,7 @@ let gray = NSColor.init(red: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha
 let blue = NSColor.init(red: 49/255.0, green: 130/255.0, blue: 247/255.0, alpha: 0.9)
 
 extension ProgressBar {
-	func setColor(disabled: Bool) {
+	func setColor(_ disabled: Bool) {
 		if(disabled) {
 			self.foreground = gray
 		} else {

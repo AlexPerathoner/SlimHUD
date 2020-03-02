@@ -20,6 +20,19 @@
 		FAF5F658240875800011B766 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6572408757F0011B766 /* LICENSE */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FA2BB562240C4E540025EA71 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -110,6 +123,7 @@
 				FA69AC7F23F9E2E600AA73FD /* Sources */,
 				FA69AC8023F9E2E600AA73FD /* Frameworks */,
 				FA69AC8123F9E2E600AA73FD /* Resources */,
+				FA2BB562240C4E540025EA71 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,11 +321,17 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				ENABLE_HARDENED_RUNTIME = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SlimHUD/Nick\\ Sweeting",
+					"$(PROJECT_DIR)/SlimHUD",
+				);
 				INFOPLIST_FILE = SlimHUD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -327,11 +347,17 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				ENABLE_HARDENED_RUNTIME = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SlimHUD/Nick\\ Sweeting",
+					"$(PROJECT_DIR)/SlimHUD",
+				);
 				INFOPLIST_FILE = SlimHUD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
