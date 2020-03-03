@@ -160,25 +160,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		//observers for keyboard backlight
 		NotificationCenter.default.addObserver(self, selector: #selector(showBackLightHUD), name: ObserverApplication.keyboardIlluminationChanged, object: nil)
 		
-		
-		//As with external keyboards the above instruction doesn't work a Runloop is necessary
+		//continuous check - 0.2 should not take more than 1%% CPU
 		setupTimer(with: 0.2)
 		
 		
-		//Setting up huds
-		let position = CGPoint.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2))
-		volumeHud.traslate(position)
-		volumeHud.view = volumeView
-		setupShadows(enabled: true)
+		NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
+															object: NSApplication.shared,
+															queue: OperationQueue.main) {
+				notification -> Void in
+																self.setupHUDsPosition()
+		}
 		
-		brightnessHud.traslate(position)
+		
+		
+		//Setting up huds
+		setupShadows(enabled: true)
+		setupHUDsPosition()
+		
+		volumeHud.view = volumeView
+		
 		brightnessBar.foreground = yellow
 		brightnessHud.view = brightnessView
 		
-		backlightHud.traslate(position)
 		backlightBar.foreground = azure
 		backlightHud.view = backlightView
 		
+	}
+	
+	func setupHUDsPosition() {
+		let position = CGPoint.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2))
+		volumeHud.traslate(position)
+		brightnessHud.traslate(position)
+		backlightHud.traslate(position)
 	}
 	
 	// MARK: - Setups

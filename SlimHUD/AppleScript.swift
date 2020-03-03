@@ -83,11 +83,9 @@ func getKeyboardBrightness() -> Float {
 		IOObjectRelease(service)
 	}
 	
-	let ser: CFTypeRef = try IORegistryEntryCreateCFProperty(service, "KeyboardBacklightBrightness" as CFString, kCFAllocatorDefault,0).takeUnretainedValue()
-	
-	if let result = ser as? Float {
+	if let ser: CFTypeRef = IORegistryEntryCreateCFProperty(service, "KeyboardBacklightBrightness" as CFString, kCFAllocatorDefault,0)?.takeUnretainedValue() {
+		let result = ser as! Float
 		return result / 342 //max value is 342, proportioning to %
 	}
 	return 0
 }
-
