@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA262AE0240E6A9900BFC2D1 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsWindowController.swift */; };
+		FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */; };
+		FA262AE4240E6B1D00BFC2D1 /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
 		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
 		FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */; };
@@ -34,6 +37,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA262ADF240E6A9900BFC2D1 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsWindow.xib; sourceTree = "<group>"; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
@@ -61,6 +67,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA262AE5240E9EEF00BFC2D1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */,
+				FA262ADF240E6A9900BFC2D1 /* SettingsWindowController.swift */,
+				FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		FA5C77E8240B0753004E0937 /* Kauntey Suryawanshi */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +108,7 @@
 			children = (
 				FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */,
 				FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */,
+				FA262AE5240E9EEF00BFC2D1 /* Settings */,
 				FAF5F6522406D1480011B766 /* Hud.swift */,
 				FABE1FD923FEF17B009AD01F /* AppleScript.swift */,
 				FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */,
@@ -174,6 +191,7 @@
 			files = (
 				FAF5F6552408445F0011B766 /* dbrightness in Resources */,
 				FABE1FE323FEF679009AD01F /* BarView.xib in Resources */,
+				FA262AE4240E6B1D00BFC2D1 /* SettingsWindow.xib in Resources */,
 				FAF5F658240875800011B766 /* LICENSE in Resources */,
 				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
 			);
@@ -186,12 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */,
 				FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */,
 				FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */,
 				FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */,
 				FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */,
 				FAF5F6532406D1480011B766 /* Hud.swift in Sources */,
 				FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */,
+				FA262AE0240E6A9900BFC2D1 /* SettingsWindowController.swift in Sources */,
 				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

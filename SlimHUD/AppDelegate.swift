@@ -16,98 +16,106 @@ extension NSControl.StateValue {
 		return true
 	}
 }
+extension Bool {
+	func toStateValue() -> NSControl.StateValue {
+		if(self) {
+			return .on
+		} else {
+			return .off
+		}
+	}
+}
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
+	
+	// MARK: - Settings & setups
+	
+	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
+	
+    lazy var settingsController = SettingsController()
+	lazy var settingsWindowController: SettingsWindowController = SettingsWindowController(windowNibName: "SettingsWindow")
 
 	
-	// MARK: - Default colors
-	let gray = NSColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
-	let blue = NSColor.init(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
-	let yellow = NSColor.init(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
-	let azure = NSColor.init(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
-	
-	var disabledColor = NSColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
-	var enabledColor = NSColor.init(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
-	
-	// MARK: - Settings (actions + outlets)
-	@IBOutlet weak var backgroundColorOutlet: NSColorWell!
-	@IBOutlet weak var volumeEnabledColorOutlet: NSColorWell!
-	@IBOutlet weak var volumeDisabledColorOutlet: NSColorWell!
-	@IBOutlet weak var brightnessColorOutlet: NSColorWell!
-	@IBOutlet weak var keyboardColorOutlet: NSColorWell!
-	
-	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
-		let val = !sender.state.boolValue()
-		volumeImage.isHidden = val
-		brightnessImage.isHidden = val
-		backlightImage.isHidden = val
+	@IBAction func showWindow(_ sender: Any) {
+		NSApp.activate(ignoringOtherApps: true)
+        settingsWindowController.delegate = self
+        settingsWindowController.settingsController = settingsController
+        settingsWindowController.window?.center()
+        settingsWindowController.window?.makeFirstResponder(nil)
+        settingsWindowController.window?.makeKeyAndOrderFront(settingsWindowController)
 	}
 	
-	@IBAction func shouldShowShadows(_ sender: NSButton) {
-		setupShadows(enabled: sender.state.boolValue())
+	func updateShadows(enabled: Bool) {
+		setupShadow(for: volumeView, enabled)
+		setupShadow(for: backlightView, enabled)
+		setupShadow(for: brightnessView, enabled)
+	}
+	
+	func updateIcons(isHidden: Bool) {
+		volumeImage.isHidden = isHidden
+		brightnessImage.isHidden = isHidden
+		backlightImage.isHidden = isHidden
 	}
 	
 	func setupDefaultColors() {
-		backgroundColorOutlet.color = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
-		volumeEnabledColorOutlet.color = blue
-		volumeDisabledColorOutlet.color = gray
-		brightnessColorOutlet.color = yellow
-		keyboardColorOutlet.color = azure
+		enabledColor = settingsController.blue
+		disabledColor = settingsController.gray
+		backlightBar.foreground = settingsController.azure
+		brightnessBar.foreground = settingsController.yellow
+		volumeBar.background = settingsController.darkGray
+		backlightBar.background = settingsController.darkGray
+		brightnessBar.background = settingsController.darkGray
 	}
 	
-	@IBAction func resetDefaults(_ sender: Any) {
-		setupDefaultColors()
-		let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
-		volumeBar.background = darkGray
-		brightnessBar.background = darkGray
-		backlightBar.background = darkGray
-		enabledColor = blue
-		disabledColor = gray
-		brightnessBar.foreground = yellow
-		backlightBar.foreground = azure
+	func setBackgroundColor(color: NSColor) {
+		volumeBar.background = color
+		backlightBar.background = color
+		brightnessBar.background = color
+	}
+	func setVolumeEnabledColor(color: NSColor) {
+		enabledColor = color
+	}
+	func setVolumeDisabledColor(color: NSColor) {
+		disabledColor = color
+	}
+	func setBrightnessColor(color: NSColor) {
+		brightnessBar.foreground = color
+	}
+	func setBacklightColor(color: NSColor) {
+		backlightBar.foreground = color
 	}
 	
-	@IBAction func backgroundColorChanged(_ sender: NSColorWell) {
-		volumeBar.background = sender.color
-		brightnessBar.background = sender.color
-		backlightBar.background = sender.color
-	}
-	@IBAction func volumeEnabledColorChanged(_ sender: NSColorWell) {
-		enabledColor = sender.color
-	}
-	@IBAction func volumeDisabledColorChanged(_ sender: NSColorWell) {
-		disabledColor = sender.color
-	}
-	@IBAction func brightnessColorChanged(_ sender: NSColorWell) {
-		brightnessBar.foreground = sender.color
-	}
-	@IBAction func keyboardBackLightColorChanged(_ sender: NSColorWell) {
-		backlightBar.foreground = sender.color
+	func updateAll() {
+		updateIcons(isHidden: !settingsController.shouldShowIcons)
+		updateShadows(enabled: settingsController.shouldShowShadows)
+		setBackgroundColor(color: settingsController.backgroundColor)
+		setVolumeEnabledColor(color: settingsController.volumeEnabledColor)
+		setVolumeDisabledColor(color: settingsController.volumeDisabledColor)
+		setBrightnessColor(color: settingsController.brightnessColor)
+		setBacklightColor(color: settingsController.keyboardColor)
 	}
 	
-	private var settingsWindowController: NSWindowController?
-	@IBOutlet weak var settingsWindow: NSWindow!
-	
-	@IBAction func showWindow(_ sender: Any) {
-		
-		
-		let window = settingsWindow
-		settingsWindowController = NSWindowController(window: window)
-		NSApp.activate(ignoringOtherApps: true)
-		let controllerWindow = settingsWindowController?.window!
-		controllerWindow?.makeKeyAndOrderFront(self)
-//		settingsWindowController?.showWindow(self)
-//		settingsWindow.makeKeyAndOrderFront(self)
-		
-		NotificationCenter.default.addObserver(self, selector: #selector(deloccContr), name: NSWindow.willCloseNotification, object: settingsWindow)
+	func setupTimer(with t: TimeInterval) {
+		let timer = Timer(timeInterval: t, target: self, selector: #selector(checkChanges), userInfo: nil, repeats: true)
+		let mainLoop = RunLoop.main
+		mainLoop.add(timer, forMode: .common)
 	}
 	
-	@objc func deloccContr() {
-		//settingsWindowController?.close()
-		settingsWindowController?.dismissController(self)
-		settingsWindowController = nil
-		settingsWindow = nil
+	
+	func setupShadow(for view: NSView, _ enabled: Bool) {
+		if(enabled) {
+			view.shadow = NSShadow()
+			view.wantsLayer = true
+			view.superview?.wantsLayer = true
+			view.layer?.shadowOpacity = 1
+			view.layer?.shadowColor = .black
+			view.layer?.shadowOffset = NSMakeSize(0, 0)
+			view.layer?.shadowRadius = 20
+		} else {
+			view.shadow = nil
+		}
 	}
 	
 	// MARK: - Views, bars & HUDs
@@ -148,7 +156,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			button.image = NSImage(named: "statusIcon")
 			button.image?.isTemplate = true
 		}
-		setupDefaultColors()
 		
 		//observers for volume
 		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
@@ -174,17 +181,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 		
 		//Setting up huds
-		setupShadows(enabled: true)
 		setupHUDsPosition()
 		
 		volumeHud.view = volumeView
-		
-		brightnessBar.foreground = yellow
 		brightnessHud.view = brightnessView
-		
-		backlightBar.foreground = azure
 		backlightHud.view = backlightView
 		
+		updateAll()
 	}
 	
 	func setupHUDsPosition() {
@@ -194,33 +197,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		backlightHud.traslate(position)
 	}
 	
-	// MARK: - Setups
-	
-	func setupTimer(with t: TimeInterval) {
-		let timer = Timer(timeInterval: t, target: self, selector: #selector(checkChanges), userInfo: nil, repeats: true)
-		let mainLoop = RunLoop.main
-		mainLoop.add(timer, forMode: .common)
-	}
-	
-	func setupShadows(enabled: Bool) {
-		setupShadow(for: volumeView, enabled)
-		setupShadow(for: backlightView, enabled)
-		setupShadow(for: brightnessView, enabled)
-	}
-	
-	func setupShadow(for view: NSView, _ enabled: Bool) {
-		if(enabled) {
-			view.shadow = NSShadow()
-			view.wantsLayer = true
-			view.superview?.wantsLayer = true
-			view.layer?.shadowOpacity = 1
-			view.layer?.shadowColor = .black
-			view.layer?.shadowOffset = NSMakeSize(0, 0)
-			view.layer?.shadowRadius = 20
-		} else {
-			view.shadow = nil
-		}
-	}
 	
 	// MARK: - Displayers
 	
@@ -259,7 +235,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		checkVolumeChanges()
 	}
 	
-	var oldVolume = getOutputVolume()
+	var oldVolume: Float = 0.5
 	func checkVolumeChanges() {
 		let newVolume = getOutputVolume()
 		if(oldVolume != newVolume) {
@@ -269,7 +245,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 	}
 	
-	var oldBacklight = getKeyboardBrightness()
+	var oldBacklight: Float = 0.5
 	func checkBacklightChanges() {
 		let newBacklight = getKeyboardBrightness()
 		if(oldBacklight != newBacklight) {
@@ -279,7 +255,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 	}
 	
-	var oldBrightness = getDisplayBrightness()
+	var oldBrightness: Float = 0.5
 	func checkBrightnessChanges() {
 		let newBrightness = getDisplayBrightness()
 		if(oldBrightness != newBrightness) {
@@ -305,7 +281,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		// Insert code here to tear down your application
 		shell(.load)
 	}
-
+	
 }
 
 extension NSView {
