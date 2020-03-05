@@ -34,18 +34,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
 	
-    lazy var settingsController = SettingsController()
-	lazy var settingsWindowController: SettingsWindowController = SettingsWindowController(windowNibName: "SettingsWindow")
-
+    var settingsController = SettingsController()
 	
-	@IBAction func showWindow(_ sender: Any) {
-		NSApp.activate(ignoringOtherApps: true)
-        settingsWindowController.delegate = self
-        settingsWindowController.settingsController = settingsController
-        settingsWindowController.window?.center()
-        settingsWindowController.window?.makeFirstResponder(nil)
-        settingsWindowController.window?.makeKeyAndOrderFront(settingsWindowController)
-	}
+
 	
 	func updateShadows(enabled: Bool) {
 		setupShadow(for: volumeView, enabled)
@@ -179,14 +170,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		}
 		
 		
-		
 		//Setting up huds
+		
+		oldVolume = getOutputVolume()
+		oldBacklight = getKeyboardBrightness()
+		oldBrightness = getDisplayBrightness()
+		
 		setupHUDsPosition()
 		
 		volumeHud.view = volumeView
 		brightnessHud.view = brightnessView
 		backlightHud.view = backlightView
-		
 		updateAll()
 	}
 	
@@ -198,11 +192,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	
+	let settingsWindowController: SettingsWindowController = SettingsWindowController(windowNibName: "SettingsWindow")
+	
 	// MARK: - Displayers
+	
+	@IBAction func showWindow(_ sender: Any) {
+		// FIXME: MEMORY LEAK!
+        settingsWindowController.delegate = self
+		settingsWindowController.settingsController = settingsController
+		settingsWindowController.showWindow(self)
+		NSApp.activate(ignoringOtherApps: true)
+	}
+	
 	
 	@objc func showVolumeHUD() {
 		let disabled = isMuted()
 		setColor(for: volumeBar, disabled)
+		// MARK: possible configuration
+		volumeBar.progress = CGFloat(getOutputVolume()) //can be commented if checkVolume is uncommented in checkChanges()
+		
+		
 		if(disabled) {
 			volumeImage.image = NSImage(named: "noVolume")
 		} else {
@@ -232,7 +241,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	@objc func checkChanges() {
 		checkBacklightChanges()
 		checkBrightnessChanges()
-		checkVolumeChanges()
+		// MARK: possible configuration
+		//checkVolumeChanges() //if not commented SlimHUD will continuosly check if the volume has changed. This will lead to a sensible increase in the CPU's usage (in my case from 0% to 1%; max is 800%) but it will also add a nice touch if you have the touchbar: sliding over the volume button will display the hud.
 	}
 	
 	var oldVolume: Float = 0.5

@@ -9,11 +9,12 @@
 import Cocoa
 
 class SettingsController {
-	let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
-	let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
-	let blue = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
-	let yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
-	let azure = NSColor(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
+	var darkGray: NSColor!
+	var gray: NSColor!
+	var blue: NSColor!
+	var yellow: NSColor!
+	var azure: NSColor!
+	
 	
 	var backgroundColor: NSColor! {
 		didSet {
@@ -32,7 +33,6 @@ class SettingsController {
 	}
 	var brightnessColor: NSColor! {
 		didSet {
-			print("color changed to \(brightnessColor)")
 			setItem(brightnessColor, for: "brightnessColor")
 		}
 	}
@@ -54,6 +54,11 @@ class SettingsController {
 	}
 	
 	init() {
+		darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
+		gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+		blue = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
+		yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
+		azure = NSColor(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
 		backgroundColor = getItem(for: "backgroundColor", defaultValue: darkGray)
 		volumeEnabledColor = getItem(for: "volumeEnabledColor", defaultValue: blue)
 		volumeDisabledColor = getItem(for: "volumeDisabledColor", defaultValue: gray)
@@ -62,6 +67,14 @@ class SettingsController {
 		shouldShowShadows = getItem(for: "shouldShowShadows", defaultValue: true)
 		shouldShowIcons = getItem(for: "shouldShowIcons", defaultValue: true)
     }
+	
+	func resetDefaultColors() {
+		backgroundColor = darkGray
+		volumeEnabledColor = blue
+		volumeDisabledColor = gray
+		brightnessColor = yellow
+		keyboardColor = azure
+	}
 	
 	func getItem<T>(for key: String, defaultValue: T) -> T {
         guard
@@ -73,8 +86,8 @@ class SettingsController {
 	}
 	
 	func setItem<T>(_ item: T, for key: String) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: item)
-        UserDefaults.standard.set(data, forKey: key)
+        //var data =
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: item), forKey: key)
 	}
 	
     private func saveAllItems() {
@@ -86,5 +99,10 @@ class SettingsController {
 		setItem(shouldShowShadows, for: "shouldShowShadows")
 		setItem(shouldShowIcons, for: "shouldShowIcons")
     }
+	
+	
+	deinit {
+		saveAllItems()
+	}
 	
 }

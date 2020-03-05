@@ -21,8 +21,9 @@ protocol SettingsWindowControllerDelegate: class {
 class SettingsWindowController: NSWindowController {
 	
     weak var delegate: SettingsWindowControllerDelegate?
-    var settingsController: SettingsController?
-
+    weak var settingsController: SettingsController?
+	@IBOutlet var settingsWindow: NSWindow!
+	
     override func windowDidLoad() {
 		iconOutlet.state = settingsController?.shouldShowShadows!.toStateValue() ?? .on
 		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
@@ -86,5 +87,4 @@ class SettingsWindowController: NSWindowController {
 		settingsController?.keyboardColor = sender.color
 		delegate?.setBacklightColor(color: sender.color)
 	}
-	
 }
