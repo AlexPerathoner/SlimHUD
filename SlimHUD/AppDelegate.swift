@@ -26,17 +26,23 @@ extension Bool {
 	}
 }
 
+var nDel = 0
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
-	
+
 	// MARK: - Settings & setups
 	
 	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
 	
-    var settingsController = SettingsController()
+	var settingsController = SettingsController()
 	
 
+	override init() {
+		print("this is the \(nDel)nth initialization of AppDelegate")
+		nDel += 1
+		super.init()
+	}
 	
 	func updateShadows(enabled: Bool) {
 		setupShadow(for: volumeView, enabled)
@@ -192,16 +198,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	
+	// MARK: - Displayers
 	let settingsWindowController: SettingsWindowController = SettingsWindowController(windowNibName: "SettingsWindow")
 	
-	// MARK: - Displayers
 	
 	@IBAction func showWindow(_ sender: Any) {
-		// FIXME: MEMORY LEAK!
-        settingsWindowController.delegate = self
+
+		settingsWindowController.delegate = self
 		settingsWindowController.settingsController = settingsController
+
+		settingsWindowController.window?.center()
+        settingsWindowController.window?.makeFirstResponder(nil)
+        settingsWindowController.window?.makeKeyAndOrderFront(settingsWindowController)
 		settingsWindowController.showWindow(self)
 		NSApp.activate(ignoringOtherApps: true)
+		
 	}
 	
 	
@@ -210,7 +221,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		setColor(for: volumeBar, disabled)
 		// MARK: possible configuration
 		volumeBar.progress = CGFloat(getOutputVolume()) //can be commented if checkVolume is uncommented in checkChanges()
-		
 		
 		if(disabled) {
 			volumeImage.image = NSImage(named: "noVolume")

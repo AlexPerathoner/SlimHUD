@@ -20,12 +20,11 @@ protocol SettingsWindowControllerDelegate: class {
 }
 class SettingsWindowController: NSWindowController {
 	
-    weak var delegate: SettingsWindowControllerDelegate?
+	weak var delegate: SettingsWindowControllerDelegate?
     weak var settingsController: SettingsController?
-	@IBOutlet var settingsWindow: NSWindow!
 	
     override func windowDidLoad() {
-		iconOutlet.state = settingsController?.shouldShowShadows!.toStateValue() ?? .on
+		iconOutlet.state = settingsController?.shouldShowIcons!.toStateValue() ?? .on
 		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
 		backgroundColorOutlet.color = settingsController!.backgroundColor
 		volumeEnabledColorOutlet.color = settingsController!.volumeEnabledColor

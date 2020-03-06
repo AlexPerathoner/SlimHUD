@@ -9,12 +9,11 @@
 import Cocoa
 
 class SettingsController {
-	var darkGray: NSColor!
-	var gray: NSColor!
-	var blue: NSColor!
-	var yellow: NSColor!
-	var azure: NSColor!
-	
+	let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
+	let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+	let blue = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
+	let yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
+	let azure = NSColor(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
 	
 	var backgroundColor: NSColor! {
 		didSet {
@@ -54,11 +53,6 @@ class SettingsController {
 	}
 	
 	init() {
-		darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
-		gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
-		blue = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
-		yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
-		azure = NSColor(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
 		backgroundColor = getItem(for: "backgroundColor", defaultValue: darkGray)
 		volumeEnabledColor = getItem(for: "volumeEnabledColor", defaultValue: blue)
 		volumeDisabledColor = getItem(for: "volumeDisabledColor", defaultValue: gray)
@@ -86,7 +80,6 @@ class SettingsController {
 	}
 	
 	func setItem<T>(_ item: T, for key: String) {
-        //var data =
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: item), forKey: key)
 	}
 	
@@ -103,6 +96,7 @@ class SettingsController {
 	
 	deinit {
 		saveAllItems()
+		print("Deiniting settings controller..")
 	}
 	
 }
