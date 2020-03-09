@@ -26,7 +26,6 @@ extension Bool {
 	}
 }
 
-var nDel = 0
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
 
@@ -39,8 +38,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 
 	override init() {
-		print("this is the \(nDel)nth initialization of AppDelegate")
-		nDel += 1
 		super.init()
 	}
 	
@@ -145,6 +142,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 		
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
+
 		shell(.unload)
 		//menu bar
 		statusItem.menu = statusMenu

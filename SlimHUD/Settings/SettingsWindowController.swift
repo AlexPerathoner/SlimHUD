@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import LaunchAtLogin
 
 protocol SettingsWindowControllerDelegate: class {
 	func updateShadows(enabled: Bool)
@@ -24,6 +25,7 @@ class SettingsWindowController: NSWindowController {
     weak var settingsController: SettingsController?
 	
     override func windowDidLoad() {
+		launchAtLoginOutlet.state = LaunchAtLogin.isEnabled.toStateValue()
 		iconOutlet.state = settingsController?.shouldShowIcons!.toStateValue() ?? .on
 		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
 		backgroundColorOutlet.color = settingsController!.backgroundColor
@@ -34,6 +36,7 @@ class SettingsWindowController: NSWindowController {
         super.windowDidLoad()
 	}
 	
+	@IBOutlet weak var launchAtLoginOutlet: NSButton!
 	
 	@IBOutlet weak var iconOutlet: NSButton!
 	@IBOutlet weak var shadowOutlet: NSButton!
@@ -58,6 +61,7 @@ class SettingsWindowController: NSWindowController {
 	
 	@IBAction func resetDefaults(_ sender: Any) {
 		delegate?.setupDefaultColors()
+		settingsController?.resetDefaultColors()
 		volumeEnabledColorOutlet.color = settingsController!.blue
 		volumeDisabledColorOutlet.color = settingsController!.gray
 		keyboardColorOutlet.color = settingsController!.azure
@@ -86,4 +90,9 @@ class SettingsWindowController: NSWindowController {
 		settingsController?.keyboardColor = sender.color
 		delegate?.setBacklightColor(color: sender.color)
 	}
+	
+	@IBAction func launchAtLoginClicked(_ sender: NSButton) {
+		LaunchAtLogin.isEnabled = sender.state.boolValue()
+	}
+	
 }

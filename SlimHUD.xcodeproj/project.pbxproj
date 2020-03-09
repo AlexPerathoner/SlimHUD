@@ -10,6 +10,7 @@
 		FA262AE0240E6A9900BFC2D1 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsWindowController.swift */; };
 		FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */; };
 		FA262AE4240E6B1D00BFC2D1 /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */; };
+		FA3347DA2416A7830010158F /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA3347D92416A7830010158F /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
 		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
 		FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */; };
@@ -30,6 +31,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FA3347DA2416A7830010158F /* LaunchAtLogin.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,6 +42,7 @@
 		FA262ADF240E6A9900BFC2D1 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsWindow.xib; sourceTree = "<group>"; };
+		FA3347D92416A7830010158F /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 		FA69AC7A23F9E2E600AA73FD = {
 			isa = PBXGroup;
 			children = (
+				FA3347D92416A7830010158F /* LaunchAtLogin.framework */,
 				FA69AC8523F9E2E600AA73FD /* SlimHUD */,
 				FA69AC8423F9E2E600AA73FD /* Products */,
 			);
@@ -141,6 +145,7 @@
 				FA69AC8023F9E2E600AA73FD /* Frameworks */,
 				FA69AC8123F9E2E600AA73FD /* Resources */,
 				FA2BB562240C4E540025EA71 /* Embed Frameworks */,
+				FA3347D82416A75D0010158F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -198,6 +203,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FA3347D82416A75D0010158F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA69AC7F23F9E2E600AA73FD /* Sources */ = {
@@ -339,12 +364,13 @@
 				CODE_SIGN_ENTITLEMENTS = SlimHUD/SlimHUD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = XX9N244QQT;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SlimHUD/Nick\\ Sweeting",
 					"$(PROJECT_DIR)/SlimHUD",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = SlimHUD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -365,12 +391,13 @@
 				CODE_SIGN_ENTITLEMENTS = SlimHUD/SlimHUD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = XX9N244QQT;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SlimHUD/Nick\\ Sweeting",
 					"$(PROJECT_DIR)/SlimHUD",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = SlimHUD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
