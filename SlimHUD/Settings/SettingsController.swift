@@ -8,6 +8,15 @@
 
 import Cocoa
 
+
+enum Position {
+	case left
+	case right
+	case bottom
+	case top
+}
+
+
 class SettingsController {
 	let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
 	let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
@@ -35,7 +44,7 @@ class SettingsController {
 			setItem(brightnessColor, for: "brightnessColor")
 		}
 	}
-	var keyboardColor: NSColor!  {
+	var keyboardColor: NSColor! {
 		didSet {
 			setItem(keyboardColor, for: "keyboardColor")
 		}
@@ -51,6 +60,18 @@ class SettingsController {
 			setItem(shouldShowIcons, for: "shouldShowIcons")
 		}
 	}
+	var barHeight: Int = 218 {
+		didSet {
+			setItem(barHeight, for: "barHeight")
+		}
+	}
+	var position: Position = Position.left {
+		didSet {
+			//FIXME: save position to defaults
+			//setItem(position, for: "position")
+		}
+	}
+	
 	
 	init() {
 		backgroundColor = getItem(for: "backgroundColor", defaultValue: darkGray)
@@ -60,6 +81,8 @@ class SettingsController {
 		keyboardColor = getItem(for: "keyboardColor", defaultValue: azure)
 		shouldShowShadows = getItem(for: "shouldShowShadows", defaultValue: true)
 		shouldShowIcons = getItem(for: "shouldShowIcons", defaultValue: true)
+		barHeight = getItem(for: "barHeight", defaultValue: 218)
+		position = getItem(for: "position", defaultValue: Position.left)
     }
 	
 	func resetDefaultColors() {
@@ -91,6 +114,8 @@ class SettingsController {
 		setItem(keyboardColor, for: "keyboardColor")
 		setItem(shouldShowShadows, for: "shouldShowShadows")
 		setItem(shouldShowIcons, for: "shouldShowIcons")
+		setItem(barHeight, for: "barHeight")
+		setItem(position, for: "position")
     }
 	
 	

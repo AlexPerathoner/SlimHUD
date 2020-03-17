@@ -16,8 +16,8 @@ class Hud: NSView {
 	
 	///The NSView that is going to be displayed when show() is called
 	var view: NSView = .init()
-	
 	var position: CGPoint
+	var rotated: Position = .left
 	
 	private var hudView: NSView? {
 		windowController?.showWindow(self)
@@ -42,17 +42,13 @@ class Hud: NSView {
 	func setup() {
 		isHidden = true
 		let screen = NSScreen.screens[0]
-        let window = NSWindow(contentRect: screen.frame, styleMask: .borderless, backing: .buffered, defer: true, screen: screen)
+		let window = NSWindow(contentRect: screen.frame, styleMask: .borderless, backing: .buffered, defer: true, screen: screen) 
 		window.level = .floating
 		window.backgroundColor = .clear
 		window.animationBehavior = .none
         windowController = NSWindowController(window: window)
 	}
 	
-	func traslate(_ newOrigin: NSPoint) {
-		position = newOrigin
-		hudView?.setFrameOrigin(position)
-	}
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -66,6 +62,18 @@ class Hud: NSView {
 		
 		//animation only if not yet visible
 		if(isHidden) {
+
+			switch rotated {
+			case .left:
+				view.setFrameOrigin(.init(x: position.x - animationMovement, y: position.y))
+			case .right:
+				view.setFrameOrigin(.init(x: position.x + animationMovement, y: position.y))
+			case .top:
+				view.setFrameOrigin(.init(x: position.x, y: position.y + animationMovement))
+			case .bottom:
+				view.setFrameOrigin(.init(x: position.x, y: position.y - animationMovement))
+			}
+			
 			if(animated) {
 				NSAnimationContext.runAnimationGroup({ (context) in
 					//slide + fade in animation
@@ -74,9 +82,9 @@ class Hud: NSView {
 					view.animator().setFrameOrigin(position)
 				}) {
 					self.isHidden = false
-					
 				}
 			} else {
+				view.setFrameOrigin(position)
 				self.isHidden = false
 				view.alphaValue = 1
 			}
@@ -92,13 +100,24 @@ class Hud: NSView {
 				//slide + fade out animation
 				context.duration = animationDuration
 				view.animator().alphaValue = 0
-				view.animator().setFrameOrigin(.init(x: position.x - animationMovement, y: position.y))
+
+				switch rotated {
+				case .left:
+					view.animator().setFrameOrigin(.init(x: position.x - animationMovement, y: position.y))
+				case .right:
+					view.animator().setFrameOrigin(.init(x: position.x + animationMovement, y: position.y))
+				case .top:
+					view.animator().setFrameOrigin(.init(x: position.x, y: position.y + animationMovement))
+				case .bottom:
+					view.animator().setFrameOrigin(.init(x: position.x, y: position.y - animationMovement))
+				}
 			}) {
 				self.isHidden = true
 				self.removeFromSuperview()
 				self.windowController?.close()
 			}
 		} else {
+			view.setFrameOrigin(position)
 			view.alphaValue = 0
 			isHidden = true
 			removeFromSuperview()
@@ -116,6 +135,15 @@ class Hud: NSView {
 			NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideDelayed(_:)), object: 1)
 		}
 		self.perform(#selector(hideDelayed(_:)), with: 1, afterDelay: delay)
+		
     }
+	
+}
+
+extension NSView {
+	func getCenter() -> CGPoint {
+		return CGPoint(x: (self.frame.origin.x + (self.frame.size.width / 2)), y:
+		(self.frame.origin.y + (self.frame.size.height / 2)))
+	}
 	
 }

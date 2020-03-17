@@ -18,6 +18,8 @@ protocol SettingsWindowControllerDelegate: class {
 	func setVolumeDisabledColor(color: NSColor)
 	func setBrightnessColor(color: NSColor)
 	func setBacklightColor(color: NSColor)
+	func setHeight(height: CGFloat)
+	func setupHUDsPosition()
 }
 class SettingsWindowController: NSWindowController {
 	
@@ -33,6 +35,8 @@ class SettingsWindowController: NSWindowController {
 		volumeDisabledColorOutlet.color = settingsController!.volumeDisabledColor
 		brightnessColorOutlet.color = settingsController!.brightnessColor
 		keyboardColorOutlet.color = settingsController!.keyboardColor
+		heightValue.stringValue = String(settingsController!.barHeight)
+		heightSliderOutlet.integerValue = settingsController!.barHeight
         super.windowDidLoad()
 	}
 	
@@ -46,6 +50,33 @@ class SettingsWindowController: NSWindowController {
 	@IBOutlet weak var volumeDisabledColorOutlet: NSColorWell!
 	@IBOutlet weak var brightnessColorOutlet: NSColorWell!
 	@IBOutlet weak var keyboardColorOutlet: NSColorWell!
+	
+	@IBOutlet weak var heightValue: NSTextField!
+	@IBOutlet weak var heightSliderOutlet: NSSlider!
+	
+	@IBAction func rotationChanged(_ sender: NSPopUpButton) {
+		switch sender.indexOfSelectedItem {
+		case 0:
+			settingsController?.position = .left
+		case 1:
+			settingsController?.position = .bottom
+		case 2:
+			settingsController?.position = .top
+		case 3:
+			settingsController?.position = .right
+		default:
+			NSLog("What the-? Something went wrong! Please report this bug")
+		}
+		delegate?.setupHUDsPosition()
+	}
+	
+	
+	@IBAction func heightSlider(_ sender: NSSlider) {
+		heightValue.stringValue = String(sender.integerValue)
+		delegate?.setHeight(height: CGFloat(sender.integerValue))
+		settingsController?.barHeight = sender.integerValue
+	}
+	
 		
 	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
 		let val = sender.state.boolValue()

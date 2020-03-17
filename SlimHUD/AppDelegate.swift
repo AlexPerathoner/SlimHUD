@@ -36,10 +36,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	var settingsController = SettingsController()
 	
-
-	override init() {
-		super.init()
-	}
 	
 	func updateShadows(enabled: Bool) {
 		setupShadow(for: volumeView, enabled)
@@ -112,6 +108,60 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		}
 	}
 	
+	func setHeight(height: CGFloat) {
+		let viewSize = volumeBar.frame
+		for bar in [volumeBar, brightnessBar, backlightBar] as [ProgressBar] {
+			bar.setFrameSize(.init(width: viewSize.width, height: height))
+		}
+		setupHUDsPosition()
+	}
+	
+	func setupHUDsPosition() {
+		var position: CGPoint		
+		
+		let barSize = volumeBar.frame
+		let screenSize = NSScreen.screens[0].frame
+		
+		switch settingsController.position {
+		case .left:
+			position = CGPoint(x: 0, y: (screenSize.height/2)-(barSize.height/2))
+		case .right:
+			position = CGPoint(x: (screenSize.width)-(barSize.width)-50, y: (screenSize.height/2)-(barSize.height/2))
+		case .bottom:
+			position = CGPoint(x: (screenSize.width/2)-(barSize.height/2), y: 0)
+		case .top:
+			position = CGPoint(x: (screenSize.width/2)-(barSize.height/2), y: (screenSize.height)-50)
+		}
+		
+		let rotated = settingsController.position == .bottom || settingsController.position == .top
+		
+		for hud in [volumeHud, brightnessHud, backlightHud] as [Hud] {
+			hud.position = position
+			hud.rotated = settingsController.position
+		}
+		
+		if rotated {
+			for view in [volumeView, brightnessView, backlightView] as [NSView] {
+				view.layer?.anchorPoint = CGPoint(x: 0, y: 0)
+				view.setFrameOrigin(.init(x: 0, y: 50))
+				view.frameRotation = -90
+			}
+			for image in [volumeImage, brightnessImage, backlightImage] as [NSImageView] {
+				image.frameCenterRotation = 90
+			}
+		} else {
+			for view in [volumeView, brightnessView, backlightView] as [NSView] {
+				view.layer?.anchorPoint = CGPoint(x: 0, y: 0)
+				view.setFrameOrigin(.init(x: 0, y: 50))
+				view.frameRotation = 0
+			}
+			for image in [volumeImage, brightnessImage, backlightImage] as [NSImageView] {
+				image.frameCenterRotation = 0
+			}
+		}
+		
+	}
+	
 	// MARK: - Views, bars & HUDs
 	
 	@IBOutlet weak var volumeBar: ProgressBar!
@@ -162,7 +212,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		//observers for keyboard backlight
 		NotificationCenter.default.addObserver(self, selector: #selector(showBackLightHUD), name: ObserverApplication.keyboardIlluminationChanged, object: nil)
 		
-		//continuous check - 0.2 should not take more than 1%% CPU
+		//continuous check - 0.2 should not take more than 1/800 CPU
 		setupTimer(with: 0.2)
 		
 		
@@ -180,20 +230,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		oldBacklight = getKeyboardBrightness()
 		oldBrightness = getDisplayBrightness()
 		
-		setupHUDsPosition()
+
 		
 		volumeHud.view = volumeView
 		brightnessHud.view = brightnessView
 		backlightHud.view = backlightView
+		
+		
+		//FIXME: set height
+		//setHeight(height: CGFloat(settingsController.barHeight))
+		
+		setupHUDsPosition()
+		
 		updateAll()
 	}
 	
-	func setupHUDsPosition() {
-		let position = CGPoint.init(x: -7, y: (NSScreen.screens[0].frame.height/2)-(volumeBar.frame.height/2))
-		volumeHud.traslate(position)
-		brightnessHud.traslate(position)
-		backlightHud.traslate(position)
-	}
 	
 	
 	// MARK: - Displayers
@@ -300,18 +351,4 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		shell(.load)
 	}
 	
-}
-
-extension NSView {
-	func rotate(_ n: CGFloat) {
-		if let layer = self.layer, let animatorLayer = self.animator().layer {
-			layer.position = CGPoint(x: layer.frame.midX, y: layer.frame.midY)
-			layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-
-			NSAnimationContext.beginGrouping()
-			NSAnimationContext.current.allowsImplicitAnimation = true
-			animatorLayer.transform = CATransform3DMakeRotation(n*CGFloat.pi / 2, 0, 0, 1)
-			NSAnimationContext.endGrouping()
-		}
-	}
 }
