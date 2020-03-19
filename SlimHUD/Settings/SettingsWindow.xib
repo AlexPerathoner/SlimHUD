@@ -9,6 +9,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target">
             <connections>
+                <outlet property="animationsOutlet" destination="Y2n-yd-yjv" id="Q2O-Yo-9AP"/>
                 <outlet property="backgroundColorOutlet" destination="4qz-TG-UWa" id="nmV-ER-j90"/>
                 <outlet property="brightnessColorOutlet" destination="hKR-xu-s77" id="nsc-D4-NLc"/>
                 <outlet property="continuousCheckOutlet" destination="f2W-ZC-Pft" id="tXF-CM-2mP"/>
@@ -221,7 +222,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="Wv1-08-JUf"/>
                                 </constraints>
-                                <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XEr-hX-KPK">
+                                <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="XEr-hX-KPK">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="label" size="13"/>
                                 </buttonCell>
@@ -280,6 +281,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="label" size="13"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="shouldUseAnimations:" target="-2" id="WTm-aX-HFe"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2W-ZC-Pft">
                                 <rect key="frame" x="113" y="309" width="131" height="18"/>
