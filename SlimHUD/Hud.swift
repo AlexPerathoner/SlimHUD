@@ -132,18 +132,10 @@ class Hud: NSView {
 	
 	func dismiss(delay: TimeInterval) {
 		if(!isHidden) {
-			NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideDelayed(_:)), object: 1)
+			NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideDelayed(_:)), object: animated.toInt())
 		}
-		self.perform(#selector(hideDelayed(_:)), with: 1, afterDelay: delay)
+		self.perform(#selector(hideDelayed(_:)), with: animated.toInt(), afterDelay: delay)
 		
     }
-	
-}
-
-extension NSView {
-	func getCenter() -> CGPoint {
-		return CGPoint(x: (self.frame.origin.x + (self.frame.size.width / 2)), y:
-		(self.frame.origin.y + (self.frame.size.height / 2)))
-	}
 	
 }

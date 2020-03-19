@@ -60,6 +60,11 @@ class SettingsController {
 			setItem(shouldShowIcons, for: "shouldShowIcons")
 		}
 	}
+	var shouldContinuouslyCheck: Bool! = true {
+		didSet {
+			setItem(shouldContinuouslyCheck, for: "shouldContinuouslyCheck")
+		}
+	}
 	var barHeight: Int = 218 {
 		didSet {
 			setItem(barHeight, for: "barHeight")
@@ -82,6 +87,7 @@ class SettingsController {
 		shouldShowIcons = getItem(for: "shouldShowIcons", defaultValue: true)
 		barHeight = getItem(for: "barHeight", defaultValue: 218)
 		position = Position(rawValue: getItem(for: "position", defaultValue: "left"))!
+		shouldContinuouslyCheck = getItem(for: "shouldContinuouslyCheck", defaultValue: true)
     }
 	
 	func resetDefaultColors() {

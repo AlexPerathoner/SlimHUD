@@ -11,6 +11,7 @@
 		FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */; };
 		FA262AE4240E6B1D00BFC2D1 /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */; };
 		FA3347DA2416A7830010158F /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA3347D92416A7830010158F /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA55B98C2423FE180071E6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55B98B2423FE180071E6D9 /* Extensions.swift */; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
 		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
 		FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */; };
@@ -43,6 +44,7 @@
 		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsWindow.xib; sourceTree = "<group>"; };
 		FA3347D92416A7830010158F /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
+		FA55B98B2423FE180071E6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */,
 				FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */,
+				FA55B98B2423FE180071E6D9 /* Extensions.swift */,
 				FA262AE5240E9EEF00BFC2D1 /* Settings */,
 				FAF5F6522406D1480011B766 /* Hud.swift */,
 				FABE1FD923FEF17B009AD01F /* AppleScript.swift */,
@@ -234,6 +237,7 @@
 				FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */,
 				FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */,
 				FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */,
+				FA55B98C2423FE180071E6D9 /* Extensions.swift in Sources */,
 				FAF5F6532406D1480011B766 /* Hud.swift in Sources */,
 				FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */,
 				FA262AE0240E6A9900BFC2D1 /* SettingsWindowController.swift in Sources */,
