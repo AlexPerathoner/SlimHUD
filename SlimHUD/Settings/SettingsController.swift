@@ -9,11 +9,11 @@
 import Cocoa
 
 
-enum Position {
-	case left
-	case right
-	case bottom
-	case top
+enum Position: String {
+	case left = "left"
+	case right = "right"
+	case bottom = "bottom"
+	case top = "top"
 }
 
 
@@ -67,8 +67,7 @@ class SettingsController {
 	}
 	var position: Position = Position.left {
 		didSet {
-			//FIXME: save position to defaults
-			//setItem(position, for: "position")
+			setItem(position.rawValue, for: "position")
 		}
 	}
 	
@@ -82,7 +81,7 @@ class SettingsController {
 		shouldShowShadows = getItem(for: "shouldShowShadows", defaultValue: true)
 		shouldShowIcons = getItem(for: "shouldShowIcons", defaultValue: true)
 		barHeight = getItem(for: "barHeight", defaultValue: 218)
-		position = getItem(for: "position", defaultValue: Position.left)
+		position = Position(rawValue: getItem(for: "position", defaultValue: "left"))!
     }
 	
 	func resetDefaultColors() {

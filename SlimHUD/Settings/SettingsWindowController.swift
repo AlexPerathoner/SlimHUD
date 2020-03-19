@@ -37,6 +37,18 @@ class SettingsWindowController: NSWindowController {
 		keyboardColorOutlet.color = settingsController!.keyboardColor
 		heightValue.stringValue = String(settingsController!.barHeight)
 		heightSliderOutlet.integerValue = settingsController!.barHeight
+		switch settingsController?.position {
+		case .left:
+			positionOutlet.selectItem(at: 0)
+		case .bottom:
+			positionOutlet.selectItem(at: 1)
+		case .top:
+			positionOutlet.selectItem(at: 2)
+		case .right:
+			positionOutlet.selectItem(at: 3)
+		default:
+			NSLog("Error! Could not load saved position")
+		}
         super.windowDidLoad()
 	}
 	
@@ -54,6 +66,7 @@ class SettingsWindowController: NSWindowController {
 	@IBOutlet weak var heightValue: NSTextField!
 	@IBOutlet weak var heightSliderOutlet: NSSlider!
 	
+	@IBOutlet weak var positionOutlet: NSPopUpButton!
 	@IBAction func rotationChanged(_ sender: NSPopUpButton) {
 		switch sender.indexOfSelectedItem {
 		case 0:
@@ -68,6 +81,10 @@ class SettingsWindowController: NSWindowController {
 			NSLog("What the-? Something went wrong! Please report this bug")
 		}
 		delegate?.setupHUDsPosition()
+
+		if(settingsController?.shouldShowIcons ?? false) {
+			displayRelaunchButton()
+		}
 	}
 	
 	
@@ -124,6 +141,34 @@ class SettingsWindowController: NSWindowController {
 	
 	@IBAction func launchAtLoginClicked(_ sender: NSButton) {
 		LaunchAtLogin.isEnabled = sender.state.boolValue()
+	}
+	@IBOutlet weak var restartOutlet: NSButton!
+	
+	@IBOutlet weak var positionButtonConstraint: NSLayoutConstraint!
+	
+	func displayRelaunchButton() {
+		if(restartOutlet.isHidden) {
+			positionButtonConstraint.constant = 62
+			NSAnimationContext.runAnimationGroup({ (context) -> Void in
+				context.duration = 0.5
+				//restartOutlet.animator().alphaValue = 1
+				positionButtonConstraint.animator().constant = 16
+			}, completionHandler: { () -> Void in
+				print("button now viisble")
+				
+				self.restartOutlet.isHidden = false
+			})
+		}
+	}
+	
+	@IBAction func restartButton(_ sender: Any) {
+		let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
+		let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
+		let task = Process()
+		task.launchPath = "/usr/bin/open"
+		task.arguments = [path]
+		task.launch()
+		exit(0)
 	}
 	
 }

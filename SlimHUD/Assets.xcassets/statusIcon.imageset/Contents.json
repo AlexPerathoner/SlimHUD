@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "thin-513 copia.png",
+      "filename" : "Icon16.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "thin-513.png",
+      "filename" : "Icon32.png",
       "scale" : "2x"
     },
     {

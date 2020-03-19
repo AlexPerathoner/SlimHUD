@@ -7,6 +7,8 @@
 //
 
 import Cocoa
+import QuartzCore
+
 
 extension NSControl.StateValue {
 	func boolValue() -> Bool {
@@ -30,12 +32,11 @@ extension Bool {
 class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
 
 	// MARK: - Settings & setups
-	
+	private let shadowRadius: CGFloat = 20
 	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
 	
 	var settingsController = SettingsController()
-	
 	
 	func updateShadows(enabled: Bool) {
 		setupShadow(for: volumeView, enabled)
@@ -102,16 +103,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			view.layer?.shadowOpacity = 1
 			view.layer?.shadowColor = .black
 			view.layer?.shadowOffset = NSMakeSize(0, 0)
-			view.layer?.shadowRadius = 20
+			view.layer?.shadowRadius = shadowRadius
 		} else {
 			view.shadow = nil
 		}
 	}
 	
 	func setHeight(height: CGFloat) {
-		let viewSize = volumeBar.frame
-		for bar in [volumeBar, brightnessBar, backlightBar] as [ProgressBar] {
-			bar.setFrameSize(.init(width: viewSize.width, height: height))
+		
+		let viewSize = volumeView.frame
+		for view in [volumeView, brightnessView, backlightView] as [NSView] {
+			view.setFrameSize(NSSize(width: viewSize.width, height: height))
 		}
 		setupHUDsPosition()
 	}
@@ -119,48 +121,65 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	func setupHUDsPosition() {
 		var position: CGPoint		
 		
-		let barSize = volumeBar.frame
+		//FIXME: set height
+		let viewSize = volumeView.frame
 		let screenSize = NSScreen.screens[0].frame
 		
 		switch settingsController.position {
 		case .left:
-			position = CGPoint(x: 0, y: (screenSize.height/2)-(barSize.height/2))
+			position = CGPoint(x: 0, y: (screenSize.height/2)-(viewSize.height/2))
 		case .right:
-			position = CGPoint(x: (screenSize.width)-(barSize.width)-50, y: (screenSize.height/2)-(barSize.height/2))
+			position = CGPoint(x: (screenSize.width)-(viewSize.width)-shadowRadius, y: (screenSize.height/2)-(viewSize.height/2))
 		case .bottom:
-			position = CGPoint(x: (screenSize.width/2)-(barSize.height/2), y: 0)
+			position = CGPoint(x: (screenSize.width/2)-(viewSize.height/2), y: 0)
 		case .top:
-			position = CGPoint(x: (screenSize.width/2)-(barSize.height/2), y: (screenSize.height)-50)
+			position = CGPoint(x: (screenSize.width/2)-(viewSize.height/2), y: (screenSize.height)-(viewSize.width)-shadowRadius)
 		}
-		
-		let rotated = settingsController.position == .bottom || settingsController.position == .top
 		
 		for hud in [volumeHud, brightnessHud, backlightHud] as [Hud] {
 			hud.position = position
 			hud.rotated = settingsController.position
 		}
 		
-		if rotated {
-			for view in [volumeView, brightnessView, backlightView] as [NSView] {
-				view.layer?.anchorPoint = CGPoint(x: 0, y: 0)
-				view.setFrameOrigin(.init(x: 0, y: 50))
-				view.frameRotation = -90
+		let rotated = settingsController.position == .bottom || settingsController.position == .top
+		for view in [volumeView, brightnessView, backlightView] as [NSView] {
+			view.layer?.anchorPoint = CGPoint(x: 0, y: 0)
+			if(rotated) {
+				view.frameCenterRotation = -90
+				view.setFrameOrigin(.init(x: 0, y: viewSize.width))
+			} else {
+				view.frameCenterRotation = 0
+				view.setFrameOrigin(.init(x: 0, y: 0))
 			}
+			
+			//needs a bit space more for displaying shadows...
+			if(settingsController.position == .right) {
+				view.setFrameOrigin(.init(x: shadowRadius, y: 0))
+			}
+			if(settingsController.position == .top) {
+				view.setFrameOrigin(.init(x: 0, y: shadowRadius+viewSize.width))
+			}
+		}
+		
+		//FIXME: set rotation
+		//rotating icons of view
+		if(settingsController.shouldShowIcons) {
 			for image in [volumeImage, brightnessImage, backlightImage] as [NSImageView] {
-				image.frameCenterRotation = 90
-			}
-		} else {
-			for view in [volumeView, brightnessView, backlightView] as [NSView] {
-				view.layer?.anchorPoint = CGPoint(x: 0, y: 0)
-				view.setFrameOrigin(.init(x: 0, y: 50))
-				view.frameRotation = 0
-			}
-			for image in [volumeImage, brightnessImage, backlightImage] as [NSImageView] {
-				image.frameCenterRotation = 0
+				if(rotated) {
+					while(image.boundsRotation.truncatingRemainder(dividingBy: 360) != 90) {
+						image.rotate(byDegrees: 90)
+					}
+				} else {
+					while(image.boundsRotation.truncatingRemainder(dividingBy: 360) != 0) {
+						image.rotate(byDegrees: 90)
+					}
+				}
 			}
 		}
 		
 	}
+	
+	
 	
 	// MARK: - Views, bars & HUDs
 	
@@ -236,11 +255,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		brightnessHud.view = brightnessView
 		backlightHud.view = backlightView
 		
+
+		for image in [volumeImage, brightnessImage, backlightImage] as [NSImageView] {
+			image.wantsLayer = true
+			image.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+		}
 		
-		//FIXME: set height
-		//setHeight(height: CGFloat(settingsController.barHeight))
+		setHeight(height: CGFloat(settingsController.barHeight))
 		
-		setupHUDsPosition()
 		
 		updateAll()
 	}
@@ -351,4 +373,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		shell(.load)
 	}
 	
+}
+
+
+
+extension NSView
+{
+    func setAnchorPoint (anchorPoint:CGPoint)
+    {
+        if let layer = self.layer
+        {
+            var newPoint = CGPoint(x: self.bounds.size.width * anchorPoint.x, y: self.bounds.size.height * anchorPoint.y)
+            var oldPoint = CGPoint(x: self.bounds.size.width * layer.anchorPoint.x, y: self.bounds.size.height * layer.anchorPoint.y)
+
+            newPoint = newPoint.applying(layer.affineTransform())
+            oldPoint = oldPoint.applying(layer.affineTransform())
+
+            var position = layer.position
+
+            position.x -= oldPoint.x
+            position.x += newPoint.x
+
+            position.y -= oldPoint.y
+            position.y += newPoint.y
+
+            layer.position = position
+            layer.anchorPoint = anchorPoint
+        }
+    }
 }
