@@ -15,6 +15,13 @@ import QuartzCore
 class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
 
 	// MARK: - Settings & setups
+	var shouldUseAnimation = true {
+		didSet {
+			volumeHud.animated = shouldUseAnimation
+			brightnessHud.animated = shouldUseAnimation
+			backlightHud.animated = shouldUseAnimation
+		}
+	}
 	private let shadowRadius: CGFloat = 20
 	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
@@ -230,6 +237,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		oldBacklight = getKeyboardBrightness()
 		oldBrightness = getDisplayBrightness()
 		
+		shouldUseAnimation = settingsController.shouldUseAnimation
 		
 		volumeHud.view = volumeView
 		brightnessHud.view = brightnessView

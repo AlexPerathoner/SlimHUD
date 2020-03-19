@@ -20,6 +20,7 @@ protocol SettingsWindowControllerDelegate: class {
 	func setBacklightColor(color: NSColor)
 	func setHeight(height: CGFloat)
 	func setupHUDsPosition()
+	var shouldUseAnimation: Bool { get set }
 }
 class SettingsWindowController: NSWindowController {
 	
@@ -30,6 +31,8 @@ class SettingsWindowController: NSWindowController {
 		launchAtLoginOutlet.state = LaunchAtLogin.isEnabled.toStateValue()
 		iconOutlet.state = settingsController?.shouldShowIcons!.toStateValue() ?? .on
 		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
+		continuousCheckOutlet.state = settingsController?.shouldContinuouslyCheck.toStateValue() ?? .on
+		animationsOutlet.state = settingsController?.shouldUseAnimation.toStateValue() ?? .on
 		backgroundColorOutlet.color = settingsController!.backgroundColor
 		volumeEnabledColorOutlet.color = settingsController!.volumeEnabledColor
 		volumeDisabledColorOutlet.color = settingsController!.volumeDisabledColor
@@ -57,6 +60,7 @@ class SettingsWindowController: NSWindowController {
 	@IBOutlet weak var iconOutlet: NSButton!
 	@IBOutlet weak var shadowOutlet: NSButton!
 	@IBOutlet weak var continuousCheckOutlet: NSButton!
+	@IBOutlet weak var animationsOutlet: NSButton!
 	
 	@IBOutlet weak var backgroundColorOutlet: NSColorWell!
 	@IBOutlet weak var volumeEnabledColorOutlet: NSColorWell!
@@ -110,7 +114,15 @@ class SettingsWindowController: NSWindowController {
 	
 	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
 		settingsController?.shouldContinuouslyCheck = sender.state.boolValue()
+		
 	}
+	
+	@IBAction func shouldUseAnimations(_ sender: NSButton) {
+		let val = sender.state.boolValue()
+		settingsController?.shouldUseAnimation = val
+		delegate?.shouldUseAnimation = val
+	}
+	
 	
 	
 	@IBAction func resetDefaults(_ sender: Any) {

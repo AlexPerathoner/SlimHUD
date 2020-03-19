@@ -1,3 +1,4 @@
+<!--©Alexander Perathoner 19/03/2020-->
 
 <img align="right" width="25%" src="Screens/Icon1024.png"></img>
 # SlimHUD - Cyanocitta
@@ -7,7 +8,7 @@ Every day you change your volume or brightness and an ugly and unbelievably old 
 ## Features
 
 
-###Settings
+### Settings
 
 ## Installation
 Download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest).
@@ -18,10 +19,10 @@ Launching SlimHud is easy: copy the app into your Application's folder and then 
 1. Enter Recovery Mode by restarting your mac and holding ⌘+R while it's booting up.
 2. Launch the terminal by clicking on Utilities > Terminal.
 3. Disable SIP with ```crsutil disable```.
-4. Restart your mac and login into your account.
-5. Navigate to /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist
-6. As com.apple.OSDUIHelper.plist is a read-only file, to modify it, you'll first need to run ```sudo mount -uw; killall Finder```
-7. You can now open com.apple.OSDUIHelper.plist and remove all of the text between \<plist version=”1.0″> and \</plist>. Save the file.
+4. Restart your mac and login into an admin account.
+5. Run ```sudo mount -uw /; killall Finder``` in your terminal.
+6. Now run ```sudo nano /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist```.
+6. Remove all of the text between \<plist version=”1.0″> and \</plist>. Save the file by hitting control + X, answering yes and hitting return.
 8. Re-enter Recovery mode.
 9. Enable SIP with ```crsutil enable```.
 
