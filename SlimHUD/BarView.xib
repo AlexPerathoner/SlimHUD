@@ -14,36 +14,59 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="ObserverApplication" customModule="SlimHUD" customModuleProvider="target"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="47" height="287"/>
+            <rect key="frame" x="0.0" y="0.0" width="47" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEc-3L-76X" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
-                    <rect key="frame" x="20" y="49" width="7" height="218"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="OEc-3L-76X" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                    <rect key="frame" x="20" y="42" width="7" height="218"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="7" id="xcw-aa-5Ua"/>
+                    </constraints>
                 </customView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-vC-v05">
-                    <rect key="frame" x="13" y="20" width="21" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="volume" id="zRf-Lj-5fz"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-vC-v05">
+                    <rect key="frame" x="13" y="13" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="WWf-sx-xms"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="volume" id="zRf-Lj-5fz"/>
                 </imageView>
             </subviews>
-            <point key="canvasLocation" x="-81.5" y="156.5"/>
+            <constraints>
+                <constraint firstItem="5Ds-vC-v05" firstAttribute="top" secondItem="OEc-3L-76X" secondAttribute="bottom" constant="8" symbolic="YES" id="Gsf-a6-4NF"/>
+                <constraint firstItem="5Ds-vC-v05" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="13" id="MOO-Xm-R5p"/>
+                <constraint firstAttribute="trailing" secondItem="OEc-3L-76X" secondAttribute="trailing" constant="20" id="UwF-7D-VZ2"/>
+                <constraint firstItem="OEc-3L-76X" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="XBh-sq-6EW"/>
+                <constraint firstItem="OEc-3L-76X" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="ewD-Mp-NvC"/>
+                <constraint firstItem="5Ds-vC-v05" firstAttribute="centerX" secondItem="OEc-3L-76X" secondAttribute="centerX" id="tto-yr-A5n"/>
+                <constraint firstAttribute="bottom" secondItem="5Ds-vC-v05" secondAttribute="bottom" constant="13" id="uus-Wx-kkR"/>
+            </constraints>
+            <point key="canvasLocation" x="-81.5" y="153"/>
         </customView>
         <customView id="N9o-3L-Umj">
-            <rect key="frame" x="0.0" y="0.0" width="47" height="287"/>
+            <rect key="frame" x="0.0" y="0.0" width="47" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N97-Ia-sSU" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
-                    <rect key="frame" x="20" y="49" width="7" height="218"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="N97-Ia-sSU" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                    <rect key="frame" x="20" y="42" width="7" height="218"/>
                 </customView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srM-nZ-KaO">
-                    <rect key="frame" x="13" y="20" width="21" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="srM-nZ-KaO">
+                    <rect key="frame" x="13" y="13" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="JR7-qp-xkH"/>
+                        <constraint firstAttribute="height" constant="21" id="vhW-I5-ZDf"/>
+                    </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="backlight" id="2YK-6O-NAt"/>
                 </imageView>
             </subviews>
-            <point key="canvasLocation" x="-316" y="157"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="srM-nZ-KaO" secondAttribute="bottom" constant="13" id="4aC-Ka-xcQ"/>
+                <constraint firstItem="srM-nZ-KaO" firstAttribute="top" secondItem="N97-Ia-sSU" secondAttribute="bottom" constant="8" symbolic="YES" id="5kO-uN-sY4"/>
+                <constraint firstItem="srM-nZ-KaO" firstAttribute="leading" secondItem="N9o-3L-Umj" secondAttribute="leading" constant="13" id="A6G-mo-IbM"/>
+                <constraint firstItem="N97-Ia-sSU" firstAttribute="leading" secondItem="N9o-3L-Umj" secondAttribute="leading" constant="20" symbolic="YES" id="AjW-yF-ltd"/>
+                <constraint firstItem="N97-Ia-sSU" firstAttribute="centerX" secondItem="srM-nZ-KaO" secondAttribute="centerX" id="ClD-eg-jfM"/>
+                <constraint firstItem="N97-Ia-sSU" firstAttribute="top" secondItem="N9o-3L-Umj" secondAttribute="top" constant="20" symbolic="YES" id="kWz-GR-x5c"/>
+            </constraints>
+            <point key="canvasLocation" x="-316.5" y="153"/>
         </customView>
         <customObject id="Llm-3p-9cC" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
             <connections>
@@ -77,20 +100,30 @@
             <point key="canvasLocation" x="-249" y="-76"/>
         </menu>
         <customView id="RRc-vh-kfk">
-            <rect key="frame" x="0.0" y="0.0" width="47" height="287"/>
+            <rect key="frame" x="0.0" y="0.0" width="47" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GPS-kh-j17" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
-                    <rect key="frame" x="20" y="49" width="7" height="218"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="GPS-kh-j17" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                    <rect key="frame" x="20" y="42" width="7" height="218"/>
                 </customView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pn1-3j-g0f">
-                    <rect key="frame" x="13" y="20" width="21" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pn1-3j-g0f">
+                    <rect key="frame" x="13" y="13" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="rKV-aO-Mrv"/>
+                        <constraint firstAttribute="height" constant="21" id="uYc-kh-yMi"/>
+                    </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="brightness" id="IhV-Lj-2p0"/>
                 </imageView>
             </subviews>
-            <point key="canvasLocation" x="-195.5" y="156.5"/>
+            <constraints>
+                <constraint firstItem="GPS-kh-j17" firstAttribute="leading" secondItem="RRc-vh-kfk" secondAttribute="leading" constant="20" symbolic="YES" id="6TV-4f-JtC"/>
+                <constraint firstItem="GPS-kh-j17" firstAttribute="centerX" secondItem="pn1-3j-g0f" secondAttribute="centerX" id="Gqk-53-Id8"/>
+                <constraint firstAttribute="bottom" secondItem="pn1-3j-g0f" secondAttribute="bottom" constant="13" id="R6W-h9-0jN"/>
+                <constraint firstItem="GPS-kh-j17" firstAttribute="top" secondItem="RRc-vh-kfk" secondAttribute="top" constant="20" symbolic="YES" id="RQ3-09-Fdt"/>
+                <constraint firstItem="pn1-3j-g0f" firstAttribute="top" secondItem="GPS-kh-j17" secondAttribute="bottom" constant="8" symbolic="YES" id="Xu3-XM-hB5"/>
+                <constraint firstItem="pn1-3j-g0f" firstAttribute="leading" secondItem="RRc-vh-kfk" secondAttribute="leading" constant="13" id="ox6-Ip-6Sv"/>
+            </constraints>
+            <point key="canvasLocation" x="-195.5" y="153"/>
         </customView>
     </objects>
     <resources>

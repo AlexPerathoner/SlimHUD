@@ -3,7 +3,7 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "thin-513 copia.png",
+      "filename" : "Icon16.png",
       "scale" : "1x"
     },
     {
@@ -14,7 +14,7 @@
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "thin-513.png",
+      "filename" : "Icon32.png",
       "scale" : "1x"
     },
     {
@@ -25,7 +25,7 @@
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "thin-5122 copia-2.png",
+      "filename" : "Icon128.png",
       "scale" : "1x"
     },
     {
@@ -36,7 +36,7 @@
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "thin-5122 copia-1.png",
+      "filename" : "Icon256.png",
       "scale" : "1x"
     },
     {
@@ -47,7 +47,7 @@
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "thin-5122 copia.png",
+      "filename" : "Icon512.png",
       "scale" : "1x"
     },
     {
