@@ -10,23 +10,6 @@ import Cocoa
 import QuartzCore
 
 
-extension NSControl.StateValue {
-	func boolValue() -> Bool {
-		if(self.rawValue == 0) {
-			return false
-		}
-		return true
-	}
-}
-extension Bool {
-	func toStateValue() -> NSControl.StateValue {
-		if(self) {
-			return .on
-		} else {
-			return .off
-		}
-	}
-}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
@@ -121,7 +104,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	func setupHUDsPosition() {
 		var position: CGPoint		
 		
-		//FIXME: set height
 		let viewSize = volumeView.frame
 		let screenSize = NSScreen.screens[0].frame
 		
@@ -161,7 +143,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			}
 		}
 		
-		//FIXME: set rotation
 		//rotating icons of view
 		if(settingsController.shouldShowIcons) {
 			for image in [volumeImage, brightnessImage, backlightImage] as [NSImageView] {
@@ -249,7 +230,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		oldBacklight = getKeyboardBrightness()
 		oldBrightness = getDisplayBrightness()
 		
-
 		
 		volumeHud.view = volumeView
 		brightnessHud.view = brightnessView
@@ -290,8 +270,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	@objc func showVolumeHUD() {
 		let disabled = isMuted()
 		setColor(for: volumeBar, disabled)
-		// MARK: possible configuration
-		volumeBar.progress = CGFloat(getOutputVolume()) //can be commented if checkVolume is uncommented in checkChanges()
+		if(!settingsController.shouldContinuouslyCheck) {
+			volumeBar.progress = CGFloat(getOutputVolume())
+		}
 		
 		if(disabled) {
 			volumeImage.image = NSImage(named: "noVolume")
@@ -319,11 +300,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	// MARK: - Check functions
 	
+	
 	@objc func checkChanges() {
 		checkBacklightChanges()
 		checkBrightnessChanges()
-		// MARK: possible configuration
-		//checkVolumeChanges() //if not commented SlimHUD will continuosly check if the volume has changed. This will lead to a sensible increase in the CPU's usage (in my case from 0% to 1%; max is 800%) but it will also add a nice touch if you have the touchbar: sliding over the volume button will display the hud.
+		if(settingsController.shouldContinuouslyCheck) {
+			checkVolumeChanges()
+		}
 	}
 	
 	var oldVolume: Float = 0.5
@@ -373,32 +356,4 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		shell(.load)
 	}
 	
-}
-
-
-
-extension NSView
-{
-    func setAnchorPoint (anchorPoint:CGPoint)
-    {
-        if let layer = self.layer
-        {
-            var newPoint = CGPoint(x: self.bounds.size.width * anchorPoint.x, y: self.bounds.size.height * anchorPoint.y)
-            var oldPoint = CGPoint(x: self.bounds.size.width * layer.anchorPoint.x, y: self.bounds.size.height * layer.anchorPoint.y)
-
-            newPoint = newPoint.applying(layer.affineTransform())
-            oldPoint = oldPoint.applying(layer.affineTransform())
-
-            var position = layer.position
-
-            position.x -= oldPoint.x
-            position.x += newPoint.x
-
-            position.y -= oldPoint.y
-            position.y += newPoint.y
-
-            layer.position = position
-            layer.anchorPoint = anchorPoint
-        }
-    }
 }

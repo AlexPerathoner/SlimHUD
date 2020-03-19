@@ -56,6 +56,7 @@ class SettingsWindowController: NSWindowController {
 	
 	@IBOutlet weak var iconOutlet: NSButton!
 	@IBOutlet weak var shadowOutlet: NSButton!
+	@IBOutlet weak var continuousCheckOutlet: NSButton!
 	
 	@IBOutlet weak var backgroundColorOutlet: NSColorWell!
 	@IBOutlet weak var volumeEnabledColorOutlet: NSColorWell!
@@ -106,6 +107,11 @@ class SettingsWindowController: NSWindowController {
 		settingsController?.shouldShowShadows = val
 		delegate?.updateShadows(enabled: val)
 	}
+	
+	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
+		settingsController?.shouldContinuouslyCheck = sender.state.boolValue()
+	}
+	
 	
 	@IBAction func resetDefaults(_ sender: Any) {
 		delegate?.setupDefaultColors()
