@@ -15,6 +15,15 @@ import Cocoa
 open class ProgressBar: DeterminateAnimation {
 
     open var progressLayer = CAShapeLayer()
+	private var animationTime: CFTimeInterval = 0.36
+	
+	open func setupAnimation(animated: Bool) {
+		if(animated) {
+			animationTime = 0.36
+		} else {
+			animationTime = 0
+		}
+	}
     
     override func notifyViewRedesigned() {
         super.notifyViewRedesigned()
@@ -34,7 +43,7 @@ open class ProgressBar: DeterminateAnimation {
     
     override func updateProgress() {
         CATransaction.begin()
-		CATransaction.setAnimationDuration(0.36)
+		CATransaction.setAnimationDuration(animationTime)
         let timing = CAMediaTimingFunction(name: .easeOut)
         CATransaction.setAnimationTimingFunction(timing)
         progressLayer.frame.size.height = bounds.height * progress

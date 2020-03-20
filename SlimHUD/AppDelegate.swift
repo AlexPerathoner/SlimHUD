@@ -20,6 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			volumeHud.animated = shouldUseAnimation
 			brightnessHud.animated = shouldUseAnimation
 			backlightHud.animated = shouldUseAnimation
+			volumeBar.setupAnimation(animated: shouldUseAnimation)
+			brightnessBar.setupAnimation(animated: shouldUseAnimation)
+			backlightBar.setupAnimation(animated: shouldUseAnimation)
 		}
 	}
 	private let shadowRadius: CGFloat = 20
@@ -124,6 +127,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		case .top:
 			position = CGPoint(x: (screenSize.width/2)-(viewSize.height/2), y: (screenSize.height)-(viewSize.width)-shadowRadius)
 		}
+		NSLog("Moved to position: \(position)")
 		
 		for hud in [volumeHud, brightnessHud, backlightHud] as [Hud] {
 			hud.position = position
