@@ -1,7 +1,9 @@
 <!--©Alexander Perathoner 19/03/2020-->
 
 <img align="right" width="25%" src="Screens/Icon1024.png">
+
 # SlimHUD - Cyanocitta
+
 Replacement for MacOS' HUDs.
 
 Every day you change your volume or brightness and an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
@@ -18,45 +20,24 @@ Each feature can be toggled from the settings window.<br>To access the settings 
 Here's a full list of the features:
 
 * When changing volume / brightness / keyboard's backlight a small icon is shown under the bar. The icons are:
-<div style="height: auto;display: flex;width: 50%;">
-	<div style="flex: 25%;">
-		<p align="center">
-	  		<img src = "SlimHUD/Assets.xcassets/volume.imageset/volume.png" width=50>
-	  	</p>
-	</div>
-	<div style="flex: 25%;">
-		<p align="center">
-	  		<img src = "SlimHUD/Assets.xcassets/noVolume.imageset/noVolume.png" width=50>
-	  	</p>
-	</div>
-	<div style="flex: 25%;">
-		<p align="center">
-	  		<img src = "SlimHUD/Assets.xcassets/brightness.imageset/brightness.png" width=50>
-	  	</p>
-	</div>
-	<div style="flex: 25%;">
-		<p align="center">
-	  		<img src = "SlimHUD/Assets.xcassets/backlight.imageset/backlight.png" width=50>
-	  	</p>
-	</div>
-</div>
+
+<p align="center">
+	<img src = "SlimHUD/Assets.xcassets/volume.imageset/volume.png" width=50 margin="10 10 10 10">
+	<img src = "SlimHUD/Assets.xcassets/noVolume.imageset/noVolume.png" width=50 margin="10 10 10 10">
+	<img src = "SlimHUD/Assets.xcassets/brightness.imageset/brightness.png" width=50 margin="10 10 10 10">
+	<img src = "SlimHUD/Assets.xcassets/backlight.imageset/backlight.png" width=50 margin="10 10 10 10">
+</p>	
+
 
 * If you don't the flat look of the bar you can enable a shadow effect
-<div style="height: auto;display: flex;width: 50%;">
-	<div style="flex: 25%;">
-		<p align="center">
-	  		<img src = "Screens/Shadows/noShadow.jpeg" height=250>
-	  	</p>
-	</div>
-	<div style="flex: 25%;">
-		<p align="center">
-	  		<img src = "Screens/Shadows/shadow.jpeg" height =250>
-	  	</p>
-	</div>
-</div>
+<p align="center">
+	<img src = "Screens/Shadows/noShadow.jpeg" height=250>
+	<img src = "Screens/Shadows/shadow.jpeg" height =250>
+</p>
 
 
 * If you don't like the slide-in animation you can disable it. The bar will then just appear and disappear. 
+
 <p align="center">
 <img src = "Screens/Animations/animations2.gif" width=250>
 <img src = "Screens/Animations/animations.gif" height=250>
@@ -66,23 +47,29 @@ Here's a full list of the features:
 
 * Continuously check for changes (*reccomended if you have the TouchBar*): SlimHUD usually shows the volume bar when relative key has been pressed. This means that if you use the volume slider on your TouchBar nothing won't show up. <br>Note that enabling this option *will* fix this problem, but will also increase the CPU usage (which will still be almost none)
 
-* Each bar (volume / brightness / keyboard's backlight) has it's own color. If you want to reset the colors to the default values click on the reset icon.<p align="center">
+* Each bar (volume / brightness / keyboard's backlight) has it's own color. If you want to reset the colors to the default values click on the reset icon.<br>The background color is the same for every bar.<br>You can also choose the color of the volume when its muted.
+<p align="center">
 <img src = "Screens/colors.png" width=250>
-</p>The background color is the same for every bar.<br>You can also choose the color of the volume when its muted.
+</p>
 
-* If you think that the default bar is too small you can easily adjust its size.<img src = "Screens/Size/small.png" width=75%><details>
-  <summary>See more</summary><p align="center">
+* If you think that the default bar is too small you can easily adjust its size.<img src = "Screens/Size/small.png" width=75%>
+<details>
+  <summary>See more</summary>
+	
+<p align="center">
 <img src = "Screens/Size/middle.png" width=75%>
 <img src = "Screens/Size/big.png" width=75%>
-</p></details>
+</p>
 
-* You can change the position the bar will appear: on the left, right, bottom or top; it's up to you!<br>Note that when you change the orientation of the bar (E.g. left->bottom or right->top) you need to restart SlimHUD.<br><img src = "Screens/Position/left.png" width=75%><details>
-  <summary>See more</summary><p align="center">
+</details>
+
+* You can change the position the bar will appear: on the left, right, bottom or top; it's up to you!<br>Note that when you change the orientation of the bar (E.g. left->bottom or right->top) you need to restart SlimHUD.<br><img src = "Screens/Position/left.png" width=75%>
+<details><summary>See more</summary><p align="center">
 <img src = "Screens/Position/right.png" width=75%>
 <img src = "Screens/Position/top.png" width=75%>
 <img src = "Screens/Position/bottom.png" width=75%></p></details>
 
-* Lastly don't forget to enable the launch at login function!
+* Lastly don't forget to **enable the launch at login function!**
 
 
 ## Installation
