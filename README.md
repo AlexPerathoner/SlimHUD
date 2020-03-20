@@ -96,9 +96,10 @@ Launching SlimHud is easy: copy the app into your Application's folder and then 
 
 You have now successfully replaced those ugly and old overlays! Congrats!
 
-For future updates it won't be necessary to go through all of these steps. Just copy the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) into your application Folder. You already have 
+For future updates it won't be necessary to go through all of these steps. Just copy the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) into your application Folder.
 
-
+### Uninstalling
+If you'd like to restore the system's HUDs follow the same steps described above. With the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) a copy of the text you deleted from ```/System/Library/LaunchAgents/com.apple.OSDUIHelper.plist``` is provided. Copy it between \<plist version=”1.0″> and \</plist>.
 
 
 ## Credits
