@@ -33,7 +33,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="478" y="249" width="265" height="345"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="265" height="345"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -187,7 +187,7 @@
                                         <items>
                                             <menuItem title="Left" state="on" id="WUQ-ST-anx"/>
                                             <menuItem title="Bottom" id="0J9-mU-tAz"/>
-                                            <menuItem title="Up" id="yKo-bS-Zy0"/>
+                                            <menuItem title="Top" id="yKo-bS-Zy0"/>
                                             <menuItem title="Right" id="LFt-WS-iHg" userLabel="Right">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
