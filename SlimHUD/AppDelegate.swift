@@ -111,23 +111,42 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		setupHUDsPosition()
 	}
 	
+	
+	private func getScreenInfo() -> (screenFrame: NSRect, xDockHeight: CGFloat, yDockHeight: CGFloat, menuBarThickness: CGFloat, dockPosition: Position) {
+		
+		let visibleFrame = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
+		let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
+		let yDockHeight: CGFloat = visibleFrame.minY
+		let xDockHeight: CGFloat = screenFrame.width - visibleFrame.width
+		var menuBarThickness: CGFloat = 0
+		
+		if((screenFrame.height - visibleFrame.height - yDockHeight) != 0) {
+			menuBarThickness = NSStatusBar.system.thickness
+		}
+		let dockPosition = Position(rawValue: (UserDefaults.standard.persistentDomain(forName: "com.apple.dock")?["orientation"] as? String)!)
+		return (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition ?? .bottom)
+	}
+	
 	func setupHUDsPosition() {
 		var position: CGPoint		
 		
 		let viewSize = volumeView.frame
-		let screenSize = NSScreen.screens[0].frame
+		let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
 		
+		// Here the magic takes place, let it happen
+		var (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition) = getScreenInfo()
 		switch settingsController.position {
 		case .left:
-			position = CGPoint(x: 0, y: (screenSize.height/2)-(viewSize.height/2))
+			if(dockPosition == .right) {xDockHeight=0}
+			position = CGPoint(x: xDockHeight, y: (visibleFrame.height/2)-(viewSize.height/2) + yDockHeight)
 		case .right:
-			position = CGPoint(x: (screenSize.width)-(viewSize.width)-shadowRadius, y: (screenSize.height/2)-(viewSize.height/2))
+			if(dockPosition == .left) {xDockHeight=0}
+			position = CGPoint(x: (NSScreen.screens[0].frame.width)-(viewSize.width)-shadowRadius-xDockHeight, y: (visibleFrame.height/2)-(viewSize.height/2) + yDockHeight)
 		case .bottom:
-			position = CGPoint(x: (screenSize.width/2)-(viewSize.height/2), y: 0)
+			position = CGPoint(x: (screenFrame.width/2)-(viewSize.height/2), y: yDockHeight)
 		case .top:
-			position = CGPoint(x: (screenSize.width/2)-(viewSize.height/2), y: (screenSize.height)-(viewSize.width)-shadowRadius)
+			position = CGPoint(x: (screenFrame.width/2)-(viewSize.height/2), y: (NSScreen.screens[0].frame.height)-(viewSize.width)-shadowRadius-menuBarThickness)
 		}
-		NSLog("Moved to position: \(position)")
 		
 		for hud in [volumeHud, brightnessHud, backlightHud] as [Hud] {
 			hud.position = position
