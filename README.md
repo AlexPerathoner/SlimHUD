@@ -83,13 +83,13 @@ Launching SlimHud is easy: copy the app into your Application's folder and then 
   
 1. Enter Recovery Mode by restarting your mac and holding ⌘+R while it's booting up.
 2. Launch the terminal by clicking on Utilities > Terminal.
-3. Disable SIP with ```crsutil disable```.
+3. Disable SIP with ```csrutil disable```.
 4. Restart your mac and login into an admin account.
 5. Run ```sudo mount -uw /; killall Finder``` in your terminal.
 6. Now run ```sudo nano /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist```.
 6. Remove all of the text between \<plist version=”1.0″> and \</plist>. Save the file by hitting control + X, answering yes and hitting return.
 8. Re-enter Recovery mode.
-9. Enable SIP with ```crsutil enable```.
+9. Enable SIP with ```csrutil enable```.
   
 </details>
 
