@@ -108,33 +108,38 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		for view in [volumeView, brightnessView, backlightView] as [NSView] {
 			view.setFrameSize(NSSize(width: viewSize.width, height: height))
 		}
-		setupHUDsPosition()
+		setupHUDsPosition(false)
 	}
 	
 	
 	private func getScreenInfo() -> (screenFrame: NSRect, xDockHeight: CGFloat, yDockHeight: CGFloat, menuBarThickness: CGFloat, dockPosition: Position) {
-		
 		let visibleFrame = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
 		let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
 		let yDockHeight: CGFloat = visibleFrame.minY
 		let xDockHeight: CGFloat = screenFrame.width - visibleFrame.width
 		var menuBarThickness: CGFloat = 0
 		
-		if((screenFrame.height - visibleFrame.height - yDockHeight) != 0) {
+		if((screenFrame.height - visibleFrame.height - yDockHeight) != 0) { //menu bar visible
 			menuBarThickness = NSStatusBar.system.thickness
 		}
 		let dockPosition = Position(rawValue: (UserDefaults.standard.persistentDomain(forName: "com.apple.dock")?["orientation"] as? String)!)
 		return (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition ?? .bottom)
 	}
 	
-	func setupHUDsPosition() {
-		var position: CGPoint		
-		
+	
+	func setupHUDsPosition(_ isFullscreen: Bool) {
+		var position: CGPoint
 		let viewSize = volumeView.frame
+		
 		let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
 		
 		// Here the magic takes place, let it happen
-		var (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition) = getScreenInfo()
+		var (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition): (NSRect, CGFloat, CGFloat, CGFloat, Position)// = getScreenInfo()
+		if(isFullscreen) {
+			(visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition) = (screenFrame, 0, 0, 0, .bottom)
+		} else {
+			(visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition) = getScreenInfo()
+		}
 		switch settingsController.position {
 		case .left:
 			if(dockPosition == .right) {xDockHeight=0}
@@ -147,6 +152,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		case .top:
 			position = CGPoint(x: (screenFrame.width/2)-(viewSize.height/2), y: (NSScreen.screens[0].frame.height)-(viewSize.width)-shadowRadius-menuBarThickness)
 		}
+		//end of magic
 		
 		for hud in [volumeHud, brightnessHud, backlightHud] as [Hud] {
 			hud.position = position
@@ -164,7 +170,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 				view.setFrameOrigin(.init(x: 0, y: 0))
 			}
 			
-			//needs a bit space more for displaying shadows...
+			//needs a bit more space for displaying shadows...
 			if(settingsController.position == .right) {
 				view.setFrameOrigin(.init(x: shadowRadius, y: 0))
 			}
@@ -173,7 +179,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			}
 		}
 		
-		//rotating icons of view
+		//rotating icons of views
 		if(settingsController.shouldShowIcons) {
 			for image in [volumeImage, brightnessImage, backlightImage] as [NSImageView] {
 				if(rotated) {
@@ -187,7 +193,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 				}
 			}
 		}
-		
 	}
 	
 	
@@ -250,7 +255,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 															object: NSApplication.shared,
 															queue: OperationQueue.main) {
 				notification -> Void in
-																self.setupHUDsPosition()
+																self.setupHUDsPosition(false)
 		}
 		
 		
@@ -331,8 +336,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	// MARK: - Check functions
 	
+	func isInFullscreenMode() -> Bool {
+		let options = CGWindowListOption(arrayLiteral: CGWindowListOption.excludeDesktopElements, CGWindowListOption.optionOnScreenOnly)
+		let windowListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
+		let infoList = windowListInfo as NSArray? as? [[String: AnyObject]]
+		let screenSize = NSScreen.main?.frame
+		for i in infoList! {
+			let windowName = i["kCGWindowOwnerName"]! as! String
+			
+			//if Window Server or Dock are visible the user is certainly not using fullscreen
+			if(windowName == "Window Server" || windowName == "Dock") {return false}
+			if (i["kCGWindowBounds"]?["Height"] as! CGFloat == screenSize!.height && i["kCGWindowBounds"]?["Width"] as! CGFloat == screenSize!.width && windowName != "Dock" && windowName != "SlimHUD") {
+				return true
+			}
+		}
+		
+		return true
+	}
 	
+	var oldFullScreen = false
 	@objc func checkChanges() {
+		let newFullScreen = isInFullscreenMode()
+		
+		if(newFullScreen != oldFullScreen) {
+			setupHUDsPosition(newFullScreen)
+			oldFullScreen = newFullScreen
+		}
 		checkBacklightChanges()
 		checkBrightnessChanges()
 		if(settingsController.shouldContinuouslyCheck) {
@@ -340,10 +369,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		}
 	}
 	
+	func isAlmost(n1: Float, n2: Float) -> Bool { //used to partially prevent the bars to display when no user input happened
+		return (n1+0.05 >= n2 && n1-0.05 <= n2)
+	}
+	
 	var oldVolume: Float = 0.5
 	func checkVolumeChanges() {
 		let newVolume = getOutputVolume()
-		if(oldVolume != newVolume) {
+		if (!isAlmost(n1: oldVolume, n2: newVolume)) {
 			NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
 			volumeBar.progress = CGFloat(newVolume)
 			oldVolume = newVolume
@@ -353,7 +386,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	var oldBacklight: Float = 0.5
 	func checkBacklightChanges() {
 		let newBacklight = getKeyboardBrightness()
-		if(oldBacklight != newBacklight) {
+		if(!isAlmost(n1: oldBacklight, n2: newBacklight)) {
 			NotificationCenter.default.post(name: ObserverApplication.keyboardIlluminationChanged, object: self)
 			backlightBar.progress = CGFloat(newBacklight)
 			oldBacklight = newBacklight
@@ -363,7 +396,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	var oldBrightness: Float = 0.5
 	func checkBrightnessChanges() {
 		let newBrightness = getDisplayBrightness()
-		if(oldBrightness != newBrightness) {
+		if(!isAlmost(n1: oldBrightness, n2: newBrightness)) {
 			NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
 			brightnessBar.progress = CGFloat(newBrightness)
 			oldBrightness = newBrightness
