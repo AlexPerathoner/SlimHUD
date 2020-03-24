@@ -19,7 +19,7 @@ protocol SettingsWindowControllerDelegate: class {
 	func setBrightnessColor(color: NSColor)
 	func setBacklightColor(color: NSColor)
 	func setHeight(height: CGFloat)
-	func setupHUDsPosition()
+	func setupHUDsPosition(_ isFullscreen: Bool)
 	var shouldUseAnimation: Bool { get set }
 }
 class SettingsWindowController: NSWindowController {
@@ -85,7 +85,7 @@ class SettingsWindowController: NSWindowController {
 		default:
 			NSLog("What the-? Something went wrong! Please report this bug")
 		}
-		delegate?.setupHUDsPosition()
+		delegate?.setupHUDsPosition(false)
 
 		if(settingsController?.shouldShowIcons ?? false) {
 			displayRelaunchButton()
