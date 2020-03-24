@@ -37,31 +37,6 @@ func getOutputVolume() -> Float {
 }
 
 
-
-enum LoadState {
-	case load
-	case unload
-}
-
-@discardableResult
-func shell(_ load: LoadState) -> NSString? {
-
-    let task = Process()
-    task.launchPath = "/bin/launchctl/"
-    task.arguments = ["load","-wF","/System/Library/LaunchAgents/com.apple.OSDUIHelper.plist"]
-	if(load == .unload) {
-		task.arguments![0] = "unload"
-	}
-    let pipe = Pipe()
-    task.standardOutput = pipe
-    task.launch()
-
-    let data = pipe.fileHandleForReading.readDataToEndOfFile()
-    let output = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-
-    return output
-}
-
 func getDisplayBrightness() -> Float {
 	var brightness: Float = 0
 	var service: io_object_t = 1
