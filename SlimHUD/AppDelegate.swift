@@ -222,13 +222,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	@IBOutlet var statusMenu: NSMenu!
 	
 	@IBAction func quitCliked(_ sender: Any) {
-		shell(.load)
 		NSApplication.shared.terminate(self)
 	}
 		
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 
-		shell(.unload)
 		//menu bar
 		statusItem.menu = statusMenu
 		if let button = statusItem.button {
@@ -413,11 +411,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		}
 	}
 	
-	//If the application closes without applicationWillTerminate() being called the default OSX hud won't be displayed again automatically. To enable it manually run "launchctl load -wF /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist"
-	//PS: auto toggling of the system agent only works if SIP (Sistem Integrity Protection) is disabled. -> see "csrutil status"
 	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application
-		shell(.load)
 	}
 	
 }
