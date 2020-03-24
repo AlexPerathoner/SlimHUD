@@ -20,7 +20,7 @@ class Hud: NSView {
 	var rotated: Position = .left
 	
 	private var hudView: NSView? {
-		windowController?.showWindow(self)
+		//windowController?.showWindow(self)
 		return windowController?.window?.contentView
 	}
 	
@@ -56,12 +56,15 @@ class Hud: NSView {
 	
 	
 	func show() {
-		guard let view = hudView else { return }
-		frame = view.frame
-		view.addSubview(self.view)
 		
-		//animation only if not yet visible
+		
 		if(isHidden) {
+			guard let view = hudView else { return }
+			windowController?.showWindow(self)
+			frame = view.frame
+			view.addSubview(self.view)
+			
+			//animation only if not yet visible
 
 			switch rotated {
 			case .left:
@@ -73,19 +76,16 @@ class Hud: NSView {
 			case .bottom:
 				view.setFrameOrigin(.init(x: position.x, y: position.y - animationMovement))
 			}
-			
+			self.isHidden = false
 			if(animated) {
 				NSAnimationContext.runAnimationGroup({ (context) in
 					//slide + fade in animation
 					context.duration = animationDuration
 					view.animator().alphaValue = 1
 					view.animator().setFrameOrigin(position)
-				}) {
-					self.isHidden = false
-				}
+				}) {}
 			} else {
 				view.setFrameOrigin(position)
-				self.isHidden = false
 				view.alphaValue = 1
 			}
 		}
@@ -94,34 +94,38 @@ class Hud: NSView {
 	
 	
 	func hide(animated: Bool) {
-		guard let view = hudView else { return }
-		if(animated) {
-			NSAnimationContext.runAnimationGroup({ (context) in
-				//slide + fade out animation
-				context.duration = animationDuration
-				view.animator().alphaValue = 0
+		
+		
+		if(!isHidden) {
+			guard let view = hudView else { return }
+			if(animated) {
+				NSAnimationContext.runAnimationGroup({ (context) in
+					//slide + fade out animation
+					context.duration = animationDuration
+					view.animator().alphaValue = 0
 
-				switch rotated {
-				case .left:
-					view.animator().setFrameOrigin(.init(x: position.x - animationMovement, y: position.y))
-				case .right:
-					view.animator().setFrameOrigin(.init(x: position.x + animationMovement, y: position.y))
-				case .top:
-					view.animator().setFrameOrigin(.init(x: position.x, y: position.y + animationMovement))
-				case .bottom:
-					view.animator().setFrameOrigin(.init(x: position.x, y: position.y - animationMovement))
+					switch rotated {
+					case .left:
+						view.animator().setFrameOrigin(.init(x: position.x - animationMovement, y: position.y))
+					case .right:
+						view.animator().setFrameOrigin(.init(x: position.x + animationMovement, y: position.y))
+					case .top:
+						view.animator().setFrameOrigin(.init(x: position.x, y: position.y + animationMovement))
+					case .bottom:
+						view.animator().setFrameOrigin(.init(x: position.x, y: position.y - animationMovement))
+					}
+				}) {
+					self.isHidden = true
+					self.removeFromSuperview()
+					self.windowController?.close()
 				}
-			}) {
-				self.isHidden = true
-				self.removeFromSuperview()
-				self.windowController?.close()
+			} else {
+				view.setFrameOrigin(position)
+				view.alphaValue = 0
+				isHidden = true
+				removeFromSuperview()
+				windowController?.close()
 			}
-		} else {
-			view.setFrameOrigin(position)
-			view.alphaValue = 0
-			isHidden = true
-			removeFromSuperview()
-			windowController?.close()
 		}
     }
 	
