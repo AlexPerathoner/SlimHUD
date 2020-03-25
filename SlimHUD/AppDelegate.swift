@@ -122,7 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		if((screenFrame.height - visibleFrame.height - yDockHeight) != 0) { //menu bar visible
 			menuBarThickness = NSStatusBar.system.thickness
 		}
-		let dockPosition = Position(rawValue: (UserDefaults.standard.persistentDomain(forName: "com.apple.dock")?["orientation"] as? String)!)
+		let dockPosition = Position(rawValue: (UserDefaults.standard.persistentDomain(forName: "com.apple.dock")!["orientation"] as? String) ?? "bottom")
 		return (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition ?? .bottom)
 	}
 	
