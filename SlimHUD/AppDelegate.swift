@@ -337,14 +337,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	func isInFullscreenMode() -> Bool {
 		let options = CGWindowListOption(arrayLiteral: CGWindowListOption.excludeDesktopElements, CGWindowListOption.optionOnScreenOnly)
 		let windowListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
-		let infoList = windowListInfo as NSArray? as? [[String: AnyObject]]
-		let screenSize = NSScreen.main?.frame
-		for i in infoList! {
-			let windowName = i["kCGWindowOwnerName"]! as! String
+		let infoList = windowListInfo as NSArray? as? [[String: AnyObject]] ?? []
+		let screenSize = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
+		for i in infoList {
+			let windowName = i["kCGWindowOwnerName"] as? String ?? ""
 			
 			//if Window Server or Dock are visible the user is certainly not using fullscreen
 			if(windowName == "Window Server" || windowName == "Dock") {return false}
-			if (i["kCGWindowBounds"]?["Height"] as! CGFloat == screenSize!.height && i["kCGWindowBounds"]?["Width"] as! CGFloat == screenSize!.width && windowName != "Dock" && windowName != "SlimHUD") {
+			if (i["kCGWindowBounds"]?["Height"] as? CGFloat ?? 0 == screenSize.height && i["kCGWindowBounds"]?["Width"] as? CGFloat ?? 0 == screenSize.width && windowName != "Dock" && windowName != "SlimHUD") {
 				return true
 			}
 		}
@@ -393,12 +393,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	var oldBrightness: Float = 0.5
 	func checkBrightnessChanges() {
+		if(NSScreen.screens.count == 0) {return}
 		let newBrightness = getDisplayBrightness()
 		if(!isAlmost(n1: oldBrightness, n2: newBrightness)) {
 			NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
 			brightnessBar.progress = CGFloat(newBrightness)
 			oldBrightness = newBrightness
 		}
+		
 	}
 	
 	// MARK: -
