@@ -28,6 +28,8 @@ class SettingsWindowController: NSWindowController {
     weak var settingsController: SettingsController?
 	
 	@IBOutlet weak var previewBox: NSBox!
+	
+	
 	override func windowDidLoad() {
 		//previewBox.contentView?.insertVibrancyViewBlendingMode(.behindWindow)
 		launchAtLoginOutlet.state = LaunchAtLogin.isEnabled.toStateValue()
@@ -57,23 +59,32 @@ class SettingsWindowController: NSWindowController {
         super.windowDidLoad()
 	}
 	
+	
+	// MARK: - General tab
 	@IBOutlet weak var launchAtLoginOutlet: NSButton!
 	
-	@IBOutlet weak var iconOutlet: NSButton!
-	@IBOutlet weak var shadowOutlet: NSButton!
 	@IBOutlet weak var continuousCheckOutlet: NSButton!
-	@IBOutlet weak var animationsOutlet: NSButton!
 	
-	@IBOutlet weak var backgroundColorOutlet: NSColorWell!
-	@IBOutlet weak var volumeEnabledColorOutlet: NSColorWell!
-	@IBOutlet weak var volumeDisabledColorOutlet: NSColorWell!
-	@IBOutlet weak var brightnessColorOutlet: NSColorWell!
-	@IBOutlet weak var keyboardColorOutlet: NSColorWell!
+	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
+		settingsController?.shouldContinuouslyCheck = sender.state.boolValue()
+	}
+	@IBAction func launchAtLoginClicked(_ sender: NSButton) {
+		LaunchAtLogin.isEnabled = sender.state.boolValue()
+	}
+	
+	
+	// MARK: - Position tab
 	
 	@IBOutlet weak var heightValue: NSTextField!
 	@IBOutlet weak var heightSliderOutlet: NSSlider!
 	
 	@IBOutlet weak var positionOutlet: NSPopUpButton!
+	
+	@IBOutlet weak var restartOutlet: NSButton!
+	
+	@IBOutlet weak var positionButtonConstraint: NSLayoutConstraint!
+	
+	
 	@IBAction func rotationChanged(_ sender: NSPopUpButton) {
 		switch sender.indexOfSelectedItem {
 		case 0:
@@ -101,7 +112,45 @@ class SettingsWindowController: NSWindowController {
 		settingsController?.barHeight = sender.integerValue
 	}
 	
-		
+	
+	func displayRelaunchButton() {
+		if(restartOutlet.isHidden) {
+			positionButtonConstraint.constant = 62
+			NSAnimationContext.runAnimationGroup({ (context) -> Void in
+				context.duration = 0.5
+				//restartOutlet.animator().alphaValue = 1
+				positionButtonConstraint.animator().constant = 16
+			}, completionHandler: { () -> Void in
+				
+				self.restartOutlet.isHidden = false
+			})
+		}
+	}
+	
+	@IBAction func restartButton(_ sender: Any) {
+		let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
+		let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
+		let task = Process()
+		task.launchPath = "/usr/bin/open"
+		task.arguments = [path]
+		task.launch()
+		exit(0)
+	}
+	
+	// MARK: - Style tab
+	
+	
+	@IBOutlet weak var iconOutlet: NSButton!
+	@IBOutlet weak var shadowOutlet: NSButton!
+	@IBOutlet weak var animationsOutlet: NSButton!
+	
+	@IBOutlet weak var backgroundColorOutlet: NSColorWell!
+	@IBOutlet weak var volumeEnabledColorOutlet: NSColorWell!
+	@IBOutlet weak var volumeDisabledColorOutlet: NSColorWell!
+	@IBOutlet weak var brightnessColorOutlet: NSColorWell!
+	@IBOutlet weak var keyboardColorOutlet: NSColorWell!
+	
+	
 	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
 		let val = sender.state.boolValue()
 		settingsController?.shouldShowIcons = val
@@ -114,10 +163,6 @@ class SettingsWindowController: NSWindowController {
 		delegate?.updateShadows(enabled: val)
 	}
 	
-	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
-		settingsController?.shouldContinuouslyCheck = sender.state.boolValue()
-		
-	}
 	
 	@IBAction func shouldUseAnimations(_ sender: NSButton) {
 		let val = sender.state.boolValue()
@@ -159,35 +204,6 @@ class SettingsWindowController: NSWindowController {
 		delegate?.setBacklightColor(color: sender.color)
 	}
 	
-	@IBAction func launchAtLoginClicked(_ sender: NSButton) {
-		LaunchAtLogin.isEnabled = sender.state.boolValue()
-	}
-	@IBOutlet weak var restartOutlet: NSButton!
-	
-	@IBOutlet weak var positionButtonConstraint: NSLayoutConstraint!
-	
-	func displayRelaunchButton() {
-		if(restartOutlet.isHidden) {
-			positionButtonConstraint.constant = 62
-			NSAnimationContext.runAnimationGroup({ (context) -> Void in
-				context.duration = 0.5
-				//restartOutlet.animator().alphaValue = 1
-				positionButtonConstraint.animator().constant = 16
-			}, completionHandler: { () -> Void in
-				
-				self.restartOutlet.isHidden = false
-			})
-		}
-	}
-	
-	@IBAction func restartButton(_ sender: Any) {
-		let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
-		let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
-		let task = Process()
-		task.launchPath = "/usr/bin/open"
-		task.arguments = [path]
-		task.launch()
-		exit(0)
-	}
 	
 }
+

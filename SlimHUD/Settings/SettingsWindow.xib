@@ -50,7 +50,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqG-ZB-3V6">
-                                            <rect key="frame" x="15" y="15" width="115" height="18"/>
+                                            <rect key="frame" x="18" y="15" width="115" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ZXF-aG-mE5">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -61,7 +61,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zo2-EN-KIZ">
-                                            <rect key="frame" x="15" y="43" width="131" height="18"/>
+                                            <rect key="frame" x="18" y="45" width="131" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <string key="toolTip">If enabled SlimHUD will continuosly check if the volume has changed. This will lead to an increase in the CPU's usage but it will also add a nice touch if you have the TouchBar: sliding over the volume button will display the hud. </string>
                                             <buttonCell key="cell" type="check" title="Continuous check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xEM-L6-hGP">
@@ -72,15 +72,24 @@
                                                 <action selector="shouldContinuouslyCheck:" target="-2" id="9TW-Hf-j4W"/>
                                             </connections>
                                         </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F0Y-Hz-SLR">
+                                            <rect key="frame" x="15" y="253" width="35" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Bars:" id="7to-Fp-GeY">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DH0-ak-m2Q">
-                                            <rect key="frame" x="42" y="205" width="104" height="24"/>
+                                            <rect key="frame" x="66" y="248" width="104" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectAny" id="EP7-sr-KiH">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
                                                     <segment image="volumeSegm" width="32" selected="YES"/>
-                                                    <segment image="brightnessSegm" width="32" tag="1"/>
-                                                    <segment image="keyboardSegm" width="32">
+                                                    <segment image="brightnessSegm" width="32" selected="YES" tag="1"/>
+                                                    <segment image="keyboardSegm" width="32" selected="YES">
                                                         <nil key="label"/>
                                                     </segment>
                                                 </segments>
