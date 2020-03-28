@@ -27,7 +27,9 @@ class SettingsWindowController: NSWindowController {
 	weak var delegate: SettingsWindowControllerDelegate?
     weak var settingsController: SettingsController?
 	
-    override func windowDidLoad() {
+	@IBOutlet weak var previewBox: NSBox!
+	override func windowDidLoad() {
+		//previewBox.contentView?.insertVibrancyViewBlendingMode(.behindWindow)
 		launchAtLoginOutlet.state = LaunchAtLogin.isEnabled.toStateValue()
 		iconOutlet.state = settingsController?.shouldShowIcons!.toStateValue() ?? .on
 		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
@@ -172,7 +174,6 @@ class SettingsWindowController: NSWindowController {
 				//restartOutlet.animator().alphaValue = 1
 				positionButtonConstraint.animator().constant = 16
 			}, completionHandler: { () -> Void in
-				print("button now viisble")
 				
 				self.restartOutlet.isHidden = false
 			})

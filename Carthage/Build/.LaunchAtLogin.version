@@ -3,7 +3,7 @@
   "Mac" : [
     {
       "name" : "LaunchAtLogin",
-      "hash" : "0f6042bb85a7104f9999fadfc9979f486af318d87121cf28616725ce9bd70171",
+      "hash" : "7c77154ba1f7bfdc7c1bdb76be7ed44e53bd3c86e02a20942190b01492ff72c6",
       "swiftToolchainVersion" : "5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
     }
   ]
