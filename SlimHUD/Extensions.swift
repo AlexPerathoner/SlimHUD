@@ -58,4 +58,20 @@ extension NSView {
             layer.anchorPoint = anchorPoint
         }
     }
+	
+	func insertVibrancyViewBlendingMode(_ mode: NSVisualEffectView.BlendingMode) -> NSView? {
+		let vibrant: NSVisualEffectView? = NSVisualEffectView.init(frame: bounds) as? NSVisualEffectView
+		vibrant?.autoresizingMask = [.width, .height]
+		// uncomment for dark mode instead of light mode
+		// [vibrant setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantDark]];
+		vibrant?.blendingMode = mode
+		if let vibrant = vibrant {
+			addSubview(vibrant, positioned: .below, relativeTo: nil)
+		}
+
+		return vibrant!
+        
+    }
 }
+
+
