@@ -60,10 +60,8 @@ extension NSView {
     }
 	
 	func insertVibrancyViewBlendingMode(_ mode: NSVisualEffectView.BlendingMode) -> NSView? {
-		let vibrant: NSVisualEffectView? = NSVisualEffectView.init(frame: bounds) as? NSVisualEffectView
+		let vibrant: NSVisualEffectView? = NSVisualEffectView.init(frame: bounds)
 		vibrant?.autoresizingMask = [.width, .height]
-		// uncomment for dark mode instead of light mode
-		// [vibrant setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantDark]];
 		vibrant?.blendingMode = mode
 		if let vibrant = vibrant {
 			addSubview(vibrant, positioned: .below, relativeTo: nil)
@@ -75,3 +73,12 @@ extension NSView {
 }
 
 
+extension NSSegmentedControl {
+	func getBarState() -> [Bool] {
+		var states: [Bool] = []
+		for i in 0..<segmentCount {
+			states.append(isSelected(forSegment: i))
+		}
+		return states
+	}
+}

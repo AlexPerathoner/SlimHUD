@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="animationsOutlet" destination="Y2n-yd-yjv" id="Q2O-Yo-9AP"/>
                 <outlet property="backgroundColorOutlet" destination="4qz-TG-UWa" id="nmV-ER-j90"/>
+                <outlet property="barsState" destination="DH0-ak-m2Q" id="t90-rz-cZn"/>
                 <outlet property="brightnessColorOutlet" destination="hKR-xu-s77" id="nsc-D4-NLc"/>
                 <outlet property="continuousCheckOutlet" destination="zo2-EN-KIZ" id="7Dc-6D-iZ5"/>
                 <outlet property="heightSliderOutlet" destination="JBu-Aj-3ti" id="R3W-UA-HEX"/>
@@ -94,6 +95,9 @@
                                                     </segment>
                                                 </segments>
                                             </segmentedCell>
+                                            <connections>
+                                                <action selector="barsStateChanged:" target="-2" id="sVC-wo-X3e"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                 </view>
@@ -396,7 +400,7 @@
                             <rect key="frame" x="3" y="3" width="250" height="304"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="djt-Gy-nmF">
+                                <visualEffectView blendingMode="behindWindow" material="HUDWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="djt-Gy-nmF">
                                     <rect key="frame" x="1" y="2" width="248" height="301"/>
                                 </visualEffectView>
                             </subviews>

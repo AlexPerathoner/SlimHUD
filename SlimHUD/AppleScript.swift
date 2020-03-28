@@ -10,10 +10,9 @@ func runAS(script: String) -> String? {
 	var error: NSDictionary?
 	if let scriptObject = NSAppleScript(source: script) {
 		if let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error) {
-//			print(output.stringValue)
 			return output.stringValue
 		} else if (error != nil) {
-			print("error: \(error)")
+			print("error: \(String(describing: error))")
 		}
 	}
 	return nil
