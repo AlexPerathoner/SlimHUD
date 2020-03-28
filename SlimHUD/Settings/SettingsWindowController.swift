@@ -30,9 +30,7 @@ class SettingsWindowController: NSWindowController {
 	
 	weak var delegate: SettingsWindowControllerDelegate?
     weak var settingsController: SettingsController?
-	
-	@IBOutlet weak var previewBox: NSBox!
-	
+	@IBOutlet weak var preview: SettingsPreview!
 	
 	override func windowDidLoad() {
 		do {
@@ -69,7 +67,10 @@ class SettingsWindowController: NSWindowController {
 		default:
 			NSLog("Error! Could not load saved position")
 		}
+		
         super.windowDidLoad()
+		
+		
 	}
 	
 	
@@ -82,6 +83,8 @@ class SettingsWindowController: NSWindowController {
 		let barState = sender.getBarState()
 		settingsController?.enabledBars = barState
 		delegate?.enabledBars = barState
+		preview.enabledBars = barState
+		
 	}
 	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
 		settingsController?.shouldContinuouslyCheck = sender.state.boolValue()

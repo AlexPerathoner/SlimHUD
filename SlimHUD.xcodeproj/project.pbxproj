@@ -16,6 +16,7 @@
 		FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */; };
 		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
 		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
+		FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78F53E242FA73000785678 /* SettingsPreview.swift */; };
 		FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScript.swift */; };
 		FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */; };
 		FABE1FE323FEF679009AD01F /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABE1FE223FEF679009AD01F /* BarView.xib */; };
@@ -50,6 +51,7 @@
 		FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA69AC8F23F9E2E700AA73FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
+		FA78F53E242FA73000785678 /* SettingsPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreview.swift; sourceTree = "<group>"; };
 		FABE1FD923FEF17B009AD01F /* AppleScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScript.swift; sourceTree = "<group>"; };
 		FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverApplication.swift; sourceTree = "<group>"; };
 		FABE1FE223FEF679009AD01F /* BarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */,
 				FA262ADF240E6A9900BFC2D1 /* SettingsWindowController.swift */,
 				FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */,
+				FA78F53E242FA73000785678 /* SettingsPreview.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */,
 				FA262AE0240E6A9900BFC2D1 /* SettingsWindowController.swift in Sources */,
 				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
+				FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
