@@ -81,4 +81,18 @@ extension NSSegmentedControl {
 		}
 		return states
 	}
+	
+	func setBarState(values: [Bool]) throws {
+		guard values.count == segmentCount else {
+			throw ParameterError(message: "values.count must correspond to SegmentControl.segmentCount")
+		}
+		
+		for i in 0..<segmentCount {
+			setSelected(values[i], forSegment: i)
+		}
+	}
+}
+
+struct ParameterError: Error {
+	let message: String
 }

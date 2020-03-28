@@ -21,7 +21,11 @@ protocol SettingsWindowControllerDelegate: class {
 	func setHeight(height: CGFloat)
 	func setupHUDsPosition(_ isFullscreen: Bool)
 	var shouldUseAnimation: Bool { get set }
+	var enabledBars: [Bool] { get set }
+	var marginValue: Float { get set }
 }
+
+
 class SettingsWindowController: NSWindowController {
 	
 	weak var delegate: SettingsWindowControllerDelegate?
@@ -31,7 +35,16 @@ class SettingsWindowController: NSWindowController {
 	
 	
 	override func windowDidLoad() {
-		//previewBox.contentView?.insertVibrancyViewBlendingMode(.behindWindow)
+		do {
+			try enabledBarsOutlet.setBarState(values: settingsController?.enabledBars ?? [])
+		} catch {
+			NSLog("Enabled bars saved in UserDefaults not valid")
+		}
+		
+		marginValueOutlet.stringValue = String(settingsController?.marginValue ?? 5) + "%"
+		marginStepperOutlet.integerValue = (settingsController?.marginValue ?? 5 * 100)
+		
+		
 		launchAtLoginOutlet.state = LaunchAtLogin.isEnabled.toStateValue()
 		iconOutlet.state = settingsController?.shouldShowIcons!.toStateValue() ?? .on
 		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
@@ -63,18 +76,28 @@ class SettingsWindowController: NSWindowController {
 	// MARK: - General tab
 	@IBOutlet weak var launchAtLoginOutlet: NSButton!
 	@IBOutlet weak var continuousCheckOutlet: NSButton!
-	@IBOutlet weak var barsState: NSSegmentedControl!
+	@IBOutlet weak var enabledBarsOutlet: NSSegmentedControl!
 	
 	@IBAction func barsStateChanged(_ sender: NSSegmentedControl) {
-		
-		print(sender.getBarState())
-		
+		let barState = sender.getBarState()
+		settingsController?.enabledBars = barState
+		delegate?.enabledBars = barState
 	}
 	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
 		settingsController?.shouldContinuouslyCheck = sender.state.boolValue()
 	}
 	@IBAction func launchAtLoginClicked(_ sender: NSButton) {
 		LaunchAtLogin.isEnabled = sender.state.boolValue()
+	}
+	
+	@IBOutlet weak var marginValueOutlet: NSTextField!
+	@IBOutlet weak var marginStepperOutlet: NSStepper!
+	
+	@IBAction func marginValueChanged(_ sender: NSStepper) {
+		let marginValue = sender.integerValue
+		marginValueOutlet.stringValue = String(marginValue) + "%"
+		delegate?.marginValue = Float(marginValue/100)
+		settingsController?.marginValue = marginValue
 	}
 	
 	

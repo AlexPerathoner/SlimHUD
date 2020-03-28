@@ -82,6 +82,21 @@ class SettingsController {
 		}
 	}
 	
+	var enabledBars: [Bool] = [true, true, true] {
+		didSet {
+			setItem(enabledBars, for: "enabledBars")
+		}
+	}
+	
+	var marginValue: Int {
+		set {
+			UserDefaults.standard.set(newValue, forKey: "marginValue")
+		}
+		get {
+			UserDefaults.standard.integer(forKey: "marginValue")
+		}
+	}
+	
 	
 	init() {
 		backgroundColor = getItem(for: "backgroundColor", defaultValue: darkGray)
@@ -95,7 +110,8 @@ class SettingsController {
 		position = Position(rawValue: getItem(for: "position", defaultValue: "left"))!
 		shouldContinuouslyCheck = getItem(for: "shouldContinuouslyCheck", defaultValue: true)
 		shouldUseAnimation = getItem(for: "shouldUseAnimation", defaultValue: true)
-    }
+		enabledBars = getItem(for: "enabledBars", defaultValue: [true, true, true])
+	}
 	
 	func resetDefaultColors() {
 		backgroundColor = darkGray
@@ -133,7 +149,6 @@ class SettingsController {
 	
 	deinit {
 		saveAllItems()
-		print("Deiniting settings controller..")
 	}
 	
 }
