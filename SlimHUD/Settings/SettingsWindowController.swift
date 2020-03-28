@@ -62,9 +62,14 @@ class SettingsWindowController: NSWindowController {
 	
 	// MARK: - General tab
 	@IBOutlet weak var launchAtLoginOutlet: NSButton!
-	
 	@IBOutlet weak var continuousCheckOutlet: NSButton!
+	@IBOutlet weak var barsState: NSSegmentedControl!
 	
+	@IBAction func barsStateChanged(_ sender: NSSegmentedControl) {
+		
+		print(sender.getBarState())
+		
+	}
 	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
 		settingsController?.shouldContinuouslyCheck = sender.state.boolValue()
 	}
