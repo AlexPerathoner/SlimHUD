@@ -292,7 +292,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	
-	
 	// MARK: - Displayers
 	let settingsWindowController: SettingsWindowController = SettingsWindowController(windowNibName: "SettingsWindow")
 	

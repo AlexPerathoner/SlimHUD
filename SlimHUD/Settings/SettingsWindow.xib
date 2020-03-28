@@ -6,27 +6,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target">
             <connections>
                 <outlet property="animationsOutlet" destination="Y2n-yd-yjv" id="Q2O-Yo-9AP"/>
                 <outlet property="backgroundColorOutlet" destination="4qz-TG-UWa" id="nmV-ER-j90"/>
+                <outlet property="backlightView" destination="hTY-kS-zjf" id="42R-4U-Cic"/>
                 <outlet property="brightnessColorOutlet" destination="hKR-xu-s77" id="nsc-D4-NLc"/>
+                <outlet property="brightnessImage" destination="qZE-c2-dmB" id="t8E-qR-Mxy"/>
+                <outlet property="brightnessView" destination="qeO-xC-IHq" id="f5i-Yw-1iO"/>
                 <outlet property="continuousCheckOutlet" destination="zo2-EN-KIZ" id="7Dc-6D-iZ5"/>
                 <outlet property="enabledBarsOutlet" destination="DH0-ak-m2Q" id="t90-rz-cZn"/>
                 <outlet property="heightSliderOutlet" destination="JBu-Aj-3ti" id="R3W-UA-HEX"/>
                 <outlet property="heightValue" destination="UX6-bL-Ozz" id="qOI-8V-3XN"/>
                 <outlet property="iconOutlet" destination="9Ef-AK-2e5" id="PxM-YR-zsq"/>
                 <outlet property="keyboardColorOutlet" destination="dZ3-5L-ZL9" id="Gzu-o4-Eay"/>
+                <outlet property="keyboardImage" destination="zis-Ce-ofL" id="Fbr-y4-zx1"/>
                 <outlet property="launchAtLoginOutlet" destination="tqG-ZB-3V6" id="hYR-O0-1wY"/>
                 <outlet property="marginStepperOutlet" destination="Ra4-Fo-wZM" id="2Bb-7q-fFl"/>
                 <outlet property="marginValueOutlet" destination="D2V-2T-bRS" id="1sH-Bj-42N"/>
                 <outlet property="positionButtonConstraint" destination="sdx-GJ-gWr" id="4Gc-Ve-d23"/>
                 <outlet property="positionOutlet" destination="wLn-Lu-bGr" id="I5t-x0-Ox7"/>
-                <outlet property="previewBox" destination="Vdi-fS-wXq" id="wFj-Ds-Q1K"/>
+                <outlet property="preview" destination="hGh-Ho-YDR" id="Pi3-TS-lYc"/>
                 <outlet property="restartOutlet" destination="mSI-k1-7Pj" id="3WJ-iP-Ohv"/>
                 <outlet property="shadowOutlet" destination="iTU-fs-r51" id="mt2-Mv-jWB"/>
+                <outlet property="volumeBar" destination="u39-o4-oOg" id="Odo-f6-rrw"/>
                 <outlet property="volumeDisabledColorOutlet" destination="KOV-nb-ami" id="bcV-E2-bPB"/>
                 <outlet property="volumeEnabledColorOutlet" destination="urE-U0-KFI" id="Ebk-LN-iCQ"/>
+                <outlet property="volumeImage" destination="avd-YL-Qam" id="V3v-vW-eAa"/>
+                <outlet property="volumeView" destination="NBv-Yo-2NK" id="7Kp-q9-E49"/>
                 <outlet property="window" destination="7AE-S0-Vk1" id="qDw-uy-ptB"/>
             </connections>
         </customObject>
@@ -37,7 +44,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="165" width="598" height="355"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
             <view key="contentView" id="m4n-bb-a5I">
                 <rect key="frame" x="0.0" y="0.0" width="598" height="355"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,20 +438,106 @@
                     </tabView>
                     <box borderType="bezel" title="Preview" translatesAutoresizingMaskIntoConstraints="NO" id="Vdi-fS-wXq">
                         <rect key="frame" x="325" y="16" width="256" height="324"/>
-                        <view key="contentView" id="hGh-Ho-YDR">
+                        <view key="contentView" id="hGh-Ho-YDR" customClass="SettingsPreview" customModule="SlimHUD" customModuleProvider="target">
                             <rect key="frame" x="3" y="3" width="250" height="304"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <visualEffectView blendingMode="behindWindow" material="HUDWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="djt-Gy-nmF">
-                                    <rect key="frame" x="1" y="2" width="248" height="302"/>
+                                <visualEffectView fixedFrame="YES" blendingMode="behindWindow" material="HUDWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="djt-Gy-nmF">
+                                    <rect key="frame" x="1" y="1" width="248" height="302"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <subviews>
+                                        <customView id="NBv-Yo-2NK" userLabel="Volume">
+                                            <rect key="frame" x="20" y="11" width="47" height="280"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <subviews>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="u39-o4-oOg" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="42" width="7" height="218"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="7" id="39O-Rj-iRv"/>
+                                                    </constraints>
+                                                </customView>
+                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="avd-YL-Qam">
+                                                    <rect key="frame" x="13" y="13" width="21" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="mEk-nR-LGB"/>
+                                                    </constraints>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="volume" id="qMB-pi-eWI"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="avd-YL-Qam" firstAttribute="leading" secondItem="NBv-Yo-2NK" secondAttribute="leading" constant="13" id="EXd-88-hig"/>
+                                                <constraint firstAttribute="trailing" secondItem="u39-o4-oOg" secondAttribute="trailing" constant="20" id="QKh-on-djQ"/>
+                                                <constraint firstItem="avd-YL-Qam" firstAttribute="top" secondItem="u39-o4-oOg" secondAttribute="bottom" constant="8" symbolic="YES" id="RcV-3t-lKl"/>
+                                                <constraint firstItem="u39-o4-oOg" firstAttribute="leading" secondItem="NBv-Yo-2NK" secondAttribute="leading" constant="20" id="Taa-uH-c9J"/>
+                                                <constraint firstAttribute="bottom" secondItem="avd-YL-Qam" secondAttribute="bottom" constant="13" id="aES-JE-RqT"/>
+                                                <constraint firstItem="u39-o4-oOg" firstAttribute="top" secondItem="NBv-Yo-2NK" secondAttribute="top" constant="20" id="g1a-Rb-SDz"/>
+                                                <constraint firstItem="avd-YL-Qam" firstAttribute="centerX" secondItem="u39-o4-oOg" secondAttribute="centerX" id="j9F-Zw-yk8"/>
+                                            </constraints>
+                                        </customView>
+                                        <customView id="hTY-kS-zjf" userLabel="Keyboard">
+                                            <rect key="frame" x="181" y="11" width="47" height="280"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <subviews>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="u2F-do-oZW" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="42" width="7" height="218"/>
+                                                </customView>
+                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zis-Ce-ofL">
+                                                    <rect key="frame" x="13" y="13" width="21" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="mbp-np-cVg"/>
+                                                        <constraint firstAttribute="width" constant="21" id="tRo-59-EKy"/>
+                                                    </constraints>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="backlight" id="iaA-0i-obD"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="u2F-do-oZW" firstAttribute="leading" secondItem="hTY-kS-zjf" secondAttribute="leading" constant="20" symbolic="YES" id="62r-kg-6lS"/>
+                                                <constraint firstItem="zis-Ce-ofL" firstAttribute="leading" secondItem="hTY-kS-zjf" secondAttribute="leading" constant="13" id="8ca-Ks-0gT"/>
+                                                <constraint firstItem="u2F-do-oZW" firstAttribute="centerX" secondItem="zis-Ce-ofL" secondAttribute="centerX" id="ByM-jA-56j"/>
+                                                <constraint firstAttribute="bottom" secondItem="zis-Ce-ofL" secondAttribute="bottom" constant="13" id="l7M-ki-3Hk"/>
+                                                <constraint firstItem="zis-Ce-ofL" firstAttribute="top" secondItem="u2F-do-oZW" secondAttribute="bottom" constant="8" symbolic="YES" id="mTu-H6-DhZ"/>
+                                                <constraint firstItem="u2F-do-oZW" firstAttribute="top" secondItem="hTY-kS-zjf" secondAttribute="top" constant="20" symbolic="YES" id="uN3-mo-RCb"/>
+                                            </constraints>
+                                        </customView>
+                                        <customView id="qeO-xC-IHq" userLabel="Brightness">
+                                            <rect key="frame" x="101" y="11" width="47" height="280"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <subviews>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="rfk-j9-QwE" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="42" width="7" height="218"/>
+                                                </customView>
+                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qZE-c2-dmB">
+                                                    <rect key="frame" x="13" y="13" width="21" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="6NC-FC-Ke4"/>
+                                                        <constraint firstAttribute="width" constant="21" id="Fla-Yo-3Sl"/>
+                                                    </constraints>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="brightness" id="lzE-YC-wJY"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="qZE-c2-dmB" secondAttribute="bottom" constant="13" id="AQ8-Lb-gCs"/>
+                                                <constraint firstItem="qZE-c2-dmB" firstAttribute="leading" secondItem="qeO-xC-IHq" secondAttribute="leading" constant="13" id="ID3-cR-4tf"/>
+                                                <constraint firstItem="qZE-c2-dmB" firstAttribute="top" secondItem="rfk-j9-QwE" secondAttribute="bottom" constant="8" symbolic="YES" id="Xz4-Gk-vFO"/>
+                                                <constraint firstItem="rfk-j9-QwE" firstAttribute="centerX" secondItem="qZE-c2-dmB" secondAttribute="centerX" id="cDx-64-Lce"/>
+                                                <constraint firstItem="rfk-j9-QwE" firstAttribute="top" secondItem="qeO-xC-IHq" secondAttribute="top" constant="20" symbolic="YES" id="gpV-9X-QVN"/>
+                                                <constraint firstItem="rfk-j9-QwE" firstAttribute="leading" secondItem="qeO-xC-IHq" secondAttribute="leading" constant="20" symbolic="YES" id="mom-wk-aG7"/>
+                                            </constraints>
+                                        </customView>
+                                    </subviews>
                                 </visualEffectView>
                             </subviews>
-                            <constraints>
-                                <constraint firstItem="djt-Gy-nmF" firstAttribute="leading" secondItem="hGh-Ho-YDR" secondAttribute="leading" constant="1" id="hsh-NL-zUg"/>
-                                <constraint firstAttribute="bottom" secondItem="djt-Gy-nmF" secondAttribute="bottom" constant="2" id="idN-bZ-0ow"/>
-                                <constraint firstItem="djt-Gy-nmF" firstAttribute="top" secondItem="hGh-Ho-YDR" secondAttribute="top" id="r3W-zG-AbF"/>
-                                <constraint firstAttribute="trailing" secondItem="djt-Gy-nmF" secondAttribute="trailing" constant="1" id="ukx-dr-vAE"/>
-                            </constraints>
+                            <connections>
+                                <outlet property="backlightBar" destination="u2F-do-oZW" id="p1N-v1-i3D"/>
+                                <outlet property="backlightView" destination="hTY-kS-zjf" id="w9U-fq-am0"/>
+                                <outlet property="brightnessBar" destination="rfk-j9-QwE" id="C2H-Vw-Wow"/>
+                                <outlet property="brightnessImage" destination="qZE-c2-dmB" id="WJ9-0d-qZT"/>
+                                <outlet property="brightnessView" destination="qeO-xC-IHq" id="jgf-qs-3Rp"/>
+                                <outlet property="keyboardImage" destination="zis-Ce-ofL" id="Qt0-wN-jst"/>
+                                <outlet property="volumeBar" destination="u39-o4-oOg" id="nlL-HR-dVN"/>
+                                <outlet property="volumeImage" destination="avd-YL-Qam" id="Vme-GB-b1u"/>
+                                <outlet property="volumeView" destination="NBv-Yo-2NK" id="ZR0-ik-9Qn"/>
+                            </connections>
                         </view>
                         <constraints>
                             <constraint firstAttribute="width" constant="250" id="qo1-6S-xqj"/>
@@ -458,13 +551,16 @@
                     <constraint firstAttribute="trailing" secondItem="Vdi-fS-wXq" secondAttribute="trailing" constant="20" id="Vbt-zy-EEJ"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="547" y="190.5"/>
+            <point key="canvasLocation" x="-6" y="207.5"/>
         </window>
     </objects>
     <resources>
         <image name="NSRefreshTemplate" width="11" height="15"/>
+        <image name="backlight" width="225" height="120"/>
+        <image name="brightness" width="224" height="223"/>
         <image name="brightnessSegm" width="116" height="115"/>
         <image name="keyboardSegm" width="116" height="115"/>
+        <image name="volume" width="116" height="75"/>
         <image name="volumeSegm" width="116" height="115"/>
     </resources>
 </document>
