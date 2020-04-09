@@ -192,6 +192,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	func setupHUDsPosition(_ isFullscreen: Bool) {
+		volumeHud.hide(animated: false)
+		brightnessHud.hide(animated: false)
+		backlightHud.hide(animated: false)
+		
+		
 		var position: CGPoint
 		let viewSize = volumeView.frame
 		

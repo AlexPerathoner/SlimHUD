@@ -80,15 +80,17 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	}
 	
 	func setHeight(height: CGFloat) {
-		
 	}
 	
 	func setupHUDsPosition(_ isFullscreen: Bool) {
-		
+		//NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
 	}
 	
 	var shouldUseAnimation: Bool = true {
 		didSet {
+			volumeHud.animated = shouldUseAnimation
+			brightnessHud.animated = shouldUseAnimation
+			backlightHud.animated = shouldUseAnimation
 			volumeBar.setupAnimation(animated: shouldUseAnimation)
 			brightnessBar.setupAnimation(animated: shouldUseAnimation)
 			backlightBar.setupAnimation(animated: shouldUseAnimation)
@@ -113,8 +115,8 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 		updateIcons(isHidden: !(settingsController?.shouldShowIcons ?? false))
 		updateShadows(enabled: settingsController?.shouldShowShadows ?? true)
 		setBackgroundColor(color: settingsController?.backgroundColor ?? SettingsController.darkGray)
-		setVolumeEnabledColor(color: settingsController?.volumeEnabledColor ?? SettingsController.blue)
 		setVolumeDisabledColor(color: settingsController?.volumeDisabledColor ?? SettingsController.gray)
+		setVolumeEnabledColor(color: settingsController?.volumeEnabledColor ?? SettingsController.blue)
 		setBrightnessColor(color: settingsController?.brightnessColor ?? SettingsController.yellow)
 		setBacklightColor(color: settingsController?.keyboardColor ?? SettingsController.azure)
 		shouldUseAnimation = settingsController?.shouldUseAnimation ?? true
@@ -124,8 +126,12 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	
 	
 	var value: CGFloat = 0.5
+	var timerChangeValue: Timer?
 	func showAnimation() {
-		let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+		if(timerChangeValue != nil) {
+			timerChangeValue?.invalidate()
+		}
+		timerChangeValue = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { (t) in
 			let val = (self.value).truncatingRemainder(dividingBy: 1.0)
 			self.volumeBar.progress = val
 			self.brightnessBar.progress = val
@@ -133,9 +139,14 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 			self.value += 0.1
 		}
 		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-			timer.invalidate()
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
+			self.timerChangeValue?.invalidate()
+			self.timerChangeValue = nil
 		}
 	}
+	
+	
+	
 }
 
