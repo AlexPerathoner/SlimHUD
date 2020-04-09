@@ -63,7 +63,7 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	
 	func setVolumeEnabledColor(color: NSColor) {
 		volumeBar.foreground = color
-		volumeImage.image = NSImage(named: "volume")
+		volumeImage.image = NSImage(named: "volumeSegm")
 	}
 	
 	func setVolumeDisabledColor(color: NSColor) {
@@ -81,9 +81,10 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	
 	func setHeight(height: CGFloat) {
 	}
+	func setThickness(thickness: CGFloat) {
+	}
 	
 	func setupHUDsPosition(_ isFullscreen: Bool) {
-		//NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
 	}
 	
 	var shouldUseAnimation: Bool = true {

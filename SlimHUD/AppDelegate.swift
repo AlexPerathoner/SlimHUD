@@ -167,12 +167,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	func setHeight(height: CGFloat) {
-		
 		let viewSize = volumeView.frame
 		for view in [volumeView, brightnessView, backlightView] as [NSView] {
-			view.setFrameSize(NSSize(width: viewSize.width, height: height))
+			view.setFrameSize(NSSize(width: viewSize.width, height: height+60))
 		}
-		setupHUDsPosition(false)
+		setupHUDsPosition(isInFullscreenMode())
+	}
+	
+	func setThickness(thickness: CGFloat) {
+		let viewSize = volumeView.frame
+		for view in [volumeView, brightnessView, backlightView] as [NSView] {
+			view.setFrameSize(NSSize(width: thickness+40, height: viewSize.height))
+		}
+		for bar in [volumeBar, brightnessBar, backlightBar] as [ProgressBar] {
+			bar.progressLayer.frame.size.width = thickness
+			bar.progressLayer.cornerRadius = thickness/2
+		}
+		setupHUDsPosition(isInFullscreenMode())
 	}
 	
 	
