@@ -18,11 +18,11 @@ enum Position: String {
 
 
 class SettingsController {
-	let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
-	let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
-	let blue = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
-	let yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
-	let azure = NSColor(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
+	static let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
+	static let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+	static let blue = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
+	static let yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
+	static let azure = NSColor(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
 	
 	var backgroundColor: NSColor! {
 		didSet {
@@ -76,33 +76,55 @@ class SettingsController {
 			setItem(barHeight, for: "barHeight")
 		}
 	}
+	var barThickness: Int = 7 {
+		didSet {
+			setItem(barThickness, for: "barThickness")
+		}
+	}
 	var position: Position = Position.left {
 		didSet {
 			setItem(position.rawValue, for: "position")
 		}
 	}
 	
+	var enabledBars: [Bool] = [true, true, true] {
+		didSet {
+			setItem(enabledBars, for: "enabledBars")
+		}
+	}
+	
+	var marginValue: Int {
+		set {
+			UserDefaults.standard.set(newValue, forKey: "marginValue")
+		}
+		get {
+			UserDefaults.standard.integer(forKey: "marginValue")
+		}
+	}
+	
 	
 	init() {
-		backgroundColor = getItem(for: "backgroundColor", defaultValue: darkGray)
-		volumeEnabledColor = getItem(for: "volumeEnabledColor", defaultValue: blue)
-		volumeDisabledColor = getItem(for: "volumeDisabledColor", defaultValue: gray)
-		brightnessColor = getItem(for: "brightnessColor", defaultValue: yellow)
-		keyboardColor = getItem(for: "keyboardColor", defaultValue: azure)
+		backgroundColor = getItem(for: "backgroundColor", defaultValue: SettingsController.darkGray)
+		volumeEnabledColor = getItem(for: "volumeEnabledColor", defaultValue: SettingsController.blue)
+		volumeDisabledColor = getItem(for: "volumeDisabledColor", defaultValue: SettingsController.gray)
+		brightnessColor = getItem(for: "brightnessColor", defaultValue: SettingsController.yellow)
+		keyboardColor = getItem(for: "keyboardColor", defaultValue: SettingsController.azure)
 		shouldShowShadows = getItem(for: "shouldShowShadows", defaultValue: true)
 		shouldShowIcons = getItem(for: "shouldShowIcons", defaultValue: true)
 		barHeight = getItem(for: "barHeight", defaultValue: 218)
+		barThickness = getItem(for: "barThickness", defaultValue: 7)
 		position = Position(rawValue: getItem(for: "position", defaultValue: "left"))!
 		shouldContinuouslyCheck = getItem(for: "shouldContinuouslyCheck", defaultValue: true)
 		shouldUseAnimation = getItem(for: "shouldUseAnimation", defaultValue: true)
-    }
+		enabledBars = getItem(for: "enabledBars", defaultValue: [true, true, true])
+	}
 	
 	func resetDefaultColors() {
-		backgroundColor = darkGray
-		volumeEnabledColor = blue
-		volumeDisabledColor = gray
-		brightnessColor = yellow
-		keyboardColor = azure
+		backgroundColor = SettingsController.darkGray
+		volumeEnabledColor = SettingsController.blue
+		volumeDisabledColor = SettingsController.gray
+		brightnessColor = SettingsController.yellow
+		keyboardColor = SettingsController.azure
 	}
 	
 	func getItem<T>(for key: String, defaultValue: T) -> T {
@@ -127,13 +149,13 @@ class SettingsController {
 		setItem(shouldShowShadows, for: "shouldShowShadows")
 		setItem(shouldShowIcons, for: "shouldShowIcons")
 		setItem(barHeight, for: "barHeight")
+		setItem(barThickness, for: "barThickness")
 		setItem(position, for: "position")
     }
 	
 	
 	deinit {
 		saveAllItems()
-		print("Deiniting settings controller..")
 	}
 	
 }

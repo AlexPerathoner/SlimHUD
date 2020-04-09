@@ -13,7 +13,79 @@ import QuartzCore
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
+	
+	
+	// MARK: - General
+	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+	
+	@IBOutlet var statusMenu: NSMenu!
+	
+	@IBAction func quitCliked(_ sender: Any) {
+		NSApplication.shared.terminate(self)
+	}
+		
+	func applicationDidFinishLaunching(_ aNotification: Notification) {
 
+		//menu bar
+		statusItem.menu = statusMenu
+		if let button = statusItem.button {
+			button.title = "SlimHUD"
+			button.image = NSImage(named: "statusIcon")
+			button.image?.isTemplate = true
+		}
+		
+		//Setting up huds
+		
+		oldVolume = getOutputVolume()
+		oldBacklight = getKeyboardBrightness()
+		oldBrightness = getDisplayBrightness()
+		
+		shouldUseAnimation = settingsController.shouldUseAnimation
+		
+		volumeHud.view = volumeView
+		brightnessHud.view = brightnessView
+		backlightHud.view = backlightView
+		
+		enabledBars = settingsController.enabledBars
+		marginValue = Float(settingsController.marginValue)/100.0
+		
+
+		for image in [volumeImage, brightnessImage, backlightImage] as [NSImageView] {
+			image.wantsLayer = true
+			image.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+		}
+		
+		setHeight(height: CGFloat(settingsController.barHeight))
+		
+		
+		//observers for volume
+		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
+		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+		
+		//observers for brightness
+		NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD), name: ObserverApplication.brightnessChanged, object: nil)
+		
+		//observers for keyboard backlight
+		NotificationCenter.default.addObserver(self, selector: #selector(showBackLightHUD), name: ObserverApplication.keyboardIlluminationChanged, object: nil)
+		
+		//continuous check - 0.2 should not take more than 1/800 CPU
+		//starts to check after all settings have been imported
+		setupTimer(with: 0.2)
+		
+		NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
+															object: NSApplication.shared,
+															queue: OperationQueue.main) {
+				notification -> Void in
+																self.setupHUDsPosition(false)
+		}
+		
+		
+		
+		updateAll()
+	}
+	
+	
+	
 	// MARK: - Settings & setups
 	var shouldUseAnimation = true {
 		didSet {
@@ -25,6 +97,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			backlightBar.setupAnimation(animated: shouldUseAnimation)
 		}
 	}
+	
+	var enabledBars: [Bool] = [true, true, true]
+	var marginValue: Float = 0.05
+	
 	private let shadowRadius: CGFloat = 20
 	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
@@ -32,9 +108,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	var settingsController = SettingsController()
 	
 	func updateShadows(enabled: Bool) {
-		setupShadow(for: volumeView, enabled)
-		setupShadow(for: backlightView, enabled)
-		setupShadow(for: brightnessView, enabled)
+		volumeView.setupShadow(enabled, shadowRadius)
+		backlightView.setupShadow(enabled, shadowRadius)
+		brightnessView.setupShadow(enabled, shadowRadius)
 	}
 	
 	func updateIcons(isHidden: Bool) {
@@ -44,13 +120,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	func setupDefaultColors() {
-		enabledColor = settingsController.blue
-		disabledColor = settingsController.gray
-		backlightBar.foreground = settingsController.azure
-		brightnessBar.foreground = settingsController.yellow
-		volumeBar.background = settingsController.darkGray
-		backlightBar.background = settingsController.darkGray
-		brightnessBar.background = settingsController.darkGray
+		enabledColor = SettingsController.blue
+		disabledColor = SettingsController.gray
+		backlightBar.foreground = SettingsController.azure
+		brightnessBar.foreground = SettingsController.yellow
+		volumeBar.background = SettingsController.darkGray
+		backlightBar.background = SettingsController.darkGray
+		brightnessBar.background = SettingsController.darkGray
 	}
 	
 	func setBackgroundColor(color: NSColor) {
@@ -88,27 +164,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	
-	func setupShadow(for view: NSView, _ enabled: Bool) {
-		if(enabled) {
-			view.shadow = NSShadow()
-			view.wantsLayer = true
-			view.superview?.wantsLayer = true
-			view.layer?.shadowOpacity = 1
-			view.layer?.shadowColor = .black
-			view.layer?.shadowOffset = NSMakeSize(0, 0)
-			view.layer?.shadowRadius = shadowRadius
-		} else {
-			view.shadow = nil
-		}
-	}
+	
 	
 	func setHeight(height: CGFloat) {
-		
 		let viewSize = volumeView.frame
 		for view in [volumeView, brightnessView, backlightView] as [NSView] {
-			view.setFrameSize(NSSize(width: viewSize.width, height: height))
+			view.setFrameSize(NSSize(width: viewSize.width, height: height+60))
 		}
-		setupHUDsPosition(false)
+		setupHUDsPosition(isInFullscreenMode())
+	}
+	
+	func setThickness(thickness: CGFloat) {
+		let viewSize = volumeView.frame
+		for view in [volumeView, brightnessView, backlightView] as [NSView] {
+			view.setFrameSize(NSSize(width: thickness+40, height: viewSize.height))
+		}
+		for bar in [volumeBar, brightnessBar, backlightBar] as [ProgressBar] {
+			bar.progressLayer.frame.size.width = thickness
+			bar.progressLayer.cornerRadius = thickness/2
+		}
+		setupHUDsPosition(isInFullscreenMode())
 	}
 	
 	
@@ -128,6 +203,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	func setupHUDsPosition(_ isFullscreen: Bool) {
+		volumeHud.hide(animated: false)
+		brightnessHud.hide(animated: false)
+		backlightHud.hide(animated: false)
+		
+		
 		var position: CGPoint
 		let viewSize = volumeView.frame
 		
@@ -216,71 +296,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	var brightnessHud = Hud()
 	var backlightHud = Hud()
 	
-	// MARK: -
-	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-	
-	@IBOutlet var statusMenu: NSMenu!
-	
-	@IBAction func quitCliked(_ sender: Any) {
-		NSApplication.shared.terminate(self)
-	}
-		
-	func applicationDidFinishLaunching(_ aNotification: Notification) {
-
-		//menu bar
-		statusItem.menu = statusMenu
-		if let button = statusItem.button {
-			button.title = "SlimHUD"
-			button.image = NSImage(named: "statusIcon")
-			button.image?.isTemplate = true
-		}
-		
-		//observers for volume
-		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
-		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
-		
-		//observers for brightness
-		NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD), name: ObserverApplication.brightnessChanged, object: nil)
-		
-		//observers for keyboard backlight
-		NotificationCenter.default.addObserver(self, selector: #selector(showBackLightHUD), name: ObserverApplication.keyboardIlluminationChanged, object: nil)
-		
-		//continuous check - 0.2 should not take more than 1/800 CPU
-		setupTimer(with: 0.2)
-		
-		
-		NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
-															object: NSApplication.shared,
-															queue: OperationQueue.main) {
-				notification -> Void in
-																self.setupHUDsPosition(false)
-		}
-		
-		
-		//Setting up huds
-		
-		oldVolume = getOutputVolume()
-		oldBacklight = getKeyboardBrightness()
-		oldBrightness = getDisplayBrightness()
-		
-		shouldUseAnimation = settingsController.shouldUseAnimation
-		
-		volumeHud.view = volumeView
-		brightnessHud.view = brightnessView
-		backlightHud.view = backlightView
-		
-
-		for image in [volumeImage, brightnessImage, backlightImage] as [NSImageView] {
-			image.wantsLayer = true
-			image.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-		}
-		
-		setHeight(height: CGFloat(settingsController.barHeight))
-		
-		
-		updateAll()
-	}
-	
 	
 	
 	// MARK: - Displayers
@@ -302,6 +317,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	@objc func showVolumeHUD() {
+		if(!enabledBars[0]) {return}
 		let disabled = isMuted()
 		setColor(for: volumeBar, disabled)
 		if(!settingsController.shouldContinuouslyCheck) {
@@ -320,12 +336,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	@objc func showBrightnessHUD() {
+		if(!enabledBars[1]) {return}
 		brightnessHud.show()
 		volumeHud.hide(animated: false)
 		backlightHud.hide(animated: false)
 		brightnessHud.dismiss(delay: 1.5)
 	}
 	@objc func showBackLightHUD() {
+		if(!enabledBars[2]) {return}
 		backlightHud.show()
 		volumeHud.hide(animated: false)
 		brightnessHud.hide(animated: false)
@@ -337,14 +355,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	func isInFullscreenMode() -> Bool {
 		let options = CGWindowListOption(arrayLiteral: CGWindowListOption.excludeDesktopElements, CGWindowListOption.optionOnScreenOnly)
 		let windowListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
-		let infoList = windowListInfo as NSArray? as? [[String: AnyObject]]
-		let screenSize = NSScreen.main?.frame
-		for i in infoList! {
-			let windowName = i["kCGWindowOwnerName"]! as! String
+		let infoList = windowListInfo as NSArray? as? [[String: AnyObject]] ?? []
+		let screenSize = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
+		for i in infoList {
+			let windowName = i["kCGWindowOwnerName"] as? String ?? ""
 			
 			//if Window Server or Dock are visible the user is certainly not using fullscreen
 			if(windowName == "Window Server" || windowName == "Dock") {return false}
-			if (i["kCGWindowBounds"]?["Height"] as! CGFloat == screenSize!.height && i["kCGWindowBounds"]?["Width"] as! CGFloat == screenSize!.width && windowName != "Dock" && windowName != "SlimHUD") {
+			if (i["kCGWindowBounds"]?["Height"] as? CGFloat ?? 0 == screenSize.height && i["kCGWindowBounds"]?["Width"] as? CGFloat ?? 0 == screenSize.width && windowName != "Dock" && windowName != "SlimHUD") {
 				return true
 			}
 		}
@@ -360,25 +378,31 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			setupHUDsPosition(newFullScreen)
 			oldFullScreen = newFullScreen
 		}
-		checkBacklightChanges()
-		checkBrightnessChanges()
-		if(settingsController.shouldContinuouslyCheck) {
+		
+		if(enabledBars[2]) {
+			checkBacklightChanges()
+		}
+		if(enabledBars[1]) {
+			checkBrightnessChanges()
+		}
+		if(settingsController.shouldContinuouslyCheck && enabledBars[0]) {
 			checkVolumeChanges()
 		}
 	}
 	
 	func isAlmost(n1: Float, n2: Float) -> Bool { //used to partially prevent the bars to display when no user input happened
-		return (n1+0.05 >= n2 && n1-0.05 <= n2)
+		return (n1+marginValue >= n2 && n1-marginValue <= n2)
 	}
 	
 	var oldVolume: Float = 0.5
 	func checkVolumeChanges() {
 		let newVolume = getOutputVolume()
+		volumeBar.progress = CGFloat(newVolume)
 		if (!isAlmost(n1: oldVolume, n2: newVolume)) {
 			NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
-			volumeBar.progress = CGFloat(newVolume)
 			oldVolume = newVolume
 		}
+		volumeBar.progress = CGFloat(newVolume)
 	}
 	
 	var oldBacklight: Float = 0.5
@@ -386,19 +410,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		let newBacklight = getKeyboardBrightness()
 		if(!isAlmost(n1: oldBacklight, n2: newBacklight)) {
 			NotificationCenter.default.post(name: ObserverApplication.keyboardIlluminationChanged, object: self)
-			backlightBar.progress = CGFloat(newBacklight)
 			oldBacklight = newBacklight
 		}
+		backlightBar.progress = CGFloat(newBacklight)
 	}
 	
 	var oldBrightness: Float = 0.5
 	func checkBrightnessChanges() {
+		if(NSScreen.screens.count == 0) {return}
 		let newBrightness = getDisplayBrightness()
 		if(!isAlmost(n1: oldBrightness, n2: newBrightness)) {
 			NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
-			brightnessBar.progress = CGFloat(newBrightness)
 			oldBrightness = newBrightness
 		}
+		brightnessBar.progress = CGFloat(newBrightness)
 	}
 	
 	// MARK: -

@@ -10,10 +10,9 @@ func runAS(script: String) -> String? {
 	var error: NSDictionary?
 	if let scriptObject = NSAppleScript(source: script) {
 		if let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error) {
-//			print(output.stringValue)
 			return output.stringValue
 		} else if (error != nil) {
-			print("error: \(error)")
+			print("error: \(String(describing: error))")
 		}
 	}
 	return nil
@@ -58,9 +57,10 @@ func getKeyboardBrightness() -> Float {
 		IOObjectRelease(service)
 	}
 	
-	if let ser: CFTypeRef = IORegistryEntryCreateCFProperty(service, "KeyboardBacklightBrightness" as CFString, kCFAllocatorDefault,0)?.takeUnretainedValue() {
+	if let ser: CFTypeRef = IORegistryEntryCreateCFProperty(service, "KeyboardBacklightBrightness" as CFString, kCFAllocatorDefault, 0)?.takeUnretainedValue() {
 		let result = ser as! Float
 		return result / 342 //max value is 342, proportioning to %
 	}
-	return 0
+	//couldn't get keyboard backlight
+	return 0.5
 }
