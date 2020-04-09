@@ -72,6 +72,8 @@ class SettingsWindowController: NSWindowController {
 		
 		preview.settingsController = settingsController
 		preview.setup()
+		
+		
 	}
 	
 	
@@ -135,13 +137,15 @@ class SettingsWindowController: NSWindowController {
 		if(settingsController?.shouldShowIcons ?? false) {
 			displayRelaunchButton()
 		}
+		preview.setupHUDsPosition(false)
 	}
 	
 	
 	@IBAction func heightSlider(_ sender: NSSlider) {
 		heightValue.stringValue = String(sender.integerValue)
-		delegate?.setHeight(height: CGFloat(sender.integerValue))
 		settingsController?.barHeight = sender.integerValue
+		delegate?.setHeight(height: CGFloat(sender.integerValue))
+		preview.setHeight(height: CGFloat(sender.integerValue))
 	}
 	
 	
@@ -243,5 +247,29 @@ class SettingsWindowController: NSWindowController {
 		delegate?.setBacklightColor(color: sender.color)
 		preview.setBacklightColor(color: sender.color)
 	}
+	
+	// MARK: - Preview
+	
+	@objc func windowWillClose() {
+		NotificationCenter.default.removeObserver(self, name: .init("NSWindowWillCloseNotification"), object: window)
+		previewTimer?.invalidate()
+		previewTimer = nil
+	}
+	
+	
+	var previewTimer: Timer?
+	func showPreviewHUD() {
+		previewTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+			NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
+		}
+		RunLoop.current.add(previewTimer!, forMode: .eventTracking)
+	}
+	
+	override func showWindow(_ sender: Any?) {
+		NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose), name: .init("NSWindowWillCloseNotification"), object: window)
+		showPreviewHUD()
+		super.showWindow(sender)
+	}
+	
 }
 
