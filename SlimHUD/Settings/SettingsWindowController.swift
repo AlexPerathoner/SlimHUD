@@ -70,7 +70,8 @@ class SettingsWindowController: NSWindowController {
 		
         super.windowDidLoad()
 		
-		
+		preview.settingsController = settingsController
+		preview.setup()
 	}
 	
 	
@@ -186,12 +187,14 @@ class SettingsWindowController: NSWindowController {
 		let val = sender.state.boolValue()
 		settingsController?.shouldShowIcons = val
 		delegate?.updateIcons(isHidden: !val)
+		preview.updateIcons(isHidden: !val)
 	}
 	
 	@IBAction func shouldShowShadows(_ sender: NSButton) {
 		let val = sender.state.boolValue()
 		settingsController?.shouldShowShadows = val
 		delegate?.updateShadows(enabled: val)
+		preview.updateShadows(enabled: val)
 	}
 	
 	
@@ -199,42 +202,46 @@ class SettingsWindowController: NSWindowController {
 		let val = sender.state.boolValue()
 		settingsController?.shouldUseAnimation = val
 		delegate?.shouldUseAnimation = val
+		preview.shouldUseAnimation = val
 	}
-	
 	
 	
 	@IBAction func resetDefaults(_ sender: Any) {
 		delegate?.setupDefaultColors()
 		settingsController?.resetDefaultColors()
-		volumeEnabledColorOutlet.color = settingsController!.blue
-		volumeDisabledColorOutlet.color = settingsController!.gray
-		keyboardColorOutlet.color = settingsController!.azure
-		brightnessColorOutlet.color = settingsController!.yellow
-		backgroundColorOutlet.color = settingsController!.darkGray
+		volumeEnabledColorOutlet.color = SettingsController.blue
+		volumeDisabledColorOutlet.color = SettingsController.gray
+		keyboardColorOutlet.color = SettingsController.azure
+		brightnessColorOutlet.color = SettingsController.yellow
+		backgroundColorOutlet.color = SettingsController.darkGray
+		preview.setupDefaultColors()
 	}
 	
 	//changing values automatically also saves them into userdefaults
 	@IBAction func backgroundColorChanged(_ sender: NSColorWell) {
 		settingsController?.backgroundColor = sender.color
 		delegate?.setBackgroundColor(color: sender.color)
+		preview.setBackgroundColor(color: sender.color)
 	}
 	@IBAction func volumeEnabledColorChanged(_ sender: NSColorWell) {
 		settingsController?.volumeEnabledColor = sender.color
 		delegate?.setVolumeEnabledColor(color: sender.color)
+		preview.setVolumeEnabledColor(color: sender.color)
 	}
 	@IBAction func volumeDisabledColorChanged(_ sender: NSColorWell) {
 		settingsController?.volumeDisabledColor = sender.color
 		delegate?.setVolumeDisabledColor(color: sender.color)
+		preview.setVolumeDisabledColor(color: sender.color)
 	}
 	@IBAction func brightnessColorChanged(_ sender: NSColorWell) {
 		settingsController?.brightnessColor = sender.color
 		delegate?.setBrightnessColor(color: sender.color)
+		preview.setBrightnessColor(color: sender.color)
 	}
 	@IBAction func keyboardBackLightColorChanged(_ sender: NSColorWell) {
 		settingsController?.keyboardColor = sender.color
 		delegate?.setBacklightColor(color: sender.color)
+		preview.setBacklightColor(color: sender.color)
 	}
-	
-	
 }
 
