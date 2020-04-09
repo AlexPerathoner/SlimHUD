@@ -356,8 +356,8 @@
             filePath = "SlimHUD/Settings/SettingsWindowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
             landmarkName = "volumeEnabledColorChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -372,8 +372,8 @@
             filePath = "SlimHUD/Settings/SettingsWindowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "windowWillClose()"
             landmarkType = "7">
          </BreakpointContent>
@@ -388,8 +388,8 @@
             filePath = "SlimHUD/Settings/SettingsWindowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "showWindow(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -404,8 +404,8 @@
             filePath = "SlimHUD/Settings/SettingsWindowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "showWindow(_:)"
             landmarkType = "7">
          </BreakpointContent>

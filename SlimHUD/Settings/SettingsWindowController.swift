@@ -106,6 +106,19 @@ class SettingsWindowController: NSWindowController {
 		settingsController?.marginValue = marginValue
 	}
 	
+	@IBAction func marginValueHelp(_ sender: Any) {
+		let generalHelpURL = URL(string: "https://github.com/AlexPerathoner/SlimHUD/wiki/Settings")!
+		if NSWorkspace.shared.open(generalHelpURL) {
+			NSLog("Link opened successfully")
+		}
+	}
+	
+	@IBAction func continuouslyCheckHelp(_ sender: Any) {
+		marginValueHelp(sender)
+	}
+	
+	
+	
 	
 	// MARK: - Position tab
 	
@@ -249,7 +262,10 @@ class SettingsWindowController: NSWindowController {
 	}
 	
 	@IBAction func volumeHelp(_ sender: NSButton) {
-		//NSApplication.shared.open//openURL(NSURL(string: "http://www.google.com")!)
+		let styleHelpURL = URL(string: "https://github.com/AlexPerathoner/SlimHUD/wiki/Settings")!
+		if NSWorkspace.shared.open(styleHelpURL) {
+			NSLog("Link opened successfully")
+		}
 	}
 	
 	
