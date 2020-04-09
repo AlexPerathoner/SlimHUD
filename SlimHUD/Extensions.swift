@@ -59,17 +59,20 @@ extension NSView {
         }
     }
 	
-	func insertVibrancyViewBlendingMode(_ mode: NSVisualEffectView.BlendingMode) -> NSView? {
-		let vibrant: NSVisualEffectView? = NSVisualEffectView.init(frame: bounds)
-		vibrant?.autoresizingMask = [.width, .height]
-		vibrant?.blendingMode = mode
-		if let vibrant = vibrant {
-			addSubview(vibrant, positioned: .below, relativeTo: nil)
+	func setupShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {
+		if(enabled) {
+			shadow = NSShadow()
+			wantsLayer = true
+			superview?.wantsLayer = true
+			layer?.shadowOpacity = 1
+			layer?.shadowColor = .black
+			layer?.shadowOffset = NSMakeSize(0, 0)
+			layer?.shadowRadius = shadowRadius
+		} else {
+			shadow = nil
 		}
-
-		return vibrant!
-        
-    }
+	}
+	
 }
 
 

@@ -34,28 +34,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			button.image?.isTemplate = true
 		}
 		
-		//observers for volume
-		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
-		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
-		
-		//observers for brightness
-		NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD), name: ObserverApplication.brightnessChanged, object: nil)
-		
-		//observers for keyboard backlight
-		NotificationCenter.default.addObserver(self, selector: #selector(showBackLightHUD), name: ObserverApplication.keyboardIlluminationChanged, object: nil)
-		
-		//continuous check - 0.2 should not take more than 1/800 CPU
-		setupTimer(with: 0.2)
-		
-		
-		NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
-															object: NSApplication.shared,
-															queue: OperationQueue.main) {
-				notification -> Void in
-																self.setupHUDsPosition(false)
-		}
-		
-		
 		//Setting up huds
 		
 		oldVolume = getOutputVolume()
@@ -79,6 +57,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		
 		setHeight(height: CGFloat(settingsController.barHeight))
 		
+		
+		//observers for volume
+		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
+		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+		
+		//observers for brightness
+		NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD), name: ObserverApplication.brightnessChanged, object: nil)
+		
+		//observers for keyboard backlight
+		NotificationCenter.default.addObserver(self, selector: #selector(showBackLightHUD), name: ObserverApplication.keyboardIlluminationChanged, object: nil)
+		
+		//continuous check - 0.2 should not take more than 1/800 CPU
+		//starts to check after all settings have been imported
+		setupTimer(with: 0.2)
+		
+		NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
+															object: NSApplication.shared,
+															queue: OperationQueue.main) {
+				notification -> Void in
+																self.setupHUDsPosition(false)
+		}
+		
+		
+		
 		updateAll()
 	}
 	
@@ -96,7 +98,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		}
 	}
 	
-	var enabledBars: [Bool] = []
+	var enabledBars: [Bool] = [true, true, true]
 	var marginValue: Float = 0.05
 	
 	private let shadowRadius: CGFloat = 20
@@ -106,9 +108,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	var settingsController = SettingsController()
 	
 	func updateShadows(enabled: Bool) {
-		setupShadow(for: volumeView, enabled)
-		setupShadow(for: backlightView, enabled)
-		setupShadow(for: brightnessView, enabled)
+		volumeView.setupShadow(enabled, shadowRadius)
+		backlightView.setupShadow(enabled, shadowRadius)
+		brightnessView.setupShadow(enabled, shadowRadius)
 	}
 	
 	func updateIcons(isHidden: Bool) {
@@ -118,13 +120,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	func setupDefaultColors() {
-		enabledColor = settingsController.blue
-		disabledColor = settingsController.gray
-		backlightBar.foreground = settingsController.azure
-		brightnessBar.foreground = settingsController.yellow
-		volumeBar.background = settingsController.darkGray
-		backlightBar.background = settingsController.darkGray
-		brightnessBar.background = settingsController.darkGray
+		enabledColor = SettingsController.blue
+		disabledColor = SettingsController.gray
+		backlightBar.foreground = SettingsController.azure
+		brightnessBar.foreground = SettingsController.yellow
+		volumeBar.background = SettingsController.darkGray
+		backlightBar.background = SettingsController.darkGray
+		brightnessBar.background = SettingsController.darkGray
 	}
 	
 	func setBackgroundColor(color: NSColor) {
@@ -162,19 +164,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	
-	func setupShadow(for view: NSView, _ enabled: Bool) {
-		if(enabled) {
-			view.shadow = NSShadow()
-			view.wantsLayer = true
-			view.superview?.wantsLayer = true
-			view.layer?.shadowOpacity = 1
-			view.layer?.shadowColor = .black
-			view.layer?.shadowOffset = NSMakeSize(0, 0)
-			view.layer?.shadowRadius = shadowRadius
-		} else {
-			view.shadow = nil
-		}
-	}
+	
 	
 	func setHeight(height: CGFloat) {
 		
