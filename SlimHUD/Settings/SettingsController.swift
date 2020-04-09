@@ -76,6 +76,11 @@ class SettingsController {
 			setItem(barHeight, for: "barHeight")
 		}
 	}
+	var barThickness: Int = 7 {
+		didSet {
+			setItem(barThickness, for: "barThickness")
+		}
+	}
 	var position: Position = Position.left {
 		didSet {
 			setItem(position.rawValue, for: "position")
@@ -107,6 +112,7 @@ class SettingsController {
 		shouldShowShadows = getItem(for: "shouldShowShadows", defaultValue: true)
 		shouldShowIcons = getItem(for: "shouldShowIcons", defaultValue: true)
 		barHeight = getItem(for: "barHeight", defaultValue: 218)
+		barThickness = getItem(for: "barThickness", defaultValue: 7)
 		position = Position(rawValue: getItem(for: "position", defaultValue: "left"))!
 		shouldContinuouslyCheck = getItem(for: "shouldContinuouslyCheck", defaultValue: true)
 		shouldUseAnimation = getItem(for: "shouldUseAnimation", defaultValue: true)
@@ -143,6 +149,7 @@ class SettingsController {
 		setItem(shouldShowShadows, for: "shouldShowShadows")
 		setItem(shouldShowIcons, for: "shouldShowIcons")
 		setItem(barHeight, for: "barHeight")
+		setItem(barThickness, for: "barThickness")
 		setItem(position, for: "position")
     }
 	

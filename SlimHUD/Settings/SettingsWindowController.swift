@@ -19,6 +19,7 @@ protocol SettingsWindowControllerDelegate: class {
 	func setBrightnessColor(color: NSColor)
 	func setBacklightColor(color: NSColor)
 	func setHeight(height: CGFloat)
+	func setThickness(thickness: CGFloat)
 	func setupHUDsPosition(_ isFullscreen: Bool)
 	var shouldUseAnimation: Bool { get set }
 	var enabledBars: [Bool] { get set }
@@ -55,6 +56,8 @@ class SettingsWindowController: NSWindowController {
 		keyboardColorOutlet.color = settingsController!.keyboardColor
 		heightValue.stringValue = String(settingsController!.barHeight)
 		heightSliderOutlet.integerValue = settingsController!.barHeight
+		thicknessValue.stringValue = String(settingsController!.barThickness)
+		thicknessSlider.integerValue = settingsController!.barThickness
 		switch settingsController?.position {
 		case .left:
 			positionOutlet.selectItem(at: 0)
@@ -125,6 +128,9 @@ class SettingsWindowController: NSWindowController {
 	@IBOutlet weak var heightValue: NSTextField!
 	@IBOutlet weak var heightSliderOutlet: NSSlider!
 	
+	@IBOutlet weak var thicknessSlider: NSSlider!
+	@IBOutlet weak var thicknessValue: NSTextField!
+	
 	@IBOutlet weak var positionOutlet: NSPopUpButton!
 	
 	@IBOutlet weak var restartOutlet: NSButton!
@@ -153,18 +159,9 @@ class SettingsWindowController: NSWindowController {
 		preview.setupHUDsPosition(false)
 	}
 	
-	
-	@IBAction func heightSlider(_ sender: NSSlider) {
-		heightValue.stringValue = String(sender.integerValue)
-		settingsController?.barHeight = sender.integerValue
-		delegate?.setHeight(height: CGFloat(sender.integerValue))
-		preview.setHeight(height: CGFloat(sender.integerValue))
-	}
-	
-	
 	func displayRelaunchButton() {
 		if(restartOutlet.isHidden) {
-			positionButtonConstraint.constant = 62
+			positionButtonConstraint.constant = 51
 			NSAnimationContext.runAnimationGroup({ (context) -> Void in
 				context.duration = 0.5
 				//restartOutlet.animator().alphaValue = 1
@@ -185,6 +182,23 @@ class SettingsWindowController: NSWindowController {
 		task.launch()
 		exit(0)
 	}
+	
+	@IBAction func heightSlider(_ sender: NSSlider) {
+		heightValue.stringValue = String(sender.integerValue)
+		settingsController?.barHeight = sender.integerValue
+		delegate?.setHeight(height: CGFloat(sender.integerValue))
+		//preview.setHeight(height: CGFloat(sender.integerValue))
+	}
+	
+	@IBAction func thicknessSlider(_ sender: NSSlider) {
+		thicknessValue.stringValue = String(sender.integerValue)
+		settingsController?.barThickness = sender.integerValue
+		delegate?.setThickness(thickness: CGFloat(sender.integerValue))
+		//preview.setThickness(thickness: CGFloat(sender.integerValue))
+	}
+	
+	
+	
 	
 	// MARK: - Style tab
 	
