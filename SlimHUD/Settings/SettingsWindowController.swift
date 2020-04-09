@@ -248,6 +248,11 @@ class SettingsWindowController: NSWindowController {
 		preview.setBacklightColor(color: sender.color)
 	}
 	
+	@IBAction func volumeHelp(_ sender: NSButton) {
+		//NSApplication.shared.open//openURL(NSURL(string: "http://www.google.com")!)
+	}
+	
+	
 	// MARK: - Preview
 	
 	@objc func windowWillClose() {
