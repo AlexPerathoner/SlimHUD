@@ -56,8 +56,6 @@ class Hud: NSView {
 	
 	
 	func show() {
-		
-		
 		if(isHidden) {
 			guard let view = hudView else { return }
 			windowController?.showWindow(self)
@@ -94,8 +92,6 @@ class Hud: NSView {
 	
 	
 	func hide(animated: Bool) {
-		
-		
 		if(!isHidden) {
 			guard let view = hudView else { return }
 			if(animated) {
