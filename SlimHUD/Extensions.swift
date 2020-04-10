@@ -58,4 +58,44 @@ extension NSView {
             layer.anchorPoint = anchorPoint
         }
     }
+	
+	func setupShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {
+		if(enabled) {
+			shadow = NSShadow()
+			wantsLayer = true
+			superview?.wantsLayer = true
+			layer?.shadowOpacity = 1
+			layer?.shadowColor = .black
+			layer?.shadowOffset = NSMakeSize(0, 0)
+			layer?.shadowRadius = shadowRadius
+		} else {
+			shadow = nil
+		}
+	}
+	
+}
+
+
+extension NSSegmentedControl {
+	func getBarState() -> [Bool] {
+		var states: [Bool] = []
+		for i in 0..<segmentCount {
+			states.append(isSelected(forSegment: i))
+		}
+		return states
+	}
+	
+	func setBarState(values: [Bool]) throws {
+		guard values.count == segmentCount else {
+			throw ParameterError(message: "values.count must correspond to SegmentControl.segmentCount")
+		}
+		
+		for i in 0..<segmentCount {
+			setSelected(values[i], forSegment: i)
+		}
+	}
+}
+
+struct ParameterError: Error {
+	let message: String
 }
