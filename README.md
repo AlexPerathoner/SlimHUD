@@ -52,22 +52,18 @@ Here's a full list of the features:
 <img src = "Screens/colors.png" width=250>
 </p>
 
-* If you think that the default bar is too small you can easily adjust its size.<img src = "Screens/Size/small.png" width=75%>
-<details>
-  <summary>See more</summary>
-	
-<p align="center">
-<img src = "Screens/Size/middle.png" width=75%>
-<img src = "Screens/Size/big.png" width=75%>
-</p>
+* If you think that the default bar is too small you can easily adjust its size.
 
-</details>
+|<img src = "Screens/Size/small.png">|<img src = "Screens/Size/middle.png">|<img src = "Screens/Size/big.png">|
+|--:|---|--:|
 
-* You can change the position the bar will appear: on the left, right, bottom or top; it's up to you!<br>Note that when you change the orientation of the bar (E.g. left->bottom or right->top) you need to restart SlimHUD.<br><img src = "Screens/Position/left.png" width=75%>
-<details><summary>See more</summary><p align="center">
-<img src = "Screens/Position/right.png" width=75%>
-<img src = "Screens/Position/top.png" width=75%>
-<img src = "Screens/Position/bottom.png" width=75%></p></details>
+
+* You can change the position the bar will appear: on the left, right, bottom or top; it's up to you!<br>Note that when you change the orientation of the bar (E.g. left->bottom or right->top) you need to restart SlimHUD.<br>
+
+|<img src = "Screens/Position/left.png">|<img src = "Screens/Position/right.png">|
+|--:|---|
+|<img src = "Screens/Position/top.png">|<img src = "Screens/Position/bottom.png">|
+
 
 * Lastly don't forget to **enable the launch at login function!**
 
