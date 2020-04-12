@@ -9,7 +9,13 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon/*
+
+# Releases are not uploaded - but you can find them in the release page
+Releases/*
+
+# Personal use
+TODO.txt
 
 # Thumbnails
 ._*
