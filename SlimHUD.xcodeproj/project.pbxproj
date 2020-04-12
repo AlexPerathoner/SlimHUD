@@ -79,19 +79,11 @@
 			path = "Kauntey Suryawanshi";
 			sourceTree = "<group>";
 		};
-		FA64FF9524436ED2006FD297 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		FA69AC7A23F9E2E600AA73FD = {
 			isa = PBXGroup;
 			children = (
 				FA69AC8523F9E2E600AA73FD /* SlimHUD */,
 				FA69AC8423F9E2E600AA73FD /* Products */,
-				FA64FF9524436ED2006FD297 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,13 +133,14 @@
 				FA69AC7F23F9E2E600AA73FD /* Sources */,
 				FA69AC8023F9E2E600AA73FD /* Frameworks */,
 				FA69AC8123F9E2E600AA73FD /* Resources */,
-				FA3347D82416A75D0010158F /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SlimHUD;
+			packageProductDependencies = (
+			);
 			productName = SlimHUD;
 			productReference = FA69AC8323F9E2E600AA73FD /* SlimHUD.app */;
 			productType = "com.apple.product-type.application";
@@ -176,6 +169,8 @@
 				Base,
 			);
 			mainGroup = FA69AC7A23F9E2E600AA73FD;
+			packageReferences = (
+			);
 			productRefGroup = FA69AC8423F9E2E600AA73FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -199,26 +194,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		FA3347D82416A75D0010158F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA69AC7F23F9E2E600AA73FD /* Sources */ = {
