@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		}
 		
 		setHeight(height: CGFloat(settingsController.barHeight))
-		
+		setThickness(thickness: CGFloat(settingsController.barThickness))
 		
 		//observers for volume
 		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
@@ -180,9 +180,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			view.setFrameSize(NSSize(width: thickness+40, height: viewSize.height))
 		}
 		for bar in [volumeBar, brightnessBar, backlightBar] as [ProgressBar] {
-			bar.progressLayer.frame.size.width = thickness
+			bar.progressLayer.frame.size.width = thickness //setting up inner layer
 			bar.progressLayer.cornerRadius = thickness/2
+			bar.frame.size.width = thickness //setting up outer layer
 		}
+		
 		setupHUDsPosition(isInFullscreenMode())
 	}
 	
