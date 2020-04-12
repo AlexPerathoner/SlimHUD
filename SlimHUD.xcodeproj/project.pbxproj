@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA01DF9D2440C39F007DE901 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA01DF9C2440C39F007DE901 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA262AE0240E6A9900BFC2D1 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsWindowController.swift */; };
 		FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */; };
 		FA262AE4240E6B1D00BFC2D1 /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */; };
@@ -26,22 +25,7 @@
 		FAF5F658240875800011B766 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6572408757F0011B766 /* LICENSE */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		FA2BB562240C4E540025EA71 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FA01DF9D2440C39F007DE901 /* LaunchAtLogin.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		FA01DF9C2440C39F007DE901 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LaunchAtLogin.framework; sourceTree = "<group>"; };
 		FA262ADF240E6A9900BFC2D1 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FA262AE3240E6B1D00BFC2D1 /* SettingsWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsWindow.xib; sourceTree = "<group>"; };
@@ -95,12 +79,19 @@
 			path = "Kauntey Suryawanshi";
 			sourceTree = "<group>";
 		};
+		FA64FF9524436ED2006FD297 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA69AC7A23F9E2E600AA73FD = {
 			isa = PBXGroup;
 			children = (
-				FA01DF9C2440C39F007DE901 /* LaunchAtLogin.framework */,
 				FA69AC8523F9E2E600AA73FD /* SlimHUD */,
 				FA69AC8423F9E2E600AA73FD /* Products */,
+				FA64FF9524436ED2006FD297 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,7 +141,6 @@
 				FA69AC7F23F9E2E600AA73FD /* Sources */,
 				FA69AC8023F9E2E600AA73FD /* Frameworks */,
 				FA69AC8123F9E2E600AA73FD /* Resources */,
-				FA2BB562240C4E540025EA71 /* Embed Frameworks */,
 				FA3347D82416A75D0010158F /* ShellScript */,
 			);
 			buildRules = (

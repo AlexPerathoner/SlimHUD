@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import LaunchAtLogin
+//import LaunchAtLogin
 
 protocol SettingsWindowControllerDelegate: class {
 	func updateShadows(enabled: Bool)
@@ -44,7 +44,7 @@ class SettingsWindowController: NSWindowController {
 		marginStepperOutlet.integerValue = (settingsController?.marginValue ?? 5 * 100)
 		
 		
-		launchAtLoginOutlet.state = LaunchAtLogin.isEnabled.toStateValue()
+		//launchAtLoginOutlet.state = LaunchAtLogin.isEnabled.toStateValue()
 		iconOutlet.state = settingsController?.shouldShowIcons!.toStateValue() ?? .on
 		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
 		continuousCheckOutlet.state = settingsController?.shouldContinuouslyCheck.toStateValue() ?? .on
@@ -96,7 +96,7 @@ class SettingsWindowController: NSWindowController {
 		settingsController?.shouldContinuouslyCheck = sender.state.boolValue()
 	}
 	@IBAction func launchAtLoginClicked(_ sender: NSButton) {
-		LaunchAtLogin.isEnabled = sender.state.boolValue()
+		//LaunchAtLogin.isEnabled = sender.state.boolValue()
 	}
 	
 	@IBOutlet weak var marginValueOutlet: NSTextField!
