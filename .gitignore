@@ -8,14 +8,6 @@
 .AppleDouble
 .LSOverride
 
-# Icon must end with two \r
-Icon/*
-
-# Releases are not uploaded - but you can find them in the release page
-Releases/*
-
-# Personal use
-TODO.txt
 
 # Thumbnails
 ._*
@@ -72,3 +64,20 @@ DerivedData/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/xcode,macos
+
+
+# Icon must end with two \r
+Icon/*
+Icon*
+
+# Releases are not uploaded - but you can find them in the release page
+Releases/*
+
+# Personal use
+TODO.txt
+
+com.apple.OSDUIHelper.plist
+
+
+Cartfile*
+Carthage/*
