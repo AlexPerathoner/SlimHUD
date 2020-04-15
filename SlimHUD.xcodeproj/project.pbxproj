@@ -22,8 +22,6 @@
 		FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScript.swift */; };
 		FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */; };
 		FABE1FE323FEF679009AD01F /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABE1FE223FEF679009AD01F /* BarView.xib */; };
-		FAE5E63E244389E40029471E /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE5E63D244389E40029471E /* LaunchAtLogin.framework */; };
-		FAE5E63F244389E40029471E /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAE5E63D244389E40029471E /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAF5F6532406D1480011B766 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5F6522406D1480011B766 /* Hud.swift */; };
 		FAF5F6552408445F0011B766 /* dbrightness in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6542408445F0011B766 /* dbrightness */; };
 		FAF5F658240875800011B766 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6572408757F0011B766 /* LICENSE */; };
@@ -61,7 +59,6 @@
 		FABE1FD923FEF17B009AD01F /* AppleScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScript.swift; sourceTree = "<group>"; };
 		FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverApplication.swift; sourceTree = "<group>"; };
 		FABE1FE223FEF679009AD01F /* BarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
-		FAE5E63D244389E40029471E /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 		FAF5F6522406D1480011B766 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		FAF5F6542408445F0011B766 /* dbrightness */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dbrightness; sourceTree = "<group>"; };
 		FAF5F6572408757F0011B766 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -164,7 +161,7 @@
 				FA69AC8123F9E2E600AA73FD /* Resources */,
 				FAE5E633244387AB0029471E /* Frameworks */,
 				FAE5E639244387CD0029471E /* Embed Frameworks */,
-				FAE5E63A2443896A0029471E /* ShellScript */,
+				FACC92F924478872009AE081 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -228,7 +225,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FAE5E63A2443896A0029471E /* ShellScript */ = {
+		FACC92F924478872009AE081 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -243,7 +240,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PROJECT_DIR}/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
