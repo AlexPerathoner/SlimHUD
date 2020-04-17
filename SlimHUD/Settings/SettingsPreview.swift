@@ -12,15 +12,15 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
-	var backlightHud = Hud()
+	var keyboardHud = Hud()
 	
 	@IBOutlet weak var volumeView: NSView!
 	@IBOutlet weak var brightnessView: NSView!
-	@IBOutlet weak var backlightView: NSView!
+	@IBOutlet weak var keyboardView: NSView!
 	
 	@IBOutlet weak var volumeBar: ProgressBar!
 	@IBOutlet weak var brightnessBar: ProgressBar!
-	@IBOutlet weak var backlightBar: ProgressBar!
+	@IBOutlet weak var keyboardBar: ProgressBar!
 	
 	@IBOutlet weak var volumeImage: NSImageView!
 	@IBOutlet weak var brightnessImage: NSImageView!
@@ -32,14 +32,14 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	func setup() {
 		volumeHud.view = volumeView
 		brightnessHud.view = brightnessView
-		backlightHud.view = backlightView
+		keyboardHud.view = keyboardView
 		updateAll()
 	}
 	
 	func updateShadows(enabled: Bool) {
 		volumeView.setupShadow(enabled, 20)
 		brightnessView.setupShadow(enabled, 20)
-		backlightView.setupShadow(enabled, 20)
+		keyboardView.setupShadow(enabled, 20)
 	}
 	
 	func updateIcons(isHidden: Bool) {
@@ -51,14 +51,14 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	func setupDefaultColors() {
 		volumeBar.foreground = SettingsController.blue
 		brightnessBar.foreground = SettingsController.yellow
-		backlightBar.foreground = SettingsController.azure
+		keyboardBar.foreground = SettingsController.azure
 		setBackgroundColor(color: SettingsController.darkGray)
 	}
 	
 	func setBackgroundColor(color: NSColor) {
 		volumeBar.background = color
 		brightnessBar.background = color
-		backlightBar.background = color
+		keyboardBar.background = color
 	}
 	
 	func setVolumeEnabledColor(color: NSColor) {
@@ -75,26 +75,24 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 		brightnessBar.foreground = color
 	}
 	
-	func setBacklightColor(color: NSColor) {
-		backlightBar.foreground = color
+	func setKeyboardColor(color: NSColor) {
+		keyboardBar.foreground = color
 	}
 	
-	func setHeight(height: CGFloat) {
-	}
-	func setThickness(thickness: CGFloat) {
-	}
 	
-	func setupHUDsPosition(_ isFullscreen: Bool) {
-	}
+	// isn't showed in preview
+	func setHeight(height: CGFloat) {}
+	func setThickness(thickness: CGFloat) {}
+	func setupHUDsPosition(_ isFullscreen: Bool) {}
 	
 	var shouldUseAnimation: Bool = true {
 		didSet {
 			volumeHud.animated = shouldUseAnimation
 			brightnessHud.animated = shouldUseAnimation
-			backlightHud.animated = shouldUseAnimation
+			keyboardHud.animated = shouldUseAnimation
 			volumeBar.setupAnimation(animated: shouldUseAnimation)
 			brightnessBar.setupAnimation(animated: shouldUseAnimation)
-			backlightBar.setupAnimation(animated: shouldUseAnimation)
+			keyboardBar.setupAnimation(animated: shouldUseAnimation)
 			showAnimation()
 		}
 	}
@@ -103,7 +101,30 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 		didSet {
 			volumeView.isHidden = !enabledBars[0]
 			brightnessView.isHidden = !enabledBars[1]
-			backlightView.isHidden = !enabledBars[2]
+			keyboardView.isHidden = !enabledBars[2]
+		}
+	}
+	
+	
+	func setVolumeIconsTint(_ color: NSColor) {
+		if #available(OSX 10.14, *) {
+			volumeImage.contentTintColor = NSColor.red
+		} else {
+			NSLog("Can't change icons' tint - MacOS 10.14+ needed")
+		}
+	}
+	func setBrightnessIconsTint(_ color: NSColor) {
+		if #available(OSX 10.14, *) {
+			brightnessImage.contentTintColor = color
+		} else {
+			NSLog("Can't change icons' tint - MacOS 10.14+ needed")
+		}
+	}
+	func setKeyboardIconsTint(_ color: NSColor) {
+		if #available(OSX 10.14, *) {
+			keyboardImage.contentTintColor = color
+		} else {
+			NSLog("Can't change icons' tint - MacOS 10.14+ needed")
 		}
 	}
 	
@@ -119,7 +140,7 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 		setVolumeDisabledColor(color: settingsController?.volumeDisabledColor ?? SettingsController.gray)
 		setVolumeEnabledColor(color: settingsController?.volumeEnabledColor ?? SettingsController.blue)
 		setBrightnessColor(color: settingsController?.brightnessColor ?? SettingsController.yellow)
-		setBacklightColor(color: settingsController?.keyboardColor ?? SettingsController.azure)
+		setKeyboardColor(color: settingsController?.keyboardColor ?? SettingsController.azure)
 		shouldUseAnimation = settingsController?.shouldUseAnimation ?? true
 	}
 	
@@ -136,7 +157,7 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 			let val = (self.value).truncatingRemainder(dividingBy: 1.0)
 			self.volumeBar.progress = val
 			self.brightnessBar.progress = val
-			self.backlightBar.progress = val
+			self.keyboardBar.progress = val
 			self.value += 0.1
 		}
 		

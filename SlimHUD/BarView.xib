@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,7 +58,7 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="srM-nZ-KaO" secondAttribute="bottom" constant="13" id="3ir-SE-Tag"/>
                 <constraint firstItem="N97-Ia-sSU" firstAttribute="leading" secondItem="N9o-3L-Umj" secondAttribute="leading" constant="20" symbolic="YES" id="4Ya-fO-8wd"/>
-                <constraint firstItem="srM-nZ-KaO" firstAttribute="top" secondItem="N97-Ia-sSU" secondAttribute="bottom" constant="8" symbolic="YES" id="Dd3-Mm-6Ca"/>
+                <constraint firstItem="srM-nZ-KaO" firstAttribute="top" secondItem="N97-Ia-sSU" secondAttribute="bottom" constant="8" id="Dd3-Mm-6Ca"/>
                 <constraint firstItem="srM-nZ-KaO" firstAttribute="centerX" secondItem="N97-Ia-sSU" secondAttribute="centerX" id="E2K-lN-yzs"/>
                 <constraint firstItem="srM-nZ-KaO" firstAttribute="centerX" secondItem="N9o-3L-Umj" secondAttribute="centerX" id="HQf-W6-Rzh"/>
                 <constraint firstItem="N97-Ia-sSU" firstAttribute="top" secondItem="N9o-3L-Umj" secondAttribute="top" constant="20" symbolic="YES" id="l6i-hL-DLI"/>
@@ -66,12 +67,12 @@
         </customView>
         <customObject id="Llm-3p-9cC" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
             <connections>
-                <outlet property="backlightBar" destination="N97-Ia-sSU" id="CrY-wq-AFp"/>
-                <outlet property="backlightImage" destination="srM-nZ-KaO" id="a3Y-Aj-UOj"/>
-                <outlet property="backlightView" destination="N9o-3L-Umj" id="ypr-RX-wcb"/>
                 <outlet property="brightnessBar" destination="GPS-kh-j17" id="hCN-Em-WW9"/>
                 <outlet property="brightnessImage" destination="pn1-3j-g0f" id="Jnz-w6-Ash"/>
                 <outlet property="brightnessView" destination="RRc-vh-kfk" id="FYv-qT-IYd"/>
+                <outlet property="keyboardBar" destination="N97-Ia-sSU" id="CrY-wq-AFp"/>
+                <outlet property="keyboardImage" destination="srM-nZ-KaO" id="a3Y-Aj-UOj"/>
+                <outlet property="keyboardView" destination="N9o-3L-Umj" id="ypr-RX-wcb"/>
                 <outlet property="statusMenu" destination="YXJ-wQ-xEi" id="kgH-40-Vta"/>
                 <outlet property="volumeBar" destination="OEc-3L-76X" id="pZ7-is-e4g"/>
                 <outlet property="volumeImage" destination="5Ds-vC-v05" id="G2d-E5-txR"/>

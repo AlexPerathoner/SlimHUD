@@ -18,12 +18,14 @@ enum Position: String {
 
 
 class SettingsController {
-	static let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1.0)
+	// MARK: - Default colors
+	static let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 0.2)
 	static let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	static let blue = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
-	static let yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 0.9)
+	static let yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 1)
 	static let azure = NSColor(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
 	
+	 // MARK: - Bars colors
 	var backgroundColor: NSColor! {
 		didSet {
 			setItem(backgroundColor, for: "backgroundColor")
@@ -49,7 +51,24 @@ class SettingsController {
 			setItem(keyboardColor, for: "keyboardColor")
 		}
 	}
+	// MARK: - Icons colors
+	var volumeIconColor: NSColor! {
+		didSet {
+			setItem(keyboardColor, for: "volumeIconColor")
+		}
+	}
+	var brightnessIconColor: NSColor! {
+		didSet {
+			setItem(keyboardColor, for: "brightnessIconColor")
+		}
+	}
+	var keyboardIconColor: NSColor! {
+		didSet {
+			setItem(keyboardColor, for: "keyboardIconColor")
+		}
+	}
 	
+	// MARK: - Effects colors
 	var shouldShowShadows: Bool! = true {
 		didSet {
 			setItem(shouldShowShadows, for: "shouldShowShadows")
@@ -87,6 +106,7 @@ class SettingsController {
 		}
 	}
 	
+	// MARK: - General
 	var enabledBars: [Bool] = [true, true, true] {
 		didSet {
 			setItem(enabledBars, for: "enabledBars")
@@ -102,7 +122,7 @@ class SettingsController {
 		}
 	}
 	
-	
+	// MARK: - Class methods
 	init() {
 		backgroundColor = getItem(for: "backgroundColor", defaultValue: SettingsController.darkGray)
 		volumeEnabledColor = getItem(for: "volumeEnabledColor", defaultValue: SettingsController.blue)
