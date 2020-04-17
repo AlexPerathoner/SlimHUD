@@ -25,7 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 		
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-
+		
+		NSColor.ignoresAlpha = false
 		//menu bar
 		statusItem.menu = statusMenu
 		if let button = statusItem.button {
