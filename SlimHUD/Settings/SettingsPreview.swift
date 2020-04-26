@@ -53,6 +53,9 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 		brightnessBar.foreground = SettingsController.yellow
 		keyboardBar.foreground = SettingsController.azure
 		setBackgroundColor(color: SettingsController.darkGray)
+		setVolumeIconsTint(.white)
+		setBrightnessIconsTint(.white)
+		setKeyboardIconsTint(.white)
 	}
 	
 	func setBackgroundColor(color: NSColor) {
@@ -63,7 +66,7 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	
 	func setVolumeEnabledColor(color: NSColor) {
 		volumeBar.foreground = color
-		volumeImage.image = NSImage(named: "volumeSegm")
+		volumeImage.image = NSImage(named: "volume")
 	}
 	
 	func setVolumeDisabledColor(color: NSColor) {
@@ -108,7 +111,7 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	
 	func setVolumeIconsTint(_ color: NSColor) {
 		if #available(OSX 10.14, *) {
-			volumeImage.contentTintColor = NSColor.red
+			volumeImage.contentTintColor = color
 		} else {
 			NSLog("Can't change icons' tint - MacOS 10.14+ needed")
 		}
@@ -142,6 +145,9 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 		setBrightnessColor(color: settingsController?.brightnessColor ?? SettingsController.yellow)
 		setKeyboardColor(color: settingsController?.keyboardColor ?? SettingsController.azure)
 		shouldUseAnimation = settingsController?.shouldUseAnimation ?? true
+		setVolumeIconsTint(settingsController?.volumeIconColor ?? NSColor.white)
+		setBrightnessIconsTint(settingsController?.brightnessIconColor ?? NSColor.white)
+		setKeyboardIconsTint(settingsController?.keyboardIconColor ?? NSColor.white)
 	}
 	
 	

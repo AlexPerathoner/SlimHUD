@@ -74,6 +74,10 @@ class SettingsWindowController: NSWindowController {
 			NSLog("Error! Could not load saved position")
 		}
 		
+		volumeIconColorOutlet.color = settingsController!.volumeIconColor
+		brightnessIconColorOutlet.color = settingsController!.brightnessIconColor
+		keyboardIconColorOutlet.color = settingsController!.keyboardIconColor
+		
         super.windowDidLoad()
 		
 		preview.settingsController = settingsController
@@ -205,6 +209,18 @@ class SettingsWindowController: NSWindowController {
 	
 	// MARK: - Style tab
 	
+	@IBOutlet weak var iconsBox: NSBox!
+	@IBOutlet weak var barsBox: NSBox!
+	
+	@IBAction func changeColorOfClicked(_ sender: NSPopUpButton) {
+		if(sender.titleOfSelectedItem == "Bars") {
+			barsBox.isHidden = false
+			iconsBox.isHidden = true
+		} else {
+			barsBox.isHidden = true
+			iconsBox.isHidden = false
+		}
+	}
 	
 	@IBOutlet weak var iconOutlet: NSButton!
 	@IBOutlet weak var shadowOutlet: NSButton!
@@ -215,6 +231,10 @@ class SettingsWindowController: NSWindowController {
 	@IBOutlet weak var volumeDisabledColorOutlet: NSColorWell!
 	@IBOutlet weak var brightnessColorOutlet: NSColorWell!
 	@IBOutlet weak var keyboardColorOutlet: NSColorWell!
+	
+	@IBOutlet weak var volumeIconColorOutlet: NSColorWell!
+	@IBOutlet weak var brightnessIconColorOutlet: NSColorWell!
+	@IBOutlet weak var keyboardIconColorOutlet: NSColorWell!
 	
 	
 	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
@@ -248,6 +268,9 @@ class SettingsWindowController: NSWindowController {
 		keyboardColorOutlet.color = SettingsController.azure
 		brightnessColorOutlet.color = SettingsController.yellow
 		backgroundColorOutlet.color = SettingsController.darkGray
+		volumeIconColorOutlet.color = .white
+		brightnessIconColorOutlet.color = .white
+		keyboardIconColorOutlet.color = .white
 		preview.setupDefaultColors()
 	}
 	

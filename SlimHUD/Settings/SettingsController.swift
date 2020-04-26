@@ -54,12 +54,12 @@ class SettingsController {
 	// MARK: - Icons colors
 	var volumeIconColor: NSColor! {
 		didSet {
-			setItem(keyboardColor, for: "volumeIconColor")
+			setItem(volumeIconColor, for: "volumeIconColor")
 		}
 	}
 	var brightnessIconColor: NSColor! {
 		didSet {
-			setItem(keyboardColor, for: "brightnessIconColor")
+			setItem(brightnessIconColor, for: "brightnessIconColor")
 		}
 	}
 	var keyboardIconColor: NSColor! {
@@ -129,6 +129,11 @@ class SettingsController {
 		volumeDisabledColor = getItem(for: "volumeDisabledColor", defaultValue: SettingsController.gray)
 		brightnessColor = getItem(for: "brightnessColor", defaultValue: SettingsController.yellow)
 		keyboardColor = getItem(for: "keyboardColor", defaultValue: SettingsController.azure)
+		
+		volumeIconColor = getItem(for: "volumeIconColor", defaultValue: .white)
+		brightnessIconColor = getItem(for: "brightnessIconColor", defaultValue: .white)
+		keyboardIconColor = getItem(for: "keyboardIconColor", defaultValue: .white)
+		
 		shouldShowShadows = getItem(for: "shouldShowShadows", defaultValue: true)
 		shouldShowIcons = getItem(for: "shouldShowIcons", defaultValue: true)
 		barHeight = getItem(for: "barHeight", defaultValue: 218)
@@ -171,6 +176,9 @@ class SettingsController {
 		setItem(barHeight, for: "barHeight")
 		setItem(barThickness, for: "barThickness")
 		setItem(position, for: "position")
+		setItem(volumeIconColor, for: "volumeIconColor")
+		setItem(brightnessIconColor, for: "brightnessIconColor")
+		setItem(keyboardIconColor, for: "keyboardIconColor")
     }
 	
 	

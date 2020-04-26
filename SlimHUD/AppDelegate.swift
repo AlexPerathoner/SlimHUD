@@ -129,6 +129,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		volumeBar.background = SettingsController.darkGray
 		keyboardBar.background = SettingsController.darkGray
 		brightnessBar.background = SettingsController.darkGray
+		setVolumeIconsTint(.white)
+		setBrightnessIconsTint(.white)
+		setKeyboardIconsTint(.white)
 	}
 	
 	func setBackgroundColor(color: NSColor) {
@@ -157,6 +160,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		setVolumeDisabledColor(color: settingsController.volumeDisabledColor)
 		setBrightnessColor(color: settingsController.brightnessColor)
 		setKeyboardColor(color: settingsController.keyboardColor)
+		setVolumeIconsTint(settingsController.volumeIconColor)
+		setBrightnessIconsTint(settingsController.brightnessIconColor)
+		setKeyboardIconsTint(settingsController.keyboardIconColor)
 	}
 	
 	func setupTimer(with t: TimeInterval) {
@@ -194,25 +200,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	func setVolumeIconsTint(_ color: NSColor) {
-		if #available(OSX 10.14, *) {
-			volumeImage.contentTintColor = color
-		} else {
-			NSLog("Can't change icons' tint")
-		}
+		volumeImage.contentTintColor = color
 	}
 	func setBrightnessIconsTint(_ color: NSColor) {
-		if #available(OSX 10.14, *) {
-			brightnessImage.contentTintColor = color
-		} else {
-			NSLog("Can't change icons' tint")
-		}
+		brightnessImage.contentTintColor = color
 	}
 	func setKeyboardIconsTint(_ color: NSColor) {
-		if #available(OSX 10.14, *) {
-			keyboardImage.contentTintColor = color
-		} else {
-			NSLog("Can't change icons' tint")
-		}
+		keyboardImage.contentTintColor = color
 	}
 	
 	
