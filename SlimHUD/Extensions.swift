@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AppKit
 
 extension NSControl.StateValue {
 	func boolValue() -> Bool {
@@ -99,3 +100,23 @@ extension NSSegmentedControl {
 struct ParameterError: Error {
 	let message: String
 }
+
+
+//extension NSImage {
+//	/// https://stackoverflow.com/a/50074538/6884062
+//	/// - Returns: returns the tinted version of a template image
+//	func tint(color: NSColor) -> NSImage {
+//		let image = self.copy() as! NSImage
+//		image.lockFocus()
+//
+//		color.set()
+//
+//		let imageRect = NSRect(origin: NSZeroPoint, size: image.size)
+//		imageRect.fill(using: .sourceAtop)
+//
+//		image.unlockFocus()
+//
+//		return image
+//	}
+//}
+

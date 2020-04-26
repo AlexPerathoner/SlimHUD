@@ -17,13 +17,16 @@ protocol SettingsWindowControllerDelegate: class {
 	func setVolumeEnabledColor(color: NSColor)
 	func setVolumeDisabledColor(color: NSColor)
 	func setBrightnessColor(color: NSColor)
-	func setBacklightColor(color: NSColor)
+	func setKeyboardColor(color: NSColor)
 	func setHeight(height: CGFloat)
 	func setThickness(thickness: CGFloat)
 	func setupHUDsPosition(_ isFullscreen: Bool)
 	var shouldUseAnimation: Bool { get set }
 	var enabledBars: [Bool] { get set }
 	var marginValue: Float { get set }
+	func setVolumeIconsTint(_ color: NSColor)
+	func setBrightnessIconsTint(_ color: NSColor)
+	func setKeyboardIconsTint(_ color: NSColor)
 }
 
 
@@ -70,6 +73,10 @@ class SettingsWindowController: NSWindowController {
 		default:
 			NSLog("Error! Could not load saved position")
 		}
+		
+		volumeIconColorOutlet.color = settingsController!.volumeIconColor
+		brightnessIconColorOutlet.color = settingsController!.brightnessIconColor
+		keyboardIconColorOutlet.color = settingsController!.keyboardIconColor
 		
         super.windowDidLoad()
 		
@@ -202,6 +209,18 @@ class SettingsWindowController: NSWindowController {
 	
 	// MARK: - Style tab
 	
+	@IBOutlet weak var iconsBox: NSBox!
+	@IBOutlet weak var barsBox: NSBox!
+	
+	@IBAction func changeColorOfClicked(_ sender: NSPopUpButton) {
+		if(sender.titleOfSelectedItem == "Bars") {
+			barsBox.isHidden = false
+			iconsBox.isHidden = true
+		} else {
+			barsBox.isHidden = true
+			iconsBox.isHidden = false
+		}
+	}
 	
 	@IBOutlet weak var iconOutlet: NSButton!
 	@IBOutlet weak var shadowOutlet: NSButton!
@@ -212,6 +231,10 @@ class SettingsWindowController: NSWindowController {
 	@IBOutlet weak var volumeDisabledColorOutlet: NSColorWell!
 	@IBOutlet weak var brightnessColorOutlet: NSColorWell!
 	@IBOutlet weak var keyboardColorOutlet: NSColorWell!
+	
+	@IBOutlet weak var volumeIconColorOutlet: NSColorWell!
+	@IBOutlet weak var brightnessIconColorOutlet: NSColorWell!
+	@IBOutlet weak var keyboardIconColorOutlet: NSColorWell!
 	
 	
 	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
@@ -245,6 +268,9 @@ class SettingsWindowController: NSWindowController {
 		keyboardColorOutlet.color = SettingsController.azure
 		brightnessColorOutlet.color = SettingsController.yellow
 		backgroundColorOutlet.color = SettingsController.darkGray
+		volumeIconColorOutlet.color = .white
+		brightnessIconColorOutlet.color = .white
+		keyboardIconColorOutlet.color = .white
 		preview.setupDefaultColors()
 	}
 	
@@ -271,9 +297,26 @@ class SettingsWindowController: NSWindowController {
 	}
 	@IBAction func keyboardBackLightColorChanged(_ sender: NSColorWell) {
 		settingsController?.keyboardColor = sender.color
-		delegate?.setBacklightColor(color: sender.color)
-		preview.setBacklightColor(color: sender.color)
+		delegate?.setKeyboardColor(color: sender.color)
+		preview.setKeyboardColor(color: sender.color)
 	}
+	@IBAction func volumeIconColorChanged(_ sender: NSColorWell) {
+		settingsController?.volumeIconColor = sender.color
+		delegate?.setVolumeIconsTint(sender.color)
+		preview.setVolumeIconsTint(sender.color)
+	}
+	@IBAction func brightnessIconChanged(_ sender: NSColorWell) {
+		settingsController?.brightnessIconColor = sender.color
+		delegate?.setBrightnessIconsTint(sender.color)
+		preview.setBrightnessIconsTint(sender.color)
+	}
+	@IBAction func keyboardIconColorChanged(_ sender: NSColorWell) {
+		settingsController?.keyboardIconColor = sender.color
+		delegate?.setKeyboardIconsTint(sender.color)
+		preview.setKeyboardIconsTint(sender.color)
+	}
+	
+	
 	
 	@IBAction func volumeHelp(_ sender: NSButton) {
 		let styleHelpURL = URL(string: "https://github.com/AlexPerathoner/SlimHUD/wiki/Settings")!
