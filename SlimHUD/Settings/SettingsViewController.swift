@@ -48,8 +48,6 @@ class SettingsViewController: NSViewController {
 		
 		marginValueOutlet.stringValue = String(settingsController?.marginValue ?? 5) + "%"
 		marginStepperOutlet.integerValue = (settingsController?.marginValue ?? 5 * 100)
-		
-		
 		launchAtLoginOutlet.state = LaunchAtLogin.isEnabled.toStateValue()
 		iconOutlet.state = settingsController?.shouldShowIcons!.toStateValue() ?? .on
 		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
@@ -81,7 +79,6 @@ class SettingsViewController: NSViewController {
 		brightnessIconColorOutlet.color = settingsController!.brightnessIconColor
 		keyboardIconColorOutlet.color = settingsController!.keyboardIconColor
 		
-        //super.windowDidLoad()
 		
 		preview.settingsController = settingsController
 		preview.setup()
@@ -117,17 +114,6 @@ class SettingsViewController: NSViewController {
 		marginValueOutlet.stringValue = String(marginValue) + "%"
 		delegate?.marginValue = Float(marginValue/100)
 		settingsController?.marginValue = marginValue
-	}
-	
-	@IBAction func marginValueHelp(_ sender: Any) {
-		let generalHelpURL = URL(string: "https://github.com/AlexPerathoner/SlimHUD/wiki/Settings")!
-		if NSWorkspace.shared.open(generalHelpURL) {
-			NSLog("Link opened successfully")
-		}
-	}
-	
-	@IBAction func continuouslyCheckHelp(_ sender: Any) {
-		marginValueHelp(sender)
 	}
 	
 	
@@ -318,16 +304,6 @@ class SettingsViewController: NSViewController {
 		delegate?.setKeyboardIconsTint(sender.color)
 		preview.setKeyboardIconsTint(sender.color)
 	}
-	
-	
-	
-	@IBAction func volumeHelp(_ sender: NSButton) {
-		let styleHelpURL = URL(string: "https://github.com/AlexPerathoner/SlimHUD/wiki/Settings")!
-		if NSWorkspace.shared.open(styleHelpURL) {
-			NSLog("Link opened successfully")
-		}
-	}
-	
 	
 		
 }
