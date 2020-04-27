@@ -437,9 +437,8 @@
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZR-ot-g0S">
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZR-ot-g0S">
                                                                 <rect key="frame" x="18" y="16" width="100" height="20"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Keyboard color:" id="hGI-dS-Ycx">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -454,23 +453,47 @@
                                                                     <action selector="volumeIconColorChanged:" target="KlL-pV-FiE" id="Jjr-zd-Y2o"/>
                                                                 </connections>
                                                             </colorWell>
-                                                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghq-Wy-LQP">
+                                                            <colorWell ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghq-Wy-LQP">
                                                                 <rect key="frame" x="150" y="46" width="44" height="23"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
                                                                     <action selector="brightnessIconChanged:" target="KlL-pV-FiE" id="upj-pS-Vjd"/>
                                                                 </connections>
                                                             </colorWell>
-                                                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JUc-1a-Mus">
+                                                            <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="JUc-1a-Mus">
                                                                 <rect key="frame" x="150" y="16" width="44" height="23"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="ovS-q9-43F"/>
+                                                                    <constraint firstAttribute="height" constant="23" id="tYb-i7-z2P"/>
+                                                                </constraints>
                                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
                                                                     <action selector="keyboardIconColorChanged:" target="KlL-pV-FiE" id="UbP-75-Vlx"/>
                                                                 </connections>
                                                             </colorWell>
+                                                            <button toolTip="Reset default colors" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B9t-2L-wNJ">
+                                                                <rect key="frame" x="219" y="16" width="20" height="22"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="20" id="s0i-Ci-KYB"/>
+                                                                </constraints>
+                                                                <buttonCell key="cell" type="smallSquare" alternateTitle="Reset to default icons' colors " bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bdg-Fh-XeF">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="system"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="resetDefaultsIconColors:" target="KlL-pV-FiE" id="0iJ-Dc-wZg"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="B9t-2L-wNJ" secondAttribute="trailing" constant="14" id="2fD-mt-pGa"/>
+                                                            <constraint firstItem="B9t-2L-wNJ" firstAttribute="top" secondItem="UjE-qO-fia" secondAttribute="top" constant="78" id="7PW-Rd-cgd"/>
+                                                            <constraint firstAttribute="bottom" secondItem="JUc-1a-Mus" secondAttribute="bottom" constant="16" id="L1O-iY-9Fr"/>
+                                                            <constraint firstItem="JUc-1a-Mus" firstAttribute="leading" secondItem="dZR-ot-g0S" secondAttribute="trailing" constant="34" id="fgu-dO-LOI"/>
+                                                            <constraint firstItem="JUc-1a-Mus" firstAttribute="top" secondItem="ghq-Wy-LQP" secondAttribute="bottom" constant="7" id="hmE-AD-Q0X"/>
+                                                            <constraint firstItem="B9t-2L-wNJ" firstAttribute="leading" secondItem="JUc-1a-Mus" secondAttribute="trailing" constant="25" id="iga-an-Lff"/>
+                                                            <constraint firstAttribute="bottom" secondItem="B9t-2L-wNJ" secondAttribute="bottom" constant="17" id="oEp-y6-ORb"/>
+                                                        </constraints>
                                                     </view>
                                                 </box>
                                                 <box boxType="custom" cornerRadius="4" title="Bars" id="VQh-Gr-ghR">
@@ -572,12 +595,12 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="20" id="tHO-Vp-J86"/>
                                                                 </constraints>
-                                                                <buttonCell key="cell" type="smallSquare" alternateTitle="Reset defaults" bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Qf6-to-XrB">
+                                                                <buttonCell key="cell" type="smallSquare" alternateTitle="Reset to default bars' colors " bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Qf6-to-XrB">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="system"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="resetDefaults:" target="KlL-pV-FiE" id="tUO-VB-7qn"/>
+                                                                    <action selector="resetDefaultsBarColors:" target="KlL-pV-FiE" id="tUO-VB-7qn"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>

@@ -12,7 +12,8 @@ import LaunchAtLogin
 protocol SettingsWindowControllerDelegate: class {
 	func updateShadows(enabled: Bool)
 	func updateIcons(isHidden: Bool)
-	func setupDefaultColors()
+	func setupDefaultBarsColors()
+	func setupDefaultIconsColors()
 	func setBackgroundColor(color: NSColor)
 	func setVolumeEnabledColor(color: NSColor)
 	func setVolumeDisabledColor(color: NSColor)
@@ -249,19 +250,35 @@ class SettingsViewController: NSViewController {
 	}
 	
 	
-	@IBAction func resetDefaults(_ sender: Any) {
-		delegate?.setupDefaultColors()
-		settingsController?.resetDefaultColors()
+	@IBAction func resetDefaultsBarColors(_ sender: Any) {
+		//updating bars and preview
+		delegate?.setupDefaultBarsColors()
+		preview.setupDefaultBarsColors()
+		//updating settings
+		settingsController?.resetDefaultBarsColors()
+		//updating color wells of view
 		volumeEnabledColorOutlet.color = SettingsController.blue
 		volumeDisabledColorOutlet.color = SettingsController.gray
 		keyboardColorOutlet.color = SettingsController.azure
 		brightnessColorOutlet.color = SettingsController.yellow
 		backgroundColorOutlet.color = SettingsController.darkGray
+	}
+	
+	
+	@IBAction func resetDefaultsIconColors(_ sender: Any) {
+		//updating bars and preview
+		delegate?.setupDefaultIconsColors()
+		preview.setupDefaultIconsColors()
+		//updating settings
+		settingsController?.resetDefaultIconsColors()
+		//updating color wells of view
 		volumeIconColorOutlet.color = .white
 		brightnessIconColorOutlet.color = .white
 		keyboardIconColorOutlet.color = .white
-		preview.setupDefaultColors()
 	}
+	
+	
+	
 	
 	//changing values automatically also saves them into userdefaults
 	@IBAction func backgroundColorChanged(_ sender: NSColorWell) {

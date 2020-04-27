@@ -49,11 +49,15 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 		keyboardImage.isHidden = isHidden
 	}
 	
-	func setupDefaultColors() {
+	func setupDefaultBarsColors() {
 		volumeBar.foreground = SettingsController.blue
 		brightnessBar.foreground = SettingsController.yellow
 		keyboardBar.foreground = SettingsController.azure
 		setBackgroundColor(color: SettingsController.darkGray)
+	}
+	
+	
+	func setupDefaultIconsColors() {
 		setVolumeIconsTint(.white)
 		setBrightnessIconsTint(.white)
 		setKeyboardIconsTint(.white)

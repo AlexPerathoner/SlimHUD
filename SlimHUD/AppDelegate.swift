@@ -121,7 +121,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		keyboardImage.isHidden = isHidden
 	}
 	
-	func setupDefaultColors() {
+	func setupDefaultBarsColors() {
 		enabledColor = SettingsController.blue
 		disabledColor = SettingsController.gray
 		keyboardBar.foreground = SettingsController.azure
@@ -129,6 +129,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		volumeBar.background = SettingsController.darkGray
 		keyboardBar.background = SettingsController.darkGray
 		brightnessBar.background = SettingsController.darkGray
+	}
+	
+	func setupDefaultIconsColors() {
 		setVolumeIconsTint(.white)
 		setBrightnessIconsTint(.white)
 		setKeyboardIconsTint(.white)
