@@ -27,16 +27,19 @@ protocol SettingsWindowControllerDelegate: class {
 	func setVolumeIconsTint(_ color: NSColor)
 	func setBrightnessIconsTint(_ color: NSColor)
 	func setKeyboardIconsTint(_ color: NSColor)
+	var settingsController: SettingsController? { get set }
 }
 
 
-class SettingsWindowController: NSWindowController {
+class SettingsWindowController: NSViewController {
 	
 	weak var delegate: SettingsWindowControllerDelegate?
     weak var settingsController: SettingsController?
 	@IBOutlet weak var preview: SettingsPreview!
 	
-	override func windowDidLoad() {
+	override func awakeFromNib() {
+		self.delegate = NSApplication.shared.delegate as! AppDelegate
+		self.settingsController = delegate?.settingsController
 		do {
 			try enabledBarsOutlet.setBarState(values: settingsController?.enabledBars ?? [])
 		} catch {
@@ -78,7 +81,7 @@ class SettingsWindowController: NSWindowController {
 		brightnessIconColorOutlet.color = settingsController!.brightnessIconColor
 		keyboardIconColorOutlet.color = settingsController!.keyboardIconColor
 		
-        super.windowDidLoad()
+        //super.windowDidLoad()
 		
 		preview.settingsController = settingsController
 		preview.setup()
@@ -327,7 +330,7 @@ class SettingsWindowController: NSWindowController {
 	
 	
 	// MARK: - Preview
-	
+	/*
 	@objc func windowWillClose() {
 		NotificationCenter.default.removeObserver(self, name: .init("NSWindowWillCloseNotification"), object: window)
 		previewTimer?.invalidate()
@@ -347,7 +350,7 @@ class SettingsWindowController: NSWindowController {
 		NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose), name: .init("NSWindowWillCloseNotification"), object: window)
 		showPreviewHUD()
 		super.showWindow(sender)
-	}
+	}*/
 	
 }
 

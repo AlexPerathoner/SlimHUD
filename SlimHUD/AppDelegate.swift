@@ -42,14 +42,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		oldBacklight = getKeyboardBrightness()
 		oldBrightness = getDisplayBrightness()
 		
-		shouldUseAnimation = settingsController.shouldUseAnimation
+		shouldUseAnimation = settingsController!.shouldUseAnimation
 		
 		volumeHud.view = volumeView
 		brightnessHud.view = brightnessView
 		keyboardHud.view = keyboardView
 		
-		enabledBars = settingsController.enabledBars
-		marginValue = Float(settingsController.marginValue)/100.0
+		enabledBars = settingsController!.enabledBars
+		marginValue = Float(settingsController!.marginValue)/100.0
 		
 
 		for image in [volumeImage, brightnessImage, keyboardImage] as [NSImageView] {
@@ -57,8 +57,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			image.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 		}
 		
-		setHeight(height: CGFloat(settingsController.barHeight))
-		setThickness(thickness: CGFloat(settingsController.barThickness))
+		setHeight(height: CGFloat(settingsController!.barHeight))
+		setThickness(thickness: CGFloat(settingsController!.barThickness))
 		
 		//observers for volume
 		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
@@ -107,7 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
 	
-	var settingsController = SettingsController()
+	var settingsController: SettingsController? = SettingsController()
 	
 	func updateShadows(enabled: Bool) {
 		volumeView.setupShadow(enabled, shadowRadius)
@@ -153,16 +153,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	func updateAll() {
-		updateIcons(isHidden: !settingsController.shouldShowIcons)
-		updateShadows(enabled: settingsController.shouldShowShadows)
-		setBackgroundColor(color: settingsController.backgroundColor)
-		setVolumeEnabledColor(color: settingsController.volumeEnabledColor)
-		setVolumeDisabledColor(color: settingsController.volumeDisabledColor)
-		setBrightnessColor(color: settingsController.brightnessColor)
-		setKeyboardColor(color: settingsController.keyboardColor)
-		setVolumeIconsTint(settingsController.volumeIconColor)
-		setBrightnessIconsTint(settingsController.brightnessIconColor)
-		setKeyboardIconsTint(settingsController.keyboardIconColor)
+		updateIcons(isHidden: !settingsController!.shouldShowIcons)
+		updateShadows(enabled: settingsController!.shouldShowShadows)
+		setBackgroundColor(color: settingsController!.backgroundColor)
+		setVolumeEnabledColor(color: settingsController!.volumeEnabledColor)
+		setVolumeDisabledColor(color: settingsController!.volumeDisabledColor)
+		setBrightnessColor(color: settingsController!.brightnessColor)
+		setKeyboardColor(color: settingsController!.keyboardColor)
+		setVolumeIconsTint(settingsController!.volumeIconColor)
+		setBrightnessIconsTint(settingsController!.brightnessIconColor)
+		setKeyboardIconsTint(settingsController!.keyboardIconColor)
 	}
 	
 	func setupTimer(with t: TimeInterval) {
@@ -243,7 +243,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		} else {
 			(visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition) = getScreenInfo()
 		}
-		switch settingsController.position {
+		switch settingsController!.position {
 		case .left:
 			if(dockPosition == .right) {xDockHeight=0}
 			position = CGPoint(x: xDockHeight, y: (visibleFrame.height/2)-(viewSize.height/2) + yDockHeight)
@@ -259,10 +259,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		
 		for hud in [volumeHud, brightnessHud, keyboardHud] as [Hud] {
 			hud.position = position
-			hud.rotated = settingsController.position
+			hud.rotated = settingsController!.position
 		}
 		
-		let rotated = settingsController.position == .bottom || settingsController.position == .top
+		let rotated = settingsController!.position == .bottom || settingsController!.position == .top
 		for view in [volumeView, brightnessView, keyboardView] as [NSView] {
 			view.layer?.anchorPoint = CGPoint(x: 0, y: 0)
 			if(rotated) {
@@ -274,16 +274,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			}
 			
 			//needs a bit more space for displaying shadows...
-			if(settingsController.position == .right) {
+			if(settingsController!.position == .right) {
 				view.setFrameOrigin(.init(x: shadowRadius, y: 0))
 			}
-			if(settingsController.position == .top) {
+			if(settingsController!.position == .top) {
 				view.setFrameOrigin(.init(x: 0, y: shadowRadius+viewSize.width))
 			}
 		}
 		
 		//rotating icons of views
-		if(settingsController.shouldShowIcons) {
+		if(settingsController!.shouldShowIcons) {
 			for image in [volumeImage, brightnessImage, keyboardImage] as [NSImageView] {
 				if(rotated) {
 					while(image.boundsRotation.truncatingRemainder(dividingBy: 360) != 90) {
@@ -322,13 +322,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	// MARK: - Displayers
-	let settingsWindowController: SettingsWindowController = SettingsWindowController(windowNibName: "SettingsWindow")
 	
 	
 	@IBAction func showWindow(_ sender: Any) {
+		//let settingsWindowController: SettingsWindowController = SettingsWindowController(windowNibName: "SettingsWindow")
 
-		settingsWindowController.delegate = self
-		settingsWindowController.settingsController = settingsController
+		let settingsWindowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as! NSWindowController
+
+		let settingsViewController = (settingsWindowController.contentViewController as! SettingsWindowController)
+		settingsViewController.delegate = self
+		settingsViewController.settingsController = settingsController
 
 		settingsWindowController.window?.center()
         settingsWindowController.window?.makeFirstResponder(nil)
@@ -343,7 +346,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		if(!enabledBars[0]) {return}
 		let disabled = isMuted()
 		setColor(for: volumeBar, disabled)
-		if(!settingsController.shouldContinuouslyCheck) {
+		if(!settingsController!.shouldContinuouslyCheck) {
 			volumeBar.progress = CGFloat(getOutputVolume())
 		}
 		
@@ -408,7 +411,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		if(enabledBars[1]) {
 			checkBrightnessChanges()
 		}
-		if(settingsController.shouldContinuouslyCheck && enabledBars[0]) {
+		if(settingsController!.shouldContinuouslyCheck && enabledBars[0]) {
 			checkVolumeChanges()
 		}
 	}

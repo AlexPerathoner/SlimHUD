@@ -9,6 +9,8 @@
 import Cocoa
 
 class SettingsPreview: NSView, SettingsWindowControllerDelegate {
+	var settingsController: SettingsController?
+	
 	
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
@@ -27,7 +29,6 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	@IBOutlet weak var keyboardImage: NSImageView!
 	
 	
-	public weak var settingsController: SettingsController?
 	
 	func setup() {
 		volumeHud.view = volumeView
