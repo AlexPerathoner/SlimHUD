@@ -10,7 +10,7 @@
         <!--Window Controller-->
         <scene sceneID="0Jy-Y8-QFl">
             <objects>
-                <windowController id="5Rj-lD-9e5" sceneMemberID="viewController">
+                <windowController id="5Rj-lD-9e5" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="m9L-C9-HjY">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="8" y="177"/>
         </scene>
-        <!--Settings Window Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="sha-gQ-9E9">
             <objects>
-                <viewController id="KlL-pV-FiE" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KlL-pV-FiE" customClass="SettingsViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Prf-er-GB7">
                         <rect key="frame" x="0.0" y="0.0" width="638" height="355"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -673,11 +673,6 @@
                                                             <subviews>
                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="1pS-25-F9g" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
                                                                     <rect key="frame" x="20" y="42" width="7" height="218"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                                                            <real key="value" value="0.0"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
                                                                 </customView>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pnP-XU-V10">
                                                                     <rect key="frame" x="13" y="13" width="21" height="21"/>

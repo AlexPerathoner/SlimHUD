@@ -327,11 +327,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	@IBAction func showWindow(_ sender: Any) {
 		//let settingsWindowController: SettingsWindowController = SettingsWindowController(windowNibName: "SettingsWindow")
 
-		let settingsWindowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as! NSWindowController
+		let settingsWindowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as! SettingsWindowController
 
-		let settingsViewController = (settingsWindowController.contentViewController as! SettingsWindowController)
-		settingsViewController.delegate = self
-		settingsViewController.settingsController = settingsController
+		let settingsViewController = (settingsWindowController.contentViewController as! SettingsViewController)
+//		settingsViewController.delegate = self
+//		settingsViewController.settingsController = settingsController
 
 		settingsWindowController.window?.center()
         settingsWindowController.window?.makeFirstResponder(nil)
