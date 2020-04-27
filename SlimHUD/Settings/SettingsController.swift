@@ -144,12 +144,18 @@ class SettingsController {
 		enabledBars = getItem(for: "enabledBars", defaultValue: [true, true, true])
 	}
 	
-	func resetDefaultColors() {
+	func resetDefaultBarsColors() {
 		backgroundColor = SettingsController.darkGray
 		volumeEnabledColor = SettingsController.blue
 		volumeDisabledColor = SettingsController.gray
 		brightnessColor = SettingsController.yellow
 		keyboardColor = SettingsController.azure
+	}
+	
+	func resetDefaultIconsColors() {
+		volumeIconColor = .white
+		brightnessIconColor = .white
+		keyboardIconColor = .white
 	}
 	
 	func getItem<T>(for key: String, defaultValue: T) -> T {

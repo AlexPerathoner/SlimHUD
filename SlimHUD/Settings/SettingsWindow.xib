@@ -7,37 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target">
-            <connections>
-                <outlet property="animationsOutlet" destination="Y2n-yd-yjv" id="Q2O-Yo-9AP"/>
-                <outlet property="backgroundColorOutlet" destination="t8I-6H-rBr" id="QVX-fc-ptB"/>
-                <outlet property="barsBox" destination="Yar-Mo-8Q4" id="otn-cd-H8o"/>
-                <outlet property="brightnessColorOutlet" destination="Nnw-jv-fl9" id="c5p-Mt-mAj"/>
-                <outlet property="brightnessIconColorOutlet" destination="SDi-eV-o8i" id="cff-B4-ACs"/>
-                <outlet property="continuousCheckOutlet" destination="zo2-EN-KIZ" id="7Dc-6D-iZ5"/>
-                <outlet property="enabledBarsOutlet" destination="DH0-ak-m2Q" id="t90-rz-cZn"/>
-                <outlet property="heightSliderOutlet" destination="JBu-Aj-3ti" id="R3W-UA-HEX"/>
-                <outlet property="heightValue" destination="UX6-bL-Ozz" id="qOI-8V-3XN"/>
-                <outlet property="iconOutlet" destination="9Ef-AK-2e5" id="PxM-YR-zsq"/>
-                <outlet property="iconsBox" destination="Usi-37-fW8" id="BU5-Kb-b6U"/>
-                <outlet property="keyboardColorOutlet" destination="Tsm-iF-paD" id="5DW-Gw-8E2"/>
-                <outlet property="keyboardIconColorOutlet" destination="jtZ-Xd-IWT" id="7uk-CL-ZUU"/>
-                <outlet property="launchAtLoginOutlet" destination="tqG-ZB-3V6" id="hYR-O0-1wY"/>
-                <outlet property="marginStepperOutlet" destination="Ra4-Fo-wZM" id="2Bb-7q-fFl"/>
-                <outlet property="marginValueOutlet" destination="D2V-2T-bRS" id="1sH-Bj-42N"/>
-                <outlet property="positionButtonConstraint" destination="48q-5W-X0k" id="4yc-X5-N7X"/>
-                <outlet property="positionOutlet" destination="wLn-Lu-bGr" id="I5t-x0-Ox7"/>
-                <outlet property="preview" destination="hGh-Ho-YDR" id="Pi3-TS-lYc"/>
-                <outlet property="restartOutlet" destination="mSI-k1-7Pj" id="3WJ-iP-Ohv"/>
-                <outlet property="shadowOutlet" destination="iTU-fs-r51" id="mt2-Mv-jWB"/>
-                <outlet property="thicknessSlider" destination="tBz-6Y-WWp" id="SbT-UX-Fwm"/>
-                <outlet property="thicknessValue" destination="3cC-r1-M7o" id="oDu-Qm-shv"/>
-                <outlet property="volumeDisabledColorOutlet" destination="xtd-OG-JqR" id="xdj-UX-cWw"/>
-                <outlet property="volumeEnabledColorOutlet" destination="TJd-6d-0LF" id="Oqm-Jz-dpt"/>
-                <outlet property="volumeIconColorOutlet" destination="v2U-yE-rvp" id="cKb-Fg-PbB"/>
-                <outlet property="window" destination="7AE-S0-Vk1" id="qDw-uy-ptB"/>
-            </connections>
-        </customObject>
+        <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController id="Bmh-m6-5L8"/>
@@ -45,7 +15,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="165" width="638" height="355"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="m4n-bb-a5I">
                 <rect key="frame" x="0.0" y="0.0" width="638" height="355"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,9 +38,6 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="launchAtLoginClicked:" target="-2" id="H4R-aF-Iag"/>
-                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zo2-EN-KIZ">
                                             <rect key="frame" x="18" y="45" width="142" height="18"/>
@@ -79,9 +46,6 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="shouldContinuouslyCheck:" target="-2" id="9TW-Hf-j4W"/>
-                                            </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F0Y-Hz-SLR">
                                             <rect key="frame" x="15" y="253" width="35" height="16"/>
@@ -111,9 +75,6 @@
                                                     </segment>
                                                 </segments>
                                             </segmentedCell>
-                                            <connections>
-                                                <action selector="barsStateChanged:" target="-2" id="sVC-wo-X3e"/>
-                                            </connections>
                                         </segmentedControl>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jvN-7r-ZGH">
                                             <rect key="frame" x="15" y="214" width="88" height="18"/>
@@ -146,9 +107,6 @@
                                                 <constraint firstAttribute="width" constant="13" id="rQz-B3-g1U"/>
                                             </constraints>
                                             <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="10" doubleValue="5" id="27G-J9-3Uv"/>
-                                            <connections>
-                                                <action selector="marginValueChanged:" target="-2" id="jMJ-7f-DsH"/>
-                                            </connections>
                                         </stepper>
                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="voi-FA-BWU">
                                             <rect key="frame" x="17" y="78" width="268" height="5"/>
@@ -162,9 +120,6 @@
                                             <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Obb-T6-KE2">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
-                                                <connections>
-                                                    <action selector="marginValueHelp:" target="-2" id="uYv-SZ-P2r"/>
-                                                </connections>
                                             </buttonCell>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o7y-lS-FsH">
@@ -173,9 +128,6 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="continuouslyCheckHelp:" target="-2" id="zHm-Vg-TTQ"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -230,9 +182,6 @@
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
-                                            <connections>
-                                                <action selector="rotationChanged:" target="-2" id="fBC-Za-hfM"/>
-                                            </connections>
                                         </popUpButton>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zST-Sj-PKR">
                                             <rect key="frame" x="18" y="202" width="34" height="16"/>
@@ -253,9 +202,6 @@
                                                 <constraint firstAttribute="height" constant="15" id="gAD-oe-8JR"/>
                                             </constraints>
                                             <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="30" maxValue="640" doubleValue="308" tickMarkPosition="above" sliderType="linear" id="oR0-3X-cuv"/>
-                                            <connections>
-                                                <action selector="heightSlider:" target="-2" id="s12-Tf-zQm"/>
-                                            </connections>
                                         </slider>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UX6-bL-Ozz">
                                             <rect key="frame" x="212" y="202" width="32" height="15"/>
@@ -278,9 +224,6 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="restartButton:" target="-2" id="p9P-9V-vTz"/>
-                                            </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bOZ-S9-YKi">
                                             <rect key="frame" x="18" y="252" width="57" height="16"/>
@@ -313,9 +256,6 @@
                                                 <constraint firstAttribute="width" constant="102" id="lfX-jg-pkB"/>
                                             </constraints>
                                             <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="50" doubleValue="7" tickMarkPosition="above" sliderType="linear" id="Tvn-GC-kTX"/>
-                                            <connections>
-                                                <action selector="thicknessSlider:" target="-2" id="MZy-n2-B5S"/>
-                                            </connections>
                                         </slider>
                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="d2u-IV-f8A">
                                             <rect key="frame" x="17" y="231" width="416" height="5"/>
@@ -373,9 +313,6 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="shouldShowIconsAction:" target="-2" id="RrE-kM-iNf"/>
-                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iTU-fs-r51">
                                             <rect key="frame" x="18" y="227" width="77" height="18"/>
@@ -383,9 +320,6 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="shouldShowShadows:" target="-2" id="Fcw-qx-a1H"/>
-                                            </connections>
                                         </button>
                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="uKk-Fb-Cde">
                                             <rect key="frame" x="17" y="206" width="268" height="5"/>
@@ -399,9 +333,6 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="resetDefaults:" target="-2" id="4dI-25-a5l"/>
-                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y2n-yd-yjv">
                                             <rect key="frame" x="131" y="254" width="90" height="18"/>
@@ -409,9 +340,6 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="shouldUseAnimations:" target="-2" id="WTm-aX-HFe"/>
-                                            </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rpb-d4-ygw">
                                             <rect key="frame" x="270" y="121" width="25" height="25"/>
@@ -419,9 +347,6 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="volumeHelp:" target="-2" id="ylV-mi-9hb"/>
-                                            </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apm-0n-ahC">
                                             <rect key="frame" x="20" y="180" width="111" height="16"/>
@@ -445,9 +370,6 @@
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
-                                            <connections>
-                                                <action selector="changeColorOfClicked:" target="-2" id="6PZ-ce-kiM"/>
-                                            </connections>
                                         </popUpButton>
                                         <box hidden="YES" boxType="custom" cornerRadius="4" title="Icons" id="Usi-37-fW8">
                                             <rect key="frame" x="22" y="17" width="239" height="117"/>
@@ -487,25 +409,16 @@
                                                         <rect key="frame" x="150" y="16" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <connections>
-                                                            <action selector="keyboardIconColorChanged:" target="-2" id="Q8w-Zg-YVu"/>
-                                                        </connections>
                                                     </colorWell>
                                                     <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2U-yE-rvp">
                                                         <rect key="frame" x="150" y="76" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <connections>
-                                                            <action selector="volumeIconColorChanged:" target="-2" id="NOM-dU-hmn"/>
-                                                        </connections>
                                                     </colorWell>
                                                     <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SDi-eV-o8i">
                                                         <rect key="frame" x="150" y="46" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <connections>
-                                                            <action selector="brightnessIconChanged:" target="-2" id="fal-jC-Uvu"/>
-                                                        </connections>
                                                     </colorWell>
                                                 </subviews>
                                             </view>
@@ -521,41 +434,26 @@
                                                         <rect key="frame" x="150" y="106" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.2002636525" green="0.47451132289999998" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <connections>
-                                                            <action selector="backgroundColorChanged:" target="-2" id="pw6-aC-Ued"/>
-                                                        </connections>
                                                     </colorWell>
                                                     <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TJd-6d-0LF">
                                                         <rect key="frame" x="127" y="76" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
-                                                        <connections>
-                                                            <action selector="volumeEnabledColorChanged:" target="-2" id="1e0-of-7Ue"/>
-                                                        </connections>
                                                     </colorWell>
                                                     <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xtd-OG-JqR">
                                                         <rect key="frame" x="173" y="76" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
-                                                        <connections>
-                                                            <action selector="volumeDisabledColorChanged:" target="-2" id="aZ8-lM-WWt"/>
-                                                        </connections>
                                                     </colorWell>
                                                     <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nnw-jv-fl9">
                                                         <rect key="frame" x="150" y="46" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
-                                                        <connections>
-                                                            <action selector="brightnessColorChanged:" target="-2" id="EeA-bq-10J"/>
-                                                        </connections>
                                                     </colorWell>
                                                     <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tsm-iF-paD">
                                                         <rect key="frame" x="150" y="16" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
-                                                        <connections>
-                                                            <action selector="keyboardBackLightColorChanged:" target="-2" id="PE8-dv-cTN"/>
-                                                        </connections>
                                                     </colorWell>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lZd-Yz-VeP">
                                                         <rect key="frame" x="18" y="111" width="115" height="15"/>
@@ -758,7 +656,7 @@
                     <constraint firstAttribute="trailing" secondItem="Vdi-fS-wXq" secondAttribute="trailing" constant="20" id="Vbt-zy-EEJ"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="14" y="201.5"/>
+            <point key="canvasLocation" x="54" y="201"/>
         </window>
     </objects>
     <resources>

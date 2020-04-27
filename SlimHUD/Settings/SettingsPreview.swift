@@ -9,6 +9,8 @@
 import Cocoa
 
 class SettingsPreview: NSView, SettingsWindowControllerDelegate {
+	var settingsController: SettingsController?
+	
 	
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
@@ -27,7 +29,6 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	@IBOutlet weak var keyboardImage: NSImageView!
 	
 	
-	public weak var settingsController: SettingsController?
 	
 	func setup() {
 		volumeHud.view = volumeView
@@ -48,11 +49,15 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 		keyboardImage.isHidden = isHidden
 	}
 	
-	func setupDefaultColors() {
+	func setupDefaultBarsColors() {
 		volumeBar.foreground = SettingsController.blue
 		brightnessBar.foreground = SettingsController.yellow
 		keyboardBar.foreground = SettingsController.azure
 		setBackgroundColor(color: SettingsController.darkGray)
+	}
+	
+	
+	func setupDefaultIconsColors() {
 		setVolumeIconsTint(.white)
 		setBrightnessIconsTint(.white)
 		setKeyboardIconsTint(.white)

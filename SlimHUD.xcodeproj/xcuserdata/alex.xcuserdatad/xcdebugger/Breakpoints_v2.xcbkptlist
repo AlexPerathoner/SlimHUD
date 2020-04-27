@@ -110,10 +110,8 @@
             filePath = "SlimHUD/Settings/SettingsWindowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
-            landmarkName = "volumeIconColorChanged(_:)"
-            landmarkType = "7">
+            startingLineNumber = "38"
+            endingLineNumber = "38">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
@@ -150,10 +148,8 @@
             filePath = "SlimHUD/Settings/SettingsWindowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
-            landmarkName = "brightnessIconChanged(_:)"
-            landmarkType = "7">
+            startingLineNumber = "38"
+            endingLineNumber = "38">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -182,10 +178,8 @@
             filePath = "SlimHUD/Settings/SettingsWindowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "keyboardIconColorChanged(_:)"
-            landmarkType = "7">
+            startingLineNumber = "38"
+            endingLineNumber = "38">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -198,8 +192,8 @@
             filePath = "SlimHUD/Settings/SettingsController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "getItem(for:defaultValue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -214,8 +208,8 @@
             filePath = "SlimHUD/Settings/SettingsController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "getItem(for:defaultValue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -230,10 +224,8 @@
             filePath = "SlimHUD/Settings/SettingsWindowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "volumeIconColorChanged(_:)"
-            landmarkType = "7">
+            startingLineNumber = "38"
+            endingLineNumber = "38">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -262,8 +254,8 @@
             filePath = "SlimHUD/Settings/SettingsPreview.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "setVolumeIconsTint(_:)"
             landmarkType = "7">
          </BreakpointContent>
