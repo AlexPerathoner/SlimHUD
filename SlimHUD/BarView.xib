@@ -87,6 +87,13 @@
                         <action selector="showWindow:" target="Llm-3p-9cC" id="x3O-kH-bkz"/>
                     </connections>
                 </menuItem>
+                <menuItem title="About..." id="JJ7-io-OxG">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showAbout:" target="Llm-3p-9cC" id="xss-lI-tJ1"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="JsJ-zo-VoK"/>
                 <menuItem title="Quit" id="2XM-N5-3Bx">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -94,7 +101,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-249" y="-76"/>
+            <point key="canvasLocation" x="-307" y="-108"/>
         </menu>
         <customView id="RRc-vh-kfk" userLabel="Brightness">
             <rect key="frame" x="0.0" y="0.0" width="47" height="280"/>

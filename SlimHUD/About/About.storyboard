@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="mxV-WZ-sFZ">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="wzF-0O-XXS">
+            <objects>
+                <windowController id="mxV-WZ-sFZ" sceneMemberID="viewController">
+                    <window key="window" title="SlimHUD" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="olF-td-xU3">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="249" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <connections>
+                            <outlet property="delegate" destination="mxV-WZ-sFZ" id="DeI-Ja-2ip"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="dab-cj-Ljy" kind="relationship" relationship="window.shadowedContentViewController" id="hC9-Mc-E5Q"/>
+                    </connections>
+                </windowController>
+                <customObject id="aW5-os-bUT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="174"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bow-2N-Sls">
+            <objects>
+                <viewController id="dab-cj-Ljy" sceneMemberID="viewController">
+                    <view key="view" id="3dq-SH-iAw">
+                        <rect key="frame" x="0.0" y="0.0" width="454" height="180"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPU-S4-WA1">
+                                <rect key="frame" x="20" y="20" width="140" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="cGG-ql-Gig"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r6e-Hj-hA8">
+                                <rect key="frame" x="168" y="133" width="268" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="SlimHUD - Cyanocitta" id="0sN-EK-kmz">
+                                    <font key="font" metaFont="system" size="23"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="roA-4H-Cl5">
+                                <rect key="frame" x="168" y="53" width="268" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" title="Copyright © 2020 Alexander Perathoner" id="XEC-N7-l9I">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhj-e1-lGi">
+                                <rect key="frame" x="180" y="109" width="166" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="1eJ-vi-inG">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="x68-Hc-DUx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="qUS-A9-a1a" customClass="AboutViewController" customModule="SlimHUD" customModuleProvider="target">
+                    <connections>
+                        <outlet property="versionOutlet" destination="hhj-e1-lGi" id="EUT-hS-VLX"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="642" y="105"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NSApplicationIcon" width="32" height="32"/>
+    </resources>
+</document>

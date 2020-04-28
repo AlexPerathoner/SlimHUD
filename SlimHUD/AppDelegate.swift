@@ -20,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	@IBOutlet var statusMenu: NSMenu!
 	
+	
 	@IBAction func quitCliked(_ sender: Any) {
 		NSApplication.shared.terminate(self)
 	}
@@ -328,21 +329,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	@IBAction func showWindow(_ sender: Any) {
-		//let settingsWindowController: SettingsWindowController = SettingsWindowController(windowNibName: "SettingsWindow")
-
 		let settingsWindowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as! SettingsWindowController
 
-		let settingsViewController = (settingsWindowController.contentViewController as! SettingsViewController)
-//		settingsViewController.delegate = self
-//		settingsViewController.settingsController = settingsController
-
+		//let settingsViewController = (settingsWindowController.contentViewController as! SettingsViewController)
 		settingsWindowController.window?.center()
         settingsWindowController.window?.makeFirstResponder(nil)
         settingsWindowController.window?.makeKeyAndOrderFront(settingsWindowController)
 		settingsWindowController.showWindow(self)
 		NSApp.activate(ignoringOtherApps: true)
-		
 	}
+	
+	
+	@IBAction func showAbout(_ sender: Any) {
+		let aboutWindowController = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as! NSWindowController
+		
+		aboutWindowController.window?.center()
+        aboutWindowController.window?.makeFirstResponder(nil)
+		aboutWindowController.window?.makeKeyAndOrderFront(aboutWindowController)
+		aboutWindowController.showWindow(self)
+		NSApp.activate(ignoringOtherApps: true)
+	}
+	
 	
 	
 	@objc func showVolumeHUD() {
