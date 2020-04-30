@@ -22,10 +22,10 @@ Here's a full list of the features:
 * When changing volume / brightness / keyboard's backlight a small icon is shown under the bar. The icons are:
 
 <p align="center">
-	<img src = "SlimHUD/Assets.xcassets/volume.imageset/volume.png" width=50 margin="10 10 10 10">
-	<img src = "SlimHUD/Assets.xcassets/noVolume.imageset/noVolume.png" width=50 margin="10 10 10 10">
-	<img src = "SlimHUD/Assets.xcassets/brightness.imageset/brightness.png" width=50 margin="10 10 10 10">
-	<img src = "SlimHUD/Assets.xcassets/backlight.imageset/backlight.png" width=50 margin="10 10 10 10">
+	<img src = "SlimHUD/Assets.xcassets/TemplateBars/backlight.imageset/backlight.png" width=50 margin="10 10 10 10">
+	<img src = "SlimHUD/Assets.xcassets/TemplateBars/noVolume.imageset/noVolume.png" width=50 margin="10 10 10 10">
+	<img src = "SlimHUD/Assets.xcassets/TemplateBars/brightness.imageset/brightness.png" width=50 margin="10 10 10 10">
+	<img src = "SlimHUD/Assets.xcassets/TemplateBars/backlight.imageset/backlight.png" width=50 margin="10 10 10 10">
 </p>	
 
 
