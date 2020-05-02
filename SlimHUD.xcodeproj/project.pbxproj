@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1219E06918EE24D5484AA823 /* Pods_SlimHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */; };
+		FA214110245DC1D60034F8FE /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21410F245DC1D60034F8FE /* AboutWindowController.swift */; };
 		FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */; };
 		FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */; };
 		FA55B98C2423FE180071E6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55B98B2423FE180071E6D9 /* Extensions.swift */; };
@@ -49,6 +50,7 @@
 		335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlimHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.debug.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.debug.xcconfig"; sourceTree = "<group>"; };
 		B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.release.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.release.xcconfig"; sourceTree = "<group>"; };
+		FA21410F245DC1D60034F8FE /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FA55B98B2423FE180071E6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				FAAFCD8824588785009E5E2E /* AboutViewController.swift */,
+				FA21410F245DC1D60034F8FE /* AboutWindowController.swift */,
 				FAAFCD862458768E009E5E2E /* About.storyboard */,
 			);
 			path = About;
@@ -333,6 +336,7 @@
 				FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */,
 				FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */,
 				FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */,
+				FA214110245DC1D60034F8FE /* AboutWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

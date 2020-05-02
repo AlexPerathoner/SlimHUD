@@ -9,7 +9,7 @@
         <!--Window Controller-->
         <scene sceneID="wzF-0O-XXS">
             <objects>
-                <windowController id="mxV-WZ-sFZ" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="mxV-WZ-sFZ" customClass="AboutWindowController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="SlimHUD" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="olF-td-xU3">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -30,7 +30,7 @@
         <!--View Controller-->
         <scene sceneID="bow-2N-Sls">
             <objects>
-                <viewController id="dab-cj-Ljy" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="dab-cj-Ljy" sceneMemberID="viewController">
                     <view key="view" id="3dq-SH-iAw">
                         <rect key="frame" x="0.0" y="0.0" width="454" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -44,7 +44,7 @@
                                 <rect key="frame" x="168" y="133" width="268" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="SlimHUD - Cyanocitta" id="0sN-EK-kmz">
-                                    <font key="font" metaFont="system" size="23"/>
+                                    <font key="font" metaFont="label" size="23"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -67,6 +67,26 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zyy-6R-dFD">
+                                <rect key="frame" x="170" y="43" width="167" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="This app is open source on" id="Qjq-NB-kIS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zvz-TF-H3A">
+                                <rect key="frame" x="343" y="40" width="54" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundRect" title="GitHub" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Jc-7j-ctA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="controlContent"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="openRepository:" target="qUS-A9-a1a" id="pmg-BV-xS3"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                 </viewController>

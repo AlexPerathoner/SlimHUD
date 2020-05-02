@@ -10,7 +10,7 @@
         <!--Window Controller-->
         <scene sceneID="0Jy-Y8-QFl">
             <objects>
-                <windowController id="5Rj-lD-9e5" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="5Rj-lD-9e5" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Cyanocitta - Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="m9L-C9-HjY">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -31,7 +31,7 @@
         <!--Settings View Controller-->
         <scene sceneID="sha-gQ-9E9">
             <objects>
-                <viewController id="KlL-pV-FiE" customClass="SettingsViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="KlL-pV-FiE" customClass="SettingsViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Prf-er-GB7">
                         <rect key="frame" x="0.0" y="0.0" width="635" height="355"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

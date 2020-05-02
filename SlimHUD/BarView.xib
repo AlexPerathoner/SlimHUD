@@ -84,7 +84,7 @@
                 <menuItem title="About..." id="JJ7-io-OxG">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="showAbout:" target="Llm-3p-9cC" id="xss-lI-tJ1"/>
+                        <action selector="showAboutWindow:" target="Llm-3p-9cC" id="xss-lI-tJ1"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Check for Updates..." id="B7U-2J-2Um">
@@ -96,7 +96,7 @@
                 <menuItem title="Preferences...." id="j5F-6s-1lC">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="showWindow:" target="Llm-3p-9cC" id="x3O-kH-bkz"/>
+                        <action selector="showSettingsWindow:" target="Llm-3p-9cC" id="x3O-kH-bkz"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="JsJ-zo-VoK"/>
