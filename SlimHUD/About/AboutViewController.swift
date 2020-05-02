@@ -11,7 +11,6 @@ import Cocoa
 
 class AboutViewController: NSViewController {
 	
-	
 	@IBOutlet weak var versionOutlet: NSTextField!
 	override func awakeFromNib() {
 		versionOutlet.stringValue = "Version \(version())"
@@ -20,8 +19,16 @@ class AboutViewController: NSViewController {
 	func version() -> String {
 		let dictionary = Bundle.main.infoDictionary!
 		let version = dictionary["CFBundleShortVersionString"] as! String
-		let build = dictionary["CFBundleVersion"] as! String
-		return "\(version).\(build)"
+		//let build = dictionary["CFBundleVersion"] as! String
+		return "\(version)" //+ ".\(build)"
 	}
+	
+	@IBAction func openRepository(_ sender: Any) {
+		let url = URL(string: "https://github.com/AlexPerathoner/SlimHUD")!
+		if NSWorkspace.shared.open(url) {
+			NSLog("Link opened successfully")
+		}
+	}
+	
 	
 }

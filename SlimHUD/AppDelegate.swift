@@ -10,7 +10,6 @@ import Cocoa
 import QuartzCore
 
 
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
 	
@@ -328,26 +327,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	// MARK: - Displayers
 	
 	
-	@IBAction func showWindow(_ sender: Any) {
-		let settingsWindowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as! SettingsWindowController
+	@IBAction func showSettingsWindow(_ sender: Any) {
+		//check that settings window is not already visible
+		if(!SettingsWindowController.hasIstance) {
+			let settingsWindowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as! SettingsWindowController
 
-		//let settingsViewController = (settingsWindowController.contentViewController as! SettingsViewController)
-		settingsWindowController.window?.center()
-        settingsWindowController.window?.makeFirstResponder(nil)
-        settingsWindowController.window?.makeKeyAndOrderFront(settingsWindowController)
-		settingsWindowController.showWindow(self)
+			//let settingsViewController = (settingsWindowController.contentViewController as! SettingsViewController)
+			settingsWindowController.window?.center()
+			settingsWindowController.window?.makeFirstResponder(nil)
+			settingsWindowController.window?.makeKeyAndOrderFront(settingsWindowController)
+			settingsWindowController.showWindow(self)
+		}
 		NSApp.activate(ignoringOtherApps: true)
 	}
 	
-	
-	@IBAction func showAbout(_ sender: Any) {
-		let aboutWindowController = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as! NSWindowController
-		
+	@IBAction func showAboutWindow(_ sender: Any) {
+		//if(!AboutWindowController.hasIstance) {
+		let aboutWindowController = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as! AboutWindowController
 		aboutWindowController.window?.center()
-        aboutWindowController.window?.makeFirstResponder(nil)
+		aboutWindowController.window?.makeFirstResponder(nil)
 		aboutWindowController.window?.makeKeyAndOrderFront(aboutWindowController)
 		aboutWindowController.showWindow(self)
+		//}
 		NSApp.activate(ignoringOtherApps: true)
+		
 	}
 	
 	
