@@ -175,7 +175,7 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
-                                                        <action selector="checkForUpdates:" target="Ybb-NY-68V" id="r0a-f1-bVR"/>
+                                                        <action selector="checkForUpdates:" target="Ybb-NY-68V" id="xQA-mg-8ie"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -832,7 +832,7 @@
                     </connections>
                 </viewController>
                 <customObject id="UTx-fl-OKg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="Ybb-NY-68V" customClass="Update" customModule="SlimHUD" customModuleProvider="target"/>
+                <customObject id="Ybb-NY-68V" customClass="SUUpdater"/>
             </objects>
             <point key="canvasLocation" x="714.5" y="151.5"/>
         </scene>
