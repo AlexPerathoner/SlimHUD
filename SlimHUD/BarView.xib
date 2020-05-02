@@ -81,16 +81,22 @@
         </customObject>
         <menu id="YXJ-wQ-xEi">
             <items>
-                <menuItem title="Settings..." id="j5F-6s-1lC">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="showWindow:" target="Llm-3p-9cC" id="x3O-kH-bkz"/>
-                    </connections>
-                </menuItem>
                 <menuItem title="About..." id="JJ7-io-OxG">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showAbout:" target="Llm-3p-9cC" id="xss-lI-tJ1"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Check for Updates..." id="B7U-2J-2Um">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="checkForUpdates:" target="EGx-aY-fpr" id="xFh-Q7-VMb"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Preferences...." id="j5F-6s-1lC">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showWindow:" target="Llm-3p-9cC" id="x3O-kH-bkz"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="JsJ-zo-VoK"/>
@@ -129,6 +135,7 @@
             </constraints>
             <point key="canvasLocation" x="-200" y="153"/>
         </customView>
+        <customObject id="EGx-aY-fpr" customClass="SUUpdater"/>
     </objects>
     <resources>
         <image name="backlight" width="225" height="120"/>

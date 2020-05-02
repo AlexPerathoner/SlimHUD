@@ -8,6 +8,7 @@
 
 import Cocoa
 import LaunchAtLogin
+import Sparkle
 
 protocol SettingsWindowControllerDelegate: class {
 	func updateShadows(enabled: Bool)
@@ -46,6 +47,13 @@ class SettingsViewController: NSViewController {
 		} catch {
 			NSLog("Enabled bars saved in UserDefaults not valid")
 		}
+				
+		 
+		
+		let formatter = DateFormatter()
+		formatter.dateFormat = "dd MMM yyyy - HH:mm"
+		lastCheckForUpdatesOutlet.stringValue = formatter.string(from: SUUpdater.shared()?.lastUpdateCheckDate ?? Date())
+
 		
 		marginValueOutlet.stringValue = String(settingsController?.marginValue ?? 5) + "%"
 		marginStepperOutlet.integerValue = (settingsController?.marginValue ?? 5 * 100)
@@ -117,7 +125,9 @@ class SettingsViewController: NSViewController {
 		settingsController?.marginValue = marginValue
 	}
 	
-	
+		
+	@IBOutlet weak var lastCheckForUpdatesOutlet: NSTextField!
+	//check for updates button sends action directly to SUUpdater object in storyboard
 	
 	
 	// MARK: - Position tab
