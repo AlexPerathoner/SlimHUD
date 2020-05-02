@@ -36,5 +36,7 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>SUFeedURL</key>
+	<string>https://alexperathoner.github.io/SlimHUD/Support/appcast.xml</string>
 </dict>
 </plist>

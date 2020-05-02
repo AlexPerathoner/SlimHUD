@@ -29,7 +29,7 @@ Here's a full list of the features:
 </p>	
 
 
-* If you don't the flat look of the bar you can enable a shadow effect
+* If you don't like the flat look of the bar you can enable a shadow effect.
 <p align="center">
 	<img src = "Screens/Shadows/noShadow.jpeg" height=250>
 	<img src = "Screens/Shadows/shadow.jpeg" height =250>

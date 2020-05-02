@@ -10,7 +10,6 @@ import Cocoa
 import QuartzCore
 
 
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
 	

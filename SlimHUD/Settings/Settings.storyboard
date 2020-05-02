@@ -139,6 +139,10 @@
                                                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="aDZ-lb-0zq">
                                                     <rect key="frame" x="17" y="78" width="265" height="5"/>
                                                 </box>
+                                                <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="NLO-F0-6eW">
+                                                    <rect key="frame" x="17" y="196" width="265" height="5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                </box>
                                                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d4b-Jz-J74">
                                                     <rect key="frame" x="259" y="209" width="25" height="25"/>
                                                     <constraints>
@@ -161,6 +165,17 @@
                                                     </buttonCell>
                                                     <connections>
                                                         <segue destination="eR0-g4-VN0" kind="popover" popoverAnchorView="IQ5-YB-cfs" popoverBehavior="t" preferredEdge="maxY" id="Aqt-Vd-tVV"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R84-uu-mql">
+                                                    <rect key="frame" x="10" y="150" width="154" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Check for Updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aHd-Al-gg5">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="checkForUpdates:" target="Ybb-NY-68V" id="r0a-f1-bVR"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -817,6 +832,7 @@
                     </connections>
                 </viewController>
                 <customObject id="UTx-fl-OKg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Ybb-NY-68V" customClass="Update" customModule="SlimHUD" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="714.5" y="151.5"/>
         </scene>
