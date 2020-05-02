@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1219E06918EE24D5484AA823 /* Pods_SlimHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */; };
 		FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */; };
 		FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */; };
 		FA55B98C2423FE180071E6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55B98B2423FE180071E6D9 /* Extensions.swift */; };
@@ -45,6 +46,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlimHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.debug.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.debug.xcconfig"; sourceTree = "<group>"; };
+		B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.release.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.release.xcconfig"; sourceTree = "<group>"; };
 		FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FA55B98B2423FE180071E6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -76,12 +80,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA8822C624460BEF00A3FEE7 /* LaunchAtLogin.framework in Frameworks */,
+				1219E06918EE24D5484AA823 /* Pods_SlimHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C740C1723CB20354D1E13A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */,
+				B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FA262AE5240E9EEF00BFC2D1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +125,7 @@
 				FA69AC8523F9E2E600AA73FD /* SlimHUD */,
 				FA69AC8423F9E2E600AA73FD /* Products */,
 				FAE5E634244387C70029471E /* Frameworks */,
+				2C740C1723CB20354D1E13A6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				FA8822C424460BE400A3FEE7 /* LaunchAtLogin.framework */,
+				335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,19 +191,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA69AC9323F9E2E700AA73FD /* Build configuration list for PBXNativeTarget "SlimHUD" */;
 			buildPhases = (
+				6C92E8366EB7453FD3714FCE /* [CP] Check Pods Manifest.lock */,
 				FA69AC7F23F9E2E600AA73FD /* Sources */,
 				FA69AC8123F9E2E600AA73FD /* Resources */,
 				FAE5E633244387AB0029471E /* Frameworks */,
 				FAE5E639244387CD0029471E /* Embed Frameworks */,
 				FACC92F924478872009AE081 /* ShellScript */,
+				665749C72B21B13DDD9DC418 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SlimHUD;
-			packageProductDependencies = (
-			);
 			productName = SlimHUD;
 			productReference = FA69AC8323F9E2E600AA73FD /* SlimHUD.app */;
 			productType = "com.apple.product-type.application";
@@ -215,8 +232,6 @@
 				Base,
 			);
 			mainGroup = FA69AC7A23F9E2E600AA73FD;
-			packageReferences = (
-			);
 			productRefGroup = FA69AC8423F9E2E600AA73FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -243,6 +258,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		665749C72B21B13DDD9DC418 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SlimHUD/Pods-SlimHUD-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SlimHUD/Pods-SlimHUD-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SlimHUD/Pods-SlimHUD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C92E8366EB7453FD3714FCE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SlimHUD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FACC92F924478872009AE081 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +459,7 @@
 		};
 		FA69AC9423F9E2E700AA73FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
@@ -439,6 +494,7 @@
 		};
 		FA69AC9523F9E2E700AA73FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
