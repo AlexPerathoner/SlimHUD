@@ -74,25 +74,33 @@ Download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases
 Launching SlimHud is easy: copy the app into your Application's folder and then open it.
 <br>**However**, as you probably also want it to replace MacOS' HUDs we'll have to follow a few steps more...<br>Please note that the following instructions will temporarily deactivate Sysem Integrity Protection. By proceeding you acknowledge that you are aware of which risks this leads to.<br>But don't be scared, just follow everything and you should be fine (source: [here](https://alanvitullo.wordpress.com/2018/02/20/remove-control-overlay-on-mac-os-high-sierra/) and [here](https://www.reddit.com/r/MacOS/comments/caiue5/macos_catalina_readonly_file_system_with_sip/)):
 
-<details>
-  <summary>Follow steps</summary>
-  
 1. Enter Recovery Mode by restarting your mac and holding ⌘+R while it's booting up.
 2. Launch the terminal by clicking on Utilities > Terminal.
 3. Disable SIP with ```csrutil disable```.
 4. Restart your mac and login into an admin account.
-5. Run ```sudo mount -uw /; killall Finder``` in your terminal.
+5. Run ```sudo mount -uw /; killall Finder``` in your terminal. <sup>[1](#note1)</sup>
 6. Now run ```sudo nano /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist```.
 6. Remove all of the text between \<plist version=”1.0″> and \</plist>. Save the file by hitting control + X, answering yes and hitting return.
 8. Re-enter Recovery mode.
-9. Enable SIP with ```csrutil enable```.
-  
-</details>
-
+9. Enable SIP with ```csrutil enable```. 
 
 You have now successfully replaced those ugly and old overlays! Congrats!
 
-For future updates it won't be necessary to go through all of these steps. Just copy the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) into your application Folder.
+For future updates it won't be necessary to go through all of these steps. Just copy the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) into your application Folder.<br>After version `1.3.0` you can check for updates from inside the app.
+
+#### Explanation
+<a name="note1"></a><sup>[1](#note1)</sup>:
+> sudo allows a permitted user to execute a command as the superuser or another user.
+Mount is used to mount disks. The -u flag indicates that the status of an already mounted file system should be changed. -w means to mount the file system read-write. The file system is "/" aka root.
+The killall utility kills processes selected by name. Since it's Finder, it will just restart and reflect the change you've just made.
+This isn't permanent, there are more steps involved for that.
+
+Source: [reddit](https://www.reddit.com/r/osx/comments/czkgn9/how_to_change_systemlibrarylaunchagents_in/eyzm42w?utm_source=share&utm_medium=web2x)
+
+This is needed as in the last versions of MacOS the system files (like /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist that you'll modify in step 6) are stored in a different disk partition and being an administrator and having System Integrity Protection disabled still isn't enough to access them.
+
+PS: note that the right command is `sudo mount -uw /`, not `sudo mount -uw`
+
 
 ### Uninstalling
 If you'd like to restore the system's HUDs follow the same steps described above. With the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) a copy of the text you deleted from ```/System/Library/LaunchAgents/com.apple.OSDUIHelper.plist``` is provided. Copy it between \<plist version=”1.0″> and \</plist>.
