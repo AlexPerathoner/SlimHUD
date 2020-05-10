@@ -9,8 +9,6 @@
 import Cocoa
 
 class SettingsWindowController: NSWindowController, NSWindowDelegate {
-	static var hasIstance = false
-	
 	
 	var previewTimer: Timer?
 	func showingPreviewHUD(_ value: Bool) {
@@ -27,7 +25,6 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 	}
 	
 	override func windowDidLoad() {
-		SettingsWindowController.hasIstance = true
 		super.windowDidLoad()
 		showingPreviewHUD(true)
 		window?.delegate = self
@@ -36,7 +33,6 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 	
 	func windowWillClose(_ notification: Notification) {
 		
-		SettingsWindowController.hasIstance = false
 		showingPreviewHUD(false)
 		
 	}

@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		1219E06918EE24D5484AA823 /* Pods_SlimHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */; };
 		FA131C2F24683CBD005908FF /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA131C2E24683CBD005908FF /* MainMenu.storyboard */; };
-		FA131C4D24684C93005908FF /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA131C4C24684C93005908FF /* BarView.xib */; };
-		FA214110245DC1D60034F8FE /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21410F245DC1D60034F8FE /* AboutWindowController.swift */; };
 		FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */; };
 		FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */; };
 		FA55B98C2423FE180071E6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55B98B2423FE180071E6D9 /* Extensions.swift */; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
 		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
 		FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */; };
+		FA623A612468591400A6ABCB /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA623A602468591400A6ABCB /* BarView.xib */; };
+		FA623A6324685DD000A6ABCB /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA623A6224685DD000A6ABCB /* BarView.swift */; };
 		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
 		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
 		FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78F53E242FA73000785678 /* SettingsPreview.swift */; };
@@ -52,14 +52,14 @@
 		A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.debug.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.debug.xcconfig"; sourceTree = "<group>"; };
 		B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.release.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.release.xcconfig"; sourceTree = "<group>"; };
 		FA131C2E24683CBD005908FF /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
-		FA131C4C24684C93005908FF /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
-		FA21410F245DC1D60034F8FE /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FA55B98B2423FE180071E6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
+		FA623A602468591400A6ABCB /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
+		FA623A6224685DD000A6ABCB /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		FA69AC8323F9E2E600AA73FD /* SlimHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +122,15 @@
 			path = "Kauntey Suryawanshi";
 			sourceTree = "<group>";
 		};
+		FA623A6424685DDB00A6ABCB /* BarView */ = {
+			isa = PBXGroup;
+			children = (
+				FA623A602468591400A6ABCB /* BarView.xib */,
+				FA623A6224685DD000A6ABCB /* BarView.swift */,
+			);
+			path = BarView;
+			sourceTree = "<group>";
+		};
 		FA69AC7A23F9E2E600AA73FD = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +161,7 @@
 				FABE1FD923FEF17B009AD01F /* AppleScript.swift */,
 				FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */,
 				FA131C2E24683CBD005908FF /* MainMenu.storyboard */,
-				FA131C4C24684C93005908FF /* BarView.xib */,
+				FA623A6424685DDB00A6ABCB /* BarView */,
 				FA69AC8F23F9E2E700AA73FD /* Info.plist */,
 				FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */,
 				FA5C77E8240B0753004E0937 /* Kauntey Suryawanshi */,
@@ -165,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				FAAFCD8824588785009E5E2E /* AboutViewController.swift */,
-				FA21410F245DC1D60034F8FE /* AboutWindowController.swift */,
 				FAAFCD862458768E009E5E2E /* About.storyboard */,
 			);
 			path = About;
@@ -256,7 +264,7 @@
 				FAAFCD872458768E009E5E2E /* About.storyboard in Resources */,
 				FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */,
 				FAF5F658240875800011B766 /* LICENSE in Resources */,
-				FA131C4D24684C93005908FF /* BarView.xib in Resources */,
+				FA623A612468591400A6ABCB /* BarView.xib in Resources */,
 				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,11 +344,11 @@
 				FAF5F6532406D1480011B766 /* Hud.swift in Sources */,
 				FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */,
 				FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */,
+				FA623A6324685DD000A6ABCB /* BarView.swift in Sources */,
 				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
 				FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */,
 				FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */,
 				FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */,
-				FA214110245DC1D60034F8FE /* AboutWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

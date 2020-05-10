@@ -3,23 +3,8 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="6Fa-3q-w7H">
-            <objects>
-                <viewController id="jZl-8M-zUt" sceneMemberID="viewController">
-                    <view key="view" id="qlf-8I-XH2">
-                        <rect key="frame" x="0.0" y="0.0" width="747" height="478"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="1O2-bl-Xkq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="rtI-BX-5WL" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="-288.5" y="539"/>
-        </scene>
         <!--Application-->
         <scene sceneID="lsH-jy-eP4">
             <objects>
@@ -41,6 +26,7 @@
                                         <menuItem title="About..." id="Y7B-0i-puc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
+                                                <action selector="showAboutWindow:" target="RpS-ln-g5c" id="kei-n1-gr7"/>
                                                 <segue destination="YmN-fR-kvf" kind="show" id="0v4-Mt-1lx"/>
                                             </connections>
                                         </menuItem>
@@ -53,6 +39,7 @@
                                         <menuItem title="Preferences...." id="MKQ-CJ-4R5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
+                                                <action selector="showSettingsWindow:" target="RpS-ln-g5c" id="Aye-aZ-4Yo"/>
                                                 <segue destination="ijN-uD-ef4" kind="show" id="BD4-bN-HLp"/>
                                             </connections>
                                         </menuItem>
@@ -73,7 +60,7 @@
                     </connections>
                 </application>
             </objects>
-            <point key="canvasLocation" x="-78" y="-33"/>
+            <point key="canvasLocation" x="-100" y="-37"/>
         </scene>
         <!--About-->
         <scene sceneID="HjU-Tv-xRr">
