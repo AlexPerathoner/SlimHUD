@@ -13,14 +13,15 @@ class AboutWindowController: NSWindowController, NSWindowDelegate {
 	static var hasIstance = false
 	
 	override func windowDidLoad() {
+		AboutWindowController.hasIstance = true
 		super.windowDidLoad()
 		window?.delegate = self
-		AboutWindowController.hasIstance = true
 	}
-	
-	//FIXME: not being called
+
 	func windowWillClose(_ notification: Notification) {
-		AboutWindowController.hasIstance = false
+		
+		SettingsWindowController.hasIstance = false
+		
 	}
 	
 }

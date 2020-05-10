@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="52" y="174"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="bow-2N-Sls">
             <objects>
-                <viewController showSeguePresentationStyle="single" id="dab-cj-Ljy" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="dab-cj-Ljy" customClass="AboutViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="3dq-SH-iAw">
                         <rect key="frame" x="0.0" y="0.0" width="454" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -84,20 +84,18 @@
                                     <font key="font" metaFont="controlContent"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="openRepository:" target="qUS-A9-a1a" id="pmg-BV-xS3"/>
+                                    <action selector="openRepository:" target="dab-cj-Ljy" id="Qm6-Rm-fuX"/>
                                 </connections>
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="versionOutlet" destination="hhj-e1-lGi" id="88m-2V-vm5"/>
+                    </connections>
                 </viewController>
                 <customObject id="x68-Hc-DUx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="qUS-A9-a1a" customClass="AboutViewController" customModule="SlimHUD" customModuleProvider="target">
-                    <connections>
-                        <outlet property="versionOutlet" destination="hhj-e1-lGi" id="EUT-hS-VLX"/>
-                    </connections>
-                </customObject>
             </objects>
-            <point key="canvasLocation" x="642" y="105"/>
+            <point key="canvasLocation" x="642" y="120"/>
         </scene>
     </scenes>
     <resources>

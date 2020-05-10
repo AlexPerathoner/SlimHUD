@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="6Fa-3q-w7H">
+            <objects>
+                <viewController id="jZl-8M-zUt" sceneMemberID="viewController">
+                    <view key="view" id="qlf-8I-XH2">
+                        <rect key="frame" x="0.0" y="0.0" width="747" height="478"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="1O2-bl-Xkq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="rtI-BX-5WL" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="-288.5" y="539"/>
+        </scene>
+        <!--Application-->
+        <scene sceneID="lsH-jy-eP4">
+            <objects>
+                <customObject id="Fkg-Y0-35E" customClass="SUUpdater"/>
+                <customObject id="hbL-WD-91l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="ev8-l2-p2M" customClass="NSFontManager"/>
+                <customObject id="RpS-ln-g5c" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
+                    <connections>
+                        <outlet property="statusMenu" destination="H2T-wn-cOi" id="3Tt-yF-EdJ"/>
+                    </connections>
+                </customObject>
+                <application id="Tr2-0q-69d" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="Dag-xE-9ax">
+                        <items>
+                            <menuItem title="SlimHUD" id="fW0-eE-vVr" userLabel="SlimHUD">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="SlimHUD" id="H2T-wn-cOi" userLabel="statusMenu">
+                                    <items>
+                                        <menuItem title="About..." id="Y7B-0i-puc">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="YmN-fR-kvf" kind="show" id="0v4-Mt-1lx"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Check for Updates..." id="5S5-O1-oWe">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="checkForUpdates:" target="Fkg-Y0-35E" id="DSJ-8j-7Me"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Preferences...." id="MKQ-CJ-4R5">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="ijN-uD-ef4" kind="show" id="BD4-bN-HLp"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="vC6-xV-rB2"/>
+                                        <menuItem title="Quit" id="xeo-u1-C0T">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="quitCliked:" target="RpS-ln-g5c" id="yC7-6g-GR9"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="RpS-ln-g5c" id="83x-eP-0MN"/>
+                    </connections>
+                </application>
+            </objects>
+            <point key="canvasLocation" x="-78" y="-33"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="HjU-Tv-xRr">
+            <objects>
+                <controllerPlaceholder storyboardName="About" id="YmN-fR-kvf" sceneMemberID="viewController"/>
+                <customObject id="yZO-NH-p6n" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="262" y="-115"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="jqi-3i-Naz">
+            <objects>
+                <controllerPlaceholder storyboardName="Settings" id="ijN-uD-ef4" sceneMemberID="viewController"/>
+                <customObject id="tRv-Bi-QoT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="324" y="73"/>
+        </scene>
+    </scenes>
+</document>

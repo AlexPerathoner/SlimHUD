@@ -17,24 +17,57 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	// MARK: - General
 	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	
-	@IBOutlet var statusMenu: NSMenu!
+	@IBOutlet weak var statusMenu: NSMenu!
 	
 	
 	@IBAction func quitCliked(_ sender: Any) {
 		NSApplication.shared.terminate(self)
 	}
-		
-	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		
-		NSColor.ignoresAlpha = false
-		
+	
+	// MARK: - Views, bars & HUDs
+	
+	/*
+	let volumeBar = ProgressBar()
+	let brightnessBar = ProgressBar()
+	let keyboardBar = ProgressBar()
+	let volumeView = NSView()
+	let brightnessView = NSView()
+	let keyboardView = NSView()
+	let volumeImage = NSImageView(image: NSImage(named: "volume")!)
+	let brightnessImage = NSImageView(image: NSImage(named: "brightness")!)
+	let keyboardImage = NSImageView(image: NSImage(named: "backlight")!)
+	*/
+	
+	@IBOutlet weak var volumeBar: ProgressBar!
+	@IBOutlet weak var volumeView: NSView!
+	
+	@IBOutlet weak var brightnessBar: ProgressBar!
+	@IBOutlet weak var brightnessView: NSView!
+	
+	@IBOutlet weak var keyboardBar: ProgressBar!
+	@IBOutlet weak var keyboardView: NSView!
+	
+	@IBOutlet weak var volumeImage: NSImageView!
+	@IBOutlet weak var brightnessImage: NSImageView!
+	@IBOutlet weak var keyboardImage: NSImageView!
+	
+	var volumeHud = Hud()
+	var brightnessHud = Hud()
+	var keyboardHud = Hud()
+	
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
 		//menu bar
+		
 		statusItem.menu = statusMenu
+		
 		if let button = statusItem.button {
 			button.title = "SlimHUD"
 			button.image = NSImage(named: "statusIcon")
 			button.image?.isTemplate = true
 		}
+		
 		
 		//Setting up huds
 		
@@ -86,6 +119,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		updateAll()
 	}
 	
+	func applicationDidFinishLaunching(_ aNotification: Notification) {
+		
+		NSColor.ignoresAlpha = false
+		
+		
+		
+	}
+	
 	
 	
 	// MARK: - Settings & setups
@@ -94,6 +135,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 			volumeHud.animated = shouldUseAnimation
 			brightnessHud.animated = shouldUseAnimation
 			keyboardHud.animated = shouldUseAnimation
+			
 			volumeBar.setupAnimation(animated: shouldUseAnimation)
 			brightnessBar.setupAnimation(animated: shouldUseAnimation)
 			keyboardBar.setupAnimation(animated: shouldUseAnimation)
@@ -303,24 +345,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	
-	// MARK: - Views, bars & HUDs
-	
-	@IBOutlet weak var volumeBar: ProgressBar!
-	@IBOutlet weak var volumeView: NSView!
-	
-	@IBOutlet weak var brightnessBar: ProgressBar!
-	@IBOutlet weak var brightnessView: NSView!
-	
-	@IBOutlet weak var keyboardBar: ProgressBar!
-	@IBOutlet weak var keyboardView: NSView!
-	
-	@IBOutlet weak var volumeImage: NSImageView!
-	@IBOutlet weak var brightnessImage: NSImageView!
-	@IBOutlet weak var keyboardImage: NSImageView!
-	
-	var volumeHud = Hud()
-	var brightnessHud = Hud()
-	var keyboardHud = Hud()
 	
 	
 	
@@ -342,13 +366,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	@IBAction func showAboutWindow(_ sender: Any) {
-		//if(!AboutWindowController.hasIstance) {
-		let aboutWindowController = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as! AboutWindowController
-		aboutWindowController.window?.center()
-		aboutWindowController.window?.makeFirstResponder(nil)
-		aboutWindowController.window?.makeKeyAndOrderFront(aboutWindowController)
-		aboutWindowController.showWindow(self)
-		//}
+		if(!AboutWindowController.hasIstance) {
+			let aboutWindowController = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as! AboutWindowController
+			aboutWindowController.window?.center()
+			aboutWindowController.window?.makeFirstResponder(nil)
+			aboutWindowController.window?.makeKeyAndOrderFront(aboutWindowController)
+			aboutWindowController.showWindow(self)
+		}
 		NSApp.activate(ignoringOtherApps: true)
 		
 	}
