@@ -26,27 +26,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	// MARK: - Views, bars & HUDs
 	
-	/*
-	let volumeBar = ProgressBar()
-	let brightnessBar = ProgressBar()
-	let keyboardBar = ProgressBar()
-	let volumeView = NSView()
-	let brightnessView = NSView()
-	let keyboardView = NSView()
-	let volumeImage = NSImageView(image: NSImage(named: "volume")!)
-	let brightnessImage = NSImageView(image: NSImage(named: "brightness")!)
-	let keyboardView.image = NSImageView(image: NSImage(named: "backlight")!)
-	*/
-	
 	var volumeView: BarView = NSView.fromNib(name: "BarView") as! BarView
-	var volumeBar: ProgressBar?
-	
 	var brightnessView: BarView = NSView.fromNib(name: "BarView") as! BarView
-	var brightnessBar: ProgressBar?
-	
 	var keyboardView: BarView = NSView.fromNib(name: "BarView") as! BarView
-	var keyboardBar: ProgressBar?
-	
 	
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
@@ -56,13 +38,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		volumeBar = volumeView.bar
 		volumeView.image!.image = NSImage(named: "volume")
-		
-		brightnessBar = brightnessView.bar
 		brightnessView.image!.image = NSImage(named: "brightness")
-		
-		keyboardBar = keyboardView.bar
 		keyboardView.image!.image = NSImage(named: "backlight")
 		
 		//menu bar
@@ -74,20 +51,23 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			button.image?.isTemplate = true
 		}
 		
-		//Setting up huds
 		
 		oldVolume = getOutputVolume()
 		oldBacklight = getKeyboardBrightness()
 		oldBrightness = getDisplayBrightness()
 		
-		shouldUseAnimation = settingsController!.shouldUseAnimation
 		
+		
+		//Setting up huds
 		volumeHud.view = volumeView
 		brightnessHud.view = brightnessView
 		keyboardHud.view = keyboardView
 		
+		
+		
 		enabledBars = settingsController!.enabledBars
 		marginValue = Float(settingsController!.marginValue)/100.0
+		shouldUseAnimation = settingsController!.shouldUseAnimation
 		
 
 		for image in [volumeView.image, brightnessView.image, keyboardView.image] as [NSImageView?] {
@@ -136,9 +116,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			brightnessHud.animated = shouldUseAnimation
 			keyboardHud.animated = shouldUseAnimation
 			
-			volumeBar?.setupAnimation(animated: shouldUseAnimation)
-			brightnessBar?.setupAnimation(animated: shouldUseAnimation)
-			keyboardBar?.setupAnimation(animated: shouldUseAnimation)
+			volumeView.bar?.setupAnimation(animated: shouldUseAnimation)
+			brightnessView.bar?.setupAnimation(animated: shouldUseAnimation)
+			keyboardView.bar?.setupAnimation(animated: shouldUseAnimation)
 		}
 	}
 	
@@ -166,11 +146,11 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	func setupDefaultBarsColors() {
 		enabledColor = SettingsController.blue
 		disabledColor = SettingsController.gray
-		keyboardBar?.foreground = SettingsController.azure
-		brightnessBar?.foreground = SettingsController.yellow
-		volumeBar?.background = SettingsController.darkGray
-		keyboardBar?.background = SettingsController.darkGray
-		brightnessBar?.background = SettingsController.darkGray
+		keyboardView.bar?.foreground = SettingsController.azure
+		brightnessView.bar?.foreground = SettingsController.yellow
+		volumeView.bar?.background = SettingsController.darkGray
+		keyboardView.bar?.background = SettingsController.darkGray
+		brightnessView.bar?.background = SettingsController.darkGray
 	}
 	
 	func setupDefaultIconsColors() {
@@ -180,9 +160,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	}
 	
 	func setBackgroundColor(color: NSColor) {
-		volumeBar?.background = color
-		keyboardBar?.background = color
-		brightnessBar?.background = color
+		volumeView.bar?.background = color
+		keyboardView.bar?.background = color
+		brightnessView.bar?.background = color
 	}
 	func setVolumeEnabledColor(color: NSColor) {
 		enabledColor = color
@@ -191,10 +171,10 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		disabledColor = color
 	}
 	func setBrightnessColor(color: NSColor) {
-		brightnessBar?.foreground = color
+		brightnessView.bar?.foreground = color
 	}
 	func setKeyboardColor(color: NSColor) {
-		keyboardBar?.foreground = color
+		keyboardView.bar?.foreground = color
 	}
 	
 	func updateAll() {
@@ -232,7 +212,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		for view in [volumeView, brightnessView, keyboardView] as [NSView?] {
 			view?.setFrameSize(NSSize(width: thickness+40, height: viewSize.height ?? 10))
 		}
-		for bar in [volumeBar, brightnessBar, keyboardBar] as [ProgressBar?] {
+		for bar in [volumeView.bar, brightnessView.bar, keyboardView.bar] as [ProgressBar?] {
 			bar?.progressLayer.frame.size.width = thickness //setting up inner layer
 			bar?.progressLayer.cornerRadius = thickness/2
 			bar?.frame.size.width = thickness //setting up outer layer
@@ -353,9 +333,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	@objc func showVolumeHUD() {
 		if(!enabledBars[0]) {return}
 		let disabled = isMuted()
-		setColor(for: volumeBar!, disabled)
+		setColor(for: volumeView.bar!, disabled)
 		if(!settingsController!.shouldContinuouslyCheck) {
-			volumeBar!.progress = CGFloat(getOutputVolume())
+			volumeView.bar!.progress = CGFloat(getOutputVolume())
 		}
 		
 		if(disabled) {
@@ -431,12 +411,12 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	var oldVolume: Float = 0.5
 	func checkVolumeChanges() {
 		let newVolume = getOutputVolume()
-		volumeBar!.progress = CGFloat(newVolume)
+		volumeView.bar!.progress = CGFloat(newVolume)
 		if (!isAlmost(n1: oldVolume, n2: newVolume)) {
 			NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
 			oldVolume = newVolume
 		}
-		volumeBar!.progress = CGFloat(newVolume)
+		volumeView.bar!.progress = CGFloat(newVolume)
 	}
 	
 	var oldBacklight: Float = 0.5
@@ -446,7 +426,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			NotificationCenter.default.post(name: ObserverApplication.keyboardIlluminationChanged, object: self)
 			oldBacklight = newBacklight
 		}
-		keyboardBar?.progress = CGFloat(newBacklight)
+		keyboardView.bar?.progress = CGFloat(newBacklight)
 	}
 	
 	var oldBrightness: Float = 0.5
@@ -457,7 +437,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
 			oldBrightness = newBrightness
 		}
-		brightnessBar?.progress = CGFloat(newBrightness)
+		brightnessView.bar?.progress = CGFloat(newBrightness)
 	}
 	
 	// MARK: -
