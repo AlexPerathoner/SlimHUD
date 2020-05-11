@@ -10,16 +10,14 @@ import Cocoa
 
 class BarView: NSView {
 	
-	@IBOutlet var view: BarView!
 	@IBOutlet weak var bar: ProgressBar!
-	@IBOutlet weak var image: NSImageView!
+	@IBOutlet var image: NSImageView!
 	
-	func setImage(img: String) -> Bool {
+	func setImage(img: String) {
 		if let inputImage = NSImage(named: img) {
 			image = NSImageView(image: inputImage)
-			return true
+			image.frame.size = inputImage.size
 		}
-		return false
 	}
 	
 }

@@ -6,13 +6,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="BarView" customModule="SlimHUD" customModuleProvider="target">
-            <connections>
-                <outlet property="view" destination="c22-O7-iKe" id="tfD-d3-awO"/>
-            </connections>
-        </customObject>
+        <customObject id="-2" userLabel="File's Owner" customClass="BarView" customModule="SlimHUD" customModuleProvider="target"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" userLabel="barView" customClass="BarView" customModule="SlimHUD" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="47" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -26,7 +22,7 @@
                         <constraint firstAttribute="width" constant="21" id="NDy-U7-cMw"/>
                         <constraint firstAttribute="height" constant="21" id="sfE-DM-dbO"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="volume" id="zRf-Lj-5fz"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" id="zRf-Lj-5fz"/>
                 </imageView>
             </subviews>
             <constraints>
@@ -41,10 +37,7 @@
                 <outlet property="bar" destination="OEc-3L-76X" id="zCC-bE-hnn"/>
                 <outlet property="image" destination="5Ds-vC-v05" id="pMb-Sz-xS9"/>
             </connections>
-            <point key="canvasLocation" x="21" y="124"/>
+            <point key="canvasLocation" x="-84" y="153"/>
         </customView>
     </objects>
-    <resources>
-        <image name="volume" width="116" height="75"/>
-    </resources>
 </document>

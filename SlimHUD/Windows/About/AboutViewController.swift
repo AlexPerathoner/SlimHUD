@@ -13,6 +13,7 @@ class AboutViewController: NSViewController {
 	
 	@IBOutlet weak var versionOutlet: NSTextField!
 	override func awakeFromNib() {
+		super.awakeFromNib()
 		versionOutlet.stringValue = "Version \(version())"
 	}
 	

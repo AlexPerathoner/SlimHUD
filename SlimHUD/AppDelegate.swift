@@ -8,10 +8,10 @@
 
 import Cocoa
 import QuartzCore
-
+import AppKit
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDelegate {
+class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowControllerDelegate {
 	
 	
 	// MARK: - General
@@ -35,21 +35,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	let keyboardView = NSView()
 	let volumeImage = NSImageView(image: NSImage(named: "volume")!)
 	let brightnessImage = NSImageView(image: NSImage(named: "brightness")!)
-	let keyboardImage = NSImageView(image: NSImage(named: "backlight")!)
+	let keyboardView.image = NSImageView(image: NSImage(named: "backlight")!)
 	*/
 	
 	var volumeView: BarView = NSView.fromNib(name: "BarView") as! BarView
 	var volumeBar: ProgressBar?
-	var volumeImage: NSImageView?
 	
 	
 	var brightnessView: BarView = NSView.fromNib(name: "BarView") as! BarView
 	var brightnessBar: ProgressBar?
-	var brightnessImage: NSImageView?
 	
 	var keyboardView: BarView = NSView.fromNib(name: "BarView") as! BarView
 	var keyboardBar: ProgressBar?
-	var keyboardImage: NSImageView?
 	
 	
 	var volumeHud = Hud()
@@ -59,20 +56,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+		
+		
 		//menu bar
-		
-		
 		volumeBar = volumeView.bar
-		volumeImage = volumeView.image
+		
+		
 		volumeView.setImage(img: "volume")
 		
 		brightnessBar = brightnessView.bar
-		brightnessImage = brightnessView.image
 		brightnessView.setImage(img: "brightness")
 		
 		keyboardBar = keyboardView.bar
-		keyboardImage = keyboardView.image
-		keyboardView.setImage(img: "keyboard")
+		keyboardView.setImage(img: "backlight")
 		
 		
 		
@@ -100,7 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		marginValue = Float(settingsController!.marginValue)/100.0
 		
 
-		for image in [volumeImage, brightnessImage, keyboardImage] as [NSImageView?] {
+		for image in [volumeView.image, brightnessView.image, keyboardView.image] as [NSImageView?] {
 			image?.wantsLayer = true
 			image?.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 		}
@@ -174,9 +170,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	}
 	
 	func updateIcons(isHidden: Bool) {
-		volumeImage?.isHidden = isHidden
-		brightnessImage?.isHidden = isHidden
-		keyboardImage?.isHidden = isHidden
+		volumeView.image?.isHidden = isHidden
+		brightnessView.image?.isHidden = isHidden
+		keyboardView.image?.isHidden = isHidden
 	}
 	
 	func setupDefaultBarsColors() {
@@ -261,13 +257,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	func setVolumeIconsTint(_ color: NSColor) {
-		volumeImage?.contentTintColor = color
+		volumeView.image?.contentTintColor = color
 	}
 	func setBrightnessIconsTint(_ color: NSColor) {
-		brightnessImage?.contentTintColor = color
+		brightnessView.image?.contentTintColor = color
 	}
 	func setKeyboardIconsTint(_ color: NSColor) {
-		keyboardImage?.contentTintColor = color
+		keyboardView.image?.contentTintColor = color
 	}
 	
 	
@@ -345,7 +341,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		
 		//rotating icons of views
 		if(settingsController!.shouldShowIcons) {
-			for image in [volumeImage, brightnessImage, keyboardImage] as [NSImageView?] {
+			for image in [volumeView.image, brightnessView.image, keyboardView.image] as [NSImageView?] {
 				if(rotated) {
 					while(image!.boundsRotation.truncatingRemainder(dividingBy: 360) != 90) {
 						image!.rotate(byDegrees: 90)
@@ -366,17 +362,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	// MARK: - Displayers
 	
-	
-	@IBAction func showSettingsWindow(_ sender: Any) {
-		NSApp.activate(ignoringOtherApps: true)
-	}
-	
-	@IBAction func showAboutWindow(_ sender: Any) {
-		NSApp.activate(ignoringOtherApps: true)
-	}
-	
-	
-	
 	@objc func showVolumeHUD() {
 		if(!enabledBars[0]) {return}
 		let disabled = isMuted()
@@ -386,9 +371,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		}
 		
 		if(disabled) {
-			volumeImage!.image = NSImage(named: "noVolume")
+			volumeView.image!.image = NSImage(named: "noVolume")
 		} else {
-			volumeImage!.image = NSImage(named: "volume")
+			volumeView.image!.image = NSImage(named: "volume")
 		}
 		volumeHud.show()
 		brightnessHud.hide(animated: false)

@@ -40,6 +40,7 @@ class SettingsViewController: NSViewController {
 	@IBOutlet weak var preview: SettingsPreview!
 	
 	override func awakeFromNib() {
+		super.awakeFromNib()
 		self.delegate = NSApplication.shared.delegate as! AppDelegate
 		self.settingsController = delegate?.settingsController
 		do {
@@ -47,8 +48,6 @@ class SettingsViewController: NSViewController {
 		} catch {
 			NSLog("Enabled bars saved in UserDefaults not valid")
 		}
-				
-		 
 		
 		let formatter = DateFormatter()
 		formatter.dateFormat = "dd MMM yyyy - HH:mm"
