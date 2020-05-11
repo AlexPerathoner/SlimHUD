@@ -41,7 +41,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	var volumeView: BarView = NSView.fromNib(name: "BarView") as! BarView
 	var volumeBar: ProgressBar?
 	
-	
 	var brightnessView: BarView = NSView.fromNib(name: "BarView") as! BarView
 	var brightnessBar: ProgressBar?
 	
@@ -57,21 +56,16 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		
-		//menu bar
 		volumeBar = volumeView.bar
-		
-		
-		volumeView.setImage(img: "volume")
+		volumeView.image!.image = NSImage(named: "volume")
 		
 		brightnessBar = brightnessView.bar
-		brightnessView.setImage(img: "brightness")
+		brightnessView.image!.image = NSImage(named: "brightness")
 		
 		keyboardBar = keyboardView.bar
-		keyboardView.setImage(img: "backlight")
+		keyboardView.image!.image = NSImage(named: "backlight")
 		
-		
-		
+		//menu bar
 		statusItem.menu = statusMenu
 		
 		if let button = statusItem.button {

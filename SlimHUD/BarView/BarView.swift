@@ -13,11 +13,4 @@ class BarView: NSView {
 	@IBOutlet weak var bar: ProgressBar!
 	@IBOutlet var image: NSImageView!
 	
-	func setImage(img: String) {
-		if let inputImage = NSImage(named: img) {
-			image = NSImageView(image: inputImage)
-			image.frame.size = inputImage.size
-		}
-	}
-	
 }

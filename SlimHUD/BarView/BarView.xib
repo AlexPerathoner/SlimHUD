@@ -22,7 +22,7 @@
                         <constraint firstAttribute="width" constant="21" id="NDy-U7-cMw"/>
                         <constraint firstAttribute="height" constant="21" id="sfE-DM-dbO"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" id="zRf-Lj-5fz"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="brightness" id="zRf-Lj-5fz"/>
                 </imageView>
             </subviews>
             <constraints>
@@ -40,4 +40,7 @@
             <point key="canvasLocation" x="-84" y="153"/>
         </customView>
     </objects>
+    <resources>
+        <image name="brightness" width="224" height="223"/>
+    </resources>
 </document>
