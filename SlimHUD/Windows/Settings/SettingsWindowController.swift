@@ -10,24 +10,25 @@ import Cocoa
 
 class SettingsWindowController: ClosableWindow, NSWindowDelegate {
 	
-	var previewTimer: Timer?
+	private var previewTimer: Timer?
 	
 	override func windowDidLoad() {
 		super.windowDidLoad()
 		window?.delegate = self
 		
-		//send notification every second causing the bar to appear and be kept visible
-		previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (t) in
-			NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
+		if previewTimer == nil { //windowDidLoad() could be called multiple times
+			//sends a notification every second causing the bar to appear and be kept visible
+			previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (t) in
+				NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
+			}
+			RunLoop.current.add(previewTimer!, forMode: .eventTracking)
 		}
-		RunLoop.current.add(previewTimer!, forMode: .eventTracking)
+		
 		NSApp.activate(ignoringOtherApps: true)
 	}
 	
-	
 	func windowWillClose(_ notification: Notification) {
 		previewTimer?.invalidate()
-		previewTimer = nil
 	}
 	
 }

@@ -11,7 +11,6 @@
                 <customObject id="Fkg-Y0-35E" customClass="SUUpdater"/>
                 <customObject id="hbL-WD-91l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="ev8-l2-p2M" customClass="NSFontManager"/>
-                <customObject id="oPs-gP-K9G" customClass="ViewController" customModule="SlimHUD" customModuleProvider="target"/>
                 <customObject id="RpS-ln-g5c" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
                     <connections>
                         <outlet property="statusMenu" destination="H2T-wn-cOi" id="3Tt-yF-EdJ"/>
@@ -28,7 +27,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="bringApptoFrontWithSender:" target="RpS-ln-g5c" id="xIc-SE-GqC"/>
-                                                <segue destination="YmN-fR-kvf" kind="show" destinationCreationSelector="showAboutWindow:sender:" id="AX0-B7-Ztn"/>
+                                                <segue destination="YmN-fR-kvf" kind="show" id="AX0-B7-Ztn"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Check for Updates..." id="5S5-O1-oWe">
@@ -41,7 +40,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="bringApptoFront" target="RpS-ln-g5c" id="J4X-Zn-J5J"/>
-                                                <segue destination="ijN-uD-ef4" kind="show" destinationCreationSelector="showSettingsWindow:sender:" id="xGt-hW-tpG"/>
+                                                <segue destination="ijN-uD-ef4" kind="show" id="SMe-Pr-DTm"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="vC6-xV-rB2"/>
@@ -67,7 +66,7 @@
         <scene sceneID="HjU-Tv-xRr">
             <objects>
                 <customObject id="yZO-NH-p6n" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <controllerPlaceholder storyboardIdentifier="about" storyboardName="About" id="YmN-fR-kvf" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardName="About" id="YmN-fR-kvf" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="262" y="-115"/>
         </scene>
@@ -75,7 +74,7 @@
         <scene sceneID="jqi-3i-Naz">
             <objects>
                 <customObject id="tRv-Bi-QoT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <controllerPlaceholder storyboardIdentifier="settings" storyboardName="Settings" id="ijN-uD-ef4" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardName="Settings" id="ijN-uD-ef4" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="324" y="73"/>
         </scene>

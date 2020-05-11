@@ -9,7 +9,7 @@
         <!--Window Controller-->
         <scene sceneID="wzF-0O-XXS">
             <objects>
-                <windowController storyboardIdentifier="about" showSeguePresentationStyle="single" id="mxV-WZ-sFZ" customClass="AboutWindowController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="mxV-WZ-sFZ" customClass="AboutWindowController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="SlimHUD" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="olF-td-xU3">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>

@@ -8,9 +8,9 @@
 
 import Cocoa
 
-
 class ClosableWindow: NSWindowController {
 	private var commandDown = false
+	
 	
 	override func keyDown(with event: NSEvent) {
 		super.keyDown(with: event)
@@ -21,6 +21,8 @@ class ClosableWindow: NSWindowController {
 	
 	override func flagsChanged(with event: NSEvent) {
 		super.flagsChanged(with: event)
-		commandDown = (event.keyCode == 55) //command key
+		commandDown = (event.keyCode == 55)
 	}
+	
+	
 }

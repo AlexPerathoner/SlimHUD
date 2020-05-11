@@ -11,7 +11,6 @@ import Cocoa
 class AboutWindowController: ClosableWindow {
 	
 	override func windowDidLoad() {
-		super.windowDidLoad()
 		NSApp.activate(ignoringOtherApps: true)
 	}
 	

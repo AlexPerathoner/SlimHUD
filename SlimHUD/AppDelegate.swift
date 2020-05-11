@@ -104,6 +104,12 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		setHeight(height: CGFloat(settingsController!.barHeight))
 		setThickness(thickness: CGFloat(settingsController!.barThickness))
 		
+		updateAll()
+	}
+	
+	func applicationDidFinishLaunching(_ aNotification: Notification) {
+		NSColor.ignoresAlpha = false
+		
 		//observers for volume
 		NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: ObserverApplication.volumeChanged, object: nil)
 		DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
@@ -124,18 +130,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 				notification -> Void in
 																self.setupHUDsPosition(false)
 		}
-		
-		
-		
-		updateAll()
-		
-	}
-	
-	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		
-		NSColor.ignoresAlpha = false
-		
-		
 		
 	}
 	
@@ -324,7 +318,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			view?.layer?.anchorPoint = CGPoint(x: 0, y: 0)
 			if(rotated) {
 				view?.frameCenterRotation = -90
-				view?.setFrameOrigin(.init(x: 0, y: viewSize.width ?? 10))
+				view?.setFrameOrigin(.init(x: 0, y: viewSize.width))
 			} else {
 				view?.frameCenterRotation = 0
 				view?.setFrameOrigin(.init(x: 0, y: 0))
