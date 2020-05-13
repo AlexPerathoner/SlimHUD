@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SettingsWindowController: ClosableWindow, NSWindowDelegate {
+class SettingsWindowController: NSWindowController, NSWindowDelegate {
 	
 	private var previewTimer: Timer?
 	

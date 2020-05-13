@@ -8,12 +8,11 @@
 
 import Cocoa
 
-class AboutWindowController: ClosableWindow {
+class AboutWindowController: NSWindowController {
 	
 	override func windowDidLoad() {
 		NSApp.activate(ignoringOtherApps: true)
 	}
-	
 	
 	
 }

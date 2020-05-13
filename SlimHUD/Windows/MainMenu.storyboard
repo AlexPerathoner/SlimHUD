@@ -13,6 +13,7 @@
                 <customObject id="ev8-l2-p2M" customClass="NSFontManager"/>
                 <customObject id="RpS-ln-g5c" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
                     <connections>
+                        <outlet property="closerMenuItem" destination="hoa-94-aFq" id="uic-hE-rt6"/>
                         <outlet property="statusMenu" destination="H2T-wn-cOi" id="3Tt-yF-EdJ"/>
                     </connections>
                 </customObject>
@@ -44,8 +45,8 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="vC6-xV-rB2"/>
-                                        <menuItem title="Quit" id="xeo-u1-C0T">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="Close Window" hidden="YES" keyEquivalent="w" allowsKeyEquivalentWhenHidden="YES" id="hoa-94-aFq"/>
+                                        <menuItem title="Quit" keyEquivalent="q" id="xeo-u1-C0T">
                                             <connections>
                                                 <action selector="quitCliked:" target="RpS-ln-g5c" id="yC7-6g-GR9"/>
                                             </connections>
@@ -59,6 +60,12 @@
                         <outlet property="delegate" destination="RpS-ln-g5c" id="83x-eP-0MN"/>
                     </connections>
                 </application>
+                <customObject id="kGm-sc-L47" customClass="AboutWindowController" customModule="SlimHUD" customModuleProvider="target"/>
+                <customObject id="T44-aM-8ai" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target">
+                    <connections>
+                        <outlet property="closerMenuItem" destination="hoa-94-aFq" id="3ii-dq-B3f"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-100" y="-37"/>
         </scene>

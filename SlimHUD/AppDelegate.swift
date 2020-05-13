@@ -43,6 +43,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		keyboardView.image!.image = NSImage(named: "backlight")
 		
 		//menu bar
+		
 		statusItem.menu = statusMenu
 		
 		if let button = statusItem.button {
