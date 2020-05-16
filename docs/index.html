@@ -1,0 +1,256 @@
+---
+---
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?2776">
+	<link rel="stylesheet" type="text/css" href="style.css?2911">
+	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?3323">
+	<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <title>SlimHUD</title>
+
+
+    
+<!-- Analytics -->
+ 
+<!-- Analytics END -->
+    
+</head>
+<body>
+<!-- Main container -->
+<div class="page-container">
+    
+<!-- bloc-0 -->
+<div class="bloc sticky-nav bgc-charcoal d-bloc" id="bloc-0">
+	<div class="container bloc-sm">
+		<div class="row">
+			<div class="col-12">
+				<nav class="navbar navbar-light row navbar-expand-md" role="navigation">
+					<a class="navbar-brand ltc-moonstone-blue" href="index.html"><img src="img/Icon32Azure.png" alt="logo" class="mr-2" />SlimHUD</a>
+					<button id="nav-toggle" type="button" class="ui-navbar-toggler navbar-toggler border-0 p-0 mr-md-0 ml-auto" data-toggle="collapse" data-target=".navbar-4016" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse navbar-4016 col-lg-9 offset-lg-0">
+						<ul class="site-navigation nav navbar-nav ml-auto">
+							<li class="nav-item menuitem">
+								<a href="index.html" class="nav-link a-btn ltc-moonstone-blue">Home</a>
+							</li>
+							<li class="nav-item menuitem">
+								<a href="documentation.html" class="nav-link a-btn ltc-moonstone-blue">Documentation</a>
+							</li>
+							<li class="nav-item menuitem">
+								<a href="versions.html" class="nav-link a-btn ltc-moonstone-blue">Versions</a>
+							</li>
+							<li>
+								<a href="https://github.com/AlexPerathoner/SlimHUD" target="_blank"><img src="img/gitHubIcon.png" class="img-fluid img-githubic-style float-lg-right" height="100" width="100" alt="gitHubIcon" /></a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-0 END -->
+
+<!-- bloc-0 -->
+<div class="bloc b-parallax bgc-charcoal" id="bloc-0">
+	<div class="container bloc-xxl">
+		<div class="row">
+			<div class="col-lg-5 col-sm-8 offset-sm-2 offset-md-0 col-md-5 order-md-0 order-1 offset-lg-0">
+				<img src="img/lazyload-ph.png" data-src="img/IconFull.png" class="img-fluid mx-auto d-block img-style lazyload" alt="IconFull" />
+			</div>
+			<div class="col-lg-6 align-self-center col-md-7 offset-lg-1">
+				<h1 class="mg-md text-center text-md-left tc-moonstone-blue">
+					SlimHUD Cyanocitta
+				</h1>
+				<h3 class="mg-md float-none text-center text-md-left tc-moonstone-blue">
+					<i>Your</i> favourite&rsquo;s OS' HUDs. Reinvented.
+				</h3>
+				<div >
+					{% for release in site.github.releases limit:1%}
+	{% unless release.draft %}
+		{% unless release.prerelease and page.release_only %}
+			{% for asset in release.assets limit:1 %}
+				<a href="{{ asset.browser_download_url }}" style="background: #74B1BD; color: #FFFFFF!important; cursor: pointer;padding: .5rem 1rem;font-size: 1.25rem;line-height: 1.5;border-radius: .3rem;width:=" "="" 31.53%;box-sizing:="" border-box;"="">Download now</a>
+			{% endfor %}
+		{% endunless %}
+	{% endunless %}
+{% endfor %}
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-0 END -->
+
+<!-- bloc-2 -->
+<div class="bloc l-bloc" id="bloc-2">
+	<div class="container bloc-lg">
+		<div class="row">
+			<div class="col-md-6 order-md-1">
+				<img src="img/lazyload-ph.png" data-src="img/iosvsmac.png" class="img-fluid mx-auto d-block lazyload" alt="placeholder image" />
+			</div>
+			<div class="col-md-6 align-self-center offset-lg-1 col-lg-5">
+				<h2 class="mg-md tc-cerulean-blue">
+					From iOS to MacOS
+				</h2>
+				<h3 class="mg-md tc-cerulean-blue btn-resize-mode h3-style">
+					Your loved bar now on desktop
+				</h3>
+				<p class="p-style">
+					SlimHUD aims to bring on your Mac the same fluid and pleasant experience we already know on iOS 13
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h1 class="mg-md text-lg-center tc-cerulean-blue mx-auto d-block spacer">
+					Features
+				</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 align-self-center">
+				<img src="img/lazyload-ph.png" data-src="img/colors.jpeg" class="img-fluid mx-auto d-block lazyload" alt="placeholder image" />
+				<h3 class="mg-md tc-cerulean-blue text-lg-center">
+					Color
+				</h3>
+				<p class="p-style text-lg-center">
+					Change color of bars and icons individually.
+				</p>
+			</div>
+			<div class="col-md-4 align-self-center">
+				<img src="img/lazyload-ph.png" data-src="img/sizes.jpeg" class="img-fluid mx-auto d-block img-bloc-1-style lazyload" alt="placeholder image" />
+				<h3 class="mg-md tc-cerulean-blue text-lg-center">
+					Position
+				</h3>
+				<p class="text-lg-center p-style">
+					Choose on which edge make the bars appear.<br>You can also change their height and width.
+				</p>
+			</div>
+			<div class="col-md-4 align-self-center">
+				<img src="img/lazyload-ph.png" data-src="img/animations.gif" class="img-fluid mx-auto d-block lazyload" alt="placeholder image" />
+				<h3 class="mg-md tc-cerulean-blue text-lg-center">
+					Animations
+				</h3>
+				<p class="text-lg-center p-style">
+					That you prefer a fluid or simpler look slimHUD has the right one for you
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 spacer">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-lg-3 offset-lg-1 align-self-center">
+				<div class="card">
+					<img src="img/lazyload-ph.png" data-src="img/icons8-lightning_bolt.png" class="img-fluid mx-auto d-block img-5be1c49876e-style lazyload" alt="icons8 lightning_bolt" />
+					<div class="card-body">
+						<ul class="list-unstyled">
+							<li>
+								<p class="text-center h3 p-style">
+									Fast
+								</p>
+							</li>
+						</ul>
+					</div>
+					<div class="card-footer">
+						<p class="text-lg-center p-style">
+							SlimHUD runs on your Mac without affecting its performance
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mt-3 mt-md-0 col-lg-4">
+				<div class="card">
+					<img src="img/lazyload-ph.png" data-src="img/icons8-source_code.png" class="img-fluid mx-auto d-block img-5be1c49876e-style lazyload" alt="icons8 source_code" />
+					<div class="card-body">
+						<ul class="list-unstyled">
+							<li>
+								<p class="text-center h3 p-style">
+									Open Source
+								</p>
+							</li>
+						</ul>
+					</div>
+					<div class="card-footer">
+						<p class="text-lg-center p-style">
+							SlimHUD is a fully open source project hosted on GitHub
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mt-3 mt-md-0 col-lg-3 align-self-center">
+				<div class="card">
+					<img src="img/lazyload-ph.png" data-src="img/icons8-sustainable_energy.png" class="img-fluid mx-auto d-block img-5be1c49876e-style lazyload" alt="icons8 sustainable_energy" />
+					<div class="card-body">
+						<ul class="list-unstyled">
+							<li>
+								<p class="text-center h3 p-style">
+									Low energy
+								</p>
+							</li>
+						</ul>
+					</div>
+					<div class="card-footer">
+						<p class="text-lg-center p-style">
+							SlimHUD runs on your Mac without using much energy
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-2 END -->
+
+<!-- ScrollToTop Button -->
+<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><span class="fa fa-chevron-up"></span></a>
+<!-- ScrollToTop Button END-->
+
+
+<!-- bloc-5 -->
+<div class="bloc footer bgc-charcoal d-bloc" id="bloc-5">
+	<div class="container none">
+		<div class="row">
+			<div class="col-md-3 col-sm-6">
+				<a href="index.html" class="a-btn a-block footer-link h4 text-lg-center link-color">SlimHUD</a>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<a href="documentation.html" class="a-btn a-block footer-link link-color h4 text-lg-center">Documentation</a>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<a href="versions.html" class="a-btn a-block footer-link h4 text-lg-center link-color">Versions</a>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<a href="https://github.com/AlexPerathoner/SlimHUD/blob/master/LICENSE.md" class="a-btn a-block footer-link h4 text-lg-center link-color" target="_blank">License</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-5 END -->
+
+</div>
+<!-- Main container END -->
+    
+
+<script src="./js/jquery-3.3.1.min.js?7458"></script>
+<script src="./js/bootstrap.bundle.min.js?5525"></script>
+<script src="./js/blocs.min.js?8831"></script>
+<script src="./js/lazysizes.min.js" defer></script>
+<!-- Additional JS END -->
+
+
+</body>
+</html>

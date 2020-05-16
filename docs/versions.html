@@ -1,0 +1,170 @@
+---
+---
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?2817">
+	<link rel="stylesheet" type="text/css" href="style.css?8140">
+	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?4254">
+	<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <title>Versions</title>
+
+
+    
+<!-- Analytics -->
+ 
+<!-- Analytics END -->
+    
+</head>
+<body>
+<!-- Main container -->
+<div class="page-container">
+    
+<!-- bloc-0 -->
+<div class="bloc sticky-nav bgc-charcoal d-bloc" id="bloc-0">
+	<div class="container bloc-sm">
+		<div class="row">
+			<div class="col-12">
+				<nav class="navbar navbar-light row navbar-expand-md" role="navigation">
+					<a class="navbar-brand ltc-moonstone-blue" href="index.html"><img src="img/Icon32Azure.png" alt="logo" class="mr-2" />SlimHUD</a>
+					<button id="nav-toggle" type="button" class="ui-navbar-toggler navbar-toggler border-0 p-0 mr-md-0 ml-auto" data-toggle="collapse" data-target=".navbar-4016" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse navbar-4016 col-lg-9 offset-lg-0">
+						<ul class="site-navigation nav navbar-nav ml-auto">
+							<li class="nav-item menuitem">
+								<a href="index.html" class="nav-link a-btn ltc-moonstone-blue">Home</a>
+							</li>
+							<li class="nav-item menuitem">
+								<a href="documentation.html" class="nav-link a-btn ltc-moonstone-blue">Documentation</a>
+							</li>
+							<li class="nav-item menuitem">
+								<a href="versions.html" class="nav-link a-btn ltc-moonstone-blue">Versions</a>
+							</li>
+							<li>
+								<a href="https://github.com/AlexPerathoner/SlimHUD" target="_blank"><img src="img/gitHubIcon.png" class="img-fluid img-githubic-style float-lg-right" height="100" width="100" alt="gitHubIcon" /></a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-0 END -->
+
+<!-- bloc-3 -->
+<div class="bloc bgc-white-smoke spacer" id="bloc-3">
+	<div class="container none">
+		<div class="row">
+			<div class="col">
+				<h1 class="mg-md text-lg-center tc-moonstone-blue">
+					Stable Releases
+				</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-3 END -->
+
+<!-- bloc-4 -->
+<div class="bloc l-bloc tc-st-patricks-blue" id="bloc-4">
+	<div class="container bloc-lg">
+		<div class="row">
+			<div class="col-md-6 col-lg-9 ">
+				<div class=" ">
+					
+{% for release in site.github.releases %}
+	{% unless release.draft %}
+		{% unless release.prerelease and page.release_only %}
+			
+			<br>
+			<div style="width:100%;">
+				<div style="border: 1px solid gray; width:280px; border-radius: 5px; padding: 5px; padding-left: 12px; display: inline-block;" onclick="window.open('{{ release.html_url }}','Release');">
+
+					<h2  style="margin: auto;padding-top: 7px;">SlimHUD  {{ release.tag_name | remove_first:'v' }}</h2>
+				</div>
+
+				<h4 style="color:gray;display: inline-block; padding-left:12px"><em>{{ release.published_at | date: "%e %B, %Y %H:%M" }}</em></h4>
+			</div>
+
+			<br>
+			<h1><strong>Releases Notes for v{{ release.tag_name | remove_first:'v' }}</strong><br/></h1>
+			<h3>{{ release.name }}</h3>
+
+			<p>{{ release.body | markdownify }}</p>
+
+			{% for asset in release.assets limit:1 %}
+				<h4><a href=" {{ asset.browser_download_url }} ">Download here</a></h4>
+				<br>
+				<hr class="rounded">
+			{% endfor %}
+
+
+		{% endunless %}
+	{% endunless %}
+{% endfor %}
+
+					
+				</div>
+			</div>
+			<div class="col-md-6 offset-lg-0 col-lg-3">
+					<h3 class="mg-md tc-moonstone-blue">
+						Showing only stable releases
+					</h3>
+					<p>
+						Check out&nbsp;<a href="https://github.com/AlexPerathoner/SlimHUD/releases" target="_blank">GitHub</a>&nbsp;to see all releases (Pre-releases included)
+					</p>
+				</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-4 END -->
+
+<!-- ScrollToTop Button -->
+<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><span class="fa fa-chevron-up"></span></a>
+<!-- ScrollToTop Button END-->
+
+
+<!-- bloc-5 -->
+<div class="bloc footer bgc-charcoal d-bloc" id="bloc-5">
+	<div class="container none">
+		<div class="row">
+			<div class="col-md-3 col-sm-6">
+				<a href="index.html" class="a-btn a-block footer-link h4 text-lg-center link-color">SlimHUD</a>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<a href="documentation.html" class="a-btn a-block footer-link link-color h4 text-lg-center">Documentation</a>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<a href="versions.html" class="a-btn a-block footer-link h4 text-lg-center link-color">Versions</a>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<a href="https://github.com/AlexPerathoner/SlimHUD/blob/master/LICENSE.md" class="a-btn a-block footer-link h4 text-lg-center link-color" target="_blank">License</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-5 END -->
+
+</div>
+<!-- Main container END -->
+    
+
+<script src="./js/jquery-3.3.1.min.js?7458"></script>
+<script src="./js/bootstrap.bundle.min.js?5525"></script>
+<script src="./js/blocs.min.js?8831"></script>
+<script src="./js/lazysizes.min.js" defer></script>
+<!-- Additional JS END -->
+
+
+</body>
+</html>
