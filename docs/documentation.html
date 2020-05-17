@@ -7,15 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?8781">
-	<link rel="stylesheet" type="text/css" href="style.css?7362">
-	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?7367">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?2045">
+	<link rel="stylesheet" type="text/css" href="style.css?5557">
+	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?3030">
 	<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <title>Documentation</title>
 
+<style>
+	.code {
+		background-color: #EEEEEE;
+		font-family:courier;
+	}
+	.indexblock {
+		position: fixed;
+		top:12%;
+		width: 12%;
+	}
+	
+	
+	[id]:target {
+		display: block;
+		position: relative;
+		top: -120px;
+		visibility: hidden;
+	}
 
+	[id]:target::before {
+		content: attr(title);
+		top: 120px;
+		position: relative;
+		visibility: visible;
+	}
+</style>
     
 <!-- Analytics -->
  
@@ -32,7 +57,7 @@
 		<div class="row">
 			<div class="col-12">
 				<nav class="navbar navbar-light row navbar-expand-md" role="navigation">
-					<a class="navbar-brand ltc-moonstone-blue" href="index.html"><img src="img/Icon32Azure.png" alt="logo" class="mr-2" />SlimHUD</a>
+					<a class="navbar-brand ltc-moonstone-blue" href="index.html"><img src="img/Icon32Azure-1.png" alt="logo" class="mr-2" />SlimHUD</a>
 					<button id="nav-toggle" type="button" class="ui-navbar-toggler navbar-toggler border-0 p-0 mr-md-0 ml-auto" data-toggle="collapse" data-target=".navbar-4016" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -63,11 +88,116 @@
 <div class="bloc l-bloc" id="bloc-5">
 	<div class="container bloc-lg">
 		<div class="row">
-			<div class="col">
-				<h1 class="mg-md">
-					This is the start of this documentation
-				</h1>
+			<div class="bloc-margin-bottom col-lg-8">
+				<div >
+					<h1 id="gettingstarted" title="Getting Started">Getting started</h1>
+					
+				</div>
+				<p>
+						SlimHUD is a tiny application that lives in your Mac's Menu Bar. After the installation you probably won't touch it anymore and it will just become part of your workflow.<br><br>SlimHUD was born after the release of iOS 13 in which the volume hud finally changed. On MacOS however, the hud is still the same as ages ago so I decided to create an alternative.<br><br>SlimHUD aims to bring on your Mac the same GUI experience we already have on our iPhones and iPads.<br>
+					</p>
+				<div class="divider-h">
+						<span class="divider"></span>
+					</div>
+				<div >
+						<h1 id="installation" title="Installation">Installation</h1>
+						
+					</div>
+				<h3 class="mg-md">
+							Installation<br>
+						</h3>
+				<div >
+							{% for release in site.github.releases limit:1%}
+	{% unless release.draft %}
+		{% unless release.prerelease and page.release_only %}
+			{% for asset in release.assets limit:1 %}
+				<p>Download the <a href="{{ asset.browser_download_url }}">latest release</a>. </p>
+			{% endfor %}
+		{% endunless %}
+	{% endunless %}
+{% endfor %}
+							
+						</div>
+				<p>
+								Launching SlimHud is easy: copy the app into your Application's folder and then open it. <br><strong>However</strong>, as you probably also want it to replace MacOS' HUDs we'll have to follow a few steps more...<br>Please note that the following instructions will temporarily deactivate Sysem Integrity Protection. By proceeding you acknowledge that you are aware of which risks this leads to.<br>But do not be scared, just follow everything and you will be fine&nbsp;(source:&nbsp;<a class="link-color link-style" href="https://alanvitullo.wordpress.com/2018/02/20/remove-control-overlay-on-mac-os-high-sierra/" target="_blank">here</a>&nbsp;and&nbsp;<a class="link-color link-style" href="https://www.reddit.com/r/MacOS/comments/caiue5/macos_catalina_readonly_file_system_with_sip/" target="_blank">here</a>):<br>
+							</p>
+				<div >
+								<ol>
+  <li>Enter Recovery Mode by restarting your mac and holding ⌘+R while it is booting up.</li>
+  <li>Launch the terminal by clicking on Utilities > Terminal.</li>
+  <li>Disable SIP with <span class="code">csrutil disable</span>.</li>
+  <li>Restart your mac and login into an admin account.</li>
+  <li>Run <span class="code">sudo -uw /; killall</span> Finder in your terminal.</li>
+  <li>Now run <span class="code">sudo nano /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist</span>.</li>
+  <li>Remove all of the text between <plist version=" ”1.0″" =""=""> and . Save the file by hitting control + X, answering yes and hitting return.<p></p></plist></li>
+  <li>Re-enter Recovery mode.</li>
+  <li>Enable SIP with <span class="code">csrutil enable.</span></li>
+</ol>
+								
+							</div>
+				<p>
+									You have now successfully replaced those ugly and old overlays! Congrats!<br><br>For future updates it is not necessary to go through all of these steps. Just copy the latest release into your application Folder or&nbsp;check for new updates directly from inside the app.<br>
+								</p>
+				<h4 class="mg-md">
+									FAQ
+								</h4>
+				<h5 class="mg-md">
+									What is step 5 for?
+								</h5>
+				<p class="mg-lg">
+									sudo allows a permitted user to execute a command as the superuser or another user. Mount is used to mount disks. The -u flag indicates that the status of an already mounted file system should be changed. -w means to mount the file system read-write. The file system is "/" aka root. The killall utility kills processes selected by name. Since it's Finder, it will just restart and reflect the change you've just made. This is not permanent, there are more steps involved for that.<br>Source:&nbsp;<a class="link-color link-style" href="https://www.reddit.com/r/osx/comments/czkgn9/how_to_change_systemlibrarylaunchagents_in/eyzm42w?utm_source=share&amp;utm_medium=web2x" target="_blank">reddit</a><br><br>This is needed as in the last versions of MacOS the system files (like /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist that you'll modify in step 6) are stored in a different disk partition and being an administrator and having System Integrity Protection disabled still isn't enough to modify them.<br><br>PS: note that the right command is sudo mount -uw /, not sudo mount -uw<br>
+								</p>
+				<h5 class="mg-md">
+									Will I harm my Mac installing SlimHUD?
+								</h5>
+				<p class="mg-lg">
+									No, you will not.<br>I reccomend to only do what you need to do while having SIP disabled and as soon as you finish the installation re-enable SIP. Once enabled everything will be back to normal.
+								</p>
+				<h5 class="mg-md">
+									Other questions?
+								</h5>
+				<p class="mg-lg">
+									<a class="link-color link-style" href="https://github.com/AlexPerathoner/SlimHUD/issues/new/choose" target="_blank">Open an issue</a>&nbsp;on GitHub!
+								</p>
+				<h3 class="mg-md">
+									Uninstallation<br>
+								</h3>
+				<div >
+									<p>
+If you'd like to restore the system's HUDs follow the same steps described above.
+You can download a copy of the original <span class="code">com.apple.OSDUIHelper.plist</span> file <a href="https://alexperathoner.github.io/SlimHUD/Support/com.apple.OSDUIHelper.plist" class="link-style link-color">here</a>.
+</p>
+									
+								</div>
+				<div class="divider-h">
+										<span class="divider"></span>
+									</div>
+				<div >
+										<h1 id="settings" title="Settings">Settings</h1>
+										
+									</div>
+				<p>
+											Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+										</p>
 			</div>
+			<div class="col-md-6 col-lg-3 offset-lg-1 ">
+										<div class="row">
+											<div class="col roundedrect indexblock col-lg-12">
+												<h5 class="mg-md">
+													Contents
+												</h5>
+												<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem" title="gettingstarted">
+													<a href="#gettingstarted">Getting started</a><br>
+												</p>
+												<p class="btn-resize-mode p-bloc-5-style indexitem">
+													<a href="#installation">Installation</a><br>
+												</p>
+												<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem">
+													<a href="#settings">Settings</a><br>
+												</p>
+											</div>
+										</div>
+									</div>
 		</div>
 	</div>
 </div>
@@ -82,17 +212,24 @@
 <div class="bloc footer bgc-charcoal d-bloc" id="bloc-5">
 	<div class="container none">
 		<div class="row">
-			<div class="col-md-3 col-sm-6">
-				<a href="index.html" class="a-btn a-block footer-link h4 text-lg-center link-color">SlimHUD</a>
+			<div class="col-sm-8 col-lg-9">
+				<div class="row">
+					<div class="col-md-3 col-sm-6">
+						<a href="index.html" class="a-btn a-block footer-link h4 text-lg-center link-color">SlimHUD</a>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<a href="documentation.html" class="a-btn a-block footer-link link-color h4 text-lg-center">Documentation</a>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<a href="versions.html" class="a-btn a-block footer-link h4 text-lg-center link-color">Versions</a>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<a href="https://github.com/AlexPerathoner/SlimHUD/blob/master/LICENSE.md" class="a-btn a-block footer-link h4 text-lg-center link-color" target="_blank">License</a>
+					</div>
+				</div>
 			</div>
-			<div class="col-md-3 col-sm-6">
-				<a href="documentation.html" class="a-btn a-block footer-link link-color h4 text-lg-center">Documentation</a>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<a href="versions.html" class="a-btn a-block footer-link h4 text-lg-center link-color">Versions</a>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<a href="https://github.com/AlexPerathoner/SlimHUD/blob/master/LICENSE.md" class="a-btn a-block footer-link h4 text-lg-center link-color" target="_blank">License</a>
+			<div class="col-sm-4 col-lg-3">
+				<a href="https://github.com/AlexPerathoner/" class="a-btn a-block footer-link h4 text-lg-center link-color" target="_blank">©Alex Perathoner</a>
 			</div>
 		</div>
 	</div>
@@ -103,9 +240,9 @@
 <!-- Main container END -->
     
 
-<script src="./js/jquery-3.3.1.min.js?7458"></script>
-<script src="./js/bootstrap.bundle.min.js?5525"></script>
-<script src="./js/blocs.min.js?8831"></script>
+<script src="./js/jquery-3.3.1.min.js?8998"></script>
+<script src="./js/bootstrap.bundle.min.js?2247"></script>
+<script src="./js/blocs.min.js?5280"></script>
 <script src="./js/lazysizes.min.js" defer></script>
 <!-- Additional JS END -->
 

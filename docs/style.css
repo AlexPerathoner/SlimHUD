@@ -181,6 +181,10 @@ a:hover{text-decoration: none; cursor:pointer;}
 	margin-top:10px;
 	margin-bottom:20px;
 }
+.mg-lg{
+	margin-top:10px;
+	margin-bottom:40px;
+}
 
 /* = Buttons
 -------------------------------------------------------------- */
@@ -223,6 +227,24 @@ button{
 	border-radius:0 0 29px 29px;
 }
 
+/* = Dividers
+-------------------------------------------------------------- */
+.divider-h{
+	padding:20px 0;
+	width:100%;
+	display:inline-block;
+}
+.divider-h span{
+	display: block;
+	border-top:1px solid transparent;
+}
+.divider-half{
+	width: 50%;
+	margin: 0 auto;
+}
+.dropdown-menu .divider-h,.dropdown-menu .divider-half{
+	padding:0;
+}
 
 
 
@@ -333,6 +355,38 @@ h3{
 }
 .classicblue{
 	color:#85BEC9!important;
+}
+.roundedrect{
+	background-color:#F3F5F4;
+	border-style:solid;
+	border-color:#F3F5F4!important;
+	border-radius:5px 5px 5px 5px;
+	border-width:5px 5px 5px 5px;
+}
+.p-bloc-5-style{
+	font-size:16px;
+	width:85.77%;
+	margin-left:31px;
+}
+.link-style{
+	width:100%;
+	text-decoration:underline!important;
+}
+.indexitem{
+	line-height:20px;
+	border-style:solid;
+	background-color:#F3F5F3;
+	border-color:#F2F5F2!important;
+	border-radius:7px 7px 7px 7px;
+	border-width:7px 7px 7px 7px;
+}
+.indexitem:hover{
+	color:rgba(0,0,0,0.76)!important;
+	border-style:solid;
+	background-color:#A8A4F5;
+	border-color:#A7A3F4!important;
+	border-radius:7px 7px 7px 7px;
+	border-width:7px 7px 7px 7px;
 }
 
 /* = Colour
