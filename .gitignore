@@ -75,6 +75,8 @@ Releases/*
 
 # Personal use
 TODO.txt
+_site/
+Cache/
 
 
 

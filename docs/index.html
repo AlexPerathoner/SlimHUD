@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?9579">
-	<link rel="stylesheet" type="text/css" href="style.css?2388">
-	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?6303">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?8923">
+	<link rel="stylesheet" type="text/css" href="style.css?8457">
+	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?1302">
 	<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -29,16 +29,16 @@
 <div class="page-container">
     
 <!-- bloc-0 -->
-<div class="bloc sticky-nav bgc-charcoal d-bloc " id="bloc-0">
+<div class="bloc sticky-nav bgc-charcoal d-bloc" id="bloc-0">
 	<div class="container bloc-sm">
 		<div class="row">
 			<div class="col-12">
 				<nav class="navbar navbar-light row navbar-expand-md" role="navigation">
 					<a class="navbar-brand ltc-moonstone-blue" href="index.html"><img src="img/Icon32Azure-1.png" alt="logo" class="mr-2" />SlimHUD</a>
-					<button id="nav-toggle" type="button" class="ui-navbar-toggler navbar-toggler border-0 p-0 mr-md-0 ml-auto" data-toggle="collapse" data-target=".navbar-4016" aria-expanded="false" aria-label="Toggle navigation">
+					<button id="nav-toggle" type="button" class="ui-navbar-toggler navbar-toggler border-0 p-0 mr-md-0 ml-auto navitem" data-toggle="collapse" data-target=".navbar-4016" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse navbar-4016 col-lg-9 offset-lg-0">
+					<div class="collapse navbar-collapse navbar-4016 col-lg-9 offset-lg-0 offset-md-2">
 						<ul class="site-navigation nav navbar-nav ml-auto">
 							<li class="nav-item menuitem">
 								<a href="index.html" class="nav-link a-btn ltc-moonstone-blue">Home</a>
@@ -62,20 +62,20 @@
 <!-- bloc-0 END -->
 
 <!-- bloc-1 -->
-<div class="bloc b-parallax bgc-charcoal d-bloc" id="bloc-1">
+<div class="bloc b-parallax bgc-charcoal d-bloc " id="bloc-1">
 	<div class="container bloc-xxl">
-		<div class="row">
+		<div class="row row-margin-top">
 			<div class="col-lg-5 col-sm-8 offset-sm-2 offset-md-0 col-md-5 order-md-0 order-1 offset-lg-0">
 				<img src="img/lazyload-ph.png" data-src="img/IconFull-1.png" class="img-fluid mx-auto d-block img-style lazyload" alt="IconFull" />
 			</div>
-			<div class="col-lg-6 align-self-center col-md-7 offset-lg-1">
+			<div class="col-lg-6 align-self-center col-md-7 offset-lg-1 bloc-margin-top">
 				<h1 class="mg-md text-center text-md-left tc-moonstone-blue">
 					SlimHUD Cyanocitta
 				</h1>
-				<h3 class="mg-md float-none text-center text-md-left tc-moonstone-blue">
-					<i>Your</i> favourite&rsquo;s OS' HUDs. Reinvented.
+				<h3 class="mg-md float-none text-center text-md-left tc-moonstone-blue btn-resize-mode">
+					<i>Your</i> favourite OS' HUDs. Reinvented.
 				</h3>
-				<div >
+				<div class=" d-md-block  d-none">
 					{% for release in site.github.releases limit:1%}
 	{% unless release.draft %}
 		{% unless release.prerelease and page.release_only %}
@@ -87,6 +87,9 @@
 {% endfor %}
 					
 				</div>
+				<div class="container-div-margin-bottom spacer">
+						<span class="empty-column"></span>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -98,52 +101,52 @@
 	<div class="container bloc-lg">
 		<div class="row">
 			<div class="col-md-6 order-md-1">
-				<img src="img/lazyload-ph.png" data-src="img/iosvsmac.png" class="img-fluid mx-auto d-block lazyload" alt="placeholder image" />
+				<img src="img/lazyload-ph.png" data-src="img/iosvsmac.png" class="img-fluid mx-auto d-block imgmobile lazyload" alt="placeholder image" />
 			</div>
 			<div class="col-md-6 align-self-center offset-lg-1 col-lg-5">
-				<h2 class="mg-md tc-cerulean-blue">
+				<h2 class="mg-md tc-cerulean-blue text-sm-center h2-margin-top text-center">
 					From iOS to MacOS
 				</h2>
-				<h3 class="mg-md tc-cerulean-blue btn-resize-mode h3-style">
+				<h3 class="mg-md tc-cerulean-blue btn-resize-mode h3-style text-sm-center text-center">
 					Your loved bar now on desktop
 				</h3>
-				<p class="p-style">
+				<p class="p-style text-sm-center text-center">
 					SlimHUD aims to bring on your Mac the same fluid and pleasant experience we already know on iOS 13
 				</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
-				<h1 class="mg-md text-lg-center tc-cerulean-blue mx-auto d-block spacer">
+				<h1 class="mg-md text-lg-center tc-cerulean-blue mx-auto d-block spacer text-sm-center h1-margin-top text-center">
 					Features
 				</h1>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4 align-self-center">
-				<img src="img/lazyload-ph.png" data-src="img/colors.jpeg" class="img-fluid mx-auto d-block lazyload" alt="placeholder image" />
-				<h3 class="mg-md tc-cerulean-blue text-lg-center">
+				<img src="img/lazyload-ph.png" data-src="img/colors.jpeg" class="img-fluid mx-auto d-block imgmobile lazyload" alt="placeholder image" />
+				<h3 class="mg-md tc-cerulean-blue text-lg-center text-sm-center text-center">
 					Color
 				</h3>
-				<p class="p-style text-lg-center">
+				<p class="p-style text-lg-center text-sm-center text-center">
 					Change color of bars and icons individually.
 				</p>
 			</div>
 			<div class="col-md-4 align-self-center">
-				<img src="img/lazyload-ph.png" data-src="img/sizes.jpeg" class="img-fluid mx-auto d-block img-bloc-1-style lazyload" alt="placeholder image" />
-				<h3 class="mg-md tc-cerulean-blue text-lg-center">
+				<img src="img/lazyload-ph.png" data-src="img/sizes.jpeg" class="img-fluid mx-auto d-block img-bloc-1-style imgmobile lazyload" alt="placeholder image" />
+				<h3 class="mg-md tc-cerulean-blue text-lg-center text-sm-center text-center">
 					Position
 				</h3>
-				<p class="text-lg-center p-style">
+				<p class="text-lg-center p-style text-sm-center text-center">
 					Choose on which edge make the bars appear.<br>You can also change their height and width.
 				</p>
 			</div>
 			<div class="col-md-4 align-self-center">
-				<img src="img/lazyload-ph.png" data-src="img/animations.gif" class="img-fluid mx-auto d-block lazyload" alt="placeholder image" />
-				<h3 class="mg-md tc-cerulean-blue text-lg-center">
+				<img src="img/lazyload-ph.png" data-src="img/animations.gif" class="img-fluid mx-auto d-block imgmobile lazyload" alt="placeholder image" />
+				<h3 class="mg-md tc-cerulean-blue text-lg-center text-sm-center text-center">
 					Animations
 				</h3>
-				<p class="text-lg-center p-style">
+				<p class="text-lg-center p-style text-sm-center text-center">
 					That you prefer a fluid or simpler look slimHUD has the right one for you
 				</p>
 			</div>
@@ -224,24 +227,24 @@
 <div class="bloc footer bgc-charcoal d-bloc" id="bloc-5">
 	<div class="container none">
 		<div class="row">
-			<div class="col-sm-8 col-lg-9">
-				<div class="row">
+			<div class="col-sm-8 col-lg-9 col-md-12">
+				<div class="row row-style">
 					<div class="col-md-3 col-sm-6">
-						<a href="index.html" class="a-btn a-block footer-link h4 text-lg-center link-color">SlimHUD</a>
+						<a href="index.html" class="a-btn a-block footer-link h4 text-lg-center link-color text-md-center">SlimHUD</a>
 					</div>
 					<div class="col-md-3 col-sm-6">
-						<a href="documentation.html" class="a-btn a-block footer-link link-color h4 text-lg-center">Documentation</a>
+						<a href="documentation.html" class="a-btn a-block footer-link link-color h4 text-lg-center text-md-center">Documentation</a>
 					</div>
 					<div class="col-md-3 col-sm-6">
-						<a href="versions.html" class="a-btn a-block footer-link h4 text-lg-center link-color">Versions</a>
+						<a href="versions.html" class="a-btn a-block footer-link h4 text-lg-center link-color text-md-center">Versions</a>
 					</div>
-					<div class="col-md-3 col-sm-6">
-						<a href="https://github.com/AlexPerathoner/SlimHUD/blob/master/LICENSE.md" class="a-btn a-block footer-link h4 text-lg-center link-color" target="_blank">License</a>
+					<div class="col-md-3 col-sm-6 bloc-bloc-5-margin-bottom">
+						<a href="https://github.com/AlexPerathoner/SlimHUD/blob/master/LICENSE.md" class="a-btn a-block footer-link h4 text-lg-center link-color text-md-center" target="_blank">License</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4 col-lg-3">
-				<a href="https://github.com/AlexPerathoner/" class="a-btn a-block footer-link h4 text-lg-center link-color" target="_blank">©Alex Perathoner</a>
+			<div class="col-sm-4 col-lg-3 col-md-12">
+				<a href="https://github.com/AlexPerathoner/" class="a-btn a-block footer-link h4 text-lg-center link-color link-bloc-5-style text-sm-right text-md-center" target="_blank">©Alex Perathoner</a>
 			</div>
 		</div>
 	</div>
@@ -252,9 +255,9 @@
 <!-- Main container END -->
     
 
-<script src="./js/jquery-3.3.1.min.js?7"></script>
-<script src="./js/bootstrap.bundle.min.js?7270"></script>
-<script src="./js/blocs.min.js?4798"></script>
+<script src="./js/jquery-3.3.1.min.js?4245"></script>
+<script src="./js/bootstrap.bundle.min.js?8597"></script>
+<script src="./js/blocs.min.js?1615"></script>
 <script src="./js/lazysizes.min.js" defer></script>
 <!-- Additional JS END -->
 
