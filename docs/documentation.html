@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?7780">
-	<link rel="stylesheet" type="text/css" href="style.css?7430">
-	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?3376">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?6012">
+	<link rel="stylesheet" type="text/css" href="style.css?6152">
+	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?6136">
 	<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -42,7 +42,58 @@
 		position: relative;
 		visibility: visible;
 	}
+	.spoilerbutton {
+		display: block;
+		margin: 5px 0;
+	}
+	
+	.spoiler {
+		overflow: hidden;
+		background: #f5f5f5;
+	}
+	
+	.spoiler>div {
+		margin: 5px;
+		overflow: hidden;
+		transition: all 1s ease;
+	}
+	
+	.spoilerbutton[value="Show"]+.spoiler>div {
+		max-height: 0;
+	}
+	
+	.spoilerbutton[value="Hide"]+.spoiler>div {
+		max-height: 90px; /*use a big value here*/
+	}
+	.BUTTON_KDR {
+	   -webkit-border-radius: 20px;
+	   -moz-border-radius: 20px;
+	   border-radius: 20px;
+	   color: #000000;
+	   font-family: Open Sans;
+	   font-size: 28px;
+	   font-weight: 100;
+	   padding: 40px;
+	   border-color-hover: ;
+	   border-style-hover: solid;
+	   border-width-hover: 1;
+	   background-color: #FFFFFF;
+	   border: solid #B2B2B2 1px;
+	   text-decoration: none;
+	   display: inline-block;
+	   cursor: pointer;
+	   text-align: center;
+	}
+	
+	.BUTTON_KDR:hover {
+	   background: #B2B2B2;
+	   -webkit-border-radius: 20px;
+	   -moz-border-radius: 20px;
+	   border-radius: 20px;
+	   text-decoration: none;
+	}
 </style>
+
     
 <!-- Analytics -->
  
@@ -178,28 +229,71 @@ You can download a copy of the original <span class="code">com.apple.OSDUIHelper
 										<h1 id="settings" title="Settings">Settings</h1>
 										
 									</div>
-				<p>
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-										</p>
-			</div>
-			<div class="col-md-6 col-lg-3 offset-lg-1">
-										<div class="row">
-											<div class="col roundedrect indexblock col-lg-12">
-												<h5 class="mg-md">
-													Contents
-												</h5>
-												<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem" title="gettingstarted">
-													<a href="#gettingstarted">Getting started</a><br>
-												</p>
-												<p class="btn-resize-mode p-bloc-5-style indexitem">
-													<a href="#installation">Installation</a><br>
-												</p>
-												<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem">
-													<a href="#settings">Settings</a><br>
-												</p>
-											</div>
+				<div >
+											The settings window is made up of 3 sections:
+<ul>
+	<li><strong>General</strong></li>
+	<li><strong>Position</strong></li>
+	<li><strong>Style</strong></li>
+</ul>
+Remember that a preview of the bars is always visible. In addition, the volume bar is kept visible on the screen.<br>This should give you a exhaustive idea of what the look will be like.
+											
 										</div>
-									</div>
+				<div class="container-div-style" id="general">
+												<img src="img/lazyload-ph.png" data-src="img/Schermata%202020-05-19%20alle%2022.12.43.png" class="img-fluid mx-auto d-block lazyload" alt="Schermata%202020 05-19%20alle%2022.12.43" />
+												<div >
+													<ul>
+	<li><strong>Bars:</strong> choose individually which HUDs should appear;</li>
+	<li><strong>Margin-value:</strong> to improve the energy footprint SlimHUD only shows a HUD when the value has changed by more than this given value;</li>
+	<li><strong>Check for Updates:</strong> checks if a new update has been released;</li>
+	<li><strong>Continuously check:</strong> SlimHUD usually observes if a function key has been pressed and then displays a HUD. However, there are situations in which the value changes without a key being pressed. This usually happens when you use a slider on the TouchBar. Therefore you can enable this setting. Remember that this will lead to a small, but present, increase in the energy footprint;</li>
+	<li><strong>Launch at login:</strong> will automatically launch SlimHUD when you boot up your Mac;</li>
+</ul>
+													
+												</div>
+											</div>
+				<div class="container-div-style" id="position">
+													<img src="img/lazyload-ph.png" data-src="img/Schermata%202020-05-19%20alle%2022.12.47.png" class="img-fluid mx-auto d-block lazyload" alt="Schermata%202020 05-19%20alle%2022.12.47" />
+													<div >
+														<ul>
+	<li><strong>Position:</strong> choose the edge the HUDs should appear on;</li>
+	<li><strong>Size:</strong> set the main size of the bar;</li>
+	<li><strong>Thickness:</strong> set the thickness of the bar;</li>
+</ul>
+														
+													</div>
+												</div>
+				<div class="container-div-style" id="style">
+														<img src="img/lazyload-ph.png" data-src="img/Schermata%202020-05-19%20alle%2022.12.49.png" class="img-fluid mx-auto d-block lazyload" alt="Schermata%202020 05-19%20alle%2022.12.49" />
+														<div >
+															<ul>
+	<li><strong>Icons:</strong> icons can be shown or hidden. There is a icon for the volume, one for the brightness and one for the keyboard backlight;</li>
+	<li><strong>Animations:</strong> toggles the animation displayed when the hud appears on the screen, and when the value changes while the bar is visible. This setting doesn't affect the energy footprint so feel free to choose what you like the most;</li>
+	<li><strong>Shadows:</strong> toggles a shadow effect behind the bar. This can help to improve the visibility of the bar;</li>
+	<li><strong>Colors:</strong> customise the colors of each bar and icon. The background color is the same for every bar.<br>The volume has two settable colors as it can be muted;</li>
+</ul>
+															
+														</div>
+													</div>
+			</div>
+			<div class="col-md-6 col-lg-3 offset-lg-1 d-md-block  d-none">
+														<div class="row">
+															<div class="col roundedrect indexblock col-lg-12">
+																<h5 class="mg-md">
+																	Contents
+																</h5>
+																<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem" title="gettingstarted">
+																	<a href="#gettingstarted">Getting started</a><br>
+																</p>
+																<p class="btn-resize-mode p-bloc-5-style indexitem">
+																	<a href="#installation">Installation</a><br>
+																</p>
+																<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem">
+																	<a href="#settings">Settings</a><br>
+																</p>
+															</div>
+														</div>
+													</div>
 		</div>
 	</div>
 </div>
@@ -242,12 +336,37 @@ You can download a copy of the original <span class="code">com.apple.OSDUIHelper
 <!-- Main container END -->
     
 
-<script src="./js/jquery-3.3.1.min.js?4245"></script>
-<script src="./js/bootstrap.bundle.min.js?8597"></script>
-<script src="./js/blocs.min.js?1615"></script>
+<script src="./js/jquery-3.3.1.min.js?2848"></script>
+<script src="./js/bootstrap.bundle.min.js?4649"></script>
+<script src="./js/blocs.min.js?2921"></script>
 <script src="./js/lazysizes.min.js" defer></script>
 <!-- Additional JS END -->
 
 
+<script>
+
+function hiderGeneral() {
+	var scroll = document.offsetHeight;
+	console.log(scroll);
+	document.getElementById("position").style.display = "none";
+	document.getElementById("style").style.display = "none";
+	document.getElementById("general").style.display = "block";
+	location.hash = "btns"
+}
+
+function hiderPosition() {
+	document.getElementById("general").style.display = "none";
+	document.getElementById("style").style.display = "none";  
+	document.getElementById("position").style.display = "block";
+}
+
+function hiderStyle() {
+	document.getElementById("position").style.display = "none";
+	document.getElementById("general").style.display = "none";  
+	document.getElementById("style").style.display = "block";
+}
+
+
+</script>
 </body>
 </html>

@@ -77,7 +77,7 @@ Releases/*
 TODO.txt
 _site/
 Cache/
-
+*.bloc
 
 
 Cartfile*

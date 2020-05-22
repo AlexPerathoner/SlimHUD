@@ -388,6 +388,19 @@ h3{
 	border-radius:7px 7px 7px 7px;
 	border-width:7px 7px 7px 7px;
 }
+.container-div-style{
+	margin-bottom:7px;
+	margin-top:59px;
+}
+.btn-margin-top{
+	margin-top:45px;
+	width:36.53%;
+	font-family:"Josefin Sans";
+}
+.row-margin-bottom{
+	margin-bottom:0px;
+	margin-top:35px;
+}
 
 /* = Colour
 -------------------------------------------------------------- */
