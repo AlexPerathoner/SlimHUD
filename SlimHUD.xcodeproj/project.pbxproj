@@ -12,7 +12,6 @@
 		FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */; };
 		FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */; };
 		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
-		FA51B9662469D7830095C8B7 /* ClosableWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B9652469D7830095C8B7 /* ClosableWindow.swift */; };
 		FA55B98C2423FE180071E6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55B98B2423FE180071E6D9 /* Extensions.swift */; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
 		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
@@ -57,7 +56,6 @@
 		FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
-		FA51B9652469D7830095C8B7 /* ClosableWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosableWindow.swift; sourceTree = "<group>"; };
 		FA55B98B2423FE180071E6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 		FA51B9612469D52F0095C8B7 /* Windows */ = {
 			isa = PBXGroup;
 			children = (
-				FA51B9652469D7830095C8B7 /* ClosableWindow.swift */,
 				FA131C2E24683CBD005908FF /* MainMenu.storyboard */,
 				FA262AE5240E9EEF00BFC2D1 /* Settings */,
 				FAAFCD8A24588A68009E5E2E /* About */,
@@ -364,7 +361,6 @@
 				FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */,
 				FA55B98C2423FE180071E6D9 /* Extensions.swift in Sources */,
 				FAF5F6532406D1480011B766 /* Hud.swift in Sources */,
-				FA51B9662469D7830095C8B7 /* ClosableWindow.swift in Sources */,
 				FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */,
 				FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */,
 				FA623A6324685DD000A6ABCB /* BarView.swift in Sources */,

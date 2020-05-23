@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -13,7 +13,6 @@
                 <customObject id="ev8-l2-p2M" customClass="NSFontManager"/>
                 <customObject id="RpS-ln-g5c" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
                     <connections>
-                        <outlet property="closerMenuItem" destination="hoa-94-aFq" id="uic-hE-rt6"/>
                         <outlet property="statusMenu" destination="H2T-wn-cOi" id="3Tt-yF-EdJ"/>
                     </connections>
                 </customObject>
@@ -27,7 +26,6 @@
                                         <menuItem title="About..." id="Y7B-0i-puc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="bringApptoFrontWithSender:" target="RpS-ln-g5c" id="xIc-SE-GqC"/>
                                                 <segue destination="YmN-fR-kvf" kind="show" id="AX0-B7-Ztn"/>
                                             </connections>
                                         </menuItem>
@@ -40,12 +38,15 @@
                                         <menuItem title="Preferences...." id="MKQ-CJ-4R5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="bringApptoFront" target="RpS-ln-g5c" id="J4X-Zn-J5J"/>
                                                 <segue destination="ijN-uD-ef4" kind="show" id="SMe-Pr-DTm"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="vC6-xV-rB2"/>
-                                        <menuItem title="Close Window" hidden="YES" keyEquivalent="w" allowsKeyEquivalentWhenHidden="YES" id="hoa-94-aFq"/>
+                                        <menuItem title="Close Window" keyEquivalent="w" id="hoa-94-aFq">
+                                            <connections>
+                                                <action selector="performClose:" target="hbL-WD-91l" id="SCF-2P-Tnq"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Quit" keyEquivalent="q" id="xeo-u1-C0T">
                                             <connections>
                                                 <action selector="quitCliked:" target="RpS-ln-g5c" id="yC7-6g-GR9"/>
@@ -60,12 +61,6 @@
                         <outlet property="delegate" destination="RpS-ln-g5c" id="83x-eP-0MN"/>
                     </connections>
                 </application>
-                <customObject id="kGm-sc-L47" customClass="AboutWindowController" customModule="SlimHUD" customModuleProvider="target"/>
-                <customObject id="T44-aM-8ai" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target">
-                    <connections>
-                        <outlet property="closerMenuItem" destination="hoa-94-aFq" id="3ii-dq-B3f"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="-100" y="-37"/>
         </scene>
