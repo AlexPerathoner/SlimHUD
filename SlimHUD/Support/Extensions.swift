@@ -74,8 +74,19 @@ extension NSView {
 		}
 	}
 	
+	class func fromNib(name: String) -> NSView? {
+		var views: NSArray?
+		if Bundle.main.loadNibNamed(name, owner: nil, topLevelObjects: &views) {
+			if views?.firstObject is NSView {
+				return (views?.firstObject as! NSView)
+			} else {
+				return (views?[1] as! NSView)
+			}
+		}
+		return nil
+		
+    }
 }
-
 
 extension NSSegmentedControl {
 	func getBarState() -> [Bool] {
