@@ -26,9 +26,15 @@ class AboutViewController: NSViewController {
 	@IBAction func openRepository(_ sender: Any) {
 		let url = URL(string: "https://github.com/AlexPerathoner/SlimHUD")!
 		if NSWorkspace.shared.open(url) {
-			NSLog("Link opened successfully")
+			NSLog("Repository opened successfully")
 		}
 	}
 	
+	@IBAction func openWebsite(_ sender: Any) {
+		let url = URL(string: "https://alexperathoner.github.io/SlimHUD/")!
+		if NSWorkspace.shared.open(url) {
+			NSLog("Website opened successfully")
+		}
+	}
 	
 }
