@@ -71,33 +71,33 @@ class SettingsController {
 	// MARK: - Effects colors
 	var shouldShowShadows: Bool! = true {
 		didSet {
-			setItem(shouldShowShadows, for: "shouldShowShadows")
+			UserDefaults.standard.set(shouldShowShadows, forKey: "shouldShowShadows")
 		}
 	}
 	var shouldShowIcons: Bool! = true {
 		didSet {
-			setItem(shouldShowIcons, for: "shouldShowIcons")
+			UserDefaults.standard.set(shouldShowIcons, forKey: "shouldShowIcons")
 		}
 	}
 	var shouldContinuouslyCheck: Bool! = true {
 		didSet {
-			setItem(shouldContinuouslyCheck, for: "shouldContinuouslyCheck")
+			UserDefaults.standard.set(shouldContinuouslyCheck, forKey: "shouldContinuouslyCheck")
 		}
 	}
 	var shouldUseAnimation: Bool! = true {
 		didSet {
-			setItem(shouldUseAnimation, for: "shouldUseAnimation")
+			UserDefaults.standard.set(shouldUseAnimation, forKey: "shouldUseAnimation")
 		}
 	}
 	
 	var barHeight: Int = 218 {
 		didSet {
-			setItem(barHeight, for: "barHeight")
+			UserDefaults.standard.set(barHeight, forKey: "barHeight")
 		}
 	}
 	var barThickness: Int = 7 {
 		didSet {
-			setItem(barThickness, for: "barThickness")
+			UserDefaults.standard.set(barThickness, forKey: "barThickness")
 		}
 	}
 	var position: Position = Position.left {
@@ -109,18 +109,16 @@ class SettingsController {
 	// MARK: - General
 	var enabledBars: [Bool] = [true, true, true] {
 		didSet {
-			setItem(enabledBars, for: "enabledBars")
+			UserDefaults.standard.set(enabledBars, forKey: "enabledBars")
 		}
 	}
 	
-	var marginValue: Int {
-		set {
-			UserDefaults.standard.set(newValue, forKey: "marginValue")
-		}
-		get {
-			UserDefaults.standard.integer(forKey: "marginValue")
+	var marginValue: Int = 10 {
+		didSet {
+			UserDefaults.standard.set(marginValue, forKey: "marginValue")
 		}
 	}
+	
 	
 	// MARK: - Class methods
 	init() {
@@ -134,6 +132,7 @@ class SettingsController {
 		brightnessIconColor = getItem(for: "brightnessIconColor", defaultValue: .white)
 		keyboardIconColor = getItem(for: "keyboardIconColor", defaultValue: .white)
 		
+	
 		shouldShowShadows = getItem(for: "shouldShowShadows", defaultValue: true)
 		shouldShowIcons = getItem(for: "shouldShowIcons", defaultValue: true)
 		barHeight = getItem(for: "barHeight", defaultValue: 218)
@@ -142,6 +141,21 @@ class SettingsController {
 		shouldContinuouslyCheck = getItem(for: "shouldContinuouslyCheck", defaultValue: true)
 		shouldUseAnimation = getItem(for: "shouldUseAnimation", defaultValue: true)
 		enabledBars = getItem(for: "enabledBars", defaultValue: [true, true, true])
+		marginValue = getInt(for: "marginValue")
+	
+		/*
+		shouldShowShadows = getBool(for: "shouldShowShadows") //Next update
+		shouldShowIcons = getBool(for: "shouldShowIcons")
+		barHeight = getInt(for: "barHeight")
+		barThickness = getInt(for: "barThickness")
+		position = Position(rawValue: getString(for: "position", defaultValue: "left"))!
+		shouldContinuouslyCheck = getBool(for: "shouldContinuouslyCheck")
+		shouldUseAnimation = getBool(for: "shouldUseAnimation")
+		enabledBars = getArr(for: "enabledBars", defaultValue:  [true, true, true])
+		marginValue = getInt(for: "marginValue")
+		*/
+		
+		
 	}
 	
 	func resetDefaultBarsColors() {
@@ -167,24 +181,65 @@ class SettingsController {
 		return item
 	}
 	
-	func setItem<T>(_ item: T, for key: String) {
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: item), forKey: key)
+	//Next update
+	/*
+	func getItem<T>(for key: String, defaultValue: T) -> T where T: NSCoding, T: NSObject {
+		do {
+			guard let data = UserDefaults.standard.object(forKey: key) as? Data,
+				let item = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! T? else {
+					return defaultValue
+			}
+			return item
+		} catch {
+			NSLog("unarchiveTopLevelObjectWithData() failed!")
+			return defaultValue
+		}
+	}*/
+	func getBool(for key: String) -> Bool {
+		return UserDefaults.standard.bool(forKey: key)
+	}
+	func getArr<T>(for key: String, defaultValue: [T]) -> [T] {
+		return UserDefaults.standard.array(forKey: key) as! [T]? ?? defaultValue
+	}
+	func getString(for key: String, defaultValue: String) -> String {
+		return UserDefaults.standard.string(forKey: key) ?? defaultValue
+	}
+	func getInt(for key: String) -> Int {
+		return UserDefaults.standard.integer(forKey: key)
 	}
 	
-    private func saveAllItems() {
+	func setItem<T>(_ item: T, for key: String) {
+		do {
+			UserDefaults.standard.set(try NSKeyedArchiver.archivedData(withRootObject: item, requiringSecureCoding: false), forKey: key)
+		} catch {
+			NSLog("Failed to archive data!")
+		}
+	}
+	
+	
+    func saveAllItems() {
 		setItem(backgroundColor, for: "backgroundColor")
 		setItem(volumeEnabledColor, for: "volumeEnabledColor")
 		setItem(volumeDisabledColor, for: "volumeDisabledColor")
 		setItem(brightnessColor, for: "brightnessColor")
 		setItem(keyboardColor, for: "keyboardColor")
-		setItem(shouldShowShadows, for: "shouldShowShadows")
-		setItem(shouldShowIcons, for: "shouldShowIcons")
-		setItem(barHeight, for: "barHeight")
-		setItem(barThickness, for: "barThickness")
-		setItem(position, for: "position")
+		
 		setItem(volumeIconColor, for: "volumeIconColor")
 		setItem(brightnessIconColor, for: "brightnessIconColor")
 		setItem(keyboardIconColor, for: "keyboardIconColor")
+		
+		
+		
+		UserDefaults.standard.set(barHeight, forKey: "barHeight")
+		UserDefaults.standard.set(barThickness, forKey: "barThickness")
+		UserDefaults.standard.set(shouldShowIcons, forKey: "shouldShowIcons")
+		UserDefaults.standard.set(shouldShowShadows, forKey: "shouldShowShadows")
+		
+		UserDefaults.standard.set(marginValue, forKey: "marginValue")
+		UserDefaults.standard.set(enabledBars, forKey: "enabledBars")
+		UserDefaults.standard.set(position.rawValue, forKey: "position")
+		UserDefaults.standard.set(shouldUseAnimation, forKey: "shouldUseAnimation")
+		UserDefaults.standard.set(shouldContinuouslyCheck, forKey: "shouldContinuouslyCheck")
     }
 	
 	

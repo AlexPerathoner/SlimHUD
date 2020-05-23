@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 	
 	
 	@IBAction func quitCliked(_ sender: Any) {
+		settingsController?.saveAllItems()
 		NSApplication.shared.terminate(self)
 	}
 		
@@ -475,8 +476,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, SettingsWindowControllerDele
 		}
 	}
 	
-	func applicationWillTerminate(_ aNotification: Notification) {
-		// Insert code here to tear down your application
-	}
 	
 }
