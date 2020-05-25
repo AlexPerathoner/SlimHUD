@@ -204,7 +204,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	func setHeight(height: CGFloat) {
 		let viewSize = volumeView.frame
 		for view in [volumeView, brightnessView, keyboardView] as [NSView?] {
-			view?.setFrameSize(NSSize(width: viewSize.width ?? 10, height: height+60))
+			view?.setFrameSize(NSSize(width: viewSize.width, height: height+60))
 		}
 		setupHUDsPosition(isInFullscreenMode())
 	}
@@ -212,7 +212,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	func setThickness(thickness: CGFloat) {
 		let viewSize = volumeView.frame
 		for view in [volumeView, brightnessView, keyboardView] as [NSView?] {
-			view?.setFrameSize(NSSize(width: thickness+40, height: viewSize.height ?? 10))
+			view?.setFrameSize(NSSize(width: thickness+40, height: viewSize.height))
 		}
 		for bar in [volumeView.bar, brightnessView.bar, keyboardView.bar] as [ProgressBar?] {
 			bar?.progressLayer.frame.size.width = thickness //setting up inner layer

@@ -9,11 +9,8 @@ import Foundation
 func runAS(script: String) -> String? {
 	var error: NSDictionary?
 	if let scriptObject = NSAppleScript(source: script) {
-		if let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error) {
-			return output.stringValue
-		} else if (error != nil) {
-			print("error: \(String(describing: error))")
-		}
+		let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error)
+		return output.stringValue		
 	}
 	return nil
 }
