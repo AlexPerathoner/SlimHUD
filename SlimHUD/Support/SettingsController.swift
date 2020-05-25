@@ -132,19 +132,7 @@ class SettingsController {
 		brightnessIconColor = getItem(for: "brightnessIconColor", defaultValue: .white)
 		keyboardIconColor = getItem(for: "keyboardIconColor", defaultValue: .white)
 		
-	
-		shouldShowShadows = getItem(for: "shouldShowShadows", defaultValue: true)
-		shouldShowIcons = getItem(for: "shouldShowIcons", defaultValue: true)
-		barHeight = getItem(for: "barHeight", defaultValue: 218)
-		barThickness = getItem(for: "barThickness", defaultValue: 7)
-		position = Position(rawValue: getItem(for: "position", defaultValue: "left"))!
-		shouldContinuouslyCheck = getItem(for: "shouldContinuouslyCheck", defaultValue: true)
-		shouldUseAnimation = getItem(for: "shouldUseAnimation", defaultValue: true)
-		enabledBars = getItem(for: "enabledBars", defaultValue: [true, true, true])
-		marginValue = getInt(for: "marginValue")
-	
-		/*
-		shouldShowShadows = getBool(for: "shouldShowShadows") //Next update
+		shouldShowShadows = getBool(for: "shouldShowShadows")
 		shouldShowIcons = getBool(for: "shouldShowIcons")
 		barHeight = getInt(for: "barHeight")
 		barThickness = getInt(for: "barThickness")
@@ -153,9 +141,6 @@ class SettingsController {
 		shouldUseAnimation = getBool(for: "shouldUseAnimation")
 		enabledBars = getArr(for: "enabledBars", defaultValue:  [true, true, true])
 		marginValue = getInt(for: "marginValue")
-		*/
-		
-		
 	}
 	
 	func resetDefaultBarsColors() {
@@ -172,17 +157,7 @@ class SettingsController {
 		keyboardIconColor = .white
 	}
 	
-	func getItem<T>(for key: String, defaultValue: T) -> T {
-        guard
-            let data = UserDefaults.standard.object(forKey: key) as? Data,
-			let item = NSKeyedUnarchiver.unarchiveObject(with: data) as? T else {
-                return defaultValue
-        }
-		return item
-	}
 	
-	//Next update
-	/*
 	func getItem<T>(for key: String, defaultValue: T) -> T where T: NSCoding, T: NSObject {
 		do {
 			guard let data = UserDefaults.standard.object(forKey: key) as? Data,
@@ -194,7 +169,7 @@ class SettingsController {
 			NSLog("unarchiveTopLevelObjectWithData() failed!")
 			return defaultValue
 		}
-	}*/
+	}
 	func getBool(for key: String) -> Bool {
 		return UserDefaults.standard.bool(forKey: key)
 	}
@@ -227,7 +202,6 @@ class SettingsController {
 		setItem(volumeIconColor, for: "volumeIconColor")
 		setItem(brightnessIconColor, for: "brightnessIconColor")
 		setItem(keyboardIconColor, for: "keyboardIconColor")
-		
 		
 		
 		UserDefaults.standard.set(barHeight, forKey: "barHeight")
