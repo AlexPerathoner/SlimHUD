@@ -104,7 +104,7 @@
                                     <font key="font" metaFont="controlContent"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="openWebsite:" target="qUS-A9-a1a" id="PLu-ac-KoS"/>
+                                    <action selector="openWebsite:" target="dab-cj-Ljy" id="lIf-mV-fxE"/>
                                 </connections>
                             </button>
                         </subviews>

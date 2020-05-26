@@ -33,7 +33,7 @@ class AboutViewController: NSViewController {
 	}
 	
 	@IBAction func openWebsite(_ sender: Any) {
-		let url = URL(string: "https://alexperathoner.github.io/SlimHUD/")!
+		let url = URL(string: "https://alexperathoner.github.io/SlimHUD")!
 		if NSWorkspace.shared.open(url) {
 			NSLog("Website opened successfully")
 		}
