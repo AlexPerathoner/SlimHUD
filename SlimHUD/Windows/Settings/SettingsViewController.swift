@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import LaunchAtLogin
 import Sparkle
 
 protocol SettingsWindowControllerDelegate: class {
@@ -34,7 +33,8 @@ protocol SettingsWindowControllerDelegate: class {
 
 
 class SettingsViewController: NSViewController {
-	
+	let loginItemsList = LoginItemsList();
+
 	weak var delegate: SettingsWindowControllerDelegate?
     weak var settingsController: SettingsController?
 	@IBOutlet weak var preview: SettingsPreview!
@@ -56,7 +56,7 @@ class SettingsViewController: NSViewController {
 		
 		marginValueOutlet.stringValue = String(settingsController?.marginValue ?? 5) + "%"
 		marginStepperOutlet.integerValue = (settingsController?.marginValue ?? 5 * 100)
-		launchAtLoginOutlet.state = LaunchAtLogin.isEnabled.toStateValue()
+		launchAtLoginOutlet.state = loginItemsList.isLoginItemInList().toStateValue()
 		iconOutlet.state = settingsController?.shouldShowIcons!.toStateValue() ?? .on
 		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
 		continuousCheckOutlet.state = settingsController?.shouldContinuouslyCheck.toStateValue() ?? .on
@@ -108,10 +108,18 @@ class SettingsViewController: NSViewController {
 		
 	}
 	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
-		settingsController?.shouldContinuouslyCheck = sender.state.boolValue()
+		settingsController?.shouldContinuouslyCheck = sender.boolState()
 	}
 	@IBAction func launchAtLoginClicked(_ sender: NSButton) {
-		LaunchAtLogin.isEnabled = sender.state.boolValue()
+		if(sender.boolState()) {
+			if(!loginItemsList.addLoginItem()) {
+				print("Error while adding Login Item to the list.");
+			}
+		} else {
+			if(!loginItemsList.removeLoginItem()) {
+				print("Error while removing Login Item from the list.");
+			}
+		}
 	}
 	
 	@IBOutlet weak var marginValueOutlet: NSTextField!
@@ -237,14 +245,14 @@ class SettingsViewController: NSViewController {
 	
 	
 	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
-		let val = sender.state.boolValue()
+		let val = sender.boolState()
 		settingsController?.shouldShowIcons = val
 		delegate?.updateIcons(isHidden: !val)
 		preview.updateIcons(isHidden: !val)
 	}
 	
 	@IBAction func shouldShowShadows(_ sender: NSButton) {
-		let val = sender.state.boolValue()
+		let val = sender.boolState()
 		settingsController?.shouldShowShadows = val
 		delegate?.updateShadows(enabled: val)
 		preview.updateShadows(enabled: val)
@@ -252,7 +260,7 @@ class SettingsViewController: NSViewController {
 	
 	
 	@IBAction func shouldUseAnimations(_ sender: NSButton) {
-		let val = sender.state.boolValue()
+		let val = sender.boolState()
 		settingsController?.shouldUseAnimation = val
 		delegate?.shouldUseAnimation = val
 		preview.shouldUseAnimation = val

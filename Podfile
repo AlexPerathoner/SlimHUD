@@ -6,6 +6,5 @@ target 'SlimHUD' do
   use_frameworks!
 
   # Pods for SlimHUD
-
   pod 'Sparkle'
 end

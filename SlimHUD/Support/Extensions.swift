@@ -9,6 +9,17 @@
 import Cocoa
 import AppKit
 
+
+extension NSButton {
+	func boolState() -> Bool {
+		if(state.rawValue == 0) {
+			return false
+		}
+		return true
+	}
+}
+
+
 extension NSControl.StateValue {
 	func boolValue() -> Bool {
 		if(self.rawValue == 0) {
