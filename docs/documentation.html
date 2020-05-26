@@ -7,11 +7,11 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png?260?2443?6697">
     
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?5150">
-	<link rel="stylesheet" type="text/css" href="style.css?165">
-	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?5028">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?6004">
+	<link rel="stylesheet" type="text/css" href="style.css?4490">
+	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?8926">
 	<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -24,8 +24,12 @@
 	}
 	.indexblock {
 		position: fixed;
-		top:12%;
-		width: 12%;
+		top: 180px;
+		width: 350px;
+	}
+	.posrel {
+		position: relative;
+		right: 13%;	
 	}
 	
 	
@@ -92,6 +96,13 @@
 	   border-radius: 20px;
 	   text-decoration: none;
 	}
+	
+	
+	.centered {
+		width: 15%;
+		margin: auto;
+			
+	}
 </style>
 
     
@@ -109,12 +120,12 @@
 	<div class="container bloc-sm">
 		<div class="row">
 			<div class="col-12">
-				<nav class="navbar navbar-light row navbar-expand-md" role="navigation">
+				<nav class="navbar navbar-light row" role="navigation" width="60%">
 					<a class="navbar-brand ltc-moonstone-blue" href="index.html"><img src="img/Icon32Azure.png" alt="logo" class="mr-2" />SlimHUD</a>
-					<button id="nav-toggle" type="button" class="ui-navbar-toggler navbar-toggler border-0 p-0 mr-md-0 ml-auto navitem" data-toggle="collapse" data-target=".navbar-4016" aria-expanded="false" aria-label="Toggle navigation">
+					<button id="nav-toggle" type="button" class="ui-navbar-toggler navbar-toggler border-0 p-0 mr-md-0 ml-auto navitem posrel " data-toggle="collapse" data-target=".navbar-4016" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse navbar-4016 col-lg-9 offset-lg-0 offset-md-2">
+					<div class="collapse navbar-collapse navbar-4016 bloc-bloc-0-margin-bottom offset-md-2 col-lg-5 offset-lg-4 special-dropdown-nav  sidebar-nav" float="right">
 						<ul class="site-navigation nav navbar-nav ml-auto">
 							<li class="nav-item menuitem">
 								<a href="index.html" class="nav-link a-btn ltc-moonstone-blue">Home</a>
@@ -125,8 +136,10 @@
 							<li class="nav-item menuitem">
 								<a href="versions.html" class="nav-link a-btn ltc-moonstone-blue">Versions</a>
 							</li>
-							<li>
-								<a href="https://github.com/AlexPerathoner/SlimHUD" target="_blank"><img src="img/gitHubIcon.png" class="img-fluid img-githubic-style float-lg-right" height="100" width="100" alt="gitHubIcon" /></a>
+							<li float="left">
+								<div class="centered">
+									<a href="https://github.com/AlexPerathoner/SlimHUD" target="_blank"><img src="img/gitHubIcon.png" class="img-fluid img-githubic-style float-lg-right d-lg-block  d-sm-none d-block" height="100" width="100" alt="gitHubIcon" /></a>
+								</div>
 							</li>
 						</ul>
 					</div>
@@ -260,6 +273,7 @@ Remember that a preview of the bars is always visible. In addition, the volume b
 	<li><strong>Size:</strong> set the main size of the bar;</li>
 	<li><strong>Thickness:</strong> set the thickness of the bar;</li>
 </ul>
+Note that the preview on the left will not display changes concerning this settings. The actual volume bar is kept visible and you will be able to see the changes directly there.
 														
 													</div>
 												</div>
@@ -276,7 +290,7 @@ Remember that a preview of the bars is always visible. In addition, the volume b
 														</div>
 													</div>
 			</div>
-			<div class="col-md-6 col-lg-3 offset-lg-1 d-md-block  d-none">
+			<div class="col-md-6 col-lg-3 offset-lg-1 d-lg-block   d-none">
 														<div class="row">
 															<div class="col roundedrect indexblock col-lg-12">
 																<h5 class="mg-md">
@@ -336,9 +350,9 @@ Remember that a preview of the bars is always visible. In addition, the volume b
 <!-- Main container END -->
     
 
-<script src="./js/jquery-3.3.1.min.js?3275"></script>
-<script src="./js/bootstrap.bundle.min.js?988"></script>
-<script src="./js/blocs.min.js?1146"></script>
+<script src="./js/jquery-3.3.1.min.js?9443"></script>
+<script src="./js/bootstrap.bundle.min.js?3882"></script>
+<script src="./js/blocs.min.js?4567"></script>
 <script src="./js/lazysizes.min.js" defer></script>
 <!-- Additional JS END -->
 
