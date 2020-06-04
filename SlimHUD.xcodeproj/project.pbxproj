@@ -42,7 +42,7 @@
 		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		FA55B98B2423FE180071E6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemList.swift; sourceTree = SOURCE_ROOT; };
+		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginItemList.swift; path = SlimHUD/Support/LoginItemList.swift; sourceTree = SOURCE_ROOT; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
@@ -475,7 +475,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SlimHUD/Support/Nick\\ Sweeting",
 					"$(PROJECT_DIR)/SlimHUD",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SlimHUD/Support/Info.plist;
@@ -483,7 +482,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD;
@@ -511,7 +509,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SlimHUD/Support/Nick\\ Sweeting",
 					"$(PROJECT_DIR)/SlimHUD",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SlimHUD/Support/Info.plist;
@@ -519,7 +516,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 1.3.4;
 				ONLY_ACTIVE_ARCH = YES;
