@@ -10,8 +10,8 @@ import AppKit
 
 class Hud: NSView {
 	
-	private var animationDuration: TimeInterval = 0.2
-	private var animationMovement: CGFloat = 10
+	private var animationDuration: TimeInterval = 0.3
+	private var animationMovement: CGFloat = 20
 	var animated = true
 	
 	///The NSView that is going to be displayed when show() is called
