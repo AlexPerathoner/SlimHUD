@@ -217,7 +217,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		for bar in [volumeView.bar, brightnessView.bar, keyboardView.bar] as [ProgressBar?] {
 			bar?.progressLayer.frame.size.width = thickness //setting up inner layer
 			bar?.progressLayer.cornerRadius = thickness/2
-			bar?.frame.size.width = thickness //setting up outer layer
+			bar?.layer?.cornerRadius = thickness/2 //setting up outer layer
+			bar?.frame.size.width = thickness
 		}
 		
 		setupHUDsPosition(isInFullscreenMode())
