@@ -108,10 +108,10 @@ class SettingsViewController: NSViewController {
 		
 	}
 	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
-		settingsController?.shouldContinuouslyCheck = sender.boolState()
+		settingsController?.shouldContinuouslyCheck = sender.boolValue()
 	}
 	@IBAction func launchAtLoginClicked(_ sender: NSButton) {
-		if(sender.boolState()) {
+		if(sender.boolValue()) {
 			if(!loginItemsList.addLoginItem()) {
 				print("Error while adding Login Item to the list.");
 			}
@@ -245,14 +245,14 @@ class SettingsViewController: NSViewController {
 	
 	
 	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
-		let val = sender.boolState()
+		let val = sender.boolValue()
 		settingsController?.shouldShowIcons = val
 		delegate?.updateIcons(isHidden: !val)
 		preview.updateIcons(isHidden: !val)
 	}
 	
 	@IBAction func shouldShowShadows(_ sender: NSButton) {
-		let val = sender.boolState()
+		let val = sender.boolValue()
 		settingsController?.shouldShowShadows = val
 		delegate?.updateShadows(enabled: val)
 		preview.updateShadows(enabled: val)
@@ -260,7 +260,7 @@ class SettingsViewController: NSViewController {
 	
 	
 	@IBAction func shouldUseAnimations(_ sender: NSButton) {
-		let val = sender.boolState()
+		let val = sender.boolValue()
 		settingsController?.shouldUseAnimation = val
 		delegate?.shouldUseAnimation = val
 		preview.shouldUseAnimation = val
