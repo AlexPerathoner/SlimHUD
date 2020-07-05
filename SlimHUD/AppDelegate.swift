@@ -59,7 +59,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		
 		
 		
-		//Setting up huds 
+		//Setting up huds
 		volumeHud.view = volumeView
 		brightnessHud.view = brightnessView
 		keyboardHud.view = keyboardView
