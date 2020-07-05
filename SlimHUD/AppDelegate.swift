@@ -55,12 +55,11 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		
 		
 		oldVolume = getOutputVolume()
-		oldBacklight = getKeyboardBrightness()
 		oldBrightness = getDisplayBrightness()
 		
 		
 		
-		//Setting up huds
+		//Setting up huds 
 		volumeHud.view = volumeView
 		brightnessHud.view = brightnessView
 		keyboardHud.view = keyboardView
@@ -396,9 +395,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			oldFullScreen = newFullScreen
 		}
 		
-		if(enabledBars[2]) {
-			checkBacklightChanges()
-		}
 		if(enabledBars[1]) {
 			checkBrightnessChanges()
 		}
@@ -422,15 +418,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		volumeView.bar!.progress = CGFloat(newVolume)
 	}
 	
-	var oldBacklight: Float = 0.5
-	func checkBacklightChanges() {
-		let newBacklight = getKeyboardBrightness()
-		if(!isAlmost(n1: oldBacklight, n2: newBacklight)) {
-			NotificationCenter.default.post(name: ObserverApplication.keyboardIlluminationChanged, object: self)
-			oldBacklight = newBacklight
-		}
-		keyboardView.bar?.progress = CGFloat(newBacklight)
-	}
 	
 	var oldBrightness: Float = 0.5
 	func checkBrightnessChanges() {
