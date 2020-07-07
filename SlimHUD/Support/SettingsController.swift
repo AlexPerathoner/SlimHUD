@@ -102,7 +102,7 @@ class SettingsController {
 	}
 	var position: Position = Position.left {
 		didSet {
-			setItem(position.rawValue, for: "position")
+			UserDefaults.standard.set(position.rawValue, forKey: "position")
 		}
 	}
 	
