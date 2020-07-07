@@ -64,7 +64,7 @@ class SettingsController {
 	}
 	var keyboardIconColor: NSColor! {
 		didSet {
-			setItem(keyboardColor, for: "keyboardIconColor")
+			setItem(keyboardIconColor, for: "keyboardIconColor")
 		}
 	}
 	
