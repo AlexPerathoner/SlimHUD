@@ -1,6 +1,6 @@
 <!--©Alexander Perathoner 19/03/2020-->
 
-<img align="right" width="25%" src="Screens/Icon1024.png">
+<img align="right" width="25%" src="Screens/Icon1024.png"> 
 
 # SlimHUD - Cyanocitta
 
