@@ -154,6 +154,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		brightnessView.bar?.background = SettingsController.darkGray
 	}
 	
+	@available(OSX 10.14, *)
 	func setupDefaultIconsColors() {
 		setVolumeIconsTint(.white)
 		setBrightnessIconsTint(.white)
@@ -186,9 +187,11 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		setVolumeDisabledColor(color: settingsController!.volumeDisabledColor)
 		setBrightnessColor(color: settingsController!.brightnessColor)
 		setKeyboardColor(color: settingsController!.keyboardColor)
-		setVolumeIconsTint(settingsController!.volumeIconColor)
-		setBrightnessIconsTint(settingsController!.brightnessIconColor)
-		setKeyboardIconsTint(settingsController!.keyboardIconColor)
+		if #available(OSX 10.14, *) {
+			setVolumeIconsTint(settingsController!.volumeIconColor)
+			setBrightnessIconsTint(settingsController!.brightnessIconColor)
+			setKeyboardIconsTint(settingsController!.keyboardIconColor)
+		}
 	}
 	
 	func setupTimer(with t: TimeInterval) {
@@ -226,12 +229,15 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	
 	
+	@available(OSX 10.14, *)
 	func setVolumeIconsTint(_ color: NSColor) {
 		volumeView.image?.contentTintColor = color
 	}
+	@available(OSX 10.14, *)
 	func setBrightnessIconsTint(_ color: NSColor) {
 		brightnessView.image?.contentTintColor = color
 	}
+	@available(OSX 10.14, *)
 	func setKeyboardIconsTint(_ color: NSColor) {
 		keyboardView.image?.contentTintColor = color
 	}

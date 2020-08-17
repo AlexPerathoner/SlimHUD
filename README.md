@@ -52,6 +52,8 @@ Here's a full list of the features:
 <img src = "Screens/colors.png" width=250>
 </p>
 
+* Each icon (volume / brightness / keyboard's backlight) also has it's own color! <sup>[1](#note1)</sup>
+
 * If you think that the default bar is too small you can easily adjust its size.
 
 |<img src = "Screens/Size/small.png">|<img src = "Screens/Size/middle.png">|<img src = "Screens/Size/big.png">|
@@ -67,6 +69,8 @@ Here's a full list of the features:
 
 * Lastly don't forget to **enable the launch at login function!**
 
+<a name="note1"></a><sup>[1](#note1)</sup>:
+> Only available in MacOS 10.14 and later.
 
 ## Installation
 Download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest).
@@ -78,7 +82,7 @@ Launching SlimHud is easy: copy the app into your Application's folder and then 
 2. Launch the terminal by clicking on Utilities > Terminal.
 3. Disable SIP with ```csrutil disable```.
 4. Restart your mac and login into an admin account.
-5. Run ```sudo mount -uw /; killall Finder``` in your terminal. <sup>[1](#note1)</sup>
+5. Run ```sudo mount -uw /; killall Finder``` in your terminal. <sup>[2](#note2)</sup>
 6. Now run ```sudo nano /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist```.
 6. Remove all of the text between \<plist version=”1.0″> and \</plist>. Save the file by hitting control + X, answering yes and hitting return.
 8. Re-enter Recovery mode.
@@ -89,7 +93,7 @@ You have now successfully replaced those ugly and old overlays! Congrats!
 For future updates it won't be necessary to go through all of these steps. Just copy the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) into your application Folder.<br>After version `1.3.0` you can check for updates from inside the app.
 
 #### Explanation
-<a name="note1"></a><sup>[1](#note1)</sup>:
+<a name="note2"></a><sup>[2](#note2)</sup>:
 > sudo allows a permitted user to execute a command as the superuser or another user.
 Mount is used to mount disks. The -u flag indicates that the status of an already mounted file system should be changed. -w means to mount the file system read-write. The file system is "/" aka root.
 The killall utility kills processes selected by name. Since it's Finder, it will just restart and reflect the change you've just made.
