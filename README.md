@@ -2,13 +2,13 @@
 
 <img align="right" width="25%" src="Screens/Icon1024.png"> 
 
-# SlimHUD - Cyanocitta
+# SlimHUD
 
 Replacement for MacOS' HUDs.
 
 Every day you change your volume or brightness and an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
 ## Features - Settings
-Each feature can be toggled from the settings window.<br>To access the settings window search the *Cyanocitta* in you menu app and select **Settings...**
+Each feature can be toggled from the settings window.<br>To access the settings window search the SlimHUD icon in you menu app and select **Settings...**
 
 
 <img align="left"  width="23%" src="Screens/menubar.png">
