@@ -78,6 +78,9 @@ Download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases
 Launching SlimHud is easy: copy the app into your Application's folder and then open it.
 <br>**However**, as you probably also want it to replace MacOS' HUDs we'll have to follow a few steps more...<br>Please note that the following instructions will temporarily deactivate Sysem Integrity Protection. By proceeding you acknowledge that you are aware of which risks this leads to.<br>But don't be scared, just follow everything and you should be fine (source: [here](https://alanvitullo.wordpress.com/2018/02/20/remove-control-overlay-on-mac-os-high-sierra/) and [here](https://www.reddit.com/r/MacOS/comments/caiue5/macos_catalina_readonly_file_system_with_sip/)):
 
+**Note: I haven't found a safe way of overriding data on your boot disk under MacOS Big Sur yet. This method works for ≤10.15.x**
+This means that SlimHUD' HUDs will still be visible, but the system HUDs will be visible as well.
+
 1. Enter Recovery Mode by restarting your mac and holding ⌘+R while it's booting up.
 2. Launch the terminal by clicking on Utilities > Terminal.
 3. Disable SIP with ```csrutil disable```.
