@@ -3,6 +3,8 @@
 <img align="right" width="25%" src="Screens/Icon1024.png"> 
 
 # SlimHUD
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD?ref=badge_shield)
+
 
 Replacement for MacOS' HUDs.
 
@@ -125,3 +127,6 @@ Thanks to [w0lfschild](https://gist.github.com/w0lfschild) and [massimobio](http
 ## License
 
 This project is licensed under the GPL-3.0 License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD?ref=badge_large)
