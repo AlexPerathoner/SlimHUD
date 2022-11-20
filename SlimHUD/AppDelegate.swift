@@ -267,7 +267,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		var position: CGPoint
 		let viewSize = volumeView.frame
 		
-		let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
+		let screenFrame = NSScreen.main?.visibleFrame ?? NSRect.zero
 		
 		// Here the magic takes place, let it happen
 		var (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition): (NSRect, CGFloat, CGFloat, CGFloat, Position)// = getScreenInfo()
@@ -329,6 +329,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 				}
 			}
 		}
+		
+		
+		NSLog("screenFrame is \(screenFrame) \(position)")
 	}
 	
 	
