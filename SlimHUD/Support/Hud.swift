@@ -41,8 +41,8 @@ class Hud: NSView {
 	
 	func setup() {
 		isHidden = true
-		let screen = NSScreen.screens[0]
-		let window = NSWindow(contentRect: screen.frame, styleMask: .borderless, backing: .buffered, defer: true, screen: screen) 
+        let screen = NSScreen.screens[0] // todo should use main screen / the same which we use to get the measures of the screen / add a setting to choose on which screen it should appear
+		let window = NSWindow(contentRect: screen.frame, styleMask: .borderless, backing: .buffered, defer: true, screen: screen)
 		window.level = .floating
 		window.backgroundColor = .clear
 		window.animationBehavior = .none
