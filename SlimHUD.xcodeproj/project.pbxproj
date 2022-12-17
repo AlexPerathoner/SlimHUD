@@ -26,6 +26,7 @@
 		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
 		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
 		FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78F53E242FA73000785678 /* SettingsPreview.swift */; };
+		FAA2265D294E746D00E082CB /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2265C294E746D00E082CB /* OSDUIManager.swift */; };
 		FAAFCD872458768E009E5E2E /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFCD862458768E009E5E2E /* About.storyboard */; };
 		FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFCD8824588785009E5E2E /* AboutViewController.swift */; };
 		FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScript.swift */; };
@@ -62,6 +63,7 @@
 		FA69AC8F23F9E2E700AA73FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
 		FA78F53E242FA73000785678 /* SettingsPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreview.swift; sourceTree = "<group>"; };
+		FAA2265C294E746D00E082CB /* OSDUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSDUIManager.swift; sourceTree = "<group>"; };
 		FAAFCD862458768E009E5E2E /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		FAAFCD8824588785009E5E2E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FABE1FD923FEF17B009AD01F /* AppleScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScript.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */,
 				FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */,
+				FAA2265C294E746D00E082CB /* OSDUIManager.swift */,
 				FA51B9612469D52F0095C8B7 /* Windows */,
 				FA623A6424685DDB00A6ABCB /* BarView */,
 				FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */,
@@ -355,6 +358,7 @@
 				FA623A6324685DD000A6ABCB /* BarView.swift in Sources */,
 				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
 				FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */,
+				FAA2265D294E746D00E082CB /* OSDUIManager.swift in Sources */,
 				FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */,
 				FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */,
 				FA12C21124EA934800F92CA3 /* SettingsWindowControllerDelegate.swift in Sources */,

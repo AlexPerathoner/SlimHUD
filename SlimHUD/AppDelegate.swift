@@ -103,17 +103,10 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 															object: NSApplication.shared,
 															queue: OperationQueue.main) {
 				notification -> Void in
-																self.setupHUDsPosition(false)
+            self.setupHUDsPosition(false)
 		}
         
-        hideOSDUIHelper()
-	}
-
-	func hideOSDUIHelper() {
-		let task = Process()
-		task.executableURL = URL(fileURLWithPath: "/usr/bin/killall")
-		task.arguments = ["-STOP", "OSDUIHelper"]
-		try? task.run()
+        OSDUIManager.stop()
 	}
 	
 	
