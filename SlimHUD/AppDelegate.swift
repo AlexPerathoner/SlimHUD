@@ -105,7 +105,15 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 				notification -> Void in
 																self.setupHUDsPosition(false)
 		}
-		
+        
+        hideOSDUIHelper()
+	}
+
+	func hideOSDUIHelper() {
+		let task = Process()
+		task.executableURL = URL(fileURLWithPath: "/usr/bin/killall")
+		task.arguments = ["-STOP", "OSDUIHelper"]
+		try? task.run()
 	}
 	
 	
