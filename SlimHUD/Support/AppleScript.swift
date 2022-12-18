@@ -47,6 +47,8 @@ func getKeyboardBrightnessProportioned(raw: Float) -> Float {
     return (log10(raw+0.03)+1)
 }
 
+let MAX_KEYBOARD_BRIGHTNESS: Float = 342;
+
 func getRawKeyboardBrightness() -> Float {
 	let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleHIDKeyboardEventDriverV2"))
 	defer {
@@ -55,7 +57,7 @@ func getRawKeyboardBrightness() -> Float {
 	
 	if let ser: CFTypeRef = IORegistryEntryCreateCFProperty(service, "KeyboardBacklightBrightness" as CFString, kCFAllocatorDefault, 0)?.takeUnretainedValue() {
 		let result = ser as! Float
-		return result / 342 //max value is 342, proportioning to %
+		return result / MAX_KEYBOARD_BRIGHTNESS //max value is 342, proportioning to %
 	}
     return 0 // todo: should throw exception, maybe show "disabled" icon?
 }
