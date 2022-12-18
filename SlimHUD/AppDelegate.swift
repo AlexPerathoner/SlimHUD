@@ -55,6 +55,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		
 		
 		oldVolume = getOutputVolume()
+        oldBacklightRaw = getKeyboardBrightnessProportioned(raw: getRawKeyboardBrightness())
 		oldBrightness = getDisplayBrightness()
 		
 		
@@ -343,13 +344,13 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	@objc func showVolumeHUD() {
 		if(!enabledBars[0]) {return}
-		let disabled = isMuted()
-		setColor(for: volumeView.bar!, disabled)
+		let muted = isMuted()
+		setColor(for: volumeView.bar!, muted)
 		if(!settingsController!.shouldContinuouslyCheck) {
 			volumeView.bar!.progress = CGFloat(getOutputVolume())
 		}
 		
-		if(disabled) {
+		if(muted) {
 			volumeView.image!.image = NSImage(named: "noVolume")
 		} else {
 			volumeView.image!.image = NSImage(named: "volume")
@@ -404,6 +405,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			oldFullScreen = newFullScreen
 		}
 		
+        if(enabledBars[2]) {
+            checkBacklightChanges()
+        }
 		if(enabledBars[1]) {
 			checkBrightnessChanges()
 		}
@@ -438,6 +442,18 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		}
 		brightnessView.bar?.progress = CGFloat(newBrightness)
 	}
+    
+    var oldBacklightRaw: Float = 0.5
+    func checkBacklightChanges() {
+        let newBacklightRaw = getRawKeyboardBrightness()
+        if(!isAlmost(n1: oldBacklightRaw, n2: newBacklightRaw)) {
+            NotificationCenter.default.post(name: ObserverApplication.keyboardIlluminationChanged, object: self)
+            oldBacklightRaw = newBacklightRaw
+        }
+        let newBacklightProportioned = getKeyboardBrightnessProportioned(raw: newBacklightRaw)
+        keyboardView.bar?.progress = CGFloat(newBacklightProportioned)
+    }
+
 	
 	// MARK: -
 	

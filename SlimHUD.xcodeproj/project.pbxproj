@@ -33,8 +33,6 @@
 		FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */; };
 		FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */; };
 		FAF5F6532406D1480011B766 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5F6522406D1480011B766 /* Hud.swift */; };
-		FAF5F6552408445F0011B766 /* dbrightness in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6542408445F0011B766 /* dbrightness */; };
-		FAF5F658240875800011B766 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6572408757F0011B766 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,8 +67,6 @@
 		FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		FAF5F6522406D1480011B766 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
-		FAF5F6542408445F0011B766 /* dbrightness */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dbrightness; sourceTree = "<group>"; };
-		FAF5F6572408757F0011B766 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +134,6 @@
 				FABE1FD923FEF17B009AD01F /* AppleScript.swift */,
 				FA55B98B2423FE180071E6D9 /* Extensions.swift */,
 				FA5C77E8240B0753004E0937 /* Kauntey Suryawanshi */,
-				FAF5F656240875670011B766 /* Nick Sweeting */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -211,15 +206,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FAF5F656240875670011B766 /* Nick Sweeting */ = {
-			isa = PBXGroup;
-			children = (
-				FAF5F6572408757F0011B766 /* LICENSE */,
-				FAF5F6542408445F0011B766 /* dbrightness */,
-			);
-			path = "Nick Sweeting";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,11 +266,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF5F6552408445F0011B766 /* dbrightness in Resources */,
 				FA131C2F24683CBD005908FF /* MainMenu.storyboard in Resources */,
 				FAAFCD872458768E009E5E2E /* About.storyboard in Resources */,
 				FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */,
-				FAF5F658240875800011B766 /* LICENSE in Resources */,
 				FA623A612468591400A6ABCB /* BarView.xib in Resources */,
 				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
 			);

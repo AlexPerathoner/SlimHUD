@@ -42,7 +42,12 @@ func getDisplayBrightness() -> Float {
 	return brightness
 }
 
-func getKeyboardBrightness() -> Float {
+func getKeyboardBrightnessProportioned(raw: Float) -> Float {
+    if(raw <= 0.07) { return 0 }
+    return (log10(raw+0.03)+1)
+}
+
+func getRawKeyboardBrightness() -> Float {
 	let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleHIDKeyboardEventDriverV2"))
 	defer {
 		IOObjectRelease(service)
@@ -52,6 +57,5 @@ func getKeyboardBrightness() -> Float {
 		let result = ser as! Float
 		return result / 342 //max value is 342, proportioning to %
 	}
-	//couldn't get keyboard backlight
-	return 0.5
+    return 0 // todo: should throw exception, maybe show "disabled" icon?
 }
