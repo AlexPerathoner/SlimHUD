@@ -1,8 +1,10 @@
 /*-----------------------------------------------------------------------------------
-	    SlimHUD
-        Built with Blocs
+	SlimHUD
+	About: A shiny new Blocs website.
+	Author: Alex Perathoner
+	Version: 1.0
+	Built with Blocs
 -----------------------------------------------------------------------------------*/
- 
 body{
 	margin:0;
 	padding:0;
@@ -11,9 +13,11 @@ body{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.page-container{overflow-x:hidden;} /* Prevents unwanted scroll space when scroll FX used. */
-a,button{transition: background .3s ease-in-out;outline: none!important;} /* Prevent ugly blue glow on chrome and safari */
+.page-container{overflow: hidden;} /* Prevents unwanted scroll space when scroll FX used. */
+a,button{transition: background .3s ease-in-out;outline: none!important;} /* Prevent blue selection glow on Chrome and Safari */
 a:hover{text-decoration: none; cursor:pointer;}
+.scroll-fx-lock-init{position:fixed!important;top: 0;bottom: 0;left: :0;right: 0;z-index:99999;} /* ScrollFX Lock */
+.blocs-grid-container{display: grid!important;grid-template-columns: 1fr 1fr;grid-template-rows: auto auto;column-gap: 1.5rem;row-gap: 1.5rem;} /* CSS Grid */
 
 /* = Blocs
 -------------------------------------------------------------- */
@@ -22,7 +26,7 @@ a:hover{text-decoration: none; cursor:pointer;}
 	width:100%;
 	clear:both;
 	background: 50% 50% no-repeat;
-	padding:0 50px;
+	padding:0 20px;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -39,28 +43,41 @@ a:hover{text-decoration: none; cursor:pointer;}
 /* Sizes */
 
 .bloc-xxl{
-	padding:200px 50px;
+	padding:200px 20px;
 }
 .bloc-lg{
-	padding:100px 50px;
+	padding:100px 20px;
 }
 .bloc-sm{
-	padding:20px 50px;
+	padding:20px;
 }
 
 
 /* Background Effects */
 
-.b-parallax{
-	background-attachment:fixed;
+.parallax__container {
+	clip: rect(0, auto, auto, 0);
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index:-1;
+}
+.parallax {
+	position: fixed;
+	top: 0;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-/* Disable Parallax on Mobile Touch Devices */
-@media (hover: none) {
-	.b-parallax{
-	background-attachment:scroll;
-}
-}
 
 /* Dark theme */
 
@@ -145,10 +162,6 @@ a:hover{text-decoration: none; cursor:pointer;}
 /* = NavBar
 -------------------------------------------------------------- */
 
-.hero .hero-nav{
-	padding-left:inherit;
-	padding-right:inherit;
-}
 /* = Sticky Nav
 -------------------------------------------------------------- */
 
@@ -159,21 +172,67 @@ a:hover{text-decoration: none; cursor:pointer;}
 	box-shadow:0 1px 2px rgba(0,0,0,.3);
 	 transition: all .2s ease-out;
 }
-/* Handle Multi Level Navigation */.navbar-light .navbar-nav .nav-link {
-	color: rgb(64, 64, 64);
+/* Navbar Icon */
+.svg-menu-icon{
+	fill: none;
+	stroke: rgba(0,0,0,0.5);
+	stroke-width: 2px;
+	fill-rule: evenodd;
 }
-.btco-menu li > a {
-	padding: 10px 15px;
-	color: #000;
+.navbar-dark .svg-menu-icon{
+	stroke: rgba(255,255,255,0.5);
 }
-.btco-menu .active a:focus,.btco-menu li a:focus ,.navbar > .show > a:focus{
-	background: transparent;
-	outline: 0;
+.menu-icon-thin-bars{
+	stroke-width: 1px;
 }
-.dropdown-menu .show > .dropdown-toggle::after{
-	transform: rotate(-90deg);
+.menu-icon-thick-bars{
+	stroke-width: 5px;
 }
-
+.menu-icon-rounded-bars{
+	stroke-width: 3px;
+	stroke-linecap: round;
+}
+.menu-icon-filled{
+	fill: rgba(0,0,0,0.5);
+	stroke-width: 0px;
+}
+.navbar-dark .menu-icon-filled{
+	fill: rgba(255,255,255,0.5);
+}
+.navbar-toggler-icon{
+	background: none!important;
+	pointer-events: none;
+	width: 33px;
+	height: 33px;
+}
+/* Handle Multi Level Navigation */
+.dropdown-menu .dropdown-menu{
+	border:none}
+@media (min-width:576px){
+	
+.navbar-expand-sm .dropdown-menu .dropdown-menu{
+	border:1px solid rgba(0,0,0,.15);
+	position:absolute;
+	left:100%;
+	top:-7px}.navbar-expand-sm .dropdown-menu .submenu-left{
+	right:100%;
+	left:auto}}@media (min-width:768px){
+	.navbar-expand-md .dropdown-menu .dropdown-menu{
+	border:1px solid rgba(0,0,0,.15);
+	border:1px solid rgba(0,0,0,.15);
+	position:absolute;
+	left:100%;
+	top:-7px}.navbar-expand-md .dropdown-menu .submenu-left{
+	right:100%;
+	left:auto}}@media (min-width:992px){
+	.navbar-expand-lg .dropdown-menu .dropdown-menu{
+	border:1px solid rgba(0,0,0,.15);
+	position:absolute;
+	left:100%;
+	top:-7px}.navbar-expand-lg .dropdown-menu .submenu-left{
+	right:100%;
+	left:auto}
+}
 /* = Bric adjustment margins
 -------------------------------------------------------------- */
 
@@ -227,23 +286,18 @@ button{
 	border-radius:0 0 29px 29px;
 }
 
-/* = Dividers
+/* = Classic Dividers
 -------------------------------------------------------------- */
 .divider-h{
-	padding:20px 0;
-	width:100%;
-	display:inline-block;
-}
-.divider-h span{
-	display: block;
-	border-top:1px solid transparent;
+	min-height: 1px;
+	background-color:rgba(0,0,0,.2);
+	margin: 20px 0;
 }
 .divider-half{
 	width: 50%;
-	margin: 0 auto;
 }
-.dropdown-menu .divider-h,.dropdown-menu .divider-half{
-	padding:0;
+.dropdown-menu .divider-h{
+	margin:0;
 }
 
 
@@ -252,21 +306,27 @@ button{
 /* ScrollToTop button */
 
 .scrollToTop{
-	width:40px;
-	height:40px;
+	width:36px;
+	height:36px;
+	padding:5px;
 	position:fixed;
 	bottom:20px;
 	right:20px;
-	opacity: 0;
-	z-index: 500;
+	opacity:0;
+	z-index:999;
 	transition: all .3s ease-in-out;
-}
-.scrollToTop span{
-	margin-top: 6px;
+	pointer-events:none;
 }
 .showScrollTop{
-	font-size: 14px;
 	opacity: 1;
+	pointer-events:all;
+}
+.scroll-to-top-btn-icon{
+	fill: none;
+	stroke: #fff;
+	stroke-width: 2px;
+	fill-rule: evenodd;
+	stroke-linecap:round;
 }
 
 /* = Custom Styling
@@ -327,8 +387,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 p{
 	;
 }
-h4{
-}
 .link-color{
 	color:#74B1BE!important;
 	font-weight:bold;
@@ -342,8 +400,6 @@ h4{
 }
 .img-5be1c49876e-style{
 	width:254px;
-}
-h3{
 }
 .spacer{
 	padding-bottom:50px;
@@ -408,34 +464,66 @@ h3{
 /* = Colour
 -------------------------------------------------------------- */
 
+/* Swatch Variables */
+:root{
+	
+	--swatch-var-Unnamed-Swatch:rgba(0,0,0,0.701961);
+	
+	--swatch-var-Unnamed-Swatch-copy-1:#000000;
+	
+	--swatch-var-Unnamed-Swatch-copy-2:#B9B9B9;
+	
+	--swatch-var-Unnamed-Swatch-copy-3:#74B1BD;
+	
+	--swatch-var-Unnamed-Swatch-copy-4:#2E3141;
+	
+	--swatch-var-Unnamed-Swatch-copy-5:#284675;
+	
+	--swatch-var-Unnamed-Swatch-copy-6:#FFFFFF;
+	
+	--swatch-var-Unnamed-Swatch-copy-7:#2847A7;
+	
+	--swatch-var-Unnamed-Swatch-copy-8:#F8F8F8;
+	
+	--swatch-var-Unnamed-Swatch-copy-9:#1F212D;
+	
+	--swatch-var-Unnamed-Swatch-copy-10:#F3F5F4;
+	
+	--swatch-var-Unnamed-Swatch-copy-11:#74B1BD;
+	
+	--swatch-var-Unnamed-Swatch-copy-12:#2E3141;
+	
+}
+
+
 /* Background colour styles */
 
-.bgc-charcoal{
-	background-color:#2E3141;
+.bgc-7970{
+	background-color:var(--swatch-var-Unnamed-Swatch-copy-4);
 }
-.bgc-white-smoke{
-	background-color:#F8F8F8;
+.bgc-2842{
+	background-color:var(--swatch-var-Unnamed-Swatch-copy-8);
 }
 
 /* Text colour styles */
 
-.tc-moonstone-blue{
-	color:#74B1BD!important;
+.tc-904{
+	color:var(--swatch-var-Unnamed-Swatch-copy-3)!important;
 }
-.tc-cerulean-blue{
-	color:#2847A7!important;
+.tc-3029{
+	color:var(--swatch-var-Unnamed-Swatch-copy-7)!important;
 }
-.tc-st-patricks-blue{
-	color:#284675!important;
+.tc-2268{
+	color:var(--swatch-var-Unnamed-Swatch-copy-5)!important;
 }
 
 /* Link colour styles */
 
-.ltc-moonstone-blue{
-	color:#74B1BD!important;
+.ltc-904{
+	color:var(--swatch-var-Unnamed-Swatch-copy-3)!important;
 }
-.ltc-moonstone-blue:hover{
-	color:#5d8e97!important;
+.ltc-904:hover{
+	color:#417E8A!important;
 }
 
 /* Bloc image backgrounds */
@@ -443,14 +531,39 @@ h3{
 
 
 
+/* = Bloc Padding Multi Breakpoint
+-------------------------------------------------------------- */
+
+@media (min-width: 576px) {
+    .bloc-xxl-sm{padding:200px 20px;}
+    .bloc-xl-sm{padding:150px 20px;}
+    .bloc-lg-sm{padding:100px 20px;}
+    .bloc-md-sm{padding:50px 20px;}
+    .bloc-sm-sm{padding:20px;}
+    .bloc-no-padding-sm{padding:0 20px;}
+}
+@media (min-width: 768px) {
+    .bloc-xxl-md{padding:200px 20px;}
+    .bloc-xl-md{padding:150px 20px;}
+    .bloc-lg-md{padding:100px 20px;}
+    .bloc-md-md{padding:50px 20px;}
+    .bloc-sm-md{padding:20px 20px;}
+    .bloc-no-padding-md{padding:0 20px;}
+}
+@media (min-width: 992px) {
+    .bloc-xxl-lg{padding:200px 20px;}
+    .bloc-xl-lg{padding:150px 20px;}
+    .bloc-lg-lg{padding:100px 20px;}
+    .bloc-md-lg{padding:50px 20px;}
+    .bloc-sm-lg{padding:20px;}
+    .bloc-no-padding-lg{padding:0 20px;}
+}
+
+
 /* = Mobile adjustments 
 -------------------------------------------------------------- */
 @media (max-width: 1024px)
 {
-    .bloc{
-        padding-left: 20px; 
-        padding-right: 20px;  
-    }
     .bloc.full-width-bloc, .bloc-tile-2.full-width-bloc .container, .bloc-tile-3.full-width-bloc .container, .bloc-tile-4.full-width-bloc .container{
         padding-left: 0; 
         padding-right: 0;  
@@ -459,21 +572,13 @@ h3{
 @media (max-width: 991px)
 {
     .container{width:100%;}
-    .page-container, #hero-bloc{overflow-x: hidden;position: relative;} /* Prevent unwanted side scroll on mobile */
     .bloc{padding-left: constant(safe-area-inset-left);padding-right: constant(safe-area-inset-right);} /* iPhone X Notch Support*/
     .bloc-group, .bloc-group .bloc{display:block;width:100%;}
 }
 @media (max-width: 767px)
 {
-    .page-container{
-        overflow-x: hidden;
-        position:relative;
-    }
     .bloc-tile-2 .container, .bloc-tile-3 .container, .bloc-tile-4 .container{
         padding-left:0;padding-right:0;
-    }
-    .a-block{
-        padding:0 10px;
     }
     .btn-dwn{
        display:none; 
