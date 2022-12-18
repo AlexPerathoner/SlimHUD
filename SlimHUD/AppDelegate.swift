@@ -244,8 +244,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	
 	private func getScreenInfo() -> (screenFrame: NSRect, xDockHeight: CGFloat, yDockHeight: CGFloat, menuBarThickness: CGFloat, dockPosition: Position) {
-		let visibleFrame = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
-		let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
+		let visibleFrame = NSScreen.screens[0].visibleFrame
+		let screenFrame = NSScreen.screens[0].frame
 		let yDockHeight: CGFloat = visibleFrame.minY
 		let xDockHeight: CGFloat = screenFrame.width - visibleFrame.width
 		var menuBarThickness: CGFloat = 0
@@ -267,7 +267,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		var position: CGPoint
 		let viewSize = volumeView.frame
 		
-		let screenFrame = NSScreen.main?.visibleFrame ?? NSRect.zero
+		let screenFrame = NSScreen..screens[0]
 		
 		// Here the magic takes place, let it happen
 		var (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition): (NSRect, CGFloat, CGFloat, CGFloat, Position)// = getScreenInfo()
@@ -381,7 +381,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		let options = CGWindowListOption(arrayLiteral: CGWindowListOption.excludeDesktopElements, CGWindowListOption.optionOnScreenOnly)
 		let windowListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
 		let infoList = windowListInfo as NSArray? as? [[String: AnyObject]] ?? []
-		let screenSize = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
+        let screenSize = NSScreen.screens[0].frame
 		for i in infoList {
 			let windowName = i["kCGWindowOwnerName"] as? String ?? ""
 			
