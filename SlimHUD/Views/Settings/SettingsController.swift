@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SettingsController: NSView, SettingsControllerDelegate {
+class SettingsController: NSView, HudsControllerInterface {
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 	
 	var volumeHud = Hud()
@@ -93,16 +93,14 @@ class SettingsController: NSView, SettingsControllerDelegate {
 	func setHeight(height: CGFloat) {}
 	func setThickness(thickness: CGFloat) {}
 	
-	var shouldUseAnimation: Bool = true {
-		didSet {
-			volumeHud.animated = shouldUseAnimation
-			brightnessHud.animated = shouldUseAnimation
-			keyboardHud.animated = shouldUseAnimation
-			volumeBar.setupAnimation(animated: shouldUseAnimation)
-			brightnessBar.setupAnimation(animated: shouldUseAnimation)
-			keyboardBar.setupAnimation(animated: shouldUseAnimation)
-			showAnimation()
-		}
+    func setShouldUseAnimation(shouldUseAnimation: Bool) {
+        volumeHud.animated = shouldUseAnimation
+        brightnessHud.animated = shouldUseAnimation
+        keyboardHud.animated = shouldUseAnimation
+        volumeBar.setupAnimation(animated: shouldUseAnimation)
+        brightnessBar.setupAnimation(animated: shouldUseAnimation)
+        keyboardBar.setupAnimation(animated: shouldUseAnimation)
+        showAnimation()
 	}
 	
 	var enabledBars: EnabledBars = EnabledBars(volumeBar: true, brightnessBar: true, keyboardBar: true) {
@@ -136,26 +134,20 @@ class SettingsController: NSView, SettingsControllerDelegate {
 		}
 	}
 	
-	
-	
-	var marginValue: Float = 0.0
-	
 	func updateAll() {
 		enabledBars = settingsManager.enabledBars
-		updateIcons(isHidden: !(settingsManager.shouldShowIcons ?? false))
-		updateShadows(enabled: settingsManager.shouldShowShadows ?? true)
+		updateIcons(isHidden: !(settingsManager.shouldShowIcons))
+		updateShadows(enabled: settingsManager.shouldShowShadows)
 		setBackgroundColor(color: settingsManager.backgroundColor ?? SettingsManager.darkGray)
 		setVolumeDisabledColor(color: settingsManager.volumeDisabledColor ?? SettingsManager.gray)
 		setVolumeEnabledColor(color: settingsManager.volumeEnabledColor ?? SettingsManager.blue)
 		setBrightnessColor(color: settingsManager.brightnessColor ?? SettingsManager.yellow)
 		setKeyboardColor(color: settingsManager.keyboardColor ?? SettingsManager.azure)
-		shouldUseAnimation = settingsManager.shouldUseAnimation ?? true
+        setShouldUseAnimation(shouldUseAnimation: settingsManager.shouldUseAnimation)
 		setVolumeIconsTint(settingsManager.volumeIconColor ?? NSColor.white)
 		setBrightnessIconsTint(settingsManager.brightnessIconColor ?? NSColor.white)
 		setKeyboardIconsTint(settingsManager.keyboardIconColor ?? NSColor.white)
 	}
-	
-	
 	
 	
 	var value: Float = 0.5

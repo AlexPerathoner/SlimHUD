@@ -8,7 +8,7 @@
 
 import Cocoa
 
-protocol SettingsControllerDelegate: class {
+protocol HudsControllerInterface: class {
 	func updateShadows(enabled: Bool)
 	func updateIcons(isHidden: Bool)
 	func setupDefaultBarsColors()
@@ -19,9 +19,7 @@ protocol SettingsControllerDelegate: class {
 	func setKeyboardColor(color: NSColor)
 	func setHeight(height: CGFloat)
 	func setThickness(thickness: CGFloat)
-	var shouldUseAnimation: Bool { get set }
-	var enabledBars: EnabledBars { get set }
-	var marginValue: Float { get set }
+    func setShouldUseAnimation(shouldUseAnimation: Bool)
 	@available(OSX 10.14, *)
 	func setVolumeIconsTint(_ color: NSColor)
 	@available(OSX 10.14, *)

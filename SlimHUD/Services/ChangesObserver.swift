@@ -44,15 +44,25 @@ class ChangesObserver {
     }
     
     private func createObservers() {
-        // todo call directly?
-        NotificationCenter.default.addObserver(self, selector: #selector(displayer.showVolumeHUD), name: KeyPressObserver.volumeChanged, object: nil)
-        DistributedNotificationCenter.default.addObserver(self, selector: #selector(displayer.showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: KeyPressObserver.volumeChanged, object: nil)
+        DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
         
         //observers for brightness
-        NotificationCenter.default.addObserver(self, selector: #selector(displayer.showBrightnessHUD), name: KeyPressObserver.brightnessChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD), name: KeyPressObserver.brightnessChanged, object: nil)
         
         //observers for keyboard backlight
-        NotificationCenter.default.addObserver(self, selector: #selector(displayer.showKeyboardHUD), name: KeyPressObserver.keyboardIlluminationChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboardHUD), name: KeyPressObserver.keyboardIlluminationChanged, object: nil)
+        DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+    }
+    
+    @objc func showVolumeHUD() {
+        displayer.showVolumeHUD()
+    }
+    @objc func showBrightnessHUD() {
+        displayer.showBrightnessHUD()
+    }
+    @objc func showKeyboardHUD() {
+        displayer.showKeyboardHUD()
     }
     
     @objc func checkChanges() {
@@ -80,7 +90,7 @@ class ChangesObserver {
         let newVolume = VolumeManager.getOutputVolume()
         volumeView.bar!.progress = newVolume
         if (!isAlmost(n1: oldVolume, n2: newVolume)) {
-            NotificationCenter.default.post(name: KeyPressObserver.volumeChanged, object: self) // todo directly call shower
+            displayer.showVolumeHUD()
             oldVolume = newVolume
         }
         volumeView.bar!.progress = newVolume
@@ -91,7 +101,7 @@ class ChangesObserver {
         if(NSScreen.screens.count == 0) {return}
         let newBrightness = DisplayManager.getDisplayBrightness()
         if(!isAlmost(n1: oldBrightness, n2: newBrightness)) {
-            NotificationCenter.default.post(name: KeyPressObserver.brightnessChanged, object: self)
+            displayer.showBrightnessHUD()
             oldBrightness = newBrightness
         }
         brightnessView.bar?.progress = newBrightness

@@ -13,10 +13,9 @@ extension SettingsViewController {
 	@IBAction func barsStateChanged(_ sender: NSSegmentedControl) {
 		let barState = sender.getBarState()
 		settingsManager.enabledBars = barState
-		delegate?.enabledBars = barState
 		preview.enabledBars = barState
-		
 	}
+    
 	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
 		settingsManager.shouldContinuouslyCheck = sender.boolValue()
 	}
@@ -35,7 +34,6 @@ extension SettingsViewController {
 	@IBAction func marginValueChanged(_ sender: NSStepper) {
 		let marginValue = sender.integerValue
 		marginValueOutlet.stringValue = String(marginValue) + "%"
-		delegate?.marginValue = Float(marginValue/100)
 		settingsManager.marginValue = marginValue
 	}
 	

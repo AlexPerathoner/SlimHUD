@@ -11,6 +11,8 @@ import Cocoa
 class SettingsWindowController: NSWindowController, NSWindowDelegate {
 	
 	private var previewTimer: Timer?
+    
+    var displayer = (NSApplication.shared.delegate as! AppDelegate).displayer
 	
 	override func windowDidLoad() {
 		super.windowDidLoad()
@@ -19,7 +21,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 		if previewTimer == nil { //windowDidLoad() could be called multiple times
 			//sends a notification every second causing the bar to appear and be kept visible
 			previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (t) in
-				NotificationCenter.default.post(name: KeyPressObserver.volumeChanged, object: self)
+                self.displayer.showVolumeHUD()
 			}
 			RunLoop.current.add(previewTimer!, forMode: .eventTracking)
 		}

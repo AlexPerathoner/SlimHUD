@@ -11,12 +11,11 @@ import QuartzCore
 import AppKit
 
 @NSApplicationMain
-class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsControllerDelegate {    
+class AppDelegate: NSWindowController, NSApplicationDelegate {    
 		
 	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	
 	@IBOutlet weak var statusMenu: NSMenu!
-	
 	
 	@IBAction func quitCliked(_ sender: Any) {
 		settingsManager.saveAllItems()
@@ -41,7 +40,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsController
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		
 		//menu bar
 		statusItem.menu = statusMenu
 		
@@ -60,6 +58,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsController
         displayer.setThickness(thickness: CGFloat(settingsManager.barThickness))
 		
         displayer.updateAll()
+        
+        
 	}
 	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {

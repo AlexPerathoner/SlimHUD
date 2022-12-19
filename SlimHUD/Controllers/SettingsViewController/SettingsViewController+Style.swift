@@ -9,7 +9,6 @@
 import Cocoa
 
 extension SettingsViewController {
-	// MARK: - Style tab
 	@IBAction func changeColorOfClicked(_ sender: NSPopUpButton) {
 		if(sender.titleOfSelectedItem == "Bars") {
 			barsBox.isHidden = false
@@ -21,25 +20,25 @@ extension SettingsViewController {
 	}
 	
 	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
-		let val = sender.boolValue()
-		settingsManager.shouldShowIcons = val
-		delegate?.updateIcons(isHidden: !val)
-		preview.updateIcons(isHidden: !val)
+		let shouldShowIcons = sender.boolValue()
+		settingsManager.shouldShowIcons = shouldShowIcons
+		delegate?.updateIcons(isHidden: !shouldShowIcons)
+		preview.updateIcons(isHidden: !shouldShowIcons)
 	}
 	
 	@IBAction func shouldShowShadows(_ sender: NSButton) {
-		let val = sender.boolValue()
-		settingsManager.shouldShowShadows = val
-		delegate?.updateShadows(enabled: val)
-		preview.updateShadows(enabled: val)
+		let shouldShowShadows = sender.boolValue()
+		settingsManager.shouldShowShadows = shouldShowShadows
+		delegate?.updateShadows(enabled: shouldShowShadows)
+		preview.updateShadows(enabled: shouldShowShadows)
 	}
 	
 	
 	@IBAction func shouldUseAnimations(_ sender: NSButton) {
-		let val = sender.boolValue()
-		settingsManager.shouldUseAnimation = val
-		delegate?.shouldUseAnimation = val
-		preview.shouldUseAnimation = val
+		let shouldUseAnimation = sender.boolValue()
+		settingsManager.shouldUseAnimation = shouldUseAnimation
+        delegate?.setShouldUseAnimation(shouldUseAnimation: shouldUseAnimation)
+        preview.setShouldUseAnimation(shouldUseAnimation: shouldUseAnimation)
 	}
 	
 	
@@ -71,8 +70,6 @@ extension SettingsViewController {
 		brightnessIconColorOutlet.color = .white
 		keyboardIconColorOutlet.color = .white
 	}
-	
-	
 	
 	
 	//changing values automatically also saves them into userdefaults

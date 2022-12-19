@@ -15,11 +15,11 @@ class SettingsViewController: NSViewController {
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 	@IBOutlet weak var preview: SettingsController!
-    weak var delegate: SettingsControllerDelegate?
+    weak var delegate: HudsControllerInterface?
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-        self.delegate = NSApplication.shared.delegate as! AppDelegate
+        self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
 		do {
             try enabledBarsOutlet.setBarState(enabledBars: settingsManager.enabledBars)
 		} catch {

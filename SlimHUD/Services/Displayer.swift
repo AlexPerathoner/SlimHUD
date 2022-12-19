@@ -9,13 +9,12 @@
 import Foundation
 import Cocoa
 
-class Displayer {
+class Displayer: HudsControllerInterface {    
     var settingsManager: SettingsManager = SettingsManager.getInstance()
     var positionManager: PositionManager
     var volumeHud: Hud
     var brightnessHud: Hud
     var keyboardHud: Hud
-    
     
     init(positionManager: PositionManager, volumeHud: Hud, brightnessHud: Hud, keyboardHud: Hud) {
         self.positionManager = positionManager
@@ -51,7 +50,7 @@ class Displayer {
     }
     
     
-    @objc func showVolumeHUD() {
+    func showVolumeHUD() {
         if(!settingsManager.enabledBars.volumeBar) {return}
         let disabled = VolumeManager.isMuted()
         let volumeView = getBarView(hud: volumeHud)
@@ -71,14 +70,14 @@ class Displayer {
         volumeHud.dismiss(delay: 1.5)
     }
     
-    @objc func showBrightnessHUD() {
+    func showBrightnessHUD() {
         if(!settingsManager.enabledBars.brightnessBar) {return}
         brightnessHud.show()
         volumeHud.hide(animated: false)
         keyboardHud.hide(animated: false)
         brightnessHud.dismiss(delay: 1.5)
     }
-    @objc func showKeyboardHUD() {
+    func showKeyboardHUD() {
         if(!settingsManager.enabledBars.keyboardBar) {return}
         keyboardHud.show()
         volumeHud.hide(animated: false)
@@ -159,11 +158,22 @@ class Displayer {
         setVolumeDisabledColor(color: settingsManager.volumeDisabledColor)
         setBrightnessColor(color: settingsManager.brightnessColor)
         setKeyboardColor(color: settingsManager.keyboardColor)
+        setShouldUseAnimation(shouldUseAnimation: settingsManager.shouldUseAnimation)
         if #available(OSX 10.14, *) {
             setVolumeIconsTint(settingsManager.volumeIconColor)
             setBrightnessIconsTint(settingsManager.brightnessIconColor)
             setKeyboardIconsTint(settingsManager.keyboardIconColor)
         }
+    }
+    
+    func setShouldUseAnimation(shouldUseAnimation: Bool) {
+        setShouldUseAnimation(hud: volumeHud, shouldUseAnimation: shouldUseAnimation)
+        setShouldUseAnimation(hud: brightnessHud, shouldUseAnimation: shouldUseAnimation)
+        setShouldUseAnimation(hud: keyboardHud, shouldUseAnimation: shouldUseAnimation)
+    }
+    private func setShouldUseAnimation(hud: Hud, shouldUseAnimation: Bool) {
+        hud.animated = shouldUseAnimation
+        getProgressBar(hud: hud).setupAnimation(animated: shouldUseAnimation)
     }
     
     func setHeight(height: CGFloat) {
