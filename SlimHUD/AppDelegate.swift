@@ -55,7 +55,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		
 		
         oldVolume = VolumeManager.getOutputVolume()
-        oldBrightness = BrightnessManager.getDisplayBrightness()
+        oldBrightness = DisplayManager.getDisplayBrightness()
 		
 		
 		
@@ -243,20 +243,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	}
 	
 	
-	private func getScreenInfo() -> (screenFrame: NSRect, xDockHeight: CGFloat, yDockHeight: CGFloat, menuBarThickness: CGFloat, dockPosition: Position) {
-		let visibleFrame = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
-		let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
-		let yDockHeight: CGFloat = visibleFrame.minY
-		let xDockHeight: CGFloat = screenFrame.width - visibleFrame.width
-		var menuBarThickness: CGFloat = 0
-		
-		if((screenFrame.height - visibleFrame.height - yDockHeight) != 0) { //menu bar visible
-			menuBarThickness = NSStatusBar.system.thickness
-		}
-		let dockPosition = Position(rawValue: (UserDefaults.standard.persistentDomain(forName: "com.apple.dock")!["orientation"] as? String) ?? "bottom")
-		return (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition ?? .bottom)
-	}
-	
 	
 	func setupHUDsPosition(_ isFullscreen: Bool) {
 		volumeHud.hide(animated: false)
@@ -267,14 +253,19 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		var position: CGPoint
 		let viewSize = volumeView.frame
 		
-		let screenFrame = NSScreen.main?.visibleFrame ?? NSRect.zero
-		
-		// Here the magic takes place, let it happen
-		var (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition): (NSRect, CGFloat, CGFloat, CGFloat, Position)// = getScreenInfo()
-		if(isFullscreen) {
-			(visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition) = (screenFrame, 0, 0, 0, .bottom)
-		} else {
-			(visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition) = getScreenInfo()
+//		let screenFrame = NSScreen.main?.visibleFrame ?? NSRect.zero
+        var screenFrame = DisplayManager.getScreenFrame()
+        var visibleFrame = DisplayManager.getVisibleScreenFrame()
+        var xDockHeight: CGFloat = 0
+        var yDockHeight: CGFloat = 0
+        var menuBarThickness: CGFloat = 0
+        var dockPosition = Position.bottom
+        
+		if(!isFullscreen) {
+            visibleFrame = DisplayManager.getVisibleScreenFrame()
+            (xDockHeight, yDockHeight) = DisplayManager.getDockHeight()
+            menuBarThickness = DisplayManager.getMenuBarThickness()
+            dockPosition = DisplayManager.getDockPosition()
 		}
 		switch settingsController!.position {
 		case .left:
@@ -431,7 +422,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	var oldBrightness: Float = 0.5
 	func checkBrightnessChanges() {
 		if(NSScreen.screens.count == 0) {return}
-        let newBrightness = BrightnessManager.getDisplayBrightness()
+        let newBrightness = DisplayManager.getDisplayBrightness()
 		if(!isAlmost(n1: oldBrightness, n2: newBrightness)) {
 			NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
 			oldBrightness = newBrightness

@@ -9,14 +9,6 @@
 import Cocoa
 
 
-enum Position: String {
-	case left = "left"
-	case right = "right"
-	case bottom = "bottom"
-	case top = "top"
-}
-
-
 class SettingsController {
 	// MARK: - Default colors
 	static let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 0.2)

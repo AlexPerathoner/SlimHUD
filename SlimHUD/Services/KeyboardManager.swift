@@ -1,5 +1,5 @@
 //
-//  DisplayManager.swift
+//  KeyboardManager.swift
 //  SlimHUD
 //
 //  Created by Alex Perathoner on 19/12/2022.
@@ -8,18 +8,10 @@
 
 import Foundation
 
-class BrightnessManager {
+class KeyboardManager {
     private init() {}
     
-    static func getDisplayBrightness() -> Float {
-        var brightness: float_t = 1
-        let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IODisplayConnect"))
-        
-        IODisplayGetFloatParameter(service, 0, kIODisplayBrightnessKey as CFString, &brightness)
-        IOObjectRelease(service)
-        return brightness
-    }
-    
+
     static func getKeyboardBrightness() -> Float {
         let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleHIDKeyboardEventDriverV2"))
         defer {
@@ -33,5 +25,4 @@ class BrightnessManager {
         //couldn't get keyboard backlight
         return 0.5
     }
-
 }
