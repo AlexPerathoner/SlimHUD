@@ -1,0 +1,32 @@
+name: Xcode - Build and Analyze
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        platform:
+          - macOS
+    steps:
+      - use: mxcl/xcodebuild@v1
+        with:
+          platform: ${{ matrix.platform }}
+          action: build
+
+  test:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        platform:
+          - macOS
+    steps:
+      - use: mxcl/xcodebuild@v1
+        with:
+          platform: ${{ matrix.platform }}
+          action: test
+          code-coverage: true
