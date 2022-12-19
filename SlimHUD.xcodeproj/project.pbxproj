@@ -42,6 +42,7 @@
 		FABE1FDA23FEF17B009AD01F /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */; };
 		FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */; };
 		FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */; };
+		FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CB329509ED100B1A786 /* PositionManager.swift */; };
 		FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */; };
 		FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */; };
 		FAF5F6532406D1480011B766 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5F6522406D1480011B766 /* Hud.swift */; };
@@ -90,6 +91,7 @@
 		FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverApplication.swift; sourceTree = "<group>"; };
 		FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsManager.swift; path = SlimHUD/Controllers/UserDefaultsManager.swift; sourceTree = SOURCE_ROOT; };
+		FACD8CB329509ED100B1A786 /* PositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManager.swift; sourceTree = "<group>"; };
 		FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		FAF5F6522406D1480011B766 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */,
+				FACD8CB329509ED100B1A786 /* PositionManager.swift */,
 				FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */,
 				FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */,
 				FAA1D1BA295073F4006F6936 /* DisplayManager.swift */,
@@ -434,6 +437,7 @@
 				FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */,
 				FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */,
 				FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */,
+				FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */,
 				FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */,
 				FA12C21124EA934800F92CA3 /* SettingsWindowControllerDelegate.swift in Sources */,
 				FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */,

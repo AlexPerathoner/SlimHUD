@@ -9,7 +9,6 @@
 import Foundation
 
 class UserDefaultsManager {
-    private init() {}
 
     static func getItem<T>(for key: String, defaultValue: T) -> T where T: NSCoding, T: NSObject {
         do {

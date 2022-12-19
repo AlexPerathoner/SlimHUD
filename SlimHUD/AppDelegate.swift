@@ -130,7 +130,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
 	
-	var settingsController: SettingsController? = SettingsController()
+    var settingsController: SettingsController? = SettingsController()
 	
 	func updateShadows(enabled: Bool) {
 		volumeView.setupShadow(enabled, shadowRadius)
@@ -240,94 +240,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	@available(OSX 10.14, *)
 	func setKeyboardIconsTint(_ color: NSColor) {
 		keyboardView.image?.contentTintColor = color
-	}
-	
-	
-	
-	func setupHUDsPosition(_ isFullscreen: Bool) {
-		volumeHud.hide(animated: false)
-		brightnessHud.hide(animated: false)
-		keyboardHud.hide(animated: false)
-		
-		
-		var position: CGPoint
-		let viewSize = volumeView.frame
-		
-//		let screenFrame = NSScreen.main?.visibleFrame ?? NSRect.zero
-        var screenFrame = DisplayManager.getScreenFrame()
-        var visibleFrame = DisplayManager.getVisibleScreenFrame()
-        var xDockHeight: CGFloat = 0
-        var yDockHeight: CGFloat = 0
-        var menuBarThickness: CGFloat = 0
-        var dockPosition = Position.bottom
-        
-		if(!isFullscreen) {
-            visibleFrame = DisplayManager.getVisibleScreenFrame()
-            (xDockHeight, yDockHeight) = DisplayManager.getDockHeight()
-            menuBarThickness = DisplayManager.getMenuBarThickness()
-            dockPosition = DisplayManager.getDockPosition()
-		}
-		switch settingsController!.position {
-		case .left:
-			if(dockPosition == .right) {xDockHeight=0}
-			position = CGPoint(x: xDockHeight, y: (visibleFrame.height/2)-(viewSize.height/2) + yDockHeight)
-		case .right:
-			if(dockPosition == .left) {xDockHeight=0}
-			position = CGPoint(x: (NSScreen.screens[0].frame.width)-(viewSize.width)-shadowRadius-xDockHeight, y: (visibleFrame.height/2)-(viewSize.height/2) + yDockHeight)
-		case .bottom:
-			position = CGPoint(x: (screenFrame.width/2)-(viewSize.height/2), y: yDockHeight)
-		case .top:
-			position = CGPoint(x: (screenFrame.width/2)-(viewSize.height/2), y: (NSScreen.screens[0].frame.height)-(viewSize.width)-shadowRadius-menuBarThickness)
-		}
-		//end of magic
-		
-		for hud in [volumeHud, brightnessHud, keyboardHud] as [Hud] {
-			hud.position = position
-			hud.rotated = settingsController!.position
-		}
-		
-		let rotated = settingsController!.position == .bottom || settingsController!.position == .top
-		for view in [volumeView, brightnessView, keyboardView] as [NSView?] {
-			view?.layer?.anchorPoint = CGPoint(x: 0, y: 0)
-			if(rotated) {
-				view?.frameCenterRotation = -90
-				view?.setFrameOrigin(.init(x: 0, y: viewSize.width))
-			} else {
-				view?.frameCenterRotation = 0
-				view?.setFrameOrigin(.init(x: 0, y: 0))
-			}
-			
-			//needs a bit more space for displaying shadows...
-			if(settingsController!.position == .right) {
-				view?.setFrameOrigin(.init(x: shadowRadius, y: 0))
-			}
-			if(settingsController!.position == .top) {
-				view?.setFrameOrigin(.init(x: 0, y: shadowRadius+viewSize.width))
-			}
-		}
-		
-		//rotating icons of views
-		if(settingsController!.shouldShowIcons) {
-			for image in [volumeView.image, brightnessView.image, keyboardView.image] as [NSImageView?] {
-				if(rotated) {
-					while(image!.boundsRotation.truncatingRemainder(dividingBy: 360) != 90) {
-						image!.rotate(byDegrees: 90)
-					}
-				} else {
-					while(image!.boundsRotation.truncatingRemainder(dividingBy: 360) != 0) {
-						image!.rotate(byDegrees: 90)
-					}
-				}
-			}
-		}
-		
-		
-		NSLog("screenFrame is \(screenFrame) \(position)")
-	}
-	
-	
-	
-	
+	}	
 	
 	
 	// MARK: - Displayers

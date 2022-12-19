@@ -9,7 +9,7 @@
 import Cocoa
 
 
-class SettingsController {
+class SettingsController {    
 	// MARK: - Default colors
 	static let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 0.2)
 	static let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
