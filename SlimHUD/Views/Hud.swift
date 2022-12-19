@@ -16,8 +16,8 @@ class Hud: NSView {
 	
 	///The NSView that is going to be displayed when show() is called
 	var view: NSView = .init()
-	var position: CGPoint
-	var rotated: Position = .left
+	var originPosition: CGPoint
+	var screenEdge: Position = .left
 	
 	private var hudView: NSView? {
 		//windowController?.showWindow(self)
@@ -27,13 +27,13 @@ class Hud: NSView {
 	private var windowController: NSWindowController?
 	
 	private override init(frame frameRect: NSRect) {
-		position = .zero
+		originPosition = .zero
 		super.init(frame: frameRect)
 		setup()
 	}
 	
 	init(position: CGPoint) {
-		self.position = position
+		self.originPosition = position
 		super.init(frame: .zero)
 		setFrameOrigin(position)
 		setup()
@@ -64,15 +64,15 @@ class Hud: NSView {
 			
 			//animation only if not yet visible
 
-			switch rotated {
+			switch screenEdge {
 			case .left:
-				view.setFrameOrigin(.init(x: position.x - animationMovement, y: position.y))
+				view.setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
 			case .right:
-				view.setFrameOrigin(.init(x: position.x + animationMovement, y: position.y))
+				view.setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
 			case .top:
-				view.setFrameOrigin(.init(x: position.x, y: position.y + animationMovement))
+				view.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
 			case .bottom:
-				view.setFrameOrigin(.init(x: position.x, y: position.y - animationMovement))
+				view.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
 			}
 			self.isHidden = false
 			if(animated) {
@@ -80,10 +80,10 @@ class Hud: NSView {
 					//slide + fade in animation
 					context.duration = animationDuration
 					view.animator().alphaValue = 1
-					view.animator().setFrameOrigin(position)
+					view.animator().setFrameOrigin(originPosition)
 				}) {}
 			} else {
-				view.setFrameOrigin(position)
+				view.setFrameOrigin(originPosition)
 				view.alphaValue = 1
 			}
 		}
@@ -100,15 +100,15 @@ class Hud: NSView {
 					context.duration = animationDuration
 					view.animator().alphaValue = 0
 
-					switch rotated {
+					switch screenEdge {
 					case .left:
-						view.animator().setFrameOrigin(.init(x: position.x - animationMovement, y: position.y))
+						view.animator().setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
 					case .right:
-						view.animator().setFrameOrigin(.init(x: position.x + animationMovement, y: position.y))
+						view.animator().setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
 					case .top:
-						view.animator().setFrameOrigin(.init(x: position.x, y: position.y + animationMovement))
+						view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
 					case .bottom:
-						view.animator().setFrameOrigin(.init(x: position.x, y: position.y - animationMovement))
+						view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
 					}
 				}) {
 					self.isHidden = true
@@ -116,7 +116,7 @@ class Hud: NSView {
 					self.windowController?.close()
 				}
 			} else {
-				view.setFrameOrigin(position)
+				view.setFrameOrigin(originPosition)
 				view.alphaValue = 0
 				isHidden = true
 				removeFromSuperview()

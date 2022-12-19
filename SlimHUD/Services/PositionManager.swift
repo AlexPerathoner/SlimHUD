@@ -53,8 +53,8 @@ class PositionManager {
         //end of magic
 
         for hud in [volumeHud, brightnessHud, keyboardHud] as [Hud] {
-            hud.position = position
-            hud.rotated = settingsController.position
+            hud.originPosition = position
+            hud.screenEdge = settingsController.position
         }
 
         let isHudHorizontal = settingsController.position == .bottom || settingsController.position == .top
