@@ -22,14 +22,14 @@ extension SettingsViewController {
 	
 	@IBAction func shouldShowIconsAction(_ sender: NSButton) {
 		let val = sender.boolValue()
-		settingsController?.shouldShowIcons = val
+		settingsController.shouldShowIcons = val
 		delegate?.updateIcons(isHidden: !val)
 		preview.updateIcons(isHidden: !val)
 	}
 	
 	@IBAction func shouldShowShadows(_ sender: NSButton) {
 		let val = sender.boolValue()
-		settingsController?.shouldShowShadows = val
+		settingsController.shouldShowShadows = val
 		delegate?.updateShadows(enabled: val)
 		preview.updateShadows(enabled: val)
 	}
@@ -37,7 +37,7 @@ extension SettingsViewController {
 	
 	@IBAction func shouldUseAnimations(_ sender: NSButton) {
 		let val = sender.boolValue()
-		settingsController?.shouldUseAnimation = val
+		settingsController.shouldUseAnimation = val
 		delegate?.shouldUseAnimation = val
 		preview.shouldUseAnimation = val
 	}
@@ -48,7 +48,7 @@ extension SettingsViewController {
 		delegate?.setupDefaultBarsColors()
 		preview.setupDefaultBarsColors()
 		//updating settings
-		settingsController?.resetDefaultBarsColors()
+		settingsController.resetDefaultBarsColors()
 		//updating color wells of view
 		volumeEnabledColorOutlet.color = SettingsController.blue
 		volumeDisabledColorOutlet.color = SettingsController.gray
@@ -65,7 +65,7 @@ extension SettingsViewController {
 			preview.setupDefaultIconsColors()
 		}
 		//updating settings
-		settingsController?.resetDefaultIconsColors()
+		settingsController.resetDefaultIconsColors()
 		//updating color wells of view
 		volumeIconColorOutlet.color = .white
 		brightnessIconColorOutlet.color = .white
@@ -77,45 +77,45 @@ extension SettingsViewController {
 	
 	//changing values automatically also saves them into userdefaults
 	@IBAction func backgroundColorChanged(_ sender: NSColorWell) {
-		settingsController?.backgroundColor = sender.color
+		settingsController.backgroundColor = sender.color
 		delegate?.setBackgroundColor(color: sender.color)
 		preview.setBackgroundColor(color: sender.color)
 	}
 	@IBAction func volumeEnabledColorChanged(_ sender: NSColorWell) {
-		settingsController?.volumeEnabledColor = sender.color
+		settingsController.volumeEnabledColor = sender.color
 		delegate?.setVolumeEnabledColor(color: sender.color)
 		preview.setVolumeEnabledColor(color: sender.color)
 	}
 	@IBAction func volumeDisabledColorChanged(_ sender: NSColorWell) {
-		settingsController?.volumeDisabledColor = sender.color
+		settingsController.volumeDisabledColor = sender.color
 		delegate?.setVolumeDisabledColor(color: sender.color)
 		preview.setVolumeDisabledColor(color: sender.color)
 	}
 	@IBAction func brightnessColorChanged(_ sender: NSColorWell) {
-		settingsController?.brightnessColor = sender.color
+		settingsController.brightnessColor = sender.color
 		delegate?.setBrightnessColor(color: sender.color)
 		preview.setBrightnessColor(color: sender.color)
 	}
 	@IBAction func keyboardBackLightColorChanged(_ sender: NSColorWell) {
-		settingsController?.keyboardColor = sender.color
+		settingsController.keyboardColor = sender.color
 		delegate?.setKeyboardColor(color: sender.color)
 		preview.setKeyboardColor(color: sender.color)
 	}
 	@available(OSX 10.14, *)
 	@IBAction func volumeIconColorChanged(_ sender: NSColorWell) {
-		settingsController?.volumeIconColor = sender.color
+		settingsController.volumeIconColor = sender.color
 		delegate?.setVolumeIconsTint(sender.color)
 		preview.setVolumeIconsTint(sender.color)
 	}
 	@available(OSX 10.14, *)
 	@IBAction func brightnessIconChanged(_ sender: NSColorWell) {
-		settingsController?.brightnessIconColor = sender.color
+		settingsController.brightnessIconColor = sender.color
 		delegate?.setBrightnessIconsTint(sender.color)
 		preview.setBrightnessIconsTint(sender.color)
 	}
 	@available(OSX 10.14, *)
 	@IBAction func keyboardIconColorChanged(_ sender: NSColorWell) {
-		settingsController?.keyboardIconColor = sender.color
+		settingsController.keyboardIconColor = sender.color
 		delegate?.setKeyboardIconsTint(sender.color)
 		preview.setKeyboardIconsTint(sender.color)
 	}

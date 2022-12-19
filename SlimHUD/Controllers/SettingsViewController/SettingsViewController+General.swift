@@ -12,13 +12,13 @@ extension SettingsViewController {
 	// MARK: - General tab
 	@IBAction func barsStateChanged(_ sender: NSSegmentedControl) {
 		let barState = sender.getBarState()
-		settingsController?.enabledBars = barState
+		settingsController.enabledBars = barState
 		delegate?.enabledBars = barState
 		preview.enabledBars = barState
 		
 	}
 	@IBAction func shouldContinuouslyCheck(_ sender: NSButton) {
-		settingsController?.shouldContinuouslyCheck = sender.boolValue()
+		settingsController.shouldContinuouslyCheck = sender.boolValue()
 	}
 	@IBAction func launchAtLoginClicked(_ sender: NSButton) {
 		if(sender.boolValue()) {
@@ -36,7 +36,7 @@ extension SettingsViewController {
 		let marginValue = sender.integerValue
 		marginValueOutlet.stringValue = String(marginValue) + "%"
 		delegate?.marginValue = Float(marginValue/100)
-		settingsController?.marginValue = marginValue
+		settingsController.marginValue = marginValue
 	}
 	
 	

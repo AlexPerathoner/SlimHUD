@@ -34,7 +34,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
 	var keyboardHud = Hud()
-	
+    
+    lazy var positionManager: PositionManager = PositionManager(volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -103,7 +104,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 															object: NSApplication.shared,
 															queue: OperationQueue.main) {
 				notification -> Void in
-																self.setupHUDsPosition(false)
+            self.positionManager.setupHUDsPosition(false)
 		}
 		
 	}
@@ -207,7 +208,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		for view in [volumeView, brightnessView, keyboardView] as [NSView?] {
 			view?.setFrameSize(NSSize(width: viewSize.width, height: height+60))
 		}
-        setupHUDsPosition(DisplayManager.isInFullscreenMode())
+        positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
 	}
 	
 	func setThickness(thickness: CGFloat) {
@@ -221,7 +222,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			bar?.layer?.cornerRadius = thickness/2 //setting up outer layer
 			bar?.frame.size.width = thickness
 		}
-        setupHUDsPosition(DisplayManager.isInFullscreenMode())
+        positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
 	}
 	
 	
@@ -285,7 +286,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
         let newFullScreen = DisplayManager.isInFullscreenMode()
 		
 		if(newFullScreen != oldFullScreen) {
-            setupHUDsPosition(newFullScreen)
+            positionManager.setupHUDsPosition(newFullScreen)
 			oldFullScreen = newFullScreen
 		}
 		

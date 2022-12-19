@@ -67,7 +67,7 @@ class PositionManager {
     
     // todo: maybe move to hud.swift? / should be private?
     // todo write tests
-    func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position, xDockHeight: CGFloat, yDockHeight: CGFloat, visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect, shadowRadius: CGFloat, isInFullscreen: Bool) -> CGPoint {
+    private func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position, xDockHeight: CGFloat, yDockHeight: CGFloat, visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect, shadowRadius: CGFloat, isInFullscreen: Bool) -> CGPoint {
         var position: CGPoint
         switch hudPosition {
         case .left:
@@ -123,13 +123,13 @@ class PositionManager {
         }
     }
     
-    func setIconsRotation(isHorizontal: Bool) {
+    private func setIconsRotation(isHorizontal: Bool) {
         if let volumeView = volumeHud.view as? BarView {
             setIconRotation(icon: volumeView.image, isHorizontal: isHorizontal)
         }
     }
     
-    func setIconRotation(icon: NSImageView, isHorizontal: Bool) {
+    private func setIconRotation(icon: NSImageView, isHorizontal: Bool) {
         if(isHorizontal) {
             while(icon.boundsRotation.truncatingRemainder(dividingBy: 360) != 90) {
                 icon.rotate(byDegrees: 90)

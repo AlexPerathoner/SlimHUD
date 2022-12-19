@@ -13,17 +13,14 @@ import Sparkle
 class SettingsViewController: NSViewController {
 	let loginItemsList = LoginItemsList();
 
-	weak var delegate: SettingsWindowControllerDelegate?
-    weak var settingsController: SettingsController?
+    var settingsController: SettingsController = SettingsController.getInstance()
 	@IBOutlet weak var preview: SettingsPreview!
+    weak var delegate: SettingsWindowControllerDelegate?
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		self.delegate = NSApplication.shared.delegate as! AppDelegate
-		self.settingsController = delegate?.settingsController
 		do {
-            try enabledBarsOutlet.setBarState(enabledBars: settingsController?.enabledBars ??
-                                                EnabledBars(volumeBar: true, brightnessBar: true, keyboardBar: true))
+            try enabledBarsOutlet.setBarState(enabledBars: settingsController.enabledBars)
 		} catch {
 			NSLog("Enabled bars saved in UserDefaults not valid")
 		}
@@ -33,23 +30,23 @@ class SettingsViewController: NSViewController {
 		lastCheckForUpdatesOutlet.stringValue = formatter.string(from: SUUpdater.shared()?.lastUpdateCheckDate ?? Date())
 
 		
-		marginValueOutlet.stringValue = String(settingsController?.marginValue ?? 5) + "%"
-		marginStepperOutlet.integerValue = (settingsController?.marginValue ?? 5 * 100)
+		marginValueOutlet.stringValue = String(settingsController.marginValue) + "%"
+		marginStepperOutlet.integerValue = (settingsController.marginValue * 100)
 		launchAtLoginOutlet.state = loginItemsList.isLoginItemInList().toStateValue()
-		iconOutlet.state = settingsController?.shouldShowIcons!.toStateValue() ?? .on
-		shadowOutlet.state = settingsController?.shouldShowShadows.toStateValue() ?? .on
-		continuousCheckOutlet.state = settingsController?.shouldContinuouslyCheck.toStateValue() ?? .on
-		animationsOutlet.state = settingsController?.shouldUseAnimation.toStateValue() ?? .on
-		backgroundColorOutlet.color = settingsController!.backgroundColor
-		volumeEnabledColorOutlet.color = settingsController!.volumeEnabledColor
-		volumeDisabledColorOutlet.color = settingsController!.volumeDisabledColor
-		brightnessColorOutlet.color = settingsController!.brightnessColor
-		keyboardColorOutlet.color = settingsController!.keyboardColor
-		heightValue.stringValue = String(settingsController!.barHeight)
-		heightSliderOutlet.integerValue = settingsController!.barHeight
-		thicknessValue.stringValue = String(settingsController!.barThickness)
-		thicknessSlider.integerValue = settingsController!.barThickness
-		switch settingsController?.position {
+		iconOutlet.state = settingsController.shouldShowIcons!.toStateValue()
+		shadowOutlet.state = settingsController.shouldShowShadows.toStateValue()
+		continuousCheckOutlet.state = settingsController.shouldContinuouslyCheck.toStateValue()
+		animationsOutlet.state = settingsController.shouldUseAnimation.toStateValue()
+		backgroundColorOutlet.color = settingsController.backgroundColor
+		volumeEnabledColorOutlet.color = settingsController.volumeEnabledColor
+		volumeDisabledColorOutlet.color = settingsController.volumeDisabledColor
+		brightnessColorOutlet.color = settingsController.brightnessColor
+		keyboardColorOutlet.color = settingsController.keyboardColor
+		heightValue.stringValue = String(settingsController.barHeight)
+		heightSliderOutlet.integerValue = settingsController.barHeight
+		thicknessValue.stringValue = String(settingsController.barThickness)
+		thicknessSlider.integerValue = settingsController.barThickness
+		switch settingsController.position {
 		case .left:
 			positionOutlet.selectItem(at: 0)
 		case .bottom:
@@ -62,9 +59,9 @@ class SettingsViewController: NSViewController {
 			NSLog("Error! Could not load saved position")
 		}
 		if #available(OSX 10.14, *) {
-			volumeIconColorOutlet.color = settingsController!.volumeIconColor
-			brightnessIconColorOutlet.color = settingsController!.brightnessIconColor
-			keyboardIconColorOutlet.color = settingsController!.keyboardIconColor
+			volumeIconColorOutlet.color = settingsController.volumeIconColor
+			brightnessIconColorOutlet.color = settingsController.brightnessIconColor
+			keyboardIconColorOutlet.color = settingsController.keyboardIconColor
 		} else {
 			changedColorOfOutlet.isHidden = true
 			chagedColorOfLabel.stringValue = "Changing colors of bars"

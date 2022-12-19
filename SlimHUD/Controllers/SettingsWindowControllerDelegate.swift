@@ -30,5 +30,5 @@ protocol SettingsWindowControllerDelegate: class {
 	func setKeyboardIconsTint(_ color: NSColor)
 	@available(OSX 10.14, *)
 	func setupDefaultIconsColors()
-	var settingsController: SettingsController? { get set }
+    var positionManager: PositionManager { get }
 }

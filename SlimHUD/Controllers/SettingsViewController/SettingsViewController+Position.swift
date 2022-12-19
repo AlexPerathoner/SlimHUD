@@ -13,22 +13,22 @@ extension SettingsViewController {
 	@IBAction func rotationChanged(_ sender: NSPopUpButton) {
 		switch sender.indexOfSelectedItem {
 		case 0:
-			settingsController?.position = .left
+			settingsController.position = .left
 		case 1:
-			settingsController?.position = .bottom
+			settingsController.position = .bottom
 		case 2:
-			settingsController?.position = .top
+			settingsController.position = .top
 		case 3:
-			settingsController?.position = .right
+			settingsController.position = .right
 		default:
-            settingsController?.position = .left
+            settingsController.position = .left
 		}
-        delegate?.setupHUDsPosition(false)
+        delegate?.positionManager.setupHUDsPosition(false)
 
-		if(settingsController?.shouldShowIcons ?? false) {
+		if(settingsController.shouldShowIcons ?? false) {
 			displayRelaunchButton()
 		}
-        preview.setupHUDsPosition(false)
+        delegate?.positionManager.setupHUDsPosition(false)
 	}
 	
 	func displayRelaunchButton() {
@@ -57,14 +57,14 @@ extension SettingsViewController {
 	
 	@IBAction func heightSlider(_ sender: NSSlider) {
 		heightValue.stringValue = String(sender.integerValue)
-		settingsController?.barHeight = sender.integerValue
-		delegate?.setHeight(height: CGFloat(sender.integerValue))
+		settingsController.barHeight = sender.integerValue
+        delegate?.setHeight(height: CGFloat(sender.integerValue))
 		//preview.setHeight(height: CGFloat(sender.integerValue))
 	}
 	
 	@IBAction func thicknessSlider(_ sender: NSSlider) {
 		thicknessValue.stringValue = String(sender.integerValue)
-		settingsController?.barThickness = sender.integerValue
+		settingsController.barThickness = sender.integerValue
 		delegate?.setThickness(thickness: CGFloat(sender.integerValue))
 		//preview.setThickness(thickness: CGFloat(sender.integerValue))
 	}

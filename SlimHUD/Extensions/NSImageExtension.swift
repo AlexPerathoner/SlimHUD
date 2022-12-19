@@ -15,6 +15,7 @@ extension NSImage {
     static let BRIGHTNESS_IMAGE_FILE_NAME = "brightness"
     static let KEYBOARD_IMAGE_FILE_NAME = "backlight"
     static let STATUS_ICON_IMAGE_FILE_NAME = "statusIcon"
+    static let NO_VOLUME_IMAGE_FILE_NAME = "noVolume"
     
 }
 
