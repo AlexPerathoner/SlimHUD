@@ -21,7 +21,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	
 	@IBAction func quitCliked(_ sender: Any) {
-		settingsController?.saveAllItems()
+		settingsManager?.saveAllItems()
 		NSApplication.shared.terminate(self)
 	}
 	
@@ -67,9 +67,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		
 		
 		
-		enabledBars = settingsController!.enabledBars
-		marginValue = Float(settingsController!.marginValue)/100.0
-		shouldUseAnimation = settingsController!.shouldUseAnimation
+		enabledBars = settingsManager!.enabledBars
+		marginValue = Float(settingsManager!.marginValue)/100.0
+		shouldUseAnimation = settingsManager!.shouldUseAnimation
 		
 
 		for image in [volumeView.image, brightnessView.image, keyboardView.image] as [NSImageView?] {
@@ -77,8 +77,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			image?.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 		}
 		
-		setHeight(height: CGFloat(settingsController!.barHeight))
-		setThickness(thickness: CGFloat(settingsController!.barThickness))
+		setHeight(height: CGFloat(settingsManager!.barHeight))
+		setThickness(thickness: CGFloat(settingsManager!.barThickness))
 		
 		updateAll()
 	}
@@ -130,12 +130,12 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
 	
-    var settingsController: SettingsController? = SettingsController.getInstance() // todo remove optional
+    var settingsManager: SettingsManager? = SettingsManager.getInstance() // todo remove optional
 	
 	func updateShadows(enabled: Bool) {
-        volumeView.setupShadow(enabled, settingsController!.shadowRadius)
-        keyboardView.setupShadow(enabled, settingsController!.shadowRadius)
-        brightnessView.setupShadow(enabled, settingsController!.shadowRadius)
+        volumeView.setupShadow(enabled, settingsManager!.shadowRadius)
+        keyboardView.setupShadow(enabled, settingsManager!.shadowRadius)
+        brightnessView.setupShadow(enabled, settingsManager!.shadowRadius)
 	}
 	
 	func updateIcons(isHidden: Bool) {
@@ -145,13 +145,13 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	}
 	
 	func setupDefaultBarsColors() {
-		enabledColor = SettingsController.blue
-		disabledColor = SettingsController.gray
-		keyboardView.bar?.foreground = SettingsController.azure
-		brightnessView.bar?.foreground = SettingsController.yellow
-		volumeView.bar?.background = SettingsController.darkGray
-		keyboardView.bar?.background = SettingsController.darkGray
-		brightnessView.bar?.background = SettingsController.darkGray
+		enabledColor = SettingsManager.blue
+		disabledColor = SettingsManager.gray
+		keyboardView.bar?.foreground = SettingsManager.azure
+		brightnessView.bar?.foreground = SettingsManager.yellow
+		volumeView.bar?.background = SettingsManager.darkGray
+		keyboardView.bar?.background = SettingsManager.darkGray
+		brightnessView.bar?.background = SettingsManager.darkGray
 	}
 	
 	@available(OSX 10.14, *)
@@ -180,17 +180,17 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	}
 	
 	func updateAll() {
-		updateIcons(isHidden: !settingsController!.shouldShowIcons)
-		updateShadows(enabled: settingsController!.shouldShowShadows)
-		setBackgroundColor(color: settingsController!.backgroundColor)
-		setVolumeEnabledColor(color: settingsController!.volumeEnabledColor)
-		setVolumeDisabledColor(color: settingsController!.volumeDisabledColor)
-		setBrightnessColor(color: settingsController!.brightnessColor)
-		setKeyboardColor(color: settingsController!.keyboardColor)
+		updateIcons(isHidden: !settingsManager!.shouldShowIcons)
+		updateShadows(enabled: settingsManager!.shouldShowShadows)
+		setBackgroundColor(color: settingsManager!.backgroundColor)
+		setVolumeEnabledColor(color: settingsManager!.volumeEnabledColor)
+		setVolumeDisabledColor(color: settingsManager!.volumeDisabledColor)
+		setBrightnessColor(color: settingsManager!.brightnessColor)
+		setKeyboardColor(color: settingsManager!.keyboardColor)
 		if #available(OSX 10.14, *) {
-			setVolumeIconsTint(settingsController!.volumeIconColor)
-			setBrightnessIconsTint(settingsController!.brightnessIconColor)
-			setKeyboardIconsTint(settingsController!.keyboardIconColor)
+			setVolumeIconsTint(settingsManager!.volumeIconColor)
+			setBrightnessIconsTint(settingsManager!.brightnessIconColor)
+			setKeyboardIconsTint(settingsManager!.keyboardIconColor)
 		}
 	}
 	
@@ -248,7 +248,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
         if(!enabledBars.volumeBar) {return}
         let disabled = VolumeManager.isMuted()
 		setColor(for: volumeView.bar!, disabled)
-		if(!settingsController!.shouldContinuouslyCheck) {
+		if(!settingsManager!.shouldContinuouslyCheck) {
             volumeView.bar!.progress = VolumeManager.getOutputVolume()
 		}
 		
@@ -293,7 +293,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
         if(enabledBars.brightnessBar) {
 			checkBrightnessChanges()
 		}
-        if(settingsController!.shouldContinuouslyCheck && enabledBars.volumeBar) {
+        if(settingsManager!.shouldContinuouslyCheck && enabledBars.volumeBar) {
 			checkVolumeChanges()
 		}
 	}

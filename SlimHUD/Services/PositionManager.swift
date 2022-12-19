@@ -13,7 +13,7 @@ class PositionManager {
     var volumeHud: Hud
     var brightnessHud: Hud
     var keyboardHud: Hud
-    let settingsController = SettingsController.getInstance()
+    let settingsManager = SettingsManager.getInstance()
     private let MENU_BAR_THICKNESS = DisplayManager.getMenuBarThickness()
     
     init(volumeHud: Hud, brightnessHud: Hud, keyboardHud: Hud) {
@@ -40,25 +40,25 @@ class PositionManager {
             (xDockHeight, yDockHeight) = DisplayManager.getDockHeight()
         }
         
-        let originPosition = calculateHUDsOriginPosition(hudPosition: settingsController.position,
+        let originPosition = calculateHUDsOriginPosition(hudPosition: settingsManager.position,
                                                    dockPosition: DisplayManager.getDockPosition(),
                                                    xDockHeight: xDockHeight,
                                                    yDockHeight: yDockHeight,
                                                    visibleFrame: visibleFrame,
                                                    hudSize: barViewFrame,
                                                    screenFrame: screenFrame,
-                                                   shadowRadius: settingsController.shadowRadius,
+                                                   shadowRadius: settingsManager.shadowRadius,
                                                    isInFullscreen: isFullscreen)
 
         setHudsPosition(originPosition: originPosition)
 
-        let isHudHorizontal = settingsController.position == .bottom || settingsController.position == .top
+        let isHudHorizontal = settingsManager.position == .bottom || settingsManager.position == .top
         
         // set bar views orientation
         setBarsOrientation(isHorizontal: isHudHorizontal)
 
         // set icons rotation
-        if(settingsController.shouldShowIcons) {
+        if(settingsManager.shouldShowIcons) {
             setIconsRotation(isHorizontal: isHudHorizontal)
         }
         
@@ -93,7 +93,7 @@ class PositionManager {
     }
     private func setHudPosition(hud: Hud, originPosition: CGPoint) {
         hud.originPosition = originPosition
-        hud.screenEdge = settingsController.position
+        hud.screenEdge = settingsManager.position
     }
      // todo most of these functions should be private
     
@@ -115,11 +115,11 @@ class PositionManager {
         }
 
         //needs a bit more space for displaying shadows...
-        if(settingsController.position == .right) {
-            barView.setFrameOrigin(.init(x: settingsController.shadowRadius, y: 0))
+        if(settingsManager.position == .right) {
+            barView.setFrameOrigin(.init(x: settingsManager.shadowRadius, y: 0))
         }
-        if(settingsController.position == .top) {
-            barView.setFrameOrigin(.init(x: 0, y: settingsController.shadowRadius + barViewFrame.width))
+        if(settingsManager.position == .top) {
+            barView.setFrameOrigin(.init(x: 0, y: settingsManager.shadowRadius + barViewFrame.width))
         }
     }
     

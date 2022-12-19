@@ -13,7 +13,7 @@ import Sparkle
 class SettingsViewController: NSViewController {
 	let loginItemsList = LoginItemsList();
 
-    var settingsController: SettingsController = SettingsController.getInstance()
+    var settingsManager: SettingsManager = SettingsManager.getInstance()
 	@IBOutlet weak var preview: SettingsPreview!
     weak var delegate: SettingsWindowControllerDelegate?
 	
@@ -21,7 +21,7 @@ class SettingsViewController: NSViewController {
 		super.awakeFromNib()
         self.delegate = NSApplication.shared.delegate as! AppDelegate
 		do {
-            try enabledBarsOutlet.setBarState(enabledBars: settingsController.enabledBars)
+            try enabledBarsOutlet.setBarState(enabledBars: settingsManager.enabledBars)
 		} catch {
 			NSLog("Enabled bars saved in UserDefaults not valid")
 		}
@@ -31,23 +31,23 @@ class SettingsViewController: NSViewController {
 		lastCheckForUpdatesOutlet.stringValue = formatter.string(from: SUUpdater.shared()?.lastUpdateCheckDate ?? Date())
 
 		
-		marginValueOutlet.stringValue = String(settingsController.marginValue) + "%"
-		marginStepperOutlet.integerValue = (settingsController.marginValue * 100)
+		marginValueOutlet.stringValue = String(settingsManager.marginValue) + "%"
+		marginStepperOutlet.integerValue = (settingsManager.marginValue * 100)
 		launchAtLoginOutlet.state = loginItemsList.isLoginItemInList().toStateValue()
-		iconOutlet.state = settingsController.shouldShowIcons!.toStateValue()
-		shadowOutlet.state = settingsController.shouldShowShadows.toStateValue()
-		continuousCheckOutlet.state = settingsController.shouldContinuouslyCheck.toStateValue()
-		animationsOutlet.state = settingsController.shouldUseAnimation.toStateValue()
-		backgroundColorOutlet.color = settingsController.backgroundColor
-		volumeEnabledColorOutlet.color = settingsController.volumeEnabledColor
-		volumeDisabledColorOutlet.color = settingsController.volumeDisabledColor
-		brightnessColorOutlet.color = settingsController.brightnessColor
-		keyboardColorOutlet.color = settingsController.keyboardColor
-		heightValue.stringValue = String(settingsController.barHeight)
-		heightSliderOutlet.integerValue = settingsController.barHeight
-		thicknessValue.stringValue = String(settingsController.barThickness)
-		thicknessSlider.integerValue = settingsController.barThickness
-		switch settingsController.position {
+		iconOutlet.state = settingsManager.shouldShowIcons!.toStateValue()
+		shadowOutlet.state = settingsManager.shouldShowShadows.toStateValue()
+		continuousCheckOutlet.state = settingsManager.shouldContinuouslyCheck.toStateValue()
+		animationsOutlet.state = settingsManager.shouldUseAnimation.toStateValue()
+		backgroundColorOutlet.color = settingsManager.backgroundColor
+		volumeEnabledColorOutlet.color = settingsManager.volumeEnabledColor
+		volumeDisabledColorOutlet.color = settingsManager.volumeDisabledColor
+		brightnessColorOutlet.color = settingsManager.brightnessColor
+		keyboardColorOutlet.color = settingsManager.keyboardColor
+		heightValue.stringValue = String(settingsManager.barHeight)
+		heightSliderOutlet.integerValue = settingsManager.barHeight
+		thicknessValue.stringValue = String(settingsManager.barThickness)
+		thicknessSlider.integerValue = settingsManager.barThickness
+		switch settingsManager.position {
 		case .left:
 			positionOutlet.selectItem(at: 0)
 		case .bottom:
@@ -58,15 +58,15 @@ class SettingsViewController: NSViewController {
 			positionOutlet.selectItem(at: 3)
 		}
 		if #available(OSX 10.14, *) {
-			volumeIconColorOutlet.color = settingsController.volumeIconColor
-			brightnessIconColorOutlet.color = settingsController.brightnessIconColor
-			keyboardIconColorOutlet.color = settingsController.keyboardIconColor
+			volumeIconColorOutlet.color = settingsManager.volumeIconColor
+			brightnessIconColorOutlet.color = settingsManager.brightnessIconColor
+			keyboardIconColorOutlet.color = settingsManager.keyboardIconColor
 		} else {
 			changedColorOfOutlet.isHidden = true
 			chagedColorOfLabel.stringValue = "Changing colors of bars"
 		}
 		
-		preview.settingsController = settingsController
+		preview.settingsManager = settingsManager
 		preview.setup()
 		
 		

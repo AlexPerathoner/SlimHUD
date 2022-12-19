@@ -9,7 +9,7 @@
 import Cocoa
 
 class SettingsPreview: NSView, SettingsWindowControllerDelegate {
-    var settingsController: SettingsController = SettingsController.getInstance()
+    var settingsManager: SettingsManager = SettingsManager.getInstance()
 	
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
@@ -51,10 +51,10 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	}
 	
 	func setupDefaultBarsColors() {
-		volumeBar.foreground = SettingsController.blue
-		brightnessBar.foreground = SettingsController.yellow
-		keyboardBar.foreground = SettingsController.azure
-		setBackgroundColor(color: SettingsController.darkGray)
+		volumeBar.foreground = SettingsManager.blue
+		brightnessBar.foreground = SettingsManager.yellow
+		keyboardBar.foreground = SettingsManager.azure
+		setBackgroundColor(color: SettingsManager.darkGray)
 	}
 	
 	
@@ -141,18 +141,18 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	var marginValue: Float = 0.0
 	
 	func updateAll() {
-		enabledBars = settingsController.enabledBars
-		updateIcons(isHidden: !(settingsController.shouldShowIcons ?? false))
-		updateShadows(enabled: settingsController.shouldShowShadows ?? true)
-		setBackgroundColor(color: settingsController.backgroundColor ?? SettingsController.darkGray)
-		setVolumeDisabledColor(color: settingsController.volumeDisabledColor ?? SettingsController.gray)
-		setVolumeEnabledColor(color: settingsController.volumeEnabledColor ?? SettingsController.blue)
-		setBrightnessColor(color: settingsController.brightnessColor ?? SettingsController.yellow)
-		setKeyboardColor(color: settingsController.keyboardColor ?? SettingsController.azure)
-		shouldUseAnimation = settingsController.shouldUseAnimation ?? true
-		setVolumeIconsTint(settingsController.volumeIconColor ?? NSColor.white)
-		setBrightnessIconsTint(settingsController.brightnessIconColor ?? NSColor.white)
-		setKeyboardIconsTint(settingsController.keyboardIconColor ?? NSColor.white)
+		enabledBars = settingsManager.enabledBars
+		updateIcons(isHidden: !(settingsManager.shouldShowIcons ?? false))
+		updateShadows(enabled: settingsManager.shouldShowShadows ?? true)
+		setBackgroundColor(color: settingsManager.backgroundColor ?? SettingsManager.darkGray)
+		setVolumeDisabledColor(color: settingsManager.volumeDisabledColor ?? SettingsManager.gray)
+		setVolumeEnabledColor(color: settingsManager.volumeEnabledColor ?? SettingsManager.blue)
+		setBrightnessColor(color: settingsManager.brightnessColor ?? SettingsManager.yellow)
+		setKeyboardColor(color: settingsManager.keyboardColor ?? SettingsManager.azure)
+		shouldUseAnimation = settingsManager.shouldUseAnimation ?? true
+		setVolumeIconsTint(settingsManager.volumeIconColor ?? NSColor.white)
+		setBrightnessIconsTint(settingsManager.brightnessIconColor ?? NSColor.white)
+		setKeyboardIconsTint(settingsManager.keyboardIconColor ?? NSColor.white)
 	}
 	
 	
