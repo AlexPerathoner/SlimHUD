@@ -36,9 +36,11 @@ func getOutputVolume() -> Float {
 func getDisplayBrightness() throws -> Float {
     var brightness: float_t = 1
     let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IODisplayConnect"))
+    defer {
+        IOObjectRelease(service)
+    }
     
     let result = IODisplayGetFloatParameter(service, 0, kIODisplayBrightnessKey as CFString, &brightness)
-    IOObjectRelease(service)
     
     if(result != kIOReturnSuccess) {
         throw SensorError.displayBrightnessFailure
