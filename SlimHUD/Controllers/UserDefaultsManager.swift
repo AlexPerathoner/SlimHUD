@@ -36,6 +36,10 @@ class UserDefaultsManager {
         return UserDefaults.standard.string(forKey: key) ?? defaultValue
     }
     
+    static func getString(for key: String) -> String? {
+        return UserDefaults.standard.string(forKey: key)
+    }
+    
     static func getInt(for key: String) -> Int {
         return UserDefaults.standard.integer(forKey: key)
     }
