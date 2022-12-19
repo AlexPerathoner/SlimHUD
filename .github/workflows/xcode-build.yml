@@ -13,11 +13,13 @@ jobs:
         platform:
           - macOS
     steps:
-      - use: mxcl/xcodebuild@v1
+      - uses: sersoft-gmbh/xcodebuild-action@v2
         with:
-          platform: ${{ matrix.platform }}
+          workspace: SlimHUD.xcworkspace
+          scheme: SlimHUD
+          destination: platform=macOS
           action: build
-
+          
   test:
     runs-on: macos-latest
     strategy:
@@ -25,8 +27,10 @@ jobs:
         platform:
           - macOS
     steps:
-      - use: mxcl/xcodebuild@v1
+      - uses: sersoft-gmbh/xcodebuild-action@v2
         with:
-          platform: ${{ matrix.platform }}
+          workspace: SlimHUD.xcworkspace
+          scheme: SlimHUD
+          destination: platform=macOS
           action: test
-          code-coverage: true
+
