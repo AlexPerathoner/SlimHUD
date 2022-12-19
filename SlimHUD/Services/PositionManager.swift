@@ -47,7 +47,7 @@ class PositionManager {
                                                    visibleFrame: visibleFrame,
                                                    hudSize: barViewFrame,
                                                    screenFrame: screenFrame,
-                                                   shadowRadius: settingsManager.shadowRadius,
+                                                   shadowRadius: Constants.SHADOW_RADIUS,
                                                    isInFullscreen: isFullscreen)
 
         setHudsPosition(originPosition: originPosition)
@@ -116,10 +116,10 @@ class PositionManager {
 
         //needs a bit more space for displaying shadows...
         if(settingsManager.position == .right) {
-            barView.setFrameOrigin(.init(x: settingsManager.shadowRadius, y: 0))
+            barView.setFrameOrigin(.init(x: Constants.SHADOW_RADIUS, y: 0))
         }
         if(settingsManager.position == .top) {
-            barView.setFrameOrigin(.init(x: 0, y: settingsManager.shadowRadius + barViewFrame.width))
+            barView.setFrameOrigin(.init(x: 0, y: Constants.SHADOW_RADIUS + barViewFrame.width))
         }
     }
     

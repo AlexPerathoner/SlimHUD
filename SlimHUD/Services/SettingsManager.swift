@@ -129,8 +129,6 @@ class SettingsManager {
             UserDefaults.standard.set(marginValue, forKey: SettingsManager.MARGIN_KEY)
 		}
 	}
-    
-    let shadowRadius: CGFloat = 20
 	
 	
 	// MARK: - Class methods

@@ -49,6 +49,4 @@ open class ProgressBar: DeterminateAnimation {
         progressLayer.frame.size.height = bounds.height * CGFloat(progress)
         CATransaction.commit()
     }
-	
-	
 }
