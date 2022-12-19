@@ -51,10 +51,10 @@ class SettingsController: NSView, HudsControllerInterface {
 	}
 	
 	func setupDefaultBarsColors() {
-		volumeBar.foreground = SettingsManager.blue
-		brightnessBar.foreground = SettingsManager.yellow
-		keyboardBar.foreground = SettingsManager.azure
-		setBackgroundColor(color: SettingsManager.darkGray)
+        volumeBar.foreground = DefaultColors.BLUE
+        brightnessBar.foreground = DefaultColors.YELLOW
+        keyboardBar.foreground = DefaultColors.AZURE
+        setBackgroundColor(color: DefaultColors.DARK_GRAY)
 	}
 	
 	
@@ -138,15 +138,15 @@ class SettingsController: NSView, HudsControllerInterface {
 		enabledBars = settingsManager.enabledBars
 		updateIcons(isHidden: !(settingsManager.shouldShowIcons))
 		updateShadows(enabled: settingsManager.shouldShowShadows)
-		setBackgroundColor(color: settingsManager.backgroundColor ?? SettingsManager.darkGray)
-		setVolumeDisabledColor(color: settingsManager.volumeDisabledColor ?? SettingsManager.gray)
-		setVolumeEnabledColor(color: settingsManager.volumeEnabledColor ?? SettingsManager.blue)
-		setBrightnessColor(color: settingsManager.brightnessColor ?? SettingsManager.yellow)
-		setKeyboardColor(color: settingsManager.keyboardColor ?? SettingsManager.azure)
+        setBackgroundColor(color: settingsManager.backgroundColor)
+        setVolumeDisabledColor(color: settingsManager.volumeDisabledColor)
+		setVolumeEnabledColor(color: settingsManager.volumeEnabledColor)
+		setBrightnessColor(color: settingsManager.brightnessColor)
+		setKeyboardColor(color: settingsManager.keyboardColor)
         setShouldUseAnimation(shouldUseAnimation: settingsManager.shouldUseAnimation)
-		setVolumeIconsTint(settingsManager.volumeIconColor ?? NSColor.white)
-		setBrightnessIconsTint(settingsManager.brightnessIconColor ?? NSColor.white)
-		setKeyboardIconsTint(settingsManager.keyboardIconColor ?? NSColor.white)
+		setVolumeIconsTint(settingsManager.volumeIconColor)
+		setBrightnessIconsTint(settingsManager.brightnessIconColor)
+		setKeyboardIconsTint(settingsManager.keyboardIconColor)
 	}
 	
 	

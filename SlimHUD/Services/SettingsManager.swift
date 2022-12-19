@@ -10,12 +10,6 @@ import Cocoa
 
 
 class SettingsManager {
-	// MARK: - Default colors
-	static let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 0.2) // todo move to Costants file
-	static let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
-	static let blue = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
-	static let yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 1)
-	static let azure = NSColor(red: 0.62, green: 0.8, blue: 0.91, alpha: 0.9)
     
     // MARK: - Keys
     
@@ -40,43 +34,43 @@ class SettingsManager {
     
 	
 	 // MARK: - Bars colors
-	var backgroundColor: NSColor! {
+	var backgroundColor: NSColor {
 		didSet {
             UserDefaultsManager.setItem(backgroundColor, for: SettingsManager.BACKGROUND_COLOR_KEY)
 		}
 	}
-	var volumeEnabledColor: NSColor! {
+	var volumeEnabledColor: NSColor {
 		didSet {
             UserDefaultsManager.setItem(volumeEnabledColor, for: SettingsManager.VOLUME_ENABLED_COLOR_KEY)
 		}
 	}
-	var volumeDisabledColor: NSColor! {
+	var volumeDisabledColor: NSColor {
 		didSet {
             UserDefaultsManager.setItem(volumeDisabledColor, for: SettingsManager.VOLUME_DISABLED_COLOR_KEY)
 		}
 	}
-	var brightnessColor: NSColor! {
+	var brightnessColor: NSColor {
 		didSet {
             UserDefaultsManager.setItem(brightnessColor, for: SettingsManager.BRIGHTNESS_COLOR_KEY)
 		}
 	}
-	var keyboardColor: NSColor! {
+	var keyboardColor: NSColor {
 		didSet {
             UserDefaultsManager.setItem(keyboardColor, for: SettingsManager.KEYBOARD_COLOR_KEY)
 		}
 	}
 	// MARK: - Icons colors
-	var volumeIconColor: NSColor! {
+	var volumeIconColor: NSColor {
 		didSet {
             UserDefaultsManager.setItem(volumeIconColor, for: SettingsManager.VOLUME_ICON_COLOR_KEY)
 		}
 	}
-	var brightnessIconColor: NSColor! {
+	var brightnessIconColor: NSColor {
 		didSet {
             UserDefaultsManager.setItem(brightnessIconColor, for: SettingsManager.BRIGHTNESS_ICON_COLOR_KEY)
 		}
 	}
-	var keyboardIconColor: NSColor! {
+	var keyboardIconColor: NSColor {
 		didSet {
             UserDefaultsManager.setItem(keyboardIconColor, for: SettingsManager.KEYBOARD_ICON_COLOR_KEY)
 		}
@@ -147,11 +141,11 @@ class SettingsManager {
     }
     
 	private init() {
-        backgroundColor = UserDefaultsManager.getItem(for: SettingsManager.BACKGROUND_COLOR_KEY, defaultValue: SettingsManager.darkGray)
-        volumeEnabledColor = UserDefaultsManager.getItem(for: SettingsManager.VOLUME_ENABLED_COLOR_KEY, defaultValue: SettingsManager.blue)
-        volumeDisabledColor = UserDefaultsManager.getItem(for: SettingsManager.VOLUME_DISABLED_COLOR_KEY, defaultValue: SettingsManager.gray)
-        brightnessColor = UserDefaultsManager.getItem(for:SettingsManager.BRIGHTNESS_COLOR_KEY, defaultValue: SettingsManager.yellow)
-        keyboardColor = UserDefaultsManager.getItem(for: SettingsManager.KEYBOARD_COLOR_KEY, defaultValue: SettingsManager.azure)
+        backgroundColor = UserDefaultsManager.getItem(for: SettingsManager.BACKGROUND_COLOR_KEY, defaultValue: DefaultColors.DARK_GRAY)
+        volumeEnabledColor = UserDefaultsManager.getItem(for: SettingsManager.VOLUME_ENABLED_COLOR_KEY, defaultValue: DefaultColors.BLUE)
+        volumeDisabledColor = UserDefaultsManager.getItem(for: SettingsManager.VOLUME_DISABLED_COLOR_KEY, defaultValue: DefaultColors.GRAY)
+        brightnessColor = UserDefaultsManager.getItem(for:SettingsManager.BRIGHTNESS_COLOR_KEY, defaultValue: DefaultColors.YELLOW)
+        keyboardColor = UserDefaultsManager.getItem(for: SettingsManager.KEYBOARD_COLOR_KEY, defaultValue: DefaultColors.AZURE)
 		
         volumeIconColor = UserDefaultsManager.getItem(for: SettingsManager.VOLUME_ICON_COLOR_KEY, defaultValue: .white)
         brightnessIconColor = UserDefaultsManager.getItem(for: SettingsManager.BRIGHTNESS_COLOR_KEY, defaultValue: .white)
@@ -178,11 +172,11 @@ class SettingsManager {
 	}
 	
 	func resetDefaultBarsColors() {
-		backgroundColor = SettingsManager.darkGray
-		volumeEnabledColor = SettingsManager.blue
-		volumeDisabledColor = SettingsManager.gray
-		brightnessColor = SettingsManager.yellow
-		keyboardColor = SettingsManager.azure
+        backgroundColor = DefaultColors.DARK_GRAY
+        volumeEnabledColor = DefaultColors.BLUE
+        volumeDisabledColor = DefaultColors.GRAY
+        brightnessColor = DefaultColors.YELLOW
+        keyboardColor = DefaultColors.AZURE
 	}
 	
 	func resetDefaultIconsColors() {

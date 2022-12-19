@@ -49,11 +49,11 @@ extension SettingsViewController {
 		//updating settings
 		settingsManager.resetDefaultBarsColors()
 		//updating color wells of view
-		volumeEnabledColorOutlet.color = SettingsManager.blue
-		volumeDisabledColorOutlet.color = SettingsManager.gray
-		keyboardColorOutlet.color = SettingsManager.azure
-		brightnessColorOutlet.color = SettingsManager.yellow
-		backgroundColorOutlet.color = SettingsManager.darkGray
+        volumeEnabledColorOutlet.color = DefaultColors.BLUE
+        volumeDisabledColorOutlet.color = DefaultColors.GRAY
+        keyboardColorOutlet.color = DefaultColors.AZURE
+        brightnessColorOutlet.color = DefaultColors.YELLOW
+        backgroundColorOutlet.color = DefaultColors.DARK_GRAY
 	}
 	
 	

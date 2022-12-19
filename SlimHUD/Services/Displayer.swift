@@ -116,13 +116,13 @@ class Displayer: HudsControllerInterface {
     }
     
     func setupDefaultBarsColors() {
-        getProgressBar(hud: volumeHud).foreground = SettingsManager.blue
-        getProgressBar(hud: brightnessHud).foreground = SettingsManager.yellow
-        getProgressBar(hud: keyboardHud).foreground = SettingsManager.azure
-        setBrightnessColor(color: SettingsManager.yellow)
-        setVolumeEnabledColor(color: SettingsManager.blue)
-        setVolumeDisabledColor(color: SettingsManager.gray)
-        setBackgroundColor(color: SettingsManager.darkGray)
+        getProgressBar(hud: volumeHud).foreground = DefaultColors.BLUE
+        getProgressBar(hud: brightnessHud).foreground = DefaultColors.YELLOW
+        getProgressBar(hud: keyboardHud).foreground = DefaultColors.AZURE
+        setBrightnessColor(color: DefaultColors.YELLOW)
+        setVolumeEnabledColor(color: DefaultColors.BLUE)
+        setVolumeDisabledColor(color: DefaultColors.GRAY)
+        setBackgroundColor(color: DefaultColors.DARK_GRAY)
     }
     
     @available(OSX 10.14, *)
