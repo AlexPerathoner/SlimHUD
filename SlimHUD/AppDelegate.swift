@@ -34,6 +34,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
 	var keyboardHud = Hud()
+    
+    var useM1BrightnessMethods = false
 	
 	
 	override func awakeFromNib() {
@@ -55,8 +57,16 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		
 		
 		oldVolume = getOutputVolume()
-		oldBrightness = getDisplayBrightness()
-		
+        do {
+            oldBrightness = try getDisplayBrightness()
+        } catch {
+            do {
+                (oldBrightness, _) = try getM1Brightness()
+                useM1BrightnessMethods = true
+            } catch {
+                NSLog("Could not retrieve the screen and keyboard brightness. Please write an issue on GitHub with your MacOS version and Mac model")
+            }
+        }
 		
 		
 		//Setting up huds
@@ -430,8 +440,20 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	var oldBrightness: Float = 0.5
 	func checkBrightnessChanges() {
-		if(NSScreen.screens.count == 0) {return}
-		let newBrightness = getDisplayBrightness()
+		if(NSScreen.screens.count == 0) {
+            return
+        }
+        var newBrightness: Float = 0.0
+        do {
+            if(useM1BrightnessMethods) {
+                (newBrightness, _) = try! getM1Brightness()
+            } else {
+                newBrightness = try getDisplayBrightness()
+            }
+        } catch {
+            NSLog("Could not retrieve the screen and keyboard brightness. Please write an issue on GitHub with your MacOS version and Mac model.")
+        }
+        
 		if(!isAlmost(n1: oldBrightness, n2: newBrightness)) {
 			NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
 			oldBrightness = newBrightness
