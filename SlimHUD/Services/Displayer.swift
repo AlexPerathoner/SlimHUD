@@ -1,5 +1,5 @@
 //
-//  BarDisplayer.swift
+//  Displayer.swift
 //  SlimHUD
 //
 //  Created by Alex Perathoner on 19/12/2022.
@@ -38,7 +38,7 @@ class Displayer: HudsControllerInterface {
         icon.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
     }
     
-    private func getBarView(hud: Hud) -> BarView { // todo should change type of attribute inside of Hud
+    private func getBarView(hud: Hud) -> BarView { // todo should find way to change type of attribute inside of Hud
         return hud.view as! BarView
     }
     

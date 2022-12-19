@@ -31,7 +31,7 @@ class DisplayManager {
         if((screenFrame.height - visibleFrame.height - yDockHeight) != 0) { //menu bar visible
             menuBarThickness = NSStatusBar.system.thickness
         }
-        let dockPosition = Position(rawValue: (UserDefaults.standard.persistentDomain(forName: "com.apple.dock")!["orientation"] as! String) ?? "bottom")
+        let dockPosition = Position(rawValue: (UserDefaults.standard.persistentDomain(forName: "com.apple.dock")!["orientation"] as! String))
         return (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition ?? .bottom)
     }
     
@@ -62,28 +62,14 @@ class DisplayManager {
     }
     
     static func getDockHeight() -> (xDockHeight: CGFloat, yDockHeight: CGFloat) {
-        let dockPosition = DisplayManager.getDockPosition() // TODO: use this
         let screenFrame = getScreenFrame()
         let visibleFrame = getVisibleScreenFrame()
-        
         
         let yDockHeight: CGFloat = visibleFrame.minY
         let xDockHeight: CGFloat = screenFrame.width - visibleFrame.width
         
         return (xDockHeight, yDockHeight)
-        
     }
-//    case .left:
-//        if(dockPosition == .right) {xDockHeight=0}
-//        position = CGPoint(x: xDockHeight, y: (visibleFrame.height/2)-(viewSize.height/2) + yDockHeight)
-//    case .right:
-//        if(dockPosition == .left) {xDockHeight=0}
-//        position = CGPoint(x: (NSScreen.screens[0].frame.width)-(viewSize.width)-shadowRadius-xDockHeight, y: (visibleFrame.height/2)-(viewSize.height/2) + yDockHeight)
-//    case .bottom:
-//        position = CGPoint(x: (screenFrame.width/2)-(viewSize.height/2), y: yDockHeight)
-//    case .top:
-//        position = CGPoint(x: (screenFrame.width/2)-(viewSize.height/2), y: (NSScreen.screens[0].frame.height)-(viewSize.width)-shadowRadius-menuBarThickness)
-//    }
     
     static func getDockPosition() -> Position {
         var dockPosition: Position = .bottom
@@ -104,7 +90,7 @@ class DisplayManager {
         let windowListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
         let windows = windowListInfo as NSArray? as? [[CFString: AnyObject]] ?? []
         let screenSize = DisplayManager.getScreenFrame()
-        // FIXME: check if it's possible to simplify function with just this:
+        // TODO: check if it's possible to simplify function with just this:
 //        let windows = infoList.map({ (windowObj) -> String? in
 //            return windowObj[kCGWindowOwnerName] as? String
 //        })

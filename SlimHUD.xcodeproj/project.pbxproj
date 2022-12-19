@@ -34,7 +34,6 @@
 		FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A729506F0E006F6936 /* BoolExtension.swift */; };
 		FAA1D1AB29506F26006F6936 /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1AA29506F25006F6936 /* NSViewExtension.swift */; };
 		FAA1D1AE29506F4F006F6936 /* NSSegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */; };
-		FAA1D1B229506F8D006F6936 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1B129506F8D006F6936 /* Errors.swift */; };
 		FAA1D1B62950724B006F6936 /* VolumeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1B52950724B006F6936 /* VolumeManager.swift */; };
 		FAA1D1BB295073F4006F6936 /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1BA295073F4006F6936 /* DisplayManager.swift */; };
 		FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C02950764D006F6936 /* KeyboardManager.swift */; };
@@ -49,8 +48,6 @@
 		FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */; };
 		FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */; };
 		FAF5F6532406D1480011B766 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5F6522406D1480011B766 /* Hud.swift */; };
-		FAF5F6552408445F0011B766 /* dbrightness in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6542408445F0011B766 /* dbrightness */; };
-		FAF5F658240875800011B766 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6572408757F0011B766 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,7 +83,6 @@
 		FAA1D1A729506F0E006F6936 /* BoolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtension.swift; sourceTree = "<group>"; };
 		FAA1D1AA29506F25006F6936 /* NSViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
 		FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSegmentedControlExtension.swift; sourceTree = "<group>"; };
-		FAA1D1B129506F8D006F6936 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		FAA1D1B52950724B006F6936 /* VolumeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeManager.swift; sourceTree = "<group>"; };
 		FAA1D1BA295073F4006F6936 /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
 		FAA1D1C02950764D006F6936 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
@@ -101,8 +97,6 @@
 		FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		FAF5F6522406D1480011B766 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
-		FAF5F6542408445F0011B766 /* dbrightness */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dbrightness; sourceTree = "<group>"; };
-		FAF5F6572408757F0011B766 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +159,6 @@
 				FA2347462950D8E90017CF95 /* Constants.swift */,
 				FA69AC8F23F9E2E700AA73FD /* Info.plist */,
 				FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */,
-				FAF5F656240875670011B766 /* Nick Sweeting */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -213,7 +206,6 @@
 				FAA1D19E29506E8B006F6936 /* Controllers */,
 				FAA1D19C29506E66006F6936 /* Services */,
 				FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */,
-				FAA1D1B029506F7B006F6936 /* Errors */,
 				FAA1D19F29506E9F006F6936 /* Extensions */,
 				FA51B9622469D5470095C8B7 /* Support */,
 				FA51B9612469D52F0095C8B7 /* Views */,
@@ -266,14 +258,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FAA1D1B029506F7B006F6936 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				FAA1D1B129506F8D006F6936 /* Errors.swift */,
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
 		FAAFCD8A24588A68009E5E2E /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,15 +273,6 @@
 				335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FAF5F656240875670011B766 /* Nick Sweeting */ = {
-			isa = PBXGroup;
-			children = (
-				FAF5F6572408757F0011B766 /* LICENSE */,
-				FAF5F6542408445F0011B766 /* dbrightness */,
-			);
-			path = "Nick Sweeting";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,11 +335,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF5F6552408445F0011B766 /* dbrightness in Resources */,
 				FA131C2F24683CBD005908FF /* MainMenu.storyboard in Resources */,
 				FAAFCD872458768E009E5E2E /* About.storyboard in Resources */,
 				FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */,
-				FAF5F658240875800011B766 /* LICENSE in Resources */,
 				FA623A612468591400A6ABCB /* BarView.xib in Resources */,
 				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
 			);
@@ -444,7 +417,6 @@
 				FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */,
 				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
 				FAA1D1BB295073F4006F6936 /* DisplayManager.swift in Sources */,
-				FAA1D1B229506F8D006F6936 /* Errors.swift in Sources */,
 				FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */,
 				FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */,
 				FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */,
