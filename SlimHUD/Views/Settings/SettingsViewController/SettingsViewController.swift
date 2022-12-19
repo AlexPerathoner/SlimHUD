@@ -22,7 +22,8 @@ class SettingsViewController: NSViewController {
 		self.delegate = NSApplication.shared.delegate as! AppDelegate
 		self.settingsController = delegate?.settingsController
 		do {
-			try enabledBarsOutlet.setBarState(values: settingsController?.enabledBars ?? [])
+            try enabledBarsOutlet.setBarState(enabledBars: settingsController?.enabledBars ??
+                                                EnabledBars(volumeBar: true, brightnessBar: true, keyboardBar: true))
 		} catch {
 			NSLog("Enabled bars saved in UserDefaults not valid")
 		}

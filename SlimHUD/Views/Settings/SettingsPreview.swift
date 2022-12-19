@@ -105,11 +105,11 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 		}
 	}
 	
-	var enabledBars: [Bool] = [true, true, true] {
+	var enabledBars: EnabledBars = EnabledBars(volumeBar: true, brightnessBar: true, keyboardBar: true) {
 		didSet {
-			volumeView.isHidden = !enabledBars[0]
-			brightnessView.isHidden = !enabledBars[1]
-			keyboardView.isHidden = !enabledBars[2]
+            volumeView.isHidden = !enabledBars.volumeBar
+            brightnessView.isHidden = !enabledBars.brightnessBar
+            keyboardView.isHidden = !enabledBars.keyboardBar
 		}
 	}
 	
@@ -141,7 +141,7 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	var marginValue: Float = 0.0
 	
 	func updateAll() {
-		enabledBars = settingsController?.enabledBars ?? [true, true, true]
+		enabledBars = settingsController?.enabledBars ?? EnabledBars(volumeBar: true, brightnessBar: true, keyboardBar: true)
 		updateIcons(isHidden: !(settingsController?.shouldShowIcons ?? false))
 		updateShadows(enabled: settingsController?.shouldShowShadows ?? true)
 		setBackgroundColor(color: settingsController?.backgroundColor ?? SettingsController.darkGray)

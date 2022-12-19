@@ -11,7 +11,7 @@ import QuartzCore
 import AppKit
 
 @NSApplicationMain
-class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowControllerDelegate {
+class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowControllerDelegate {    
 	
 	
 	// MARK: - General
@@ -123,7 +123,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		}
 	}
 	
-	var enabledBars: [Bool] = [true, true, true]
+    var enabledBars = EnabledBars(volumeBar: true, brightnessBar: true, keyboardBar: true)
 	var marginValue: Float = 0.05
 	
 	private let shadowRadius: CGFloat = 20
@@ -333,7 +333,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	// MARK: - Displayers
 	
 	@objc func showVolumeHUD() {
-		if(!enabledBars[0]) {return}
+        if(!enabledBars.volumeBar) {return}
         let disabled = VolumeManager.isMuted()
 		setColor(for: volumeView.bar!, disabled)
 		if(!settingsController!.shouldContinuouslyCheck) {
@@ -352,14 +352,14 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	}
 	
 	@objc func showBrightnessHUD() {
-		if(!enabledBars[1]) {return}
+        if(!enabledBars.brightnessBar) {return}
 		brightnessHud.show()
 		volumeHud.hide(animated: false)
 		keyboardHud.hide(animated: false)
 		brightnessHud.dismiss(delay: 1.5)
 	}
 	@objc func showKeyboardHUD() {
-		if(!enabledBars[2]) {return}
+        if(!enabledBars.keyboardBar) {return}
 		keyboardHud.show()
 		volumeHud.hide(animated: false)
 		brightnessHud.hide(animated: false)
@@ -395,10 +395,10 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			oldFullScreen = newFullScreen
 		}
 		
-		if(enabledBars[1]) {
+        if(enabledBars.brightnessBar) {
 			checkBrightnessChanges()
 		}
-		if(settingsController!.shouldContinuouslyCheck && enabledBars[0]) {
+        if(settingsController!.shouldContinuouslyCheck && enabledBars.volumeBar) {
 			checkVolumeChanges()
 		}
 	}

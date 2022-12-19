@@ -21,7 +21,7 @@ protocol SettingsWindowControllerDelegate: class {
 	func setThickness(thickness: CGFloat)
 	func setupHUDsPosition(_ isFullscreen: Bool)
 	var shouldUseAnimation: Bool { get set }
-	var enabledBars: [Bool] { get set }
+	var enabledBars: EnabledBars { get set }
 	var marginValue: Float { get set }
 	@available(OSX 10.14, *)
 	func setVolumeIconsTint(_ color: NSColor)
