@@ -9,6 +9,8 @@
 import Cocoa
 
 class BarView: NSView {
+    
+    static let BAR_VIEW_NIB_FILE_NAME = "BarView"
 	
 	@IBOutlet weak var bar: ProgressBar!
 	@IBOutlet var image: NSImageView!

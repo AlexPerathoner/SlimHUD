@@ -27,9 +27,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	// MARK: - Views, bars & HUDs
 	
-	var volumeView: BarView = NSView.fromNib(name: "BarView") as! BarView
-	var brightnessView: BarView = NSView.fromNib(name: "BarView") as! BarView
-	var keyboardView: BarView = NSView.fromNib(name: "BarView") as! BarView
+    var volumeView: BarView = NSView.fromNib(name: BarView.BAR_VIEW_NIB_FILE_NAME) as! BarView
+	var brightnessView: BarView = NSView.fromNib(name: BarView.BAR_VIEW_NIB_FILE_NAME) as! BarView
+	var keyboardView: BarView = NSView.fromNib(name: BarView.BAR_VIEW_NIB_FILE_NAME) as! BarView
 	
 	var volumeHud = Hud()
 	var brightnessHud = Hud()
@@ -39,9 +39,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		volumeView.image!.image = NSImage(named: "volume")
-		brightnessView.image!.image = NSImage(named: "brightness")
-		keyboardView.image!.image = NSImage(named: "backlight")
+        volumeView.image!.image = NSImage(named: NSImage.VOLUME_IMAGE_FILE_NAME)
+        brightnessView.image!.image = NSImage(named: NSImage.BRIGHTNESS_IMAGE_FILE_NAME)
+        keyboardView.image!.image = NSImage(named: NSImage.KEYBOARD_IMAGE_FILE_NAME)
 		
 		//menu bar
 		
@@ -49,7 +49,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		
 		if let button = statusItem.button {
 			button.title = "SlimHUD"
-			button.image = NSImage(named: "statusIcon")
+            button.image = NSImage(named: NSImage.STATUS_ICON_IMAGE_FILE_NAME)
 			button.image?.isTemplate = true
 		}
 		
@@ -208,7 +208,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		for view in [volumeView, brightnessView, keyboardView] as [NSView?] {
 			view?.setFrameSize(NSSize(width: viewSize.width, height: height+60))
 		}
-		setupHUDsPosition(isInFullscreenMode())
+        setupHUDsPosition(DisplayManager.isInFullscreenMode())
 	}
 	
 	func setThickness(thickness: CGFloat) {
@@ -223,7 +223,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			bar?.frame.size.width = thickness
 		}
 		
-		setupHUDsPosition(isInFullscreenMode())
+        setupHUDsPosition(DisplayManager.isInFullscreenMode())
 	}
 	
 	
@@ -368,27 +368,10 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	// MARK: - Check functions
 	
-	func isInFullscreenMode() -> Bool {
-		let options = CGWindowListOption(arrayLiteral: CGWindowListOption.excludeDesktopElements, CGWindowListOption.optionOnScreenOnly)
-		let windowListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
-		let infoList = windowListInfo as NSArray? as? [[String: AnyObject]] ?? []
-		let screenSize = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
-		for i in infoList {
-			let windowName = i["kCGWindowOwnerName"] as? String ?? ""
-			
-			//if Window Server or Dock are visible the user is certainly not using fullscreen
-			if(windowName == "Window Server" || windowName == "Dock") {return false}
-			if (i["kCGWindowBounds"]?["Height"] as? CGFloat ?? 0 == screenSize.height && i["kCGWindowBounds"]?["Width"] as? CGFloat ?? 0 == screenSize.width && windowName != "Dock" && windowName != "SlimHUD") {
-				return true
-			}
-		}
-		
-		return true
-	}
 	
 	var oldFullScreen = false
 	@objc func checkChanges() {
-		let newFullScreen = isInFullscreenMode()
+        let newFullScreen = DisplayManager.isInFullscreenMode()
 		
 		if(newFullScreen != oldFullScreen) {
 			setupHUDsPosition(newFullScreen)

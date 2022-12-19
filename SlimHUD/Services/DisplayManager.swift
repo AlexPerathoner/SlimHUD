@@ -98,5 +98,31 @@ class DisplayManager {
         }
         return dockPosition
     }
+    
+    static func isInFullscreenMode() -> Bool {
+        let options = CGWindowListOption(arrayLiteral: CGWindowListOption.excludeDesktopElements, CGWindowListOption.optionOnScreenOnly)
+        let windowListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
+        let windows = windowListInfo as NSArray? as? [[CFString: AnyObject]] ?? []
+        let screenSize = DisplayManager.getScreenFrame()
+        // FIXME: check if it's possible to simplify function with just this:
+//        let windows = infoList.map({ (windowObj) -> String? in
+//            return windowObj[kCGWindowOwnerName] as? String
+//        })
+//        return windows.contains("Window Server") || windows.contains("Dock")
+        
+        for window in windows {
+            if let windowName = window[kCGWindowOwnerName] as? String {
+                //if Window Server or Dock are visible the user is certainly not using fullscreen
+                if(windowName == "Window Server" || windowName == "Dock") {return false}
+                if (window[kCGWindowBounds]?["Height"] as? CGFloat ?? 0 == screenSize.height &&
+                        window[kCGWindowBounds]?["Width"] as? CGFloat ?? 0 == screenSize.width &&
+                        windowName != "SlimHUD") {
+                    return true
+                }
+            }
+        }
+        
+        return true
+    }
 
 }

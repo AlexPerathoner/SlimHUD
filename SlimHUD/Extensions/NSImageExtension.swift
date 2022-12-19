@@ -9,7 +9,14 @@
 import Cocoa
 import AppKit
 
-
+extension NSImage {
+    
+    static let VOLUME_IMAGE_FILE_NAME = "volume"
+    static let BRIGHTNESS_IMAGE_FILE_NAME = "brightness"
+    static let KEYBOARD_IMAGE_FILE_NAME = "backlight"
+    static let STATUS_ICON_IMAGE_FILE_NAME = "statusIcon"
+    
+}
 
 //extension NSImage {
 //	/// https://stackoverflow.com/a/50074538/6884062
