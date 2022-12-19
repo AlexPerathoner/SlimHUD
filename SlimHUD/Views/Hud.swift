@@ -57,34 +57,37 @@ class Hud: NSView {
 	
 	func show() {
 		if(isHidden) {
-			guard let view = hudView else { return }
+			guard let hudView = hudView else { return }
 			windowController?.showWindow(self)
-			frame = view.frame
-			view.addSubview(self.view)
+			frame = hudView.frame
+            if(!hudView.subviews.isEmpty) {
+                hudView.subviews = []
+            }
+            hudView.addSubview(view)
 			
 			//animation only if not yet visible
 
 			switch screenEdge {
 			case .left:
-				view.setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
+                hudView.setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
 			case .right:
-				view.setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
+                hudView.setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
 			case .top:
-				view.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
+                hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
 			case .bottom:
-				view.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
+                hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
 			}
 			self.isHidden = false
 			if(animated) {
 				NSAnimationContext.runAnimationGroup({ (context) in
 					//slide + fade in animation
 					context.duration = animationDuration
-					view.animator().alphaValue = 1
-					view.animator().setFrameOrigin(originPosition)
+                    hudView.animator().alphaValue = 1
+                    hudView.animator().setFrameOrigin(originPosition)
 				}) {}
 			} else {
-				view.setFrameOrigin(originPosition)
-				view.alphaValue = 1
+                hudView.setFrameOrigin(originPosition)
+                hudView.alphaValue = 1
 			}
 		}
 	}
