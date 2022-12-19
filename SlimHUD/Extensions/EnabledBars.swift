@@ -15,5 +15,5 @@ struct EnabledBars {
     
     static let VOLUME_BAR_INDEX = 0
     static let BRIGHTNESS_BAR_INDEX = 1
-    static let KEYBOARD_BAR_INDEX = 1
+    static let KEYBOARD_BAR_INDEX = 2
 }

@@ -123,7 +123,10 @@ class SettingsController {
 	// MARK: - General
     var enabledBars: EnabledBars {
 		didSet {
-            UserDefaults.standard.set(enabledBars, forKey: SettingsController.ENABLED_BARS_KEY)
+            let enabledBarsRaw = [enabledBars.volumeBar,
+                                  enabledBars.brightnessBar,
+                                  enabledBars.keyboardBar]
+            UserDefaults.standard.set(enabledBarsRaw, forKey: SettingsController.ENABLED_BARS_KEY)
 		}
 	}
 	

@@ -19,6 +19,7 @@ class SettingsViewController: NSViewController {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+        self.delegate = NSApplication.shared.delegate as! AppDelegate
 		do {
             try enabledBarsOutlet.setBarState(enabledBars: settingsController.enabledBars)
 		} catch {
@@ -55,8 +56,6 @@ class SettingsViewController: NSViewController {
 			positionOutlet.selectItem(at: 2)
 		case .right:
 			positionOutlet.selectItem(at: 3)
-		default:
-			NSLog("Error! Could not load saved position")
 		}
 		if #available(OSX 10.14, *) {
 			volumeIconColorOutlet.color = settingsController.volumeIconColor
