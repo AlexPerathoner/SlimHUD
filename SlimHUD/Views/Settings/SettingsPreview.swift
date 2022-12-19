@@ -91,7 +91,6 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	// isn't showed in preview
 	func setHeight(height: CGFloat) {}
 	func setThickness(thickness: CGFloat) {}
-	func setupHUDsPosition(_ isFullscreen: Bool) {}
 	
 	var shouldUseAnimation: Bool = true {
 		didSet {

@@ -12,6 +12,8 @@ class PositionManager {
     var volumeHud: Hud
     var brightnessHud: Hud
     var keyboardHud: Hud
+    let settingsController = SettingsController.getInstance()
+    private let MENU_BAR_THICKNESS = DisplayManager.getMenuBarThickness()
     
     init(volumeHud: Hud, brightnessHud: Hud, keyboardHud: Hud) {
         self.volumeHud = volumeHud
@@ -25,71 +27,76 @@ class PositionManager {
         brightnessHud.hide(animated: false)
         keyboardHud.hide(animated: false)
         
-        let viewSize = volumeHud.view.frame
+        let barViewFrame = volumeHud.view.frame
         
         var screenFrame = DisplayManager.getScreenFrame()
         var visibleFrame = DisplayManager.getVisibleScreenFrame()
         var xDockHeight: CGFloat = 0
         var yDockHeight: CGFloat = 0
-        var menuBarThickness: CGFloat = 0
         var dockPosition = Position.bottom
         
         if(!isFullscreen) {
             visibleFrame = DisplayManager.getVisibleScreenFrame()
             (xDockHeight, yDockHeight) = DisplayManager.getDockHeight()
-            menuBarThickness = DisplayManager.getMenuBarThickness()
             dockPosition = DisplayManager.getDockPosition()
         }
         
-        // Todo
-//        var position = calculateHUDsPositionOrigin(hudPosition: , dockPosition: <#T##Position#>, xDockHeight: <#T##CGFloat#>, yDockHeight: <#T##CGFloat#>, visibleFrame: <#T##NSRect#>, hudSize: <#T##NSRect#>, screenFrame: <#T##NSRect#>, shadowRadius: <#T##CGFloat#>, menuBarThickness: <#T##CGFloat#>)
-//        //end of magic
-//
-//        for hud in [volumeHud, brightnessHud, keyboardHud] as [Hud] {
-//            hud.position = position
-//            hud.rotated = settingsController!.position
-//        }
-//
-//        let rotated = settingsController!.position == .bottom || settingsController!.position == .top
-//        for view in [volumeView, brightnessView, keyboardView] as [NSView?] {
-//            view?.layer?.anchorPoint = CGPoint(x: 0, y: 0)
-//            if(rotated) {
-//                view?.frameCenterRotation = -90
-//                view?.setFrameOrigin(.init(x: 0, y: viewSize.width))
-//            } else {
-//                view?.frameCenterRotation = 0
-//                view?.setFrameOrigin(.init(x: 0, y: 0))
-//            }
-//
-//            //needs a bit more space for displaying shadows...
-//            if(settingsController!.position == .right) {
-//                view?.setFrameOrigin(.init(x: shadowRadius, y: 0))
-//            }
-//            if(settingsController!.position == .top) {
-//                view?.setFrameOrigin(.init(x: 0, y: shadowRadius+viewSize.width))
-//            }
-//        }
-//
-//        //rotating icons of views
-//        if(settingsController!.shouldShowIcons) {
-//            for image in [volumeView.image, brightnessView.image, keyboardView.image] as [NSImageView?] {
-//                if(rotated) {
-//                    while(image!.boundsRotation.truncatingRemainder(dividingBy: 360) != 90) {
-//                        image!.rotate(byDegrees: 90)
-//                    }
-//                } else {
-//                    while(image!.boundsRotation.truncatingRemainder(dividingBy: 360) != 0) {
-//                        image!.rotate(byDegrees: 90)
-//                    }
-//                }
-//            }
-//        }
+        var position = calculateHUDsPositionOrigin(hudPosition: settingsController.position,
+                                                   dockPosition: DisplayManager.getDockPosition(),
+                                                   xDockHeight: xDockHeight,
+                                                   yDockHeight: yDockHeight,
+                                                   visibleFrame: visibleFrame,
+                                                   hudSize: barViewFrame,
+                                                   screenFrame: screenFrame,
+                                                   shadowRadius: settingsController.shadowRadius,
+                                                   isInFullscreen: isFullscreen)
+        //end of magic
+
+        for hud in [volumeHud, brightnessHud, keyboardHud] as [Hud] {
+            hud.position = position
+            hud.rotated = settingsController.position
+        }
+
+        let isHudHorizontal = settingsController.position == .bottom || settingsController.position == .top
+        for view in [volumeView, brightnessView, keyboardView] as [NSView?] {
+            view?.layer?.anchorPoint = CGPoint(x: 0, y: 0)
+            if(isHudHorizontal) {
+                view?.frameCenterRotation = -90
+                view?.setFrameOrigin(.init(x: 0, y: barViewFrame.width))
+            } else {
+                view?.frameCenterRotation = 0
+                view?.setFrameOrigin(.init(x: 0, y: 0))
+            }
+
+            //needs a bit more space for displaying shadows...
+            if(settingsController!.position == .right) {
+                view?.setFrameOrigin(.init(x: shadowRadius, y: 0))
+            }
+            if(settingsController!.position == .top) {
+                view?.setFrameOrigin(.init(x: 0, y: shadowRadius+barViewFrame.width))
+            }
+        }
+
+        //rotating icons of views
+        if(settingsController!.shouldShowIcons) {
+            for image in [volumeView.image, brightnessView.image, keyboardView.image] as [NSImageView?] {
+                if(rotated) {
+                    while(image!.boundsRotation.truncatingRemainder(dividingBy: 360) != 90) {
+                        image!.rotate(byDegrees: 90)
+                    }
+                } else {
+                    while(image!.boundsRotation.truncatingRemainder(dividingBy: 360) != 0) {
+                        image!.rotate(byDegrees: 90)
+                    }
+                }
+            }
+        }
         
         
         NSLog("screenFrame is \(screenFrame) \(position)")
     }
     
-    func calculateHUDsPositionOrigin(hudPosition: Position, dockPosition: Position, xDockHeight: CGFloat, yDockHeight: CGFloat, visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect, shadowRadius: CGFloat, menuBarThickness: CGFloat) -> CGPoint {
+    func calculateHUDsPositionOrigin(hudPosition: Position, dockPosition: Position, xDockHeight: CGFloat, yDockHeight: CGFloat, visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect, shadowRadius: CGFloat, isInFullscreen: Bool) -> CGPoint {
         var position: CGPoint
         switch hudPosition {
         case .left:
@@ -103,7 +110,7 @@ class PositionManager {
                                y: yDockHeight)
         case .top:
             position = CGPoint(x: (screenFrame.width/2) - (hudSize.height/2),
-                               y: screenFrame.height - hudSize.width - shadowRadius - menuBarThickness)
+                               y: screenFrame.height - hudSize.width - shadowRadius - (isInFullscreen ? 0 : MENU_BAR_THICKNESS))
         }
         return position
     }

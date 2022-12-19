@@ -9,7 +9,7 @@
 import Cocoa
 
 
-class SettingsController {    
+class SettingsController {
 	// MARK: - Default colors
 	static let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 0.2)
 	static let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
@@ -132,10 +132,18 @@ class SettingsController {
             UserDefaults.standard.set(marginValue, forKey: SettingsController.MARGIN_KEY)
 		}
 	}
+    
+    let shadowRadius: CGFloat = 20
 	
 	
 	// MARK: - Class methods
-	init() {
+    
+    static private let singletonSettingsController = SettingsController()
+    public static func getInstance() -> SettingsController {
+        return singletonSettingsController
+    }
+    
+	private init() {
         backgroundColor = UserDefaultsManager.getItem(for: SettingsController.BACKGROUND_COLOR_KEY, defaultValue: SettingsController.darkGray)
         volumeEnabledColor = UserDefaultsManager.getItem(for: SettingsController.VOLUME_ENABLED_COLOR_KEY, defaultValue: SettingsController.blue)
         volumeDisabledColor = UserDefaultsManager.getItem(for: SettingsController.VOLUME_DISABLED_COLOR_KEY, defaultValue: SettingsController.gray)

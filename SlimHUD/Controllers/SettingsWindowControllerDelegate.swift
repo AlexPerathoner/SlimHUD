@@ -19,7 +19,6 @@ protocol SettingsWindowControllerDelegate: class {
 	func setKeyboardColor(color: NSColor)
 	func setHeight(height: CGFloat)
 	func setThickness(thickness: CGFloat)
-	func setupHUDsPosition(_ isFullscreen: Bool)
 	var shouldUseAnimation: Bool { get set }
 	var enabledBars: EnabledBars { get set }
 	var marginValue: Float { get set }

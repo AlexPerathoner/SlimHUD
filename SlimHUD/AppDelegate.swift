@@ -126,16 +126,15 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
     var enabledBars = EnabledBars(volumeBar: true, brightnessBar: true, keyboardBar: true)
 	var marginValue: Float = 0.05
 	
-	private let shadowRadius: CGFloat = 20
 	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
 	
-    var settingsController: SettingsController? = SettingsController()
+    var settingsController: SettingsController? = SettingsController.getInstance() // todo remove optional
 	
 	func updateShadows(enabled: Bool) {
-		volumeView.setupShadow(enabled, shadowRadius)
-		keyboardView.setupShadow(enabled, shadowRadius)
-		brightnessView.setupShadow(enabled, shadowRadius)
+        volumeView.setupShadow(enabled, settingsController!.shadowRadius)
+        keyboardView.setupShadow(enabled, settingsController!.shadowRadius)
+        brightnessView.setupShadow(enabled, settingsController!.shadowRadius)
 	}
 	
 	func updateIcons(isHidden: Bool) {
@@ -222,7 +221,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			bar?.layer?.cornerRadius = thickness/2 //setting up outer layer
 			bar?.frame.size.width = thickness
 		}
-		
         setupHUDsPosition(DisplayManager.isInFullscreenMode())
 	}
 	
@@ -287,7 +285,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
         let newFullScreen = DisplayManager.isInFullscreenMode()
 		
 		if(newFullScreen != oldFullScreen) {
-			setupHUDsPosition(newFullScreen)
+            setupHUDsPosition(newFullScreen)
 			oldFullScreen = newFullScreen
 		}
 		

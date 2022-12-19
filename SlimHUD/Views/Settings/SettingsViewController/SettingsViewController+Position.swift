@@ -21,14 +21,14 @@ extension SettingsViewController {
 		case 3:
 			settingsController?.position = .right
 		default:
-			NSLog("What the-? Something went wrong! Please report this bug")
+            settingsController?.position = .left
 		}
-		delegate?.setupHUDsPosition(false)
+        delegate?.setupHUDsPosition(false)
 
 		if(settingsController?.shouldShowIcons ?? false) {
 			displayRelaunchButton()
 		}
-		preview.setupHUDsPosition(false)
+        preview.setupHUDsPosition(false)
 	}
 	
 	func displayRelaunchButton() {
