@@ -54,7 +54,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		}
 		
 		
-		oldVolume = getOutputVolume()
+        oldVolume = VolumeManager.getOutputVolume()
 		oldBrightness = getDisplayBrightness()
 		
 		
@@ -343,10 +343,10 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	@objc func showVolumeHUD() {
 		if(!enabledBars[0]) {return}
-		let disabled = isMuted()
+        let disabled = VolumeManager.isMuted()
 		setColor(for: volumeView.bar!, disabled)
 		if(!settingsController!.shouldContinuouslyCheck) {
-			volumeView.bar!.progress = CGFloat(getOutputVolume())
+            volumeView.bar!.progress = VolumeManager.getOutputVolume()
 		}
 		
 		if(disabled) {
@@ -418,13 +418,13 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	var oldVolume: Float = 0.5
 	func checkVolumeChanges() {
-		let newVolume = getOutputVolume()
-		volumeView.bar!.progress = CGFloat(newVolume)
+        let newVolume = VolumeManager.getOutputVolume()
+		volumeView.bar!.progress = newVolume
 		if (!isAlmost(n1: oldVolume, n2: newVolume)) {
 			NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
 			oldVolume = newVolume
 		}
-		volumeView.bar!.progress = CGFloat(newVolume)
+		volumeView.bar!.progress = newVolume
 	}
 	
 	
@@ -436,7 +436,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
 			oldBrightness = newBrightness
 		}
-		brightnessView.bar?.progress = CGFloat(newBrightness)
+		brightnessView.bar?.progress = newBrightness
 	}
 	
 	// MARK: -

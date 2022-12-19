@@ -46,7 +46,7 @@ open class ProgressBar: DeterminateAnimation {
 		CATransaction.setAnimationDuration(animationTime)
         let timing = CAMediaTimingFunction(name: .easeOut)
         CATransaction.setAnimationTimingFunction(timing)
-        progressLayer.frame.size.height = bounds.height * progress
+        progressLayer.frame.size.height = bounds.height * CGFloat(progress)
         CATransaction.commit()
     }
 	

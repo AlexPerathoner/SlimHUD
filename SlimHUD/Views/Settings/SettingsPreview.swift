@@ -158,7 +158,7 @@ class SettingsPreview: NSView, SettingsWindowControllerDelegate {
 	
 	
 	
-	var value: CGFloat = 0.5
+	var value: Float = 0.5
 	var timerChangeValue: Timer?
 	func showAnimation() {
 		if(timerChangeValue != nil) {
