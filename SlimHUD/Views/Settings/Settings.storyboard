@@ -680,7 +680,7 @@
                             </tabView>
                             <box borderType="bezel" title="Preview" translatesAutoresizingMaskIntoConstraints="NO" id="jcu-ET-my8">
                                 <rect key="frame" x="362" y="16" width="256" height="324"/>
-                                <view key="contentView" id="8Tg-4t-zhc" customClass="SettingsPreview" customModule="SlimHUD" customModuleProvider="target">
+                                <view key="contentView" id="8Tg-4t-zhc" customClass="SettingsController" customModule="SlimHUD" customModuleProvider="target">
                                     <rect key="frame" x="3" y="3" width="250" height="304"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>

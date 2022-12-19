@@ -1,5 +1,5 @@
 //
-//  SettingsWindowControllerDelegate.swift
+//  SettingsControllerDelegate.swift
 //  SlimHUD
 //
 //  Created by Alex Perathoner on 17/08/2020.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-protocol SettingsWindowControllerDelegate: class {
+protocol SettingsControllerDelegate: class {
 	func updateShadows(enabled: Bool)
 	func updateIcons(isHidden: Bool)
 	func setupDefaultBarsColors()

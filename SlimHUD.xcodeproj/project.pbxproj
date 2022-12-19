@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1219E06918EE24D5484AA823 /* Pods_SlimHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */; };
-		FA12C21124EA934800F92CA3 /* SettingsWindowControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21024EA934800F92CA3 /* SettingsWindowControllerDelegate.swift */; };
+		FA12C21124EA934800F92CA3 /* SettingsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21024EA934800F92CA3 /* SettingsControllerDelegate.swift */; };
 		FA12C21324EA937800F92CA3 /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */; };
 		FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */; };
 		FA12C21724EA93DF00F92CA3 /* SettingsViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21624EA93DF00F92CA3 /* SettingsViewController+Style.swift */; };
@@ -25,7 +25,7 @@
 		FA623A6324685DD000A6ABCB /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA623A6224685DD000A6ABCB /* BarView.swift */; };
 		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
 		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
-		FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78F53E242FA73000785678 /* SettingsPreview.swift */; };
+		FA78F53F242FA73000785678 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78F53E242FA73000785678 /* SettingsController.swift */; };
 		FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */; };
 		FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A429506F00006F6936 /* NSControlExtension.swift */; };
 		FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A729506F0E006F6936 /* BoolExtension.swift */; };
@@ -54,7 +54,7 @@
 		335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlimHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.debug.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.debug.xcconfig"; sourceTree = "<group>"; };
 		B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.release.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.release.xcconfig"; sourceTree = "<group>"; };
-		FA12C21024EA934800F92CA3 /* SettingsWindowControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowControllerDelegate.swift; sourceTree = "<group>"; };
+		FA12C21024EA934800F92CA3 /* SettingsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsControllerDelegate.swift; sourceTree = "<group>"; };
 		FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
 		FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
 		FA12C21624EA93DF00F92CA3 /* SettingsViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Style.swift"; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA69AC8F23F9E2E700AA73FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
-		FA78F53E242FA73000785678 /* SettingsPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreview.swift; sourceTree = "<group>"; };
+		FA78F53E242FA73000785678 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonExtension.swift; sourceTree = "<group>"; };
 		FAA1D1A429506F00006F6936 /* NSControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSControlExtension.swift; sourceTree = "<group>"; };
 		FAA1D1A729506F0E006F6936 /* BoolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtension.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */,
-				FA78F53E242FA73000785678 /* SettingsPreview.swift */,
+				FA78F53E242FA73000785678 /* SettingsController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -235,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */,
-				FA12C21024EA934800F92CA3 /* SettingsWindowControllerDelegate.swift */,
+				FA12C21024EA934800F92CA3 /* SettingsControllerDelegate.swift */,
 				FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */,
 				FA12C21824EA9D5F00F92CA3 /* SettingsViewController */,
 			);
@@ -439,8 +439,8 @@
 				FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */,
 				FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */,
 				FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */,
-				FA12C21124EA934800F92CA3 /* SettingsWindowControllerDelegate.swift in Sources */,
-				FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */,
+				FA12C21124EA934800F92CA3 /* SettingsControllerDelegate.swift in Sources */,
+				FA78F53F242FA73000785678 /* SettingsController.swift in Sources */,
 				FAA1D1B62950724B006F6936 /* VolumeManager.swift in Sources */,
 				FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */,
 			);

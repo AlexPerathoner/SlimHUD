@@ -14,8 +14,8 @@ class SettingsViewController: NSViewController {
 	let loginItemsList = LoginItemsList();
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
-	@IBOutlet weak var preview: SettingsPreview!
-    weak var delegate: SettingsWindowControllerDelegate?
+	@IBOutlet weak var preview: SettingsController!
+    weak var delegate: SettingsControllerDelegate?
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()

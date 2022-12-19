@@ -11,7 +11,7 @@ import QuartzCore
 import AppKit
 
 @NSApplicationMain
-class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowControllerDelegate {    
+class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsControllerDelegate {    
 	
 	
 	// MARK: - General
@@ -21,10 +21,23 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	
 	
 	@IBAction func quitCliked(_ sender: Any) {
-		settingsManager?.saveAllItems()
+		settingsManager.saveAllItems()
 		NSApplication.shared.terminate(self)
 	}
-	
+    
+    
+    var enabledBars = EnabledBars(volumeBar: true, brightnessBar: true, keyboardBar: true)
+    var marginValue: Float = 0.05
+    
+    var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+    var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
+    
+    var settingsManager: SettingsManager = SettingsManager.getInstance() // todo remove optional
+    
+    var oldFullScreen = false
+    var oldVolume: Float = 0.5
+    var oldBrightness: Float = 0.5
+    
 	// MARK: - Views, bars & HUDs
 	
     var volumeView: BarView = NSView.fromNib(name: BarView.BAR_VIEW_NIB_FILE_NAME) as! BarView
@@ -67,9 +80,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		
 		
 		
-		enabledBars = settingsManager!.enabledBars
-		marginValue = Float(settingsManager!.marginValue)/100.0
-		shouldUseAnimation = settingsManager!.shouldUseAnimation
+		enabledBars = settingsManager.enabledBars
+		marginValue = Float(settingsManager.marginValue)/100.0
+		shouldUseAnimation = settingsManager.shouldUseAnimation
 		
 
 		for image in [volumeView.image, brightnessView.image, keyboardView.image] as [NSImageView?] {
@@ -77,8 +90,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 			image?.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 		}
 		
-		setHeight(height: CGFloat(settingsManager!.barHeight))
-		setThickness(thickness: CGFloat(settingsManager!.barThickness))
+		setHeight(height: CGFloat(settingsManager.barHeight))
+		setThickness(thickness: CGFloat(settingsManager.barThickness))
 		
 		updateAll()
 	}
@@ -124,18 +137,10 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		}
 	}
 	
-    var enabledBars = EnabledBars(volumeBar: true, brightnessBar: true, keyboardBar: true)
-	var marginValue: Float = 0.05
-	
-	var disabledColor = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
-	var enabledColor = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
-	
-    var settingsManager: SettingsManager? = SettingsManager.getInstance() // todo remove optional
-	
 	func updateShadows(enabled: Bool) {
-        volumeView.setupShadow(enabled, settingsManager!.shadowRadius)
-        keyboardView.setupShadow(enabled, settingsManager!.shadowRadius)
-        brightnessView.setupShadow(enabled, settingsManager!.shadowRadius)
+        volumeView.setupShadow(enabled, settingsManager.shadowRadius)
+        keyboardView.setupShadow(enabled, settingsManager.shadowRadius)
+        brightnessView.setupShadow(enabled, settingsManager.shadowRadius)
 	}
 	
 	func updateIcons(isHidden: Bool) {
@@ -180,17 +185,17 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	}
 	
 	func updateAll() {
-		updateIcons(isHidden: !settingsManager!.shouldShowIcons)
-		updateShadows(enabled: settingsManager!.shouldShowShadows)
-		setBackgroundColor(color: settingsManager!.backgroundColor)
-		setVolumeEnabledColor(color: settingsManager!.volumeEnabledColor)
-		setVolumeDisabledColor(color: settingsManager!.volumeDisabledColor)
-		setBrightnessColor(color: settingsManager!.brightnessColor)
-		setKeyboardColor(color: settingsManager!.keyboardColor)
+		updateIcons(isHidden: !settingsManager.shouldShowIcons)
+		updateShadows(enabled: settingsManager.shouldShowShadows)
+		setBackgroundColor(color: settingsManager.backgroundColor)
+		setVolumeEnabledColor(color: settingsManager.volumeEnabledColor)
+		setVolumeDisabledColor(color: settingsManager.volumeDisabledColor)
+		setBrightnessColor(color: settingsManager.brightnessColor)
+		setKeyboardColor(color: settingsManager.keyboardColor)
 		if #available(OSX 10.14, *) {
-			setVolumeIconsTint(settingsManager!.volumeIconColor)
-			setBrightnessIconsTint(settingsManager!.brightnessIconColor)
-			setKeyboardIconsTint(settingsManager!.keyboardIconColor)
+			setVolumeIconsTint(settingsManager.volumeIconColor)
+			setBrightnessIconsTint(settingsManager.brightnessIconColor)
+			setKeyboardIconsTint(settingsManager.keyboardIconColor)
 		}
 	}
 	
@@ -248,7 +253,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
         if(!enabledBars.volumeBar) {return}
         let disabled = VolumeManager.isMuted()
 		setColor(for: volumeView.bar!, disabled)
-		if(!settingsManager!.shouldContinuouslyCheck) {
+		if(!settingsManager.shouldContinuouslyCheck) {
             volumeView.bar!.progress = VolumeManager.getOutputVolume()
 		}
 		
@@ -281,7 +286,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	// MARK: - Check functions
 	
 	
-	var oldFullScreen = false
 	@objc func checkChanges() {
         let newFullScreen = DisplayManager.isInFullscreenMode()
 		
@@ -293,7 +297,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
         if(enabledBars.brightnessBar) {
 			checkBrightnessChanges()
 		}
-        if(settingsManager!.shouldContinuouslyCheck && enabledBars.volumeBar) {
+        if(settingsManager.shouldContinuouslyCheck && enabledBars.volumeBar) {
 			checkVolumeChanges()
 		}
 	}
@@ -301,8 +305,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	func isAlmost(n1: Float, n2: Float) -> Bool { //used to partially prevent the bars to display when no user input happened
 		return (n1+marginValue >= n2 && n1-marginValue <= n2)
 	}
-	
-	var oldVolume: Float = 0.5
+    
 	func checkVolumeChanges() {
         let newVolume = VolumeManager.getOutputVolume()
 		volumeView.bar!.progress = newVolume
@@ -313,8 +316,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		volumeView.bar!.progress = newVolume
 	}
 	
-	
-	var oldBrightness: Float = 0.5
+    
 	func checkBrightnessChanges() {
 		if(NSScreen.screens.count == 0) {return}
         let newBrightness = DisplayManager.getDisplayBrightness()

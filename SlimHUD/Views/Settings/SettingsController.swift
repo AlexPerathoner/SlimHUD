@@ -1,5 +1,5 @@
 //
-//  SettingsPreview.swift
+//  SettingsController.swift
 //  SlimHUD
 //
 //  Created by Alex Perathoner on 28/03/2020.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SettingsPreview: NSView, SettingsWindowControllerDelegate {
+class SettingsController: NSView, SettingsControllerDelegate {
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 	
 	var volumeHud = Hud()
