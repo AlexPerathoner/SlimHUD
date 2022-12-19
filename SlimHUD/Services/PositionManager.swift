@@ -65,9 +65,8 @@ class PositionManager {
         NSLog("screenFrame is \(screenFrame) \(originPosition)")
     }
     
-    // todo: maybe move to hud.swift? / should be private?
     // todo write tests
-    private func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position, xDockHeight: CGFloat, yDockHeight: CGFloat, visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect, shadowRadius: CGFloat, isInFullscreen: Bool) -> CGPoint {
+    func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position, xDockHeight: CGFloat, yDockHeight: CGFloat, visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect, shadowRadius: CGFloat, isInFullscreen: Bool) -> CGPoint {
         var position: CGPoint
         switch hudPosition {
         case .left:
@@ -95,9 +94,7 @@ class PositionManager {
         hud.originPosition = originPosition
         hud.screenEdge = settingsManager.position
     }
-     // todo most of these functions should be private
     
-    // todo maybe move thes next functions to another manager
     private func setBarsOrientation(isHorizontal: Bool) {
         setBarOrientation(barView: volumeHud.view, isHorizontal: isHorizontal)
         setBarOrientation(barView: brightnessHud.view, isHorizontal: isHorizontal)
