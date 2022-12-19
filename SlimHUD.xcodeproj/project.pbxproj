@@ -33,9 +33,10 @@
 		FAA1D1AE29506F4F006F6936 /* NSSegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */; };
 		FAA1D1B229506F8D006F6936 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1B129506F8D006F6936 /* Errors.swift */; };
 		FAA1D1B62950724B006F6936 /* VolumeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1B52950724B006F6936 /* VolumeManager.swift */; };
+		FAA1D1BB295073F4006F6936 /* BrightnessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1BA295073F4006F6936 /* BrightnessManager.swift */; };
 		FAAFCD872458768E009E5E2E /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFCD862458768E009E5E2E /* About.storyboard */; };
 		FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFCD8824588785009E5E2E /* AboutViewController.swift */; };
-		FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScript.swift */; };
+		FABE1FDA23FEF17B009AD01F /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */; };
 		FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */; };
 		FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */; };
 		FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */; };
@@ -76,9 +77,10 @@
 		FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSegmentedControlExtension.swift; sourceTree = "<group>"; };
 		FAA1D1B129506F8D006F6936 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		FAA1D1B52950724B006F6936 /* VolumeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeManager.swift; sourceTree = "<group>"; };
+		FAA1D1BA295073F4006F6936 /* BrightnessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessManager.swift; sourceTree = "<group>"; };
 		FAAFCD862458768E009E5E2E /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		FAAFCD8824588785009E5E2E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		FABE1FD923FEF17B009AD01F /* AppleScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScript.swift; sourceTree = "<group>"; };
+		FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverApplication.swift; sourceTree = "<group>"; };
 		FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
@@ -210,7 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */,
-				FABE1FD923FEF17B009AD01F /* AppleScript.swift */,
+				FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */,
+				FAA1D1BA295073F4006F6936 /* BrightnessManager.swift */,
 				FAA1D1B52950724B006F6936 /* VolumeManager.swift */,
 				FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */,
 			);
@@ -399,7 +402,7 @@
 				FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */,
 				FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */,
 				FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */,
-				FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */,
+				FABE1FDA23FEF17B009AD01F /* AppleScriptRunner.swift in Sources */,
 				FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */,
 				FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */,
 				FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */,
@@ -412,6 +415,7 @@
 				FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */,
 				FA623A6324685DD000A6ABCB /* BarView.swift in Sources */,
 				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
+				FAA1D1BB295073F4006F6936 /* BrightnessManager.swift in Sources */,
 				FAA1D1B229506F8D006F6936 /* Errors.swift in Sources */,
 				FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */,
 				FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */,

@@ -55,7 +55,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 		
 		
         oldVolume = VolumeManager.getOutputVolume()
-		oldBrightness = getDisplayBrightness()
+        oldBrightness = BrightnessManager.getDisplayBrightness()
 		
 		
 		
@@ -431,7 +431,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate, SettingsWindowCont
 	var oldBrightness: Float = 0.5
 	func checkBrightnessChanges() {
 		if(NSScreen.screens.count == 0) {return}
-		let newBrightness = getDisplayBrightness()
+        let newBrightness = BrightnessManager.getDisplayBrightness()
 		if(!isAlmost(n1: oldBrightness, n2: newBrightness)) {
 			NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
 			oldBrightness = newBrightness
