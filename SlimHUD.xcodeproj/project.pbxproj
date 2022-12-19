@@ -15,6 +15,8 @@
 		FA131C2F24683CBD005908FF /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA131C2E24683CBD005908FF /* MainMenu.storyboard */; };
 		FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */; };
 		FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */; };
+		FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264662950BD850046CD2C /* ChangesObserver.swift */; };
+		FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264692950C1CF0046CD2C /* Displayer.swift */; };
 		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
 		FA55B98C2423FE180071E6D9 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55B98B2423FE180071E6D9 /* NSImageExtension.swift */; };
 		FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */; };
@@ -40,7 +42,7 @@
 		FAAFCD872458768E009E5E2E /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFCD862458768E009E5E2E /* About.storyboard */; };
 		FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFCD8824588785009E5E2E /* AboutViewController.swift */; };
 		FABE1FDA23FEF17B009AD01F /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */; };
-		FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */; };
+		FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */; };
 		FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */; };
 		FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CB329509ED100B1A786 /* PositionManager.swift */; };
 		FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */; };
@@ -61,6 +63,8 @@
 		FA131C2E24683CBD005908FF /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		FA4264662950BD850046CD2C /* ChangesObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesObserver.swift; sourceTree = "<group>"; };
+		FA4264692950C1CF0046CD2C /* Displayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayer.swift; sourceTree = "<group>"; };
 		FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		FA55B98B2423FE180071E6D9 /* NSImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
 		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginItemList.swift; path = SlimHUD/Services/LoginItemList.swift; sourceTree = SOURCE_ROOT; };
@@ -89,7 +93,7 @@
 		FAAFCD862458768E009E5E2E /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		FAAFCD8824588785009E5E2E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
-		FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverApplication.swift; sourceTree = "<group>"; };
+		FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
 		FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsManager.swift; path = SlimHUD/Controllers/UserDefaultsManager.swift; sourceTree = SOURCE_ROOT; };
 		FACD8CB329509ED100B1A786 /* PositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManager.swift; sourceTree = "<group>"; };
 		FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -220,8 +224,10 @@
 			children = (
 				FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */,
 				FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */,
+				FA4264692950C1CF0046CD2C /* Displayer.swift */,
 				FACD8CB329509ED100B1A786 /* PositionManager.swift */,
-				FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */,
+				FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */,
+				FA4264662950BD850046CD2C /* ChangesObserver.swift */,
 				FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */,
 				FAA1D1BA295073F4006F6936 /* DisplayManager.swift */,
 				FAA1D1C02950764D006F6936 /* KeyboardManager.swift */,
@@ -413,7 +419,7 @@
 				FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */,
 				FAA1D1AE29506F4F006F6936 /* NSSegmentedControlExtension.swift in Sources */,
 				FAA1D1AB29506F26006F6936 /* NSViewExtension.swift in Sources */,
-				FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */,
+				FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */,
 				FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */,
 				FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */,
 				FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */,
@@ -423,6 +429,7 @@
 				FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */,
 				FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */,
 				FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */,
+				FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */,
 				FA55B98C2423FE180071E6D9 /* NSImageExtension.swift in Sources */,
 				FA12C21324EA937800F92CA3 /* SettingsViewController+General.swift in Sources */,
 				FA12C21724EA93DF00F92CA3 /* SettingsViewController+Style.swift in Sources */,
@@ -431,6 +438,7 @@
 				FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */,
 				FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */,
 				FA623A6324685DD000A6ABCB /* BarView.swift in Sources */,
+				FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */,
 				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
 				FAA1D1BB295073F4006F6936 /* DisplayManager.swift in Sources */,
 				FAA1D1B229506F8D006F6936 /* Errors.swift in Sources */,

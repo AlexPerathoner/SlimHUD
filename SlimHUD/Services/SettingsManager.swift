@@ -11,7 +11,7 @@ import Cocoa
 
 class SettingsManager {
 	// MARK: - Default colors
-	static let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 0.2)
+	static let darkGray = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 0.2) // todo move to Costants file
 	static let gray = NSColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
 	static let blue = NSColor(red: 0.19, green: 0.5, blue: 0.96, alpha: 0.9)
 	static let yellow = NSColor(red: 0.77, green: 0.7, blue: 0.3, alpha: 1)
@@ -83,22 +83,22 @@ class SettingsManager {
 	}
 	
 	// MARK: - Effects colors
-	var shouldShowShadows: Bool! = true {
+	var shouldShowShadows: Bool = true {
 		didSet {
             UserDefaults.standard.set(shouldShowShadows, forKey: SettingsManager.SHOULD_SHOW_SHADOWS_KEY)
 		}
 	}
-	var shouldShowIcons: Bool! = true {
+	var shouldShowIcons: Bool = true {
 		didSet {
             UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.SHOULD_SHOW_ICONS_KEY)
 		}
 	}
-	var shouldContinuouslyCheck: Bool! = true {
+	var shouldContinuouslyCheck: Bool = true {
 		didSet {
             UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.SHOULD_CONTINUOUSLY_CHECK_KEY)
 		}
 	}
-	var shouldUseAnimation: Bool! = true {
+	var shouldUseAnimation: Bool = true {
 		didSet {
             UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.SHOULD_USE_ANIMATION_KEY)
 		}

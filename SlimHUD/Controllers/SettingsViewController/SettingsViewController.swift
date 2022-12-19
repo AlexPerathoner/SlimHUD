@@ -34,7 +34,7 @@ class SettingsViewController: NSViewController {
 		marginValueOutlet.stringValue = String(settingsManager.marginValue) + "%"
 		marginStepperOutlet.integerValue = (settingsManager.marginValue * 100)
 		launchAtLoginOutlet.state = loginItemsList.isLoginItemInList().toStateValue()
-		iconOutlet.state = settingsManager.shouldShowIcons!.toStateValue()
+		iconOutlet.state = settingsManager.shouldShowIcons.toStateValue()
 		shadowOutlet.state = settingsManager.shouldShowShadows.toStateValue()
 		continuousCheckOutlet.state = settingsManager.shouldContinuouslyCheck.toStateValue()
 		animationsOutlet.state = settingsManager.shouldUseAnimation.toStateValue()

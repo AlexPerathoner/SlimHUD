@@ -1,0 +1,208 @@
+//
+//  BarDisplayer.swift
+//  SlimHUD
+//
+//  Created by Alex Perathoner on 19/12/2022.
+//  Copyright © 2022 Alex Perathoner. All rights reserved.
+//
+
+import Foundation
+import Cocoa
+
+class Displayer {
+    var settingsManager: SettingsManager = SettingsManager.getInstance()
+    var positionManager: PositionManager
+    var volumeHud: Hud
+    var brightnessHud: Hud
+    var keyboardHud: Hud
+    
+    
+    init(positionManager: PositionManager, volumeHud: Hud, brightnessHud: Hud, keyboardHud: Hud) {
+        self.positionManager = positionManager
+        self.volumeHud = volumeHud
+        self.brightnessHud = brightnessHud
+        self.keyboardHud = keyboardHud
+        
+        let volumeIcon = getIcon(hud: volumeHud)
+        let brightnessIcon = getIcon(hud: brightnessHud)
+        let keyboardIcon = getIcon(hud: keyboardHud)
+        volumeIcon.image = NSImage(named: NSImage.VOLUME_IMAGE_FILE_NAME)
+        brightnessIcon.image = NSImage(named: NSImage.BRIGHTNESS_IMAGE_FILE_NAME)
+        keyboardIcon.image = NSImage(named: NSImage.KEYBOARD_IMAGE_FILE_NAME)
+        setIconsAnchorPointAndWantsLayer(icon: volumeIcon)
+        setIconsAnchorPointAndWantsLayer(icon: brightnessIcon)
+        setIconsAnchorPointAndWantsLayer(icon: keyboardIcon)
+    }
+    
+    private func setIconsAnchorPointAndWantsLayer(icon: NSImageView) {
+        icon.wantsLayer = true
+        icon.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+    }
+    
+    private func getBarView(hud: Hud) -> BarView { // todo should change type of attribute inside of Hud
+        return hud.view as! BarView
+    }
+    
+    private func getProgressBar(hud: Hud) -> ProgressBar {
+        return getBarView(hud: hud).bar
+    }
+    private func getIcon(hud: Hud) -> NSImageView {
+        return getBarView(hud: hud).image
+    }
+    
+    
+    @objc func showVolumeHUD() {
+        if(!settingsManager.enabledBars.volumeBar) {return}
+        let disabled = VolumeManager.isMuted()
+        let volumeView = getBarView(hud: volumeHud)
+        setColor(for: volumeView.bar!, disabled)
+        if(!settingsManager.shouldContinuouslyCheck) {
+            volumeView.bar!.progress = VolumeManager.getOutputVolume()
+        }
+        
+        if(disabled) {
+            volumeView.image!.image = NSImage(named: NSImage.NO_VOLUME_IMAGE_FILE_NAME)
+        } else {
+            volumeView.image!.image = NSImage(named: NSImage.VOLUME_IMAGE_FILE_NAME)
+        }
+        volumeHud.show()
+        brightnessHud.hide(animated: false)
+        keyboardHud.hide(animated: false)
+        volumeHud.dismiss(delay: 1.5)
+    }
+    
+    @objc func showBrightnessHUD() {
+        if(!settingsManager.enabledBars.brightnessBar) {return}
+        brightnessHud.show()
+        volumeHud.hide(animated: false)
+        keyboardHud.hide(animated: false)
+        brightnessHud.dismiss(delay: 1.5)
+    }
+    @objc func showKeyboardHUD() {
+        if(!settingsManager.enabledBars.keyboardBar) {return}
+        keyboardHud.show()
+        volumeHud.hide(animated: false)
+        brightnessHud.hide(animated: false)
+        keyboardHud.dismiss(delay: 1.5)
+    }
+    
+    func setColor(for bar: ProgressBar, _ disabled: Bool) { // todo should move into barView
+        if(disabled) {
+            bar.foreground = settingsManager.volumeDisabledColor
+        } else {
+            bar.foreground = settingsManager.volumeEnabledColor
+        }
+    }
+    
+    func updateAnimation(shouldUseAnimation: Bool) {
+        volumeHud.animated = shouldUseAnimation
+        brightnessHud.animated = shouldUseAnimation
+        keyboardHud.animated = shouldUseAnimation
+        
+        getProgressBar(hud: volumeHud).setupAnimation(animated: shouldUseAnimation)
+        getProgressBar(hud: brightnessHud).setupAnimation(animated: shouldUseAnimation)
+        getProgressBar(hud: keyboardHud).setupAnimation(animated: shouldUseAnimation)
+    }
+    
+    func updateShadows(enabled: Bool) {
+        getBarView(hud: volumeHud).setupShadow(enabled, settingsManager.shadowRadius)
+        getBarView(hud: brightnessHud).setupShadow(enabled, settingsManager.shadowRadius)
+        getBarView(hud: keyboardHud).setupShadow(enabled, settingsManager.shadowRadius)
+    }
+    
+    func updateIcons(isHidden: Bool) {
+        getIcon(hud: volumeHud).isHidden = isHidden
+        getIcon(hud: brightnessHud).isHidden = isHidden
+        getIcon(hud: keyboardHud).isHidden = isHidden
+    }
+    
+    func setupDefaultBarsColors() {
+        getProgressBar(hud: volumeHud).foreground = SettingsManager.blue
+        getProgressBar(hud: brightnessHud).foreground = SettingsManager.yellow
+        getProgressBar(hud: keyboardHud).foreground = SettingsManager.azure
+        setBrightnessColor(color: SettingsManager.yellow)
+        setVolumeEnabledColor(color: SettingsManager.blue)
+        setVolumeDisabledColor(color: SettingsManager.gray)
+        setBackgroundColor(color: SettingsManager.darkGray)
+    }
+    
+    @available(OSX 10.14, *)
+    func setupDefaultIconsColors() {
+        setVolumeIconsTint(.white)
+        setBrightnessIconsTint(.white)
+        setKeyboardIconsTint(.white)
+    }
+    
+    func setBackgroundColor(color: NSColor) {
+        getProgressBar(hud: volumeHud).background = color
+        getProgressBar(hud: brightnessHud).background = color
+        getProgressBar(hud: keyboardHud).background = color
+    }
+    func setVolumeEnabledColor(color: NSColor) {
+        settingsManager.volumeEnabledColor = color
+    }
+    func setVolumeDisabledColor(color: NSColor) {
+        settingsManager.volumeDisabledColor = color
+    }
+    func setBrightnessColor(color: NSColor) {
+        getProgressBar(hud: brightnessHud).foreground = color
+    }
+    func setKeyboardColor(color: NSColor) {
+        getProgressBar(hud: keyboardHud).foreground = color
+    }
+    
+    func updateAll() {
+        updateIcons(isHidden: !settingsManager.shouldShowIcons)
+        updateShadows(enabled: settingsManager.shouldShowShadows)
+        setBackgroundColor(color: settingsManager.backgroundColor)
+        setVolumeEnabledColor(color: settingsManager.volumeEnabledColor)
+        setVolumeDisabledColor(color: settingsManager.volumeDisabledColor)
+        setBrightnessColor(color: settingsManager.brightnessColor)
+        setKeyboardColor(color: settingsManager.keyboardColor)
+        if #available(OSX 10.14, *) {
+            setVolumeIconsTint(settingsManager.volumeIconColor)
+            setBrightnessIconsTint(settingsManager.brightnessIconColor)
+            setKeyboardIconsTint(settingsManager.keyboardIconColor)
+        }
+    }
+    
+    func setHeight(height: CGFloat) {
+        setHeight(view: getBarView(hud: volumeHud), height: height)
+        setHeight(view: getBarView(hud: brightnessHud), height: height)
+        setHeight(view: getBarView(hud: keyboardHud), height: height)
+        positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
+    }
+    private func setHeight(view: BarView, height: CGFloat) {
+        view.setFrameSize(NSSize(width: view.frame.width, height: height+60)) // todo understand why 60, make it a costant
+    }
+    
+    func setThickness(thickness: CGFloat) {
+        setThickness(barView: getBarView(hud: volumeHud), thickness: thickness)
+        setThickness(barView: getBarView(hud: brightnessHud), thickness: thickness)
+        setThickness(barView: getBarView(hud: keyboardHud), thickness: thickness)
+        positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
+    }
+    private func setThickness(barView: BarView, thickness: CGFloat) {
+        barView.setFrameSize(NSSize(width: thickness+40, height: barView.frame.height)) // todo understand why 40
+        barView.bar.progressLayer.frame.size.width = thickness //setting up inner layer
+        barView.bar.progressLayer.cornerRadius = thickness/2
+        barView.bar.layer?.cornerRadius = thickness/2 //setting up outer layer
+        barView.bar.frame.size.width = thickness
+    }
+       
+    
+    
+    @available(OSX 10.14, *)
+    func setVolumeIconsTint(_ color: NSColor) {
+        getIcon(hud: volumeHud).contentTintColor = color
+    }
+    @available(OSX 10.14, *)
+    func setBrightnessIconsTint(_ color: NSColor) {
+        getIcon(hud: brightnessHud).contentTintColor = color
+    }
+    @available(OSX 10.14, *)
+    func setKeyboardIconsTint(_ color: NSColor) {
+        getIcon(hud: keyboardHud).contentTintColor = color
+    }
+    
+}

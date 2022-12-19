@@ -15,7 +15,7 @@ class Hud: NSView {
 	var animated = true
 	
 	///The NSView that is going to be displayed when show() is called
-	var view: NSView = .init()
+	var view: NSView = .init() // todo change this to BarView, if possible
 	var originPosition: CGPoint
 	var screenEdge: Position = .left
 	

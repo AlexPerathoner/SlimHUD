@@ -9,7 +9,7 @@
 import Cocoa
 
 
-class ObserverApplication: NSApplication {
+class KeyPressObserver: NSApplication {
 	
 	static let volumeChanged = Notification.Name("SlimHUD.volumeChanged")
 	static let brightnessChanged = Notification.Name("SlimHUD.brightnessChanged")
@@ -38,13 +38,13 @@ class ObserverApplication: NSApplication {
         if (state) {
             switch(key) {
             case NX_KEYTYPE_SOUND_DOWN, NX_KEYTYPE_SOUND_UP, NX_KEYTYPE_MUTE:
-				NotificationCenter.default.post(name: ObserverApplication.volumeChanged, object: self)
+				NotificationCenter.default.post(name: KeyPressObserver.volumeChanged, object: self)
                 break
 			case NX_KEYTYPE_BRIGHTNESS_UP, NX_KEYTYPE_BRIGHTNESS_DOWN: //doesn't work - only works with built-in keyboard
-				NotificationCenter.default.post(name: ObserverApplication.brightnessChanged, object: self)
+				NotificationCenter.default.post(name: KeyPressObserver.brightnessChanged, object: self)
 				break
 			case NX_KEYTYPE_ILLUMINATION_DOWN, NX_KEYTYPE_ILLUMINATION_UP:
-				NotificationCenter.default.post(name: ObserverApplication.keyboardIlluminationChanged, object: self)
+				NotificationCenter.default.post(name: KeyPressObserver.keyboardIlluminationChanged, object: self)
 				break
             default:
                 break
