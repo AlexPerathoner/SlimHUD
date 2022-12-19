@@ -14,25 +14,13 @@ jobs:
           - macOS
     steps:
       - uses: actions/checkout@v3
+      - uses: slashmo/install-swift@v0.2.1
+        with:
+          version: 5.3.2
       - uses: sersoft-gmbh/xcodebuild-action@v2
         with:
           workspace: SlimHUD.xcworkspace
           scheme: SlimHUD
           destination: platform=macOS
           action: build
-          
-  test:
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        platform:
-          - macOS
-    steps:
-      - uses: actions/checkout@v3
-      - uses: sersoft-gmbh/xcodebuild-action@v2
-        with:
-          workspace: SlimHUD.xcworkspace
-          scheme: SlimHUD
-          destination: platform=macOS
-          action: test
 
