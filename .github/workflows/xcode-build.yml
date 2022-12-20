@@ -25,22 +25,14 @@ jobs:
 # github.event.after # commit
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          pr_number: ${{ github.event.number }}
-          commit: ${{ github.event.after }}
-        run: echo "$pr_number $commit"
       - uses: actions/github-script@v6
         with:
           script: |
-            github.rest.pulls.createReviewComment({
+            github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: context.issue.number,
-              body: 'Test',
-              commit_id: '981847553b49b20d299175dd33c99910f4b0590d',
-              path: 'README.md',
-              line: 1
+              issue_number: context.issue.number,
+              body: 'Test'
             });
   get-comment:
     runs-on: ubuntu-latest
@@ -56,4 +48,4 @@ jobs:
               issue_number: context.issue.number
             });
       - name: Get result
-        run: echo "${{ toJson(steps.set-result.outputs.result) }}"
+        run: echo "${{ steps.set-result.outputs.result }}"
