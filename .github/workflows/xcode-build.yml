@@ -6,24 +6,34 @@ on:
     branches: ["master", "develop"]
 
 jobs:
-  analyze:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Test
-        run: |
-          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - name: Create coverage
-        id: code-coverage
-        uses: kishikawakatsumi/xcresulttool@v1
-        with:
-          path: TestResults.xcresult
-          show-code-coverage: true
+  # analyze:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Test
+  #       run: |
+  #         xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+  #     - name: Create coverage
+  #       id: code-coverage
+  #       uses: kishikawakatsumi/xcresulttool@v1
+  #       with:
+  #         path: TestResults.xcresult
+  #         show-code-coverage: true
   write-comment:
 #    if: ${{ github.event.issue.pull_request }}
 # github.event.number # MR number
 # github.event.after # commit
     runs-on: ubuntu-latest
+    - name: Dump GitHub context
+      env:
+        pr_number: ${{ github.event.number }}
+        commit: ${{ github.event.after }}
+      run: echo "$pr_number"
+      run: echo "$commit"
+    - name: Dump GitHub context
+      env:
+        CONTEXXX: ${{ toJson(context) }}
+      run: echo "$CONTEXXX"
     steps:
       - uses: actions/github-script@v6
         with:
@@ -31,9 +41,9 @@ jobs:
             github.rest.pulls.createReviewComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: github.event.number,
+              pull_number: context.issue.number,
               body: 'Test',
-              commit_id: github.event.after,
+              commit_id: context.issue.after,
               path: README.md,
               line: 1
             });
@@ -46,6 +56,6 @@ jobs:
             github.rest.pulls.listReviewComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: github.event.number,
+              pull_number: context.issue.number,
               review_id,
             });
