@@ -21,18 +21,16 @@ jobs:
           show-code-coverage: true
   write-comment:
 #    if: ${{ github.event.issue.pull_request }}
+# github.event.number # MR number
+# github.event.after # commit
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
       - uses: actions/github-script@v6
         with:
           script: |
-            github.rest.pulls.createReviewComment({
-              pull_number: context.issue.number,
+            github.rest.issues.createComment({
+              issue_number: github.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Test'
-            })
+            });
