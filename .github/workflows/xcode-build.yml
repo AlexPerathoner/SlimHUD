@@ -38,7 +38,7 @@ jobs:
               repo: context.repo.repo,
               pull_number: context.issue.number,
               body: 'Test',
-              commit_id: context.issue.after,
+              commit_id: '981847553b49b20d299175dd33c99910f4b0590d',
               path: 'README.md',
               line: 1
             });
@@ -50,11 +50,10 @@ jobs:
         with:
         #listReviewComments
           script: |
-            return github.rest.pulls.get({
+            return github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: context.issue.number
+              issue_number: context.issue.number
             });
-          result-encoding: json
       - name: Get result
         run: echo "${{ toJson(steps.set-result.outputs.result) }}"
