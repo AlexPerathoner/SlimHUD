@@ -39,7 +39,7 @@ jobs:
               pull_number: context.issue.number,
               body: 'Test',
               commit_id: context.issue.after,
-              path: README.md,
+              path: 'README.md',
               line: 1
             });
   get-comment:
@@ -52,5 +52,4 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.issue.number,
-              review_id,
             });
