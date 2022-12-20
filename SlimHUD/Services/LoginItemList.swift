@@ -9,7 +9,7 @@
 import Foundation
 class LoginItemsList : NSObject {
 
-	let loginItemsList : LSSharedFileList = LSSharedFileListCreate(nil, kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil).takeRetainedValue();
+    let loginItemsList : LSSharedFileList = LSSharedFileListCreate(nil, kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil)!.takeRetainedValue();
 
 
 
@@ -56,7 +56,7 @@ class LoginItemsList : NSObject {
 		var path = LoginItemsList.appPath()
 
 		// Copy all login items in the list
-		let loginItems : NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil).takeRetainedValue();
+        let loginItems : NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil)!.takeRetainedValue();
 
 		var foundLoginItem : LSSharedFileListItem?;
 		var nextItemUrl : Unmanaged<CFURL>?;
@@ -87,7 +87,7 @@ class LoginItemsList : NSObject {
 	func getLastLoginItemInList() -> LSSharedFileListItem! {
 
 		// Copy all login items in the list
-		let loginItems : NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil).takeRetainedValue() as NSArray;
+        let loginItems : NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil)!.takeRetainedValue() as NSArray;
 		if(loginItems.count > 0) {
 			let lastLoginItem = loginItems.lastObject as! LSSharedFileListItem;
 
