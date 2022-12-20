@@ -57,4 +57,4 @@ jobs:
             });
           result-encoding: string
       - name: Get result
-        run: echo "${{steps.set-result.outputs.result}}"
+        run: echo "${{ toJson(steps.set-result.outputs.result) }}"
