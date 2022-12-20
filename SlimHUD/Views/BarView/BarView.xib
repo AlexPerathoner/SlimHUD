@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BarView" customModule="SlimHUD" customModuleProvider="target"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" userLabel="barView" customClass="BarView" customModule="SlimHUD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="47" height="280"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="OEc-3L-76X" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                    <rect key="frame" x="20" y="42" width="7" height="218"/>
+                </customView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-vC-v05">
+                    <rect key="frame" x="13" y="13" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="NDy-U7-cMw"/>
+                        <constraint firstAttribute="height" constant="21" id="sfE-DM-dbO"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="brightness" id="zRf-Lj-5fz"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="5Ds-vC-v05" firstAttribute="top" secondItem="OEc-3L-76X" secondAttribute="bottom" constant="8" symbolic="YES" id="2He-Tf-5ba"/>
+                <constraint firstItem="5Ds-vC-v05" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="EK3-ax-JRK"/>
+                <constraint firstItem="OEc-3L-76X" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="ICd-eG-WXX"/>
+                <constraint firstAttribute="bottom" secondItem="5Ds-vC-v05" secondAttribute="bottom" constant="13" id="MYb-Fb-JAy"/>
+                <constraint firstItem="5Ds-vC-v05" firstAttribute="centerX" secondItem="OEc-3L-76X" secondAttribute="centerX" id="i2g-Or-H8I"/>
+                <constraint firstItem="OEc-3L-76X" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="pd0-y8-lvQ"/>
+            </constraints>
+            <connections>
+                <outlet property="bar" destination="OEc-3L-76X" id="zCC-bE-hnn"/>
+                <outlet property="image" destination="5Ds-vC-v05" id="pMb-Sz-xS9"/>
+            </connections>
+            <point key="canvasLocation" x="-84" y="153"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="brightness" width="224" height="223"/>
+    </resources>
+</document>
