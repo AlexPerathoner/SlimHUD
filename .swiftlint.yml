@@ -3,3 +3,7 @@ force_cast: warning
 
 function_parameter_count: # rule identifier
   severity: warning
+
+file_length:
+  warning: 500
+  error: 2500
