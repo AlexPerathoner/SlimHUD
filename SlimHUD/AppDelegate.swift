@@ -72,8 +72,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
                                                object: NSApplication.shared,
                                                queue: OperationQueue.main) { _ -> Void in
             self.positionManager.setupHUDsPosition(false)
-		}
-        
+        }
+
         OSDUIManager.stop()
-	}
+    }
 }

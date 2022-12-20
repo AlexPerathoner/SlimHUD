@@ -10,12 +10,13 @@ import Foundation
 
 class OSDUIManager {
     private init() {}
-    
+
     public static func stop() {
         do {
             let kickstart = Process()
             kickstart.executableURL = URL(fileURLWithPath: "/bin/launchctl")
-            kickstart.arguments = ["kickstart", "gui/\(getuid())/com.apple.OSDUIHelper"] // When macOS boots, OSDUIHelper does not start until a volume button is pressed. We can workaround this by kickstarting it.
+            // When macOS boots, OSDUIHelper does not start until a volume button is pressed. We can workaround this by kickstarting it.
+            kickstart.arguments = ["kickstart", "gui/\(getuid())/com.apple.OSDUIHelper"]
             try kickstart.run()
             kickstart.waitUntilExit()
             usleep(500000) // Make sure it started
