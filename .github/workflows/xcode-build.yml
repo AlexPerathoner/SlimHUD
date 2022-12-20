@@ -1,31 +1,29 @@
 name: Build and Analyze
 on:
   push:
-    branches: ["master"]
+    branches: ["master", "develop"]
   pull_request:
-    branches: ["master"]
+    branches: ["master", "develop"]
 
 jobs:
-  test:
+  analyze:
     runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: sersoft-gmbh/xcodebuild-action@v2
-        with:
-          workspace: SlimHUD.xcworkspace
-          scheme: SlimHUD
-          destination: platform=macOS
-          action: test
-
-  coverage:
-    runs-on: macos-latest
-    needs: test
     steps:
       - uses: actions/checkout@v3
       - name: Test
         run: |
           xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - uses: kishikawakatsumi/xcresulttool@v1
+      - name: Create coverage
+        uses: kishikawakatsumi/xcresulttool@v1
         with:
           path: TestResults.xcresult
           show-code-coverage: true
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.pulls.createReviewComment({
+              pull_number: context.pulls.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Test'
+            })
