@@ -1,0 +1,15 @@
+# Swiftlint configuration file
+
+line_length:
+  warning: 150
+  error: 165
+
+force_cast:
+  severity: warning
+
+function_parameter_count:
+  severity: warning
+
+file_length:
+  warning: 500
+  error: 2500

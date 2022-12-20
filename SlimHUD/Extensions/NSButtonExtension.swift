@@ -11,7 +11,7 @@ import AppKit
 
 extension NSButton {
     func boolValue() -> Bool {
-        if(state.rawValue == 0) {
+        if state.rawValue == 0 {
             return false
         }
         return true

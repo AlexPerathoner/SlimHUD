@@ -44,12 +44,24 @@
 		FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */; };
 		FACB31172951B40000BFB792 /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31162951B40000BFB792 /* SensorError.swift */; };
 		FACB311C2951B6D800BFB792 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB311B2951B6D800BFB792 /* SettingsController.swift */; };
+		FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31232951B96200BFB792 /* SlimHUDTests.swift */; };
+		FACB312C2951B9F000BFB792 /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */; };
 		FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */; };
 		FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CB329509ED100B1A786 /* PositionManager.swift */; };
 		FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */; };
 		FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */; };
 		FAF5F6532406D1480011B766 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5F6522406D1480011B766 /* Hud.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FACB31252951B96200BFB792 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA69AC7B23F9E2E600AA73FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA69AC8223F9E2E600AA73FD;
+			remoteInfo = SlimHUD;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlimHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +106,9 @@
 		FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
 		FACB31162951B40000BFB792 /* SensorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
 		FACB311B2951B6D800BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		FACB31212951B96200BFB792 /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FACB31232951B96200BFB792 /* SlimHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDTests.swift; sourceTree = "<group>"; };
+		FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
 		FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsManager.swift; path = SlimHUD/Services/UserDefaultsManager.swift; sourceTree = SOURCE_ROOT; };
 		FACD8CB329509ED100B1A786 /* PositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManager.swift; sourceTree = "<group>"; };
 		FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -102,6 +117,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FACB311E2951B96200BFB792 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAE5E633244387AB0029471E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				FA69AC8523F9E2E600AA73FD /* SlimHUD */,
+				FACB31222951B96200BFB792 /* SlimHUDTests */,
 				FA69AC8423F9E2E600AA73FD /* Products */,
 				FAE5E634244387C70029471E /* Frameworks */,
 				2C740C1723CB20354D1E13A6 /* Pods */,
@@ -199,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				FA69AC8323F9E2E600AA73FD /* SlimHUD.app */,
+				FACB31212951B96200BFB792 /* SlimHUDTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,6 +302,23 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		FACB31222951B96200BFB792 /* SlimHUDTests */ = {
+			isa = PBXGroup;
+			children = (
+				FACB312A2951B9E100BFB792 /* Services */,
+				FACB31232951B96200BFB792 /* SlimHUDTests.swift */,
+			);
+			path = SlimHUDTests;
+			sourceTree = "<group>";
+		};
+		FACB312A2951B9E100BFB792 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		FAE5E634244387C70029471E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,18 +349,40 @@
 			productReference = FA69AC8323F9E2E600AA73FD /* SlimHUD.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FACB31202951B96200BFB792 /* SlimHUDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FACB31292951B96200BFB792 /* Build configuration list for PBXNativeTarget "SlimHUDTests" */;
+			buildPhases = (
+				FACB311D2951B96200BFB792 /* Sources */,
+				FACB311E2951B96200BFB792 /* Frameworks */,
+				FACB311F2951B96200BFB792 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FACB31262951B96200BFB792 /* PBXTargetDependency */,
+			);
+			name = SlimHUDTests;
+			productName = SlimHUDTests;
+			productReference = FACB31212951B96200BFB792 /* SlimHUDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		FA69AC7B23F9E2E600AA73FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Alex Perathoner";
 				TargetAttributes = {
 					FA69AC8223F9E2E600AA73FD = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					FACB31202951B96200BFB792 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = FA69AC8223F9E2E600AA73FD;
 					};
 				};
 			};
@@ -337,6 +400,7 @@
 			projectRoot = "";
 			targets = (
 				FA69AC8223F9E2E600AA73FD /* SlimHUD */,
+				FACB31202951B96200BFB792 /* SlimHUDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -351,6 +415,13 @@
 				FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */,
 				FA623A612468591400A6ABCB /* BarView.xib in Resources */,
 				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FACB311F2951B96200BFB792 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +513,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FACB311D2951B96200BFB792 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FACB312C2951B9F000BFB792 /* PositionManagerTests.swift in Sources */,
+				FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FACB31262951B96200BFB792 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA69AC8223F9E2E600AA73FD /* SlimHUD */;
+			targetProxy = FACB31252951B96200BFB792 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FA69AC9123F9E2E700AA73FD /* Debug */ = {
@@ -641,6 +729,46 @@
 			};
 			name = Release;
 		};
+		FACB31272951B96200BFB792 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XX9N244QQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlimHUD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SlimHUD";
+			};
+			name = Debug;
+		};
+		FACB31282951B96200BFB792 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XX9N244QQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlimHUD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SlimHUD";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -658,6 +786,15 @@
 			buildConfigurations = (
 				FA69AC9423F9E2E700AA73FD /* Debug */,
 				FA69AC9523F9E2E700AA73FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FACB31292951B96200BFB792 /* Build configuration list for PBXNativeTarget "SlimHUDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FACB31272951B96200BFB792 /* Debug */,
+				FACB31282951B96200BFB792 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

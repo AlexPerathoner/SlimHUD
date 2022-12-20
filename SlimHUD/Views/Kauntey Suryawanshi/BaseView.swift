@@ -11,18 +11,18 @@
 import AppKit
 
 @IBDesignable
-open class BaseView : NSView {
+open class BaseView: NSView {
 
     override public init(frame frameRect: NSRect) {
-		background = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1)
-		foreground = NSColor(red: 0.26, green: 0.67, blue: 0.41, alpha: 1.0)
+        background = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1)
+        foreground = NSColor(red: 0.26, green: 0.67, blue: 0.41, alpha: 1.0)
         super.init(frame: frameRect)
         self.configureLayers()
     }
 
     required public init?(coder: NSCoder) {
-		background = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1)
-		foreground = NSColor(red: 0.26, green: 0.67, blue: 0.41, alpha: 1.0)
+        background = NSColor(red: 0.34, green: 0.4, blue: 0.46, alpha: 1)
+        foreground = NSColor(red: 0.26, green: 0.67, blue: 0.41, alpha: 1.0)
         super.init(coder: coder)
         self.configureLayers()
     }
@@ -33,13 +33,13 @@ open class BaseView : NSView {
         notifyViewRedesigned()
     }
 
-	@IBInspectable open var background: NSColor {
+    @IBInspectable open var background: NSColor {
         didSet {
             self.notifyViewRedesigned()
         }
     }
 
-	@IBInspectable open var foreground: NSColor {
+    @IBInspectable open var foreground: NSColor {
         didSet {
             self.notifyViewRedesigned()
         }
@@ -57,4 +57,3 @@ open class BaseView : NSView {
         self.layer?.cornerRadius = cornerRadius
     }
 }
-
