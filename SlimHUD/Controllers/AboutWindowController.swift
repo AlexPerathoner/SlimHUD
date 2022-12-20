@@ -9,10 +9,9 @@
 import Cocoa
 
 class AboutWindowController: NSWindowController {
-	
-	override func windowDidLoad() {
-		NSApp.activate(ignoringOtherApps: true)
-	}
-	
-	
+
+    override func windowDidLoad() {
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
 }

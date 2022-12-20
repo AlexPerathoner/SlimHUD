@@ -9,8 +9,8 @@
 import Foundation
 
 enum Position: String {
-    case left = "left"
-    case right = "right"
-    case bottom = "bottom"
-    case top = "top"
+    case left
+    case right
+    case bottom
+    case top
 }

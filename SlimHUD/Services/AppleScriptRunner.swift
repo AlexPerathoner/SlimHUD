@@ -8,7 +8,7 @@ import Foundation
 
 class AppleScriptRunner {
     private init() {}
-    
+
     static func run(script: String) -> String? {
         var error: NSDictionary?
         if let scriptObject = NSAppleScript(source: script) {
