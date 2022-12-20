@@ -7,8 +7,15 @@ on:
 
 jobs:
   coherent-swift:
-    runs-on: ubuntu-latest
+    runs-on: macos-11
+    
     steps:
-      - uses: actions/checkout@v3
-      - name: coherent-swift
-        uses: arthurpalves/coherent-swift@0.5.11
+      - uses: actions/checkout@v2
+
+      - uses: arthurpalves/coherent-swift@main
+        with:
+          sources: SlimHUD/
+          minimum_threshold: 60
+          ignore_output_result: true
+          only_changes: false
+          report_format: plain
