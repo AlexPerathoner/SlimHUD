@@ -1,0 +1,122 @@
+//
+//  ChangesObserver.swift
+//  SlimHUD
+//
+//  Created by Alex Perathoner on 19/12/2022.
+//  Copyright © 2022 Alex Perathoner. All rights reserved.
+//
+
+import Foundation
+import Cocoa
+
+class ChangesObserver {
+    private var oldFullScreen: Bool
+    private var oldVolume: Float
+    private var oldBrightness: Float
+    private var oldKeyboard: Float
+    
+    private var settingsManager: SettingsManager = SettingsManager.getInstance()
+    private var positionManager: PositionManager
+    private var displayer: Displayer
+    private var volumeView: BarView
+    private var brightnessView: BarView
+    private var keyboardView: BarView
+    
+    init(positionManager: PositionManager, displayer: Displayer, volumeView: BarView, brightnessView: BarView, keyboardView: BarView) {
+        oldFullScreen = DisplayManager.isInFullscreenMode()
+        oldVolume = VolumeManager.getOutputVolume()
+        oldBrightness = DisplayManager.getDisplayBrightness()
+        oldKeyboard = KeyboardManager.getRawKeyboardBrightness()
+        self.positionManager = positionManager
+        self.displayer = displayer
+        self.volumeView = volumeView
+        self.brightnessView = brightnessView
+        self.keyboardView = keyboardView
+    }
+       
+    func startObserving() {
+        createObservers()
+        createTimerForContinuousChangesCheck(with: 0.2)
+    }
+    
+    private func createTimerForContinuousChangesCheck(with t: TimeInterval) {
+        let timer = Timer(timeInterval: t, target: self, selector: #selector(checkChanges), userInfo: nil, repeats: true)
+        let mainLoop = RunLoop.main
+        mainLoop.add(timer, forMode: .common)
+    }
+    
+    private func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: KeyPressObserver.volumeChanged, object: nil)
+        DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+        
+        //observers for brightness
+        NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD), name: KeyPressObserver.brightnessChanged, object: nil)
+        
+        //observers for keyboard backlight
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboardHUD), name: KeyPressObserver.keyboardIlluminationChanged, object: nil)
+        DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+    }
+    
+    @objc func showVolumeHUD() {
+        displayer.showVolumeHUD()
+    }
+    @objc func showBrightnessHUD() {
+        displayer.showBrightnessHUD()
+    }
+    @objc func showKeyboardHUD() {
+        displayer.showKeyboardHUD()
+    }
+    
+    @objc func checkChanges() {
+        let newFullScreen = DisplayManager.isInFullscreenMode()
+        
+        if(newFullScreen != oldFullScreen) {
+            positionManager.setupHUDsPosition(newFullScreen)
+            oldFullScreen = newFullScreen
+        }
+        
+        if(settingsManager.enabledBars.brightnessBar) {
+            checkBrightnessChanges()
+        }
+        if(settingsManager.enabledBars.keyboardBar) {
+            checkKeyboardChanges()
+        }
+        if(settingsManager.shouldContinuouslyCheck && settingsManager.enabledBars.volumeBar) {
+            checkVolumeChanges()
+        }
+    }
+    
+    private func isAlmost(n1: Float, n2: Float) -> Bool { //used to partially prevent the bars to display when no user input happened
+        let marginValue = Float(settingsManager.marginValue) / 100.0
+        return (n1 + marginValue >= n2 && n1 - marginValue <= n2)
+    }
+    
+    private func checkVolumeChanges() {
+        let newVolume = VolumeManager.getOutputVolume()
+        volumeView.bar!.progress = newVolume
+        if (!isAlmost(n1: oldVolume, n2: newVolume)) {
+            displayer.showVolumeHUD()
+            oldVolume = newVolume
+        }
+        volumeView.bar!.progress = newVolume
+    }
+    
+    private func checkBrightnessChanges() {
+        if(NSScreen.screens.count == 0) {return}
+        let newBrightness = DisplayManager.getDisplayBrightness()
+        if(!isAlmost(n1: oldBrightness, n2: newBrightness)) {
+            displayer.showBrightnessHUD()
+            oldBrightness = newBrightness
+        }
+        brightnessView.bar?.progress = newBrightness
+    }
+    
+    private func checkKeyboardChanges() {
+        let newKeyboard = KeyboardManager.getRawKeyboardBrightness()
+        if(!isAlmost(n1: oldKeyboard, n2: newKeyboard)) {
+            displayer.showKeyboardHUD()
+            oldKeyboard = newKeyboard
+        }
+        keyboardView.bar?.progress = KeyboardManager.getKeyboardBrightnessProportioned(raw: newKeyboard)
+    }
+}
