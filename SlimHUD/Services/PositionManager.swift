@@ -38,7 +38,7 @@ class PositionManager {
             (xDockHeight, yDockHeight) = DisplayManager.getDockHeight()
         }
 
-        let originPosition = calculateHUDsOriginPosition(hudPosition: settingsManager.position,
+        let originPosition = PositionManager.calculateHUDsOriginPosition(hudPosition: settingsManager.position,
                                                          dockPosition: DisplayManager.getDockPosition(),
                                                          xDockHeight: xDockHeight,
                                                          yDockHeight: yDockHeight,
@@ -63,7 +63,7 @@ class PositionManager {
     }
 
     // todo write tests
-    func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
+    static func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
                                      xDockHeight: CGFloat, yDockHeight: CGFloat,
                                      visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect,
                                      isInFullscreen: Bool) -> CGPoint {
