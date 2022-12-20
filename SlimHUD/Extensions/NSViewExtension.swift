@@ -12,10 +12,10 @@ import Cocoa
 extension NSView {
     func getCenter() -> CGPoint {
         return CGPoint(x: (self.frame.origin.x + (self.frame.size.width / 2)), y:
-        (self.frame.origin.y + (self.frame.size.height / 2)))
+                        (self.frame.origin.y + (self.frame.size.height / 2)))
     }
-    
-    func setAnchorPoint (anchorPoint:CGPoint) {
+
+    func setAnchorPoint (anchorPoint: CGPoint) {
         if let layer = self.layer {
             var newPoint = CGPoint(x: self.bounds.size.width * anchorPoint.x, y: self.bounds.size.height * anchorPoint.y)
             var oldPoint = CGPoint(x: self.bounds.size.width * layer.anchorPoint.x, y: self.bounds.size.height * layer.anchorPoint.y)
@@ -35,21 +35,21 @@ extension NSView {
             layer.anchorPoint = anchorPoint
         }
     }
-    
+
     func setupShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {
-        if(enabled) {
+        if enabled {
             shadow = NSShadow()
             wantsLayer = true
             superview?.wantsLayer = true
             layer?.shadowOpacity = 1
             layer?.shadowColor = .black
-            layer?.shadowOffset = NSMakeSize(0, 0)
+            layer?.shadowOffset = NSSize(width: 0, height: 0)
             layer?.shadowRadius = shadowRadius
         } else {
             shadow = nil
         }
     }
-    
+
     class func fromNib(name: String) -> NSView? {
         var views: NSArray?
         if Bundle.main.loadNibNamed(name, owner: nil, topLevelObjects: &views) {
@@ -60,6 +60,6 @@ extension NSView {
             }
         }
         return nil
-        
+
     }
 }
