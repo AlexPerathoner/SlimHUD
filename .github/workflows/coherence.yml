@@ -1,14 +1,14 @@
 name: Coherence check
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   coherent-swift:
     runs-on: macos-11
-    
+
     steps:
       - uses: actions/checkout@v2
 
