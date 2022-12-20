@@ -14,15 +14,28 @@ jobs:
         run: |
           xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
       - name: Create coverage
+        id: code-coverage
         uses: kishikawakatsumi/xcresulttool@v1
         with:
           path: TestResults.xcresult
           show-code-coverage: true
+  write-comment:
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump context
+        env:
+          CCCONTEXT: ${{ toJson(context) }}
+        run: echo "$CCCONTEXT"
       - uses: actions/github-script@v6
         with:
           script: |
             github.rest.pulls.createReviewComment({
-              pull_number: context.pulls.number,
+              pull_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Test'
