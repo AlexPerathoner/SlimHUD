@@ -1,6 +1,6 @@
 # Swiftlint configuration file
 
-line_length: 
+line_length:
   warning: 150
   error: 165
 
