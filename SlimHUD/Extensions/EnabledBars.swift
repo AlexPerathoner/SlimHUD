@@ -12,7 +12,7 @@ struct EnabledBars {
     var volumeBar: Bool
     var brightnessBar: Bool
     var keyboardBar: Bool
-    
+
     static let VOLUME_BAR_INDEX = 0
     static let BRIGHTNESS_BAR_INDEX = 1
     static let KEYBOARD_BAR_INDEX = 2

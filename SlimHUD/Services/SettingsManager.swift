@@ -8,11 +8,10 @@
 
 import Cocoa
 
-
 class SettingsManager {
-    
+
     // MARK: - Keys
-    
+
     static let BACKGROUND_COLOR_KEY = "backgroundColor"
     static let VOLUME_ENABLED_COLOR_KEY = "volumeEnabledColor"
     static let VOLUME_DISABLED_COLOR_KEY = "volumeDisabledColor"
@@ -30,125 +29,122 @@ class SettingsManager {
     static let POSITION_KEY = "position"
     static let ENABLED_BARS_KEY = "enabledBars"
     static let MARGIN_KEY = "marginValue"
-    
-    
-	
-	 // MARK: - Bars colors
-	var backgroundColor: NSColor {
-		didSet {
+
+    // MARK: - Bars colors
+    var backgroundColor: NSColor {
+        didSet {
             UserDefaultsManager.setItem(backgroundColor, for: SettingsManager.BACKGROUND_COLOR_KEY)
-		}
-	}
-	var volumeEnabledColor: NSColor {
-		didSet {
+        }
+    }
+    var volumeEnabledColor: NSColor {
+        didSet {
             UserDefaultsManager.setItem(volumeEnabledColor, for: SettingsManager.VOLUME_ENABLED_COLOR_KEY)
-		}
-	}
-	var volumeDisabledColor: NSColor {
-		didSet {
+        }
+    }
+    var volumeDisabledColor: NSColor {
+        didSet {
             UserDefaultsManager.setItem(volumeDisabledColor, for: SettingsManager.VOLUME_DISABLED_COLOR_KEY)
-		}
-	}
-	var brightnessColor: NSColor {
-		didSet {
+        }
+    }
+    var brightnessColor: NSColor {
+        didSet {
             UserDefaultsManager.setItem(brightnessColor, for: SettingsManager.BRIGHTNESS_COLOR_KEY)
-		}
-	}
-	var keyboardColor: NSColor {
-		didSet {
+        }
+    }
+    var keyboardColor: NSColor {
+        didSet {
             UserDefaultsManager.setItem(keyboardColor, for: SettingsManager.KEYBOARD_COLOR_KEY)
-		}
-	}
-	// MARK: - Icons colors
-	var volumeIconColor: NSColor {
-		didSet {
+        }
+    }
+    // MARK: - Icons colors
+    var volumeIconColor: NSColor {
+        didSet {
             UserDefaultsManager.setItem(volumeIconColor, for: SettingsManager.VOLUME_ICON_COLOR_KEY)
-		}
-	}
-	var brightnessIconColor: NSColor {
-		didSet {
+        }
+    }
+    var brightnessIconColor: NSColor {
+        didSet {
             UserDefaultsManager.setItem(brightnessIconColor, for: SettingsManager.BRIGHTNESS_ICON_COLOR_KEY)
-		}
-	}
-	var keyboardIconColor: NSColor {
-		didSet {
+        }
+    }
+    var keyboardIconColor: NSColor {
+        didSet {
             UserDefaultsManager.setItem(keyboardIconColor, for: SettingsManager.KEYBOARD_ICON_COLOR_KEY)
-		}
-	}
-	
-	// MARK: - Effects colors
-	var shouldShowShadows: Bool = true {
-		didSet {
+        }
+    }
+
+    // MARK: - Effects colors
+    var shouldShowShadows: Bool = true {
+        didSet {
             UserDefaults.standard.set(shouldShowShadows, forKey: SettingsManager.SHOULD_SHOW_SHADOWS_KEY)
-		}
-	}
-	var shouldShowIcons: Bool = true {
-		didSet {
+        }
+    }
+    var shouldShowIcons: Bool = true {
+        didSet {
             UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.SHOULD_SHOW_ICONS_KEY)
-		}
-	}
-	var shouldContinuouslyCheck: Bool = true {
-		didSet {
+        }
+    }
+    var shouldContinuouslyCheck: Bool = true {
+        didSet {
             UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.SHOULD_CONTINUOUSLY_CHECK_KEY)
-		}
-	}
-	var shouldUseAnimation: Bool = true {
-		didSet {
+        }
+    }
+    var shouldUseAnimation: Bool = true {
+        didSet {
             UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.SHOULD_USE_ANIMATION_KEY)
-		}
-	}
-	
-	var barHeight: Int = 218 {
-		didSet {
+        }
+    }
+
+    var barHeight: Int = 218 {
+        didSet {
             UserDefaults.standard.set(barHeight, forKey: SettingsManager.BAR_HEIGHT_KEY)
-		}
-	}
-	var barThickness: Int = 7 {
-		didSet {
+        }
+    }
+    var barThickness: Int = 7 {
+        didSet {
             UserDefaults.standard.set(barThickness, forKey: SettingsManager.BAR_THICKNESS_KEY)
-		}
-	}
-	var position: Position = Position.left {
-		didSet {
+        }
+    }
+    var position: Position = Position.left {
+        didSet {
             UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.POSITION_KEY)
-		}
-	}
-	
-	// MARK: - General
+        }
+    }
+
+    // MARK: - General
     var enabledBars: EnabledBars {
-		didSet {
+        didSet {
             let enabledBarsRaw = [enabledBars.volumeBar,
                                   enabledBars.brightnessBar,
                                   enabledBars.keyboardBar]
             UserDefaults.standard.set(enabledBarsRaw, forKey: SettingsManager.ENABLED_BARS_KEY)
-		}
-	}
-	
-	var marginValue: Int = 10 {
-		didSet {
+        }
+    }
+
+    var marginValue: Int = 10 {
+        didSet {
             UserDefaults.standard.set(marginValue, forKey: SettingsManager.MARGIN_KEY)
-		}
-	}
-	
-	
-	// MARK: - Class methods
-    
+        }
+    }
+
+    // MARK: - Class methods
+
     static private let singletonSettingsController = SettingsManager()
     public static func getInstance() -> SettingsManager {
         return singletonSettingsController
     }
-    
-	private init() {
+
+    private init() {
         backgroundColor = UserDefaultsManager.getItem(for: SettingsManager.BACKGROUND_COLOR_KEY, defaultValue: DefaultColors.DARK_GRAY)
         volumeEnabledColor = UserDefaultsManager.getItem(for: SettingsManager.VOLUME_ENABLED_COLOR_KEY, defaultValue: DefaultColors.BLUE)
         volumeDisabledColor = UserDefaultsManager.getItem(for: SettingsManager.VOLUME_DISABLED_COLOR_KEY, defaultValue: DefaultColors.GRAY)
-        brightnessColor = UserDefaultsManager.getItem(for:SettingsManager.BRIGHTNESS_COLOR_KEY, defaultValue: DefaultColors.YELLOW)
+        brightnessColor = UserDefaultsManager.getItem(for: SettingsManager.BRIGHTNESS_COLOR_KEY, defaultValue: DefaultColors.YELLOW)
         keyboardColor = UserDefaultsManager.getItem(for: SettingsManager.KEYBOARD_COLOR_KEY, defaultValue: DefaultColors.AZURE)
-		
+
         volumeIconColor = UserDefaultsManager.getItem(for: SettingsManager.VOLUME_ICON_COLOR_KEY, defaultValue: .white)
         brightnessIconColor = UserDefaultsManager.getItem(for: SettingsManager.BRIGHTNESS_COLOR_KEY, defaultValue: .white)
         keyboardIconColor = UserDefaultsManager.getItem(for: SettingsManager.KEYBOARD_ICON_COLOR_KEY, defaultValue: .white)
-		
+
         shouldShowShadows = UserDefaultsManager.getBool(for: SettingsManager.SHOULD_SHOW_SHADOWS_KEY)
         shouldShowIcons = UserDefaultsManager.getBool(for: SettingsManager.SHOULD_SHOW_ICONS_KEY)
         barHeight = UserDefaultsManager.getInt(for: SettingsManager.BAR_HEIGHT_KEY)
@@ -160,56 +156,54 @@ class SettingsManager {
         }
         shouldContinuouslyCheck = UserDefaultsManager.getBool(for: SettingsManager.SHOULD_CONTINUOUSLY_CHECK_KEY)
         shouldUseAnimation = UserDefaultsManager.getBool(for: SettingsManager.SHOULD_USE_ANIMATION_KEY)
-        let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.ENABLED_BARS_KEY, defaultValue:  [true, true, true])
+        let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.ENABLED_BARS_KEY, defaultValue: [true, true, true])
         let (volumeBarEnabled, brightnessBarEnabled, keyboardBarEnabled) =
             (enabledBarsRaw[EnabledBars.VOLUME_BAR_INDEX],
              enabledBarsRaw[EnabledBars.BRIGHTNESS_BAR_INDEX],
              enabledBarsRaw[EnabledBars.KEYBOARD_BAR_INDEX])
-		enabledBars = EnabledBars(volumeBar: volumeBarEnabled, brightnessBar: brightnessBarEnabled, keyboardBar: keyboardBarEnabled)
+        enabledBars = EnabledBars(volumeBar: volumeBarEnabled, brightnessBar: brightnessBarEnabled, keyboardBar: keyboardBarEnabled)
         marginValue = UserDefaultsManager.getInt(for: SettingsManager.MARGIN_KEY)
-	}
-	
-	func resetDefaultBarsColors() {
+    }
+
+    func resetDefaultBarsColors() {
         backgroundColor = DefaultColors.DARK_GRAY
         volumeEnabledColor = DefaultColors.BLUE
         volumeDisabledColor = DefaultColors.GRAY
         brightnessColor = DefaultColors.YELLOW
         keyboardColor = DefaultColors.AZURE
-	}
-	
-	func resetDefaultIconsColors() {
-		volumeIconColor = .white
-		brightnessIconColor = .white
-		keyboardIconColor = .white
-	}	
-	
+    }
+
+    func resetDefaultIconsColors() {
+        volumeIconColor = .white
+        brightnessIconColor = .white
+        keyboardIconColor = .white
+    }
+
     func saveAllItems() {
         UserDefaultsManager.setItem(backgroundColor, for: SettingsManager.BACKGROUND_COLOR_KEY)
         UserDefaultsManager.setItem(volumeEnabledColor, for: SettingsManager.VOLUME_ENABLED_COLOR_KEY)
         UserDefaultsManager.setItem(volumeDisabledColor, for: SettingsManager.VOLUME_DISABLED_COLOR_KEY)
         UserDefaultsManager.setItem(brightnessColor, for: SettingsManager.BRIGHTNESS_COLOR_KEY)
-        UserDefaultsManager.setItem(keyboardColor, for:SettingsManager.KEYBOARD_COLOR_KEY)
-		
+        UserDefaultsManager.setItem(keyboardColor, for: SettingsManager.KEYBOARD_COLOR_KEY)
+
         UserDefaultsManager.setItem(volumeIconColor, for: SettingsManager.VOLUME_ICON_COLOR_KEY)
         UserDefaultsManager.setItem(brightnessIconColor, for: SettingsManager.BRIGHTNESS_ICON_COLOR_KEY)
         UserDefaultsManager.setItem(keyboardIconColor, for: SettingsManager.KEYBOARD_ICON_COLOR_KEY)
-		
-		
+
         UserDefaults.standard.set(barHeight, forKey: SettingsManager.BAR_HEIGHT_KEY)
         UserDefaults.standard.set(barThickness, forKey: SettingsManager.BAR_THICKNESS_KEY)
         UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.SHOULD_SHOW_ICONS_KEY)
         UserDefaults.standard.set(shouldShowShadows, forKey: SettingsManager.SHOULD_SHOW_SHADOWS_KEY)
-		
+
         UserDefaults.standard.set(marginValue, forKey: SettingsManager.MARGIN_KEY)
         UserDefaults.standard.set(enabledBars, forKey: SettingsManager.ENABLED_BARS_KEY)
         UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.POSITION_KEY)
         UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.SHOULD_USE_ANIMATION_KEY)
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.SHOULD_CONTINUOUSLY_CHECK_KEY)
     }
-	
-	
-	deinit {
-		saveAllItems()
-	}
-	
+
+    deinit {
+        saveAllItems()
+    }
+
 }

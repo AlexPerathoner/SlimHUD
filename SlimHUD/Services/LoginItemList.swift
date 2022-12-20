@@ -7,109 +7,102 @@
 //
 
 import Foundation
-class LoginItemsList : NSObject {
+class LoginItemsList: NSObject {
 
-    let loginItemsList : LSSharedFileList = LSSharedFileListCreate(nil, kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil)!.takeRetainedValue();
+    let loginItemsList: LSSharedFileList = LSSharedFileListCreate(nil, kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil)!.takeRetainedValue()
 
+    func addLoginItem() -> Bool {
+        var path = LoginItemsList.appPath()
+        if getLoginItem() != nil {
+            print("Login Item has already been added to the list.")
+            return true
+        }
+        print("Path adding to Login Item list is: ", path)
 
+        // add new Login Item at the end of Login Items list
+        if let loginItem = LSSharedFileListInsertItemURL(loginItemsList,
+                                                         getLastLoginItemInList(),
+                                                         nil, nil,
+                                                         path,
+                                                         nil, nil) {
+            print("Added login item is: ", loginItem)
+            return true
+        }
 
-	func addLoginItem() -> Bool {
-		var path = LoginItemsList.appPath()
-		if(getLoginItem() != nil) {
-			print("Login Item has already been added to the list.");
-			return true;
-		}
-		print("Path adding to Login Item list is: ", path);
+        return false
+    }
 
-		// add new Login Item at the end of Login Items list
-		if let loginItem = LSSharedFileListInsertItemURL(loginItemsList,
-														  getLastLoginItemInList(),
-														  nil, nil,
-														  path,
-														  nil, nil) {
-			print("Added login item is: ", loginItem);
-			return true;
-		}
+    func removeLoginItem() -> Bool {
 
-		return false;
-	}
+        var path = LoginItemsList.appPath()
+        // remove Login Item from the Login Items list
+        if let oldLoginItem = getLoginItem() {
+            print("Old login item is: ", oldLoginItem)
+            if LSSharedFileListItemRemove(loginItemsList, oldLoginItem) == noErr {
+                return true
+            }
+            return false
+        }
+        print("Login Item for given path not found in the list.")
+        return true
+    }
 
+    func getLoginItem() -> LSSharedFileListItem! {
 
-	func removeLoginItem() -> Bool {
-		
-		var path = LoginItemsList.appPath()
-		// remove Login Item from the Login Items list
-		if let oldLoginItem = getLoginItem() {
-			print("Old login item is: ", oldLoginItem);
-			if(LSSharedFileListItemRemove(loginItemsList, oldLoginItem) == noErr) {
-				return true;
-			}
-			return false;
-		}
-		print("Login Item for given path not found in the list.");
-		return true;
-	}
+        var path = LoginItemsList.appPath()
 
+        // Copy all login items in the list
+        let loginItems: NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil)!.takeRetainedValue()
 
-	func getLoginItem() -> LSSharedFileListItem! {
-		
-		var path = LoginItemsList.appPath()
+        var foundLoginItem: LSSharedFileListItem?
+        var nextItemUrl: Unmanaged<CFURL>?
 
-		// Copy all login items in the list
-        let loginItems : NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil)!.takeRetainedValue();
+        // Iterate through login items to find one for given path
+        print("App URL: ", path)
+        for var i in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
+        {
 
-		var foundLoginItem : LSSharedFileListItem?;
-		var nextItemUrl : Unmanaged<CFURL>?;
+            var nextLoginItem: LSSharedFileListItem = loginItems.object(at: i) as! LSSharedFileListItem
 
-		// Iterate through login items to find one for given path
-		print("App URL: ", path);
-		for var i in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
-		{
+            if LSSharedFileListItemResolve(nextLoginItem, 0, &nextItemUrl, nil) == noErr {
 
-			var nextLoginItem : LSSharedFileListItem = loginItems.object(at: i) as! LSSharedFileListItem; // CFArrayGetValueAtIndex(loginItems, i).;
+                print("Next login item URL: ", nextItemUrl!.takeUnretainedValue())
+                // compare searched item URL passed in argument with next item URL
+                if nextItemUrl!.takeRetainedValue() == path {
+                    foundLoginItem = nextLoginItem
+                }
+            }
+        }
 
+        return foundLoginItem
+    }
 
-			if(LSSharedFileListItemResolve(nextLoginItem, 0, &nextItemUrl, nil) == noErr) {
+    func getLastLoginItemInList() -> LSSharedFileListItem! {
 
+        // Copy all login items in the list
+        let loginItems: NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil)!.takeRetainedValue() as NSArray
+        if loginItems.count > 0 {
+            let lastLoginItem = loginItems.lastObject as! LSSharedFileListItem
 
+            print("Last login item is: ", lastLoginItem)
+            return lastLoginItem
+        }
 
-				print("Next login item URL: ", nextItemUrl!.takeUnretainedValue());
-				// compare searched item URL passed in argument with next item URL
-				if(nextItemUrl!.takeRetainedValue() == path) {
-					foundLoginItem = nextLoginItem;
-				}
-			}
-		}
+        return kLSSharedFileListItemBeforeFirst.takeRetainedValue()
+    }
 
-		return foundLoginItem;
-	}
+    func isLoginItemInList() -> Bool {
 
-	func getLastLoginItemInList() -> LSSharedFileListItem! {
+        if getLoginItem() != nil {
+            return true
+        }
 
-		// Copy all login items in the list
-        let loginItems : NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil)!.takeRetainedValue() as NSArray;
-		if(loginItems.count > 0) {
-			let lastLoginItem = loginItems.lastObject as! LSSharedFileListItem;
+        return false
+    }
 
-			print("Last login item is: ", lastLoginItem);
-			return lastLoginItem
-		}
+    static func appPath() -> CFURL {
 
-		return kLSSharedFileListItemBeforeFirst.takeRetainedValue();
-	}
-
-	func isLoginItemInList() -> Bool {
-
-		if(getLoginItem() != nil) {
-			return true;
-		}
-
-		return false;
-	}
-
-	static func appPath() -> CFURL {
-
-		return NSURL.fileURL(withPath: Bundle.main.bundlePath) as CFURL;
-	}
+        return NSURL.fileURL(withPath: Bundle.main.bundlePath) as CFURL
+    }
 
 }

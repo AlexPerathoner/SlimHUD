@@ -10,16 +10,16 @@ import Cocoa
 import AppKit
 
 extension NSImage {
-    
+
     static let VOLUME_IMAGE_FILE_NAME = "volume"
     static let BRIGHTNESS_IMAGE_FILE_NAME = "brightness"
     static let KEYBOARD_IMAGE_FILE_NAME = "backlight"
     static let STATUS_ICON_IMAGE_FILE_NAME = "statusIcon"
     static let NO_VOLUME_IMAGE_FILE_NAME = "noVolume"
-    
+
 }
 
-//extension NSImage {
+// extension NSImage {
 //	/// https://stackoverflow.com/a/50074538/6884062
 //	/// - Returns: returns the tinted version of a template image
 //	func tint(color: NSColor) -> NSImage {
@@ -35,5 +35,4 @@ extension NSImage {
 //
 //		return image
 //	}
-//}
-
+// }

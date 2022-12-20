@@ -15,7 +15,7 @@ extension NSSegmentedControl {
                            brightnessBar: isSelected(forSegment: EnabledBars.BRIGHTNESS_BAR_INDEX),
                            keyboardBar: isSelected(forSegment: EnabledBars.KEYBOARD_BAR_INDEX))
     }
-    
+
     func setBarState(enabledBars: EnabledBars) throws {
         setSelected(enabledBars.volumeBar, forSegment: EnabledBars.VOLUME_BAR_INDEX)
         setSelected(enabledBars.brightnessBar, forSegment: EnabledBars.BRIGHTNESS_BAR_INDEX)

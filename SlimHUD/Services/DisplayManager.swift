@@ -11,66 +11,66 @@ import Cocoa
 
 class DisplayManager {
     private init() {}
-    
+
     static func getDisplayBrightness() -> Float {
         var brightness: float_t = 1
         let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IODisplayConnect"))
-        
+
         IODisplayGetFloatParameter(service, 0, kIODisplayBrightnessKey as CFString, &brightness)
         IOObjectRelease(service)
         return brightness
     }
-    
+
     static func getScreenInfo() -> (screenFrame: NSRect, xDockHeight: CGFloat, yDockHeight: CGFloat, menuBarThickness: CGFloat, dockPosition: Position) {
         let visibleFrame = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
         let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
         let yDockHeight: CGFloat = visibleFrame.minY
         let xDockHeight: CGFloat = screenFrame.width - visibleFrame.width
         var menuBarThickness: CGFloat = 0
-        
-        if((screenFrame.height - visibleFrame.height - yDockHeight) != 0) { //menu bar visible
+
+        if (screenFrame.height - visibleFrame.height - yDockHeight) != 0 { // menu bar visible
             menuBarThickness = NSStatusBar.system.thickness
         }
         let dockPosition = Position(rawValue: (UserDefaults.standard.persistentDomain(forName: "com.apple.dock")!["orientation"] as! String))
         return (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition ?? .bottom)
     }
-    
+
     /* Note the difference between NSScreen.main and NSScreen.screens[0]:
      * NSScreen.main is the "key" screen, where the currently frontmost window resides.
      * NSScreen.screens[0] is the screen which has a menu bar, and is chosen in the Preferences > monitor settings
-    */
+     */
     static func getZeroScreen() -> NSScreen {
         return NSScreen.screens[0]
     }
-    
+
     static func getScreenFrame() -> NSRect {
         return getZeroScreen().frame
     }
-    
+
     static func getVisibleScreenFrame() -> NSRect {
         return getZeroScreen().visibleFrame
     }
-    
+
     static func getMenuBarThickness() -> CGFloat {
         let screenFrame = getScreenFrame()
         let visibleFrame = getVisibleScreenFrame()
         var menuBarThickness: CGFloat = 0
-        if((screenFrame.height - visibleFrame.height - visibleFrame.minY) != 0) { // menu bar visible
+        if (screenFrame.height - visibleFrame.height - visibleFrame.minY) != 0 { // menu bar visible
             menuBarThickness = NSStatusBar.system.thickness
         }
         return menuBarThickness
     }
-    
+
     static func getDockHeight() -> (xDockHeight: CGFloat, yDockHeight: CGFloat) {
         let screenFrame = getScreenFrame()
         let visibleFrame = getVisibleScreenFrame()
-        
+
         let yDockHeight: CGFloat = visibleFrame.minY
         let xDockHeight: CGFloat = screenFrame.width - visibleFrame.width
-        
+
         return (xDockHeight, yDockHeight)
     }
-    
+
     static func getDockPosition() -> Position {
         var dockPosition: Position = .bottom
         if let rawPosition = UserDefaults.standard.persistentDomain(forName: "com.apple.dock")!["orientation"] as? String {
@@ -84,30 +84,30 @@ class DisplayManager {
         }
         return dockPosition
     }
-    
+
     static func isInFullscreenMode() -> Bool {
         let options = CGWindowListOption(arrayLiteral: CGWindowListOption.excludeDesktopElements, CGWindowListOption.optionOnScreenOnly)
         let windowListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
         let windows = windowListInfo as NSArray? as? [[CFString: AnyObject]] ?? []
         let screenSize = DisplayManager.getScreenFrame()
         // TODO: check if it's possible to simplify function with just this:
-//        let windows = infoList.map({ (windowObj) -> String? in
-//            return windowObj[kCGWindowOwnerName] as? String
-//        })
-//        return windows.contains("Window Server") || windows.contains("Dock")
-        
+        //        let windows = infoList.map({ (windowObj) -> String? in
+        //            return windowObj[kCGWindowOwnerName] as? String
+        //        })
+        //        return windows.contains("Window Server") || windows.contains("Dock")
+
         for window in windows {
             if let windowName = window[kCGWindowOwnerName] as? String {
-                //if Window Server or Dock are visible the user is certainly not using fullscreen
-                if(windowName == "Window Server" || windowName == "Dock") {return false}
-                if (window[kCGWindowBounds]?["Height"] as? CGFloat ?? 0 == screenSize.height &&
-                        window[kCGWindowBounds]?["Width"] as? CGFloat ?? 0 == screenSize.width &&
-                        windowName != "SlimHUD") {
+                // if Window Server or Dock are visible the user is certainly not using fullscreen
+                if windowName == "Window Server" || windowName == "Dock" {return false}
+                if window[kCGWindowBounds]?["Height"] as? CGFloat ?? 0 == screenSize.height &&
+                    window[kCGWindowBounds]?["Width"] as? CGFloat ?? 0 == screenSize.width &&
+                    windowName != "SlimHUD" {
                     return true
                 }
             }
         }
-        
+
         return true
     }
 

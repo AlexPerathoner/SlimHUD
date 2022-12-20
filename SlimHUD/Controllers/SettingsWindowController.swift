@@ -9,28 +9,28 @@
 import Cocoa
 
 class SettingsWindowController: NSWindowController, NSWindowDelegate {
-	
-	private var previewTimer: Timer?
-    
+
+    private var previewTimer: Timer?
+
     var displayer = (NSApplication.shared.delegate as! AppDelegate).displayer
-	
-	override func windowDidLoad() {
-		super.windowDidLoad()
-		window?.delegate = self
-		
-		if previewTimer == nil { //windowDidLoad() could be called multiple times
-			//sends a notification every second causing the bar to appear and be kept visible
-			previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (t) in
+
+    override func windowDidLoad() {
+        super.windowDidLoad()
+        window?.delegate = self
+
+        if previewTimer == nil { // windowDidLoad() could be called multiple times
+            // sends a notification every second causing the bar to appear and be kept visible
+            previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (_) in
                 self.displayer.showVolumeHUD()
-			}
-			RunLoop.current.add(previewTimer!, forMode: .eventTracking)
-		}
-		
-		NSApp.activate(ignoringOtherApps: true)
-	}
-	
-	func windowWillClose(_ notification: Notification) {
-		previewTimer?.invalidate()
-	}
-	
+            }
+            RunLoop.current.add(previewTimer!, forMode: .eventTracking)
+        }
+
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    func windowWillClose(_ notification: Notification) {
+        previewTimer?.invalidate()
+    }
+
 }
