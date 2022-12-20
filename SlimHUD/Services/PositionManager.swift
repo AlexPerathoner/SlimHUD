@@ -39,13 +39,13 @@ class PositionManager {
         }
 
         let originPosition = PositionManager.calculateHUDsOriginPosition(hudPosition: settingsManager.position,
-                                                         dockPosition: DisplayManager.getDockPosition(),
-                                                         xDockHeight: xDockHeight,
-                                                         yDockHeight: yDockHeight,
-                                                         visibleFrame: visibleFrame,
-                                                         hudSize: barViewFrame,
-                                                         screenFrame: screenFrame,
-                                                         isInFullscreen: isFullscreen)
+                                                                         dockPosition: DisplayManager.getDockPosition(),
+                                                                         xDockHeight: xDockHeight,
+                                                                         yDockHeight: yDockHeight,
+                                                                         visibleFrame: visibleFrame,
+                                                                         hudSize: barViewFrame,
+                                                                         screenFrame: screenFrame,
+                                                                         isInFullscreen: isFullscreen)
 
         setHudsPosition(originPosition: originPosition)
 
@@ -64,9 +64,9 @@ class PositionManager {
 
     // todo write tests
     static func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
-                                     xDockHeight: CGFloat, yDockHeight: CGFloat,
-                                     visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect,
-                                     isInFullscreen: Bool) -> CGPoint {
+                                            xDockHeight: CGFloat, yDockHeight: CGFloat,
+                                            visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect,
+                                            isInFullscreen: Bool) -> CGPoint {
         var position: CGPoint
         switch hudPosition {
         case .left:

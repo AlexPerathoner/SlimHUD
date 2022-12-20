@@ -9,7 +9,7 @@
 import Foundation
 class LoginItemsList: NSObject {
 
-    let loginItemsList: LSSharedFileList = LSSharedFileListCreate(nil,kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil)!.takeRetainedValue()
+    let loginItemsList: LSSharedFileList = LSSharedFileListCreate(nil, kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil)!.takeRetainedValue()
 
     func addLoginItem() -> Bool {
         var path = LoginItemsList.appPath()

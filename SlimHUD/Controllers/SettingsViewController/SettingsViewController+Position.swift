@@ -25,7 +25,7 @@ extension SettingsViewController {
         }
         delegate?.positionManager.setupHUDsPosition(false)
 
-        if settingsManager.shouldShowIcons ?? false {
+        if settingsManager.shouldShowIcons {
             displayRelaunchButton()
         }
         delegate?.positionManager.setupHUDsPosition(false)
