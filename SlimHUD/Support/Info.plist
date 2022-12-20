@@ -33,7 +33,7 @@
 	<key>NSMainStoryboardFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>SlimHUD.ObserverApplication</string>
+	<string>SlimHUD.KeyPressObserver</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
