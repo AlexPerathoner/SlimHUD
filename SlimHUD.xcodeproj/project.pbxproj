@@ -8,15 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1219E06918EE24D5484AA823 /* Pods_SlimHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */; };
-		FA12C21124EA934800F92CA3 /* SettingsWindowControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21024EA934800F92CA3 /* SettingsWindowControllerDelegate.swift */; };
+		FA12C21124EA934800F92CA3 /* HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */; };
 		FA12C21324EA937800F92CA3 /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */; };
 		FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */; };
 		FA12C21724EA93DF00F92CA3 /* SettingsViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21624EA93DF00F92CA3 /* SettingsViewController+Style.swift */; };
 		FA131C2F24683CBD005908FF /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA131C2E24683CBD005908FF /* MainMenu.storyboard */; };
+		FA2347472950D8E90017CF95 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2347462950D8E90017CF95 /* Constants.swift */; };
 		FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */; };
-		FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */; };
+		FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */; };
+		FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264662950BD850046CD2C /* ChangesObserver.swift */; };
+		FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264692950C1CF0046CD2C /* Displayer.swift */; };
 		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
-		FA55B98C2423FE180071E6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55B98B2423FE180071E6D9 /* Extensions.swift */; };
+		FA55B98C2423FE180071E6D9 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55B98B2423FE180071E6D9 /* NSImageExtension.swift */; };
 		FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
 		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
@@ -25,32 +28,46 @@
 		FA623A6324685DD000A6ABCB /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA623A6224685DD000A6ABCB /* BarView.swift */; };
 		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
 		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
-		FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78F53E242FA73000785678 /* SettingsPreview.swift */; };
+		FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */; };
+		FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A429506F00006F6936 /* NSControlExtension.swift */; };
+		FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A729506F0E006F6936 /* BoolExtension.swift */; };
+		FAA1D1AB29506F26006F6936 /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1AA29506F25006F6936 /* NSViewExtension.swift */; };
+		FAA1D1AE29506F4F006F6936 /* NSSegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */; };
+		FAA1D1B62950724B006F6936 /* VolumeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1B52950724B006F6936 /* VolumeManager.swift */; };
+		FAA1D1BB295073F4006F6936 /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1BA295073F4006F6936 /* DisplayManager.swift */; };
+		FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C02950764D006F6936 /* KeyboardManager.swift */; };
+		FAA1D1C429507814006F6936 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C329507814006F6936 /* Position.swift */; };
+		FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C629509317006F6936 /* EnabledBars.swift */; };
 		FAAFCD872458768E009E5E2E /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFCD862458768E009E5E2E /* About.storyboard */; };
 		FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFCD8824588785009E5E2E /* AboutViewController.swift */; };
-		FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScript.swift */; };
-		FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */; };
+		FABE1FDA23FEF17B009AD01F /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */; };
+		FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */; };
+		FACB31172951B40000BFB792 /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31162951B40000BFB792 /* SensorError.swift */; };
+		FACB311C2951B6D800BFB792 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB311B2951B6D800BFB792 /* SettingsController.swift */; };
+		FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */; };
+		FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CB329509ED100B1A786 /* PositionManager.swift */; };
 		FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */; };
 		FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */; };
 		FAF5F6532406D1480011B766 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5F6522406D1480011B766 /* Hud.swift */; };
-		FAF5F6552408445F0011B766 /* dbrightness in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6542408445F0011B766 /* dbrightness */; };
-		FAF5F658240875800011B766 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FAF5F6572408757F0011B766 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlimHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.debug.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.debug.xcconfig"; sourceTree = "<group>"; };
 		B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.release.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.release.xcconfig"; sourceTree = "<group>"; };
-		FA12C21024EA934800F92CA3 /* SettingsWindowControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowControllerDelegate.swift; sourceTree = "<group>"; };
+		FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsControllerInterface.swift; sourceTree = "<group>"; };
 		FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
 		FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
 		FA12C21624EA93DF00F92CA3 /* SettingsViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Style.swift"; sourceTree = "<group>"; };
 		FA131C2E24683CBD005908FF /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		FA2347462950D8E90017CF95 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		FA4264662950BD850046CD2C /* ChangesObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesObserver.swift; sourceTree = "<group>"; };
+		FA4264692950C1CF0046CD2C /* Displayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayer.swift; sourceTree = "<group>"; };
 		FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
-		FA55B98B2423FE180071E6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginItemList.swift; path = SlimHUD/Support/LoginItemList.swift; sourceTree = SOURCE_ROOT; };
+		FA55B98B2423FE180071E6D9 /* NSImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
+		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginItemList.swift; path = SlimHUD/Services/LoginItemList.swift; sourceTree = SOURCE_ROOT; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
@@ -61,17 +78,27 @@
 		FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA69AC8F23F9E2E700AA73FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
-		FA78F53E242FA73000785678 /* SettingsPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreview.swift; sourceTree = "<group>"; };
-		FAA1D194295051E8006F6936 /* DisplayServices */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = DisplayServices; path = ../../../../System/Library/PrivateFrameworks/DisplayServices.framework/Versions/A/DisplayServices; sourceTree = "<group>"; };
+		FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonExtension.swift; sourceTree = "<group>"; };
+		FAA1D1A429506F00006F6936 /* NSControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSControlExtension.swift; sourceTree = "<group>"; };
+		FAA1D1A729506F0E006F6936 /* BoolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtension.swift; sourceTree = "<group>"; };
+		FAA1D1AA29506F25006F6936 /* NSViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
+		FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSegmentedControlExtension.swift; sourceTree = "<group>"; };
+		FAA1D1B52950724B006F6936 /* VolumeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeManager.swift; sourceTree = "<group>"; };
+		FAA1D1BA295073F4006F6936 /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
+		FAA1D1C02950764D006F6936 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		FAA1D1C329507814006F6936 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		FAA1D1C629509317006F6936 /* EnabledBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnabledBars.swift; sourceTree = "<group>"; };
 		FAAFCD862458768E009E5E2E /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		FAAFCD8824588785009E5E2E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		FABE1FD923FEF17B009AD01F /* AppleScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScript.swift; sourceTree = "<group>"; };
-		FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverApplication.swift; sourceTree = "<group>"; };
+		FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
+		FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
+		FACB31162951B40000BFB792 /* SensorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
+		FACB311B2951B6D800BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsManager.swift; path = SlimHUD/Services/UserDefaultsManager.swift; sourceTree = SOURCE_ROOT; };
+		FACD8CB329509ED100B1A786 /* PositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManager.swift; sourceTree = "<group>"; };
 		FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		FAF5F6522406D1480011B766 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
-		FAF5F6542408445F0011B766 /* dbrightness */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dbrightness; sourceTree = "<group>"; };
-		FAF5F6572408757F0011B766 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,36 +137,31 @@
 			isa = PBXGroup;
 			children = (
 				FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */,
-				FA12C21824EA9D5F00F92CA3 /* SettingsViewController */,
-				FA12C21024EA934800F92CA3 /* SettingsWindowControllerDelegate.swift */,
-				FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */,
-				FA78F53E242FA73000785678 /* SettingsPreview.swift */,
+				FACB311B2951B6D800BFB792 /* SettingsController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		FA51B9612469D52F0095C8B7 /* Windows */ = {
+		FA51B9612469D52F0095C8B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAF5F6522406D1480011B766 /* Hud.swift */,
+				FA5C77E8240B0753004E0937 /* Kauntey Suryawanshi */,
+				FA623A6424685DDB00A6ABCB /* BarView */,
 				FA131C2E24683CBD005908FF /* MainMenu.storyboard */,
 				FA262AE5240E9EEF00BFC2D1 /* Settings */,
 				FAAFCD8A24588A68009E5E2E /* About */,
 			);
-			path = Windows;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FA51B9622469D5470095C8B7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */,
-				FA262AE1240E6AA000BFC2D1 /* SettingsController.swift */,
+				FACB31182951B40600BFB792 /* Errors */,
+				FA2347462950D8E90017CF95 /* Constants.swift */,
 				FA69AC8F23F9E2E700AA73FD /* Info.plist */,
 				FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */,
-				FAF5F6522406D1480011B766 /* Hud.swift */,
-				FABE1FD923FEF17B009AD01F /* AppleScript.swift */,
-				FA55B98B2423FE180071E6D9 /* Extensions.swift */,
-				FA5C77E8240B0753004E0937 /* Kauntey Suryawanshi */,
-				FAF5F656240875670011B766 /* Nick Sweeting */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -184,42 +206,84 @@
 		FA69AC8523F9E2E600AA73FD /* SlimHUD */ = {
 			isa = PBXGroup;
 			children = (
-				FABE1FDB23FEF17E009AD01F /* ObserverApplication.swift */,
+				FAA1D19E29506E8B006F6936 /* Controllers */,
+				FAA1D19C29506E66006F6936 /* Services */,
 				FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */,
-				FA51B9612469D52F0095C8B7 /* Windows */,
-				FA623A6424685DDB00A6ABCB /* BarView */,
-				FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */,
+				FAA1D19F29506E9F006F6936 /* Extensions */,
 				FA51B9622469D5470095C8B7 /* Support */,
+				FA51B9612469D52F0095C8B7 /* Views */,
+				FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */,
 			);
 			path = SlimHUD;
+			sourceTree = "<group>";
+		};
+		FAA1D19C29506E66006F6936 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */,
+				FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */,
+				FA4264692950C1CF0046CD2C /* Displayer.swift */,
+				FACD8CB329509ED100B1A786 /* PositionManager.swift */,
+				FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */,
+				FA4264662950BD850046CD2C /* ChangesObserver.swift */,
+				FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */,
+				FAA1D1BA295073F4006F6936 /* DisplayManager.swift */,
+				FAA1D1C02950764D006F6936 /* KeyboardManager.swift */,
+				FAA1D1B52950724B006F6936 /* VolumeManager.swift */,
+				FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FAA1D19E29506E8B006F6936 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */,
+				FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */,
+				FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */,
+				FA12C21824EA9D5F00F92CA3 /* SettingsViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FAA1D19F29506E9F006F6936 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA55B98B2423FE180071E6D9 /* NSImageExtension.swift */,
+				FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */,
+				FAA1D1AA29506F25006F6936 /* NSViewExtension.swift */,
+				FAA1D1A729506F0E006F6936 /* BoolExtension.swift */,
+				FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */,
+				FAA1D1A429506F00006F6936 /* NSControlExtension.swift */,
+				FAA1D1C329507814006F6936 /* Position.swift */,
+				FAA1D1C629509317006F6936 /* EnabledBars.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FAAFCD8A24588A68009E5E2E /* About */ = {
 			isa = PBXGroup;
 			children = (
-				FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */,
 				FAAFCD8824588785009E5E2E /* AboutViewController.swift */,
 				FAAFCD862458768E009E5E2E /* About.storyboard */,
 			);
 			path = About;
 			sourceTree = "<group>";
 		};
+		FACB31182951B40600BFB792 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				FACB31162951B40000BFB792 /* SensorError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		FAE5E634244387C70029471E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FAA1D194295051E8006F6936 /* DisplayServices */,
 				335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FAF5F656240875670011B766 /* Nick Sweeting */ = {
-			isa = PBXGroup;
-			children = (
-				FAF5F6572408757F0011B766 /* LICENSE */,
-				FAF5F6542408445F0011B766 /* dbrightness */,
-			);
-			path = "Nick Sweeting";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,11 +346,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF5F6552408445F0011B766 /* dbrightness in Resources */,
 				FA131C2F24683CBD005908FF /* MainMenu.storyboard in Resources */,
 				FAAFCD872458768E009E5E2E /* About.storyboard in Resources */,
 				FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */,
-				FAF5F658240875800011B766 /* LICENSE in Resources */,
 				FA623A612468591400A6ABCB /* BarView.xib in Resources */,
 				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
 			);
@@ -341,26 +403,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA262AE2240E6AA000BFC2D1 /* SettingsController.swift in Sources */,
-				FABE1FDC23FEF17E009AD01F /* ObserverApplication.swift in Sources */,
+				FACB311C2951B6D800BFB792 /* SettingsController.swift in Sources */,
+				FACB31172951B40000BFB792 /* SensorError.swift in Sources */,
+				FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */,
+				FAA1D1AE29506F4F006F6936 /* NSSegmentedControlExtension.swift in Sources */,
+				FAA1D1AB29506F26006F6936 /* NSViewExtension.swift in Sources */,
+				FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */,
+				FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */,
 				FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */,
+				FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */,
 				FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */,
-				FABE1FDA23FEF17B009AD01F /* AppleScript.swift in Sources */,
+				FABE1FDA23FEF17B009AD01F /* AppleScriptRunner.swift in Sources */,
+				FAA1D1C429507814006F6936 /* Position.swift in Sources */,
+				FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */,
 				FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */,
 				FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */,
-				FA55B98C2423FE180071E6D9 /* Extensions.swift in Sources */,
+				FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */,
+				FA55B98C2423FE180071E6D9 /* NSImageExtension.swift in Sources */,
 				FA12C21324EA937800F92CA3 /* SettingsViewController+General.swift in Sources */,
 				FA12C21724EA93DF00F92CA3 /* SettingsViewController+Style.swift in Sources */,
 				FAF5F6532406D1480011B766 /* Hud.swift in Sources */,
 				FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */,
 				FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */,
+				FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */,
 				FA623A6324685DD000A6ABCB /* BarView.swift in Sources */,
+				FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */,
 				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
+				FAA1D1BB295073F4006F6936 /* DisplayManager.swift in Sources */,
 				FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */,
 				FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */,
+				FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */,
+				FA2347472950D8E90017CF95 /* Constants.swift in Sources */,
+				FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */,
 				FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */,
-				FA12C21124EA934800F92CA3 /* SettingsWindowControllerDelegate.swift in Sources */,
-				FA78F53F242FA73000785678 /* SettingsPreview.swift in Sources */,
+				FA12C21124EA934800F92CA3 /* HudsControllerInterface.swift in Sources */,
+				FAA1D1B62950724B006F6936 /* VolumeManager.swift in Sources */,
+				FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
