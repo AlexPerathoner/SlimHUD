@@ -31,12 +31,3 @@ jobs:
         env:
           CCCONTEXT: ${{ toJson(context) }}
         run: echo "$CCCONTEXT"
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.pulls.createReviewComment({
-              pull_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Test'
-            })
