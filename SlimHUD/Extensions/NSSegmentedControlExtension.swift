@@ -11,14 +11,14 @@ import Cocoa
 
 extension NSSegmentedControl {
     func getBarState() -> EnabledBars {
-        return EnabledBars(volumeBar: isSelected(forSegment: EnabledBars.VOLUME_BAR_INDEX),
-                           brightnessBar: isSelected(forSegment: EnabledBars.BRIGHTNESS_BAR_INDEX),
-                           keyboardBar: isSelected(forSegment: EnabledBars.KEYBOARD_BAR_INDEX))
+        return EnabledBars(volumeBar: isSelected(forSegment: EnabledBars.VolumeBarIndex),
+                           brightnessBar: isSelected(forSegment: EnabledBars.BrightnessBarIndex),
+                           keyboardBar: isSelected(forSegment: EnabledBars.KeyboardBarIndex))
     }
-    
+
     func setBarState(enabledBars: EnabledBars) throws {
-        setSelected(enabledBars.volumeBar, forSegment: EnabledBars.VOLUME_BAR_INDEX)
-        setSelected(enabledBars.brightnessBar, forSegment: EnabledBars.BRIGHTNESS_BAR_INDEX)
-        setSelected(enabledBars.keyboardBar, forSegment: EnabledBars.KEYBOARD_BAR_INDEX)
+        setSelected(enabledBars.volumeBar, forSegment: EnabledBars.VolumeBarIndex)
+        setSelected(enabledBars.brightnessBar, forSegment: EnabledBars.BrightnessBarIndex)
+        setSelected(enabledBars.keyboardBar, forSegment: EnabledBars.KeyboardBarIndex)
     }
 }

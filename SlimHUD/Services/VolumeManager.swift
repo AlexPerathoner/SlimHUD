@@ -10,7 +10,7 @@ import Foundation
 
 class VolumeManager {
     private init() {}
-    
+
     static func isMuted() -> Bool {
         return AppleScriptRunner.run(script: "return output muted of (get volume settings)") == "true"
     }

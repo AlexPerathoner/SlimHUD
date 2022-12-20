@@ -1,0 +1,5 @@
+line_length: 150
+force_cast: warning
+
+function_parameter_count: # rule identifier
+  severity: warning

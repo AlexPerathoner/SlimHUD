@@ -11,7 +11,7 @@ import Cocoa
 
 extension NSControl.StateValue {
     func boolValue() -> Bool {
-        if(self.rawValue == 0) {
+        if self.rawValue == 0 {
             return false
         }
         return true
