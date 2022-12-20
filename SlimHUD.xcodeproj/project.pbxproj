@@ -18,16 +18,14 @@
 		FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */; };
 		FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264662950BD850046CD2C /* ChangesObserver.swift */; };
 		FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264692950C1CF0046CD2C /* Displayer.swift */; };
+		FA48AE4B29521CC900A9E0E2 /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48AE4A29521CC900A9E0E2 /* SensorError.swift */; };
 		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
 		FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
 		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
 		FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */; };
-		FA623A612468591400A6ABCB /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA623A602468591400A6ABCB /* BarView.xib */; };
-		FA623A6324685DD000A6ABCB /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA623A6224685DD000A6ABCB /* BarView.swift */; };
 		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
 		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
-		FA78F53F242FA73000785678 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78F53E242FA73000785678 /* SettingsController.swift */; };
 		FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */; };
 		FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A429506F00006F6936 /* NSControlExtension.swift */; };
 		FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A729506F0E006F6936 /* BoolExtension.swift */; };
@@ -38,9 +36,13 @@
 		FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C02950764D006F6936 /* KeyboardManager.swift */; };
 		FAA1D1C429507814006F6936 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C329507814006F6936 /* Position.swift */; };
 		FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C629509317006F6936 /* EnabledBars.swift */; };
+		FAA2265D294E746D00E082CB /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2265C294E746D00E082CB /* OSDUIManager.swift */; };
 		FAAFCD872458768E009E5E2E /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFCD862458768E009E5E2E /* About.storyboard */; };
 		FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFCD8824588785009E5E2E /* AboutViewController.swift */; };
 		FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */; };
+		FACB31042951ACAF00BFB792 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31032951ACAF00BFB792 /* SettingsController.swift */; };
+		FACB310A2951ACE900BFB792 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACB31082951ACE900BFB792 /* BarView.xib */; };
+		FACB310B2951ACE900BFB792 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31092951ACE900BFB792 /* BarView.swift */; };
 		FACB31132951B00A00BFB792 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */; };
 		FACB31152951B01400BFB792 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31142951B01400BFB792 /* NSImageExtension.swift */; };
 		FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31232951B96200BFB792 /* SlimHUDTests.swift */; };
@@ -76,19 +78,17 @@
 		FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		FA4264662950BD850046CD2C /* ChangesObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesObserver.swift; sourceTree = "<group>"; };
 		FA4264692950C1CF0046CD2C /* Displayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayer.swift; sourceTree = "<group>"; };
+		FA48AE4A29521CC900A9E0E2 /* SensorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
 		FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginItemList.swift; path = SlimHUD/Services/LoginItemList.swift; sourceTree = SOURCE_ROOT; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
-		FA623A602468591400A6ABCB /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
-		FA623A6224685DD000A6ABCB /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		FA69AC8323F9E2E600AA73FD /* SlimHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA69AC8F23F9E2E700AA73FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
-		FA78F53E242FA73000785678 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonExtension.swift; sourceTree = "<group>"; };
 		FAA1D1A429506F00006F6936 /* NSControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSControlExtension.swift; sourceTree = "<group>"; };
 		FAA1D1A729506F0E006F6936 /* BoolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtension.swift; sourceTree = "<group>"; };
@@ -99,9 +99,13 @@
 		FAA1D1C02950764D006F6936 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		FAA1D1C329507814006F6936 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		FAA1D1C629509317006F6936 /* EnabledBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnabledBars.swift; sourceTree = "<group>"; };
+		FAA2265C294E746D00E082CB /* OSDUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSDUIManager.swift; sourceTree = "<group>"; };
 		FAAFCD862458768E009E5E2E /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		FAAFCD8824588785009E5E2E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
+		FACB31032951ACAF00BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		FACB31082951ACE900BFB792 /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarView.xib; path = SlimHUD/Views/BarView/BarView.xib; sourceTree = SOURCE_ROOT; };
+		FACB31092951ACE900BFB792 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = SlimHUD/Views/BarView/BarView.swift; sourceTree = SOURCE_ROOT; };
 		FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FACB31142951B01400BFB792 /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
 		FACB31212951B96200BFB792 /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */,
-				FA78F53E242FA73000785678 /* SettingsController.swift */,
+				FACB31032951ACAF00BFB792 /* SettingsController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -166,8 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				FAF5F6522406D1480011B766 /* Hud.swift */,
+				FACB31072951ACDE00BFB792 /* BarView */,
 				FA5C77E8240B0753004E0937 /* Kauntey Suryawanshi */,
-				FA623A6424685DDB00A6ABCB /* BarView */,
 				FA131C2E24683CBD005908FF /* MainMenu.storyboard */,
 				FA262AE5240E9EEF00BFC2D1 /* Settings */,
 				FAAFCD8A24588A68009E5E2E /* About */,
@@ -178,6 +182,7 @@
 		FA51B9622469D5470095C8B7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				FACB31182951B40600BFB792 /* Errors */,
 				FA2347462950D8E90017CF95 /* Constants.swift */,
 				FA69AC8F23F9E2E700AA73FD /* Info.plist */,
 				FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */,
@@ -193,15 +198,6 @@
 				FA5C77EA240B077E004E0937 /* ProgressBar.swift */,
 			);
 			path = "Kauntey Suryawanshi";
-			sourceTree = "<group>";
-		};
-		FA623A6424685DDB00A6ABCB /* BarView */ = {
-			isa = PBXGroup;
-			children = (
-				FA623A602468591400A6ABCB /* BarView.xib */,
-				FA623A6224685DD000A6ABCB /* BarView.swift */,
-			);
-			path = BarView;
 			sourceTree = "<group>";
 		};
 		FA69AC7A23F9E2E600AA73FD = {
@@ -241,6 +237,7 @@
 		FAA1D19C29506E66006F6936 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FAA2265C294E746D00E082CB /* OSDUIManager.swift */,
 				FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */,
 				FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */,
 				FA4264692950C1CF0046CD2C /* Displayer.swift */,
@@ -289,6 +286,23 @@
 				FAAFCD862458768E009E5E2E /* About.storyboard */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		FACB31072951ACDE00BFB792 /* BarView */ = {
+			isa = PBXGroup;
+			children = (
+				FACB31092951ACE900BFB792 /* BarView.swift */,
+				FACB31082951ACE900BFB792 /* BarView.xib */,
+			);
+			path = BarView;
+			sourceTree = "<group>";
+		};
+		FACB31182951B40600BFB792 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				FA48AE4A29521CC900A9E0E2 /* SensorError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		FACB31222951B96200BFB792 /* SlimHUDTests */ = {
@@ -400,9 +414,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA131C2F24683CBD005908FF /* MainMenu.storyboard in Resources */,
+				FACB310A2951ACE900BFB792 /* BarView.xib in Resources */,
 				FAAFCD872458768E009E5E2E /* About.storyboard in Resources */,
 				FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */,
-				FA623A612468591400A6ABCB /* BarView.xib in Resources */,
 				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,12 +477,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACB310B2951ACE900BFB792 /* BarView.swift in Sources */,
+				FACB31042951ACAF00BFB792 /* SettingsController.swift in Sources */,
 				FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */,
 				FAA1D1AE29506F4F006F6936 /* NSSegmentedControlExtension.swift in Sources */,
 				FAA1D1AB29506F26006F6936 /* NSViewExtension.swift in Sources */,
 				FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */,
 				FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */,
 				FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */,
+				FA48AE4B29521CC900A9E0E2 /* SensorError.swift in Sources */,
 				FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */,
 				FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */,
 				FAA1D1C429507814006F6936 /* Position.swift in Sources */,
@@ -483,11 +500,11 @@
 				FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */,
 				FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */,
 				FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */,
-				FA623A6324685DD000A6ABCB /* BarView.swift in Sources */,
 				FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */,
 				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
 				FAA1D1BB295073F4006F6936 /* DisplayManager.swift in Sources */,
 				FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */,
+				FAA2265D294E746D00E082CB /* OSDUIManager.swift in Sources */,
 				FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */,
 				FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */,
 				FA2347472950D8E90017CF95 /* Constants.swift in Sources */,
@@ -663,6 +680,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/DisplayServices.framework/Versions/A",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD;
@@ -695,6 +716,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/DisplayServices.framework/Versions/A",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.3.8;

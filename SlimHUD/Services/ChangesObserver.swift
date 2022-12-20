@@ -26,7 +26,8 @@ class ChangesObserver {
         oldFullScreen = DisplayManager.isInFullscreenMode()
         oldVolume = VolumeManager.getOutputVolume()
         oldBrightness = DisplayManager.getDisplayBrightness()
-        oldKeyboard = KeyboardManager.getRawKeyboardBrightness()
+        oldKeyboard = KeyboardManager.getKeyboardBrightness()
+        
         self.positionManager = positionManager
         self.displayer = displayer
         self.volumeView = volumeView
@@ -123,11 +124,11 @@ class ChangesObserver {
     }
 
     private func checkKeyboardChanges() {
-        let newKeyboard = KeyboardManager.getRawKeyboardBrightness()
+        let newKeyboard = KeyboardManager.getKeyboardBrightness()
         if !isAlmost(firstNumber: oldKeyboard, secondNumber: newKeyboard) {
             displayer.showKeyboardHUD()
             oldKeyboard = newKeyboard
         }
-        keyboardView.bar?.progress = KeyboardManager.getKeyboardBrightnessProportioned(raw: newKeyboard)
+        keyboardView.bar?.progress = KeyboardManager.getKeyboardBrightness()
     }
 }
