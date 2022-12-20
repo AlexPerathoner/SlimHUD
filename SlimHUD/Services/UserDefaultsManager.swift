@@ -13,8 +13,8 @@ class UserDefaultsManager {
     static func getItem<T>(for key: String, defaultValue: T) -> T where T: NSCoding, T: NSObject {
         do {
             guard let data = UserDefaults.standard.object(forKey: key) as? Data,
-                let item = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! T? else {
-                    return defaultValue
+                  let item = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! T? else {
+                return defaultValue
             }
             return item
         } catch {
@@ -22,23 +22,23 @@ class UserDefaultsManager {
             return defaultValue
         }
     }
-    
+
     static func getBool(for key: String) -> Bool {
         return UserDefaults.standard.bool(forKey: key)
     }
-    
+
     static func getArr<T>(for key: String, defaultValue: [T]) -> [T] {
         return UserDefaults.standard.array(forKey: key) as! [T]? ?? defaultValue
     }
-    
+
     static func getString(for key: String, defaultValue: String) -> String {
         return UserDefaults.standard.string(forKey: key) ?? defaultValue
     }
-    
+
     static func getString(for key: String) -> String? {
         return UserDefaults.standard.string(forKey: key)
     }
-    
+
     static func getInt(for key: String) -> Int {
         return UserDefaults.standard.integer(forKey: key)
     }
