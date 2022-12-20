@@ -10,6 +10,8 @@ import Foundation
 
 class KeyboardManager {
     private init() {}
+
+    private static let MaxKeyboardBrightness: Float = 342
     
     private static var useM1KeyboardBrightnessMethod = false
     
@@ -18,7 +20,7 @@ class KeyboardManager {
             return getM1KeyboardBrightness()
         } else {
             do {
-                return try getStandardKeyboardBrightness()
+                return try getKeyboardBrightnessProportioned(raw: getRawKeyboardBrightness())
             } catch {
                 KeyboardManager.useM1KeyboardBrightnessMethod = true
                 return getM1KeyboardBrightness()
@@ -26,7 +28,13 @@ class KeyboardManager {
         }
     }
 
-    private static func getStandardKeyboardBrightness() throws -> Float {
+    // Raw value of sensor is non linear, correcting it
+    private static func getKeyboardBrightnessProportioned(raw: Float) -> Float {
+        if raw <= 0.07 { return 0 }
+        return (log10(raw+0.03)+1)
+    }
+
+    private static func getRawKeyboardBrightness() throws -> Float {
         let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleHIDKeyboardEventDriverV2"))
         defer {
             IOObjectRelease(service)
@@ -34,10 +42,11 @@ class KeyboardManager {
 
         if let ser: CFTypeRef = IORegistryEntryCreateCFProperty(service, "KeyboardBacklightBrightness" as CFString, kCFAllocatorDefault, 0)?.takeUnretainedValue() {
             let result = ser as! Float
-            return result / 342 // max value is 342, proportioning to %
+            return result / KeyboardManager.MaxKeyboardBrightness
         }
         throw SensorError.keyboardBrightnessFailure
     }
+    
     private static func getM1KeyboardBrightness() -> Float {
         let task = Process()
         task.launchPath = "/usr/libexec/corebrightnessdiag"

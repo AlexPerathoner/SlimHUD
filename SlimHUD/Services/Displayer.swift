@@ -51,14 +51,14 @@ class Displayer: HudsControllerInterface {
 
     func showVolumeHUD() {
         if !settingsManager.enabledBars.volumeBar {return}
-        let disabled = VolumeManager.isMuted()
+        let muted = VolumeManager.isMuted()
         let volumeView = getBarView(hud: volumeHud)
-        setColor(for: volumeView.bar!, disabled)
+        setColor(for: volumeView.bar!, muted)
         if !settingsManager.shouldContinuouslyCheck {
             volumeView.bar!.progress = VolumeManager.getOutputVolume()
         }
 
-        if disabled {
+        if muted {
             volumeView.image!.image = NSImage(named: NSImage.NoVolumeImageFileName)
         } else {
             volumeView.image!.image = NSImage(named: NSImage.VolumeImageFileName)

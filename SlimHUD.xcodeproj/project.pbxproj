@@ -20,7 +20,6 @@
 		FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264692950C1CF0046CD2C /* Displayer.swift */; };
 		FA48AE4B29521CC900A9E0E2 /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48AE4A29521CC900A9E0E2 /* SensorError.swift */; };
 		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
-		FA55B98C2423FE180071E6D9 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55B98B2423FE180071E6D9 /* NSImageExtension.swift */; };
 		FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
 		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
@@ -40,11 +39,12 @@
 		FAA2265D294E746D00E082CB /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2265C294E746D00E082CB /* OSDUIManager.swift */; };
 		FAAFCD872458768E009E5E2E /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFCD862458768E009E5E2E /* About.storyboard */; };
 		FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFCD8824588785009E5E2E /* AboutViewController.swift */; };
-		FABE1FDA23FEF17B009AD01F /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */; };
 		FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */; };
 		FACB31042951ACAF00BFB792 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31032951ACAF00BFB792 /* SettingsController.swift */; };
 		FACB310A2951ACE900BFB792 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACB31082951ACE900BFB792 /* BarView.xib */; };
 		FACB310B2951ACE900BFB792 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31092951ACE900BFB792 /* BarView.swift */; };
+		FACB31132951B00A00BFB792 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */; };
+		FACB31152951B01400BFB792 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31142951B01400BFB792 /* NSImageExtension.swift */; };
 		FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31232951B96200BFB792 /* SlimHUDTests.swift */; };
 		FACB312C2951B9F000BFB792 /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */; };
 		FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */; };
@@ -80,7 +80,6 @@
 		FA4264692950C1CF0046CD2C /* Displayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayer.swift; sourceTree = "<group>"; };
 		FA48AE4A29521CC900A9E0E2 /* SensorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
 		FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
-		FA55B98B2423FE180071E6D9 /* NSImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
 		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginItemList.swift; path = SlimHUD/Services/LoginItemList.swift; sourceTree = SOURCE_ROOT; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -103,11 +102,12 @@
 		FAA2265C294E746D00E082CB /* OSDUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSDUIManager.swift; sourceTree = "<group>"; };
 		FAAFCD862458768E009E5E2E /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		FAAFCD8824588785009E5E2E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
 		FACB31032951ACAF00BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FACB31082951ACE900BFB792 /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarView.xib; path = SlimHUD/Views/BarView/BarView.xib; sourceTree = SOURCE_ROOT; };
 		FACB31092951ACE900BFB792 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = SlimHUD/Views/BarView/BarView.swift; sourceTree = SOURCE_ROOT; };
+		FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
+		FACB31142951B01400BFB792 /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
 		FACB31212951B96200BFB792 /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACB31232951B96200BFB792 /* SlimHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDTests.swift; sourceTree = "<group>"; };
 		FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
@@ -244,8 +244,8 @@
 				FACD8CB329509ED100B1A786 /* PositionManager.swift */,
 				FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */,
 				FA4264662950BD850046CD2C /* ChangesObserver.swift */,
-				FABE1FD923FEF17B009AD01F /* AppleScriptRunner.swift */,
 				FAA1D1BA295073F4006F6936 /* DisplayManager.swift */,
+				FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */,
 				FAA1D1C02950764D006F6936 /* KeyboardManager.swift */,
 				FAA1D1B52950724B006F6936 /* VolumeManager.swift */,
 				FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */,
@@ -267,8 +267,8 @@
 		FAA1D19F29506E9F006F6936 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FA55B98B2423FE180071E6D9 /* NSImageExtension.swift */,
 				FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */,
+				FACB31142951B01400BFB792 /* NSImageExtension.swift */,
 				FAA1D1AA29506F25006F6936 /* NSViewExtension.swift */,
 				FAA1D1A729506F0E006F6936 /* BoolExtension.swift */,
 				FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */,
@@ -488,13 +488,12 @@
 				FA48AE4B29521CC900A9E0E2 /* SensorError.swift in Sources */,
 				FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */,
 				FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */,
-				FABE1FDA23FEF17B009AD01F /* AppleScriptRunner.swift in Sources */,
 				FAA1D1C429507814006F6936 /* Position.swift in Sources */,
 				FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */,
 				FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */,
 				FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */,
 				FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */,
-				FA55B98C2423FE180071E6D9 /* NSImageExtension.swift in Sources */,
+				FACB31152951B01400BFB792 /* NSImageExtension.swift in Sources */,
 				FA12C21324EA937800F92CA3 /* SettingsViewController+General.swift in Sources */,
 				FA12C21724EA93DF00F92CA3 /* SettingsViewController+Style.swift in Sources */,
 				FAF5F6532406D1480011B766 /* Hud.swift in Sources */,
@@ -512,6 +511,8 @@
 				FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */,
 				FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */,
 				FA12C21124EA934800F92CA3 /* HudsControllerInterface.swift in Sources */,
+				FACB31132951B00A00BFB792 /* AppleScriptRunner.swift in Sources */,
+				FA78F53F242FA73000785678 /* SettingsController.swift in Sources */,
 				FAA1D1B62950724B006F6936 /* VolumeManager.swift in Sources */,
 				FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */,
 			);
