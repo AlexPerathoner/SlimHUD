@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
     </dependencies>
     <scenes>
         <!--Application-->
         <scene sceneID="lsH-jy-eP4">
             <objects>
-                <customObject id="Fkg-Y0-35E" customClass="SUUpdater"/>
+                <customObject id="Fkg-Y0-35E" customClass="SPUStandardUpdaterController"/>
                 <customObject id="hbL-WD-91l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="ev8-l2-p2M" customClass="NSFontManager"/>
                 <customObject id="RpS-ln-g5c" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
