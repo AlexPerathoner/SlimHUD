@@ -20,7 +20,7 @@ jobs:
           path: TestResults.xcresult
           show-code-coverage: true
   write-comment:
-    if: ${{ github.event.issue.pull_request }}
+#    if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
