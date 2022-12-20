@@ -5,7 +5,7 @@ line_length:
   error: 165
 
 force_cast:
-  severity: error
+  severity: warning
 
 function_parameter_count:
   severity: warning
