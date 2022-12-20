@@ -74,5 +74,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
             self.positionManager.setupHUDsPosition(false)
         }
 
+        OSDUIManager.stop()
     }
 }

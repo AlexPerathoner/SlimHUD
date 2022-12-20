@@ -78,22 +78,7 @@ Here's a full list of the features:
 ## Installation
 Download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest).
 
-Launching SlimHud is easy: copy the app into your Application's folder and then open it.
-<br>**However**, as you probably also want it to replace MacOS' HUDs we'll have to follow a few steps more...<br>Please note that the following instructions will temporarily deactivate Sysem Integrity Protection. By proceeding you acknowledge that you are aware of which risks this leads to.<br>But don't be scared, just follow everything and you should be fine (source: [here](https://alanvitullo.wordpress.com/2018/02/20/remove-control-overlay-on-mac-os-high-sierra/) and [here](https://www.reddit.com/r/MacOS/comments/caiue5/macos_catalina_readonly_file_system_with_sip/)):
-
-**Note: I haven't found a safe way of overriding data on your boot disk under MacOS Big Sur yet. This method works for ≤10.15.x**
-<br>This means that SlimHUD' HUDs will still be visible, but the system HUDs will be visible as well.
-<br>Take a look at [this](https://github.com/AlexPerathoner/SlimHUD/discussions/23) if you really want to try installing it on Big Sur.
-
-1. Enter Recovery Mode by restarting your mac and holding ⌘+R while it's booting up.
-2. Launch the terminal by clicking on Utilities > Terminal.
-3. Disable SIP with ```csrutil disable```.
-4. Restart your mac and login into an admin account.
-5. Run ```sudo mount -uw /; killall Finder``` in your terminal. <sup>[2](#note2)</sup>
-6. Now run ```sudo nano /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist```.
-6. Remove all of the text between \<plist version=”1.0″> and \</plist>. Save the file by hitting control + X, answering yes and hitting return.
-8. Re-enter Recovery mode.
-9. Enable SIP with ```csrutil enable```. 
+Launching SlimHud is easy: copy the app into your Application's folder and open it (credits to [GameParrot](https://github.com/GameParrot) for making it so easy!
 
 You have now successfully replaced those ugly and old overlays! Congrats!
 
