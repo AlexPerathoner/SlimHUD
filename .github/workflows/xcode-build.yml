@@ -36,7 +36,7 @@ jobs:
             github.rest.pulls.createReviewComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: context.pull_request.number,
+              pull_number: context.issue.number,
               body: 'Test',
               commit_id: context.issue.after,
               path: 'README.md',
@@ -55,6 +55,6 @@ jobs:
               repo: context.repo.repo,
               pull_number: context.issue.number
             });
-          result-encoding: string
+          result-encoding: json
       - name: Get result
         run: echo "${{ toJson(steps.set-result.outputs.result) }}"
