@@ -30,10 +30,6 @@ jobs:
           pr_number: ${{ github.event.number }}
           commit: ${{ github.event.after }}
         run: echo "$pr_number $commit"
-      - name: Dump GitHub context
-        env:
-          CONTEXXX: ${{ toJson(context) }}
-        run: echo "$CONTEXXX"
       - uses: actions/github-script@v6
         with:
           script: |
