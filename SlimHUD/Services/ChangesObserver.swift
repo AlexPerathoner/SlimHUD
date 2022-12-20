@@ -25,6 +25,7 @@ class ChangesObserver {
         oldFullScreen = DisplayManager.isInFullscreenMode()
         oldVolume = VolumeManager.getOutputVolume()
         oldBrightness = DisplayManager.getDisplayBrightness()
+        
         self.positionManager = positionManager
         self.displayer = displayer
         self.volumeView = volumeView
