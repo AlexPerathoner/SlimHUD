@@ -24,17 +24,17 @@ jobs:
 # github.event.number # MR number
 # github.event.after # commit
     runs-on: ubuntu-latest
-    - name: Dump GitHub context
-      env:
-        pr_number: ${{ github.event.number }}
-        commit: ${{ github.event.after }}
-      run: echo "$pr_number"
-      run: echo "$commit"
-    - name: Dump GitHub context
-      env:
-        CONTEXXX: ${{ toJson(context) }}
-      run: echo "$CONTEXXX"
     steps:
+      - name: Dump GitHub context
+        env:
+          pr_number: ${{ github.event.number }}
+          commit: ${{ github.event.after }}
+        run: echo "$pr_number"
+        run: echo "$commit"
+      - name: Dump GitHub context
+        env:
+          CONTEXXX: ${{ toJson(context) }}
+        run: echo "$CONTEXXX"
       - uses: actions/github-script@v6
         with:
           script: |
