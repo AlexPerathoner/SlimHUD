@@ -1,0 +1,33 @@
+# Automatically generated with `coherent-swift init`
+
+# source
+# Folder containing the source code to be scanned.
+# Scan will happen recursively:
+# i.e.: Sources/Subfolder/RandomFolder/Something.swift
+#
+# NOTE: If run with --diffs, it will only scan files in this source folder but which
+# content's have been modified
+
+sources:
+  - ./SlimHUD/
+
+# minimum_threshold
+# It will validate the definition's and overall cohesion against this minimum threshold.
+
+minimum_threshold: 60
+
+# reports_folder
+# The folder where your reports will be saved into.
+# If it doesn't exist, it will be created
+
+reports_folder: ./reports/
+
+# ignore_output_result
+# if `true`, doesn't fail if the code fails to meet the threshold
+# This is perfect to observe without enforcing changes.
+
+ignore_output_result: false
+
+# report_format - Optional, default format is json. Available formats: json, plain
+
+# report_format: plain
