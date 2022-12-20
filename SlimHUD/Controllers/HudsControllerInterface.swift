@@ -8,7 +8,7 @@
 
 import Cocoa
 
-protocol HudsControllerInterface: class {
+protocol HudsControllerInterface: AnyObject {
     func updateShadows(enabled: Bool)
     func updateIcons(isHidden: Bool)
     func setupDefaultBarsColors()

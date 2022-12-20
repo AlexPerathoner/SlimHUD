@@ -9,12 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?1060">
-	<link rel="stylesheet" type="text/css" href="style.css?6154">
-	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?4813">
-	<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?8104">
+	<link rel="stylesheet" type="text/css" href="style.css?6539">
+	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?6397">
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,40&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <title>Documentation</title>
 
 <style>
@@ -116,31 +115,31 @@
 <div class="page-container">
     
 <!-- bloc-0 -->
-<div class="bloc bgc-charcoal d-bloc none sticky-nav" id="bloc-0">
+<div class="bloc bgc-7970 d-bloc none sticky-nav" id="bloc-0">
 	<div class="container bloc-sm">
 		<div class="row">
 			<div class="col-12 offset-lg-0 col-lg-12">
 				<nav class="navbar navbar-light row navbar-expand-md" role="navigation" overflow="hidden">
-					<a class="navbar-brand ltc-moonstone-blue" href="index.html" float="none" width="auto" overflow="hidden"><img src="img/Icon32Azure.png" alt="logo" class="mr-2" />SlimHUD</a>
-					<button id="nav-toggle" type="button" class="ui-navbar-toggler navbar-toggler border-0 p-0 mr-md-0 ml-auto navitem posrel " data-toggle="collapse" data-target=".navbar-4016" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
+					<a class="navbar-brand ltc-904" href="index.html" float="none" width="auto" overflow="hidden"><picture><source type="image/webp" srcset="img/Icon32Azure.webp"><img src="img/Icon32Azure.png" alt="logo" class="mr-2" width="32" height="32"></picture>SlimHUD</a>
+					<button id="nav-toggle" type="button" class="ui-navbar-toggler navbar-toggler border-0 p-0 mr-md-0 ml-auto navitem posrel" data-toggle="collapse" data-target=".navbar-4016" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"><svg height="32" viewBox="0 0 32 32" width="32"><path class="svg-menu-icon " d="m2 9h28m-28 7h28m-28 7h28"></path></svg></span>
 					</button>
 					<div class="collapse navbar-collapse navbar-4016 bloc-bloc-0-margin-bottom offset-md-2 special-dropdown-nav offset-lg-2 col-lg-7" float="right" width="200px">
-						<ul class="site-navigation nav navbar-nav ml-auto">
-							<li class="nav-item menuitem">
-								<a href="index.html" class="nav-link a-btn ltc-moonstone-blue">Home</a>
-							</li>
-							<li class="nav-item menuitem">
-								<a href="documentation.html" class="nav-link a-btn ltc-moonstone-blue">Documentation</a>
-							</li>
-							<li class="nav-item menuitem">
-								<a href="versions.html" class="nav-link a-btn ltc-moonstone-blue">Versions</a>
-							</li>
-							<li float="left">
-								<a href="https://github.com/AlexPerathoner/SlimHUD" target="_blank"><img src="img/gitHubIcon.png" class="img-fluid img-githubic-style float-lg-right d-lg-block  d-sm-none d-block" height="100" width="100" alt="gitHubIcon" /></a>
-							</li>
-						</ul>
-					</div>
+							<ul class="site-navigation nav navbar-nav ml-auto">
+								<li class="nav-item menuitem">
+									<a href="index.html" class="nav-link a-btn ltc-904">Home</a>
+								</li>
+								<li class="nav-item menuitem">
+									<a href="documentation.html" class="nav-link a-btn ltc-904">Documentation</a>
+								</li>
+								<li class="nav-item menuitem">
+									<a href="versions.html" class="nav-link a-btn ltc-904">Versions</a>
+								</li>
+								<li float="left">
+									<a href="https://github.com/AlexPerathoner/SlimHUD" target="_blank"><picture><source type="image/webp" srcset="img/gitHubIcon.webp"><img src="img/gitHubIcon.png" class="img-fluid img-githubic-style float-lg-right d-lg-block  d-sm-none d-block" height="100" width="100" alt="gitHubIcon"></picture></a>
+								</li>
+							</ul>
+						</div>
 				</nav>
 			</div>
 		</div>
@@ -153,7 +152,7 @@
 	<div class="container bloc-lg">
 		<div class="row">
 			<div class="bloc-margin-bottom col-lg-8">
-				<div >
+				<div>
 					<h1 id="gettingstarted" title="Getting Started">Getting started</h1>
 					
 				</div>
@@ -163,161 +162,117 @@
 				<div class="divider-h">
 						<span class="divider"></span>
 					</div>
-				<div >
-						<h1 id="installation" title="Installation">Installation</h1>
+				<div>
+						<h4 id="installation" title="Installation">Installation</h4>
 						
 					</div>
-				<h3 class="mg-md">
-							Installation<br>
-						</h3>
-				<div >
-							{% for release in site.github.releases limit:1%}
-	{% unless release.draft %}
-		{% unless release.prerelease and page.release_only %}
-			{% for asset in release.assets limit:1 %}
-				<p>Download the <a href="{{ asset.browser_download_url }}" class="link-color link-style">latest release</a>. </p>
-			{% endfor %}
-		{% endunless %}
-	{% endunless %}
-{% endfor %}
+				<p class="mg-lg">
+							Move the application file to the /Application folder
+						</p>
+				<div>
+							<h4 id="uninstallation" title="Uninstallation">Uninstallation</h4>
 							
 						</div>
-				<p>
-								Launching SlimHud is easy: copy the app into your Application's folder and then open it. <br><strong>However</strong>, as you probably also want it to replace MacOS' HUDs we'll have to follow a few steps more...<br>Please note that the following instructions will temporarily deactivate Sysem Integrity Protection. By proceeding you acknowledge that you are aware of which risks this leads to.<br>But do not be scared, just follow everything and you will be fine&nbsp;(source:&nbsp;<a class="link-color link-style" href="https://alanvitullo.wordpress.com/2018/02/20/remove-control-overlay-on-mac-os-high-sierra/" target="_blank">here</a>&nbsp;and&nbsp;<a class="link-color link-style" href="https://www.reddit.com/r/MacOS/comments/caiue5/macos_catalina_readonly_file_system_with_sip/" target="_blank">here</a>):<br>
+				<p class="mg-lg">
+								Move the application file to the trash bin. Log in again to restore MacOS’s Huds.
 							</p>
-				<div >
-								<ol>
-  <li>Enter Recovery Mode by restarting your mac and holding ⌘+R while it is booting up.</li>
-  <li>Launch the terminal by clicking on Utilities > Terminal.</li>
-  <li>Disable SIP with <span class="code">csrutil disable</span>.</li>
-  <li>Restart your mac and login into an admin account.</li>
-  <li>Run <span class="code">sudo -uw /; killall</span> Finder in your terminal.</li>
-  <li>Now run <span class="code">sudo nano /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist</span>.</li>
-  <li>Remove all of the text between <plist version=" ”1.0″" =""=""> and . Save the file by hitting control + X, answering yes and hitting return.</plist></li>
-  <li>Re-enter Recovery mode.</li>
-  <li>Enable SIP with <span class="code">csrutil enable.</span></li>
-</ol>
+				<div class="divider-h">
+								<span class="divider"></span>
+							</div>
+				<h5 class="mg-md">
+								Some questions?
+							</h5>
+				<p class="mg-lg">
+								<a class="link-color link-style" href="https://github.com/AlexPerathoner/SlimHUD/issues/new/choose" target="_blank">Open an issue</a>&nbsp;on GitHub!
+							</p>
+				<div class="divider-h">
+								<span class="divider"></span>
+							</div>
+				<div>
+								<h1 id="settings" title="Settings">Settings</h1>
 								
 							</div>
-				<p>
-									You have now successfully replaced those ugly and old overlays! Congrats!<br><br>For future updates it is not necessary to go through all of these steps. Just copy the latest release into your application Folder or&nbsp;check for new updates directly from inside the app.<br>
-								</p>
-				<h4 class="mg-md">
-									FAQ
-								</h4>
-				<h5 class="mg-md">
-									What is step 5 for?
-								</h5>
-				<p class="mg-lg">
-									sudo allows a permitted user to execute a command as the superuser or another user. Mount is used to mount disks. The -u flag indicates that the status of an already mounted file system should be changed. -w means to mount the file system read-write. The file system is "/" aka root. The killall utility kills processes selected by name. Since it's Finder, it will just restart and reflect the change you've just made. This is not permanent, there are more steps involved for that.<br>Source:&nbsp;<a class="link-color link-style" href="https://www.reddit.com/r/osx/comments/czkgn9/how_to_change_systemlibrarylaunchagents_in/eyzm42w?utm_source=share&amp;utm_medium=web2x" target="_blank">reddit</a><br><br>This is needed as in the last versions of MacOS the system files (like /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist that you'll modify in step 6) are stored in a different disk partition and being an administrator and having System Integrity Protection disabled still isn't enough to modify them.<br><br>PS: note that the right command is sudo mount -uw /, not sudo mount -uw<br>
-								</p>
-				<h5 class="mg-md">
-									Will I harm my Mac installing SlimHUD?
-								</h5>
-				<p class="mg-lg">
-									No, you will not.<br>I reccomend to only do what you need to do while having SIP disabled and as soon as you finish the installation re-enable SIP. Once enabled everything will be back to normal.
-								</p>
-				<h5 class="mg-md">
-									Other questions?
-								</h5>
-				<p class="mg-lg">
-									<a class="link-color link-style" href="https://github.com/AlexPerathoner/SlimHUD/issues/new/choose" target="_blank">Open an issue</a>&nbsp;on GitHub!
-								</p>
-				<h3 class="mg-md">
-									Uninstallation<br>
-								</h3>
-				<div >
-									<p>
-If you'd like to restore the system's HUDs follow the same steps described above.
-You can download a copy of the original <span class="code">com.apple.OSDUIHelper.plist</span> file <a href="https://alexperathoner.github.io/SlimHUD/Support/com.apple.OSDUIHelper.plist" class="link-style link-color">here</a>.
-</p>
-									
-								</div>
-				<div class="divider-h">
-										<span class="divider"></span>
-									</div>
-				<div >
-										<h1 id="settings" title="Settings">Settings</h1>
-										
-									</div>
-				<div >
-											The settings window is made up of 3 sections:
+				<div>
+									The settings window is made up of 3 sections:
 <ul>
 	<li><strong>General</strong></li>
 	<li><strong>Position</strong></li>
 	<li><strong>Style</strong></li>
 </ul>
 Remember that a preview of the bars is always visible. In addition, the volume bar is kept visible on the screen.<br>This should give you a exhaustive idea of what the look will be like.
-											
-										</div>
+									
+								</div>
 				<div class="container-div-style" id="general">
-												<img src="img/lazyload-ph.png" data-src="img/Schermata%202020-05-19%20alle%2022.12.43.png" class="img-fluid mx-auto d-block lazyload" alt="Schermata%202020 05-19%20alle%2022.12.43" />
-												<div >
-													<ul>
+										<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Schermata%202020-05-19%20alle%2022.12.43.webp"><img src="img/lazyload-ph.png" data-src="img/Schermata%202020-05-19%20alle%2022.12.43.png" class="img-fluid mx-auto d-block lazyload" alt="Schermata%202020 05-19%20alle%2022.12.43" width="690" height="452"></picture>
+										<div>
+											<ul>
 	<li><strong>Bars:</strong> choose individually which HUDs should appear;</li>
 	<li><strong>Margin-value:</strong> to improve the energy footprint SlimHUD only shows a HUD when the value has changed by more than this given value;</li>
 	<li><strong>Check for Updates:</strong> checks if a new update has been released;</li>
 	<li><strong>Continuously check:</strong> SlimHUD usually observes if a function key has been pressed and then displays a HUD. However, there are situations in which the value changes without a key being pressed. This usually happens when you use a slider on the TouchBar. Therefore you can enable this setting. Remember that this will lead to a small, but present, increase in the energy footprint;</li>
 	<li><strong>Launch at login:</strong> will automatically launch SlimHUD when you boot up your Mac;</li>
 </ul>
-													
-												</div>
-											</div>
+											
+										</div>
+									</div>
 				<div class="container-div-style" id="position">
-													<img src="img/lazyload-ph.png" data-src="img/Schermata%202020-05-19%20alle%2022.12.47.png" class="img-fluid mx-auto d-block lazyload" alt="Schermata%202020 05-19%20alle%2022.12.47" />
-													<div >
-														<ul>
+											<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Schermata%202020-05-19%20alle%2022.12.47.webp"><img src="img/lazyload-ph.png" data-src="img/Schermata%202020-05-19%20alle%2022.12.47.png" class="img-fluid mx-auto d-block lazyload" alt="Schermata%202020 05-19%20alle%2022.12.47" width="690" height="452"></picture>
+											<div>
+												<ul>
 	<li><strong>Position:</strong> choose the edge the HUDs should appear on;</li>
 	<li><strong>Size:</strong> set the main size of the bar;</li>
 	<li><strong>Thickness:</strong> set the thickness of the bar;</li>
 </ul>
 Note that the preview on the left will not display changes concerning this settings. The actual volume bar is kept visible and you will be able to see the changes directly there.
-														
-													</div>
-												</div>
+												
+											</div>
+										</div>
 				<div class="container-div-style" id="style">
-														<img src="img/lazyload-ph.png" data-src="img/Schermata%202020-05-19%20alle%2022.12.49.png" class="img-fluid mx-auto d-block lazyload" alt="Schermata%202020 05-19%20alle%2022.12.49" />
-														<div >
-															<ul>
+												<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Schermata%202020-05-19%20alle%2022.12.49.webp"><img src="img/lazyload-ph.png" data-src="img/Schermata%202020-05-19%20alle%2022.12.49.png" class="img-fluid mx-auto d-block lazyload" alt="Schermata%202020 05-19%20alle%2022.12.49" width="690" height="452"></picture>
+												<div>
+													<ul>
 	<li><strong>Icons:</strong> icons can be shown or hidden. There is a icon for the volume, one for the brightness and one for the keyboard backlight;</li>
 	<li><strong>Animations:</strong> toggles the animation displayed when the hud appears on the screen, and when the value changes while the bar is visible. This setting doesn't affect the energy footprint so feel free to choose what you like the most;</li>
 	<li><strong>Shadows:</strong> toggles a shadow effect behind the bar. This can help to improve the visibility of the bar;</li>
 	<li><strong>Colors:</strong> customise the colors of each bar and icon. The background color is the same for every bar.<br>The volume has two settable colors as it can be muted;</li>
 </ul>
-															
-														</div>
-													</div>
+													
+												</div>
+											</div>
 			</div>
 			<div class="col-md-6 col-lg-3 offset-lg-1 d-lg-block   d-none">
-														<div class="row">
-															<div class="col roundedrect indexblock col-lg-12">
-																<h5 class="mg-md">
-																	Contents
-																</h5>
-																<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem" title="gettingstarted">
-																	<a href="#gettingstarted">Getting started</a><br>
-																</p>
-																<p class="btn-resize-mode p-bloc-5-style indexitem">
-																	<a href="#installation">Installation</a><br>
-																</p>
-																<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem">
-																	<a href="#settings">Settings</a><br>
-																</p>
-															</div>
-														</div>
+												<div class="row">
+													<div class="col roundedrect indexblock col-lg-12">
+														<h5 class="mg-md">
+															Contents
+														</h5>
+														<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem" title="gettingstarted">
+															<a href="#gettingstarted">Getting started</a><br>
+														</p>
+														<p class="btn-resize-mode p-bloc-5-style indexitem">
+															<a href="#installation">Installation</a>
+														</p>
+														<p class="btn-resize-mode p-bloc-5-style indexitem">
+															<a href="#uninstallation">Uninstallation</a>
+														</p>
+														<p class="btn-resize-mode p-bloc-5-style p-23-style indexitem">
+															<a href="#settings">Settings</a><br>
+														</p>
 													</div>
+												</div>
+											</div>
 		</div>
 	</div>
 </div>
 <!-- bloc-5 END -->
 
 <!-- ScrollToTop Button -->
-<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><span class="fa fa-chevron-up"></span></a>
+<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><path class="scroll-to-top-btn-icon" d="M30,22.656l-14-13-14,13"/></svg></a>
 <!-- ScrollToTop Button END-->
 
 
 <!-- bloc-5 -->
-<div class="bloc footer bgc-charcoal d-bloc" id="bloc-5">
+<div class="bloc footer bgc-7970 d-bloc" id="bloc-5">
 	<div class="container none">
 		<div class="row">
 			<div class="col-sm-8 col-lg-9 col-md-12">
@@ -348,11 +303,12 @@ Note that the preview on the left will not display changes concerning this setti
 <!-- Main container END -->
     
 
-<script src="./js/jquery-3.3.1.min.js?9400"></script>
-<script src="./js/bootstrap.bundle.min.js?2047"></script>
-<script src="./js/blocs.min.js?7965"></script>
-<script src="./js/lazysizes.min.js" defer></script>
-<!-- Additional JS END -->
+
+<!-- Additional JS -->
+<script src="./js/jquery.min.js?2963"></script>
+<script src="./js/bootstrap.bundle.min.js?4044"></script>
+<script src="./js/blocs.min.js?2317"></script>
+<script src="./js/lazysizes.min.js" defer></script><!-- Additional JS END -->
 
 
 <script>

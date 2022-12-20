@@ -13,18 +13,21 @@ class ChangesObserver {
     private var oldFullScreen: Bool
     private var oldVolume: Float
     private var oldBrightness: Float
+    private var oldKeyboard: Float
 
-    var settingsManager: SettingsManager = SettingsManager.getInstance()
-    var positionManager: PositionManager
-    var displayer: Displayer
-    var volumeView: BarView
-    var brightnessView: BarView
-    var keyboardView: BarView
+    private var settingsManager: SettingsManager = SettingsManager.getInstance()
+    private var positionManager: PositionManager
+    private var displayer: Displayer
+    private var volumeView: BarView
+    private var brightnessView: BarView
+    private var keyboardView: BarView
 
     init(positionManager: PositionManager, displayer: Displayer, volumeView: BarView, brightnessView: BarView, keyboardView: BarView) {
         oldFullScreen = DisplayManager.isInFullscreenMode()
         oldVolume = VolumeManager.getOutputVolume()
         oldBrightness = DisplayManager.getDisplayBrightness()
+        oldKeyboard = KeyboardManager.getKeyboardBrightness()
+        
         self.positionManager = positionManager
         self.displayer = displayer
         self.volumeView = volumeView
@@ -87,17 +90,20 @@ class ChangesObserver {
         if settingsManager.enabledBars.brightnessBar {
             checkBrightnessChanges()
         }
+        if settingsManager.enabledBars.keyboardBar {
+            checkKeyboardChanges()
+        }
         if settingsManager.shouldContinuouslyCheck && settingsManager.enabledBars.volumeBar {
             checkVolumeChanges()
         }
     }
 
-    func isAlmost(firstNumber: Float, secondNumber: Float) -> Bool { // used to partially prevent the bars to display when no user input happened
+    private func isAlmost(firstNumber: Float, secondNumber: Float) -> Bool { // used to partially prevent the bars to display when no user input happened
         let marginValue = Float(settingsManager.marginValue) / 100.0
         return (firstNumber + marginValue >= secondNumber && firstNumber - marginValue <= secondNumber)
     }
 
-    func checkVolumeChanges() {
+    private func checkVolumeChanges() {
         let newVolume = VolumeManager.getOutputVolume()
         volumeView.bar!.progress = newVolume
         if !isAlmost(firstNumber: oldVolume, secondNumber: newVolume) {
@@ -107,7 +113,7 @@ class ChangesObserver {
         volumeView.bar!.progress = newVolume
     }
 
-    func checkBrightnessChanges() {
+    private func checkBrightnessChanges() {
         if NSScreen.screens.count == 0 {return}
         let newBrightness = DisplayManager.getDisplayBrightness()
         if !isAlmost(firstNumber: oldBrightness, secondNumber: newBrightness) {
@@ -115,5 +121,14 @@ class ChangesObserver {
             oldBrightness = newBrightness
         }
         brightnessView.bar?.progress = newBrightness
+    }
+
+    private func checkKeyboardChanges() {
+        let newKeyboard = KeyboardManager.getKeyboardBrightness()
+        if !isAlmost(firstNumber: oldKeyboard, secondNumber: newKeyboard) {
+            displayer.showKeyboardHUD()
+            oldKeyboard = newKeyboard
+        }
+        keyboardView.bar?.progress = KeyboardManager.getKeyboardBrightness()
     }
 }
