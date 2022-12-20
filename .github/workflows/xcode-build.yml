@@ -28,9 +28,12 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            github.rest.issues.createComment({
-              issue_number: github.issue.number,
+            github.rest.pulls.createReviewComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
+              pull_number: github.event.number
               body: 'Test'
+              commit_id: github.event.after
+              path: README.md
+              line: 1
             });
