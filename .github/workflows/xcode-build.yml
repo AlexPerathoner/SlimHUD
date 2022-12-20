@@ -1,4 +1,4 @@
-name: Xcode - Build and Analyze
+name: Build and Analyze
 on:
   push:
     branches: [ "master" ]
@@ -41,21 +41,3 @@ jobs:
           scheme: SlimHUD
           destination: platform=macOS
           action: test
-
-  swiftLint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: GitHub Action for SwiftLint
-        uses: norio-nomura/action-swiftlint@3.2.1
-      - name: GitHub Action for SwiftLint
-        uses: norio-nomura/action-swiftlint@3.2.1
-      - name: GitHub Action for SwiftLint (Only files changed in the PR)
-        uses: norio-nomura/action-swiftlint@3.2.1
-        env:
-          DIFF_BASE: ${{ github.base_ref }}
-      - name: GitHub Action for SwiftLint (Different working directory)
-        uses: norio-nomura/action-swiftlint@3.2.1
-        env:
-          WORKING_DIRECTORY: Source
-

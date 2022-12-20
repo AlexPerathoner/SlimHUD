@@ -1,7 +1,13 @@
-line_length: 150
-force_cast: warning
+# Swiftlint configuration file
 
-function_parameter_count: # rule identifier
+line_length: 
+  warning: 150
+  error: 165
+
+force_cast:
+  severity: error
+
+function_parameter_count:
   severity: warning
 
 file_length:
