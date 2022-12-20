@@ -21,20 +21,6 @@ class DisplayManager {
         return brightness
     }
 
-    static func getScreenInfo() -> (screenFrame: NSRect, xDockHeight: CGFloat, yDockHeight: CGFloat, menuBarThickness: CGFloat, dockPosition: Position) {
-        let visibleFrame = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
-        let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 0, height: 0)
-        let yDockHeight: CGFloat = visibleFrame.minY
-        let xDockHeight: CGFloat = screenFrame.width - visibleFrame.width
-        var menuBarThickness: CGFloat = 0
-
-        if (screenFrame.height - visibleFrame.height - yDockHeight) != 0 { // menu bar visible
-            menuBarThickness = NSStatusBar.system.thickness
-        }
-        let dockPosition = Position(rawValue: (UserDefaults.standard.persistentDomain(forName: "com.apple.dock")!["orientation"] as! String))
-        return (visibleFrame, xDockHeight, yDockHeight, menuBarThickness, dockPosition ?? .bottom)
-    }
-
     /* Note the difference between NSScreen.main and NSScreen.screens[0]:
      * NSScreen.main is the "key" screen, where the currently frontmost window resides.
      * NSScreen.screens[0] is the screen which has a menu bar, and is chosen in the Preferences > monitor settings

@@ -9,7 +9,7 @@
 import Foundation
 class LoginItemsList: NSObject {
 
-    let loginItemsList: LSSharedFileList = LSSharedFileListCreate(nil, kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil)!.takeRetainedValue()
+    let loginItemsList: LSSharedFileList = LSSharedFileListCreate(nil,kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil)!.takeRetainedValue()
 
     func addLoginItem() -> Bool {
         var path = LoginItemsList.appPath()
@@ -59,10 +59,10 @@ class LoginItemsList: NSObject {
 
         // Iterate through login items to find one for given path
         print("App URL: ", path)
-        for var i in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
+        for var index in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
         {
 
-            var nextLoginItem: LSSharedFileListItem = loginItems.object(at: i) as! LSSharedFileListItem
+            var nextLoginItem: LSSharedFileListItem = loginItems.object(at: index) as! LSSharedFileListItem
 
             if LSSharedFileListItemResolve(nextLoginItem, 0, &nextItemUrl, nil) == noErr {
 

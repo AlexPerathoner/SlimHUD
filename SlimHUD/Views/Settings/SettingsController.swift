@@ -49,10 +49,10 @@ class SettingsController: NSView, HudsControllerInterface {
     }
 
     func setupDefaultBarsColors() {
-        volumeBar.foreground = DefaultColors.BLUE
-        brightnessBar.foreground = DefaultColors.YELLOW
-        keyboardBar.foreground = DefaultColors.AZURE
-        setBackgroundColor(color: DefaultColors.DARK_GRAY)
+        volumeBar.foreground = DefaultColors.Blue
+        brightnessBar.foreground = DefaultColors.Yellow
+        keyboardBar.foreground = DefaultColors.Azure
+        setBackgroundColor(color: DefaultColors.DarkGray)
     }
 
     func setupDefaultIconsColors() {
@@ -69,12 +69,12 @@ class SettingsController: NSView, HudsControllerInterface {
 
     func setVolumeEnabledColor(color: NSColor) {
         volumeBar.foreground = color
-        volumeImage.image = NSImage(named: NSImage.VOLUME_IMAGE_FILE_NAME)
+        volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
     }
 
     func setVolumeDisabledColor(color: NSColor) {
         volumeBar.foreground = color
-        volumeImage.image = NSImage(named: NSImage.NO_VOLUME_IMAGE_FILE_NAME)
+        volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
     }
 
     func setBrightnessColor(color: NSColor) {

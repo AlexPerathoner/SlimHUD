@@ -82,7 +82,7 @@ class Hud: NSView {
                     context.duration = animationDuration
                     hudView.animator().alphaValue = 1
                     hudView.animator().setFrameOrigin(originPosition)
-                }) {}
+                })
             } else {
                 hudView.setFrameOrigin(originPosition)
                 hudView.alphaValue = 1

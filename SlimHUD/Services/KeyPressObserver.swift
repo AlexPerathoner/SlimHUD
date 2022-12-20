@@ -37,13 +37,10 @@ class KeyPressObserver: NSApplication {
             switch key {
             case NX_KEYTYPE_SOUND_DOWN, NX_KEYTYPE_SOUND_UP, NX_KEYTYPE_MUTE:
                 NotificationCenter.default.post(name: KeyPressObserver.volumeChanged, object: self)
-                break
             case NX_KEYTYPE_BRIGHTNESS_UP, NX_KEYTYPE_BRIGHTNESS_DOWN: // doesn't work - only works with built-in keyboard
                 NotificationCenter.default.post(name: KeyPressObserver.brightnessChanged, object: self)
-                break
             case NX_KEYTYPE_ILLUMINATION_DOWN, NX_KEYTYPE_ILLUMINATION_UP:
                 NotificationCenter.default.post(name: KeyPressObserver.keyboardIlluminationChanged, object: self)
-                break
             default:
                 break
             }

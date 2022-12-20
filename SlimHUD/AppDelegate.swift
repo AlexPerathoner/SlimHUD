@@ -24,9 +24,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 
-    var volumeView: BarView = NSView.fromNib(name: BarView.BAR_VIEW_NIB_FILE_NAME) as! BarView
-    var brightnessView: BarView = NSView.fromNib(name: BarView.BAR_VIEW_NIB_FILE_NAME) as! BarView
-    var keyboardView: BarView = NSView.fromNib(name: BarView.BAR_VIEW_NIB_FILE_NAME) as! BarView
+    var volumeView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
+    var brightnessView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
+    var keyboardView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
 
     var volumeHud = Hud()
     var brightnessHud = Hud()
@@ -34,7 +34,9 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     lazy var positionManager = PositionManager(volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
     lazy var displayer = Displayer(positionManager: positionManager, volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
-    lazy var changesObserver = ChangesObserver(positionManager: positionManager, displayer: displayer, volumeView: volumeView, brightnessView: brightnessView, keyboardView: keyboardView)
+    lazy var changesObserver = ChangesObserver(positionManager: positionManager, displayer: displayer,
+                                               volumeView: volumeView, brightnessView: brightnessView,
+                                               keyboardView: keyboardView)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,7 +46,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
         if let button = statusItem.button {
             button.title = "SlimHUD"
-            button.image = NSImage(named: NSImage.STATUS_ICON_IMAGE_FILE_NAME)
+            button.image = NSImage(named: NSImage.StatusIconFileName)
             button.image?.isTemplate = true
         }
 
@@ -68,8 +70,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
         NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
                                                object: NSApplication.shared,
-                                               queue: OperationQueue.main) {
-            _ -> Void in
+                                               queue: OperationQueue.main) { _ -> Void in
             self.positionManager.setupHUDsPosition(false)
         }
 

@@ -25,9 +25,9 @@ class Displayer: HudsControllerInterface {
         let volumeIcon = getIcon(hud: volumeHud)
         let brightnessIcon = getIcon(hud: brightnessHud)
         let keyboardIcon = getIcon(hud: keyboardHud)
-        volumeIcon.image = NSImage(named: NSImage.VOLUME_IMAGE_FILE_NAME)
-        brightnessIcon.image = NSImage(named: NSImage.BRIGHTNESS_IMAGE_FILE_NAME)
-        keyboardIcon.image = NSImage(named: NSImage.KEYBOARD_IMAGE_FILE_NAME)
+        volumeIcon.image = NSImage(named: NSImage.VolumeImageFileName)
+        brightnessIcon.image = NSImage(named: NSImage.BrightnessImageFileName)
+        keyboardIcon.image = NSImage(named: NSImage.KeyboardImageFileName)
         setIconsAnchorPointAndWantsLayer(icon: volumeIcon)
         setIconsAnchorPointAndWantsLayer(icon: brightnessIcon)
         setIconsAnchorPointAndWantsLayer(icon: keyboardIcon)
@@ -59,9 +59,9 @@ class Displayer: HudsControllerInterface {
         }
 
         if disabled {
-            volumeView.image!.image = NSImage(named: NSImage.NO_VOLUME_IMAGE_FILE_NAME)
+            volumeView.image!.image = NSImage(named: NSImage.NoVolumeImageFileName)
         } else {
-            volumeView.image!.image = NSImage(named: NSImage.VOLUME_IMAGE_FILE_NAME)
+            volumeView.image!.image = NSImage(named: NSImage.VolumeImageFileName)
         }
         volumeHud.show()
         brightnessHud.hide(animated: false)
@@ -103,9 +103,9 @@ class Displayer: HudsControllerInterface {
     }
 
     func updateShadows(enabled: Bool) {
-        getBarView(hud: volumeHud).setupShadow(enabled, Constants.SHADOW_RADIUS)
-        getBarView(hud: brightnessHud).setupShadow(enabled, Constants.SHADOW_RADIUS)
-        getBarView(hud: keyboardHud).setupShadow(enabled, Constants.SHADOW_RADIUS)
+        getBarView(hud: volumeHud).setupShadow(enabled, Constants.ShadowRadius)
+        getBarView(hud: brightnessHud).setupShadow(enabled, Constants.ShadowRadius)
+        getBarView(hud: keyboardHud).setupShadow(enabled, Constants.ShadowRadius)
     }
 
     func updateIcons(isHidden: Bool) {
@@ -115,13 +115,13 @@ class Displayer: HudsControllerInterface {
     }
 
     func setupDefaultBarsColors() {
-        getProgressBar(hud: volumeHud).foreground = DefaultColors.BLUE
-        getProgressBar(hud: brightnessHud).foreground = DefaultColors.YELLOW
-        getProgressBar(hud: keyboardHud).foreground = DefaultColors.AZURE
-        setBrightnessColor(color: DefaultColors.YELLOW)
-        setVolumeEnabledColor(color: DefaultColors.BLUE)
-        setVolumeDisabledColor(color: DefaultColors.GRAY)
-        setBackgroundColor(color: DefaultColors.DARK_GRAY)
+        getProgressBar(hud: volumeHud).foreground = DefaultColors.Blue
+        getProgressBar(hud: brightnessHud).foreground = DefaultColors.Yellow
+        getProgressBar(hud: keyboardHud).foreground = DefaultColors.Azure
+        setBrightnessColor(color: DefaultColors.Yellow)
+        setVolumeEnabledColor(color: DefaultColors.Blue)
+        setVolumeDisabledColor(color: DefaultColors.Gray)
+        setBackgroundColor(color: DefaultColors.DarkGray)
     }
 
     @available(OSX 10.14, *)
@@ -182,7 +182,7 @@ class Displayer: HudsControllerInterface {
         positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
     }
     private func setHeight(view: BarView, height: CGFloat) {
-        view.setFrameSize(NSSize(width: view.frame.width, height: height + Constants.SHADOW_RADIUS * 3))
+        view.setFrameSize(NSSize(width: view.frame.width, height: height + Constants.ShadowRadius * 3))
     }
 
     func setThickness(thickness: CGFloat) {
@@ -192,7 +192,7 @@ class Displayer: HudsControllerInterface {
         positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
     }
     private func setThickness(barView: BarView, thickness: CGFloat) {
-        barView.setFrameSize(NSSize(width: thickness + Constants.SHADOW_RADIUS * 2, height: barView.frame.height))
+        barView.setFrameSize(NSSize(width: thickness + Constants.ShadowRadius * 2, height: barView.frame.height))
         barView.bar.progressLayer.frame.size.width = thickness // setting up inner layer
         barView.bar.progressLayer.cornerRadius = thickness/2
         barView.bar.layer?.cornerRadius = thickness/2 // setting up outer layer

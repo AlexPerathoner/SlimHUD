@@ -47,11 +47,11 @@ extension SettingsViewController {
         // updating settings
         settingsManager.resetDefaultBarsColors()
         // updating color wells of view
-        volumeEnabledColorOutlet.color = DefaultColors.BLUE
-        volumeDisabledColorOutlet.color = DefaultColors.GRAY
-        keyboardColorOutlet.color = DefaultColors.AZURE
-        brightnessColorOutlet.color = DefaultColors.YELLOW
-        backgroundColorOutlet.color = DefaultColors.DARK_GRAY
+        volumeEnabledColorOutlet.color = DefaultColors.Blue
+        volumeDisabledColorOutlet.color = DefaultColors.Gray
+        keyboardColorOutlet.color = DefaultColors.Azure
+        brightnessColorOutlet.color = DefaultColors.Yellow
+        backgroundColorOutlet.color = DefaultColors.DarkGray
     }
 
     @IBAction func resetDefaultsIconColors(_ sender: Any) {

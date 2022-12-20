@@ -37,22 +37,33 @@ class ChangesObserver {
         createTimerForContinuousChangesCheck(with: 0.2)
     }
 
-    private func createTimerForContinuousChangesCheck(with t: TimeInterval) {
-        let timer = Timer(timeInterval: t, target: self, selector: #selector(checkChanges), userInfo: nil, repeats: true)
+    private func createTimerForContinuousChangesCheck(with seconds: TimeInterval) {
+        let timer = Timer(timeInterval: seconds, target: self, selector: #selector(checkChanges), userInfo: nil, repeats: true)
         let mainLoop = RunLoop.main
         mainLoop.add(timer, forMode: .common)
     }
 
     private func createObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: KeyPressObserver.volumeChanged, object: nil)
-        DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+        DistributedNotificationCenter.default.addObserver(self,
+                                                          selector: #selector(showVolumeHUD),
+                                                          name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"),
+                                                          object: nil)
 
         // observers for brightness
-        NotificationCenter.default.addObserver(self, selector: #selector(showBrightnessHUD), name: KeyPressObserver.brightnessChanged, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showBrightnessHUD),
+                                               name: KeyPressObserver.brightnessChanged,
+                                               object: nil)
 
         // observers for keyboard backlight
-        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboardHUD), name: KeyPressObserver.keyboardIlluminationChanged, object: nil)
-        DistributedNotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showKeyboardHUD),
+                                               name: KeyPressObserver.keyboardIlluminationChanged, object: nil)
+        DistributedNotificationCenter.default.addObserver(self,
+                                                          selector: #selector(showVolumeHUD),
+                                                          name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"),
+                                                          object: nil)
     }
 
     @objc func showVolumeHUD() {
@@ -81,15 +92,15 @@ class ChangesObserver {
         }
     }
 
-    func isAlmost(n1: Float, n2: Float) -> Bool { // used to partially prevent the bars to display when no user input happened
+    func isAlmost(firstNumber: Float, secondNumber: Float) -> Bool { // used to partially prevent the bars to display when no user input happened
         let marginValue = Float(settingsManager.marginValue) / 100.0
-        return (n1 + marginValue >= n2 && n1 - marginValue <= n2)
+        return (firstNumber + marginValue >= secondNumber && firstNumber - marginValue <= secondNumber)
     }
 
     func checkVolumeChanges() {
         let newVolume = VolumeManager.getOutputVolume()
         volumeView.bar!.progress = newVolume
-        if !isAlmost(n1: oldVolume, n2: newVolume) {
+        if !isAlmost(firstNumber: oldVolume, secondNumber: newVolume) {
             displayer.showVolumeHUD()
             oldVolume = newVolume
         }
@@ -99,7 +110,7 @@ class ChangesObserver {
     func checkBrightnessChanges() {
         if NSScreen.screens.count == 0 {return}
         let newBrightness = DisplayManager.getDisplayBrightness()
-        if !isAlmost(n1: oldBrightness, n2: newBrightness) {
+        if !isAlmost(firstNumber: oldBrightness, secondNumber: newBrightness) {
             displayer.showBrightnessHUD()
             oldBrightness = newBrightness
         }

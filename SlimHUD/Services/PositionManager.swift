@@ -14,7 +14,6 @@ class PositionManager {
     var brightnessHud: Hud
     var keyboardHud: Hud
     let settingsManager = SettingsManager.getInstance()
-    private let MENU_BAR_THICKNESS = DisplayManager.getMenuBarThickness()
 
     init(volumeHud: Hud, brightnessHud: Hud, keyboardHud: Hud) {
         self.volumeHud = volumeHud
@@ -46,7 +45,6 @@ class PositionManager {
                                                          visibleFrame: visibleFrame,
                                                          hudSize: barViewFrame,
                                                          screenFrame: screenFrame,
-                                                         shadowRadius: Constants.SHADOW_RADIUS,
                                                          isInFullscreen: isFullscreen)
 
         setHudsPosition(originPosition: originPosition)
@@ -65,21 +63,24 @@ class PositionManager {
     }
 
     // todo write tests
-    func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position, xDockHeight: CGFloat, yDockHeight: CGFloat, visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect, shadowRadius: CGFloat, isInFullscreen: Bool) -> CGPoint {
+    func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
+                                     xDockHeight: CGFloat, yDockHeight: CGFloat,
+                                     visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect,
+                                     isInFullscreen: Bool) -> CGPoint {
         var position: CGPoint
         switch hudPosition {
         case .left:
             position = CGPoint(x: dockPosition == .right ? 0 : xDockHeight,
                                y: (visibleFrame.height/2) - (hudSize.height/2) + yDockHeight)
         case .right:
-            position = CGPoint(x: screenFrame.width - hudSize.width - shadowRadius - (dockPosition == .left ? 0 : xDockHeight),
+            position = CGPoint(x: screenFrame.width - hudSize.width - Constants.ShadowRadius - (dockPosition == .left ? 0 : xDockHeight),
                                y: (visibleFrame.height/2) - (hudSize.height/2)  + yDockHeight)
         case .bottom:
             position = CGPoint(x: (screenFrame.width/2) - (hudSize.height/2),
                                y: yDockHeight)
         case .top:
             position = CGPoint(x: (screenFrame.width/2) - (hudSize.height/2),
-                               y: screenFrame.height - hudSize.width - shadowRadius - (isInFullscreen ? 0 : MENU_BAR_THICKNESS))
+                               y: screenFrame.height - hudSize.width - Constants.ShadowRadius - (isInFullscreen ? 0 : DisplayManager.getMenuBarThickness()))
         }
         return position
     }
@@ -112,10 +113,10 @@ class PositionManager {
 
         // needs a bit more space for displaying shadows...
         if settingsManager.position == .right {
-            barView.setFrameOrigin(.init(x: Constants.SHADOW_RADIUS, y: 0))
+            barView.setFrameOrigin(.init(x: Constants.ShadowRadius, y: 0))
         }
         if settingsManager.position == .top {
-            barView.setFrameOrigin(.init(x: 0, y: Constants.SHADOW_RADIUS + barViewFrame.width))
+            barView.setFrameOrigin(.init(x: 0, y: Constants.ShadowRadius + barViewFrame.width))
         }
     }
 
