@@ -17,11 +17,11 @@ protocol DeterminableAnimation {
 
 @IBDesignable
 open class DeterminateAnimation: BaseView, DeterminableAnimation {
-    
+
     /// Value of progress now. Range 0..1
     @IBInspectable open var progress: Float = 0 {
         didSet {
-			updateProgress()
+            updateProgress()
         }
     }
 

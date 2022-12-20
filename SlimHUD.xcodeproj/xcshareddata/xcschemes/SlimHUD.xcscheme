@@ -26,8 +26,30 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FA69AC8223F9E2E600AA73FD"
+            BuildableName = "SlimHUD.app"
+            BlueprintName = "SlimHUD"
+            ReferencedContainer = "container:SlimHUD.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FACB31202951B96200BFB792"
+               BuildableName = "SlimHUDTests.xctest"
+               BlueprintName = "SlimHUDTests"
+               ReferencedContainer = "container:SlimHUD.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
