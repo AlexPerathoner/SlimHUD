@@ -18,10 +18,7 @@ jobs:
       - name: Adding markdown
         run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
       - name: Output variable
-        run: echo "md=$(cat $GITHUB_STEP_SUMMARY)"
-      - name: Set variable
-        id: get-summary
-        run: echo "md=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_OUTPUT
+        run: cat $GITHUB_STEP_SUMMARY
       # - uses: actions/checkout@v3
       # - name: Test
       #   run: |
@@ -31,14 +28,12 @@ jobs:
       #   uses: kishikawakatsumi/xcresulttool@v1
       #   with:
       #     path: TestResults.xcresult
-      #     show-code-coverage: true        
-      - name: Test output
-        run: echo ${{ steps.get-summary.outputs.md }}
-      - uses: NejcZdovc/comment-pr@v2
+      #     show-code-coverage: true
+      - uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
         with:
-          message: ${{ steps.get-summary.outputs.md }}
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          recreate: true
+          path: $GITHUB_STEP_SUMMARY
   # get-coverage-result:
   #   runs-on: ubuntu-latest
   #   # needs: analyze
