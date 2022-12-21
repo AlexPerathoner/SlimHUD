@@ -13,8 +13,6 @@ jobs:
   analyze:
     runs-on: macos-latest
     steps:
-      - name: asd
-        run: echo ${{ github.run_id }}
       # - name: checkout
       #   uses: actions/checkout@v3
       # - name: test
@@ -33,12 +31,18 @@ jobs:
         id: get-run
         with:
           script: |
-            const artifacts = await github.rest.checks.get({
+            const jobs = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
               repo: context.repo.repo,
               check_run_id: github.run_id,
             });
-            return artifacts.data
+            const check_id = jobs.data.jobs.filter(a => a.name == "test-results")[0].id
+            const check_run = await github.rest.checks.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: check_id
+            });
+            return check_run.data
       - name: Get result
         run: echo "${{ steps.get-run.outputs.result }}"
       # - uses: marocchino/sticky-pull-request-comment@v2
