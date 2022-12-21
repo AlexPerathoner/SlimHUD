@@ -11,21 +11,24 @@ concurrency:
 
 jobs:
   analyze:
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: test
+
+      - name: Test
         run: |
           xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - name: create coverage
-        id: code-coverage
-        uses: kishikawakatsumi/xcresulttool@v1
+
+      - name: Public test results
+        uses: kishikawakatsumi/xcresulttool@v1.7.0
+        if: always()
         with:
-          path: TestResults.xcresult
-          title: test results
+          path: "TestResults.xcresult"
+          title: Coverage results
           upload-bundles: never
           show-code-coverage: true
+
   create-comment:
     runs-on: macos-latest
     needs: analyze
@@ -40,7 +43,7 @@ jobs:
               run_id: ${{github.run_id}},
             });
             const summary_url = "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            const checks = jobs.data.jobs.filter(a => a.name == "test results")
+            const checks = jobs.data.jobs.filter(a => a.name == "Coverage results")
             if(checks.count > 0) {
               const coverage_result_check = checks[0]
               const check_run = await github.rest.checks.get({
@@ -53,7 +56,7 @@ jobs:
               const text = output.text
               return summary + "<br>---<br>" + text
             } else {
-              return "Coverage: [here](" + summary_url + ")"
+              return 'Coverage: [here](' + summary_url + ')'
             }
       - uses: marocchino/sticky-pull-request-comment@v2
         if: github.event_name == 'pull_request'
