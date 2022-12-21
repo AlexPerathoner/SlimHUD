@@ -13,19 +13,19 @@ jobs:
   analyze:
     runs-on: macos-latest
     steps:
-      # - name: checkout
-      #   uses: actions/checkout@v3
-      # - name: test
-      #   run: |
-      #     xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      # - name: generate-coverage
-      #   id: code-coverage
-      #   uses: kishikawakatsumi/xcresulttool@v1
-      #   with:
-      #     path: TestResults.xcresult
-      #     title: test-results
-      #     upload-bundles: never
-      #     show-code-coverage: true
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: test
+        run: |
+          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+      - name: generate-coverage
+        id: code-coverage
+        uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: TestResults.xcresult
+          title: test-results
+          upload-bundles: never
+          show-code-coverage: true
       - name: create-comment
         uses: actions/github-script@v6
         id: get-run
