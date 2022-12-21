@@ -34,18 +34,23 @@ jobs:
               issue_number: context.issue.number,
               body: 'Test'
             });
-  get-comment:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/github-script@v6
-        id: set-result
+      - uses: NejcZdovc/comment-pr@v2
         with:
-        #listReviewComments
-          script: |
-            return github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number
-            });
-      - name: Get result
-        run: echo "${{ steps.set-result.outputs.result }}"
+          message: "Hello world"
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  # get-comment:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/github-script@v6
+  #       id: set-result
+  #       with:
+  #       #listReviewComments
+  #         script: |
+  #           return github.rest.issues.listComments({
+  #             owner: context.repo.owner,
+  #             repo: context.repo.repo,
+  #             issue_number: context.issue.number
+  #           });
+  #     - name: Get result
+  #       run: echo "${{ steps.set-result.outputs.result }}"
