@@ -26,12 +26,13 @@ jobs:
         id: set-result
         with:
           script: |
-            const result = await github.rest.actions.listWorkflowRunsForRepo({
+            const opts = github.rest.actions.listWorkflowRunsForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               per_page: 1,
             });
-            return result
+            const workflowruns = await github.paginate(opts)
+            return workflowruns
       - name: Get result
         run: echo "${{ steps.set-result.outputs.result }}"
   update-comment:
@@ -39,6 +40,6 @@ jobs:
     steps:
       - uses: NejcZdovc/comment-pr@v2
         with:
-          message: "Hello world 2"
+          message: "Hello world 3"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
