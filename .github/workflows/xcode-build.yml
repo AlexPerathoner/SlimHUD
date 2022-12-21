@@ -37,7 +37,7 @@ jobs:
             const jobs = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              check_run_id: ${{github.run_id}},
+              run_id: ${{github.run_id}},
             });
             return jobs.data
             const check_id = jobs.data.jobs.filter(a => a.name == "test-results")[0].id
