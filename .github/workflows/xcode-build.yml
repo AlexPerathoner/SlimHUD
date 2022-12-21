@@ -5,10 +5,10 @@ on:
   pull_request:
     branches: ["master", "develop"]
 
+concurrency: 
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
 jobs:
-  concurrency: 
-    group: ${{ github.head_ref }}
-    cancel-in-progress: true
   analyze:
     runs-on: macos-latest
     steps:
