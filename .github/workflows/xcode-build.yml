@@ -26,6 +26,11 @@ jobs:
               per_page: 1,
             });
             const last_run_id = workflowruns.data.workflow_runs[0].id
-            return last_run_id
+            const artifacts = await github.rest.checks.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: last_run_id,
+            });
+            return artifacts.data
       - name: Get result
         run: echo "${{ steps.get-run.outputs.result }}"
