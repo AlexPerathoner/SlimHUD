@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: test
-        run: |
-          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - name: create coverage
+      # - name: running tests
+      #   run: |
+      #     xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+      - name: create coverage report
         id: code-coverage
         uses: kishikawakatsumi/xcresulttool@v1
         with:
@@ -39,8 +39,8 @@ jobs:
               repo: context.repo.repo,
               run_id: ${{github.run_id}},
             });
+            return jobs.data.jobs
             const coverage_result_check = jobs.data.jobs.filter(a => a.name == "test results")[0]
-            return coverage_result_check
             const check_run = await github.rest.checks.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
