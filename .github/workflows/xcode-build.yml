@@ -36,6 +36,7 @@ jobs:
       - uses: actions/github-script@v6
         id: get-run
         with:
+          result-encoding: string
           script: |
             const jobs = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
