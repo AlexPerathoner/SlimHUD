@@ -20,7 +20,7 @@ jobs:
           xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
       - name: Create coverage
         id: code-coverage
-        uses: AlexPerathoner/xcresulttool@v1
+        uses: kishikawakatsumi/xcresulttool@v1
         with:
           path: TestResults.xcresult
           show-code-coverage: true
