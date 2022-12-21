@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   analyze:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       # - uses: actions/checkout@v3
       # - name: Test
@@ -24,8 +24,6 @@ jobs:
       #   with:
       #     path: TestResults.xcresult
       #     show-code-coverage: true
-      - name: print_id
-        run: echo "${{ github.run_id }}"
       - name: Get Current Job Log URL
         uses: Tiryoh/gha-jobid-action@v0
         id: jobs
