@@ -13,19 +13,34 @@ jobs:
   analyze:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Test
-        run: |
-          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - name: Create coverage
-        id: code-coverage
-        uses: kishikawakatsumi/xcresulttool@v1
+      - name: asd
+        run: echo ${{ github.run_id }}
+      # - name: checkout
+      #   uses: actions/checkout@v3
+      # - name: test
+      #   run: |
+      #     xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+      # - name: generate-coverage
+      #   id: code-coverage
+      #   uses: kishikawakatsumi/xcresulttool@v1
+      #   with:
+      #     path: TestResults.xcresult
+      #     title: test-results
+      #     upload-bundles: never
+      #     show-code-coverage: true
+      - name: create-comment
+        uses: actions/github-script@v6
+        id: get-run
         with:
-          path: TestResults.xcresult
-          title: test-results
-          upload-bundles: never
-          show-code-coverage: true
-      - uses: stefanzweifel/git-auto-commit-action@v4
+          script: |
+            const artifacts = await github.rest.checks.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: github.run_id,
+            });
+            return artifacts.data
+      - name: Get result
+        run: echo "${{ steps.get-run.outputs.result }}"
       # - uses: marocchino/sticky-pull-request-comment@v2
       #   if: github.event_name == 'pull_request'
       #   with:
