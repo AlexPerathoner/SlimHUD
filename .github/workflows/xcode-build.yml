@@ -27,7 +27,7 @@ jobs:
     needs: analyze
     steps:
       - uses: actions/github-script@v6
-        id: get-workflow-id
+        id: get-run
         with:
           script: |
             const workflowruns = await github.rest.actions.listWorkflowRunsForRepo({
@@ -36,7 +36,7 @@ jobs:
               per_page: 1,
             });
             const last_run_id = workflowruns.data.workflow_runs[0].id
-            const artifacts = await github.rest.checks.listAnnotations({
+            const artifacts = await github.rest.checks.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
               check_run_id: last_run_id,
