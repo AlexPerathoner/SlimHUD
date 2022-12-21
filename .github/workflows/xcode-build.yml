@@ -26,6 +26,7 @@ jobs:
           show-code-coverage: true
   write-comment:
     runs-on: ubuntu-latest
+    steps:
       - name: Get Current Job Log URL
         uses: Tiryoh/gha-jobid-action@v0
         id: jobs
