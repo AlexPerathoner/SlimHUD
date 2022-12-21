@@ -23,7 +23,9 @@ jobs:
         with:
           path: TestResults.xcresult
           title: test-results
+          upload-bundles: never
           show-code-coverage: true
+      - uses: stefanzweifel/git-auto-commit-action@v4
       # - uses: marocchino/sticky-pull-request-comment@v2
       #   if: github.event_name == 'pull_request'
       #   with:
