@@ -132,13 +132,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C740C1723CB20354D1E13A6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		FA12C21824EA9D5F00F92CA3 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,7 +191,6 @@
 				FA69AC8523F9E2E600AA73FD /* SlimHUD */,
 				FACB31222951B96200BFB792 /* SlimHUDTests */,
 				FA69AC8423F9E2E600AA73FD /* Products */,
-				2C740C1723CB20354D1E13A6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
