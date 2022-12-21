@@ -30,9 +30,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           job_name: ${{ github.job }}
-          per_page: 30
+          per_page: 1
       - name: Output Current Job Log URL
-        run: echo ${{ steps.jobs.outputs.html_url }}
+        run: echo ${{ steps.jobs.outputs.job_id }}
       # - uses: technote-space/download-annotations-action@v1
       #   id: annotations
       #   with:
@@ -44,17 +44,10 @@ jobs:
         id: get-run
         with:
           script: |
-            const workflowruns = await github.rest.actions.listWorkflowRuns({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'xcode-build.yml',
-              per_page: 1,
-            });
-            const last_run_id = workflowruns.data.workflow_runs[0].id
             const artifacts = await github.rest.checks.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              check_run_id: 10229463996,
+              check_run_id: ${{ steps.jobs.outputs.job_id }},
             });
             return artifacts.data
   # get-coverage-result:
