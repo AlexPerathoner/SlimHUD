@@ -31,9 +31,9 @@ jobs:
               repo: context.repo.repo,
               per_page: 1,
             });
-            return workflowruns.data
+            return workflowruns.data.workflow_runs
       - name: Get result 2
-        run: echo "${{ toJson(steps.get-workflow.outputs.result) }}"
+        run: echo "${{ steps.get-workflow.outputs.result }}"
       # - uses: actions/github-script@v6
       #   id: get-workflow-id
       #   with:
