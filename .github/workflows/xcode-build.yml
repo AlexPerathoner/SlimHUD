@@ -14,16 +14,27 @@ jobs:
   analyze:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Test
-        run: |
-          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - name: Create coverage
-        id: code-coverage
-        uses: kishikawakatsumi/xcresulttool@v1
+      # - uses: actions/checkout@v3
+      # - name: Test
+      #   run: |
+      #     xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+      # - name: Create coverage
+      #   id: code-coverage
+      #   uses: kishikawakatsumi/xcresulttool@v1
+      #   with:
+      #     path: TestResults.xcresult
+      #     show-code-coverage: true
+      - name: print_id
+        run: echo "${{ github.run_id }}"
+      - name: Get Current Job Log URL
+        uses: Tiryoh/gha-jobid-action@v0
+        id: jobs
         with:
-          path: TestResults.xcresult
-          show-code-coverage: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          job_name: @@JOB_NAME@@
+          per_page: 30
+      - name: Output Current Job Log URL
+        run: echo ${{ steps.jobs.outputs.html_url }}
       - uses: technote-space/download-annotations-action@v1
         id: annotations
         with:
