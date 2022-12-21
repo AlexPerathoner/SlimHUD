@@ -54,7 +54,7 @@ jobs:
             const artifacts = await github.rest.checks.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              check_run_id: 1172808799,
+              check_run_id: 10229463996,
             });
             return artifacts.data
   # get-coverage-result:
