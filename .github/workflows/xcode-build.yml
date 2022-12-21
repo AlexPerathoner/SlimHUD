@@ -18,12 +18,13 @@ jobs:
       # - name: test
       #   run: |
       #     xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - name: generate-coverage
+      - name: create coverage
         id: code-coverage
         uses: kishikawakatsumi/xcresulttool@v1
         with:
           path: TestResults.xcresult
-          upload-bundles: always
+          title: test results
+          upload-bundles: never
           show-code-coverage: true
   # create-comment:
   #   runs-on: ubuntu-latest
