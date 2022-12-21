@@ -13,16 +13,18 @@ jobs:
   analyze:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Test
-        run: |
-          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - name: Create coverage
-        id: code-coverage
-        uses: kishikawakatsumi/xcresulttool@v1
-        with:
-          path: TestResults.xcresult
-          show-code-coverage: true
+      - name: Adding markdown
+        run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
+      # - uses: actions/checkout@v3
+      # - name: Test
+      #   run: |
+      #     xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+      # - name: Create coverage
+      #   id: code-coverage
+      #   uses: kishikawakatsumi/xcresulttool@v1
+      #   with:
+      #     path: TestResults.xcresult
+      #     show-code-coverage: true
   test-comment:
     needs: analyze
     runs-on: ubuntu-latest
