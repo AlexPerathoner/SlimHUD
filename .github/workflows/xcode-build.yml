@@ -31,7 +31,7 @@ jobs:
         id: jobs
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          job_name: @@JOB_NAME@@
+          job_name: ${{ github.job }}
           per_page: 30
       - name: Output Current Job Log URL
         run: echo ${{ steps.jobs.outputs.html_url }}
