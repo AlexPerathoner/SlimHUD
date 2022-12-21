@@ -31,7 +31,7 @@ jobs:
               repo: context.repo.repo,
               per_page: 1,
             });
-            const workflowruns = await github.paginate(opts)
+            const workflowruns = await opts
             return workflowruns
       - name: Get result
         run: echo "${{ steps.set-result.outputs.result }}"
