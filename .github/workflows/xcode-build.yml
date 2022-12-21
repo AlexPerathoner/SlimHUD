@@ -32,7 +32,7 @@ jobs:
               per_page: 1,
             });
             const workflowruns = await opts
-            return workflowruns
+            return workflowruns.workflow_runs[0].id
       - name: Get result
         run: echo "${{ steps.set-result.outputs.result }}"
   update-comment:
