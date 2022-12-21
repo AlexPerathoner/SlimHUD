@@ -24,7 +24,7 @@ jobs:
   #         show-code-coverage: true
   get-coverage-result:
     runs-on: ubuntu-latest
-    needs: analyze
+    # needs: analyze
     steps:
       - uses: actions/github-script@v6
         id: get-run
