@@ -19,38 +19,26 @@ jobs:
   #       with:
   #         path: TestResults.xcresult
   #         show-code-coverage: true
-  write-comment:
-#    if: ${{ github.event.issue.pull_request }}
-# github.event.number # MR number
-# github.event.after # commit
+  get-coverage-result:
     runs-on: ubuntu-latest
     steps:
-      # - uses: actions/github-script@v6
-      #   with:
-      #     script: |
-      #       github.rest.issues.createComment({
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         issue_number: context.issue.number,
-      #         body: 'Test'
-      #       });
+      - uses: actions/github-script@v6
+        id: set-result
+        with:
+          script: |
+            const result = await github.rest.actions.listWorkflowRunsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              per_page: 1,
+            });
+            return result
+      - name: Get result
+        run: echo "${{ steps.set-result.outputs.result }}"
+  update-comment:
+    runs-on: ubuntu-latest
+    steps:
       - uses: NejcZdovc/comment-pr@v2
         with:
           message: "Hello world 2"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  # get-comment:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/github-script@v6
-  #       id: set-result
-  #       with:
-  #       #listReviewComments
-  #         script: |
-  #           return github.rest.issues.listComments({
-  #             owner: context.repo.owner,
-  #             repo: context.repo.repo,
-  #             issue_number: context.issue.number
-  #           });
-  #     - name: Get result
-  #       run: echo "${{ steps.set-result.outputs.result }}"
