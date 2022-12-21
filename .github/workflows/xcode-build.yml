@@ -26,9 +26,16 @@ jobs:
           title: test results
           upload-bundles: never
           show-code-coverage: true
-  create-comment:
+  wait:
     runs-on: ubuntu-latest
     needs: analyze
+    steps:
+      - name: wait
+        run: echo "Waiting for result check to be added"
+
+  create-comment:
+    runs-on: ubuntu-latest
+    needs: wait
     steps:
       - uses: actions/github-script@v6
         id: get-run
@@ -39,7 +46,7 @@ jobs:
               repo: context.repo.repo,
               run_id: ${{github.run_id}},
             });
-            return jobs.data.jobs
+            return jobs.data
             const coverage_result_check = jobs.data.jobs.filter(a => a.name == "test results")[0]
             const check_run = await github.rest.checks.get({
               owner: context.repo.owner,
