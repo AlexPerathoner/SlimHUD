@@ -9,10 +9,15 @@
 import Foundation
 
 final class Constants {
-    public static let DockSize: CGFloat = 62
-    public static let ScreenWidth: CGFloat = 1440
-    public static let ScreenHeight: CGFloat = 900
-    public static let ScreenFrame = NSRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
-    public static let HudSize: (shortEdge: CGFloat, longEdge: CGFloat) = (shortEdge: 47, longEdge: 297)
-    public static let MenuBarThickness: CGFloat = 25
+    public struct Hud {
+        static let ShortEdge: CGFloat = 47
+        static let LongEdge: CGFloat = 297
+    }
+    public struct Screen {
+        static let Width: CGFloat = 1440
+        static let Height: CGFloat = 900
+        public static let MenuBarSize: CGFloat = 25
+        public static let DockSize: CGFloat = 62
+        public static let Frame = NSRect(x: 0, y: 0, width: Screen.Width, height: Screen.Height)
+    }
 }
