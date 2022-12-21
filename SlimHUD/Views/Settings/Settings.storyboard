@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5Rj-lD-9e5">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5Rj-lD-9e5">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,7 +49,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kqn-E7-wLn">
-                                                    <rect key="frame" x="18" y="15" width="115" height="18"/>
+                                                    <rect key="frame" x="18" y="16" width="119" height="14"/>
                                                     <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="twC-ta-xYI">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -59,7 +59,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f21-hD-jmd">
-                                                    <rect key="frame" x="18" y="45" width="142" height="18"/>
+                                                    <rect key="frame" x="18" y="44" width="146" height="18"/>
                                                     <string key="toolTip">If enabled SlimHUD will continuosly check if the volume has changed. This will lead to an increase in the CPU's usage but it will also add a nice touch if you have the TouchBar: sliding over the volume button will display the hud. </string>
                                                     <buttonCell key="cell" type="check" title="Continuously check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Ucq-bC-evM">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -82,7 +82,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4rc-p0-xNQ">
-                                                    <rect key="frame" x="69" y="251" width="104" height="24"/>
+                                                    <rect key="frame" x="68" y="251" width="106" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="MIt-F3-TD3"/>
                                                         <constraint firstAttribute="height" constant="21" id="VA9-b5-94W"/>
@@ -126,7 +126,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ifq-vl-p4i">
-                                                    <rect key="frame" x="174" y="213" width="19" height="28"/>
+                                                    <rect key="frame" x="174" y="212" width="19" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="13" id="SdC-xJ-8PE"/>
                                                         <constraint firstAttribute="height" constant="22" id="twi-fn-rYz"/>
@@ -137,7 +137,7 @@
                                                     </connections>
                                                 </stepper>
                                                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="aDZ-lb-0zq">
-                                                    <rect key="frame" x="17" y="78" width="265" height="5"/>
+                                                    <rect key="frame" x="17" y="77" width="265" height="5"/>
                                                 </box>
                                                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="NLO-F0-6eW">
                                                     <rect key="frame" x="17" y="199" width="265" height="5"/>
@@ -158,7 +158,7 @@
                                                     </connections>
                                                 </button>
                                                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IQ5-YB-cfs">
-                                                    <rect key="frame" x="259" y="39" width="25" height="25"/>
+                                                    <rect key="frame" x="258" y="39" width="25" height="25"/>
                                                     <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YQ8-It-M7i">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -681,11 +681,11 @@
                             <box borderType="bezel" title="Preview" translatesAutoresizingMaskIntoConstraints="NO" id="jcu-ET-my8">
                                 <rect key="frame" x="362" y="16" width="256" height="324"/>
                                 <view key="contentView" id="8Tg-4t-zhc" customClass="SettingsController" customModule="SlimHUD" customModuleProvider="target">
-                                    <rect key="frame" x="3" y="3" width="250" height="304"/>
+                                    <rect key="frame" x="4" y="5" width="248" height="302"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView fixedFrame="YES" blendingMode="behindWindow" material="HUDWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="35S-jh-Mdg">
-                                            <rect key="frame" x="0.0" y="0.0" width="250" height="304"/>
+                                            <rect key="frame" x="0.0" y="-2" width="250" height="304"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
                                                 <customView id="ga8-Km-Bzq">
@@ -697,13 +697,8 @@
                                                             <subviews>
                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="aIF-Ux-qm7" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
                                                                     <rect key="frame" x="20" y="42" width="7" height="218"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                                                            <real key="value" value="0.0"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
                                                                 </customView>
-                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z7X-R9-G2U">
+                                                                <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z7X-R9-G2U">
                                                                     <rect key="frame" x="13" y="13" width="21" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="brightness" id="b04-95-vyq"/>
@@ -729,7 +724,7 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </customView>
-                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dyq-eb-pGD">
+                                                                <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dyq-eb-pGD">
                                                                     <rect key="frame" x="13" y="13" width="21" height="21"/>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="backlight" id="3uN-l4-LOv"/>
                                                                 </imageView>
@@ -758,7 +753,7 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </customView>
-                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pnP-XU-V10">
+                                                                <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pnP-XU-V10">
                                                                     <rect key="frame" x="13" y="13" width="21" height="21"/>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="brightness" id="JSR-1K-KxI"/>
                                                                 </imageView>
@@ -845,6 +840,7 @@
                         <outlet property="preview" destination="8Tg-4t-zhc" id="Gjc-6e-meu"/>
                         <outlet property="restartOutlet" destination="WaU-C9-fIq" id="aEE-jE-Ilh"/>
                         <outlet property="shadowOutlet" destination="1Ew-KO-4h4" id="aKP-fF-Eef"/>
+                        <outlet property="spuStandardUpdaterController" destination="Ybb-NY-68V" id="xKH-32-ugq"/>
                         <outlet property="thicknessSlider" destination="aBq-Kl-7nH" id="Myr-8B-Ftz"/>
                         <outlet property="thicknessValue" destination="Ua1-b0-fOM" id="K7f-wK-ljf"/>
                         <outlet property="volumeDisabledColorOutlet" destination="ecn-u0-J82" id="c5m-2a-cbD"/>
@@ -853,7 +849,7 @@
                     </connections>
                 </viewController>
                 <customObject id="UTx-fl-OKg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="Ybb-NY-68V" customClass="SUUpdater"/>
+                <customObject id="Ybb-NY-68V" customClass="SPUStandardUpdaterController"/>
             </objects>
             <point key="canvasLocation" x="714.5" y="151.5"/>
         </scene>
@@ -935,7 +931,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSRefreshTemplate" width="11" height="15"/>
+        <image name="NSRefreshTemplate" width="18" height="21"/>
         <image name="backlight" width="225" height="120"/>
         <image name="brightness" width="224" height="223"/>
         <image name="brightnessSegmTemplate" width="116" height="115"/>

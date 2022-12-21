@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1219E06918EE24D5484AA823 /* Pods_SlimHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */; };
 		FA12C21124EA934800F92CA3 /* HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */; };
 		FA12C21324EA937800F92CA3 /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */; };
 		FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */; };
@@ -18,6 +17,7 @@
 		FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */; };
 		FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264662950BD850046CD2C /* ChangesObserver.swift */; };
 		FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264692950C1CF0046CD2C /* Displayer.swift */; };
+		FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA48AE4D29522C1200A9E0E2 /* Sparkle */; };
 		FA48AE4B29521CC900A9E0E2 /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48AE4A29521CC900A9E0E2 /* SensorError.swift */; };
 		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
 		FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */; };
@@ -43,6 +43,8 @@
 		FACB31042951ACAF00BFB792 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31032951ACAF00BFB792 /* SettingsController.swift */; };
 		FACB310A2951ACE900BFB792 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACB31082951ACE900BFB792 /* BarView.xib */; };
 		FACB310B2951ACE900BFB792 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31092951ACE900BFB792 /* BarView.swift */; };
+		FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31232951B96200BFB792 /* SlimHUDTests.swift */; };
+		FACB312C2951B9F000BFB792 /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */; };
 		FACB31132951B00A00BFB792 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */; };
 		FACB31152951B01400BFB792 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31142951B01400BFB792 /* NSImageExtension.swift */; };
 		FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31232951B96200BFB792 /* SlimHUDTests.swift */; };
@@ -65,9 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlimHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.debug.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.debug.xcconfig"; sourceTree = "<group>"; };
-		B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimHUD.release.xcconfig"; path = "Target Support Files/Pods-SlimHUD/Pods-SlimHUD.release.xcconfig"; sourceTree = "<group>"; };
 		FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsControllerInterface.swift; sourceTree = "<group>"; };
 		FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
 		FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
@@ -106,6 +105,12 @@
 		FACB31032951ACAF00BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FACB31082951ACE900BFB792 /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarView.xib; path = SlimHUD/Views/BarView/BarView.xib; sourceTree = SOURCE_ROOT; };
 		FACB31092951ACE900BFB792 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = SlimHUD/Views/BarView/BarView.swift; sourceTree = SOURCE_ROOT; };
+		FACB31212951B96200BFB792 /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FACB31232951B96200BFB792 /* SlimHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDTests.swift; sourceTree = "<group>"; };
+		FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
+		FACB31032951ACAF00BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		FACB31082951ACE900BFB792 /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarView.xib; path = SlimHUD/Views/BarView/BarView.xib; sourceTree = SOURCE_ROOT; };
+		FACB31092951ACE900BFB792 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = SlimHUD/Views/BarView/BarView.swift; sourceTree = SOURCE_ROOT; };
 		FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FACB31142951B01400BFB792 /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
 		FACB31212951B96200BFB792 /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,22 +135,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1219E06918EE24D5484AA823 /* Pods_SlimHUD.framework in Frameworks */,
+				FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C740C1723CB20354D1E13A6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */,
-				B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		FA12C21824EA9D5F00F92CA3 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,8 +202,6 @@
 				FA69AC8523F9E2E600AA73FD /* SlimHUD */,
 				FACB31222951B96200BFB792 /* SlimHUDTests */,
 				FA69AC8423F9E2E600AA73FD /* Products */,
-				FAE5E634244387C70029471E /* Frameworks */,
-				2C740C1723CB20354D1E13A6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,6 +291,15 @@
 			path = BarView;
 			sourceTree = "<group>";
 		};
+		FACB31072951ACDE00BFB792 /* BarView */ = {
+			isa = PBXGroup;
+			children = (
+				FACB31092951ACE900BFB792 /* BarView.swift */,
+				FACB31082951ACE900BFB792 /* BarView.xib */,
+			);
+			path = BarView;
+			sourceTree = "<group>";
+		};
 		FACB31182951B40600BFB792 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,17 +340,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA69AC9323F9E2E700AA73FD /* Build configuration list for PBXNativeTarget "SlimHUD" */;
 			buildPhases = (
-				6C92E8366EB7453FD3714FCE /* [CP] Check Pods Manifest.lock */,
 				FA69AC7F23F9E2E600AA73FD /* Sources */,
 				FA69AC8123F9E2E600AA73FD /* Resources */,
 				FAE5E633244387AB0029471E /* Frameworks */,
-				665749C72B21B13DDD9DC418 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SlimHUD;
+			packageProductDependencies = (
+				FA48AE4D29522C1200A9E0E2 /* Sparkle */,
+			);
 			productName = SlimHUD;
 			productReference = FA69AC8323F9E2E600AA73FD /* SlimHUD.app */;
 			productType = "com.apple.product-type.application";
@@ -398,6 +402,9 @@
 				Base,
 			);
 			mainGroup = FA69AC7A23F9E2E600AA73FD;
+			packageReferences = (
+				FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			productRefGroup = FA69AC8423F9E2E600AA73FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -429,48 +436,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		665749C72B21B13DDD9DC418 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SlimHUD/Pods-SlimHUD-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SlimHUD/Pods-SlimHUD-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SlimHUD/Pods-SlimHUD-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6C92E8366EB7453FD3714FCE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SlimHUD-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA69AC7F23F9E2E600AA73FD /* Sources */ = {
@@ -659,7 +624,6 @@
 		};
 		FA69AC9423F9E2E700AA73FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A76B91BA76461B0592D9CAA5 /* Pods-SlimHUD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
@@ -696,7 +660,6 @@
 		};
 		FA69AC9523F9E2E700AA73FD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4665C4192BCA42C48DA9C4D /* Pods-SlimHUD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
@@ -803,6 +766,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA48AE4D29522C1200A9E0E2 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA69AC7B23F9E2E600AA73FD /* Project object */;
 }
