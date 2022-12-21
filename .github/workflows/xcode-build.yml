@@ -13,10 +13,13 @@ jobs:
   analyze:
     runs-on: macos-latest
     steps:
+      env:
+        SUMMARY_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
       - name: Adding markdown
         run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
       - name: set variable
-        run: echo "UNITTESTCOVERAGE=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_ENV
+        id: get-summary
+        run: echo "md=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_OUTPUT
       # - uses: actions/checkout@v3
       # - name: Test
       #   run: |
@@ -26,18 +29,12 @@ jobs:
       #   uses: kishikawakatsumi/xcresulttool@v1
       #   with:
       #     path: TestResults.xcresult
-      #     show-code-coverage: true
-  write-comment:
-    needs: analyze
-    runs-on: ubuntu-latest
-    steps:
+      #     show-code-coverage: true        
       - name: Test output
-        run: echo ${{ steps.vars.outputs.file-content }}
+        run: echo ${{ steps.get-summary.outputs.md }}
       - uses: NejcZdovc/comment-pr@v2
         with:
-          file: ${{ UNITTESTCOVERAGE }}
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          message: ${{ steps.get-summary.outputs.md }}
   # get-coverage-result:
   #   runs-on: ubuntu-latest
   #   # needs: analyze
