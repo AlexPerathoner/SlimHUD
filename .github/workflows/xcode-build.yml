@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Adding markdown
         run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
+      - name: set variable
+        run: echo "UNITTESTCOVERAGE=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_ENV
       # - uses: actions/checkout@v3
       # - name: Test
       #   run: |
@@ -25,45 +27,17 @@ jobs:
       #   with:
       #     path: TestResults.xcresult
       #     show-code-coverage: true
-  test-comment:
+  write-comment:
     needs: analyze
     runs-on: ubuntu-latest
     steps:
-      - name: Get stuff
-        id: vars
-        run: echo ::set-output name=file-content::$(cat $GITHUB_STEP_SUMMARY)
       - name: Test output
         run: echo ${{ steps.vars.outputs.file-content }}
       - uses: NejcZdovc/comment-pr@v2
         with:
-          file: $GITHUB_STEP_SUMMARY
+          file: ${{ UNITTESTCOVERAGE }}
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  write-comment:
-    runs-on: ubuntu-latest
-    needs: analyze
-    steps:
-      - name: Get Current Job Log URL
-        uses: Tiryoh/gha-jobid-action@v0
-        id: jobs
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          job_name: "analyze"
-          per_page: 1
-      - name: Output Current Job Log URL
-        run: echo ${{ steps.jobs.outputs.job_id }}
-      - uses: actions/github-script@v6
-        id: get-run
-        with:
-          script: |
-            const artifacts = await github.rest.checks.listAnnotations({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              check_run_id: ${{ steps.jobs.outputs.job_id }},
-            });
-            return artifacts.data
-      - name: Get result
-        run: echo "${{ steps.get-run.outputs.result }}"
   # get-coverage-result:
   #   runs-on: ubuntu-latest
   #   # needs: analyze
