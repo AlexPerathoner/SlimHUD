@@ -36,7 +36,7 @@ jobs:
             const jobs = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              check_run_id: github.run_id,
+              check_run_id: context.run_id,
             });
             return jobs.data
             const check_id = jobs.data.jobs.filter(a => a.name == "test-results")[0].id
@@ -45,7 +45,10 @@ jobs:
               repo: context.repo.repo,
               check_run_id: check_id
             });
-            return check_run.data
+            const output = check_run.data.output
+            const summary = output.summary
+            const text = output.text
+            return summary + "<br>---<br>" + text
       - name: Get result
         run: echo "${{ steps.get-run.outputs.result }}"
       - uses: marocchino/sticky-pull-request-comment@v2
