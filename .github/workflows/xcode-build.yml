@@ -25,18 +25,18 @@ jobs:
 # github.event.after # commit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: 'Test'
-            });
+      # - uses: actions/github-script@v6
+      #   with:
+      #     script: |
+      #       github.rest.issues.createComment({
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         issue_number: context.issue.number,
+      #         body: 'Test'
+      #       });
       - uses: NejcZdovc/comment-pr@v2
         with:
-          message: "Hello world"
+          message: "Hello world 2"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   # get-comment:
