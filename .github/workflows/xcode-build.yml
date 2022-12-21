@@ -13,11 +13,11 @@ jobs:
   analyze:
     runs-on: macos-latest
     steps:
-      env:
-        SUMMARY_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      # env:
+      #   SUMMARY_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
       - name: Adding markdown
         run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
-      - name: set variable
+      - name: Set variable
         id: get-summary
         run: echo "md=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_OUTPUT
       # - uses: actions/checkout@v3
