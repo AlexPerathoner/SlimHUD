@@ -23,8 +23,7 @@ jobs:
         uses: kishikawakatsumi/xcresulttool@v1
         with:
           path: TestResults.xcresult
-          title: test-results
-          upload-bundles: never
+          upload-bundles: always
           show-code-coverage: true
   # create-comment:
   #   runs-on: ubuntu-latest
