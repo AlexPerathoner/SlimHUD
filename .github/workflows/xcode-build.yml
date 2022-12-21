@@ -55,8 +55,6 @@ jobs:
             } else {
               return "Coverage: [here](" + summary_url + ")"
             }
-      - name: Get result
-        run: echo "${{ steps.get-run.outputs.result }}"
       - uses: marocchino/sticky-pull-request-comment@v2
         if: github.event_name == 'pull_request'
         with:
