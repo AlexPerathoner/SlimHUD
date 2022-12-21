@@ -34,6 +34,18 @@ jobs:
             return workflowruns.data.workflowruns[0].id
       - name: Get result
         run: echo "${{ steps.get-workflow-id.outputs.result }}"
+      - uses: actions/github-script@v6
+        id: get-workflow
+        with:
+          script: |
+            const workflowruns = await github.rest.actions.listWorkflowRunsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              per_page: 1,
+            });
+            return workflowruns.data.workflowruns
+      - name: Get result 2
+        run: echo "${{ toJson(steps.get-workflow.outputs.result) }}"
   update-comment:
     runs-on: ubuntu-latest
     steps:
