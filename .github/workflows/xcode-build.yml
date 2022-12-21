@@ -23,18 +23,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
-        id: set-result
+        id: get-workflow-id
         with:
           script: |
-            const opts = github.rest.actions.listWorkflowRunsForRepo({
+            const workflowruns = await github.rest.actions.listWorkflowRunsForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               per_page: 1,
             });
-            const workflowruns = await opts
-            return workflowruns.data
+            return workflowruns.data.workflowruns[0].id
       - name: Get result
-        run: echo "${{ steps.set-result.outputs.result }}"
+        run: echo "${{ steps.get-workflow-id.outputs.result }}"
   update-comment:
     runs-on: ubuntu-latest
     steps:
