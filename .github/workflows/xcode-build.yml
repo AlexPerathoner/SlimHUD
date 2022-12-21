@@ -12,39 +12,34 @@ concurrency:
 
 jobs:
   analyze:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
-      # - uses: actions/checkout@v3
-      # - name: Test
-      #   run: |
-      #     xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      # - name: Create coverage
-      #   id: code-coverage
-      #   uses: kishikawakatsumi/xcresulttool@v1
-      #   with:
-      #     path: TestResults.xcresult
-      #     show-code-coverage: true
+      - uses: actions/checkout@v3
+      - name: Test
+        run: |
+          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+      - name: Create coverage
+        id: code-coverage
+        uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: TestResults.xcresult
+          show-code-coverage: true
+  write-comment:
+    runs-on: ubuntu-latest
       - name: Get Current Job Log URL
         uses: Tiryoh/gha-jobid-action@v0
         id: jobs
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          job_name: ${{ github.job }}
+          job_name: "analyze"
           per_page: 1
       - name: Output Current Job Log URL
         run: echo ${{ steps.jobs.outputs.job_id }}
-      # - uses: technote-space/download-annotations-action@v1
-      #   id: annotations
-      #   with:
-      #     TARGET_RUN_ID: ${{ github.event.workflow_run.id }}
-      #     INCLUDE_LEVELS: warning
-      # - name: Get result
-      #   run: echo "${{ steps.get-run.outputs.result }}"
       - uses: actions/github-script@v6
         id: get-run
         with:
           script: |
-            const artifacts = await github.rest.checks.get({
+            const artifacts = await github.rest.checks.listAnnotations({
               owner: context.repo.owner,
               repo: context.repo.repo,
               check_run_id: ${{ steps.jobs.outputs.job_id }},
