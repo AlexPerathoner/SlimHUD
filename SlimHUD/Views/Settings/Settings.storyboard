@@ -840,6 +840,7 @@
                         <outlet property="preview" destination="8Tg-4t-zhc" id="Gjc-6e-meu"/>
                         <outlet property="restartOutlet" destination="WaU-C9-fIq" id="aEE-jE-Ilh"/>
                         <outlet property="shadowOutlet" destination="1Ew-KO-4h4" id="aKP-fF-Eef"/>
+                        <outlet property="spuStandardUpdaterController" destination="Ybb-NY-68V" id="xKH-32-ugq"/>
                         <outlet property="thicknessSlider" destination="aBq-Kl-7nH" id="Myr-8B-Ftz"/>
                         <outlet property="thicknessValue" destination="Ua1-b0-fOM" id="K7f-wK-ljf"/>
                         <outlet property="volumeDisabledColorOutlet" destination="ecn-u0-J82" id="c5m-2a-cbD"/>
