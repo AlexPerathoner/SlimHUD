@@ -27,9 +27,14 @@ jobs:
     needs: analyze
     runs-on: ubuntu-latest
     steps:
+      - name: Get stuff
+        id: vars
+        run: echo ::set-output name=file-content::$(cat $GITHUB_STEP_SUMMARY)
+      - name: Test output
+        run: echo ${{ steps.vars.outputs.file-content }}
       - uses: NejcZdovc/comment-pr@v2
         with:
-          file: "summary_raw"
+          file: $GITHUB_STEP_SUMMARY
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   write-comment:
