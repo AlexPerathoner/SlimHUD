@@ -15,7 +15,7 @@ jobs:
           workspace: SlimHUD.xcworkspace
           scheme: SlimHUD
           destination: platform=macOS
-          action: test
+          action: build
 
   coverage:
     runs-on: macos-latest
