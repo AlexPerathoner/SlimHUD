@@ -14,6 +14,7 @@ jobs:
         run: |
           xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
       - uses: kishikawakatsumi/xcresulttool@v1.7.0
+        if: success() || failure()
         with:
           path: TestResults.xcresult
           show-code-coverage: true
