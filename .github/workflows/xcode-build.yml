@@ -1,9 +1,9 @@
 name: Build and Analyze
 on:
   push:
-    branches: ["master", "develop"]
+    branches: ["*"]
   pull_request:
-    branches: ["master", "develop"]
+    branches: ["*"]
 
 jobs:
   test:
