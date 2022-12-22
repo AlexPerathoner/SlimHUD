@@ -13,7 +13,8 @@ jobs:
       - name: Test
         run: |
           xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - uses: kishikawakatsumi/xcresulttool@v1
+      - uses: kishikawakatsumi/xcresulttool@v1.7
         with:
           path: TestResults.xcresult
           show-code-coverage: true
+          upload-bundles: always
