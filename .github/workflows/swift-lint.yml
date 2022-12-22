@@ -5,6 +5,7 @@ on:
   pull_request:
     branches: ["*"]
 
+
 jobs:
   swift-lint:
     runs-on: ubuntu-latest
