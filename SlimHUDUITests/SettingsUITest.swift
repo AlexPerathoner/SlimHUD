@@ -8,7 +8,7 @@
 
 import XCTest
 
-final class SlimHUDUITests: XCTestCase {
+final class SettingsUITest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,8 +23,21 @@ final class SlimHUDUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testOpenSettingsWindow() throws {
         let app = XCUIApplication()
         app.launch()
+        let menuBarsQuery = app.menuBars
+        menuBarsQuery.statusItems["SlimHUD"].click()
+        menuBarsQuery/*@START_MENU_TOKEN@*/.menuItems["Preferences...."]/*[[".menuBarItems[\"SlimHUD\"]",".menus.menuItems[\"Preferences....\"]",".menuItems[\"Preferences....\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
+        
+        XCTAssertEqual(app.windows.count, 1)
+        
+        let settingsWindow = app.windows["Cyanocitta - Settings"]
+        settingsWindow.click()
+        
+        let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
+        attachment.name = "Settings screen"
+        attachment.lifetime = .keepAlways
+        add(attachment)
     }
 }

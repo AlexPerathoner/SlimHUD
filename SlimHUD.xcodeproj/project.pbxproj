@@ -21,13 +21,14 @@
 		FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA48AE4D29522C1200A9E0E2 /* Sparkle */; };
 		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
 		FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */; };
-		FA5753482954D73B008518A1 /* SlimHUDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5753472954D73B008518A1 /* SlimHUDUITests.swift */; };
 		FA57534A2954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5753492954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift */; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
 		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
 		FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */; };
 		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
 		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
+		FA7DACE12954EBE400E8DC7C /* SettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DACDF2954EBDA00E8DC7C /* SettingsUITest.swift */; };
+		FA7DACE32954ED2000E8DC7C /* SlimHUDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DACE22954ED2000E8DC7C /* SlimHUDUITests.swift */; };
 		FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */; };
 		FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A429506F00006F6936 /* NSControlExtension.swift */; };
 		FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A729506F0E006F6936 /* BoolExtension.swift */; };
@@ -88,7 +89,6 @@
 		FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginItemList.swift; path = SlimHUD/Services/LoginItemList.swift; sourceTree = SOURCE_ROOT; };
 		FA5753452954D73B008518A1 /* SlimHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA5753472954D73B008518A1 /* SlimHUDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDUITests.swift; sourceTree = "<group>"; };
 		FA5753492954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -98,6 +98,8 @@
 		FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA69AC8F23F9E2E700AA73FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
+		FA7DACDF2954EBDA00E8DC7C /* SettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITest.swift; sourceTree = "<group>"; };
+		FA7DACE22954ED2000E8DC7C /* SlimHUDUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimHUDUITests.swift; sourceTree = "<group>"; };
 		FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonExtension.swift; sourceTree = "<group>"; };
 		FAA1D1A429506F00006F6936 /* NSControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSControlExtension.swift; sourceTree = "<group>"; };
 		FAA1D1A729506F0E006F6936 /* BoolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtension.swift; sourceTree = "<group>"; };
@@ -200,7 +202,8 @@
 		FA5753462954D73B008518A1 /* SlimHUDUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FA5753472954D73B008518A1 /* SlimHUDUITests.swift */,
+				FA7DACDF2954EBDA00E8DC7C /* SettingsUITest.swift */,
+				FA7DACE22954ED2000E8DC7C /* SlimHUDUITests.swift */,
 				FA5753492954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift */,
 			);
 			path = SlimHUDUITests;
@@ -477,8 +480,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA5753482954D73B008518A1 /* SlimHUDUITests.swift in Sources */,
+				FA7DACE12954EBE400E8DC7C /* SettingsUITest.swift in Sources */,
 				FA57534A2954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift in Sources */,
+				FA7DACE32954ED2000E8DC7C /* SlimHUDUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
