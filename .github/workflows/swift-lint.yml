@@ -10,12 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: GitHub Action for SwiftLint (Only files changed in the PR)
+      - name: Lint (fix)
         uses: norio-nomura/action-swiftlint@3.2.1
         with:
-          args: --fix --format
+          args: --fix
         env:
           DIFF_BASE: ${{ github.base_ref }}
+      - name: Lint (check)
+        uses: norio-nomura/action-swiftlint@3.2.1
       - name: Saving changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
