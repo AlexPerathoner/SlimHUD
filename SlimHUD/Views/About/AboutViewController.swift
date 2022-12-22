@@ -18,6 +18,7 @@ class AboutViewController: NSViewController {
 
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
+        // swiftlint:disable:next force_cast
         let version = dictionary["CFBundleShortVersionString"] as! String
         // let build = dictionary["CFBundleVersion"] as! String
         return "\(version)" // + ".\(build)"

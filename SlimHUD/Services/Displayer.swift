@@ -39,6 +39,7 @@ class Displayer: HudsControllerInterface {
     }
 
     private func getBarView(hud: Hud) -> BarView { // todo should find way to change type of attribute inside of Hud
+        // swiftlint:disable:next force_cast
         return hud.view as! BarView
     }
 

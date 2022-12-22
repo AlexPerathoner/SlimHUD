@@ -41,6 +41,7 @@ class KeyboardManager {
         }
 
         if let ser: CFTypeRef = IORegistryEntryCreateCFProperty(service, "KeyboardBacklightBrightness" as CFString, kCFAllocatorDefault, 0)?.takeUnretainedValue() {
+            // swiftlint:disable:next force_cast
             let result = ser as! Float
             return result / KeyboardManager.MaxKeyboardBrightness
         }

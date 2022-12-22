@@ -17,8 +17,8 @@
 		FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */; };
 		FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264662950BD850046CD2C /* ChangesObserver.swift */; };
 		FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264692950C1CF0046CD2C /* Displayer.swift */; };
-		FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA48AE4D29522C1200A9E0E2 /* Sparkle */; };
 		FA48AE4B29521CC900A9E0E2 /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48AE4A29521CC900A9E0E2 /* SensorError.swift */; };
+		FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA48AE4D29522C1200A9E0E2 /* Sparkle */; };
 		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
 		FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */; };
 		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
@@ -37,14 +37,13 @@
 		FAA1D1C429507814006F6936 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C329507814006F6936 /* Position.swift */; };
 		FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C629509317006F6936 /* EnabledBars.swift */; };
 		FAA2265D294E746D00E082CB /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2265C294E746D00E082CB /* OSDUIManager.swift */; };
+		FAAA590F2954357000BFA059 /* swiftlint in Frameworks */ = {isa = PBXBuildFile; productRef = FAAA590E2954357000BFA059 /* swiftlint */; };
 		FAAFCD872458768E009E5E2E /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFCD862458768E009E5E2E /* About.storyboard */; };
 		FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFCD8824588785009E5E2E /* AboutViewController.swift */; };
 		FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */; };
 		FACB31042951ACAF00BFB792 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31032951ACAF00BFB792 /* SettingsController.swift */; };
 		FACB310A2951ACE900BFB792 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACB31082951ACE900BFB792 /* BarView.xib */; };
 		FACB310B2951ACE900BFB792 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31092951ACE900BFB792 /* BarView.swift */; };
-		FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31232951B96200BFB792 /* SlimHUDTests.swift */; };
-		FACB312C2951B9F000BFB792 /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */; };
 		FACB31132951B00A00BFB792 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */; };
 		FACB31152951B01400BFB792 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31142951B01400BFB792 /* NSImageExtension.swift */; };
 		FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31232951B96200BFB792 /* SlimHUDTests.swift */; };
@@ -105,12 +104,6 @@
 		FACB31032951ACAF00BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FACB31082951ACE900BFB792 /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarView.xib; path = SlimHUD/Views/BarView/BarView.xib; sourceTree = SOURCE_ROOT; };
 		FACB31092951ACE900BFB792 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = SlimHUD/Views/BarView/BarView.swift; sourceTree = SOURCE_ROOT; };
-		FACB31212951B96200BFB792 /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FACB31232951B96200BFB792 /* SlimHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDTests.swift; sourceTree = "<group>"; };
-		FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
-		FACB31032951ACAF00BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		FACB31082951ACE900BFB792 /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarView.xib; path = SlimHUD/Views/BarView/BarView.xib; sourceTree = SOURCE_ROOT; };
-		FACB31092951ACE900BFB792 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = SlimHUD/Views/BarView/BarView.swift; sourceTree = SOURCE_ROOT; };
 		FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FACB31142951B01400BFB792 /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
 		FACB31212951B96200BFB792 /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */,
+				FAAA590F2954357000BFA059 /* swiftlint in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,15 +285,6 @@
 			path = BarView;
 			sourceTree = "<group>";
 		};
-		FACB31072951ACDE00BFB792 /* BarView */ = {
-			isa = PBXGroup;
-			children = (
-				FACB31092951ACE900BFB792 /* BarView.swift */,
-				FACB31082951ACE900BFB792 /* BarView.xib */,
-			);
-			path = BarView;
-			sourceTree = "<group>";
-		};
 		FACB31182951B40600BFB792 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,14 +310,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		FAE5E634244387C70029471E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				335F277FDB5CB464DEAB1AF9 /* Pods_SlimHUD.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -347,10 +324,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				FAAA59112954357700BFA059 /* PBXTargetDependency */,
 			);
 			name = SlimHUD;
 			packageProductDependencies = (
 				FA48AE4D29522C1200A9E0E2 /* Sparkle */,
+				FAAA590E2954357000BFA059 /* swiftlint */,
 			);
 			productName = SlimHUD;
 			productReference = FA69AC8323F9E2E600AA73FD /* SlimHUD.app */;
@@ -404,6 +383,7 @@
 			mainGroup = FA69AC7A23F9E2E600AA73FD;
 			packageReferences = (
 				FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				FAAA590D2954357000BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = FA69AC8423F9E2E600AA73FD /* Products */;
 			projectDirPath = "";
@@ -477,7 +457,6 @@
 				FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */,
 				FA12C21124EA934800F92CA3 /* HudsControllerInterface.swift in Sources */,
 				FACB31132951B00A00BFB792 /* AppleScriptRunner.swift in Sources */,
-				FA78F53F242FA73000785678 /* SettingsController.swift in Sources */,
 				FAA1D1B62950724B006F6936 /* VolumeManager.swift in Sources */,
 				FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */,
 			);
@@ -495,6 +474,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FAAA59112954357700BFA059 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = FAAA59102954357700BFA059 /* SwiftLintPlugin */;
+		};
 		FACB31262951B96200BFB792 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FA69AC8223F9E2E600AA73FD /* SlimHUD */;
@@ -776,6 +759,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		FAAA590D2954357000BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -783,6 +774,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		FAAA590E2954357000BFA059 /* swiftlint */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAAA590D2954357000BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = swiftlint;
+		};
+		FAAA59102954357700BFA059 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAAA590D2954357000BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

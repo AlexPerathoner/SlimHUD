@@ -23,9 +23,12 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     }
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
-
+    
+    // swiftlint:disable:next force_cast
     var volumeView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
+    // swiftlint:disable:next force_cast
     var brightnessView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
+    // swiftlint:disable:next force_cast
     var keyboardView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
 
     var volumeHud = Hud()
