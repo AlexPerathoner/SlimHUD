@@ -61,7 +61,7 @@ class LoginItemsList: NSObject {
         print("App URL: ", path)
         for var index in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
         {
-            
+
             // swiftlint:disable:next force_cast
             var nextLoginItem: LSSharedFileListItem = loginItems.object(at: index) as! LSSharedFileListItem
 

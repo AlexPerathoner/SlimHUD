@@ -12,11 +12,11 @@ class KeyboardManager {
     private init() {}
 
     private static let MaxKeyboardBrightness: Float = 342
-    
+
     private static var useM1KeyboardBrightnessMethod = false
-    
+
     static func getKeyboardBrightness() -> Float {
-        if(useM1KeyboardBrightnessMethod) {
+        if useM1KeyboardBrightnessMethod {
             return getM1KeyboardBrightness()
         } else {
             do {
@@ -47,7 +47,7 @@ class KeyboardManager {
         }
         throw SensorError.keyboardBrightnessFailure
     }
-    
+
     private static func getM1KeyboardBrightness() -> Float {
         let task = Process()
         task.launchPath = "/usr/libexec/corebrightnessdiag"
