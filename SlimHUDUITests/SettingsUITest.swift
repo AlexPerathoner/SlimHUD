@@ -34,7 +34,7 @@ final class SettingsUITest: XCTestCase {
         
         XCTAssertEqual(app.windows.count, 2)
         
-        let settingsWindow = app.windows["Cyanocitta - Settings"]
+        let settingsWindow = app.windows["Settings"]
         settingsWindow.click()
         
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
