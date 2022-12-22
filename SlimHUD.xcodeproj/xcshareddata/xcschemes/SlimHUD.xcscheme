@@ -50,6 +50,17 @@
                ReferencedContainer = "container:SlimHUD.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FA5753442954D73B008518A1"
+               BuildableName = "SlimHUDUITests.xctest"
+               BlueprintName = "SlimHUDUITests"
+               ReferencedContainer = "container:SlimHUD.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
