@@ -22,7 +22,7 @@ jobs:
 
       - name: Public test results
         uses: kishikawakatsumi/xcresulttool@v1.7.0
-        if: always()
+        if: success() || failure()
         with:
           path: "TestResults.xcresult"
           title: Coverage results
