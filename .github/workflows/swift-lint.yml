@@ -1,9 +1,9 @@
 name: Style fix and check
 on:
   push:
-    branches: ["*"]
+    branches: ["master", "develop"]
   pull_request:
-    branches: ["*"]
+    branches: ["master", "develop"]
 
 
 jobs:
