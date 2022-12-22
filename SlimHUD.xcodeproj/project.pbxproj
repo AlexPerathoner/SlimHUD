@@ -37,7 +37,7 @@
 		FAA1D1C429507814006F6936 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C329507814006F6936 /* Position.swift */; };
 		FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C629509317006F6936 /* EnabledBars.swift */; };
 		FAA2265D294E746D00E082CB /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2265C294E746D00E082CB /* OSDUIManager.swift */; };
-		FAAA590F2954357000BFA059 /* swiftlint in Frameworks */ = {isa = PBXBuildFile; productRef = FAAA590E2954357000BFA059 /* swiftlint */; };
+		FAAA5917295437C600BFA059 /* swiftlint in Frameworks */ = {isa = PBXBuildFile; productRef = FAAA5916295437C600BFA059 /* swiftlint */; };
 		FAAFCD872458768E009E5E2E /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFCD862458768E009E5E2E /* About.storyboard */; };
 		FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFCD8824588785009E5E2E /* AboutViewController.swift */; };
 		FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */; };
@@ -129,7 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */,
-				FAAA590F2954357000BFA059 /* swiftlint in Frameworks */,
+				FAAA5917295437C600BFA059 /* swiftlint in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +196,7 @@
 				FA69AC8523F9E2E600AA73FD /* SlimHUD */,
 				FACB31222951B96200BFB792 /* SlimHUDTests */,
 				FA69AC8423F9E2E600AA73FD /* Products */,
+				FAAA59132954369B00BFA059 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,6 +268,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FAAA59132954369B00BFA059 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FAAFCD8A24588A68009E5E2E /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,12 +332,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				FAAA59112954357700BFA059 /* PBXTargetDependency */,
+				FAAA5919295437EF00BFA059 /* PBXTargetDependency */,
 			);
 			name = SlimHUD;
 			packageProductDependencies = (
 				FA48AE4D29522C1200A9E0E2 /* Sparkle */,
-				FAAA590E2954357000BFA059 /* swiftlint */,
+				FAAA5916295437C600BFA059 /* swiftlint */,
 			);
 			productName = SlimHUD;
 			productReference = FA69AC8323F9E2E600AA73FD /* SlimHUD.app */;
@@ -383,7 +391,7 @@
 			mainGroup = FA69AC7A23F9E2E600AA73FD;
 			packageReferences = (
 				FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */,
-				FAAA590D2954357000BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				FAAA5915295437C600BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = FA69AC8423F9E2E600AA73FD /* Products */;
 			projectDirPath = "";
@@ -474,9 +482,9 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FAAA59112954357700BFA059 /* PBXTargetDependency */ = {
+		FAAA5919295437EF00BFA059 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = FAAA59102954357700BFA059 /* SwiftLintPlugin */;
+			productRef = FAAA5918295437EF00BFA059 /* SwiftLintPlugin */;
 		};
 		FACB31262951B96200BFB792 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -759,7 +767,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		FAAA590D2954357000BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+		FAAA5915295437C600BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/SwiftLint";
 			requirement = {
@@ -775,14 +783,14 @@
 			package = FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
 		};
-		FAAA590E2954357000BFA059 /* swiftlint */ = {
+		FAAA5916295437C600BFA059 /* swiftlint */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FAAA590D2954357000BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			package = FAAA5915295437C600BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = swiftlint;
 		};
-		FAAA59102954357700BFA059 /* SwiftLintPlugin */ = {
+		FAAA5918295437EF00BFA059 /* SwiftLintPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FAAA590D2954357000BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			package = FAAA5915295437C600BFA059 /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
