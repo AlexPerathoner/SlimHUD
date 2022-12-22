@@ -5,20 +5,19 @@ on:
   pull_request:
     branches: ["master", "develop"]
 
-
 jobs:
   swift-lint:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Lint (fix)
-      uses: norio-nomura/action-swiftlint@3.2.1
-      with:
-        args: --fix
-    - name: Lint (check)
-      uses: norio-nomura/action-swiftlint@3.2.1
-    - name: Saving changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: swiftlint --fix --format auto run
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Lint (fix)
+        uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+          args: --fix
+      - name: Lint (check)
+        uses: norio-nomura/action-swiftlint@3.2.1
+      - name: Saving changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: swiftlint --fix --format auto run
