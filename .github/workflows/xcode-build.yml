@@ -6,25 +6,31 @@ on:
     branches: ["master", "develop"]
 
 jobs:
-  test:
+  build:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: sersoft-gmbh/xcodebuild-action@v2
+      - name: build
+        uses: sersoft-gmbh/xcodebuild-action@v2
         with:
-          workspace: SlimHUD.xcworkspace
+          project: SlimHUD.xcodeproj
           scheme: SlimHUD
           destination: platform=macOS
           action: build
 
-  coverage:
+  test-and-coverage:
     runs-on: macos-latest
-    needs: test
+    needs: build
     steps:
       - uses: actions/checkout@v3
-      - name: Test
-        run: |
-          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+      - name: build
+        uses: sersoft-gmbh/xcodebuild-action@v2
+        with:
+          project: SlimHUD.xcodeproj
+          scheme: SlimHUD
+          destination: platform=macOS
+          result-bundle-path: TestResults
+          action: test
       - uses: kishikawakatsumi/xcresulttool@v1
         with:
           path: TestResults.xcresult
