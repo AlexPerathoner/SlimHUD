@@ -10,29 +10,17 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      - name: build
-        uses: sersoft-gmbh/xcodebuild-action@v2
-        with:
-          project: SlimHUD.xcodeproj
-          scheme: SlimHUD
-          destination: platform=macOS
-          action: build
+      - name: Build
+        run: |
+          xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS build
 
-  # test-and-coverage:
-  #   runs-on: macos-latest
-  #   needs: build
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: build
-  #       uses: sersoft-gmbh/xcodebuild-action@v2
-  #       with:
-  #         project: SlimHUD.xcodeproj
-  #         scheme: SlimHUD
-  #         destination: platform=macOS
-  #         result-bundle-path: TestResults
-  #         action: test
-          # enable-code-coverage: true
-  #     - uses: kishikawakatsumi/xcresulttool@v1
-  #       with:
-  #         path: TestResults.xcresult
-  #         show-code-coverage: true
+  test-and-coverage:
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test
+        run: |
+          xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+      - uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: TestResults.xcresult
+          show-code-coverage: true
