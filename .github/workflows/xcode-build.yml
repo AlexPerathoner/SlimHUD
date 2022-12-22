@@ -6,14 +6,6 @@ on:
     branches: ["master", "develop"]
 
 jobs:
-  build:
-    runs-on: macos-12
-    steps:
-      - uses: actions/checkout@v3
-      - name: Build
-        run: |
-          xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS build
-
   test-and-coverage:
     runs-on: macos-12
     steps:
