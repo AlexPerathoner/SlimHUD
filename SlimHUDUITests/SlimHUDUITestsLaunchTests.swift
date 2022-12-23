@@ -37,11 +37,12 @@ final class SlimHUDUITestsLaunchTests: XCTestCase {
         app.launch()
         
         let menuBarsQuery = app.menuBars
-        let statusItem = menuBarsQuery.statusItems["SlimHUD"]
+        let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
         
         XCTAssert(statusItem.waitForExistence(timeout: 5))
         
-        let attachment = XCTAttachment(screenshot: statusItem.screenshot())
+        let actualStatusItemScreenshot = statusItem.screenshot()
+        let attachment = XCTAttachment(screenshot: actualStatusItemScreenshot)
         attachment.name = "Status Item screen"
         attachment.lifetime = .keepAlways
         add(attachment)
