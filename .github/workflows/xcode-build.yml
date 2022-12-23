@@ -53,8 +53,8 @@ jobs:
               });
               const output = check_run.data.output
               const summary = output.summary
-              const text = output.text
-              return summary + "<br>---<br><br>" + text
+              const details = output.text
+              return summary + "\n---\n\n" + details
             } else {
               return 'Coverage: [here](' + summary_url + ')'
             }
