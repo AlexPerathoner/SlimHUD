@@ -27,10 +27,17 @@ final class SettingsUITest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        sleep(1)
+        
         let menuBarsQuery = app.menuBars
         menuBarsQuery.statusItems["SlimHUD"].click()
+        
+        sleep(1)
+        
         menuBarsQuery/*@START_MENU_TOKEN@*/.menuItems["Preferences...."]/*[[".menuBarItems[\"SlimHUD\"]",".menus.menuItems[\"Preferences....\"]",".menuItems[\"Preferences....\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
-                
+        
+        sleep(1)
+        
         let settingsWindow = app.windows["Settings"]
         
         // make sure the window is visible
