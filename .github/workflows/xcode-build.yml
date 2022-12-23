@@ -23,7 +23,7 @@ jobs:
 
       - name: Build and Test
         run: |
-          xcodebuild clean test -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS CODE_SIGNING_ALLOWED=NO -resultBundlePath TestResults clean test | return 0
+          xcodebuild clean test -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS CODE_SIGNING_ALLOWED=NO -resultBundlePath TestResults clean test | exit 0
       - name: Post test results
         uses: kishikawakatsumi/xcresulttool@v1
         if: success() || failure()
