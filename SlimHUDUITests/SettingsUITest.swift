@@ -40,8 +40,8 @@ final class SettingsUITest: XCTestCase {
         let settingsWindow = app.windows.element(boundBy: 0)
         
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
-        let attachment = XCTAttachment(screenshot: otherWindow.screenshot())
-        attachment.name = "\(i) screen"
+        let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
+        attachment.name = "Settings screen"
         attachment.lifetime = .keepAlways
         add(attachment)
     }
