@@ -6,19 +6,19 @@ on:
     branches: ["master", "develop"]
 
 concurrency:
-  group: ${{ github.head_ref }}
+  group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
   analyze:
     runs-on: macos-12
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Test
+      - name: Build and Test
         run: |
-          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults build test
 
       - name: Post test results
         uses: kishikawakatsumi/xcresulttool@v1
@@ -32,6 +32,7 @@ jobs:
   create-comment:
     runs-on: ubuntu-latest
     needs: analyze
+    if: github.event_name == 'pull_request'
     steps:
       - uses: actions/github-script@v6
         id: get-run
