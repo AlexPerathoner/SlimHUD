@@ -13,7 +13,6 @@ final class AboutUITests: XCTestCase {
     
     func testOpenAboutWindow() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-uitesting"]
         app.launch()
         
         

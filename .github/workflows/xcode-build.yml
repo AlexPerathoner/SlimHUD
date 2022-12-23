@@ -15,14 +15,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set xcode version
-        run: |
-          sudo xcode-select -s "/Applications/Xcode_14.2.app"
+
+      - name: Switch Xcode version
+        run: sudo xcode-select -s "/Applications/Xcode_13.4.1.app"
+      - name: Xcode version
+        run: /usr/bin/xcodebuild -version
+
       - name: Build and Test
         env:
           FASTLANE_EXPLICIT_OPEN_SIMULATOR: "2"
         run: |
-          xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS -sdk macosx13.1 CODE_SIGNING_ALLOWED=NO -resultBundlePath TestResults clean test
+          xcodebuild clean test -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS CODE_SIGNING_ALLOWED=NO -resultBundlePath TestResults clean test
       - name: Post test results
         uses: kishikawakatsumi/xcresulttool@v1
         if: success() || failure()
