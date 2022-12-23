@@ -34,7 +34,7 @@ final class SettingsUITest: XCTestCase {
         statusItem.click()
 
         let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
-        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
+        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 10))
         preferencesMenuItem.click()
         sleep(1)
         preferencesMenuItem.click()
@@ -42,7 +42,7 @@ final class SettingsUITest: XCTestCase {
 
         let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
         
-        XCTAssert(settingsWindow.waitForExistence(timeout: 5))
+        XCTAssert(settingsWindow.waitForExistence(timeout: 30))
 
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
         attachment.name = "Settings screen"
