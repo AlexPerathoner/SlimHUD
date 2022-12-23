@@ -62,5 +62,5 @@ jobs:
         if: github.event_name == 'pull_request'
         with:
           recreate: true
-          message: ${{ toJson(steps.get-run.outputs.result) }}
+          message: ${{ steps.get-run.outputs.result }}
 
