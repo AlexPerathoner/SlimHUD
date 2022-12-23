@@ -22,16 +22,15 @@ jobs:
         run: /usr/bin/xcodebuild -version
 
       - name: Build and Test
-        env:
-          FASTLANE_EXPLICIT_OPEN_SIMULATOR: "2"
         run: |
           xcodebuild clean test -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS CODE_SIGNING_ALLOWED=NO -resultBundlePath TestResults clean test
       - name: Post test results
         uses: kishikawakatsumi/xcresulttool@v1
         if: success() || failure()
+        continue-on-error: true
         with:
           path: "TestResults.xcresult"
-          title: Coverage results
+          title: Test results
           upload-bundles: always
           show-code-coverage: true
 
@@ -58,7 +57,7 @@ jobs:
                 repo: context.repo.repo,
                 run_id: ${{github.run_id}},
               });
-              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Coverage results")[0]
+              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Test results")[0]
               if(coverage_result_check != null) {
                 coverage_result_check_id = coverage_result_check.id
                 break
