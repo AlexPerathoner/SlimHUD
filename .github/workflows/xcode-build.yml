@@ -15,12 +15,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Build and Test
       - name: Set xcode version
         run: |
           sudo xcode-select -s "/Applications/Xcode_14.2.app"
-      - name: Test
+      - name: Build and Test
         env:
           FASTLANE_EXPLICIT_OPEN_SIMULATOR: "2"
         run: |
