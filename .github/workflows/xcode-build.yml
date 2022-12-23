@@ -39,14 +39,27 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const jobs = await github.rest.actions.listJobsForWorkflowRun({
+            const workflows = await github.rest.actions.listWorkflowRunsForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              run_id: ${{github.run_id}},
             });
-            const summary_url = "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            const coverage_result_check_id = jobs.data.jobs.filter(a => a.name == "Coverage results")[0].id
-            if(coverage_result_check_id != null) {
+            const workflow_ids = workflows.data.workflow_runs.map(a => a.id)
+            let coverage_result_check_id = 0
+            for (const id in ids) {
+              const jobs = await github.rest.actions.listJobsForWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: ${{github.run_id}},
+              });
+              const summary_url = "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Coverage results")[0]
+              if(coverage_result_check != null) {
+                break
+              } else {
+                coverage_result_check_id = coverage_result_check.id
+              }
+            }
+            if(coverage_result_check_id != 0) {
               const check_run = await github.rest.checks.get({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
