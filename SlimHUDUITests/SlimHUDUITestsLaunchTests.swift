@@ -36,12 +36,10 @@ final class SlimHUDUITestsLaunchTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        sleep(1)
-                
         let menuBarsQuery = app.menuBars
-        NSLog(menuBarsQuery.statusItems.debugDescription)
         let statusItem = menuBarsQuery.statusItems["SlimHUD"]
-        XCTAssertTrue(statusItem.exists)
+        
+        XCTAssert(statusItem.waitForExistence(timeout: 5))
         
         let attachment = XCTAttachment(screenshot: statusItem.screenshot())
         attachment.name = "Status Item screen"

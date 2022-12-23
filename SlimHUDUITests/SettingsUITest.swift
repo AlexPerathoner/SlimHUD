@@ -27,20 +27,19 @@ final class SettingsUITest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        sleep(1)
-        
         let menuBarsQuery = app.menuBars
-        menuBarsQuery.statusItems["SlimHUD"].click()
+        let statusItem = menuBarsQuery.statusItems["SlimHUD"]
         
-        sleep(1)
+        XCTAssert(statusItem.waitForExistence(timeout: 5))
+        statusItem.click()
         
+        let preferencesMenuItem = menuBarsQuery/*@START_MENU_TOKEN@*/.menuItems["Preferences...."]/*[[".menuBarItems[\"SlimHUD\"]",".menus.menuItems[\"Preferences....\"]",".menuItems[\"Preferences....\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
         menuBarsQuery/*@START_MENU_TOKEN@*/.menuItems["Preferences...."]/*[[".menuBarItems[\"SlimHUD\"]",".menus.menuItems[\"Preferences....\"]",".menuItems[\"Preferences....\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
-        
-        sleep(1)
+
         
         let settingsWindow = app.windows["Settings"]
-        
-        XCTAssertTrue(settingsWindow.exists)
+        XCTAssert(settingsWindow.waitForExistence(timeout: 5))
         
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
         attachment.name = "Settings screen"
