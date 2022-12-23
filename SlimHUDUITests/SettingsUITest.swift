@@ -40,9 +40,7 @@ final class SettingsUITest: XCTestCase {
         
         let settingsWindow = app.windows["Settings"]
         
-        // make sure the window is visible
-        // TODO: find better way to check if window is visible. XCTAssertEqual(app.windows.count, 2) doesn't work, as the HUD is opening in that moment and could influence the count
-        settingsWindow.click()
+        XCTAssertTrue(settingsWindow.exists)
         
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
         attachment.name = "Settings screen"
