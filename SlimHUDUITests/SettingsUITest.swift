@@ -31,7 +31,7 @@ final class SettingsUITest: XCTestCase {
         menuBarsQuery.statusItems["SlimHUD"].click()
         menuBarsQuery/*@START_MENU_TOKEN@*/.menuItems["Preferences...."]/*[[".menuBarItems[\"SlimHUD\"]",".menus.menuItems[\"Preferences....\"]",".menuItems[\"Preferences....\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
         
-        sleep(1)
+        sleep(2)
         
         XCTAssertEqual(app.windows.count, 2)
         
