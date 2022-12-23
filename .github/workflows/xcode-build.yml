@@ -54,9 +54,8 @@ jobs:
               });
               const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Coverage results")[0]
               if(coverage_result_check != null) {
-                break
-              } else {
                 coverage_result_check_id = coverage_result_check.id
+                break
               }
             }
             if(coverage_result_check_id != 0) {
