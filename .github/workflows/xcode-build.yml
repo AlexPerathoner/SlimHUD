@@ -24,7 +24,7 @@ jobs:
       - name: Build and Test
         continue-on-error: true
         run: |
-          xcodebuild clean test -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults
+          xcodebuild clean test -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS CODE_SIGNING_ALLOWED=NO -resultBundlePath TestResults
       - name: Post test results
         uses: kishikawakatsumi/xcresulttool@v1
         if: success() || failure()
