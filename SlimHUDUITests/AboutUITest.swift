@@ -22,9 +22,10 @@ final class AboutUITests: XCTestCase {
         
         
         // Close Alert opened by Sparkle
-        SparkleUITests.closeAlerts(app: app)
-        // Click again on about menu item, in case some alerts where closed
-        statusItem.click()
+        if(SparkleUITests.closeAlerts(app: app)) {
+            // Click again on about menu item, in case some alerts where closed
+            statusItem.click()
+        }
         
         
         let aboutMenuItem = menuBarsQuery.menuItems["About..."]
