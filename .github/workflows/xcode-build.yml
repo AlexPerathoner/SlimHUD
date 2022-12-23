@@ -18,10 +18,10 @@ jobs:
         run: |
           sudo xcode-select -s "/Applications/Xcode_14.2.app"
       - name: Test
-        env: 
+        env:
           FASTLANE_EXPLICIT_OPEN_SIMULATOR: "2"
         run: |
-          xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS -sdk macosx13.1 -resultBundlePath TestResults test
+          xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS -sdk macosx13.1 CODE_SIGNING_ALLOWED=NO -resultBundlePath TestResults clean test
       - uses: kishikawakatsumi/xcresulttool@v1.7.0
         if: success() || failure()
         with:
