@@ -30,12 +30,11 @@ final class SettingsUITest: XCTestCase {
         let menuBarsQuery = app.menuBars
         menuBarsQuery.statusItems["SlimHUD"].click()
         menuBarsQuery/*@START_MENU_TOKEN@*/.menuItems["Preferences...."]/*[[".menuBarItems[\"SlimHUD\"]",".menus.menuItems[\"Preferences....\"]",".menuItems[\"Preferences....\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
-        
-        sleep(2)
-        
-        XCTAssertEqual(app.windows.count, 2)
-        
+                
         let settingsWindow = app.windows["Settings"]
+        
+        // make sure the window is visible
+        // TODO: find better way to check if window is visible. XCTAssertEqual(app.windows.count, 2) doesn't work, as the HUD is opening in that moment and could influence the count
         settingsWindow.click()
         
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
