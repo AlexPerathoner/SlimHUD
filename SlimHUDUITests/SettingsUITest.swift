@@ -1,6 +1,6 @@
 //
-//  SlimHUDUITests.swift
-//  SlimHUDUITests
+//  SettingsUITests.swift
+//  SettingsUITests
 //
 //  Created by Alex Perathoner on 22/12/22.
 //  Copyright © 2022 Alex Perathoner. All rights reserved.
