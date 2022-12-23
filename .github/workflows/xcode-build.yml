@@ -14,9 +14,12 @@ jobs:
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3
+      - name: Set xcode version
+        run: |
+          sudo xcode-select -s "/Applications/Xcode_14.2.app"
       - name: Test
         run: |
-          xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS -sdk macosx13.1 -resultBundlePath TestResults test
+          xcodebuild -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
       - uses: kishikawakatsumi/xcresulttool@v1.7.0
         if: success() || failure()
         with:
