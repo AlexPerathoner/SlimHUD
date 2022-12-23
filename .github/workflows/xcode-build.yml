@@ -45,7 +45,7 @@ jobs:
             });
             const workflow_ids = workflows.data.workflow_runs.map(a => a.id)
             let coverage_result_check_id = 0
-            for (const id in ids) {
+            for (const id in workflow_ids) {
               const jobs = await github.rest.actions.listJobsForWorkflowRun({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
