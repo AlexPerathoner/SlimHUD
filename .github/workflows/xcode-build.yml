@@ -45,7 +45,7 @@ jobs:
             });
             const summary_url = "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             const checks = jobs.data.jobs.filter(a => a.name == "Coverage results")
-            return checks.length
+            return checks.length + " " + checks[0].id
             if(checks.length > 0) {
               const coverage_result_check = checks[0]
               const check_run = await github.rest.checks.get({
