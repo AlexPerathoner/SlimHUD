@@ -98,7 +98,6 @@
 		FA69AC8323F9E2E600AA73FD /* SlimHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA69AC8F23F9E2E700AA73FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
 		FA7DACDF2954EBDA00E8DC7C /* SettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITest.swift; sourceTree = "<group>"; };
 		FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonExtension.swift; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		FAAFCD8824588785009E5E2E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
 		FABE76F129560A5E00F8B84F /* AboutUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUITest.swift; sourceTree = "<group>"; };
+		FABE772A29563A1400F8B84F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FACB31032951ACAF00BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FACB31082951ACE900BFB792 /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarView.xib; path = SlimHUD/Views/BarView/BarView.xib; sourceTree = SOURCE_ROOT; };
 		FACB31092951ACE900BFB792 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = SlimHUD/Views/BarView/BarView.swift; sourceTree = SOURCE_ROOT; };
@@ -195,7 +195,6 @@
 			children = (
 				FACB31182951B40600BFB792 /* Errors */,
 				FA2347462950D8E90017CF95 /* Constants.swift */,
-				FA69AC8F23F9E2E700AA73FD /* Info.plist */,
 				FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */,
 			);
 			path = Support;
@@ -244,6 +243,7 @@
 		FA69AC8523F9E2E600AA73FD /* SlimHUD */ = {
 			isa = PBXGroup;
 			children = (
+				FABE772A29563A1400F8B84F /* Info.plist */,
 				FAA1D19E29506E8B006F6936 /* Controllers */,
 				FAA1D19C29506E66006F6936 /* Services */,
 				FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */,
@@ -562,10 +562,8 @@
 		FA57534D2954D73B008518A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -573,7 +571,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = SlimHUD;
@@ -583,10 +580,8 @@
 		FA57534E2954D73B008518A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -594,7 +589,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = SlimHUD;
@@ -607,8 +601,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -660,7 +653,6 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -670,8 +662,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -716,7 +707,6 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -724,23 +714,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_ENTITLEMENTS = SlimHUD/Support/SlimHUD.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.3.8;
 				DEVELOPMENT_TEAM = XX9N244QQT;
-				ENABLE_HARDENED_RUNTIME = NO;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SlimHUD",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = SlimHUD/Support/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SlimHUD/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -749,13 +740,9 @@
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/DisplayServices.framework/Versions/A",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = NO;
-				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -764,23 +751,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_ENTITLEMENTS = SlimHUD/Support/SlimHUD.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.3.8;
 				DEVELOPMENT_TEAM = XX9N244QQT;
-				ENABLE_HARDENED_RUNTIME = NO;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SlimHUD",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = SlimHUD/Support/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SlimHUD/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -789,14 +777,9 @@
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/DisplayServices.framework/Versions/A",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.3.8;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = NO;
-				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -805,9 +788,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XX9N244QQT;
@@ -816,7 +796,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlimHUD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SlimHUD";
@@ -827,9 +806,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XX9N244QQT;
@@ -838,7 +814,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlimHUD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SlimHUD";
