@@ -6,19 +6,19 @@ on:
     branches: ["master", "develop"]
 
 concurrency:
-  group: ${{ github.head_ref }}
+  group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
   analyze:
     runs-on: macos-12
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Test
+      - name: Build and Test
         run: |
-          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
+          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults build test
 
       - name: Post test results
         uses: kishikawakatsumi/xcresulttool@v1
@@ -32,20 +32,33 @@ jobs:
   create-comment:
     runs-on: ubuntu-latest
     needs: analyze
+    if: github.event_name == 'pull_request'
     steps:
       - uses: actions/github-script@v6
         id: get-run
         with:
           result-encoding: string
           script: |
-            const jobs = await github.rest.actions.listJobsForWorkflowRun({
+            const workflows = await github.rest.actions.listWorkflowRunsForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              run_id: ${{github.run_id}},
             });
             const summary_url = "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            const coverage_result_check_id = jobs.data.jobs.filter(a => a.name == "Coverage results")[0].id
-            if(coverage_result_check_id != null) {
+            const workflow_ids = workflows.data.workflow_runs.map(a => a.id)
+            let coverage_result_check_id = 0
+            for (const id in workflow_ids) {
+              const jobs = await github.rest.actions.listJobsForWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: ${{github.run_id}},
+              });
+              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Coverage results")[0]
+              if(coverage_result_check != null) {
+                coverage_result_check_id = coverage_result_check.id
+                break
+              }
+            }
+            if(coverage_result_check_id != 0) {
               const check_run = await github.rest.checks.get({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
