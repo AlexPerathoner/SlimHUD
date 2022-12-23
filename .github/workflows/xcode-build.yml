@@ -5,6 +5,10 @@ on:
   pull_request:
     branches: ["master", "develop"]
 
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
 jobs:
   test-and-coverage:
     runs-on: macos-12
