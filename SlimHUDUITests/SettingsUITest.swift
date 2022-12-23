@@ -36,60 +36,17 @@ final class SettingsUITest: XCTestCase {
         let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
         XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
         preferencesMenuItem.click()
+        sleep(1)
+        preferencesMenuItem.click()
         
-        sleep(10)
 
         let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
+        
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
 
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
         attachment.name = "Settings screen"
         attachment.lifetime = .keepAlways
         add(attachment)
-    }
-    
-    func testOpenSettingsWindow2() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        let menuBarsQuery = app.menuBars
-        let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
-        
-        XCTAssert(statusItem.waitForExistence(timeout: 5))
-        statusItem.click()
-
-        let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
-        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
-        preferencesMenuItem.click()
-        
-        sleep(10)
-        
-        
-        let settingsWindow = app.windows.firstMatch
-        XCTAssert(settingsWindow.waitForExistence(timeout: 5))
-
-        let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
-        attachment.name = "Settings screen"
-        attachment.lifetime = .keepAlways
-        add(attachment)
-    }
-    
-    func testOpenSettingsWindow3() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        let menuBarsQuery = app.menuBars
-        let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
-        
-        XCTAssert(statusItem.waitForExistence(timeout: 5))
-        statusItem.click()
-
-        let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
-        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
-        preferencesMenuItem.click()
-        
-        sleep(10)
-        
-        XCTAssertEqual(app.windows.debugDescription, "")
     }
 }
