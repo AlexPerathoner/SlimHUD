@@ -35,7 +35,7 @@
                                                 <action selector="checkForUpdates:" target="Fkg-Y0-35E" id="DSJ-8j-7Me"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Preferences...." id="MKQ-CJ-4R5">
+                                        <menuItem title="Settings..." id="MKQ-CJ-4R5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <segue destination="ijN-uD-ef4" kind="show" id="SMe-Pr-DTm"/>
