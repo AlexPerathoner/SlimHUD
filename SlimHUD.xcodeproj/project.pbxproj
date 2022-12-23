@@ -18,6 +18,7 @@
 		FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264662950BD850046CD2C /* ChangesObserver.swift */; };
 		FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264692950C1CF0046CD2C /* Displayer.swift */; };
 		FA48AE4B29521CC900A9E0E2 /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48AE4A29521CC900A9E0E2 /* SensorError.swift */; };
+		FA48AE502953258F00A9E0E2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48AE4F2953258F00A9E0E2 /* Constants.swift */; };
 		FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA48AE4D29522C1200A9E0E2 /* Sparkle */; };
 		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
 		FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */; };
@@ -85,6 +86,7 @@
 		FA4264662950BD850046CD2C /* ChangesObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesObserver.swift; sourceTree = "<group>"; };
 		FA4264692950C1CF0046CD2C /* Displayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayer.swift; sourceTree = "<group>"; };
 		FA48AE4A29521CC900A9E0E2 /* SensorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
+		FA48AE4F2953258F00A9E0E2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginItemList.swift; path = SlimHUD/Services/LoginItemList.swift; sourceTree = SOURCE_ROOT; };
 		FA5753452954D73B008518A1 /* SlimHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,6 +328,7 @@
 			children = (
 				FACB312A2951B9E100BFB792 /* Services */,
 				FACB31232951B96200BFB792 /* SlimHUDTests.swift */,
+				FA48AE4F2953258F00A9E0E2 /* Constants.swift */,
 			);
 			path = SlimHUDTests;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 			files = (
 				FACB312C2951B9F000BFB792 /* PositionManagerTests.swift in Sources */,
 				FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */,
+				FA48AE502953258F00A9E0E2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
