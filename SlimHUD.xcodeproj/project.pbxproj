@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0AF8B929565FA40085239E /* SparkleUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AF8B829565FA40085239E /* SparkleUITest.swift */; };
 		FA12C21124EA934800F92CA3 /* HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */; };
 		FA12C21324EA937800F92CA3 /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */; };
 		FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */; };
@@ -76,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA0AF8B829565FA40085239E /* SparkleUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITest.swift; sourceTree = "<group>"; };
 		FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsControllerInterface.swift; sourceTree = "<group>"; };
 		FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
 		FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
@@ -157,6 +159,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0AF8B729565F860085239E /* SparkleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA0AF8B829565FA40085239E /* SparkleUITest.swift */,
+			);
+			path = SparkleUITests;
+			sourceTree = "<group>";
+		};
 		FA12C21824EA9D5F00F92CA3 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,7 @@
 		FA5753462954D73B008518A1 /* SlimHUDUITests */ = {
 			isa = PBXGroup;
 			children = (
+				FA0AF8B729565F860085239E /* SparkleUITests */,
 				FA7DACDF2954EBDA00E8DC7C /* SettingsUITest.swift */,
 				FABE76F129560A5E00F8B84F /* AboutUITest.swift */,
 				FA5753492954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift */,
@@ -485,6 +496,7 @@
 			files = (
 				FA7DACE12954EBE400E8DC7C /* SettingsUITest.swift in Sources */,
 				FABE76F229560A5E00F8B84F /* AboutUITest.swift in Sources */,
+				FA0AF8B929565FA40085239E /* SparkleUITest.swift in Sources */,
 				FA57534A2954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
