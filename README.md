@@ -42,10 +42,10 @@ Here's a full list of the features:
 * If you don't like the slide-in animation you can disable it. The bar will then just appear and disappear. 
 
 <p align="center">
-<img src = "Screens/Animations/animations2.gif" width=250>
-<img src = "Screens/Animations/animations.gif" height=250>
-<img src = "Screens/Animations/noAnimations.gif" height=250>
-<img src = "Screens/Animations/noAnimations2.gif" width=250>
+<img src = "Screens/Animations/animations2.gif" width=250 height=47>
+<img src = "Screens/Animations/animations.gif"  width=47 height=250>
+<img src = "Screens/Animations/noAnimations.gif" width=47 height=250>
+<img src = "Screens/Animations/noAnimations2.gif" width=250 height=47>
 </p>
 
 * Continuously check for changes (*reccomended if you have the TouchBar*): SlimHUD usually shows the volume bar when relative key has been pressed. This means that if you use the volume slider on your TouchBar nothing won't show up. <br>Note that enabling this option *will* fix this problem, but will also increase the CPU usage (which will still be almost none)
