@@ -45,7 +45,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         statusItem.menu = statusMenu
 
         if let button = statusItem.button {
-            button.title = "SlimHUD"
             button.image = NSImage(named: NSImage.StatusIconFileName)
             button.image?.isTemplate = true
         }
