@@ -26,9 +26,26 @@ final class SlimHUDUITestsLaunchTests: XCTestCase {
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
-
+    
     func testLaunch() throws {
         let app = XCUIApplication()
         app.launch()
+    }
+    
+    func testAppInMenuBar() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        sleep(1)
+                
+        let menuBarsQuery = app.menuBars
+        NSLog(menuBarsQuery.statusItems.debugDescription)
+        let statusItem = menuBarsQuery.statusItems["SlimHUD"]
+        XCTAssertTrue(statusItem.exists)
+        
+        let attachment = XCTAttachment(screenshot: statusItem.screenshot())
+        attachment.name = "Status Item screen"
+        attachment.lifetime = .keepAlways
+        add(attachment)
     }
 }
