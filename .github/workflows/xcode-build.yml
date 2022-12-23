@@ -26,7 +26,7 @@ jobs:
         with:
           path: "TestResults.xcresult"
           title: Coverage results
-          upload-bundles: never
+          upload-bundles: always
           show-code-coverage: true
 
   create-comment:
@@ -43,6 +43,7 @@ jobs:
               repo: context.repo.repo,
               run_id: ${{github.run_id}},
             });
+            return jobs.data.jobs
             const summary_url = "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             const checks = jobs.data.jobs.filter(a => a.name == "Coverage results")
             if(checks.count > 0) {
