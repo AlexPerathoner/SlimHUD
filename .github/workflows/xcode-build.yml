@@ -36,7 +36,7 @@ jobs:
       - uses: actions/github-script@v6
         id: get-run
         with:
-          result-encoding: json #todo set to string
+          result-encoding: string
           script: |
             const jobs = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
@@ -44,14 +44,12 @@ jobs:
               run_id: ${{github.run_id}},
             });
             const summary_url = "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            const checks = jobs.data.jobs.filter(a => a.name == "Coverage results")
-            return checks
-            if(checks.length > 0) {
-              const coverage_result_check = checks[0]
+            const coverage_result_check_id = jobs.data.jobs.filter(a => a.name == "Coverage results")[0].id
+            if(coverage_result_check_id != null) {
               const check_run = await github.rest.checks.get({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                check_run_id: coverage_result_check.id
+                check_run_id: coverage_result_check_id
               });
               const output = check_run.data.output
               const summary = output.summary
