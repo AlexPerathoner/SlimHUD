@@ -28,6 +28,7 @@ final class SettingsUITest: XCTestCase {
         app.launch()
         
         let menuBarsQuery = app.menuBars
+        XCTAssertEqual(menuBarsQuery.debugDescription, "")
         let statusItem = menuBarsQuery.statusItems["SlimHUD"]
         
         XCTAssert(statusItem.waitForExistence(timeout: 5))
