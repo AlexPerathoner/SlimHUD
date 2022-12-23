@@ -20,8 +20,8 @@ jobs:
         run: |
           xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
 
-      - name: Public test results
-        uses: kishikawakatsumi/xcresulttool@v1.7.0
+      - name: Post test results
+        uses: kishikawakatsumi/xcresulttool@v1
         if: success() || failure()
         with:
           path: "TestResults.xcresult"
