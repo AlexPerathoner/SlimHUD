@@ -28,10 +28,11 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
         }
 
         NSApp.activate(ignoringOtherApps: true)
+        NSApplication.shared.setActivationPolicy(.regular)
     }
 
     func windowWillClose(_ notification: Notification) {
         previewTimer?.invalidate()
+        NSApplication.shared.setActivationPolicy(.accessory)
     }
-
 }

@@ -27,9 +27,10 @@ final class AboutUITests: XCTestCase {
         XCTAssert(aboutMenuItem.waitForExistence(timeout: 5))
         aboutMenuItem.click()
         
-        XCTAssertEqual(app.windows.count, 1)
-        
         let aboutWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
+        
+        XCTAssert(aboutWindow.waitForExistence(timeout: 5))
+        
         let attachment = XCTAttachment(screenshot: aboutWindow.screenshot())
         attachment.name = "About screen"
         attachment.lifetime = .keepAlways

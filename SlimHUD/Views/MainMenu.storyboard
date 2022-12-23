@@ -32,7 +32,7 @@
                                         <menuItem title="Check for Updates..." id="5S5-O1-oWe">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="checkForUpdates:" target="Fkg-Y0-35E" id="DSJ-8j-7Me"/>
+                                                <action selector="checkForUpdates:" target="Fkg-Y0-35E" id="KIR-aE-2zD"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Settings..." id="MKQ-CJ-4R5">

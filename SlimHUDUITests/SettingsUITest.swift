@@ -37,7 +37,7 @@ final class SettingsUITest: XCTestCase {
         XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
         preferencesMenuItem.click()
 
-        let settingsWindow = app.windows.element(boundBy: 0)
+        let settingsWindow = app.windows["Settings"]
         
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
