@@ -36,7 +36,7 @@ jobs:
       - uses: actions/github-script@v6
         id: get-run
         with:
-          result-encoding: string
+          result-encoding: json #todo set to string
           script: |
             const jobs = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
@@ -45,7 +45,7 @@ jobs:
             });
             const summary_url = "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             const checks = jobs.data.jobs.filter(a => a.name == "Coverage results")
-            return checks.length + " " + checks[0].id
+            return checks
             if(checks.length > 0) {
               const coverage_result_check = checks[0]
               const check_run = await github.rest.checks.get({
@@ -64,5 +64,5 @@ jobs:
         if: github.event_name == 'pull_request'
         with:
           recreate: true
-          message: ${{ steps.get-run.outputs.result }}
+          message: ${{ toJson(steps.get-run.outputs.result) }}
 
