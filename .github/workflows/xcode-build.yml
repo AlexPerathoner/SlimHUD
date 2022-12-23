@@ -54,7 +54,7 @@ jobs:
               const output = check_run.data.output
               const summary = output.summary
               const text = output.text
-              return summary + "<br>---<br>" + text
+              return summary + "<br>---<br><br>" + text
             } else {
               return 'Coverage: [here](' + summary_url + ')'
             }
