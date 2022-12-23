@@ -17,6 +17,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.delegate = self
+        window?.identifier = .init(rawValue: "Settings")
 
         if previewTimer == nil { // windowDidLoad() could be called multiple times
             // sends a notification every second causing the bar to appear and be kept visible

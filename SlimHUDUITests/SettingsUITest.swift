@@ -33,12 +33,11 @@ final class SettingsUITest: XCTestCase {
         XCTAssert(statusItem.waitForExistence(timeout: 5))
         statusItem.click()
 
-        let preferencesMenuItem = menuBarsQuery/*@START_MENU_TOKEN@*/.menuItems["Preferences...."]/*[[".menuBarItems[\"SlimHUD\"]",".menus.menuItems[\"Preferences....\"]",".menuItems[\"Preferences....\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        let preferencesMenuItem = menuBarsQuery.menuItems["Preferences...."]
         XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
         preferencesMenuItem.click()
 
-
-        let settingsWindow = app.windows["Settings"]
+        let settingsWindow = app.children(matching: .window).element(matching: .window, identifier: "Settings")
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
 
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
