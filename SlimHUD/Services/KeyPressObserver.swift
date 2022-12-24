@@ -1,5 +1,5 @@
 //
-//  ObserverApplication.swift
+//  KeyPressObserver.swift
 //  SlimHUD
 //
 //  Created by Alex Perathoner on 18/02/2020.

@@ -3,386 +3,380 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA0AF8B929565FA40085239E /* SparkleUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AF8B829565FA40085239E /* SparkleUITest.swift */; };
-		FA12C21124EA934800F92CA3 /* HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */; };
-		FA12C21324EA937800F92CA3 /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */; };
-		FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */; };
-		FA12C21724EA93DF00F92CA3 /* SettingsViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C21624EA93DF00F92CA3 /* SettingsViewController+Style.swift */; };
-		FA131C2F24683CBD005908FF /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA131C2E24683CBD005908FF /* MainMenu.storyboard */; };
-		FA2347472950D8E90017CF95 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2347462950D8E90017CF95 /* Constants.swift */; };
-		FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */; };
-		FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */; };
-		FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264662950BD850046CD2C /* ChangesObserver.swift */; };
-		FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4264692950C1CF0046CD2C /* Displayer.swift */; };
-		FA48AE4B29521CC900A9E0E2 /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48AE4A29521CC900A9E0E2 /* SensorError.swift */; };
-		FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA48AE4D29522C1200A9E0E2 /* Sparkle */; };
-		FA48AE502953258F00A9E0E2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48AE4F2953258F00A9E0E2 /* Constants.swift */; };
-		FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */; };
-		FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */; };
-		FA57534A2954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5753492954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift */; };
-		FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77E9240B077E004E0937 /* BaseView.swift */; };
-		FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EA240B077E004E0937 /* ProgressBar.swift */; };
-		FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */; };
-		FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */; };
-		FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */; };
-		FA7DACE12954EBE400E8DC7C /* SettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DACDF2954EBDA00E8DC7C /* SettingsUITest.swift */; };
-		FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */; };
-		FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A429506F00006F6936 /* NSControlExtension.swift */; };
-		FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1A729506F0E006F6936 /* BoolExtension.swift */; };
-		FAA1D1AB29506F26006F6936 /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1AA29506F25006F6936 /* NSViewExtension.swift */; };
-		FAA1D1AE29506F4F006F6936 /* NSSegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */; };
-		FAA1D1B62950724B006F6936 /* VolumeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1B52950724B006F6936 /* VolumeManager.swift */; };
-		FAA1D1BB295073F4006F6936 /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1BA295073F4006F6936 /* DisplayManager.swift */; };
-		FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C02950764D006F6936 /* KeyboardManager.swift */; };
-		FAA1D1C429507814006F6936 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C329507814006F6936 /* Position.swift */; };
-		FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1C629509317006F6936 /* EnabledBars.swift */; };
-		FAA2265D294E746D00E082CB /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2265C294E746D00E082CB /* OSDUIManager.swift */; };
-		FAAFCD872458768E009E5E2E /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFCD862458768E009E5E2E /* About.storyboard */; };
-		FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFCD8824588785009E5E2E /* AboutViewController.swift */; };
-		FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */; };
-		FABE76F229560A5E00F8B84F /* AboutUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE76F129560A5E00F8B84F /* AboutUITest.swift */; };
-		FACB31042951ACAF00BFB792 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31032951ACAF00BFB792 /* SettingsController.swift */; };
-		FACB310A2951ACE900BFB792 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACB31082951ACE900BFB792 /* BarView.xib */; };
-		FACB310B2951ACE900BFB792 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31092951ACE900BFB792 /* BarView.swift */; };
-		FACB31132951B00A00BFB792 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */; };
-		FACB31152951B01400BFB792 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31142951B01400BFB792 /* NSImageExtension.swift */; };
-		FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB31232951B96200BFB792 /* SlimHUDTests.swift */; };
-		FACB312C2951B9F000BFB792 /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */; };
-		FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */; };
-		FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD8CB329509ED100B1A786 /* PositionManager.swift */; };
-		FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */; };
-		FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */; };
-		FAF5F6532406D1480011B766 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5F6522406D1480011B766 /* Hud.swift */; };
+		FA5005682956DB15004B86CF /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005632956DB14004B86CF /* SlimHUDUITestsLaunchTests.swift */; };
+		FA5005692956DB15004B86CF /* AboutUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005642956DB14004B86CF /* AboutUITest.swift */; };
+		FA50056A2956DB15004B86CF /* SettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005652956DB14004B86CF /* SettingsUITest.swift */; };
+		FA50056B2956DB15004B86CF /* SparkleUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005672956DB15004B86CF /* SparkleUITest.swift */; };
+		FA5005A72956DB70004B86CF /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005722956DB6F004B86CF /* SettingsController.swift */; };
+		FA5005A82956DB70004B86CF /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5005732956DB6F004B86CF /* Settings.storyboard */; };
+		FA5005A92956DB70004B86CF /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5005752956DB6F004B86CF /* BarView.xib */; };
+		FA5005AA2956DB70004B86CF /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005762956DB6F004B86CF /* BarView.swift */; };
+		FA5005AB2956DB70004B86CF /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5005782956DB6F004B86CF /* About.storyboard */; };
+		FA5005AC2956DB70004B86CF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005792956DB6F004B86CF /* AboutViewController.swift */; };
+		FA5005AD2956DB70004B86CF /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50057A2956DB6F004B86CF /* Hud.swift */; };
+		FA5005AE2956DB70004B86CF /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA50057B2956DB6F004B86CF /* MainMenu.storyboard */; };
+		FA5005AF2956DB70004B86CF /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50057D2956DB6F004B86CF /* ProgressBar.swift */; };
+		FA5005B02956DB70004B86CF /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50057E2956DB6F004B86CF /* DeterminateAnimation.swift */; };
+		FA5005B12956DB70004B86CF /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50057F2956DB6F004B86CF /* BaseView.swift */; };
+		FA5005B22956DB70004B86CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005812956DB6F004B86CF /* Constants.swift */; };
+		FA5005B32956DB70004B86CF /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005842956DB6F004B86CF /* SensorError.swift */; };
+		FA5005B42956DB70004B86CF /* EnabledBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005862956DB70004B86CF /* EnabledBars.swift */; };
+		FA5005B52956DB70004B86CF /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005872956DB70004B86CF /* NSViewExtension.swift */; };
+		FA5005B62956DB70004B86CF /* NSButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005882956DB70004B86CF /* NSButtonExtension.swift */; };
+		FA5005B72956DB70004B86CF /* NSControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005892956DB70004B86CF /* NSControlExtension.swift */; };
+		FA5005B82956DB70004B86CF /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50058A2956DB70004B86CF /* NSImageExtension.swift */; };
+		FA5005B92956DB70004B86CF /* BoolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50058B2956DB70004B86CF /* BoolExtension.swift */; };
+		FA5005BA2956DB70004B86CF /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50058C2956DB70004B86CF /* Position.swift */; };
+		FA5005BB2956DB70004B86CF /* NSSegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50058D2956DB70004B86CF /* NSSegmentedControlExtension.swift */; };
+		FA5005BC2956DB70004B86CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50058E2956DB70004B86CF /* AppDelegate.swift */; };
+		FA5005BD2956DB70004B86CF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA50058F2956DB70004B86CF /* Info.plist */; };
+		FA5005BE2956DB70004B86CF /* HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005912956DB70004B86CF /* HudsControllerInterface.swift */; };
+		FA5005BF2956DB70004B86CF /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005922956DB70004B86CF /* AboutWindowController.swift */; };
+		FA5005C02956DB70004B86CF /* SettingsViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005942956DB70004B86CF /* SettingsViewController+Style.swift */; };
+		FA5005C12956DB70004B86CF /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005952956DB70004B86CF /* SettingsViewController+General.swift */; };
+		FA5005C22956DB70004B86CF /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005962956DB70004B86CF /* SettingsViewController+Position.swift */; };
+		FA5005C32956DB70004B86CF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005972956DB70004B86CF /* SettingsViewController.swift */; };
+		FA5005C42956DB70004B86CF /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005982956DB70004B86CF /* SettingsWindowController.swift */; };
+		FA5005C52956DB70004B86CF /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50059A2956DB70004B86CF /* AppleScriptRunner.swift */; };
+		FA5005C62956DB70004B86CF /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50059B2956DB70004B86CF /* KeyPressObserver.swift */; };
+		FA5005C72956DB70004B86CF /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50059C2956DB70004B86CF /* DisplayManager.swift */; };
+		FA5005C82956DB70004B86CF /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50059D2956DB70004B86CF /* OSDUIManager.swift */; };
+		FA5005C92956DB70004B86CF /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50059E2956DB70004B86CF /* KeyboardManager.swift */; };
+		FA5005CA2956DB70004B86CF /* ChangesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50059F2956DB70004B86CF /* ChangesObserver.swift */; };
+		FA5005CB2956DB70004B86CF /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005A02956DB70004B86CF /* UserDefaultsManager.swift */; };
+		FA5005CC2956DB70004B86CF /* VolumeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005A12956DB70004B86CF /* VolumeManager.swift */; };
+		FA5005CD2956DB70004B86CF /* LoginItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005A22956DB70004B86CF /* LoginItemList.swift */; };
+		FA5005CE2956DB70004B86CF /* PositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005A32956DB70004B86CF /* PositionManager.swift */; };
+		FA5005CF2956DB70004B86CF /* Displayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005A42956DB70004B86CF /* Displayer.swift */; };
+		FA5005D02956DB70004B86CF /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005A52956DB70004B86CF /* SettingsManager.swift */; };
+		FA5005D42956DBB8004B86CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5005D32956DBB8004B86CF /* Assets.xcassets */; };
+		FA5005D62956DC05004B86CF /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005D52956DC05004B86CF /* SlimHUDTests.swift */; };
+		FA5005DB2956DC13004B86CF /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005D72956DC12004B86CF /* PositionManagerTests.swift */; };
+		FA5005DC2956DC13004B86CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005D82956DC12004B86CF /* Constants.swift */; };
+		FA5005DD2956DC13004B86CF /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5005DA2956DC12004B86CF /* PositionManagerTests.swift */; };
+		FA5005E02956DDD5004B86CF /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA5005DF2956DDD5004B86CF /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FA57534B2954D73B008518A1 /* PBXContainerItemProxy */ = {
+		FAE38E822956DACF001E3CC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FA69AC7B23F9E2E600AA73FD /* Project object */;
+			containerPortal = FAE38E682956DACC001E3CC0 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FA69AC8223F9E2E600AA73FD;
+			remoteGlobalIDString = FAE38E6F2956DACC001E3CC0;
 			remoteInfo = SlimHUD;
 		};
-		FACB31252951B96200BFB792 /* PBXContainerItemProxy */ = {
+		FAE38E8C2956DACF001E3CC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FA69AC7B23F9E2E600AA73FD /* Project object */;
+			containerPortal = FAE38E682956DACC001E3CC0 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FA69AC8223F9E2E600AA73FD;
+			remoteGlobalIDString = FAE38E6F2956DACC001E3CC0;
 			remoteInfo = SlimHUD;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA0AF8B829565FA40085239E /* SparkleUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITest.swift; sourceTree = "<group>"; };
-		FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsControllerInterface.swift; sourceTree = "<group>"; };
-		FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
-		FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
-		FA12C21624EA93DF00F92CA3 /* SettingsViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Style.swift"; sourceTree = "<group>"; };
-		FA131C2E24683CBD005908FF /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
-		FA2347462950D8E90017CF95 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
-		FA4264662950BD850046CD2C /* ChangesObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesObserver.swift; sourceTree = "<group>"; };
-		FA4264692950C1CF0046CD2C /* Displayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayer.swift; sourceTree = "<group>"; };
-		FA48AE4A29521CC900A9E0E2 /* SensorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
-		FA48AE4F2953258F00A9E0E2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
-		FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginItemList.swift; path = SlimHUD/Services/LoginItemList.swift; sourceTree = SOURCE_ROOT; };
-		FA5753452954D73B008518A1 /* SlimHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA5753492954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FA5C77E9240B077E004E0937 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		FA5C77EA240B077E004E0937 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
-		FA69AC8323F9E2E600AA73FD /* SlimHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
-		FA7DACDF2954EBDA00E8DC7C /* SettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITest.swift; sourceTree = "<group>"; };
-		FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonExtension.swift; sourceTree = "<group>"; };
-		FAA1D1A429506F00006F6936 /* NSControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSControlExtension.swift; sourceTree = "<group>"; };
-		FAA1D1A729506F0E006F6936 /* BoolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtension.swift; sourceTree = "<group>"; };
-		FAA1D1AA29506F25006F6936 /* NSViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
-		FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSegmentedControlExtension.swift; sourceTree = "<group>"; };
-		FAA1D1B52950724B006F6936 /* VolumeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeManager.swift; sourceTree = "<group>"; };
-		FAA1D1BA295073F4006F6936 /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
-		FAA1D1C02950764D006F6936 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
-		FAA1D1C329507814006F6936 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
-		FAA1D1C629509317006F6936 /* EnabledBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnabledBars.swift; sourceTree = "<group>"; };
-		FAA2265C294E746D00E082CB /* OSDUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSDUIManager.swift; sourceTree = "<group>"; };
-		FAAFCD862458768E009E5E2E /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
-		FAAFCD8824588785009E5E2E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
-		FABE76F129560A5E00F8B84F /* AboutUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUITest.swift; sourceTree = "<group>"; };
-		FABE772A29563A1400F8B84F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		FACB31032951ACAF00BFB792 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		FACB31082951ACE900BFB792 /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarView.xib; path = SlimHUD/Views/BarView/BarView.xib; sourceTree = SOURCE_ROOT; };
-		FACB31092951ACE900BFB792 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = SlimHUD/Views/BarView/BarView.swift; sourceTree = SOURCE_ROOT; };
-		FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
-		FACB31142951B01400BFB792 /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
-		FACB31212951B96200BFB792 /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FACB31232951B96200BFB792 /* SlimHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDTests.swift; sourceTree = "<group>"; };
-		FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
-		FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsManager.swift; path = SlimHUD/Services/UserDefaultsManager.swift; sourceTree = SOURCE_ROOT; };
-		FACD8CB329509ED100B1A786 /* PositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManager.swift; sourceTree = "<group>"; };
-		FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
-		FAF5F6522406D1480011B766 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+		FA5005632956DB14004B86CF /* SlimHUDUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimHUDUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FA5005642956DB14004B86CF /* AboutUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUITest.swift; sourceTree = "<group>"; };
+		FA5005652956DB14004B86CF /* SettingsUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsUITest.swift; sourceTree = "<group>"; };
+		FA5005672956DB15004B86CF /* SparkleUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkleUITest.swift; sourceTree = "<group>"; };
+		FA5005722956DB6F004B86CF /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		FA5005732956DB6F004B86CF /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		FA5005752956DB6F004B86CF /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
+		FA5005762956DB6F004B86CF /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		FA5005782956DB6F004B86CF /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		FA5005792956DB6F004B86CF /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		FA50057A2956DB6F004B86CF /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+		FA50057B2956DB6F004B86CF /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		FA50057D2956DB6F004B86CF /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		FA50057E2956DB6F004B86CF /* DeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
+		FA50057F2956DB6F004B86CF /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		FA5005812956DB6F004B86CF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA5005822956DB6F004B86CF /* SlimHUD.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
+		FA5005842956DB6F004B86CF /* SensorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
+		FA5005862956DB70004B86CF /* EnabledBars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnabledBars.swift; sourceTree = "<group>"; };
+		FA5005872956DB70004B86CF /* NSViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
+		FA5005882956DB70004B86CF /* NSButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSButtonExtension.swift; sourceTree = "<group>"; };
+		FA5005892956DB70004B86CF /* NSControlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSControlExtension.swift; sourceTree = "<group>"; };
+		FA50058A2956DB70004B86CF /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
+		FA50058B2956DB70004B86CF /* BoolExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolExtension.swift; sourceTree = "<group>"; };
+		FA50058C2956DB70004B86CF /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		FA50058D2956DB70004B86CF /* NSSegmentedControlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSSegmentedControlExtension.swift; sourceTree = "<group>"; };
+		FA50058E2956DB70004B86CF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA50058F2956DB70004B86CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA5005912956DB70004B86CF /* HudsControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudsControllerInterface.swift; sourceTree = "<group>"; };
+		FA5005922956DB70004B86CF /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		FA5005942956DB70004B86CF /* SettingsViewController+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Style.swift"; sourceTree = "<group>"; };
+		FA5005952956DB70004B86CF /* SettingsViewController+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
+		FA5005962956DB70004B86CF /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
+		FA5005972956DB70004B86CF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FA5005982956DB70004B86CF /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		FA50059A2956DB70004B86CF /* AppleScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
+		FA50059B2956DB70004B86CF /* KeyPressObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
+		FA50059C2956DB70004B86CF /* DisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
+		FA50059D2956DB70004B86CF /* OSDUIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSDUIManager.swift; sourceTree = "<group>"; };
+		FA50059E2956DB70004B86CF /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		FA50059F2956DB70004B86CF /* ChangesObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangesObserver.swift; sourceTree = "<group>"; };
+		FA5005A02956DB70004B86CF /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		FA5005A12956DB70004B86CF /* VolumeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeManager.swift; sourceTree = "<group>"; };
+		FA5005A22956DB70004B86CF /* LoginItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemList.swift; sourceTree = "<group>"; };
+		FA5005A32956DB70004B86CF /* PositionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionManager.swift; sourceTree = "<group>"; };
+		FA5005A42956DB70004B86CF /* Displayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Displayer.swift; sourceTree = "<group>"; };
+		FA5005A52956DB70004B86CF /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		FA5005D32956DBB8004B86CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA5005D52956DC05004B86CF /* SlimHUDTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimHUDTests.swift; sourceTree = "<group>"; };
+		FA5005D72956DC12004B86CF /* PositionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PositionManagerTests.swift; path = Services/PositionManagerTests.swift; sourceTree = "<group>"; };
+		FA5005D82956DC12004B86CF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA5005DA2956DC12004B86CF /* PositionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
+		FAE38E702956DACC001E3CC0 /* SlimHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE38E812956DACF001E3CC0 /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE38E8B2956DACF001E3CC0 /* SlimHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FA5753422954D73B008518A1 /* Frameworks */ = {
+		FAE38E6D2956DACC001E3CC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA5005E02956DDD5004B86CF /* Sparkle in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAE38E7E2956DACF001E3CC0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FACB311E2951B96200BFB792 /* Frameworks */ = {
+		FAE38E882956DACF001E3CC0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE5E633244387AB0029471E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA48AE4E29522C1200A9E0E2 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA0AF8B729565F860085239E /* SparkleUITests */ = {
+		FA5005622956DB14004B86CF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				FA0AF8B829565FA40085239E /* SparkleUITest.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FA5005662956DB15004B86CF /* SparkleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA5005672956DB15004B86CF /* SparkleUITest.swift */,
 			);
 			path = SparkleUITests;
 			sourceTree = "<group>";
 		};
-		FA12C21824EA9D5F00F92CA3 /* SettingsViewController */ = {
+		FA5005702956DB6F004B86CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA262ADF240E6A9900BFC2D1 /* SettingsViewController.swift */,
-				FA12C21624EA93DF00F92CA3 /* SettingsViewController+Style.swift */,
-				FA12C21424EA93A500F92CA3 /* SettingsViewController+Position.swift */,
-				FA12C21224EA937800F92CA3 /* SettingsViewController+General.swift */,
-			);
-			path = SettingsViewController;
-			sourceTree = "<group>";
-		};
-		FA262AE5240E9EEF00BFC2D1 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				FAD58AAA24570B9F00E6E0D9 /* Settings.storyboard */,
-				FACB31032951ACAF00BFB792 /* SettingsController.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		FA51B9612469D52F0095C8B7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				FAF5F6522406D1480011B766 /* Hud.swift */,
-				FACB31072951ACDE00BFB792 /* BarView */,
-				FA5C77E8240B0753004E0937 /* Kauntey Suryawanshi */,
-				FA131C2E24683CBD005908FF /* MainMenu.storyboard */,
-				FA262AE5240E9EEF00BFC2D1 /* Settings */,
-				FAAFCD8A24588A68009E5E2E /* About */,
+				FA5005712956DB6F004B86CF /* Settings */,
+				FA5005742956DB6F004B86CF /* BarView */,
+				FA5005772956DB6F004B86CF /* About */,
+				FA50057A2956DB6F004B86CF /* Hud.swift */,
+				FA50057B2956DB6F004B86CF /* MainMenu.storyboard */,
+				FA50057C2956DB6F004B86CF /* Kauntey Suryawanshi */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FA51B9622469D5470095C8B7 /* Support */ = {
+		FA5005712956DB6F004B86CF /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				FACB31182951B40600BFB792 /* Errors */,
-				FA2347462950D8E90017CF95 /* Constants.swift */,
-				FA69AC9023F9E2E700AA73FD /* SlimHUD.entitlements */,
+				FA5005722956DB6F004B86CF /* SettingsController.swift */,
+				FA5005732956DB6F004B86CF /* Settings.storyboard */,
 			);
-			path = Support;
+			path = Settings;
 			sourceTree = "<group>";
 		};
-		FA5753462954D73B008518A1 /* SlimHUDUITests */ = {
+		FA5005742956DB6F004B86CF /* BarView */ = {
 			isa = PBXGroup;
 			children = (
-				FA0AF8B729565F860085239E /* SparkleUITests */,
-				FA7DACDF2954EBDA00E8DC7C /* SettingsUITest.swift */,
-				FABE76F129560A5E00F8B84F /* AboutUITest.swift */,
-				FA5753492954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift */,
-			);
-			path = SlimHUDUITests;
-			sourceTree = "<group>";
-		};
-		FA5C77E8240B0753004E0937 /* Kauntey Suryawanshi */ = {
-			isa = PBXGroup;
-			children = (
-				FA5C77E9240B077E004E0937 /* BaseView.swift */,
-				FA5C77EB240B077E004E0937 /* DeterminateAnimation.swift */,
-				FA5C77EA240B077E004E0937 /* ProgressBar.swift */,
-			);
-			path = "Kauntey Suryawanshi";
-			sourceTree = "<group>";
-		};
-		FA69AC7A23F9E2E600AA73FD = {
-			isa = PBXGroup;
-			children = (
-				FA69AC8523F9E2E600AA73FD /* SlimHUD */,
-				FACB31222951B96200BFB792 /* SlimHUDTests */,
-				FA5753462954D73B008518A1 /* SlimHUDUITests */,
-				FA69AC8423F9E2E600AA73FD /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		FA69AC8423F9E2E600AA73FD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FA69AC8323F9E2E600AA73FD /* SlimHUD.app */,
-				FACB31212951B96200BFB792 /* SlimHUDTests.xctest */,
-				FA5753452954D73B008518A1 /* SlimHUDUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FA69AC8523F9E2E600AA73FD /* SlimHUD */ = {
-			isa = PBXGroup;
-			children = (
-				FABE772A29563A1400F8B84F /* Info.plist */,
-				FAA1D19E29506E8B006F6936 /* Controllers */,
-				FAA1D19C29506E66006F6936 /* Services */,
-				FA69AC8623F9E2E600AA73FD /* AppDelegate.swift */,
-				FAA1D19F29506E9F006F6936 /* Extensions */,
-				FA51B9622469D5470095C8B7 /* Support */,
-				FA51B9612469D52F0095C8B7 /* Views */,
-				FA69AC8A23F9E2E700AA73FD /* Assets.xcassets */,
-			);
-			path = SlimHUD;
-			sourceTree = "<group>";
-		};
-		FAA1D19C29506E66006F6936 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				FAA2265C294E746D00E082CB /* OSDUIManager.swift */,
-				FACD8CAF2950971A00B1A786 /* UserDefaultsManager.swift */,
-				FA262AE1240E6AA000BFC2D1 /* SettingsManager.swift */,
-				FA4264692950C1CF0046CD2C /* Displayer.swift */,
-				FACD8CB329509ED100B1A786 /* PositionManager.swift */,
-				FABE1FDB23FEF17E009AD01F /* KeyPressObserver.swift */,
-				FA4264662950BD850046CD2C /* ChangesObserver.swift */,
-				FAA1D1BA295073F4006F6936 /* DisplayManager.swift */,
-				FACB31122951B00A00BFB792 /* AppleScriptRunner.swift */,
-				FAA1D1C02950764D006F6936 /* KeyboardManager.swift */,
-				FAA1D1B52950724B006F6936 /* VolumeManager.swift */,
-				FA55D1E7247D49DC005D3E00 /* LoginItemList.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		FAA1D19E29506E8B006F6936 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				FA51B95F2469D4510095C8B7 /* AboutWindowController.swift */,
-				FA12C21024EA934800F92CA3 /* HudsControllerInterface.swift */,
-				FAD58AAC2457139100E6E0D9 /* SettingsWindowController.swift */,
-				FA12C21824EA9D5F00F92CA3 /* SettingsViewController */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		FAA1D19F29506E9F006F6936 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				FAA1D1AD29506F4F006F6936 /* NSSegmentedControlExtension.swift */,
-				FACB31142951B01400BFB792 /* NSImageExtension.swift */,
-				FAA1D1AA29506F25006F6936 /* NSViewExtension.swift */,
-				FAA1D1A729506F0E006F6936 /* BoolExtension.swift */,
-				FAA1D1A029506ED3006F6936 /* NSButtonExtension.swift */,
-				FAA1D1A429506F00006F6936 /* NSControlExtension.swift */,
-				FAA1D1C329507814006F6936 /* Position.swift */,
-				FAA1D1C629509317006F6936 /* EnabledBars.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		FAAFCD8A24588A68009E5E2E /* About */ = {
-			isa = PBXGroup;
-			children = (
-				FAAFCD8824588785009E5E2E /* AboutViewController.swift */,
-				FAAFCD862458768E009E5E2E /* About.storyboard */,
-			);
-			path = About;
-			sourceTree = "<group>";
-		};
-		FACB31072951ACDE00BFB792 /* BarView */ = {
-			isa = PBXGroup;
-			children = (
-				FACB31092951ACE900BFB792 /* BarView.swift */,
-				FACB31082951ACE900BFB792 /* BarView.xib */,
+				FA5005752956DB6F004B86CF /* BarView.xib */,
+				FA5005762956DB6F004B86CF /* BarView.swift */,
 			);
 			path = BarView;
 			sourceTree = "<group>";
 		};
-		FACB31182951B40600BFB792 /* Errors */ = {
+		FA5005772956DB6F004B86CF /* About */ = {
 			isa = PBXGroup;
 			children = (
-				FA48AE4A29521CC900A9E0E2 /* SensorError.swift */,
+				FA5005782956DB6F004B86CF /* About.storyboard */,
+				FA5005792956DB6F004B86CF /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		FA50057C2956DB6F004B86CF /* Kauntey Suryawanshi */ = {
+			isa = PBXGroup;
+			children = (
+				FA50057D2956DB6F004B86CF /* ProgressBar.swift */,
+				FA50057E2956DB6F004B86CF /* DeterminateAnimation.swift */,
+				FA50057F2956DB6F004B86CF /* BaseView.swift */,
+			);
+			path = "Kauntey Suryawanshi";
+			sourceTree = "<group>";
+		};
+		FA5005802956DB6F004B86CF /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				FA5005812956DB6F004B86CF /* Constants.swift */,
+				FA5005832956DB6F004B86CF /* Errors */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		FA5005832956DB6F004B86CF /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				FA5005842956DB6F004B86CF /* SensorError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
 		};
-		FACB31222951B96200BFB792 /* SlimHUDTests */ = {
+		FA5005852956DB70004B86CF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FACB312A2951B9E100BFB792 /* Services */,
-				FACB31232951B96200BFB792 /* SlimHUDTests.swift */,
-				FA48AE4F2953258F00A9E0E2 /* Constants.swift */,
+				FA5005862956DB70004B86CF /* EnabledBars.swift */,
+				FA5005872956DB70004B86CF /* NSViewExtension.swift */,
+				FA5005882956DB70004B86CF /* NSButtonExtension.swift */,
+				FA5005892956DB70004B86CF /* NSControlExtension.swift */,
+				FA50058A2956DB70004B86CF /* NSImageExtension.swift */,
+				FA50058B2956DB70004B86CF /* BoolExtension.swift */,
+				FA50058C2956DB70004B86CF /* Position.swift */,
+				FA50058D2956DB70004B86CF /* NSSegmentedControlExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA5005902956DB70004B86CF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA5005912956DB70004B86CF /* HudsControllerInterface.swift */,
+				FA5005922956DB70004B86CF /* AboutWindowController.swift */,
+				FA5005932956DB70004B86CF /* SettingsViewController */,
+				FA5005982956DB70004B86CF /* SettingsWindowController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FA5005932956DB70004B86CF /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA5005942956DB70004B86CF /* SettingsViewController+Style.swift */,
+				FA5005952956DB70004B86CF /* SettingsViewController+General.swift */,
+				FA5005962956DB70004B86CF /* SettingsViewController+Position.swift */,
+				FA5005972956DB70004B86CF /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		FA5005992956DB70004B86CF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA50059A2956DB70004B86CF /* AppleScriptRunner.swift */,
+				FA50059B2956DB70004B86CF /* KeyPressObserver.swift */,
+				FA50059C2956DB70004B86CF /* DisplayManager.swift */,
+				FA50059D2956DB70004B86CF /* OSDUIManager.swift */,
+				FA50059E2956DB70004B86CF /* KeyboardManager.swift */,
+				FA50059F2956DB70004B86CF /* ChangesObserver.swift */,
+				FA5005A02956DB70004B86CF /* UserDefaultsManager.swift */,
+				FA5005A12956DB70004B86CF /* VolumeManager.swift */,
+				FA5005A22956DB70004B86CF /* LoginItemList.swift */,
+				FA5005A32956DB70004B86CF /* PositionManager.swift */,
+				FA5005A42956DB70004B86CF /* Displayer.swift */,
+				FA5005A52956DB70004B86CF /* SettingsManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FA5005D92956DC12004B86CF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA5005DA2956DC12004B86CF /* PositionManagerTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FAE38E672956DACC001E3CC0 = {
+			isa = PBXGroup;
+			children = (
+				FAE38E722956DACC001E3CC0 /* SlimHUD */,
+				FAE38E842956DACF001E3CC0 /* SlimHUDTests */,
+				FAE38E8E2956DACF001E3CC0 /* SlimHUDUITests */,
+				FAE38E712956DACC001E3CC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAE38E712956DACC001E3CC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAE38E702956DACC001E3CC0 /* SlimHUD.app */,
+				FAE38E812956DACF001E3CC0 /* SlimHUDTests.xctest */,
+				FAE38E8B2956DACF001E3CC0 /* SlimHUDUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAE38E722956DACC001E3CC0 /* SlimHUD */ = {
+			isa = PBXGroup;
+			children = (
+				FA50058E2956DB70004B86CF /* AppDelegate.swift */,
+				FA5005902956DB70004B86CF /* Controllers */,
+				FA5005852956DB70004B86CF /* Extensions */,
+				FA5005992956DB70004B86CF /* Services */,
+				FA5005802956DB6F004B86CF /* Support */,
+				FA5005702956DB6F004B86CF /* Views */,
+				FA5005822956DB6F004B86CF /* SlimHUD.entitlements */,
+				FA50058F2956DB70004B86CF /* Info.plist */,
+				FA5005D32956DBB8004B86CF /* Assets.xcassets */,
+			);
+			path = SlimHUD;
+			sourceTree = "<group>";
+		};
+		FAE38E842956DACF001E3CC0 /* SlimHUDTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA5005D82956DC12004B86CF /* Constants.swift */,
+				FA5005D72956DC12004B86CF /* PositionManagerTests.swift */,
+				FA5005D92956DC12004B86CF /* Services */,
+				FA5005D52956DC05004B86CF /* SlimHUDTests.swift */,
 			);
 			path = SlimHUDTests;
 			sourceTree = "<group>";
 		};
-		FACB312A2951B9E100BFB792 /* Services */ = {
+		FAE38E8E2956DACF001E3CC0 /* SlimHUDUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FACB312B2951B9F000BFB792 /* PositionManagerTests.swift */,
+				FA5005642956DB14004B86CF /* AboutUITest.swift */,
+				FA5005622956DB14004B86CF /* Extension */,
+				FA5005652956DB14004B86CF /* SettingsUITest.swift */,
+				FA5005632956DB14004B86CF /* SlimHUDUITestsLaunchTests.swift */,
+				FA5005662956DB15004B86CF /* SparkleUITests */,
 			);
-			path = Services;
+			path = SlimHUDUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA5753442954D73B008518A1 /* SlimHUDUITests */ = {
+		FAE38E6F2956DACC001E3CC0 /* SlimHUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA57534F2954D73B008518A1 /* Build configuration list for PBXNativeTarget "SlimHUDUITests" */;
+			buildConfigurationList = FAE38E952956DACF001E3CC0 /* Build configuration list for PBXNativeTarget "SlimHUD" */;
 			buildPhases = (
-				FA5753412954D73B008518A1 /* Sources */,
-				FA5753422954D73B008518A1 /* Frameworks */,
-				FA5753432954D73B008518A1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FA57534C2954D73B008518A1 /* PBXTargetDependency */,
-			);
-			name = SlimHUDUITests;
-			productName = SlimHUDUITests;
-			productReference = FA5753452954D73B008518A1 /* SlimHUDUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		FA69AC8223F9E2E600AA73FD /* SlimHUD */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA69AC9323F9E2E700AA73FD /* Build configuration list for PBXNativeTarget "SlimHUD" */;
-			buildPhases = (
-				FA69AC7F23F9E2E600AA73FD /* Sources */,
-				FA69AC8123F9E2E600AA73FD /* Resources */,
-				FAE5E633244387AB0029471E /* Frameworks */,
+				FAE38E6C2956DACC001E3CC0 /* Sources */,
+				FAE38E6D2956DACC001E3CC0 /* Frameworks */,
+				FAE38E6E2956DACC001E3CC0 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -390,97 +384,117 @@
 			);
 			name = SlimHUD;
 			packageProductDependencies = (
-				FA48AE4D29522C1200A9E0E2 /* Sparkle */,
+				FA5005DF2956DDD5004B86CF /* Sparkle */,
 			);
 			productName = SlimHUD;
-			productReference = FA69AC8323F9E2E600AA73FD /* SlimHUD.app */;
+			productReference = FAE38E702956DACC001E3CC0 /* SlimHUD.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FACB31202951B96200BFB792 /* SlimHUDTests */ = {
+		FAE38E802956DACF001E3CC0 /* SlimHUDTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FACB31292951B96200BFB792 /* Build configuration list for PBXNativeTarget "SlimHUDTests" */;
+			buildConfigurationList = FAE38E982956DACF001E3CC0 /* Build configuration list for PBXNativeTarget "SlimHUDTests" */;
 			buildPhases = (
-				FACB311D2951B96200BFB792 /* Sources */,
-				FACB311E2951B96200BFB792 /* Frameworks */,
-				FACB311F2951B96200BFB792 /* Resources */,
+				FAE38E7D2956DACF001E3CC0 /* Sources */,
+				FAE38E7E2956DACF001E3CC0 /* Frameworks */,
+				FAE38E7F2956DACF001E3CC0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FACB31262951B96200BFB792 /* PBXTargetDependency */,
+				FAE38E832956DACF001E3CC0 /* PBXTargetDependency */,
 			);
 			name = SlimHUDTests;
 			productName = SlimHUDTests;
-			productReference = FACB31212951B96200BFB792 /* SlimHUDTests.xctest */;
+			productReference = FAE38E812956DACF001E3CC0 /* SlimHUDTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAE38E8A2956DACF001E3CC0 /* SlimHUDUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAE38E9B2956DACF001E3CC0 /* Build configuration list for PBXNativeTarget "SlimHUDUITests" */;
+			buildPhases = (
+				FAE38E872956DACF001E3CC0 /* Sources */,
+				FAE38E882956DACF001E3CC0 /* Frameworks */,
+				FAE38E892956DACF001E3CC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAE38E8D2956DACF001E3CC0 /* PBXTargetDependency */,
+			);
+			name = SlimHUDUITests;
+			productName = SlimHUDUITests;
+			productReference = FAE38E8B2956DACF001E3CC0 /* SlimHUDUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FA69AC7B23F9E2E600AA73FD /* Project object */ = {
+		FAE38E682956DACC001E3CC0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1200;
-				ORGANIZATIONNAME = "Alex Perathoner";
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					FA5753442954D73B008518A1 = {
+					FAE38E6F2956DACC001E3CC0 = {
 						CreatedOnToolsVersion = 14.2;
-						TestTargetID = FA69AC8223F9E2E600AA73FD;
 					};
-					FA69AC8223F9E2E600AA73FD = {
-						CreatedOnToolsVersion = 11.3.1;
-					};
-					FACB31202951B96200BFB792 = {
+					FAE38E802956DACF001E3CC0 = {
 						CreatedOnToolsVersion = 14.2;
-						TestTargetID = FA69AC8223F9E2E600AA73FD;
+						LastSwiftMigration = 1420;
+						TestTargetID = FAE38E6F2956DACC001E3CC0;
+					};
+					FAE38E8A2956DACF001E3CC0 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = FAE38E6F2956DACC001E3CC0;
 					};
 				};
 			};
-			buildConfigurationList = FA69AC7E23F9E2E600AA73FD /* Build configuration list for PBXProject "SlimHUD" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = FAE38E6B2956DACC001E3CC0 /* Build configuration list for PBXProject "SlimHUD" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = FA69AC7A23F9E2E600AA73FD;
+			mainGroup = FAE38E672956DACC001E3CC0;
 			packageReferences = (
-				FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				FA5005DE2956DDD5004B86CF /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
-			productRefGroup = FA69AC8423F9E2E600AA73FD /* Products */;
+			productRefGroup = FAE38E712956DACC001E3CC0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA69AC8223F9E2E600AA73FD /* SlimHUD */,
-				FACB31202951B96200BFB792 /* SlimHUDTests */,
-				FA5753442954D73B008518A1 /* SlimHUDUITests */,
+				FAE38E6F2956DACC001E3CC0 /* SlimHUD */,
+				FAE38E802956DACF001E3CC0 /* SlimHUDTests */,
+				FAE38E8A2956DACF001E3CC0 /* SlimHUDUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FA5753432954D73B008518A1 /* Resources */ = {
+		FAE38E6E2956DACC001E3CC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA5005BD2956DB70004B86CF /* Info.plist in Resources */,
+				FA5005AE2956DB70004B86CF /* MainMenu.storyboard in Resources */,
+				FA5005A92956DB70004B86CF /* BarView.xib in Resources */,
+				FA5005AB2956DB70004B86CF /* About.storyboard in Resources */,
+				FA5005D42956DBB8004B86CF /* Assets.xcassets in Resources */,
+				FA5005A82956DB70004B86CF /* Settings.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAE38E7F2956DACF001E3CC0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA69AC8123F9E2E600AA73FD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA131C2F24683CBD005908FF /* MainMenu.storyboard in Resources */,
-				FACB310A2951ACE900BFB792 /* BarView.xib in Resources */,
-				FAAFCD872458768E009E5E2E /* About.storyboard in Resources */,
-				FAD58AAB24570B9F00E6E0D9 /* Settings.storyboard in Resources */,
-				FA69AC8B23F9E2E700AA73FD /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FACB311F2951B96200BFB792 /* Resources */ = {
+		FAE38E892956DACF001E3CC0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -490,124 +504,89 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FA5753412954D73B008518A1 /* Sources */ = {
+		FAE38E6C2956DACC001E3CC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA7DACE12954EBE400E8DC7C /* SettingsUITest.swift in Sources */,
-				FABE76F229560A5E00F8B84F /* AboutUITest.swift in Sources */,
-				FA0AF8B929565FA40085239E /* SparkleUITest.swift in Sources */,
-				FA57534A2954D73B008518A1 /* SlimHUDUITestsLaunchTests.swift in Sources */,
+				FA5005AA2956DB70004B86CF /* BarView.swift in Sources */,
+				FA5005A72956DB70004B86CF /* SettingsController.swift in Sources */,
+				FA5005CB2956DB70004B86CF /* UserDefaultsManager.swift in Sources */,
+				FA5005CE2956DB70004B86CF /* PositionManager.swift in Sources */,
+				FA5005B82956DB70004B86CF /* NSImageExtension.swift in Sources */,
+				FA5005C52956DB70004B86CF /* AppleScriptRunner.swift in Sources */,
+				FA5005B52956DB70004B86CF /* NSViewExtension.swift in Sources */,
+				FA5005BB2956DB70004B86CF /* NSSegmentedControlExtension.swift in Sources */,
+				FA5005CF2956DB70004B86CF /* Displayer.swift in Sources */,
+				FA5005B42956DB70004B86CF /* EnabledBars.swift in Sources */,
+				FA5005B72956DB70004B86CF /* NSControlExtension.swift in Sources */,
+				FA5005BC2956DB70004B86CF /* AppDelegate.swift in Sources */,
+				FA5005AC2956DB70004B86CF /* AboutViewController.swift in Sources */,
+				FA5005D02956DB70004B86CF /* SettingsManager.swift in Sources */,
+				FA5005BA2956DB70004B86CF /* Position.swift in Sources */,
+				FA5005C02956DB70004B86CF /* SettingsViewController+Style.swift in Sources */,
+				FA5005CC2956DB70004B86CF /* VolumeManager.swift in Sources */,
+				FA5005B92956DB70004B86CF /* BoolExtension.swift in Sources */,
+				FA5005B62956DB70004B86CF /* NSButtonExtension.swift in Sources */,
+				FA5005C72956DB70004B86CF /* DisplayManager.swift in Sources */,
+				FA5005CA2956DB70004B86CF /* ChangesObserver.swift in Sources */,
+				FA5005BE2956DB70004B86CF /* HudsControllerInterface.swift in Sources */,
+				FA5005C12956DB70004B86CF /* SettingsViewController+General.swift in Sources */,
+				FA5005CD2956DB70004B86CF /* LoginItemList.swift in Sources */,
+				FA5005C82956DB70004B86CF /* OSDUIManager.swift in Sources */,
+				FA5005C22956DB70004B86CF /* SettingsViewController+Position.swift in Sources */,
+				FA5005B22956DB70004B86CF /* Constants.swift in Sources */,
+				FA5005C42956DB70004B86CF /* SettingsWindowController.swift in Sources */,
+				FA5005AD2956DB70004B86CF /* Hud.swift in Sources */,
+				FA5005BF2956DB70004B86CF /* AboutWindowController.swift in Sources */,
+				FA5005B12956DB70004B86CF /* BaseView.swift in Sources */,
+				FA5005C62956DB70004B86CF /* KeyPressObserver.swift in Sources */,
+				FA5005B32956DB70004B86CF /* SensorError.swift in Sources */,
+				FA5005C92956DB70004B86CF /* KeyboardManager.swift in Sources */,
+				FA5005C32956DB70004B86CF /* SettingsViewController.swift in Sources */,
+				FA5005AF2956DB70004B86CF /* ProgressBar.swift in Sources */,
+				FA5005B02956DB70004B86CF /* DeterminateAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA69AC7F23F9E2E600AA73FD /* Sources */ = {
+		FAE38E7D2956DACF001E3CC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FACB310B2951ACE900BFB792 /* BarView.swift in Sources */,
-				FACB31042951ACAF00BFB792 /* SettingsController.swift in Sources */,
-				FA262AE2240E6AA000BFC2D1 /* SettingsManager.swift in Sources */,
-				FAA1D1AE29506F4F006F6936 /* NSSegmentedControlExtension.swift in Sources */,
-				FAA1D1AB29506F26006F6936 /* NSViewExtension.swift in Sources */,
-				FABE1FDC23FEF17E009AD01F /* KeyPressObserver.swift in Sources */,
-				FAA1D1A529506F00006F6936 /* NSControlExtension.swift in Sources */,
-				FA55D1E8247D49DC005D3E00 /* LoginItemList.swift in Sources */,
-				FA48AE4B29521CC900A9E0E2 /* SensorError.swift in Sources */,
-				FACD8CB02950971A00B1A786 /* UserDefaultsManager.swift in Sources */,
-				FA69AC8723F9E2E600AA73FD /* AppDelegate.swift in Sources */,
-				FAA1D1C429507814006F6936 /* Position.swift in Sources */,
-				FAA1D1A829506F0E006F6936 /* BoolExtension.swift in Sources */,
-				FA5C77EC240B077E004E0937 /* BaseView.swift in Sources */,
-				FA12C21524EA93A500F92CA3 /* SettingsViewController+Position.swift in Sources */,
-				FA4264672950BD850046CD2C /* ChangesObserver.swift in Sources */,
-				FACB31152951B01400BFB792 /* NSImageExtension.swift in Sources */,
-				FA12C21324EA937800F92CA3 /* SettingsViewController+General.swift in Sources */,
-				FA12C21724EA93DF00F92CA3 /* SettingsViewController+Style.swift in Sources */,
-				FAF5F6532406D1480011B766 /* Hud.swift in Sources */,
-				FA5C77ED240B077E004E0937 /* ProgressBar.swift in Sources */,
-				FA262AE0240E6A9900BFC2D1 /* SettingsViewController.swift in Sources */,
-				FAA1D1A129506ED3006F6936 /* NSButtonExtension.swift in Sources */,
-				FA42646A2950C1CF0046CD2C /* Displayer.swift in Sources */,
-				FA5C77EE240B077E004E0937 /* DeterminateAnimation.swift in Sources */,
-				FAA1D1BB295073F4006F6936 /* DisplayManager.swift in Sources */,
-				FAD58AAD2457139100E6E0D9 /* SettingsWindowController.swift in Sources */,
-				FAA2265D294E746D00E082CB /* OSDUIManager.swift in Sources */,
-				FA51B9602469D4510095C8B7 /* AboutWindowController.swift in Sources */,
-				FAA1D1C12950764D006F6936 /* KeyboardManager.swift in Sources */,
-				FA2347472950D8E90017CF95 /* Constants.swift in Sources */,
-				FACD8CB429509ED100B1A786 /* PositionManager.swift in Sources */,
-				FAAFCD8924588785009E5E2E /* AboutViewController.swift in Sources */,
-				FA12C21124EA934800F92CA3 /* HudsControllerInterface.swift in Sources */,
-				FACB31132951B00A00BFB792 /* AppleScriptRunner.swift in Sources */,
-				FAA1D1B62950724B006F6936 /* VolumeManager.swift in Sources */,
-				FAA1D1C729509317006F6936 /* EnabledBars.swift in Sources */,
+				FA5005DD2956DC13004B86CF /* PositionManagerTests.swift in Sources */,
+				FA5005DB2956DC13004B86CF /* PositionManagerTests.swift in Sources */,
+				FA5005D62956DC05004B86CF /* SlimHUDTests.swift in Sources */,
+				FA5005DC2956DC13004B86CF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FACB311D2951B96200BFB792 /* Sources */ = {
+		FAE38E872956DACF001E3CC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FACB312C2951B9F000BFB792 /* PositionManagerTests.swift in Sources */,
-				FACB31242951B96200BFB792 /* SlimHUDTests.swift in Sources */,
-				FA48AE502953258F00A9E0E2 /* Constants.swift in Sources */,
+				FA50056A2956DB15004B86CF /* SettingsUITest.swift in Sources */,
+				FA5005682956DB15004B86CF /* SlimHUDUITestsLaunchTests.swift in Sources */,
+				FA5005692956DB15004B86CF /* AboutUITest.swift in Sources */,
+				FA50056B2956DB15004B86CF /* SparkleUITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FA57534C2954D73B008518A1 /* PBXTargetDependency */ = {
+		FAE38E832956DACF001E3CC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FA69AC8223F9E2E600AA73FD /* SlimHUD */;
-			targetProxy = FA57534B2954D73B008518A1 /* PBXContainerItemProxy */;
+			target = FAE38E6F2956DACC001E3CC0 /* SlimHUD */;
+			targetProxy = FAE38E822956DACF001E3CC0 /* PBXContainerItemProxy */;
 		};
-		FACB31262951B96200BFB792 /* PBXTargetDependency */ = {
+		FAE38E8D2956DACF001E3CC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FA69AC8223F9E2E600AA73FD /* SlimHUD */;
-			targetProxy = FACB31252951B96200BFB792 /* PBXContainerItemProxy */;
+			target = FAE38E6F2956DACC001E3CC0 /* SlimHUD */;
+			targetProxy = FAE38E8C2956DACF001E3CC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		FA57534D2954D73B008518A1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XX9N244QQT;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SlimHUD;
-			};
-			name = Debug;
-		};
-		FA57534E2954D73B008518A1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XX9N244QQT;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SlimHUD;
-			};
-			name = Release;
-		};
-		FA69AC9123F9E2E700AA73FD /* Debug */ = {
+		FAE38E932956DACF001E3CC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -657,7 +636,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_MASTER_OBJECT_FILE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -668,7 +646,7 @@
 			};
 			name = Debug;
 		};
-		FA69AC9223F9E2E700AA73FD /* Release */ = {
+		FAE38E942956DACF001E3CC0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -712,7 +690,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_MASTER_OBJECT_FILE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -722,26 +699,19 @@
 			};
 			name = Release;
 		};
-		FA69AC9423F9E2E700AA73FD /* Debug */ = {
+		FAE38E962956DACF001E3CC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SlimHUD/Support/SlimHUD.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SlimHUD/SlimHUD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.3.8;
 				DEVELOPMENT_TEAM = XX9N244QQT;
-				ENABLE_HARDENED_RUNTIME = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SlimHUD",
-					"$(PROJECT_DIR)",
-				);
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SlimHUD/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;
@@ -749,37 +719,27 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/DisplayServices.framework/Versions/A",
-				);
 				MARKETING_VERSION = 1.3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		FA69AC9523F9E2E700AA73FD /* Release */ = {
+		FAE38E972956DACF001E3CC0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SlimHUD/Support/SlimHUD.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SlimHUD/SlimHUD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.3.8;
 				DEVELOPMENT_TEAM = XX9N244QQT;
-				ENABLE_HARDENED_RUNTIME = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SlimHUD",
-					"$(PROJECT_DIR)",
-				);
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SlimHUD/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;
@@ -787,88 +747,134 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/DisplayServices.framework/Versions/A",
-				);
 				MARKETING_VERSION = 1.3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		FACB31272951B96200BFB792 /* Debug */ = {
+		FAE38E992956DACF001E3CC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDTests;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlimHUD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SlimHUD";
 			};
 			name = Debug;
 		};
-		FACB31282951B96200BFB792 /* Release */ = {
+		FAE38E9A2956DACF001E3CC0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUD.SlimHUDTests;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlimHUD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SlimHUD";
+			};
+			name = Release;
+		};
+		FAE38E9C2956DACF001E3CC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XX9N244QQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUDUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SlimHUD;
+			};
+			name = Debug;
+		};
+		FAE38E9D2956DACF001E3CC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XX9N244QQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexP.SlimHUDUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SlimHUD;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA57534F2954D73B008518A1 /* Build configuration list for PBXNativeTarget "SlimHUDUITests" */ = {
+		FAE38E6B2956DACC001E3CC0 /* Build configuration list for PBXProject "SlimHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA57534D2954D73B008518A1 /* Debug */,
-				FA57534E2954D73B008518A1 /* Release */,
+				FAE38E932956DACF001E3CC0 /* Debug */,
+				FAE38E942956DACF001E3CC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA69AC7E23F9E2E600AA73FD /* Build configuration list for PBXProject "SlimHUD" */ = {
+		FAE38E952956DACF001E3CC0 /* Build configuration list for PBXNativeTarget "SlimHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA69AC9123F9E2E700AA73FD /* Debug */,
-				FA69AC9223F9E2E700AA73FD /* Release */,
+				FAE38E962956DACF001E3CC0 /* Debug */,
+				FAE38E972956DACF001E3CC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA69AC9323F9E2E700AA73FD /* Build configuration list for PBXNativeTarget "SlimHUD" */ = {
+		FAE38E982956DACF001E3CC0 /* Build configuration list for PBXNativeTarget "SlimHUDTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA69AC9423F9E2E700AA73FD /* Debug */,
-				FA69AC9523F9E2E700AA73FD /* Release */,
+				FAE38E992956DACF001E3CC0 /* Debug */,
+				FAE38E9A2956DACF001E3CC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FACB31292951B96200BFB792 /* Build configuration list for PBXNativeTarget "SlimHUDTests" */ = {
+		FAE38E9B2956DACF001E3CC0 /* Build configuration list for PBXNativeTarget "SlimHUDUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FACB31272951B96200BFB792 /* Debug */,
-				FACB31282951B96200BFB792 /* Release */,
+				FAE38E9C2956DACF001E3CC0 /* Debug */,
+				FAE38E9D2956DACF001E3CC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -876,23 +882,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+		FA5005DE2956DDD5004B86CF /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				kind = exactVersion;
+				version = 2.3.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA48AE4D29522C1200A9E0E2 /* Sparkle */ = {
+		FA5005DF2956DDD5004B86CF /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA48AE4C29522C1200A9E0E2 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			package = FA5005DE2956DDD5004B86CF /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = FA69AC7B23F9E2E600AA73FD /* Project object */;
+	rootObject = FAE38E682956DACC001E3CC0 /* Project object */;
 }
