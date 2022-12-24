@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EDF42956FCBF005B39CD /* AppDelegate.swift */; };
 		FA95EDF92956FCC1005B39CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA95EDF82956FCC1005B39CD /* Assets.xcassets */; };
-		FA95EE072956FCC1005B39CD /* SlimHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE062956FCC1005B39CD /* SlimHUDTests.swift */; };
 		FA95EE132956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */; };
 		FA95EE212956FCF0005B39CD /*  HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */; };
 		FA95EE242956FD3A005B39CD /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA95EE232956FD3A005B39CD /* Sparkle */; };
@@ -55,6 +54,8 @@
 		FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE7F2957445D005B39CD /* AboutUITest.swift */; };
 		FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8129574471005B39CD /* SettingsUITest.swift */; };
 		FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8429574495005B39CD /* SparkleUITests.swift */; };
+		FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE872957589E005B39CD /* PositionManagerTests.swift */; };
+		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +80,6 @@
 		FA95EDF42956FCBF005B39CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA95EDF82956FCC1005B39CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA95EE022956FCC1005B39CD /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA95EE062956FCC1005B39CD /* SlimHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDTests.swift; sourceTree = "<group>"; };
 		FA95EE0C2956FCC1005B39CD /* SlimHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " HudsControllerInterface.swift"; sourceTree = "<group>"; };
@@ -127,6 +127,8 @@
 		FA95EE7F2957445D005B39CD /* AboutUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUITest.swift; sourceTree = "<group>"; };
 		FA95EE8129574471005B39CD /* SettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITest.swift; sourceTree = "<group>"; };
 		FA95EE8429574495005B39CD /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
+		FA95EE872957589E005B39CD /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
+		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +196,8 @@
 		FA95EE052956FCC1005B39CD /* SlimHUDTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA95EE062956FCC1005B39CD /* SlimHUDTests.swift */,
+				FA95EE8629575892005B39CD /* Services */,
+				FA95EE89295758B1005B39CD /* Constants.swift */,
 			);
 			path = SlimHUDTests;
 			sourceTree = "<group>";
@@ -339,6 +342,14 @@
 				FA95EE8429574495005B39CD /* SparkleUITests.swift */,
 			);
 			path = SparkleUITests;
+			sourceTree = "<group>";
+		};
+		FA95EE8629575892005B39CD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA95EE872957589E005B39CD /* PositionManagerTests.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,7 +535,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA95EE072956FCC1005B39CD /* SlimHUDTests.swift in Sources */,
+				FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */,
+				FA95EE8A295758B1005B39CD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
