@@ -29,6 +29,9 @@ final class AboutUITests: XCTestCase {
         
         
         let aboutMenuItem = menuBarsQuery.menuItems["About..."]
+        if(!aboutMenuItem.isHittable) {
+            statusItem.click()
+        }
         XCTAssert(aboutMenuItem.waitForExistence(timeout: 5))
         aboutMenuItem.click()
         
