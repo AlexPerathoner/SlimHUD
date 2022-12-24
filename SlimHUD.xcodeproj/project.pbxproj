@@ -162,13 +162,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA5005622956DB14004B86CF /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		FA5005662956DB15004B86CF /* SparkleUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,7 +352,6 @@
 			isa = PBXGroup;
 			children = (
 				FA5005642956DB14004B86CF /* AboutUITest.swift */,
-				FA5005622956DB14004B86CF /* Extension */,
 				FA5005652956DB14004B86CF /* SettingsUITest.swift */,
 				FA5005632956DB14004B86CF /* SlimHUDUITestsLaunchTests.swift */,
 				FA5005662956DB15004B86CF /* SparkleUITests */,
