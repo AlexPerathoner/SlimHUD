@@ -23,7 +23,7 @@ final class SettingsUITest: XCTestCase {
         
         let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
         
-        while(!preferencesMenuItem.waitForExistence(timeout: 1)) {
+        while(!preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable) {
             statusItem.click()
         }
 

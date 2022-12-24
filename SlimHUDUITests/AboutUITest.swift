@@ -24,10 +24,11 @@ final class AboutUITests: XCTestCase {
         
         let aboutMenuItem = menuBarsQuery.menuItems["About..."]
         
-        while(!aboutMenuItem.waitForExistence(timeout: 1)) {
+        while(!aboutMenuItem.waitForExistence(timeout: 1) || !aboutMenuItem.isHittable) {
             statusItem.click()
         }
         
+        sleep(1)
         aboutMenuItem.click()
         
         let aboutWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
