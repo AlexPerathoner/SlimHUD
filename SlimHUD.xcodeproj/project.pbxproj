@@ -45,7 +45,7 @@
 		FA95EE6829573EEF005B39CD /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6729573EEF005B39CD /* BarView.swift */; };
 		FA95EE6B29573F0B005B39CD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6A29573F0B005B39CD /* AboutViewController.swift */; };
 		FA95EE6D29573F36005B39CD /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6C29573F36005B39CD /* Hud.swift */; };
-		FA95EE7029573F55005B39CD /* ProgressBar .swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6F29573F55005B39CD /* ProgressBar .swift */; };
+		FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6F29573F55005B39CD /* ProgressBar.swift */; };
 		FA95EE7229573F63005B39CD /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE7129573F63005B39CD /* DeterminateAnimation.swift */; };
 		FA95EE7429573F71005B39CD /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE7329573F71005B39CD /* BaseView.swift */; };
 		FA95EE78295741CB005B39CD /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE77295741CA005B39CD /* About.storyboard */; };
@@ -115,7 +115,7 @@
 		FA95EE6729573EEF005B39CD /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		FA95EE6A29573F0B005B39CD /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FA95EE6C29573F36005B39CD /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
-		FA95EE6F29573F55005B39CD /* ProgressBar .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressBar .swift"; sourceTree = "<group>"; };
+		FA95EE6F29573F55005B39CD /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA95EE7129573F63005B39CD /* DeterminateAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
 		FA95EE7329573F71005B39CD /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA95EE7529574141005B39CD /* SlimHUD.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 		FA95EE6E29573F47005B39CD /* Kauntey Suryawanshi */ = {
 			isa = PBXGroup;
 			children = (
-				FA95EE6F29573F55005B39CD /* ProgressBar .swift */,
+				FA95EE6F29573F55005B39CD /* ProgressBar.swift */,
 				FA95EE7129573F63005B39CD /* DeterminateAnimation.swift */,
 				FA95EE7329573F71005B39CD /* BaseView.swift */,
 			);
@@ -490,7 +490,7 @@
 				FA95EE5E2956FEC3005B39CD /* Constants.swift in Sources */,
 				FA95EE572956FE91005B39CD /* BoolExtension.swift in Sources */,
 				FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */,
-				FA95EE7029573F55005B39CD /* ProgressBar .swift in Sources */,
+				FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */,
 				FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */,
 				FA95EE442956FE20005B39CD /* LoginItemList.swift in Sources */,
 				FA95EE7429573F71005B39CD /* BaseView.swift in Sources */,
