@@ -2,8 +2,7 @@
 //  OSDUIManager.swift
 //  SlimHUD
 //
-//  Thanks to GameParrot https://github.com/GameParrot for this cool solution!
-//  Copyright © 2022 GameParrot. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Foundation
@@ -29,3 +28,4 @@ class OSDUIManager {
         }
     }
 }
+    

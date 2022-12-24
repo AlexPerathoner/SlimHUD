@@ -2,8 +2,7 @@
 //  DisplayManager.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 19/12/2022.
-//  Copyright © 2022 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Foundation
@@ -105,7 +104,7 @@ class DisplayManager {
 
     static func getDockPosition() -> Position {
         var dockPosition: Position = .bottom
-        if let rawPosition = UserDefaults.standard.persistentDomain(forName: "com.apple.dock")!["orientation"] as? String {
+        if let rawPosition = UserDefaults.standard.persistentDomain(forName: "com.apple.dock")?["orientation"] as? String {
             if let actualPosition = Position(rawValue: rawPosition) {
                 dockPosition = actualPosition
             } else {

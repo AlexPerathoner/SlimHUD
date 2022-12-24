@@ -5,27 +5,79 @@ on:
   pull_request:
     branches: ["master", "develop"]
 
-jobs:
-  test:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: sersoft-gmbh/xcodebuild-action@v2
-        with:
-          workspace: SlimHUD.xcworkspace
-          scheme: SlimHUD
-          destination: platform=macOS
-          action: test
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
-  coverage:
-    runs-on: macos-latest
-    needs: test
+jobs:
+  analyze:
+    runs-on: macos-12
     steps:
-      - uses: actions/checkout@v3
-      - name: Test
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Switch Xcode version
+        run: sudo xcode-select -s "/Applications/Xcode_14.2.app"
+      - name: Xcode version
+        run: /usr/bin/xcodebuild -version
+
+      - name: Build and Test
+        continue-on-error: true
         run: |
-          xcodebuild -workspace SlimHUD.xcworkspace -scheme SlimHUD -destination platform=macOS -resultBundlePath TestResults test
-      - uses: kishikawakatsumi/xcresulttool@v1
+          xcodebuild clean test -project SlimHUD.xcodeproj -scheme SlimHUD -destination platform=macOS CODE_SIGNING_ALLOWED=NO -resultBundlePath TestResults
+      - name: Post test results
+        uses: kishikawakatsumi/xcresulttool@v1
+        if: success() || failure()
         with:
-          path: TestResults.xcresult
+          path: "TestResults.xcresult"
+          title: Test results
+          upload-bundles: never
           show-code-coverage: true
+
+  create-comment:
+    runs-on: ubuntu-latest
+    needs: analyze
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/github-script@v6
+        id: get-run
+        with:
+          result-encoding: string
+          script: |
+            const workflows = await github.rest.actions.listWorkflowRunsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            const summary_url = "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            const workflow_ids = workflows.data.workflow_runs.map(a => a.id)
+            let coverage_result_check_id = 0
+            for (const id in workflow_ids) {
+              const jobs = await github.rest.actions.listJobsForWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: ${{github.run_id}},
+              });
+              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Test results")[0]
+              if(coverage_result_check != null) {
+                coverage_result_check_id = coverage_result_check.id
+                break
+              }
+            }
+            if(coverage_result_check_id != 0) {
+              const check_run = await github.rest.checks.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                check_run_id: coverage_result_check_id
+              });
+              const output = check_run.data.output
+              const summary = output.summary
+              const details = output.text
+              return summary + "\n---\n\n" + details
+            } else {
+              return 'Coverage: [here](' + summary_url + ')'
+            }
+      - uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          message: ${{ steps.get-run.outputs.result }}

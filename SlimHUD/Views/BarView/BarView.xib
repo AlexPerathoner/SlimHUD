@@ -13,26 +13,16 @@
             <rect key="frame" x="0.0" y="0.0" width="47" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="OEc-3L-76X" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEc-3L-76X" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
                     <rect key="frame" x="20" y="42" width="7" height="218"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-vC-v05">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-vC-v05">
                     <rect key="frame" x="13" y="13" width="21" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="21" id="NDy-U7-cMw"/>
-                        <constraint firstAttribute="height" constant="21" id="sfE-DM-dbO"/>
-                    </constraints>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="brightness" id="zRf-Lj-5fz"/>
                 </imageView>
             </subviews>
-            <constraints>
-                <constraint firstItem="5Ds-vC-v05" firstAttribute="top" secondItem="OEc-3L-76X" secondAttribute="bottom" constant="8" symbolic="YES" id="2He-Tf-5ba"/>
-                <constraint firstItem="5Ds-vC-v05" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="EK3-ax-JRK"/>
-                <constraint firstItem="OEc-3L-76X" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="ICd-eG-WXX"/>
-                <constraint firstAttribute="bottom" secondItem="5Ds-vC-v05" secondAttribute="bottom" constant="13" id="MYb-Fb-JAy"/>
-                <constraint firstItem="5Ds-vC-v05" firstAttribute="centerX" secondItem="OEc-3L-76X" secondAttribute="centerX" id="i2g-Or-H8I"/>
-                <constraint firstItem="OEc-3L-76X" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="pd0-y8-lvQ"/>
-            </constraints>
             <connections>
                 <outlet property="bar" destination="OEc-3L-76X" id="zCC-bE-hnn"/>
                 <outlet property="image" destination="5Ds-vC-v05" id="pMb-Sz-xS9"/>

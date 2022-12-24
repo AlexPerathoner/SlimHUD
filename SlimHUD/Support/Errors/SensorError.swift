@@ -2,8 +2,7 @@
 //  SensorError.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 20/12/22.
-//  Copyright © 2022 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Foundation
