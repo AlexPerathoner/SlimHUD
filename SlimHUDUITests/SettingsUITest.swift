@@ -19,7 +19,7 @@ final class SettingsUITest: XCTestCase {
         let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
         
         XCTAssert(statusItem.waitForExistence(timeout: 5))
-        statusItem.doubleClick()
+        statusItem.click()
         
         let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
         
@@ -27,7 +27,7 @@ final class SettingsUITest: XCTestCase {
             statusItem.click()
         }
 
-        preferencesMenuItem.click()
+        preferencesMenuItem.doubleClick()
 
         let settingsWindow = app.windows["Settings"]
         
