@@ -13,7 +13,7 @@ final class SettingsUITest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        SparkleUITests.waitForAlertAndClose(app: app)
+        SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         
         let menuBarsQuery = app.menuBars
         let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
@@ -23,7 +23,10 @@ final class SettingsUITest: XCTestCase {
         
         let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
         
-        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
+        while(!preferencesMenuItem.waitForExistence(timeout: 1)) {
+            statusItem.click()
+        }
+
         preferencesMenuItem.click()
 
         let settingsWindow = app.windows["Settings"]

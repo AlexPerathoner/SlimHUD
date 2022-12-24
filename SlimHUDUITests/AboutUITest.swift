@@ -14,7 +14,7 @@ final class AboutUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        SparkleUITests.waitForAlertAndClose(app: app)
+        SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         
         let menuBarsQuery = app.menuBars
         let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
@@ -23,7 +23,11 @@ final class AboutUITests: XCTestCase {
         statusItem.click()
         
         let aboutMenuItem = menuBarsQuery.menuItems["About..."]
-        XCTAssert(aboutMenuItem.waitForExistence(timeout: 5))
+        
+        while(!aboutMenuItem.waitForExistence(timeout: 1)) {
+            statusItem.click()
+        }
+        
         aboutMenuItem.click()
         
         let aboutWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
