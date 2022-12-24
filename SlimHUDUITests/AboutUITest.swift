@@ -29,7 +29,7 @@ final class AboutUITests: XCTestCase {
         }
         
         sleep(1)
-        aboutMenuItem.click()
+        aboutMenuItem.doubleClick()
         
         let aboutWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
         
