@@ -1,9 +1,8 @@
 //
-//  AboutViewController.swift
+//  About.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 28/04/2020.
-//  Copyright © 2020 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Cocoa

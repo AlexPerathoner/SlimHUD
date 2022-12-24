@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FAE38E6F2956DACC001E3CC0"
+               BlueprintIdentifier = "FA95EDF02956FCBF005B39CD"
                BuildableName = "SlimHUD.app"
                BlueprintName = "SlimHUD"
                ReferencedContainer = "container:SlimHUD.xcodeproj">
@@ -32,7 +32,7 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FAE38E6F2956DACC001E3CC0"
+            BlueprintIdentifier = "FA95EDF02956FCBF005B39CD"
             BuildableName = "SlimHUD.app"
             BlueprintName = "SlimHUD"
             ReferencedContainer = "container:SlimHUD.xcodeproj">
@@ -44,7 +44,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FAE38E802956DACF001E3CC0"
+               BlueprintIdentifier = "FA95EE012956FCC1005B39CD"
                BuildableName = "SlimHUDTests.xctest"
                BlueprintName = "SlimHUDTests"
                ReferencedContainer = "container:SlimHUD.xcodeproj">
@@ -55,7 +55,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FAE38E8A2956DACF001E3CC0"
+               BlueprintIdentifier = "FA95EE0B2956FCC1005B39CD"
                BuildableName = "SlimHUDUITests.xctest"
                BlueprintName = "SlimHUDUITests"
                ReferencedContainer = "container:SlimHUD.xcodeproj">
@@ -77,7 +77,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FAE38E6F2956DACC001E3CC0"
+            BlueprintIdentifier = "FA95EDF02956FCBF005B39CD"
             BuildableName = "SlimHUD.app"
             BlueprintName = "SlimHUD"
             ReferencedContainer = "container:SlimHUD.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FAE38E6F2956DACC001E3CC0"
+            BlueprintIdentifier = "FA95EDF02956FCBF005B39CD"
             BuildableName = "SlimHUD.app"
             BlueprintName = "SlimHUD"
             ReferencedContainer = "container:SlimHUD.xcodeproj">

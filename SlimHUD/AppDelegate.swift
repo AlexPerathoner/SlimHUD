@@ -59,13 +59,13 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         displayer.setThickness(thickness: CGFloat(settingsManager.barThickness))
 
         displayer.updateAll()
-	}
-	
-	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		NSColor.ignoresAlpha = false
+    }
+    
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        NSColor.ignoresAlpha = false
         NSApplication.shared.setActivationPolicy(.accessory)
         
-		//continuous check - 0.2 should not take more than 1/800 CPU
+        //continuous check - 0.2 should not take more than 1/800 CPU
         changesObserver.startObserving()
 
         NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
