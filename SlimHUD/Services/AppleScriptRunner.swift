@@ -19,4 +19,3 @@ class AppleScriptRunner {
         return nil // todo should throw
     }
 }
-

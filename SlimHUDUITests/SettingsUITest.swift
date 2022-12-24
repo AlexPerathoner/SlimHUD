@@ -12,25 +12,25 @@ final class SettingsUITest: XCTestCase {
     func testOpenSettingsWindow() throws {
         let app = XCUIApplication()
         app.launch()
-        
+
         SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
-        
+
         let menuBarsQuery = app.menuBars
         let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
-        
+
         XCTAssert(statusItem.waitForExistence(timeout: 5))
         statusItem.click()
-        
+
         let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
-        
-        while(!preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable) {
+
+        while !preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable {
             statusItem.click()
         }
 
         preferencesMenuItem.doubleClick()
 
         let settingsWindow = app.windows["Settings"]
-        
+
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
         attachment.name = "Settings screen"
