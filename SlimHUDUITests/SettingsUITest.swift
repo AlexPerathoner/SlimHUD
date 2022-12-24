@@ -13,22 +13,16 @@ final class SettingsUITest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        SparkleUITests.waitForAlertAndClose(app: app)
+        
         let menuBarsQuery = app.menuBars
         let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
         
         XCTAssert(statusItem.waitForExistence(timeout: 5))
         statusItem.click()
         
-        // Close Alert opened by Sparkle
-        if(SparkleUITests.closeAlerts(app: app)) {
-            // Click again on about menu item, in case some alerts where closed
-            statusItem.click()
-        }
-        
         let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
-        if(!preferencesMenuItem.isHittable) {
-            statusItem.click()
-        }
+        
         XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
         preferencesMenuItem.click()
 

@@ -17,4 +17,10 @@ final class SparkleUITests: XCTestCase {
         }
         return closedSomeDialogs
     }
+    
+    static public func waitForAlertAndClose(app: XCUIApplication) {
+        while(!SparkleUITests.closeAlerts(app: app)) {
+            sleep(1)
+        }
+    }
 }
