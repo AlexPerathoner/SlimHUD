@@ -30,7 +30,7 @@ jobs:
         if: success() || failure()
         with:
           path: "TestResults.xcresult"
-          title: Test results
+          title: Unit Test results
           upload-bundles: never
           show-code-coverage: true
 
@@ -57,7 +57,7 @@ jobs:
                 repo: context.repo.repo,
                 run_id: ${{github.run_id}},
               });
-              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Test results")[0]
+              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Unit Test results")[0]
               if(coverage_result_check != null) {
                 coverage_result_check_id = coverage_result_check.id
                 break
