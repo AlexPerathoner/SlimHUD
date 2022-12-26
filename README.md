@@ -78,9 +78,14 @@ Here's a full list of the features:
 ## Installation
 Download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest).
 
-Launching SlimHud is easy: copy the app into your Application's folder and open it (credits to [GameParrot](https://github.com/GameParrot) for making it so easy)!
+Launching SlimHud is easy:
 
-You have now successfully replaced those ugly and old overlays! Congrats!
+1. Copy the app into your Application's folder
+2. Open it
+3. You have now successfully replaced those ugly and old overlays! Congrats!
+
+Credits to [GameParrot](https://github.com/GameParrot) for making it so easy!
+
 
 ### Uninstalling
 If you'd like to restore the system's HUDs:
