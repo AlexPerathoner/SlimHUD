@@ -12,18 +12,18 @@ final class AboutUITests: SparkleUITests {
     func testOpenAboutWindow() throws {
         let app = XCUIApplication()
         app.launch()
-        
+
         SparkleUITests.waitForAlertAndClose(app: app, timeout: 0)
         let statusItem = SparkleUITests.getStatusItem(app: app)
-        
+
         let aboutMenuItem = statusItem.menuItems.element(boundBy: 0)
-        
+
         let aboutWindow = app.windows.firstMatch
-        
+
         var timeout = SparkleUITests.TIMEOUT
         while !aboutWindow.exists && timeout > 0 {
-            
-            if (!aboutMenuItem.exists || !aboutMenuItem.isHittable) {
+
+            if !aboutMenuItem.exists || !aboutMenuItem.isHittable {
                 statusItem.click()
                 usleep(1500000)
             }

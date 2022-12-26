@@ -22,8 +22,8 @@ final class SettingsUITest: SparkleUITests {
 
         var timeout = SparkleUITests.TIMEOUT
         while !settingsWindow.exists && timeout > 0 {
-            
-            if (!preferencesMenuItem.exists || !preferencesMenuItem.isHittable) {
+
+            if !preferencesMenuItem.exists || !preferencesMenuItem.isHittable {
                 statusItem.click()
                 usleep(1500000)
             }
