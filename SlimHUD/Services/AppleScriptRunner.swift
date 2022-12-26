@@ -1,9 +1,10 @@
 //
-//  AppleScript.swift
-//  MusicBar
+//  AppleScriptRunner.swift
+//  SlimHUD
 //
-//  Created by Alex Perathoner on 26/12/2019.
+//  Created by Alex Perathoner on 24/12/22.
 //
+
 import Foundation
 
 class AppleScriptRunner {
@@ -18,3 +19,4 @@ class AppleScriptRunner {
         return nil
     }
 }
+
