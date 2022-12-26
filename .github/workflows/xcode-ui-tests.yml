@@ -1,7 +1,11 @@
 name: UI Tests
 on:
   pull_request:
+    branches: ["master", "develop"]
   workflow_dispatch:
+
+env:
+  test-results-check-name: UI Test results
 
 concurrency:
   group: "UItests${{ github.head_ref || github.run_id }}"
@@ -9,7 +13,10 @@ concurrency:
 
 jobs:
   ui-tests-run:
-    runs-on: macos-12
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+            os: [macos-12, macos-11]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -30,6 +37,6 @@ jobs:
         if: success() || failure()
         with:
           path: "TestResults.xcresult"
-          title: UI Test results
+          title: 
           upload-bundles: never
           show-code-coverage: true
