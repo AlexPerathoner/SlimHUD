@@ -22,12 +22,15 @@ final class SettingsUITest: XCTestCase {
 
         let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
 
-        while !preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable {
+        while !preferencesMenuItem.isHittable {
             statusItem.click()
-            usleep(1500000)
+            usleep(500000)
         }
 
-        preferencesMenuItem.click()
+        while preferencesMenuItem.isHittable {
+            preferencesMenuItem.click()
+            usleep(500000)
+        }
 
         let settingsWindow = app.windows["Settings"]
 

@@ -26,8 +26,11 @@ final class AboutUITests: XCTestCase {
             statusItem.click()
             usleep(500000)
         }
-
-        aboutMenuItem.click()
+        
+        while aboutMenuItem.isHittable {
+            aboutMenuItem.click()
+            usleep(500000)
+        }
 
         let aboutWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
 
