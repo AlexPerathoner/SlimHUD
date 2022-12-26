@@ -14,7 +14,7 @@ final class Constants {
         static let LongEdge: CGFloat = 297
     }
     public struct Screen {
-        static let Width: CGFloat = 1440 as! String
+        static let Width: CGFloat = 1440
         static let Height: CGFloat = 900
         public static let MenuBarSize: CGFloat = 25
         public static let DockSize: CGFloat = 62
