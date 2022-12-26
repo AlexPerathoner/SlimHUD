@@ -13,10 +13,9 @@ class AppleScriptRunner {
     static func run(script: String) -> String? {
         var error: NSDictionary?
         if let scriptObject = NSAppleScript(source: script) {
-            let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error)
+            let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error) // todo should run in background
             return output.stringValue
         }
-        return nil
+        return nil // todo should throw
     }
 }
-

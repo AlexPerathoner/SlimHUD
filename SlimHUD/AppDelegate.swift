@@ -17,7 +17,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
     @IBOutlet weak var statusMenu: NSMenu!
-    
+
     @IBAction func quitCliked(_ sender: Any) {
         settingsManager.saveAllItems()
         NSApplication.shared.terminate(self)
@@ -25,8 +25,11 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 
+    // swiftlint:disable:next force_cast
     var volumeView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
+    // swiftlint:disable:next force_cast
     var brightnessView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
+    // swiftlint:disable:next force_cast
     var keyboardView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
 
     var volumeHud = Hud()
@@ -60,12 +63,12 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
         displayer.updateAll()
     }
-    
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSColor.ignoresAlpha = false
         NSApplication.shared.setActivationPolicy(.accessory)
-        
-        //continuous check - 0.2 should not take more than 1/800 CPU
+
+        // continuous check - 0.2 should not take more than 1/800 CPU
         changesObserver.startObserving()
 
         NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,

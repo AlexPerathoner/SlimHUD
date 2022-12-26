@@ -12,6 +12,7 @@ class UserDefaultsManager {
     static func getItem<T>(for key: String, defaultValue: T) -> T where T: NSCoding, T: NSObject {
         do {
             guard let data = UserDefaults.standard.object(forKey: key) as? Data,
+                  // swiftlint:disable:next force_cast
                   let item = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! T? else {
                 return defaultValue
             }
@@ -27,6 +28,7 @@ class UserDefaultsManager {
     }
 
     static func getArr<T>(for key: String, defaultValue: [T]) -> [T] {
+        // swiftlint:disable:next force_cast
         return UserDefaults.standard.array(forKey: key) as! [T]? ?? defaultValue
     }
 

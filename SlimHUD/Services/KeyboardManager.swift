@@ -11,11 +11,11 @@ class KeyboardManager {
     private init() {}
 
     private static let MaxKeyboardBrightness: Float = 342
-    
+
     private static var useM1KeyboardBrightnessMethod = false
-    
+
     static func getKeyboardBrightness() -> Float {
-        if(useM1KeyboardBrightnessMethod) {
+        if useM1KeyboardBrightnessMethod {
             return getM1KeyboardBrightness()
         } else {
             do {
@@ -40,12 +40,13 @@ class KeyboardManager {
         }
 
         if let ser: CFTypeRef = IORegistryEntryCreateCFProperty(service, "KeyboardBacklightBrightness" as CFString, kCFAllocatorDefault, 0)?.takeUnretainedValue() {
+            // swiftlint:disable:next force_cast
             let result = ser as! Float
             return result / KeyboardManager.MaxKeyboardBrightness
         }
         throw SensorError.keyboardBrightnessFailure
     }
-    
+
     private static func getM1KeyboardBrightness() -> Float {
         let task = Process()
         task.launchPath = "/usr/libexec/corebrightnessdiag"

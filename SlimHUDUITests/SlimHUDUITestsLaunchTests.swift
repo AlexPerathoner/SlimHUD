@@ -8,16 +8,16 @@
 
 import XCTest
 
-final class SlimHUDUITestsLaunchTests: XCTestCase {
+final class SlimHUDUITestsLaunchTests: SparkleUITests {
     func testAppInMenuBar() throws {
         let app = XCUIApplication()
         app.launch()
-        
+
         let menuBarsQuery = app.menuBars
         let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
-        
+
         XCTAssert(statusItem.waitForExistence(timeout: 5))
-        
+
         let actualStatusItemScreenshot = statusItem.screenshot()
         let attachment = XCTAttachment(screenshot: actualStatusItemScreenshot)
         attachment.name = "Status Item screen"
