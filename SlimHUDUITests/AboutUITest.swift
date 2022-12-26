@@ -19,16 +19,17 @@ final class AboutUITests: XCTestCase {
         let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
 
         XCTAssert(statusItem.waitForExistence(timeout: 5))
-        statusItem.click()
 
         let aboutMenuItem = menuBarsQuery.menuItems["About..."]
 
         while !aboutMenuItem.waitForExistence(timeout: 1) || !aboutMenuItem.isHittable {
             statusItem.click()
-            sleep(1)
+            usleep(500000)
         }
 
-        aboutMenuItem.doubleClick()
+        aboutMenuItem.click()
+        usleep(500000)
+        aboutMenuItem.click()
 
         let aboutWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
 

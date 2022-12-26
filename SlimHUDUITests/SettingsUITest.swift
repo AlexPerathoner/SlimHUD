@@ -19,20 +19,22 @@ final class SettingsUITest: XCTestCase {
         let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
 
         XCTAssert(statusItem.waitForExistence(timeout: 5))
-        statusItem.click()
 
         let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
 
         while !preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable {
             statusItem.click()
-            sleep(1)
+            usleep(500000)
         }
 
-        preferencesMenuItem.doubleClick()
+        preferencesMenuItem.click()
+        usleep(500000)
+        preferencesMenuItem.click()
 
         let settingsWindow = app.windows["Settings"]
 
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
+        
         let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
         attachment.name = "Settings screen"
         attachment.lifetime = .keepAlways
