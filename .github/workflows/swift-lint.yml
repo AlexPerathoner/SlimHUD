@@ -22,9 +22,3 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: swiftlint --fix --format auto run
-      - uses: marocchino/sticky-pull-request-comment@v2
-        if: github.event_name == 'pull_request'
-        with:
-          header: swiftlint
-          recreate: true
-          message: ${{ steps.swiftlint-output.outputs.result }}
