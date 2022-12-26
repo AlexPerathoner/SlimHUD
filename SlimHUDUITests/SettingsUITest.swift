@@ -24,11 +24,9 @@ final class SettingsUITest: XCTestCase {
 
         while !preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable {
             statusItem.click()
-            usleep(500000)
+            usleep(1500000)
         }
 
-        preferencesMenuItem.click()
-        usleep(500000)
         preferencesMenuItem.click()
 
         let settingsWindow = app.windows["Settings"]
