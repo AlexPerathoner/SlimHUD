@@ -21,14 +21,16 @@ final class SettingsUITest: SparkleUITests {
         let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
 
         var timeout = SparkleUITests.TIMEOUT
-        while !settingsWindow.waitForExistence(timeout: 1) && timeout > 0 {
-            while (!preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable) && timeout > 0 {
+        while !settingsWindow.exists && timeout > 0 {
+            
+            if (!preferencesMenuItem.exists || !preferencesMenuItem.isHittable) {
                 statusItem.click()
                 usleep(1500000)
-                timeout -= 1
             }
-            preferencesMenuItem.click()
-            usleep(1500000)
+            if !settingsWindow.exists && preferencesMenuItem.isHittable {
+                preferencesMenuItem.click()
+                usleep(1500000)
+            }
             timeout -= 1
         }
 
