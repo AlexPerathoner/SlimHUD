@@ -18,6 +18,8 @@ jobs:
         run: sudo xcode-select -s "/Applications/Xcode_14.2.app"
       - name: Xcode version
         run: /usr/bin/xcodebuild -version
+      - name: Xcode schemes
+        run: /usr/bin/xcodebuild -list
 
       - name: Build and Test
         continue-on-error: true
