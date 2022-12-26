@@ -26,7 +26,7 @@ final class AboutUITests: XCTestCase {
             statusItem.click()
             usleep(500000)
         }
-        
+
         while aboutMenuItem.isHittable {
             aboutMenuItem.click()
             usleep(500000)
