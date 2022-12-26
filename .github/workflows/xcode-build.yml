@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  analyze:
+  unit-tests-run:
     runs-on: macos-12
     steps:
       - name: Checkout
@@ -33,7 +33,7 @@ jobs:
           upload-bundles: never
           show-code-coverage: true
 
-  create-comment:
+  create-comment-unit-tests-with-coverage:
     runs-on: ubuntu-latest
     needs: analyze
     if: github.event_name == 'pull_request'
