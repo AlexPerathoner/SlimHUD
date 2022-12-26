@@ -16,7 +16,7 @@ final class SettingsUITest: SparkleUITests {
         SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         let statusItem = SparkleUITests.getStatusItem(app: app)
 
-        let preferencesMenuItem = app.menuBars.menuItems["Settings..."]
+        let preferencesMenuItem = statusItem.menuItems.element(boundBy: 2)
 
         let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
 
@@ -35,5 +35,7 @@ final class SettingsUITest: SparkleUITests {
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
 
         addScreenshot(window: settingsWindow, name: "Settings window")
+        
+        XCTAssertEqual(app.windows.count, 2)
     }
 }
