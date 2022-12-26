@@ -5,7 +5,7 @@ on:
     branches: ["master", "develop"]
 
 concurrency:
-  group: ${{ github.head_ref || github.run_id }}
+  group: "unitests${{ github.head_ref || github.run_id }}"
   cancel-in-progress: true
 
 jobs:
