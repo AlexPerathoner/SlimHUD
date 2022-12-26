@@ -35,7 +35,7 @@ final class SettingsUITest: SparkleUITests {
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
 
         addScreenshot(window: settingsWindow, name: "Settings window")
-        
+
         XCTAssertEqual(app.windows.count, 2)
     }
 }
