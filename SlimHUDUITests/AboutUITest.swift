@@ -24,11 +24,11 @@ final class AboutUITests: SparkleUITests {
         while !aboutWindow.exists && timeout > 0 {
             while (!aboutMenuItem.exists || !aboutMenuItem.isHittable) && timeout > 0 {
                 statusItem.click()
-                usleep(500000)
+                usleep(1500000)
                 timeout -= 1
             }
             aboutMenuItem.click()
-            usleep(500000)
+            usleep(1500000)
             timeout -= 1
         }
 

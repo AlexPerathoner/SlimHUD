@@ -24,11 +24,11 @@ final class SettingsUITest: SparkleUITests {
         while !settingsWindow.waitForExistence(timeout: 1) && timeout > 0 {
             while (!preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable) && timeout > 0 {
                 statusItem.click()
-                usleep(500000)
+                usleep(1500000)
                 timeout -= 1
             }
             preferencesMenuItem.click()
-            usleep(500000)
+            usleep(1500000)
             timeout -= 1
         }
 
