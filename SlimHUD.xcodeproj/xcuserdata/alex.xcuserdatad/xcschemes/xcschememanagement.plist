@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SlimHUD (all tests).xcscheme</key>
+		<key>SlimHUD (all tests).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -14,7 +14,7 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>UI tests only.xcscheme</key>
+		<key>UI tests only.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
