@@ -8,14 +8,14 @@
 
 import XCTest
 
-final class SettingsUITest: SparkleUITests {    
+final class SettingsUITest: SparkleUITests {
     func testOpenSettingsWindow() throws {
         let app = XCUIApplication()
         app.launch()
-        
+
         SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         let statusItem = SparkleUITests.getStatusItem(app: app)
-        
+
         let preferencesMenuItem = app.menuBars.menuItems["Settings..."]
 
         let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
@@ -33,7 +33,7 @@ final class SettingsUITest: SparkleUITests {
         }
 
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
-        
+
         addScreenshot(window: settingsWindow, name: "Settings window")
     }
 }
