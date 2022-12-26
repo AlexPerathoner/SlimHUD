@@ -25,6 +25,7 @@ final class SettingsUITest: XCTestCase {
 
         while !preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable {
             statusItem.click()
+            sleep(1)
         }
 
         preferencesMenuItem.doubleClick()
