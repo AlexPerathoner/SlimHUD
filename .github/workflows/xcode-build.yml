@@ -8,6 +8,9 @@ concurrency:
   group: "unitests${{ github.head_ref || github.run_id }}"
   cancel-in-progress: true
 
+env:
+  test-results-check-name: Test results
+
 jobs:
   unit-tests-run:
     runs-on: macos-12
@@ -29,7 +32,7 @@ jobs:
         if: success() || failure()
         with:
           path: "TestResults.xcresult"
-          title: Unit Test results
+          title: ${{ env.test-results-check-name }}
           upload-bundles: never
           show-code-coverage: true
 
@@ -56,7 +59,7 @@ jobs:
                 repo: context.repo.repo,
                 run_id: ${{github.run_id}},
               });
-              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Unit Test results")[0]
+              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "${{ env.test-results-check-name }}")[0]
               if(coverage_result_check != null) {
                 coverage_result_check_id = coverage_result_check.id
                 break
