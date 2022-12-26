@@ -16,19 +16,21 @@ final class AboutUITests: SparkleUITests {
         SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         let statusItem = SparkleUITests.getStatusItem(app: app)
 
-        let aboutMenuItem = app.menuBars.menuItems["About..."]
+        let aboutMenuItem = statusItem.menuItems["About..."]
 
         let aboutWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
 
         var timeout = SparkleUITests.TIMEOUT
         while !aboutWindow.exists && timeout > 0 {
-            while (!aboutMenuItem.exists || !aboutMenuItem.isHittable) && timeout > 0 {
+
+            if !aboutMenuItem.exists || !aboutMenuItem.isHittable {
                 statusItem.click()
-                usleep(500000)
-                timeout -= 1
+                usleep(1500000)
             }
-            aboutMenuItem.click()
-            usleep(500000)
+            if !aboutWindow.exists && aboutMenuItem.isHittable {
+                aboutMenuItem.click()
+                usleep(1500000)
+            }
             timeout -= 1
         }
 
