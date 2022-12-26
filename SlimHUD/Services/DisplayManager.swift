@@ -10,11 +10,11 @@ import Cocoa
 
 class DisplayManager {
     private init() {}
-    
+
     private static var useM1DisplayBrightnessMethod = false
-    
+
     static func getDisplayBrightness() -> Float {
-        if(useM1DisplayBrightnessMethod) {
+        if useM1DisplayBrightnessMethod {
             return getM1DisplayBrightness()
         } else {
             do {
@@ -25,16 +25,16 @@ class DisplayManager {
             }
         }
     }
-    
+
     private static func getStandardDisplayBrightness() throws -> Float {
         var brightness: float_t = 1
         let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IODisplayConnect"))
         defer {
             IOObjectRelease(service)
         }
-        
+
         let result = IODisplayGetFloatParameter(service, 0, kIODisplayBrightnessKey as CFString, &brightness)
-        if(result != kIOReturnSuccess) {
+        if result != kIOReturnSuccess {
             throw SensorError.displayBrightnessFailure
         }
         return brightness
@@ -65,7 +65,7 @@ class DisplayManager {
         }
         return displayBrightness ?? 0 // todo add throws, handle outside
     }
-    
+
     /* Note the difference between NSScreen.main and NSScreen.screens[0]:
      * NSScreen.main is the "key" screen, where the currently frontmost window resides.
      * NSScreen.screens[0] is the screen which has a menu bar, and is chosen in the Preferences > monitor settings

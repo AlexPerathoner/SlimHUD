@@ -107,7 +107,6 @@ final class PositionManagerTests: XCTestCase {
 
         XCTAssertEqual(actualPoint1, CGPoint(x: 571.5, y: 811))
 
-
         yDockHeight = 0
         visibleFrame = NSRect(x: 0, y: 0,
                               width: Constants.Screen.Width,
@@ -158,7 +157,6 @@ final class PositionManagerTests: XCTestCase {
 
         XCTAssertEqual(actualPoint, CGPoint(x: 571.5, y: 0))
     }
-
 
     // MARK: - menu bar not visible
 

@@ -61,6 +61,7 @@ class LoginItemsList: NSObject {
         for var index in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
         {
 
+            // swiftlint:disable:next force_cast
             var nextLoginItem: LSSharedFileListItem = loginItems.object(at: index) as! LSSharedFileListItem
 
             if LSSharedFileListItemResolve(nextLoginItem, 0, &nextItemUrl, nil) == noErr {
@@ -81,6 +82,7 @@ class LoginItemsList: NSObject {
         // Copy all login items in the list
         let loginItems: NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil)!.takeRetainedValue() as NSArray
         if loginItems.count > 0 {
+            // swiftlint:disable:next force_cast
             let lastLoginItem = loginItems.lastObject as! LSSharedFileListItem
 
             print("Last login item is: ", lastLoginItem)

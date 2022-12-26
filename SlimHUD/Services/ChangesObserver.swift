@@ -26,7 +26,7 @@ class ChangesObserver {
         oldVolume = VolumeManager.getOutputVolume()
         oldBrightness = DisplayManager.getDisplayBrightness()
         oldKeyboard = KeyboardManager.getKeyboardBrightness()
-        
+
         self.positionManager = positionManager
         self.displayer = displayer
         self.volumeView = volumeView

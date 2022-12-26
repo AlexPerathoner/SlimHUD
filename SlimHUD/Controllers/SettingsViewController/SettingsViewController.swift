@@ -15,9 +15,10 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var preview: SettingsController!
     weak var delegate: HudsControllerInterface?
     @IBOutlet var spuStandardUpdaterController: SPUStandardUpdaterController!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        // swiftlint:disable:next force_cast
         self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
         do {
             try enabledBarsOutlet.setBarState(enabledBars: settingsManager.enabledBars)

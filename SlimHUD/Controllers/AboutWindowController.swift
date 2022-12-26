@@ -13,7 +13,7 @@ class AboutWindowController: NSWindowController {
         NSApp.activate(ignoringOtherApps: true)
         NSApplication.shared.setActivationPolicy(.regular)
     }
-    
+
     func windowWillClose(_ notification: Notification) {
         NSApplication.shared.setActivationPolicy(.accessory)
     }

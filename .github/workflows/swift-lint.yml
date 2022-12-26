@@ -1,4 +1,4 @@
-name: Style check
+name: Style fix and check
 on:
   push:
     branches: ["master", "develop"]
@@ -9,8 +9,16 @@ jobs:
   swift-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: GitHub Action for SwiftLint (Only files changed in the PR)
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Lint (fix)
         uses: norio-nomura/action-swiftlint@3.2.1
-        env:
-          DIFF_BASE: ${{ github.base_ref }}
+        with:
+          args: --fix
+      - name: Lint (check)
+        id: swiftlint-output
+        uses: norio-nomura/action-swiftlint@3.2.1
+      - name: Saving changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: swiftlint --fix --format auto run

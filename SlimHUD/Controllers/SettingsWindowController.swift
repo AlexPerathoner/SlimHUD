@@ -11,6 +11,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
     private var previewTimer: Timer?
 
+    // swiftlint:disable:next force_cast
     var displayer = (NSApplication.shared.delegate as! AppDelegate).displayer
 
     override func windowDidLoad() {
