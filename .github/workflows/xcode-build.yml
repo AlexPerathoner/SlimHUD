@@ -79,5 +79,6 @@ jobs:
       - uses: marocchino/sticky-pull-request-comment@v2
         if: github.event_name == 'pull_request'
         with:
+          header: tests
           recreate: true
           message: ${{ steps.get-run.outputs.result }}
