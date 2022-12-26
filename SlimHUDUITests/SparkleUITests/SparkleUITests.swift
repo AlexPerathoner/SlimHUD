@@ -8,7 +8,9 @@
 
 import XCTest
 
-final class SparkleUITests: XCTestCase {
+class SparkleUITests: XCTestCase {
+    static var TIMEOUT = 10
+    
     static public func closeAlerts(app: XCUIApplication) -> Bool {
         var closedSomeDialogs = false
         while app.dialogs.count > 0 {
@@ -24,5 +26,19 @@ final class SparkleUITests: XCTestCase {
             sleep(1)
             timeoutCountdown -= 1
         }
+    }
+    
+    static public func getStatusItem(app: XCUIApplication) -> XCUIElement {
+        let menuBarsQuery = app.menuBars
+        let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
+        XCTAssert(statusItem.waitForExistence(timeout: 5))
+        return statusItem
+    }
+    
+    public func addScreenshot(window: XCUIElement, name: String) {
+        let attachment = XCTAttachment(screenshot: window.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
     }
 }

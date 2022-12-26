@@ -8,7 +8,7 @@
 
 import XCTest
 
-final class SlimHUDUITestsLaunchTests: XCTestCase {
+final class SlimHUDUITestsLaunchTests: SparkleUITests {    
     func testAppInMenuBar() throws {
         let app = XCUIApplication()
         app.launch()

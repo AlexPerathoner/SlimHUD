@@ -8,37 +8,32 @@
 
 import XCTest
 
-final class SettingsUITest: XCTestCase {
+final class SettingsUITest: SparkleUITests {    
     func testOpenSettingsWindow() throws {
         let app = XCUIApplication()
         app.launch()
-
+        
         SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
+        let statusItem = SparkleUITests.getStatusItem(app: app)
+        
+        let preferencesMenuItem = app.menuBars.menuItems["Settings..."]
 
-        let menuBarsQuery = app.menuBars
-        let statusItem = menuBarsQuery.children(matching: .statusItem).element(boundBy: 0)
+        let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
 
-        XCTAssert(statusItem.waitForExistence(timeout: 5))
-
-        let preferencesMenuItem = menuBarsQuery.menuItems["Settings..."]
-
-        while !preferencesMenuItem.isHittable {
-            statusItem.click()
-            usleep(500000)
-        }
-
-        while preferencesMenuItem.isHittable {
+        var timeout = SparkleUITests.TIMEOUT
+        while !settingsWindow.waitForExistence(timeout: 1) && timeout > 0 {
+            while (!preferencesMenuItem.waitForExistence(timeout: 1) || !preferencesMenuItem.isHittable) && timeout > 0 {
+                statusItem.click()
+                usleep(500000)
+                timeout -= 1
+            }
             preferencesMenuItem.click()
             usleep(500000)
+            timeout -= 1
         }
 
-        let settingsWindow = app.windows["Settings"]
-
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
-
-        let attachment = XCTAttachment(screenshot: settingsWindow.screenshot())
-        attachment.name = "Settings screen"
-        attachment.lifetime = .keepAlways
-        add(attachment)
+        
+        addScreenshot(window: settingsWindow, name: "Settings window")
     }
 }
