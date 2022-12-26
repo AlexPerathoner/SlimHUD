@@ -13,12 +13,12 @@ final class AboutUITests: SparkleUITests {
         let app = XCUIApplication()
         app.launch()
 
-        SparkleUITests.waitForAlertAndClose(app: app, timeout: 0)
+        SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         let statusItem = SparkleUITests.getStatusItem(app: app)
 
-        let aboutMenuItem = statusItem.menuItems.element(boundBy: 0)
+        let aboutMenuItem = statusItem.menuItems["About..."]
 
-        let aboutWindow = app.windows.firstMatch
+        let aboutWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
 
         var timeout = SparkleUITests.TIMEOUT
         while !aboutWindow.exists && timeout > 0 {

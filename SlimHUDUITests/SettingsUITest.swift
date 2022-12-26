@@ -16,7 +16,7 @@ final class SettingsUITest: SparkleUITests {
         SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         let statusItem = SparkleUITests.getStatusItem(app: app)
 
-        let preferencesMenuItem = statusItem.menuItems.element(boundBy: 2)
+        let preferencesMenuItem = statusItem.menuItems["Settings..."]
 
         let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
 
