@@ -43,6 +43,6 @@ jobs:
         if: success() || failure()
         with:
           path: "TestResults.xcresult"
-          title: ${{ env.test-results-check-name }}-${{ matrix.os }}-${{ xcode-path }}
+          title: ${{ env.test-results-check-name }}-${{ matrix.os }}-${{ matrix.xcode-path }}
           upload-bundles: never
           show-code-coverage: true
