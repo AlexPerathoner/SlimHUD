@@ -20,8 +20,6 @@ jobs:
         run: sudo xcode-select -s "/Applications/Xcode_14.2.app"
       - name: Xcode version
         run: /usr/bin/xcodebuild -version
-      - name: Prepare macOS runner
-        uses: paulz/prepare-macos@v1
 
       - name: Build and Test
         continue-on-error: true
