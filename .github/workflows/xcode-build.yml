@@ -1,16 +1,18 @@
 name: Build and Analyze
 on:
-  push:
-    branches: ["master", "develop"]
   pull_request:
     branches: ["master", "develop"]
+  workflow_dispatch:
 
 concurrency:
-  group: ${{ github.head_ref || github.run_id }}
+  group: "unitests${{ github.head_ref || github.run_id }}"
   cancel-in-progress: true
 
+env:
+  test-results-check-name: Unit Test results
+
 jobs:
-  analyze:
+  unit-tests-run:
     runs-on: macos-12
     steps:
       - name: Checkout
@@ -30,13 +32,13 @@ jobs:
         if: success() || failure()
         with:
           path: "TestResults.xcresult"
-          title: Unit Test results
+          title: ${{ env.test-results-check-name }}
           upload-bundles: never
           show-code-coverage: true
 
-  create-comment:
+  create-comment-unit-tests-with-coverage:
     runs-on: ubuntu-latest
-    needs: analyze
+    needs: unit-tests-run
     if: github.event_name == 'pull_request'
     steps:
       - uses: actions/github-script@v6
@@ -57,7 +59,7 @@ jobs:
                 repo: context.repo.repo,
                 run_id: ${{github.run_id}},
               });
-              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "Unit Test results")[0]
+              const coverage_result_check = jobs.data.jobs.filter(a => a.name == "${{ env.test-results-check-name }}")[0]
               if(coverage_result_check != null) {
                 coverage_result_check_id = coverage_result_check.id
                 break

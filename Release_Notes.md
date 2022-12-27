@@ -4,3 +4,4 @@
 * Fix bug: implemented new ways to retrieve brightness
 * Fix bug: keyboard backlight hud working again
 * Update to Sparkle 2
+* Disabling keyboard and display brightness bars until screen settings changes if it wasn't possible to retrieve their values

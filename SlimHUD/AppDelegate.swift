@@ -20,7 +20,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     @IBAction func quitCliked(_ sender: Any) {
         settingsManager.saveAllItems()
-        NSApplication.shared.terminate(self)
+        exit(0)
     }
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
@@ -75,6 +75,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
                                                object: NSApplication.shared,
                                                queue: OperationQueue.main) { _ -> Void in
             self.positionManager.setupHUDsPosition(false)
+            self.changesObserver.resetTemporarelyDisabledBars()
         }
 
         OSDUIManager.stop()

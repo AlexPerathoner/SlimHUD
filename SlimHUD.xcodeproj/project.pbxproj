@@ -56,6 +56,7 @@
 		FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8429574495005B39CD /* SparkleUITests.swift */; };
 		FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE872957589E005B39CD /* PositionManagerTests.swift */; };
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
+		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		FA95EE8429574495005B39CD /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
 		FA95EE872957589E005B39CD /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMethod.swift; sourceTree = "<group>"; };
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,6 +279,7 @@
 			children = (
 				FA95EE5F2956FECE005B39CD /* Errors */,
 				FA95EE5D2956FEC3005B39CD /* Constants.swift */,
+				FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */,
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
 				FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */,
+				FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */,
 				FA95EE342956FDC1005B39CD /* AppleScriptRunner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,6 +703,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SlimHUD/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;
@@ -729,6 +734,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SlimHUD/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;

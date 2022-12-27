@@ -44,13 +44,13 @@ extension SettingsViewController {
         }
     }
 
-    @IBAction func restartButton(_ sender: Any) {
+    @IBAction func restartButton(_ sender: Any) throws {
         let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
         let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
         let task = Process()
         task.launchPath = "/usr/bin/open"
         task.arguments = [path]
-        task.launch()
+        try task.run()
         exit(0)
     }
 

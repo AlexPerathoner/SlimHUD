@@ -28,6 +28,20 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FA95EE012956FCC1005B39CD"
+               BuildableName = "SlimHUDTests.xctest"
+               BlueprintName = "SlimHUDTests"
+               ReferencedContainer = "container:SlimHUD.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA95EE0B2956FCC1005B39CD"
                BuildableName = "SlimHUDUITests.xctest"
                BlueprintName = "SlimHUDUITests"
@@ -58,9 +72,9 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA95EE012956FCC1005B39CD"
-               BuildableName = "SlimHUDTests.xctest"
-               BlueprintName = "SlimHUDTests"
+               BlueprintIdentifier = "FA95EE0B2956FCC1005B39CD"
+               BuildableName = "SlimHUDUITests.xctest"
+               BlueprintName = "SlimHUDUITests"
                ReferencedContainer = "container:SlimHUD.xcodeproj">
             </BuildableReference>
          </TestableReference>
