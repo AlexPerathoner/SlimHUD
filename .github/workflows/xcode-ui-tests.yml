@@ -1,7 +1,5 @@
 name: UI Tests
 on:
-  pull_request:
-    branches: ["master", "develop"]
   workflow_dispatch:
 
 env:
