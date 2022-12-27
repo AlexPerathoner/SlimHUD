@@ -24,7 +24,7 @@ class UserDefaultsManager {
     }
 
     static func getBool(for key: String, defaultValue: Bool) -> Bool {
-        if(UserDefaults.standard.valueExists(forKey: key)) {
+        if UserDefaults.standard.valueExists(forKey: key) {
             return UserDefaults.standard.bool(forKey: key)
         } else {
             return defaultValue
@@ -41,7 +41,7 @@ class UserDefaultsManager {
     }
 
     static func getInt(for key: String, defaultValue: Int) -> Int {
-        if(UserDefaults.standard.valueExists(forKey: key)) {
+        if UserDefaults.standard.valueExists(forKey: key) {
             return UserDefaults.standard.integer(forKey: key)
         } else {
             return defaultValue
