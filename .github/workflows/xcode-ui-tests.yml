@@ -13,26 +13,15 @@ concurrency:
 
 jobs:
   ui-tests-run:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-12, macos-11]
-        xcode-path: [Xcode_14.2.app, Xcode_13.2.1.app, Xcode_12.4.app] # runs with sdk: macosx13.1, macosx12.1, macosx11.1
-        exclude:
-          - os: macos-12
-            xcode-path: Xcode_12.4.app
-          - os: macos-11
-            xcode-path: Xcode_14.2.app
+    runs-on: macos-12
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Switch Xcode version
-        run: sudo xcode-select -s /Applications/${{ matrix.xcode-path }}
+        run: sudo xcode-select -s /Applications/Xcode_14.2.app
       - name: Xcode version
         run: /usr/bin/xcodebuild -version
-      - name: Xcode schemes
-        run: /usr/bin/xcodebuild -list
 
       - name: Build and Test
         continue-on-error: true
@@ -43,6 +32,6 @@ jobs:
         if: success() || failure()
         with:
           path: "TestResults.xcresult"
-          title: ${{ env.test-results-check-name }}-${{ matrix.os }}-${{ matrix.xcode-path }}
+          title: ${{ env.test-results-check-name }}
           upload-bundles: never
           show-code-coverage: true
