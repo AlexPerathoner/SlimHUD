@@ -8,8 +8,14 @@
 import Foundation
 
 enum SensorError: Error {
-    case displayBrightnessFailure
-    case keyboardBrightnessFailure
-    case m1DisplayBrightnessFailure
-    case m1KeyboardBrightnessFailure
+    enum Display: Error {
+        case notFound
+        case notSilicon
+        case notStandard
+    }
+    enum Keyboard: Error {
+        case notFound
+        case notSilicon
+        case notStandard
+    }
 }

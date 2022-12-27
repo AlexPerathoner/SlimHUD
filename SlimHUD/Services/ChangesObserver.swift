@@ -11,8 +11,8 @@ import Cocoa
 class ChangesObserver {
     private var oldFullScreen: Bool
     private var oldVolume: Float
-    private var oldBrightness: Float
-    private var oldKeyboard: Float
+    private var oldBrightness: Float = 0
+    private var oldKeyboard: Float = 0
 
     private var settingsManager: SettingsManager = SettingsManager.getInstance()
     private var positionManager: PositionManager
@@ -24,9 +24,19 @@ class ChangesObserver {
     init(positionManager: PositionManager, displayer: Displayer, volumeView: BarView, brightnessView: BarView, keyboardView: BarView) {
         oldFullScreen = DisplayManager.isInFullscreenMode()
         oldVolume = VolumeManager.getOutputVolume()
-        oldBrightness = DisplayManager.getDisplayBrightness()
-        oldKeyboard = KeyboardManager.getKeyboardBrightness()
-
+        
+        do {
+            oldBrightness = try DisplayManager.getDisplayBrightness()
+        } catch {
+            NSLog("Failed to retrieve display brightness. Please report it on GitHub.")
+        }
+        do {
+            oldKeyboard = try KeyboardManager.getKeyboardBrightness()
+        } catch {
+            NSLog("Failed to retrieve keyboard brightness. Is no keyboard with backlight connected? Disabling keyboard HUD. If you think this is an error please report it on GitHub.")
+            settingsManager.enabledBars.keyboardBar = false
+        }
+        
         self.positionManager = positionManager
         self.displayer = displayer
         self.volumeView = volumeView
@@ -113,21 +123,32 @@ class ChangesObserver {
     }
 
     private func checkBrightnessChanges() {
-        if NSScreen.screens.count == 0 {return}
-        let newBrightness = DisplayManager.getDisplayBrightness()
-        if !isAlmost(firstNumber: oldBrightness, secondNumber: newBrightness) {
-            displayer.showBrightnessHUD()
-            oldBrightness = newBrightness
+        if NSScreen.screens.count == 0 {
+            return
         }
-        brightnessView.bar?.progress = newBrightness
+        do {
+            let newBrightness = try DisplayManager.getDisplayBrightness()
+            if !isAlmost(firstNumber: oldBrightness, secondNumber: newBrightness) {
+                displayer.showBrightnessHUD()
+                oldBrightness = newBrightness
+            }
+            brightnessView.bar?.progress = newBrightness
+        } catch {
+            NSLog("Failed to retrieve display brightness. Please report it on GitHub.") // todo show alert?
+        }
     }
 
     private func checkKeyboardChanges() {
-        let newKeyboard = KeyboardManager.getKeyboardBrightness()
-        if !isAlmost(firstNumber: oldKeyboard, secondNumber: newKeyboard) {
-            displayer.showKeyboardHUD()
-            oldKeyboard = newKeyboard
+        do {
+            let newKeyboard = try KeyboardManager.getKeyboardBrightness()
+            if !isAlmost(firstNumber: oldKeyboard, secondNumber: newKeyboard) {
+                displayer.showKeyboardHUD()
+                oldKeyboard = newKeyboard
+            }
+            keyboardView.bar?.progress = try KeyboardManager.getKeyboardBrightness()
+        } catch {
+            NSLog("Failed to retrieve keyboard brightness. Is no keyboard with backlight connected? Disabling keyboard HUD. If you think this is an error please report it on GitHub.")
+            settingsManager.enabledBars.keyboardBar = false
         }
-        keyboardView.bar?.progress = KeyboardManager.getKeyboardBrightness()
     }
 }

@@ -12,18 +12,27 @@ class DisplayManager {
     private init() {}
 
     private static var useM1DisplayBrightnessMethod = false
+    
+    private static var method = SensorMethod.standard
 
-    static func getDisplayBrightness() -> Float {
-        if useM1DisplayBrightnessMethod {
-            return getM1DisplayBrightness()
-        } else {
+    static func getDisplayBrightness() throws -> Float {
+        switch DisplayManager.method {
+        case .standard:
             do {
                 return try getStandardDisplayBrightness()
             } catch {
-                DisplayManager.useM1DisplayBrightnessMethod = true
-                return getM1DisplayBrightness()
+                method = .m1
             }
+        case .m1:
+            do {
+                return try getM1DisplayBrightness()
+            } catch {
+                method = .allFailed
+            }
+        case .allFailed:
+            throw SensorError.Display.notFound
         }
+        return try getDisplayBrightness()
     }
 
     private static func getStandardDisplayBrightness() throws -> Float {
@@ -35,21 +44,19 @@ class DisplayManager {
 
         let result = IODisplayGetFloatParameter(service, 0, kIODisplayBrightnessKey as CFString, &brightness)
         if result != kIOReturnSuccess {
-            throw SensorError.displayBrightnessFailure
+            throw SensorError.Display.notStandard
         }
         return brightness
     }
-    private static func getM1DisplayBrightness() -> Float {
+    private static func getM1DisplayBrightness() throws -> Float {
         let task = Process()
         task.launchPath = "/usr/libexec/corebrightnessdiag"
         task.arguments = ["status-info"]
         let pipe = Pipe()
         task.standardOutput = pipe
-        task.launch()
+        try task.run()
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         task.waitUntilExit()
-
-        var displayBrightness: Float?
 
         if let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? NSDictionary {
             if let displays = plist["CBDisplays"] as? [String: [String: Any]] {
@@ -57,13 +64,12 @@ class DisplayManager {
                     if let displayInfo = display["Display"] as? [String: Any],
                         displayInfo["DisplayServicesIsBuiltInDisplay"] as? Bool == true,
                         let brightness = displayInfo["DisplayServicesBrightness"] as? Float {
-                            displayBrightness = brightness
-                            break
+                            return brightness
                     }
                 }
             }
         }
-        return displayBrightness ?? 0 // todo add throws, handle outside
+        throw SensorError.Display.notSilicon
     }
 
     /* Note the difference between NSScreen.main and NSScreen.screens[0]:
