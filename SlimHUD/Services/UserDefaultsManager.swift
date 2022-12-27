@@ -23,8 +23,12 @@ class UserDefaultsManager {
         }
     }
 
-    static func getBool(for key: String) -> Bool {
-        return UserDefaults.standard.bool(forKey: key)
+    static func getBool(for key: String, defaultValue: Bool) -> Bool {
+        if UserDefaults.standard.valueExists(forKey: key) {
+            return UserDefaults.standard.bool(forKey: key)
+        } else {
+            return defaultValue
+        }
     }
 
     static func getArr<T>(for key: String, defaultValue: [T]) -> [T] {
@@ -36,12 +40,12 @@ class UserDefaultsManager {
         return UserDefaults.standard.string(forKey: key) ?? defaultValue
     }
 
-    static func getString(for key: String) -> String? {
-        return UserDefaults.standard.string(forKey: key)
-    }
-
-    static func getInt(for key: String) -> Int {
-        return UserDefaults.standard.integer(forKey: key)
+    static func getInt(for key: String, defaultValue: Int) -> Int {
+        if UserDefaults.standard.valueExists(forKey: key) {
+            return UserDefaults.standard.integer(forKey: key)
+        } else {
+            return defaultValue
+        }
     }
 
     static func setItem<T>(_ item: T, for key: String) {
