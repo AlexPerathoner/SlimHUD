@@ -11,7 +11,7 @@ class KeyboardManager {
     private init() {}
 
     private static let MaxKeyboardBrightness: Float = 342
-    
+
     private static var method = SensorMethod.standard
 
     static func getKeyboardBrightness() throws -> Float {
@@ -75,7 +75,7 @@ class KeyboardManager {
                 }
             }
         }
-        
+
         throw SensorError.Keyboard.notSilicon
     }
 }

@@ -20,13 +20,13 @@ class ChangesObserver {
     private var volumeView: BarView
     private var brightnessView: BarView
     private var keyboardView: BarView
-    
+
     private var temporarelyDisabledBars = EnabledBars(volumeBar: false, brightnessBar: false, keyboardBar: false)
 
     init(positionManager: PositionManager, displayer: Displayer, volumeView: BarView, brightnessView: BarView, keyboardView: BarView) {
         oldFullScreen = DisplayManager.isInFullscreenMode()
         oldVolume = VolumeManager.getOutputVolume()
-        
+
         do {
             oldBrightness = try DisplayManager.getDisplayBrightness()
         } catch {
@@ -37,9 +37,12 @@ class ChangesObserver {
             oldKeyboard = try KeyboardManager.getKeyboardBrightness()
         } catch {
             temporarelyDisabledBars.keyboardBar = true
-            NSLog("Failed to retrieve keyboard brightness. Is no keyboard with backlight connected? Disabling keyboard HUD. If you think this is an error please report it on GitHub.")  // todo show alert? also when re-enabling hud if it didnt work
+            NSLog("""
+                  Failed to retrieve keyboard brightness. Is no keyboard with backlight connected?
+                  Disabling keyboard HUD. If you think this is an error please report it on GitHub.
+                  """)  // todo show alert? also when re-enabling hud if it didnt work
         }
-        
+
         self.positionManager = positionManager
         self.displayer = displayer
         self.volumeView = volumeView
@@ -152,13 +155,16 @@ class ChangesObserver {
             keyboardView.bar?.progress = try KeyboardManager.getKeyboardBrightness()
         } catch {
             temporarelyDisabledBars.keyboardBar = true
-            NSLog("Failed to retrieve keyboard brightness. Is no keyboard with backlight connected? Disabling keyboard HUD. If you think this is an error please report it on GitHub.")
+            NSLog("""
+                    Failed to retrieve keyboard brightness. Is no keyboard with backlight connected? Disabling keyboard HUD.
+                    If you think this is an error please report it on GitHub.
+                    """)
         }
     }
-    
-    
+
     /// When no keyboard with backlight or display with brightness control is connected, SlimHUD fails to retrieve their values.
-    ///  In fact, as they can't be controlled, they won't change. We can therefore disable those bars entirely. However, once the display settings change, we need to reset these values.
+    ///  In fact, as they can't be controlled, they won't change. We can therefore disable those bars entirely.
+    ///  However, once the display settings change, we need to reset these values.
     public func resetTemporarelyDisabledBars() {
         temporarelyDisabledBars = EnabledBars(volumeBar: false, brightnessBar: false, keyboardBar: false)
     }

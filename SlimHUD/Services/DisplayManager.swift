@@ -12,7 +12,7 @@ class DisplayManager {
     private init() {}
 
     private static var useM1DisplayBrightnessMethod = false
-    
+
     private static var method = SensorMethod.standard
 
     static func getDisplayBrightness() throws -> Float {
