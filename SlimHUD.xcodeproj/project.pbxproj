@@ -56,6 +56,7 @@
 		FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8429574495005B39CD /* SparkleUITests.swift */; };
 		FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE872957589E005B39CD /* PositionManagerTests.swift */; };
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
+		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		FA95EE8429574495005B39CD /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
 		FA95EE872957589E005B39CD /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 				FA95EE562956FE91005B39CD /* BoolExtension.swift */,
 				FA95EE582956FE9A005B39CD /* Position.swift */,
 				FA95EE5A2956FEA9005B39CD /* NSSegmentedControlExtension.swift */,
+				FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				FA95EE3C2956FDF1005B39CD /* KeyboardManager.swift in Sources */,
 				FA95EE2B2956FD7B005B39CD /* SettingsViewController.swift in Sources */,
 				FA95EE312956FDA2005B39CD /* SettingsViewController+Style.swift in Sources */,
+				FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */,
 				FA95EE462956FE2A005B39CD /* PositionManager.swift in Sources */,
 				FA95EE382956FDD8005B39CD /* DisplayManager.swift in Sources */,
 				FA95EE592956FE9A005B39CD /* Position.swift in Sources */,
