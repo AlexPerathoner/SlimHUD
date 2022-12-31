@@ -1,9 +1,8 @@
 //
-//  SettingsWindowController.swift
+//  SettingsViewController.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 03/03/2020.
-//  Copyright © 2020 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Cocoa
@@ -15,9 +14,11 @@ class SettingsViewController: NSViewController {
     var settingsManager: SettingsManager = SettingsManager.getInstance()
     @IBOutlet weak var preview: SettingsController!
     weak var delegate: HudsControllerInterface?
+    @IBOutlet var spuStandardUpdaterController: SPUStandardUpdaterController!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        // swiftlint:disable:next force_cast
         self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
         do {
             try enabledBarsOutlet.setBarState(enabledBars: settingsManager.enabledBars)
@@ -27,7 +28,11 @@ class SettingsViewController: NSViewController {
 
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMM yyyy - HH:mm"
-        lastCheckForUpdatesOutlet.stringValue = formatter.string(from: SUUpdater.shared()?.lastUpdateCheckDate ?? Date())
+        if let lastCheckDate = spuStandardUpdaterController.updater.lastUpdateCheckDate {
+            lastCheckForUpdatesOutlet.stringValue = formatter.string(from: lastCheckDate)
+        } else {
+            lastCheckForUpdatesOutlet.stringValue = " - "
+        }
 
         marginValueOutlet.stringValue = String(settingsManager.marginValue) + "%"
         marginStepperOutlet.integerValue = (settingsManager.marginValue * 100)

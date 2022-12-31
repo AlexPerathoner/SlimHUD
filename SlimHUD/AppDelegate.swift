@@ -9,6 +9,7 @@
 import Cocoa
 import QuartzCore
 import AppKit
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSWindowController, NSApplicationDelegate {
@@ -19,13 +20,16 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     @IBAction func quitCliked(_ sender: Any) {
         settingsManager.saveAllItems()
-        NSApplication.shared.terminate(self)
+        exit(0)
     }
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 
+    // swiftlint:disable:next force_cast
     var volumeView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
+    // swiftlint:disable:next force_cast
     var brightnessView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
+    // swiftlint:disable:next force_cast
     var keyboardView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
 
     var volumeHud = Hud()
@@ -45,7 +49,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         statusItem.menu = statusMenu
 
         if let button = statusItem.button {
-            button.title = "SlimHUD"
             button.image = NSImage(named: NSImage.StatusIconFileName)
             button.image?.isTemplate = true
         }
@@ -59,18 +62,20 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         displayer.setThickness(thickness: CGFloat(settingsManager.barThickness))
 
         displayer.updateAll()
-	}
-	
-	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		NSColor.ignoresAlpha = false
-        
-		//continuous check - 0.2 should not take more than 1/800 CPU
+    }
+
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        NSColor.ignoresAlpha = false
+        NSApplication.shared.setActivationPolicy(.accessory)
+
+        // continuous check - 0.2 should not take more than 1/800 CPU
         changesObserver.startObserving()
 
         NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
                                                object: NSApplication.shared,
                                                queue: OperationQueue.main) { _ -> Void in
             self.positionManager.setupHUDsPosition(false)
+            self.changesObserver.resetTemporarelyDisabledBars()
         }
 
         OSDUIManager.stop()

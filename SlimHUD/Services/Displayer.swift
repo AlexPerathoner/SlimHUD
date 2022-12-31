@@ -2,8 +2,7 @@
 //  Displayer.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 19/12/2022.
-//  Copyright © 2022 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Foundation
@@ -39,6 +38,7 @@ class Displayer: HudsControllerInterface {
     }
 
     private func getBarView(hud: Hud) -> BarView { // todo should find way to change type of attribute inside of Hud
+        // swiftlint:disable:next force_cast
         return hud.view as! BarView
     }
 

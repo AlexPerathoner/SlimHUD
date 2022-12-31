@@ -1,9 +1,8 @@
 //
-//  AboutViewController.swift
+//  About.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 28/04/2020.
-//  Copyright © 2020 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Cocoa
@@ -18,6 +17,7 @@ class AboutViewController: NSViewController {
 
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
+        // swiftlint:disable:next force_cast
         let version = dictionary["CFBundleShortVersionString"] as! String
         // let build = dictionary["CFBundleVersion"] as! String
         return "\(version)" // + ".\(build)"

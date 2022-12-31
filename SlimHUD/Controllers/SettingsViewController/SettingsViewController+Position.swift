@@ -2,8 +2,7 @@
 //  SettingsViewController+Position.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 17/08/2020.
-//  Copyright © 2020 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Cocoa
@@ -45,13 +44,13 @@ extension SettingsViewController {
         }
     }
 
-    @IBAction func restartButton(_ sender: Any) {
+    @IBAction func restartButton(_ sender: Any) throws {
         let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
         let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
         let task = Process()
         task.launchPath = "/usr/bin/open"
         task.arguments = [path]
-        task.launch()
+        try task.run()
         exit(0)
     }
 
