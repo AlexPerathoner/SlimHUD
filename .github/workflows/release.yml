@@ -32,7 +32,7 @@ jobs:
               repo: context.repo.repo,
               pull_number: context.issue.number,
             });
-            if (pr.data.draft || pr.data.mergeable_state !== "clean") {
+            if (pr.data.draft || !pr.data.mergeable) {
               core.setFailed("PR is not ready to be merged");
             }
       - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
