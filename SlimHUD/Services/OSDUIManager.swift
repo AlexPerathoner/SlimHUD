@@ -2,7 +2,8 @@
 //  OSDUIManager.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 24/12/22.
+//  Thanks to GameParrot https://github.com/GameParrot for this cool solution!
+//  Copyright © 2022 GameParrot. All rights reserved.
 //
 
 import Foundation

@@ -2,7 +2,8 @@
 //  NSViewExtension.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 24/12/22.
+//  Created by Alex Perathoner on 19/12/2022.
+//  Copyright © 2022 Alex Perathoner. All rights reserved.
 //
 
 import Foundation
@@ -53,10 +54,8 @@ extension NSView {
         var views: NSArray?
         if Bundle.main.loadNibNamed(name, owner: nil, topLevelObjects: &views) {
             if views?.firstObject is NSView {
-                // swiftlint:disable:next force_cast
                 return (views?.firstObject as! NSView)
             } else {
-                // swiftlint:disable:next force_cast
                 return (views?[1] as! NSView)
             }
         }

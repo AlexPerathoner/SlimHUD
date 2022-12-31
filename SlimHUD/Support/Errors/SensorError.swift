@@ -2,20 +2,15 @@
 //  SensorError.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 24/12/22.
+//  Created by Alex Perathoner on 20/12/22.
+//  Copyright © 2022 Alex Perathoner. All rights reserved.
 //
 
 import Foundation
 
 enum SensorError: Error {
-    enum Display: Error {
-        case notFound
-        case notSilicon
-        case notStandard
-    }
-    enum Keyboard: Error {
-        case notFound
-        case notSilicon
-        case notStandard
-    }
+    case displayBrightnessFailure
+    case keyboardBrightnessFailure
+    case m1DisplayBrightnessFailure
+    case m1KeyboardBrightnessFailure
 }

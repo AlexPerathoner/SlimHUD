@@ -1,8 +1,9 @@
 //
-//  KeyPressObserver.swift
+//  ObserverApplication.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 24/12/22.
+//  Created by Alex Perathoner on 18/02/2020.
+//  Copyright © 2020 Alex Perathoner. All rights reserved.
 //
 
 import Cocoa

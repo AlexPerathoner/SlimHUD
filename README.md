@@ -42,10 +42,10 @@ Here's a full list of the features:
 * If you don't like the slide-in animation you can disable it. The bar will then just appear and disappear. 
 
 <p align="center">
-<img src = "Screens/Animations/animations2.gif" width=250 height=47>
-<img src = "Screens/Animations/animations.gif"  width=47 height=250>
-<img src = "Screens/Animations/noAnimations.gif" width=47 height=250>
-<img src = "Screens/Animations/noAnimations2.gif" width=250 height=47>
+<img src = "Screens/Animations/animations2.gif" width=250>
+<img src = "Screens/Animations/animations.gif" height=250>
+<img src = "Screens/Animations/noAnimations.gif" height=250>
+<img src = "Screens/Animations/noAnimations2.gif" width=250>
 </p>
 
 * Continuously check for changes (*reccomended if you have the TouchBar*): SlimHUD usually shows the volume bar when relative key has been pressed. This means that if you use the volume slider on your TouchBar nothing won't show up. <br>Note that enabling this option *will* fix this problem, but will also increase the CPU usage (which will still be almost none)
@@ -78,29 +78,37 @@ Here's a full list of the features:
 ## Installation
 Download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest).
 
-Launching SlimHud is easy:
+Launching SlimHud is easy: copy the app into your Application's folder and open it (credits to [GameParrot](https://github.com/GameParrot) for making it so easy!
 
-1. Copy the app into your Application's folder
-2. Open it
-3. You have now successfully replaced those ugly and old overlays! Congrats!
+You have now successfully replaced those ugly and old overlays! Congrats!
 
-Credits to [GameParrot](https://github.com/GameParrot) for making it so easy!
+For future updates it won't be necessary to go through all of these steps. Just copy the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) into your application Folder.<br>After version `1.3.0` you can check for updates from inside the app.
+
+#### Explanation
+<a name="note2"></a><sup>[2](#note2)</sup>:
+> sudo allows a permitted user to execute a command as the superuser or another user.
+Mount is used to mount disks. The -u flag indicates that the status of an already mounted file system should be changed. -w means to mount the file system read-write. The file system is "/" aka root.
+The killall utility kills processes selected by name. Since it's Finder, it will just restart and reflect the change you've just made.
+This isn't permanent, there are more steps involved for that.
+
+Source: [reddit](https://www.reddit.com/r/osx/comments/czkgn9/how_to_change_systemlibrarylaunchagents_in/eyzm42w?utm_source=share&utm_medium=web2x)
+
+This is needed as in the last versions of MacOS the system files (like /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist that you'll modify in step 6) are stored in a different disk partition and being an administrator and having System Integrity Protection disabled still isn't enough to access them.
+
+PS: note that the right command is `sudo mount -uw /`, not `sudo mount -uw`
 
 
 ### Uninstalling
-If you'd like to restore the system's HUDs:
-
-1. Disable "launch at login" or delete SlimHUD
-2. Relog into your account
+If you'd like to restore the system's HUDs follow the same steps described above. With the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) a copy of the text you deleted from ```/System/Library/LaunchAgents/com.apple.OSDUIHelper.plist``` is provided. Copy it between \<plist version=”1.0″> and \</plist>.
 
 
 ## Credits
 Thanks to [w0lfschild](https://gist.github.com/w0lfschild) and [massimobio](https://gist.github.com/massimobio) for creating respectively
  [cleanHUD](https://github.com/w0lfschild/cleanHUD) and [ProgressHUD-Mac](https://github.com/massimobio/ProgressHUD-Mac) and inspiring me to create this project.
  
-Also thanks to [pirate](https://gist.github.com/pirate) and [kaunteya](https://gist.github.com/kaunteya), whose code from these project ([mac-keyboard-brightness](https://github.com/pirate/mac-keyboard-brightness) and [ProgressKit](https://github.com/kaunteya/ProgressKit)) was used to complete this project.
+ Also thanks to [pirate](https://gist.github.com/pirate) and [kaunteya](https://gist.github.com/kaunteya), whose code from these project ([mac-keyboard-brightness](https://github.com/pirate/mac-keyboard-brightness) and [ProgressKit](https://github.com/kaunteya/ProgressKit)) was used to complete this project.
  
-SlimHUD is using [Sparkle](https://sparkle-project.org) to support automatic updates. Binaries are stored on GitHub and connections use HTTPs.
+ SlimHUD is using [Sparkle](https://sparkle-project.org) to support automatic updates. Binaries are stored on GitHub and connections use HTTPs.
 
 ## License
 
