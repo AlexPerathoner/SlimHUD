@@ -134,6 +134,7 @@ jobs:
           tag_name: v${{ steps.latest_changes.outputs.new_version }}
           fail_on_unmatched_files: true
           body_path: latest_changes
+          draft: false
           files: |
             Release/${{ env.projname }}.zip
       - name: Cleanup # remove all build files, keys, etc.
