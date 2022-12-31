@@ -163,11 +163,11 @@ jobs:
       - name: Merge PR # merge PR
         uses: "pascalgn/automerge-action@v0.15.5"
         env:
-          MERGE_LABELS: "" # no labels necessary for the PR to be merged
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_COMMIT_MESSAGE: "Release version v${{ steps.latest_changes.outputs.new_version }}"
           MERGE_FILTER_AUTHOR: "${{ github.repository_owner }}"
           MERGE_ERROR_FAIL: true
+          MERGE_LABELS: "" # no labels necessary for the PR to be merged
       - name: Add success reactions # Adding reactions to comment depending on result
         uses: peter-evans/create-or-update-comment@v2
         with:
