@@ -110,7 +110,6 @@ jobs:
         env:
           PRIVATE_SPARKLE_KEY: ${{ secrets.PRIVATE_SPARKLE_KEY }}
         run: |
-          echo -n "$PRIVATE_SPARKLE_KEY" > ./Configuration/sparkle_private_key
           rm -rf Release/*.app
           rm -rf Release/*.log
           rm -rf Release/*.plist
@@ -121,10 +120,10 @@ jobs:
           mv Release/latest_changes.html Release/${{ env.projname }}.html
       - name: Update appcast # generate / update appcast.xml with edDSA key
         run: |
-          ./Configuration/generate_appcast \
-              --ed-key-file Configuration/sparkle_private_key \
-              --link https://github.com/AlexPerathoner/${{ github.event.repository.name }}/releases \
-              --download-url-prefix https://github.com/AlexPerathoner/${{ github.event.repository.name }}/releases/download/v${{ steps.latest_changes.outputs.new_version }}/ \
+          echo "$PRIVATE_SPARKLE_KEY" | ./Configuration/generate_appcast \
+              --ed-key-file - \
+              --link https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/releases \
+              --download-url-prefix https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/releases/download/v${{ steps.latest_changes.outputs.new_version }}/ \
               -o docs/Support/appcast.xml \
               Release/
       - name: Create GitHub release # Upload .zip to GitHub release
@@ -146,7 +145,6 @@ jobs:
           rm -rf new_version
           rm -rf old_version
           rm -rf title
-          rm -rf Configuration/sparkle_private_key
       - name: Saving changes # commits changes to branch (version bump, appcast.xml)
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
