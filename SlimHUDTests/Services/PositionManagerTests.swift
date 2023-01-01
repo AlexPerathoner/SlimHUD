@@ -99,7 +99,7 @@ final class PositionManagerTests: XCTestCase {
                                   height: Constants.Screen.Height - Constants.Screen.MenuBarSize - Constants.Screen.DockSize)
         let hudSize = NSRect(x: 0, y: 0, width: Constants.Hud.ShortEdge, height: Constants.Hud.LongEdge)
         let isInFullscreen = false
-        
+
         // actual point with MenuBar and with Dock
         let actualPoint1 = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
@@ -107,7 +107,7 @@ final class PositionManagerTests: XCTestCase {
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint1, CGPoint(x: 571.5, y: 811))
-        
+
         // actual point with MenuBar and without Dock
         yDockHeight = Constants.Screen.DockSize
         visibleFrame = NSRect(x: 0, y: 0,
@@ -120,7 +120,7 @@ final class PositionManagerTests: XCTestCase {
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint1, actualPoint2)
-        
+
         // actual point without MenuBar and with Dock
         let actualPoint3 = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
@@ -128,7 +128,7 @@ final class PositionManagerTests: XCTestCase {
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint1, actualPoint3)
-        
+
         // actual point without MenuBar and without Dock
         yDockHeight = 0
 
@@ -179,7 +179,6 @@ final class PositionManagerTests: XCTestCase {
     }
 
     // MARK: - menu bar not visible
-    
 
     func testCalculateHudsOriginLeftNoMenuBar() throws {
         let hudPosition = Position.left
