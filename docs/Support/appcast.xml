@@ -10,7 +10,12 @@
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
             <sparkle:version>1.4.0</sparkle:version>
             <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
+            <sparkle:tags>
+            <sparkle:criticalUpdate></sparkle:criticalUpdate>
+            </sparkle:tags>
             <description><![CDATA[<h1>Fixes</h1>
+              <h2>Critical update!</h2>
+              Due to changes in my signing certificates, this update can't be installed automatically!<br>Please download it manually from  <a href="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.0/SlimHUD.zip">GitHub</a>.
 <ul>
 <li>Fix bug: hud too near to the screen edge</li>
 <li>Hiding MacOS' default HUD without modifying system configuration files.</li>
