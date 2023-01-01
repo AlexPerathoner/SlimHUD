@@ -20,7 +20,7 @@
 <li>Disabling keyboard and display brightness bars until screen settings changes if it wasn't possible to retrieve their values</li>
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.8/SlimHUD.zip" length="5435865" type="application/octet-stream" sparkle:edSignature="YFIqSszJ8ldKE/ERvBHUUFMQXsqPtA1FsqT2ar2DuShvl7h+ZLh1DrxIJW1e2B104ufc3QvTh/zmdla4ibPFBg=="/>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.8-pre/SlimHUD.zip" length="5435865" type="application/octet-stream" sparkle:edSignature="YFIqSszJ8ldKE/ERvBHUUFMQXsqPtA1FsqT2ar2DuShvl7h+ZLh1DrxIJW1e2B104ufc3QvTh/zmdla4ibPFBg=="/>
         </item>
         <item>
             <title>Added support to MacOS 10.13</title>
