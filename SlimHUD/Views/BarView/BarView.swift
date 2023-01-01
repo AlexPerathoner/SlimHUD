@@ -13,7 +13,7 @@ class BarView: NSView {
 
     @IBOutlet weak var bar: ProgressBar!
     @IBOutlet var image: NSImageView!
-    
+
     public func setIconRotation(isHorizontal: Bool) {
         if isHorizontal {
             while image.boundsRotation.truncatingRemainder(dividingBy: 360) != 90 {
