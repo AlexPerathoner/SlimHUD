@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>SlimHUD</title>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+        <item>
+            <title>1.3.8-alpha</title>
+            <pubDate>Sat, 31 Dec 2022 17:33:01 +0000</pubDate>
+            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
+            <sparkle:version>1.3.8</sparkle:version>
+            <sparkle:shortVersionString>1.3.8</sparkle:shortVersionString>
+            <description><![CDATA[<h1>Many fixes</h1>
+<ul>
+<li>Fix bug: hud too near to the screen edge</li>
+<li>Hiding MacOS' default HUD without modifying system configuration files.</li>
+<li>Fix bug: implemented new ways to retrieve brightness</li>
+<li>Fix bug: keyboard backlight hud working again</li>
+<li>Update to Sparkle 2</li>
+<li>Disabling keyboard and display brightness bars until screen settings changes if it wasn't possible to retrieve their values</li>
+</ul>]]></description>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.8/SlimHUD.zip" length="5435865" type="application/octet-stream" sparkle:edSignature="YFIqSszJ8ldKE/ERvBHUUFMQXsqPtA1FsqT2ar2DuShvl7h+ZLh1DrxIJW1e2B104ufc3QvTh/zmdla4ibPFBg=="/>
+        </item>
+        <item>
+            <title>Added support to MacOS 10.13</title>
+            <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
+<ul>
+  <li>Say welcome to all users with MacOS High Sierra! (#21)</li>
+</ul>
+
+<p>As this version doesn’t introduce any new feature to users who already have SlimHUD installed feel free to skip this update.</p>
+]]></description>
+            <pubDate>Mon, 17 Aug 2020 12:36:20 +0000</pubDate>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.7/SlimHUD.zip" sparkle:version="1.3.7" length="5839936" type="application/octet-stream"/>
+        </item>
+        <item>
+            <title>Bug Fixes</title>
+            <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
+<ul>
+  <li>Position of bar now persists across reboots</li>
+  <li>Icon color of keyboard bar now persists across reboots</li>
+  <li>Performance improvements</li>
+</ul>
+]]></description>
+            <pubDate>Tue, 07 Jul 2020 13:06:33 +0000</pubDate>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.6/SlimHUD.zip" sparkle:version="1.3.6" length="5762182" type="application/octet-stream"/>
+        </item>
+        <item>
+            <title>Bug Fixes</title>
+            <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
+<ul>
+  <li>Fixed a bug that prevented the outer corners of the bar to be updates correctly when the thickness was changed in the settings.</li>
+</ul>
+]]></description>
+            <pubDate>Fri, 19 Jun 2020 13:56:46 +0000</pubDate>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.5/SlimHUD.zip" sparkle:version="1.3.5" length="5591000" type="application/octet-stream"/>
+        </item>
+    </channel>
+</rss>
