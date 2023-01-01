@@ -1,0 +1,35 @@
+name: UI Tests
+on:
+  workflow_dispatch:
+
+env:
+  test-results-check-name: UI Test results
+
+concurrency:
+  group: "UItests${{ github.head_ref || github.run_id }}"
+  cancel-in-progress: true
+
+jobs:
+  ui-tests-run:
+    runs-on: macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Switch Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_14.2.app
+      - name: Xcode version
+        run: /usr/bin/xcodebuild -version
+
+      - name: Build and Test
+        continue-on-error: true
+        run: |
+          xcodebuild clean test -project SlimHUD.xcodeproj -scheme "UI tests only" -destination platform=macOS CODE_SIGNING_ALLOWED=NO -resultBundlePath TestResults
+      - name: Post test results
+        uses: kishikawakatsumi/xcresulttool@v1
+        if: success() || failure()
+        with:
+          path: "TestResults.xcresult"
+          title: ${{ env.test-results-check-name }}
+          upload-bundles: never
+          show-code-coverage: true

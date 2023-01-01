@@ -2,8 +2,7 @@
 //  ChangesObserver.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 19/12/2022.
-//  Copyright © 2022 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Foundation
@@ -12,8 +11,8 @@ import Cocoa
 class ChangesObserver {
     private var oldFullScreen: Bool
     private var oldVolume: Float
-    private var oldBrightness: Float
-    private var oldKeyboard: Float
+    private var oldBrightness: Float = 0
+    private var oldKeyboard: Float = 0
 
     private var settingsManager: SettingsManager = SettingsManager.getInstance()
     private var positionManager: PositionManager
@@ -22,12 +21,28 @@ class ChangesObserver {
     private var brightnessView: BarView
     private var keyboardView: BarView
 
+    private var temporarelyDisabledBars = EnabledBars(volumeBar: false, brightnessBar: false, keyboardBar: false)
+
     init(positionManager: PositionManager, displayer: Displayer, volumeView: BarView, brightnessView: BarView, keyboardView: BarView) {
         oldFullScreen = DisplayManager.isInFullscreenMode()
         oldVolume = VolumeManager.getOutputVolume()
-        oldBrightness = DisplayManager.getDisplayBrightness()
-        oldKeyboard = KeyboardManager.getKeyboardBrightness()
-        
+
+        do {
+            oldBrightness = try DisplayManager.getDisplayBrightness()
+        } catch {
+            temporarelyDisabledBars.brightnessBar = true
+            NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
+        }
+        do {
+            oldKeyboard = try KeyboardManager.getKeyboardBrightness()
+        } catch {
+            temporarelyDisabledBars.keyboardBar = true
+            NSLog("""
+                  Failed to retrieve keyboard brightness. Is no keyboard with backlight connected?
+                  Disabling keyboard HUD. If you think this is an error please report it on GitHub.
+                  """)  // todo show alert? also when re-enabling hud if it didnt work
+        }
+
         self.positionManager = positionManager
         self.displayer = displayer
         self.volumeView = volumeView
@@ -87,10 +102,10 @@ class ChangesObserver {
             oldFullScreen = newFullScreen
         }
 
-        if settingsManager.enabledBars.brightnessBar {
+        if settingsManager.enabledBars.brightnessBar && !temporarelyDisabledBars.brightnessBar {
             checkBrightnessChanges()
         }
-        if settingsManager.enabledBars.keyboardBar {
+        if settingsManager.enabledBars.keyboardBar && !temporarelyDisabledBars.keyboardBar {
             checkKeyboardChanges()
         }
         if settingsManager.shouldContinuouslyCheck && settingsManager.enabledBars.volumeBar {
@@ -114,21 +129,43 @@ class ChangesObserver {
     }
 
     private func checkBrightnessChanges() {
-        if NSScreen.screens.count == 0 {return}
-        let newBrightness = DisplayManager.getDisplayBrightness()
-        if !isAlmost(firstNumber: oldBrightness, secondNumber: newBrightness) {
-            displayer.showBrightnessHUD()
-            oldBrightness = newBrightness
+        if NSScreen.screens.count == 0 {
+            return
         }
-        brightnessView.bar?.progress = newBrightness
+        do {
+            let newBrightness = try DisplayManager.getDisplayBrightness()
+            if !isAlmost(firstNumber: oldBrightness, secondNumber: newBrightness) {
+                displayer.showBrightnessHUD()
+                oldBrightness = newBrightness
+            }
+            brightnessView.bar?.progress = newBrightness
+        } catch {
+            temporarelyDisabledBars.brightnessBar = true
+            NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
+        }
     }
 
     private func checkKeyboardChanges() {
-        let newKeyboard = KeyboardManager.getKeyboardBrightness()
-        if !isAlmost(firstNumber: oldKeyboard, secondNumber: newKeyboard) {
-            displayer.showKeyboardHUD()
-            oldKeyboard = newKeyboard
+        do {
+            let newKeyboard = try KeyboardManager.getKeyboardBrightness()
+            if !isAlmost(firstNumber: oldKeyboard, secondNumber: newKeyboard) {
+                displayer.showKeyboardHUD()
+                oldKeyboard = newKeyboard
+            }
+            keyboardView.bar?.progress = try KeyboardManager.getKeyboardBrightness()
+        } catch {
+            temporarelyDisabledBars.keyboardBar = true
+            NSLog("""
+                    Failed to retrieve keyboard brightness. Is no keyboard with backlight connected? Disabling keyboard HUD.
+                    If you think this is an error please report it on GitHub.
+                    """)
         }
-        keyboardView.bar?.progress = KeyboardManager.getKeyboardBrightness()
+    }
+
+    /// When no keyboard with backlight or display with brightness control is connected, SlimHUD fails to retrieve their values.
+    ///  In fact, as they can't be controlled, they won't change. We can therefore disable those bars entirely.
+    ///  However, once the display settings change, we need to reset these values.
+    public func resetTemporarelyDisabledBars() {
+        temporarelyDisabledBars = EnabledBars(volumeBar: false, brightnessBar: false, keyboardBar: false)
     }
 }

@@ -1,9 +1,8 @@
 //
-//  SettingsController.swift
+//  SettingsManager.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 03/03/2020.
-//  Copyright © 2020 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Cocoa
@@ -74,33 +73,33 @@ class SettingsManager {
     }
 
     // MARK: - Effects colors
-    var shouldShowShadows: Bool = true {
+    var shouldShowShadows: Bool {
         didSet {
             UserDefaults.standard.set(shouldShowShadows, forKey: SettingsManager.ShouldShowShadowsKey)
         }
     }
-    var shouldShowIcons: Bool = true {
+    var shouldShowIcons: Bool {
         didSet {
             UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.ShouldShowIconsKey)
         }
     }
-    var shouldContinuouslyCheck: Bool = true {
+    var shouldContinuouslyCheck: Bool {
         didSet {
             UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
         }
     }
-    var shouldUseAnimation: Bool = true {
+    var shouldUseAnimation: Bool {
         didSet {
             UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.ShouldUseAnimationKey)
         }
     }
 
-    var barHeight: Int = 218 {
+    var barHeight: Int {
         didSet {
             UserDefaults.standard.set(barHeight, forKey: SettingsManager.BarHeightKey)
         }
     }
-    var barThickness: Int = 7 {
+    var barThickness: Int {
         didSet {
             UserDefaults.standard.set(barThickness, forKey: SettingsManager.BarThicknessKey)
         }
@@ -121,7 +120,7 @@ class SettingsManager {
         }
     }
 
-    var marginValue: Int = 10 {
+    var marginValue: Int {
         didSet {
             UserDefaults.standard.set(marginValue, forKey: SettingsManager.MarginKey)
         }
@@ -145,24 +144,21 @@ class SettingsManager {
         brightnessIconColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessColorKey, defaultValue: .white)
         keyboardIconColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardIconColorKey, defaultValue: .white)
 
-        shouldShowShadows = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowShadowsKey)
-        shouldShowIcons = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowIconsKey)
-        barHeight = UserDefaultsManager.getInt(for: SettingsManager.BarHeightKey)
-        barThickness = UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey)
-        if let rawPosition = UserDefaultsManager.getString(for: SettingsManager.PositionKey) {
-            position = Position(rawValue: rawPosition) ?? .left
-        } else {
-            position = .left
-        }
-        shouldContinuouslyCheck = UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey)
-        shouldUseAnimation = UserDefaultsManager.getBool(for: SettingsManager.ShouldUseAnimationKey)
+        shouldShowShadows = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowShadowsKey, defaultValue: true)
+        shouldShowIcons = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowIconsKey, defaultValue: true)
+        barHeight = UserDefaultsManager.getInt(for: SettingsManager.BarHeightKey, defaultValue: 218)
+        barThickness = UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey, defaultValue: 7)
+        let rawPosition = UserDefaultsManager.getString(for: SettingsManager.PositionKey, defaultValue: "left")
+        position = Position(rawValue: rawPosition) ?? .left
+        shouldContinuouslyCheck = UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
+        shouldUseAnimation = UserDefaultsManager.getBool(for: SettingsManager.ShouldUseAnimationKey, defaultValue: true)
         let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.EnabledBarsKey, defaultValue: [true, true, true])
         let (volumeBarEnabled, brightnessBarEnabled, keyboardBarEnabled) =
             (enabledBarsRaw[EnabledBars.VolumeBarIndex],
              enabledBarsRaw[EnabledBars.BrightnessBarIndex],
              enabledBarsRaw[EnabledBars.KeyboardBarIndex])
         enabledBars = EnabledBars(volumeBar: volumeBarEnabled, brightnessBar: brightnessBarEnabled, keyboardBar: keyboardBarEnabled)
-        marginValue = UserDefaultsManager.getInt(for: SettingsManager.MarginKey)
+        marginValue = UserDefaultsManager.getInt(for: SettingsManager.MarginKey, defaultValue: 10)
     }
 
     func resetDefaultBarsColors() {

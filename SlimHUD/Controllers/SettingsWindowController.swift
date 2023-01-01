@@ -2,8 +2,7 @@
 //  SettingsWindowController.swift
 //  SlimHUD
 //
-//  Created by Alex Perathoner on 27/04/2020.
-//  Copyright © 2020 Alex Perathoner. All rights reserved.
+//  Created by Alex Perathoner on 24/12/22.
 //
 
 import Cocoa
@@ -12,11 +11,13 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
     private var previewTimer: Timer?
 
+    // swiftlint:disable:next force_cast
     var displayer = (NSApplication.shared.delegate as! AppDelegate).displayer
 
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.delegate = self
+        window?.identifier = .init(rawValue: "Settings")
 
         if previewTimer == nil { // windowDidLoad() could be called multiple times
             // sends a notification every second causing the bar to appear and be kept visible
@@ -27,10 +28,11 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
         }
 
         NSApp.activate(ignoringOtherApps: true)
+        NSApplication.shared.setActivationPolicy(.regular)
     }
 
     func windowWillClose(_ notification: Notification) {
         previewTimer?.invalidate()
+        NSApplication.shared.setActivationPolicy(.accessory)
     }
-
 }

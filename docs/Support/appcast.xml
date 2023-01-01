@@ -1,346 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
     <channel>
         <title>SlimHUD</title>
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
-        
-            
-                
-                    <item>
-                        <title>Added support to MacOS 10.13</title>
-                        <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
+        <item>
+            <title>1.4.0</title>
+            <pubDate>Sun, 01 Jan 2023 18:13:12 +0000</pubDate>
+            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
+            <sparkle:version>1.4.0</sparkle:version>
+            <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
+            <description><![CDATA[<h1>Fixes</h1>
+<ul>
+<li>Fix bug: hud too near to the screen edge</li>
+<li>Hiding MacOS' default HUD without modifying system configuration files.</li>
+<li>Fix bug: implemented new ways to retrieve brightness</li>
+<li>Fix bug: keyboard backlight hud working again</li>
+<li>Update to Sparkle 2</li>
+<li>Change in signing certificates: please update manually to the <a href="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.0/SlimHUD.zip">latest release</a>!</li>
+<li>Disabling keyboard and display brightness bars until screen settings changes if it wasn't possible to retrieve their values</li>
+</ul>]]></description>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.0/SlimHUD.zip" length="5435874" type="application/octet-stream"/>
+        </item>
+        <item>
+            <title>Added support to MacOS 10.13</title>
+            <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
 <ul>
   <li>Say welcome to all users with MacOS High Sierra! (#21)</li>
 </ul>
 
 <p>As this version doesn’t introduce any new feature to users who already have SlimHUD installed feel free to skip this update.</p>
 ]]></description>
-                        <pubDate>Mon, 17 Aug 2020 12:36:20 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.7/SlimHUD.zip"
-                                sparkle:version="1.3.7"
-                                
-                                length="5839936"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Bug Fixes</title>
-                        <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
+            <pubDate>Mon, 17 Aug 2020 12:36:20 +0000</pubDate>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.7/SlimHUD.zip" sparkle:version="1.3.7" length="5839936" type="application/octet-stream"/>
+        </item>
+        <item>
+            <title>Bug Fixes</title>
+            <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
 <ul>
   <li>Position of bar now persists across reboots</li>
   <li>Icon color of keyboard bar now persists across reboots</li>
   <li>Performance improvements</li>
 </ul>
 ]]></description>
-                        <pubDate>Tue, 07 Jul 2020 13:06:33 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.6/SlimHUD.zip"
-                                sparkle:version="1.3.6"
-                                
-                                length="5762182"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Bug Fixes</title>
-                        <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
+            <pubDate>Tue, 07 Jul 2020 13:06:33 +0000</pubDate>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.6/SlimHUD.zip" sparkle:version="1.3.6" length="5762182" type="application/octet-stream"/>
+        </item>
+        <item>
+            <title>Bug Fixes</title>
+            <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
 <ul>
   <li>Fixed a bug that prevented the outer corners of the bar to be updates correctly when the thickness was changed in the settings.</li>
 </ul>
 ]]></description>
-                        <pubDate>Fri, 19 Jun 2020 13:56:46 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.5/SlimHUD.zip"
-                                sparkle:version="1.3.5"
-                                
-                                length="5591000"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Bug Fixes</title>
-                        <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
-<ul>
-  <li>Fixed #13 (Auto quit silently sometimes)</li>
-</ul>
-]]></description>
-                        <pubDate>Sat, 13 Jun 2020 15:16:42 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.4/SlimHUD-v1.3.4.zip"
-                                sparkle:version="1.3.4"
-                                
-                                length="5590822"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Bug Fixes</title>
-                        <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
-<ul>
-  <li>Fix #11 (doesn’t launch at login)</li>
-</ul>
-]]></description>
-                        <pubDate>Tue, 26 May 2020 16:34:24 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.3/SlimHUD.zip"
-                                sparkle:version="1.3.3"
-                                
-                                length="5590768"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Fix</title>
-                        <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
-<ul>
-  <li>Fixed bug which didn’t save settings after relaunch</li>
-</ul>
-]]></description>
-                        <pubDate>Mon, 25 May 2020 17:29:03 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.2/SlimHUD.zip"
-                                sparkle:version="1.3.2"
-                                
-                                length="8814280"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Closing windows</title>
-                        <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
-<ul>
-  <li>You can now close the About and the Settings window by pressing the classic ⌘+W shortcut</li>
-  <li>Minor improvements &amp; bug fixes</li>
-</ul>
-]]></description>
-                        <pubDate>Sat, 23 May 2020 17:29:52 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.1/SlimHUD.zip"
-                                sparkle:version="1.3.1"
-                                
-                                length="8814231"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Updates!</title>
-                        <description><![CDATA[<h3 id="new-in-this-version">New in this version:</h3>
-<ul>
-  <li>Help buttons won’t open the Wiki anymore. Instead they will show a popover with the only desired info.</li>
-  <li><strong>Updates</strong>: thanks to <a href="https://sparkle-project.org">Sparkle</a> SlimHUD now supports automatic updates. You can enable them the 2nd time you’ll open SlimHUD.</li>
-  <li>Minor improvements &amp; bug fixes</li>
-</ul>
-]]></description>
-                        <pubDate>Sat, 02 May 2020 15:41:01 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.0/SlimHUD.zip"
-                                sparkle:version="1.3.0"
-                                
-                                length="12178145"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Custom Icon Colors!</title>
-                        <description><![CDATA[<h3 id="new-features">New features:</h3>
-<ul>
-  <li>
-    <p>It’s now possible to customise the icons’ colors (Fixes #9)<br />
-&lt;img src=https://user-images.githubusercontent.com/31958579/80318280-5deb3400-8809-11ea-8429-e094be00ee42.gif width=70%&gt;</p>
-  </li>
-  <li>
-    <p>Alpha values for colors are accepted so a transparent bar is now possible!</p>
-  </li>
-</ul>
-]]></description>
-                        <pubDate>Sun, 26 Apr 2020 20:01:32 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.2.0/SlimHUD-Cyanocitta-v1.2.0.dmg.zip"
-                                sparkle:version="1.2.0"
-                                
-                                length="13540890"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Launch At Login Fixed </title>
-                        <description><![CDATA[<h3 id="new-features">New features:</h3>
-<ul>
-  <li>The previous release didn’t do what it was supposed to do. Now it does (really).</li>
-  <li>Fixing #7 (Thickness of bars not updating at launch)</li>
-  <li>Fixing corner radius of bars, which wasn’t always updated</li>
-</ul>
-]]></description>
-                        <pubDate>Wed, 15 Apr 2020 19:06:08 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.1.4/SlimHUD-Cyanocitta-v1.1.4.dmg.zip"
-                                sparkle:version="1.1.4"
-                                
-                                length="13665036"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-            
-        
-            
-                
-            
-        
-            
-                
-                    <item>
-                        <title>New Settings!</title>
-                        <description><![CDATA[<h3 id="a-new-clearer-settings-window-with-a-wonderful-preview">A new, clearer. settings window with a wonderful preview!</h3>
-<p>And many new settings:</p>
-<ul>
-  <li>Choose the bars’ thickness;</li>
-  <li>Toggle each bar</li>
-  <li>Set up a margin-value (see the <a href="https://github.com/AlexPerathoner/SlimHUD/wiki/Settings">wiki</a>)</li>
-</ul>
-]]></description>
-                        <pubDate>Thu, 09 Apr 2020 19:23:02 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.1.0/SlimHUD-Cyanocitta.1.1.0.dmg"
-                                sparkle:version="1.1.0"
-                                
-                                length="16187868"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Place your bar wherever you want! Version 1.0.1</title>
-                        <description><![CDATA[<p>Fixes #1 - Now you can successfully place your Bar wherever you want and it won’t disappear behind the Dock or the MenuBar.</p>
-]]></description>
-                        <pubDate>Tue, 24 Mar 2020 20:46:47 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.0.1/SlimHUD-Cyanocitta.dmg"
-                                sparkle:version="1.0.1"
-                                
-                                length="37458159"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-                    <item>
-                        <title>Cyanocitta</title>
-                        <description><![CDATA[<p>Working. Please report any error.
-If you get an error “This developer isn’t trust” go to System Preferences &gt; Security &gt; General &gt; Open anyway</p>
-]]></description>
-                        <pubDate>Fri, 20 Mar 2020 17:50:00 +0000</pubDate>
-                        
-                            
-                            
-                            <enclosure
-                                url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.0/SlimHUD-Cyanocitta.dmg"
-                                sparkle:version="1.0"
-                                
-                                length="38908025"
-                                type="application/octet-stream" />
-                        
-                    </item>
-                
-            
-        
-            
-                
-            
-        
+            <pubDate>Fri, 19 Jun 2020 13:56:46 +0000</pubDate>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.3.5/SlimHUD.zip" sparkle:version="1.3.5" length="5591000" type="application/octet-stream"/>
+        </item>
     </channel>
 </rss>
