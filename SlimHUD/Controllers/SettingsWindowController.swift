@@ -17,14 +17,14 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
     override func windowDidLoad() {
         window?.delegate = self
-        
+
         NSApp.activate(ignoringOtherApps: true)
         NSApplication.shared.setActivationPolicy(.regular)
-        
+
         window?.identifier = .init(rawValue: "Settings")
         super.windowDidLoad()
     }
-    
+
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
         showPreviewHud()
