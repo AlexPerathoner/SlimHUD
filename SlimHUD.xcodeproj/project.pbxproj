@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
+		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
 		FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EDF42956FCBF005B39CD /* AppDelegate.swift */; };
 		FA95EDF92956FCC1005B39CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA95EDF82956FCC1005B39CD /* Assets.xcassets */; };
 		FA95EE132956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */; };
@@ -78,6 +80,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
+		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FA95EDF12956FCBF005B39CD /* SlimHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA95EDF42956FCBF005B39CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA95EDF82956FCC1005B39CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 		FA95EDE82956FCBF005B39CD = {
 			isa = PBXGroup;
 			children = (
+				FA0E038729663319004066FF /* README.md */,
+				FA0E038529663300004066FF /* Release_Notes.md */,
 				FA95EDF32956FCBF005B39CD /* SlimHUD */,
 				FA95EE052956FCC1005B39CD /* SlimHUDTests */,
 				FA95EE0F2956FCC1005B39CD /* SlimHUDUITests */,
@@ -468,8 +474,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0E038629663300004066FF /* Release_Notes.md in Resources */,
 				FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */,
 				FA95EE78295741CB005B39CD /* About.storyboard in Resources */,
+				FA0E03882966331A004066FF /* README.md in Resources */,
 				FA95EE7A295741D2005B39CD /* BarView.xib in Resources */,
 				FA95EDF92956FCC1005B39CD /* Assets.xcassets in Resources */,
 				FA95EE7E295741E6005B39CD /* Settings.storyboard in Resources */,
