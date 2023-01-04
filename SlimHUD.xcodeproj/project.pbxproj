@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA59F946296235080053B39D /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59F945296235080053B39D /* AppleScriptError.swift */; };
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA59F946296235080053B39D /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59F945296235080053B39D /* AppleScriptError.swift */; };
+		FA64B59F296638DA00600F85 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B59E296638DA00600F85 /* Alert.swift */; };
 		FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EDF42956FCBF005B39CD /* AppDelegate.swift */; };
 		FA95EDF92956FCC1005B39CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA95EDF82956FCC1005B39CD /* Assets.xcassets */; };
 		FA95EE132956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */; };
@@ -81,9 +82,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA59F945296235080053B39D /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA59F945296235080053B39D /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
+		FA64B59E296638DA00600F85 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FA95EDF12956FCBF005B39CD /* SlimHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA95EDF42956FCBF005B39CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA95EDF82956FCC1005B39CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				FA95EE5F2956FECE005B39CD /* Errors */,
 				FA95EE5D2956FEC3005B39CD /* Constants.swift */,
 				FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */,
+				FA64B59E296638DA00600F85 /* Alert.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */,
 				FA95EE462956FE2A005B39CD /* PositionManager.swift in Sources */,
 				FA95EE382956FDD8005B39CD /* DisplayManager.swift in Sources */,
+				FA64B59F296638DA00600F85 /* Alert.swift in Sources */,
 				FA95EE592956FE9A005B39CD /* Position.swift in Sources */,
 				FA59F946296235080053B39D /* AppleScriptError.swift in Sources */,
 				FA95EE4F2956FE69005B39CD /* NSViewExtension.swift in Sources */,

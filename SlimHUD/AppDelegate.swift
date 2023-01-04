@@ -23,14 +23,35 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     @IBAction func quitCliked(_ sender: Any) {
         if(isSomeWindowVisible()) {
+            if(settingsManager.showQuitAlert) {
+                let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs",
+                                              text: "If you want to quit, click quit again",
+                                              buttonsTitle: ["OK", "Quit now", "Don't show again"])
+                if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
+                    quit()
+                }
+                if alertResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
+                    settingsManager.showQuitAlert = false
+                }
+            }
+            closeAllWindows()
             NSApplication.shared.setActivationPolicy(.accessory)
             settingsWindowController?.hidePreviewHud()
         } else {
-            settingsManager.saveAllItems()
-            exit(0)
+            quit()
         }
     }
-
+    
+    func closeAllWindows() {
+        settingsWindowController?.close()
+        aboutWindowController?.close()
+    }
+    
+    func quit() {
+        settingsManager.saveAllItems()
+        exit(0)
+    }
+    
     @IBAction func aboutClicked(_ sender: Any) {
         if aboutWindowController != nil {
             aboutWindowController?.showWindow(self)
