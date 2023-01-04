@@ -86,12 +86,12 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
             NSApplication.shared.setActivationPolicy(.accessory)
         }
     }
-    
+
     func isSomeWindowVisible() -> Bool {
         return ((aboutWindowController?.window?.isVisible ?? false) || (settingsWindowController?.window?.isVisible ?? false)) &&
             NSApplication.shared.activationPolicy() != .accessory
     }
-    
+
     func isOnlyOneWindowVisible() -> Bool {
         return (aboutWindowController?.window?.isVisible ?? false) != (settingsWindowController?.window?.isVisible ?? false) &&
         NSApplication.shared.activationPolicy() != .accessory

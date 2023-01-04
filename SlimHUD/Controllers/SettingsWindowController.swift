@@ -30,7 +30,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
         hidePreviewHud()
         delegate?.setAccessoryActivationPolicyIfAllWindowsClosed()
     }
-    
+
     private func showPreviewHud() {
         if previewTimer == nil { // windowDidLoad() could be called multiple times
             // sends a notification every second causing the bar to appear and be kept visible
@@ -40,7 +40,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
             RunLoop.current.add(previewTimer!, forMode: .eventTracking)
         }
     }
-    
+
     func hidePreviewHud() {
         previewTimer?.invalidate()
     }
