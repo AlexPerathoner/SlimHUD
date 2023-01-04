@@ -36,7 +36,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
             }
             closeAllWindows()
             NSApplication.shared.setActivationPolicy(.accessory)
-            settingsWindowController?.hidePreviewHud()
         } else {
             quit()
         }

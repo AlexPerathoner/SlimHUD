@@ -16,14 +16,18 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
     var displayer = (NSApplication.shared.delegate as! AppDelegate).displayer
 
     override func windowDidLoad() {
-        super.windowDidLoad()
         window?.delegate = self
-        window?.identifier = .init(rawValue: "Settings")
-
-        showPreviewHud()
-
+        
         NSApp.activate(ignoringOtherApps: true)
         NSApplication.shared.setActivationPolicy(.regular)
+        
+        window?.identifier = .init(rawValue: "Settings")
+        super.windowDidLoad()
+    }
+    
+    override func showWindow(_ sender: Any?) {
+        super.showWindow(sender)
+        showPreviewHud()
     }
 
     func windowWillClose(_ notification: Notification) {
@@ -41,7 +45,8 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
-    func hidePreviewHud() {
+    private func hidePreviewHud() {
         previewTimer?.invalidate()
+        previewTimer = nil
     }
 }
