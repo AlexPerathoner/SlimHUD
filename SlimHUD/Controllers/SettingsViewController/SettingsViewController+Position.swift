@@ -23,35 +23,6 @@ extension SettingsViewController {
             settingsManager.position = .left
         }
         delegate?.positionManager.setupHUDsPosition(false)
-
-        if settingsManager.shouldShowIcons {
-            displayRelaunchButton()
-        }
-        delegate?.positionManager.setupHUDsPosition(false)
-    }
-
-    func displayRelaunchButton() {
-        if restartOutlet.isHidden {
-            positionButtonConstraint.constant = 51
-            NSAnimationContext.runAnimationGroup({ (context) -> Void in
-                context.duration = 0.5
-                // restartOutlet.animator().alphaValue = 1
-                positionButtonConstraint.animator().constant = 16
-            }, completionHandler: { () -> Void in
-
-                self.restartOutlet.isHidden = false
-            })
-        }
-    }
-
-    @IBAction func restartButton(_ sender: Any) throws {
-        let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
-        let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
-        let task = Process()
-        task.launchPath = "/usr/bin/open"
-        task.arguments = [path]
-        try task.run()
-        exit(0)
     }
 
     @IBAction func heightSlider(_ sender: NSSlider) {

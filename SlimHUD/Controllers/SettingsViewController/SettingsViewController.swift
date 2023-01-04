@@ -96,10 +96,6 @@ class SettingsViewController: NSViewController {
 
     @IBOutlet weak var positionOutlet: NSPopUpButton!
 
-    @IBOutlet weak var restartOutlet: NSButton!
-
-    @IBOutlet weak var positionButtonConstraint: NSLayoutConstraint!
-
     // MARK: Style tab
     @IBOutlet weak var iconsBox: NSBox!
     @IBOutlet weak var barsBox: NSBox!

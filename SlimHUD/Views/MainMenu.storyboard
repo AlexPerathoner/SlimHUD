@@ -26,7 +26,7 @@
                                         <menuItem title="About..." id="Y7B-0i-puc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <segue destination="YmN-fR-kvf" kind="show" id="AX0-B7-Ztn"/>
+                                                <action selector="aboutClicked:" target="RpS-ln-g5c" id="X2C-su-0Df"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Check for Updates..." id="5S5-O1-oWe">
@@ -38,7 +38,7 @@
                                         <menuItem title="Settings..." id="MKQ-CJ-4R5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <segue destination="ijN-uD-ef4" kind="show" id="SMe-Pr-DTm"/>
+                                                <action selector="settingsClicked:" target="RpS-ln-g5c" id="NZv-Ep-vnp"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="vC6-xV-rB2"/>
@@ -63,22 +63,6 @@
                 </application>
             </objects>
             <point key="canvasLocation" x="-100" y="-37"/>
-        </scene>
-        <!--About-->
-        <scene sceneID="HjU-Tv-xRr">
-            <objects>
-                <customObject id="yZO-NH-p6n" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <controllerPlaceholder storyboardName="About" id="YmN-fR-kvf" sceneMemberID="viewController"/>
-            </objects>
-            <point key="canvasLocation" x="262" y="-115"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="jqi-3i-Naz">
-            <objects>
-                <customObject id="tRv-Bi-QoT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <controllerPlaceholder storyboardName="Settings" id="ijN-uD-ef4" sceneMemberID="viewController"/>
-            </objects>
-            <point key="canvasLocation" x="324" y="73"/>
         </scene>
     </scenes>
 </document>
