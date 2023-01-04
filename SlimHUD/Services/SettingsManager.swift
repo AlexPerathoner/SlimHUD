@@ -126,7 +126,7 @@ class SettingsManager {
             UserDefaults.standard.set(marginValue, forKey: SettingsManager.MarginKey)
         }
     }
-    
+
     var showQuitAlert: Bool {
         didSet {
             UserDefaults.standard.set(showQuitAlert, forKey: SettingsManager.ShowQuitAlert)

@@ -22,8 +22,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
 
     @IBAction func quitCliked(_ sender: Any) {
-        if(isSomeWindowVisible()) {
-            if(settingsManager.showQuitAlert) {
+        if isSomeWindowVisible() {
+            if settingsManager.showQuitAlert {
                 let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs",
                                               text: "If you want to quit, click quit again",
                                               buttonsTitle: ["OK", "Quit now", "Don't show again"])
@@ -41,17 +41,17 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
             quit()
         }
     }
-    
+
     func closeAllWindows() {
         settingsWindowController?.close()
         aboutWindowController?.close()
     }
-    
+
     func quit() {
         settingsManager.saveAllItems()
         exit(0)
     }
-    
+
     @IBAction func aboutClicked(_ sender: Any) {
         if aboutWindowController != nil {
             aboutWindowController?.showWindow(self)
