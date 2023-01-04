@@ -22,8 +22,13 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
 
     @IBAction func quitCliked(_ sender: Any) {
-        settingsManager.saveAllItems()
-        exit(0)
+        if(isSomeWindowVisible()) {
+            NSApplication.shared.setActivationPolicy(.accessory)
+            settingsWindowController?.hidePreviewHud()
+        } else {
+            settingsManager.saveAllItems()
+            exit(0)
+        }
     }
 
     @IBAction func aboutClicked(_ sender: Any) {
@@ -56,10 +61,19 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     func setAccessoryActivationPolicyIfAllWindowsClosed() {
         // hiding app if not both windows are visible
-        if (aboutWindowController?.window?.isVisible ?? false) !=
-            (settingsWindowController?.window?.isVisible ?? false) {
+        if isOnlyOneWindowVisible() {
             NSApplication.shared.setActivationPolicy(.accessory)
         }
+    }
+    
+    func isSomeWindowVisible() -> Bool {
+        return ((aboutWindowController?.window?.isVisible ?? false) || (settingsWindowController?.window?.isVisible ?? false)) &&
+            NSApplication.shared.activationPolicy() != .accessory
+    }
+    
+    func isOnlyOneWindowVisible() -> Bool {
+        return (aboutWindowController?.window?.isVisible ?? false) != (settingsWindowController?.window?.isVisible ?? false) &&
+        NSApplication.shared.activationPolicy() != .accessory
     }
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
