@@ -22,7 +22,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
 
     @IBAction func quitCliked(_ sender: Any) {
-        if(isSomeWindowVisible()) {
+        if isSomeWindowVisible() {
             NSApplication.shared.setActivationPolicy(.accessory)
             settingsWindowController?.hidePreviewHud()
         } else {
@@ -65,12 +65,12 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
             NSApplication.shared.setActivationPolicy(.accessory)
         }
     }
-    
+
     func isSomeWindowVisible() -> Bool {
         return ((aboutWindowController?.window?.isVisible ?? false) || (settingsWindowController?.window?.isVisible ?? false)) &&
             NSApplication.shared.activationPolicy() != .accessory
     }
-    
+
     func isOnlyOneWindowVisible() -> Bool {
         return (aboutWindowController?.window?.isVisible ?? false) != (settingsWindowController?.window?.isVisible ?? false) &&
         NSApplication.shared.activationPolicy() != .accessory
