@@ -15,6 +15,9 @@ import Sparkle
 class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    
+    var settingsWindowController: SettingsWindowController? = nil
+    var aboutWindowController: AboutWindowController? = nil
 
     @IBOutlet weak var statusMenu: NSMenu!
 
@@ -22,6 +25,43 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         settingsManager.saveAllItems()
         exit(0)
     }
+    
+    @IBAction func aboutClicked(_ sender: Any) {
+        if aboutWindowController != nil {
+            aboutWindowController?.showWindow(self)
+        } else {
+            if let wc = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as? AboutWindowController {
+                aboutWindowController = wc
+                wc.delegate = self
+                wc.showWindow(self)
+            }
+        }
+        NSApplication.shared.setActivationPolicy(.regular)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    @IBAction func settingsClicked(_ sender: Any) {
+        if settingsWindowController != nil {
+            settingsWindowController?.showWindow(self)
+        } else {
+            if let wc = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
+                settingsWindowController = wc
+                wc.delegate = self
+                wc.showWindow(self)
+            }
+        }
+        NSApplication.shared.setActivationPolicy(.regular)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    func setAccessoryActivationPolicyIfAllWindowsClosed() {
+        // hiding app if not both windows are visible
+        if ((aboutWindowController?.window?.isVisible ?? false) !=
+            (settingsWindowController?.window?.isVisible ?? false)) {
+            NSApplication.shared.setActivationPolicy(.accessory)
+        }
+    }
+    
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 

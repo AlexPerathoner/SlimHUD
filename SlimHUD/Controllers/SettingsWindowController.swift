@@ -8,6 +8,7 @@
 import Cocoa
 
 class SettingsWindowController: NSWindowController, NSWindowDelegate {
+    weak var delegate: AppDelegate?
 
     private var previewTimer: Timer?
 
@@ -33,6 +34,6 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
     func windowWillClose(_ notification: Notification) {
         previewTimer?.invalidate()
-        NSApplication.shared.setActivationPolicy(.accessory)
+        delegate?.setAccessoryActivationPolicyIfAllWindowsClosed()
     }
 }

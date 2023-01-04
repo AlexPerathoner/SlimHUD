@@ -7,14 +7,15 @@
 
 import Cocoa
 
-class AboutWindowController: NSWindowController {
-
+class AboutWindowController: NSWindowController, NSWindowDelegate {
+    weak var delegate: AppDelegate?
+    
     override func windowDidLoad() {
         NSApp.activate(ignoringOtherApps: true)
         NSApplication.shared.setActivationPolicy(.regular)
     }
-
+    
     func windowWillClose(_ notification: Notification) {
-        NSApplication.shared.setActivationPolicy(.accessory)
+        delegate?.setAccessoryActivationPolicyIfAllWindowsClosed()
     }
 }
