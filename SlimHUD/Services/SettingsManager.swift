@@ -157,7 +157,8 @@ class SettingsManager {
         barThickness = UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey, defaultValue: 7)
         let rawPosition = UserDefaultsManager.getString(for: SettingsManager.PositionKey, defaultValue: "left")
         position = Position(rawValue: rawPosition) ?? .left
-        shouldContinuouslyCheck = UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
+        shouldContinuouslyCheck = CommandLine.arguments.contains(SettingsManager.ShouldContinuouslyCheckKey) ?
+            true : UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)    
         shouldUseAnimation = UserDefaultsManager.getBool(for: SettingsManager.ShouldUseAnimationKey, defaultValue: true)
         let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.EnabledBarsKey, defaultValue: [true, true, true])
         let (volumeBarEnabled, brightnessBarEnabled, keyboardBarEnabled) =

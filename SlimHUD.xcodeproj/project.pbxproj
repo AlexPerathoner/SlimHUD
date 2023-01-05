@@ -70,6 +70,7 @@
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
 		FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579F29675F7700C32A80 /* AppleScriptError.swift */; };
+		FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,7 @@
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FAFC579F29675F7700C32A80 /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
+		FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIApplicationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +401,7 @@
 				FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */,
 				FA95EE8429574495005B39CD /* SparkleUITests.swift */,
 				FA56F6DD29666815008177B1 /* UITestsUtils.swift */,
+				FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */,
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
+				FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */,
 				FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */,
 				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,
