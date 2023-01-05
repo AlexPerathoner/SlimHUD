@@ -60,14 +60,14 @@ final class AboutUITests: SparkleUITests {
 
          // alert should have been opened, window should still be visible
          XCTAssertTrue(aboutWindow.isHittable)
-         app/*@START_MENU_TOKEN@*/.buttons["OK"]/*[[".dialogs[\"alert\"].buttons[\"OK\"]",".buttons[\"OK\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
+         app.dialogs["alert"].buttons["OK"].click()
 
          // after clicking ok all windows should have been closed
          XCTAssertFalse(aboutWindow.isHittable)
 
          aboutWindow = openAboutWindow(app)
          aboutWindow.typeKey("q", modifierFlags: .command)
-         app.buttons["Quit now"].click()
+         app.dialogs["alert"].buttons["Quit now"].click()
          // app should have been closed
          XCTAssertFalse(statusItem.exists)
 
@@ -75,7 +75,7 @@ final class AboutUITests: SparkleUITests {
 
          aboutWindow = openAboutWindow(app)
          aboutWindow.typeKey("q", modifierFlags: .command)
-         app.buttons["Don't show again"].click()
+         app.dialogs["alert"].buttons["Don't show again"].click()
          // all windows should have been closed
          XCTAssertFalse(aboutWindow.isHittable)
 
