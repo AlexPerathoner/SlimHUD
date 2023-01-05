@@ -73,10 +73,10 @@ class SettingsViewController: NSViewController {
         preview.setup()
 
     }
-    
+
     var volumeColorHelpVC: SinglePopover?
     @IBAction func displayVolumeColorHelp(_ sender: Any) {
-        if(!(volumeColorHelpVC?.isVisible ?? false)) {
+        if !(volumeColorHelpVC?.isVisible ?? false) {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
             let vc = storyboard.instantiateController(
                 // swiftlint:disable:next force_cast
@@ -87,7 +87,7 @@ class SettingsViewController: NSViewController {
     }
     var marginHelpVC: SinglePopover?
     @IBAction func displayMarginHelp(_ sender: Any) {
-        if(!(marginHelpVC?.isVisible ?? false)) {
+        if !(marginHelpVC?.isVisible ?? false) {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
             let vc = storyboard.instantiateController(
                 // swiftlint:disable:next force_cast
@@ -98,7 +98,7 @@ class SettingsViewController: NSViewController {
     }
     var continuousCheckHelpVC: SinglePopover?
     @IBAction func displayContinuousCheckHelp(_ sender: Any) {
-        if(!(continuousCheckHelpVC?.isVisible ?? false)) {
+        if !(continuousCheckHelpVC?.isVisible ?? false) {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
             let vc = storyboard.instantiateController(
                 // swiftlint:disable:next force_cast
@@ -107,7 +107,6 @@ class SettingsViewController: NSViewController {
             self.present(vc, asPopoverRelativeTo: .zero, of: continuousCheckHelpBtn, preferredEdge: .maxY, behavior: .transient)
         }
     }
-    
 
     // MARK: - Outlets
 
@@ -150,7 +149,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var volumeIconColorOutlet: NSColorWell!
     @IBOutlet weak var brightnessIconColorOutlet: NSColorWell!
     @IBOutlet weak var keyboardIconColorOutlet: NSColorWell!
-    
+
     // MARK: Help buttons
     @IBOutlet weak var volumeColorHelpBtn: NSButton!
     @IBOutlet weak var marginHelpBtn: NSButton!

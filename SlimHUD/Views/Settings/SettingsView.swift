@@ -163,5 +163,4 @@ class SettingsController: NSView, HudsControllerInterface {
         }
     }
 
-    
 }
