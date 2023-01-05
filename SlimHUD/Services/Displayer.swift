@@ -199,17 +199,26 @@ class Displayer: HudsControllerInterface {
         barView.bar.frame.size.width = thickness
     }
 
-    @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor) {
-        getIcon(hud: volumeHud).contentTintColor = color
+        if #available(OSX 10.14, *) {
+            getIcon(hud: volumeHud).contentTintColor = color
+        } else {
+            NSLog("Can't change icons' tint - MacOS 10.14+ needed")
+        }
     }
-    @available(OSX 10.14, *)
     func setBrightnessIconsTint(_ color: NSColor) {
-        getIcon(hud: brightnessHud).contentTintColor = color
+        if #available(OSX 10.14, *) {
+            getIcon(hud: brightnessHud).contentTintColor = color
+        } else {
+            NSLog("Can't change icons' tint - MacOS 10.14+ needed")
+        }
     }
-    @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
-        getIcon(hud: keyboardHud).contentTintColor = color
+        if #available(OSX 10.14, *) {
+            getIcon(hud: keyboardHud).contentTintColor = color
+        } else {
+            NSLog("Can't change icons' tint - MacOS 10.14+ needed")
+        }
     }
 
 }

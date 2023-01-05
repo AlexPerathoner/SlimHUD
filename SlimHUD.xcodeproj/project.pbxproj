@@ -271,13 +271,11 @@
 		FA95EE4B2956FE50005B39CD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FA95EE4C2956FE5D005B39CD /* EnabledBars.swift */,
 				FA95EE4E2956FE69005B39CD /* NSViewExtension.swift */,
 				FA95EE502956FE73005B39CD /* NSButtonExtension.swift */,
 				FA95EE522956FE7C005B39CD /* NSControlExtension.swift */,
 				FA95EE542956FE86005B39CD /* NSImageExtension.swift */,
 				FA95EE562956FE91005B39CD /* BoolExtension.swift */,
-				FA95EE582956FE9A005B39CD /* Position.swift */,
 				FA95EE5A2956FEA9005B39CD /* NSSegmentedControlExtension.swift */,
 				FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */,
 			);
@@ -289,6 +287,8 @@
 			children = (
 				FA95EE5F2956FECE005B39CD /* Errors */,
 				FA95EE5D2956FEC3005B39CD /* Constants.swift */,
+				FA95EE4C2956FE5D005B39CD /* EnabledBars.swift */,
+				FA95EE582956FE9A005B39CD /* Position.swift */,
 				FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */,
 				FA64B59E296638DA00600F85 /* Alert.swift */,
 			);

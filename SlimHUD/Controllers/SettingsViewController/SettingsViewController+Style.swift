@@ -93,6 +93,7 @@ extension SettingsViewController {
         delegate?.setKeyboardColor(color: sender.color)
         preview.setKeyboardColor(color: sender.color)
     }
+    
     @available(OSX 10.14, *)
     @IBAction func volumeIconColorChanged(_ sender: NSColorWell) {
         settingsManager.volumeIconColor = sender.color

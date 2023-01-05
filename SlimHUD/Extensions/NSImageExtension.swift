@@ -15,6 +15,15 @@ extension NSImage {
     static let BrightnessImageFileName = "brightness"
     static let KeyboardImageFileName = "backlight"
     static let StatusIconFileName = "statusIcon"
+    
+    func tint(with color: NSColor) -> NSImage {
+        self.lockFocus()
+        color.set()
+        let srcSpacePortionRect = NSRect(origin: CGPoint(), size: self.size)
+        srcSpacePortionRect.fill(using: .sourceAtop)
+        self.unlockFocus()
+        return self
+    }
 
 }
 

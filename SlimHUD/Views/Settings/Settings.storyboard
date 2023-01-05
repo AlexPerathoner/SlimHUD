@@ -669,7 +669,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="Vaa-jG-PxP"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="brightness" id="b04-95-vyq"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="volume" id="b04-95-vyq"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -899,11 +899,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSRefreshTemplate" width="17" height="20"/>
+        <image name="NSRefreshTemplate" width="18" height="21"/>
         <image name="backlight" width="225" height="120"/>
         <image name="brightness" width="224" height="223"/>
         <image name="brightnessSegmTemplate" width="116" height="115"/>
         <image name="keyboardSegmTemplate" width="116" height="115"/>
+        <image name="volume" width="116" height="75"/>
         <image name="volumeSegmTemplate" width="116" height="115"/>
     </resources>
 </document>

@@ -108,21 +108,21 @@ class SettingsController: NSView, HudsControllerInterface {
 
     func setVolumeIconsTint(_ color: NSColor) {
         if #available(OSX 10.14, *) {
-            volumeImage.contentTintColor = color
+            volumeImage.image = volumeImage.image?.tint(with: color)
         } else {
             NSLog("Can't change icons' tint - MacOS 10.14+ needed")
         }
     }
     func setBrightnessIconsTint(_ color: NSColor) {
         if #available(OSX 10.14, *) {
-            brightnessImage.contentTintColor = color
+            brightnessImage.image = brightnessImage.image?.tint(with: color)
         } else {
             NSLog("Can't change icons' tint - MacOS 10.14+ needed")
         }
     }
     func setKeyboardIconsTint(_ color: NSColor) {
         if #available(OSX 10.14, *) {
-            keyboardImage.contentTintColor = color
+            keyboardImage.image = keyboardImage.image?.tint(with: color)
         } else {
             NSLog("Can't change icons' tint - MacOS 10.14+ needed")
         }
