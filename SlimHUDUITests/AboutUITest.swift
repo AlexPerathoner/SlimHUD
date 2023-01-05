@@ -12,7 +12,7 @@ final class AboutUITests: SparkleUITests {
     func testOpenAboutWindow() throws {
         let app = XCUIApplication()
         app.launch()
-        
+
         if CommandLine.arguments.contains("-sparkle-will-alert") {
             SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         }
