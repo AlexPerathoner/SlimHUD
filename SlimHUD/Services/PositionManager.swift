@@ -121,19 +121,10 @@ class PositionManager {
 
     private func setIconsRotation(isHorizontal: Bool) {
         if let volumeView = volumeHud.view as? BarView {
-            setIconRotation(icon: volumeView.image, isHorizontal: isHorizontal)
+            volumeView.setIconRotation(isHorizontal: isHorizontal)
         }
-    }
-
-    private func setIconRotation(icon: NSImageView, isHorizontal: Bool) {
-        if isHorizontal {
-            while icon.boundsRotation.truncatingRemainder(dividingBy: 360) != 90 {
-                icon.rotate(byDegrees: 90)
-            }
-        } else {
-            while icon.boundsRotation.truncatingRemainder(dividingBy: 360) != 0 {
-                icon.rotate(byDegrees: 90)
-            }
+        if let keyboardView = keyboardHud.view as? BarView {
+            keyboardView.setIconRotation(isHorizontal: isHorizontal)
         }
     }
 }

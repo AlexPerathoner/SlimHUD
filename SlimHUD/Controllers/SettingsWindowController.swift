@@ -8,6 +8,7 @@
 import Cocoa
 
 class SettingsWindowController: NSWindowController, NSWindowDelegate {
+    weak var delegate: AppDelegate?
 
     private var previewTimer: Timer?
 
@@ -15,10 +16,26 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
     var displayer = (NSApplication.shared.delegate as! AppDelegate).displayer
 
     override func windowDidLoad() {
-        super.windowDidLoad()
         window?.delegate = self
-        window?.identifier = .init(rawValue: "Settings")
 
+        NSApp.activate(ignoringOtherApps: true)
+        NSApplication.shared.setActivationPolicy(.regular)
+
+        window?.identifier = .init(rawValue: "Settings")
+        super.windowDidLoad()
+    }
+
+    override func showWindow(_ sender: Any?) {
+        super.showWindow(sender)
+        showPreviewHud()
+    }
+
+    func windowWillClose(_ notification: Notification) {
+        hidePreviewHud()
+        delegate?.setAccessoryActivationPolicyIfAllWindowsClosed()
+    }
+
+    private func showPreviewHud() {
         if previewTimer == nil { // windowDidLoad() could be called multiple times
             // sends a notification every second causing the bar to appear and be kept visible
             previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (_) in
@@ -26,13 +43,10 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
             }
             RunLoop.current.add(previewTimer!, forMode: .eventTracking)
         }
-
-        NSApp.activate(ignoringOtherApps: true)
-        NSApplication.shared.setActivationPolicy(.regular)
     }
 
-    func windowWillClose(_ notification: Notification) {
+    private func hidePreviewHud() {
         previewTimer?.invalidate()
-        NSApplication.shared.setActivationPolicy(.accessory)
+        previewTimer = nil
     }
 }
