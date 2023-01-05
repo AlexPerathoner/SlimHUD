@@ -14,10 +14,6 @@ final class AboutUITests: SparkleUITests {
         continueAfterFailure = false
 
         app.launch()
-
-        if CommandLine.arguments.contains("-sparkle-will-alert") {
-            SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
-        }
     }
 
     func testOpenAboutWindow() throws {

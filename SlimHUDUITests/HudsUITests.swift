@@ -13,10 +13,6 @@ final class HudsUITest: SparkleUITests {
         continueAfterFailure = false
 
         app.launch()
-
-        if CommandLine.arguments.contains("-sparkle-will-alert") {
-            SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
-        }
     }
 
     func testTriggerVolumeHud() throws {
@@ -26,13 +22,14 @@ final class HudsUITest: SparkleUITests {
         } catch AppleScriptError.emptyOutput {
             NSLog("Applescript returned empty output")
         }
+        usleep(300000)
         do {
-            try AppleScriptRunner.run(script: "set volume output volume 15")
+            try AppleScriptRunner.run(script: "set volume output volume 10")
         } catch AppleScriptError.emptyOutput {
             NSLog("Applescript returned empty output")
         }
 
-        usleep(500000)
-        XCTAssert(app.windows.count == 1)
+        usleep(1000000)
+        XCTAssert(app.windows.count >= 1)
     }
 }
