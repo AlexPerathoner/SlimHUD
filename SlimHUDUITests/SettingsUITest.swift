@@ -36,7 +36,7 @@
         settingsWindow.typeKey("w", modifierFlags: .command)
 
         XCTAssertFalse(settingsWindow.isHittable)
-        
+
         // relaunching as the app is now in background and doesn't accept test interaction
         app.launch()
 
@@ -44,7 +44,7 @@
         settingsWindow = openSettingsWindow(app)
 
         settingsWindow.typeKey("q", modifierFlags: .command)
-        
+
         // In AboutUITest the UserDefaults have been updated to don't show the alert anymore,
         //  so all windows should close immediately
         XCTAssertFalse(settingsWindow.isHittable)
