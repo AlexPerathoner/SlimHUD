@@ -17,30 +17,13 @@ extension NSImage {
     static let StatusIconFileName = "statusIcon"
 
     func tint(with color: NSColor) -> NSImage {
+        let image = self.copy() as! NSImage
         self.lockFocus()
         color.set()
-        let srcSpacePortionRect = NSRect(origin: CGPoint(), size: self.size)
+        let srcSpacePortionRect = NSRect(origin: NSZeroPoint, size: image.size)
         srcSpacePortionRect.fill(using: .sourceAtop)
         self.unlockFocus()
-        return self
+        return image
     }
 
 }
-
-// extension NSImage {
-//    /// https://stackoverflow.com/a/50074538/6884062
-//    /// - Returns: returns the tinted version of a template image
-//    func tint(color: NSColor) -> NSImage {
-//        let image = self.copy() as! NSImage
-//        image.lockFocus()
-//
-//        color.set()
-//
-//        let imageRect = NSRect(origin: NSZeroPoint, size: image.size)
-//        imageRect.fill(using: .sourceAtop)
-//
-//        image.unlockFocus()
-//
-//        return image
-//    }
-// }

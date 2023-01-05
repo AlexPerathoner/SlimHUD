@@ -56,6 +56,7 @@ class SettingsController: NSView, HudsControllerInterface {
     
     @available(OSX 10.14, *)
     func setupDefaultIconsColors() {
+        settingsManager.volumeIconColor = .white
         setVolumeIconsTint(.white)
         setBrightnessIconsTint(.white)
         setKeyboardIconsTint(.white)
@@ -69,17 +70,15 @@ class SettingsController: NSView, HudsControllerInterface {
 
     func setVolumeEnabledColor(color: NSColor) {
         volumeBar.foreground = color
-        volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
         if #available(OSX 10.14, *) {
-            setVolumeIconsTint(settingsManager.volumeIconColor)
+            setVolumeIconsTint(settingsManager.volumeIconColor, enabled: true)
         }
     }
 
     func setVolumeDisabledColor(color: NSColor) {
         volumeBar.foreground = color
-        volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
         if #available(OSX 10.14, *) {
-            setVolumeIconsTint(settingsManager.volumeIconColor)
+            setVolumeIconsTint(settingsManager.volumeIconColor, enabled: false)
         }
     }
 
@@ -125,15 +124,26 @@ class SettingsController: NSView, HudsControllerInterface {
     }
     
     @available(OSX 10.14, *)
-    func setVolumeIconsTint(_ color: NSColor) {
+    func setVolumeIconsTint(_ color: NSColor, enabled: Bool) {
+        if(enabled) {
+            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
+        } else {
+            volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
+        }
         volumeImage.image = volumeImage.image?.tint(with: color)
     }
     @available(OSX 10.14, *)
+    func setVolumeIconsTint(_ color: NSColor) {
+        setVolumeIconsTint(settingsManager.volumeIconColor, enabled: true)
+    }
+    @available(OSX 10.14, *)
     func setBrightnessIconsTint(_ color: NSColor) {
+        brightnessImage.image = NSImage(named: NSImage.BrightnessImageFileName)
         brightnessImage.image = brightnessImage.image?.tint(with: color)
     }
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
+        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName)
         keyboardImage.image = keyboardImage.image?.tint(with: color)
     }
 
