@@ -23,7 +23,7 @@ final class AAAUITestSetup: SparkleUITests {
     func testBSecondLaunch() {
         if CommandLine.arguments.contains("-sparkle-will-alert") {
             var checkAutomaticallyForUpdatesClicked = false
-            var timeout = TIMEOUT
+            var timeout = SparkleUITests.TIMEOUT
             while !checkAutomaticallyForUpdatesClicked && timeout > 0 {
                 let app = XCUIApplication()
                 app.launch()
