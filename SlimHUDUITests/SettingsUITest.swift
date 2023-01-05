@@ -39,14 +39,14 @@
         XCTAssertFalse(settingsWindow.isHittable)
 
         // relaunching as the app is now in background and doesn't accept test interaction
-        
+
         app.launch()
 
         // try closing with cmd + q
         settingsWindow = openSettingsWindow(app)
 
         settingsWindow.typeKey("q", modifierFlags: .command)
-        
+
         XCTAssertFalse(settingsWindow.isHittable)
         // app should still be running
         XCTAssertTrue(statusItem.exists)

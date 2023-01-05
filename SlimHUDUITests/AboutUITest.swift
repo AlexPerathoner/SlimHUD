@@ -80,7 +80,7 @@ final class AboutUITests: SparkleUITests {
          app.dialogs["alert"].buttons["Don't show again"].click()
          // all windows should have been closed
          XCTAssertFalse(aboutWindow.isHittable)
-         
+
          // re instantiate to remove launch options
          app = XCUIApplication()
          app.launch()
