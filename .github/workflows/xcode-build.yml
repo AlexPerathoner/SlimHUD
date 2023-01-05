@@ -26,12 +26,12 @@ jobs:
       - name: Build and Test
         continue-on-error: true
         run: |
-          xcodebuild clean test
-          -project SlimHUD.xcodeproj
-          -scheme SlimHUD
-          -destination platform=macOS
-          -resultBundlePath TestResults
-          -test-iterations 3 -retry-tests-on-failure
+          xcodebuild clean test \
+          -project SlimHUD.xcodeproj \
+          -scheme SlimHUD-GitHub-Action \
+          -destination platform=macOS \
+          -resultBundlePath TestResults \
+          -test-iterations 3 -retry-tests-on-failure \
           CODE_SIGNING_ALLOWED=NO
       - name: Post test results
         uses: kishikawakatsumi/xcresulttool@v1
