@@ -21,7 +21,8 @@
         addScreenshot(window: settingsWindow, name: "Settings window")
 
         usleep(500000)
-        XCTAssertTrue(app.windows.count >= 2)
+        // preview HUD will also appear, so the windows count should be more than 1
+        XCTAssertEqual(app.windows.count, 2)
     }
 
     func testCloseWindow() throws {
