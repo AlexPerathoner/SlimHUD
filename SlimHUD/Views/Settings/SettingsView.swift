@@ -118,27 +118,18 @@ class SettingsController: NSView, HudsControllerInterface {
             keyboardView.isHidden = !enabledBars.keyboardBar
         }
     }
-
+    
+    @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor) {
-        if #available(OSX 10.14, *) {
-            volumeImage.image = volumeImage.image?.tint(with: color)
-        } else {
-            NSLog("Can't change icons' tint - MacOS 10.14+ needed")
-        }
+        volumeImage.image = volumeImage.image?.tint(with: color)
     }
+    @available(OSX 10.14, *)
     func setBrightnessIconsTint(_ color: NSColor) {
-        if #available(OSX 10.14, *) {
-            brightnessImage.image = brightnessImage.image?.tint(with: color)
-        } else {
-            NSLog("Can't change icons' tint - MacOS 10.14+ needed")
-        }
+        brightnessImage.image = brightnessImage.image?.tint(with: color)
     }
+    @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
-        if #available(OSX 10.14, *) {
             keyboardImage.image = keyboardImage.image?.tint(with: color)
-        } else {
-            NSLog("Can't change icons' tint - MacOS 10.14+ needed")
-        }
     }
 
     func updateAll() {
@@ -151,9 +142,12 @@ class SettingsController: NSView, HudsControllerInterface {
         setBrightnessColor(color: settingsManager.brightnessColor)
         setKeyboardColor(color: settingsManager.keyboardColor)
         setShouldUseAnimation(shouldUseAnimation: settingsManager.shouldUseAnimation)
-        setVolumeIconsTint(settingsManager.volumeIconColor)
-        setBrightnessIconsTint(settingsManager.brightnessIconColor)
-        setKeyboardIconsTint(settingsManager.keyboardIconColor)
+        
+        if #available(OSX 10.14, *) {
+            setVolumeIconsTint(settingsManager.volumeIconColor)
+            setBrightnessIconsTint(settingsManager.brightnessIconColor)
+            setKeyboardIconsTint(settingsManager.keyboardIconColor)
+        }
     }
 
     var value: Float = 0.5
