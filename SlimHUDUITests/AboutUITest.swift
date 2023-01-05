@@ -64,6 +64,8 @@ final class AboutUITests: SparkleUITests {
 
          // after clicking ok all windows should have been closed
          XCTAssertFalse(aboutWindow.isHittable)
+         
+         app.launch()
 
          aboutWindow = openAboutWindow(app)
          aboutWindow.typeKey("q", modifierFlags: .command)
@@ -78,6 +80,8 @@ final class AboutUITests: SparkleUITests {
          app.dialogs["alert"].buttons["Don't show again"].click()
          // all windows should have been closed
          XCTAssertFalse(aboutWindow.isHittable)
+         
+         app.launch()
 
          aboutWindow = openAboutWindow(app)
          aboutWindow.typeKey("q", modifierFlags: .command)
