@@ -89,7 +89,7 @@ final class PositionManagerTests: XCTestCase {
         XCTAssertEqual(actualPoint, CGPoint(x: 1373, y: 289))
     }
 
-    func testCalculateHudsOriginTopWithAndWithoutDock() throws {
+    func testCalculateHudsOriginTopWithAndWithoutDockAndMenuBar() throws {
         let hudPosition = Position.top
         let dockPosition = Position.bottom
         let xDockHeight: CGFloat = 0
@@ -100,6 +100,7 @@ final class PositionManagerTests: XCTestCase {
         let hudSize = NSRect(x: 0, y: 0, width: Constants.Hud.ShortEdge, height: Constants.Hud.LongEdge)
         let isInFullscreen = false
 
+        // actual point with MenuBar and with Dock
         let actualPoint1 = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
                                                                       visibleFrame: visibleFrame, hudSize: hudSize, screenFrame: Constants.Screen.Frame,
@@ -107,7 +108,8 @@ final class PositionManagerTests: XCTestCase {
 
         XCTAssertEqual(actualPoint1, CGPoint(x: 571.5, y: 811))
 
-        yDockHeight = 0
+        // actual point with MenuBar and without Dock
+        yDockHeight = Constants.Screen.DockSize
         visibleFrame = NSRect(x: 0, y: 0,
                               width: Constants.Screen.Width,
                               height: Constants.Screen.Height - Constants.Screen.MenuBarSize)
@@ -118,6 +120,24 @@ final class PositionManagerTests: XCTestCase {
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint1, actualPoint2)
+
+        // actual point without MenuBar and with Dock
+        let actualPoint3 = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
+                                                                      xDockHeight: xDockHeight, yDockHeight: yDockHeight,
+                                                                      visibleFrame: visibleFrame, hudSize: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      isInFullscreen: isInFullscreen)
+
+        XCTAssertEqual(actualPoint1, actualPoint3)
+
+        // actual point without MenuBar and without Dock
+        yDockHeight = 0
+
+        let actualPoint4 = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
+                                                                      xDockHeight: xDockHeight, yDockHeight: yDockHeight,
+                                                                      visibleFrame: visibleFrame, hudSize: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      isInFullscreen: isInFullscreen)
+
+        XCTAssertEqual(actualPoint1, actualPoint4)
     }
 
     func testCalculateHudsOriginBottom() throws {
@@ -160,4 +180,79 @@ final class PositionManagerTests: XCTestCase {
 
     // MARK: - menu bar not visible
 
+    func testCalculateHudsOriginLeftNoMenuBar() throws {
+        let hudPosition = Position.left
+        let dockPosition = Position.bottom
+        let xDockHeight: CGFloat = 0
+        let yDockHeight: CGFloat = Constants.Screen.DockSize
+        let visibleFrame = NSRect(x: 0, y: Constants.Screen.DockSize,
+                                  width: Constants.Screen.Width,
+                                  height: Constants.Screen.Height - Constants.Screen.DockSize)
+        let hudSize = NSRect(x: 0, y: 0, width: Constants.Hud.ShortEdge, height: Constants.Hud.LongEdge)
+        let isInFullscreen = false
+
+        let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
+                                                                      xDockHeight: xDockHeight, yDockHeight: yDockHeight,
+                                                                      visibleFrame: visibleFrame, hudSize: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      isInFullscreen: isInFullscreen)
+
+        XCTAssertEqual(actualPoint, CGPoint(x: 0, y: 332.5))
+    }
+
+    func testCalculateHudsOriginLeftNoDockNoMenuBar() throws {
+        let hudPosition = Position.left
+        let dockPosition = Position.bottom
+        let xDockHeight: CGFloat = 0
+        let yDockHeight: CGFloat = 0
+        let visibleFrame = NSRect(x: 0, y: 0,
+                                  width: Constants.Screen.Width,
+                                  height: Constants.Screen.Height)
+        let hudSize = NSRect(x: 0, y: 0, width: Constants.Hud.ShortEdge, height: Constants.Hud.LongEdge)
+        let isInFullscreen = false
+
+        let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
+                                                                      xDockHeight: xDockHeight, yDockHeight: yDockHeight,
+                                                                      visibleFrame: visibleFrame, hudSize: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      isInFullscreen: isInFullscreen)
+
+        XCTAssertEqual(actualPoint, CGPoint(x: 0, y: 301.5))
+    }
+
+    func testCalculateHudsOriginRightNoMenuBar() throws {
+        let hudPosition = Position.right
+        let dockPosition = Position.bottom
+        let xDockHeight: CGFloat = 0
+        let yDockHeight: CGFloat = Constants.Screen.DockSize
+        let visibleFrame = NSRect(x: 0, y: Constants.Screen.DockSize,
+                                  width: Constants.Screen.Width,
+                                  height: Constants.Screen.Height - Constants.Screen.DockSize)
+        let hudSize = NSRect(x: 0, y: 0, width: Constants.Hud.ShortEdge, height: Constants.Hud.LongEdge)
+        let isInFullscreen = false
+
+        let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
+                                                                      xDockHeight: xDockHeight, yDockHeight: yDockHeight,
+                                                                      visibleFrame: visibleFrame, hudSize: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      isInFullscreen: isInFullscreen)
+
+        XCTAssertEqual(actualPoint, CGPoint(x: 1373, y: 332.5))
+    }
+
+    func testCalculateHudsOriginRightNoDockNoMenuBar() throws {
+        let hudPosition = Position.right
+        let dockPosition = Position.bottom
+        let xDockHeight: CGFloat = 0
+        let yDockHeight: CGFloat = 0
+        let visibleFrame = NSRect(x: 0, y: 0,
+                                  width: Constants.Screen.Width,
+                                  height: Constants.Screen.Height)
+        let hudSize = NSRect(x: 0, y: 0, width: Constants.Hud.ShortEdge, height: Constants.Hud.LongEdge)
+        let isInFullscreen = false
+
+        let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
+                                                                      xDockHeight: xDockHeight, yDockHeight: yDockHeight,
+                                                                      visibleFrame: visibleFrame, hudSize: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      isInFullscreen: isInFullscreen)
+
+        XCTAssertEqual(actualPoint, CGPoint(x: 1373, y: 301.5))
+    }
 }

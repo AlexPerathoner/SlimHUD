@@ -40,9 +40,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldUseLaunchSchemeArgsEnv = "NO"
       codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-sparkle-will-alert"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -61,6 +67,16 @@
                BlueprintIdentifier = "FA95EE012956FCC1005B39CD"
                BuildableName = "SlimHUDTests.xctest"
                BlueprintName = "SlimHUDTests"
+               ReferencedContainer = "container:SlimHUD.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FA95EE0B2956FCC1005B39CD"
+               BuildableName = "SlimHUDUITests.xctest"
+               BlueprintName = "SlimHUDUITests"
                ReferencedContainer = "container:SlimHUD.xcodeproj">
             </BuildableReference>
          </TestableReference>
