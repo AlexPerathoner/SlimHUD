@@ -1,6 +1,7 @@
 # 1.4.1 - Fixes
 * Fix bug: icons not centered
 * Fix bug: HUDs not resizable
+* FIx bug: popovers memory leak in settings window
 
 # 1.4.0 - Fixes
 * Fix bug: hud too near to the screen edge
