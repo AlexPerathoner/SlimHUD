@@ -16,7 +16,14 @@ final class AboutUITests: SparkleUITests {
         if CommandLine.arguments.contains("-sparkle-will-alert") {
             SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         }
-        let statusItem = SparkleUITests.getStatusItem(app: app)
+        let aboutWindow = openAboutWindow(app: app)
+        
+        addScreenshot(window: aboutWindow, name: "About window")
+    }
+    
+    func openAboutWindow(app: XCUIApplication) -> XCUIElement {
+        
+        let statusItem = UITestsUtils.getStatusItem(app: app)
 
         let aboutMenuItem = statusItem.menuItems["About..."]
 
@@ -26,9 +33,31 @@ final class AboutUITests: SparkleUITests {
 
         XCTAssert(aboutMenuItem.waitForExistence(timeout: 5))
         aboutMenuItem.click()
-
+        
         XCTAssert(aboutWindow.waitForExistence(timeout: 5))
-
-        addScreenshot(window: aboutWindow, name: "About window")
+        
+        return aboutWindow
+    }
+    
+    func testCloseWindow() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        // try closing with cmd + w
+        let statusItem = UITestsUtils.getStatusItem(app: app)
+        var aboutWindow = openAboutWindow(app: app)
+        
+        aboutWindow.typeKey("w", modifierFlags: .command)
+        
+        XCTAssertFalse(aboutWindow.isHittable)
+        
+        // try closing with cmd + q
+        aboutWindow = openAboutWindow(app: app)
+        
+        aboutWindow.typeKey("w", modifierFlags: .command)
+        
+        XCTAssertFalse(aboutWindow.isHittable)
+        // app should still be running
+        XCTAssertTrue(statusItem.exists)
     }
 }
