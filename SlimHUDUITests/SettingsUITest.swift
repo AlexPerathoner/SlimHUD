@@ -1,65 +1,71 @@
-////
-////  SettingsUITests.swift
-////  SettingsUITests
-////
-////  Created by Alex Perathoner on 22/12/22.
-////  Copyright © 2022 Alex Perathoner. All rights reserved.
-////
 //
-// import XCTest
+//  SettingsUITests.swift
+//  SettingsUITests
 //
-// final class SettingsUITest: SparkleUITests {
-//    var app = XCUIApplication()
-//    override func setUpWithError() throws {
-//        continueAfterFailure = false
+//  Created by Alex Perathoner on 22/12/22.
+//  Copyright © 2022 Alex Perathoner. All rights reserved.
 //
-//        app.launch()
-//    }
-//
-//    func testOpenSettingsWindow() throws {
-//        let settingsWindow = openSettingsWindow()
-//
-//        addScreenshot(window: settingsWindow, name: "Settings window")
-//
-//        usleep(500000)
-//        XCTAssertTrue(app.windows.count >= 2)
-//    }
-//
-//    func testCloseWindow() throws {
-//
-//        // try closing with cmd + w
-//        let statusItem = UITestsUtils.getStatusItem(app: app)
-//        var settingsWindow = openSettingsWindow()
-//
-//        settingsWindow.typeKey("w", modifierFlags: .command)
-//
-//        XCTAssertFalse(settingsWindow.isHittable)
-//
-//        // try closing with cmd + q
-//        settingsWindow = openSettingsWindow()
-//
-//        settingsWindow.typeKey("w", modifierFlags: .command)
-//
-//        XCTAssertFalse(settingsWindow.isHittable)
-//        // app should still be running
-//        XCTAssertTrue(statusItem.exists)
-//    }
-//
-//    private func openSettingsWindow() -> XCUIElement {
-//
-//        let statusItem = SparkleUITests.getStatusItem(app: app)
-//
-//        let preferencesMenuItem = statusItem.menuItems["Settings..."]
-//
-//        let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
-//
-//        statusItem.click()
-//
-//        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
-//        preferencesMenuItem.click()
-//
-//        XCTAssert(settingsWindow.waitForExistence(timeout: 5))
-//
-//        return settingsWindow
-//    }
-// }
+
+ import XCTest
+
+ final class SettingsUITest: SparkleUITests {
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+    }
+
+    func testOpenSettingsWindow() throws {
+        let app = XCUIApplication()
+        app.launch()
+        let settingsWindow = openSettingsWindow(app)
+
+        addScreenshot(window: settingsWindow, name: "Settings window")
+
+        usleep(500000)
+        XCTAssertTrue(app.windows.count >= 2)
+    }
+
+    func testCloseWindow() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // try closing with cmd + w
+        let statusItem = UITestsUtils.getStatusItem(app: app)
+        var settingsWindow = openSettingsWindow(app)
+
+        settingsWindow.typeKey("w", modifierFlags: .command)
+
+        XCTAssertFalse(settingsWindow.isHittable)
+        
+        // relaunching as the app is now in background and doesn't accept test interaction
+        app.launch()
+
+        // try closing with cmd + q
+        settingsWindow = openSettingsWindow(app)
+
+        settingsWindow.typeKey("q", modifierFlags: .command)
+        
+        // In AboutUITest the UserDefaults have been updated to don't show the alert anymore,
+        //  so all windows should close immediately
+        XCTAssertFalse(settingsWindow.isHittable)
+        // app should still be running
+        XCTAssertTrue(statusItem.exists)
+    }
+
+     private func openSettingsWindow(_ app: XCUIApplication) -> XCUIElement {
+
+        let statusItem = SparkleUITests.getStatusItem(app: app)
+
+        let preferencesMenuItem = statusItem.menuItems["Settings..."]
+
+        let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
+
+        statusItem.click()
+
+        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
+        preferencesMenuItem.click()
+
+        XCTAssert(settingsWindow.waitForExistence(timeout: 5))
+
+        return settingsWindow
+    }
+ }

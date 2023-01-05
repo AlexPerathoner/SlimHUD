@@ -167,7 +167,12 @@ class SettingsManager {
              enabledBarsRaw[EnabledBars.KeyboardBarIndex])
         enabledBars = EnabledBars(volumeBar: volumeBarEnabled, brightnessBar: brightnessBarEnabled, keyboardBar: keyboardBarEnabled)
         marginValue = UserDefaultsManager.getInt(for: SettingsManager.MarginKey, defaultValue: 10)
+        if CommandLine.arguments.contains("showQuitAlert") {
+            let indexOfValue = CommandLine.arguments.firstIndex(of: "showQuitAlert")! + 1
+            UserDefaults.standard.set(CommandLine.arguments[indexOfValue], forKey: SettingsManager.ShowQuitAlert)
+        }
         showQuitAlert = UserDefaultsManager.getBool(for: SettingsManager.ShowQuitAlert, defaultValue: true)
+        
     }
 
     func resetDefaultBarsColors() {
