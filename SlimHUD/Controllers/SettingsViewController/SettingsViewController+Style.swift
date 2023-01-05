@@ -39,6 +39,13 @@ extension SettingsViewController {
         preview.setShouldUseAnimation(shouldUseAnimation: shouldUseAnimation)
     }
 
+    @IBAction func shouldUseFlatBar(_ sender: NSButton) {
+        let shouldUseFlatBar = sender.boolValue()
+        settingsManager.flatBar = shouldUseFlatBar
+        preview.setThickness(thickness: CGFloat(settingsManager.barThickness))
+        delegate?.setThickness(thickness: CGFloat(settingsManager.barThickness))
+    }
+
     @IBAction func resetDefaultsBarColors(_ sender: Any) {
         // updating bars and preview
         delegate?.setupDefaultBarsColors()

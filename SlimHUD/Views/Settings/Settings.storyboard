@@ -126,7 +126,7 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
-                                                        <segue destination="2H7-Wu-NeM" kind="popover" popoverAnchorView="d4b-Jz-J74" popoverBehavior="t" preferredEdge="maxY" id="qN7-qZ-CfY"/>
+                                                        <action selector="displayMarginHelp:" target="KlL-pV-FiE" id="Fnu-rS-RKA"/>
                                                     </connections>
                                                 </button>
                                                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IQ5-YB-cfs">
@@ -136,7 +136,7 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
-                                                        <segue destination="eR0-g4-VN0" kind="popover" popoverAnchorView="IQ5-YB-cfs" popoverBehavior="t" preferredEdge="maxY" id="Aqt-Vd-tVV"/>
+                                                        <action selector="displayContinuousCheckHelp:" target="KlL-pV-FiE" id="Qdd-8R-UVw"/>
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R84-uu-mql">
@@ -341,11 +341,11 @@
                                     </tabViewItem>
                                     <tabViewItem label="Style" identifier="" id="msl-19-aMC">
                                         <view key="view" id="MIh-8q-VZY">
-                                            <rect key="frame" x="10" y="33" width="299" height="290"/>
+                                            <rect key="frame" x="10" y="33" width="299" height="291"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ifN-oA-u43">
-                                                    <rect key="frame" x="18" y="253" width="59" height="18"/>
+                                                    <rect key="frame" x="18" y="254" width="59" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Icons" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Fhq-uh-ebU">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -355,7 +355,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Ew-KO-4h4">
-                                                    <rect key="frame" x="18" y="224" width="81" height="18"/>
+                                                    <rect key="frame" x="18" y="225" width="81" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Shadows" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bCd-ev-w4W">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -365,10 +365,10 @@
                                                     </connections>
                                                 </button>
                                                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="yXd-DK-P3W">
-                                                    <rect key="frame" x="17" y="202" width="265" height="5"/>
+                                                    <rect key="frame" x="17" y="203" width="265" height="5"/>
                                                 </box>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oo7-Ya-W0B">
-                                                    <rect key="frame" x="137" y="253" width="94" height="18"/>
+                                                    <rect key="frame" x="137" y="254" width="94" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Animations" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="v2d-vm-Skb">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -378,7 +378,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FLV-hq-l4L">
-                                                    <rect key="frame" x="20" y="180" width="111" height="16"/>
+                                                    <rect key="frame" x="20" y="181" width="111" height="16"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Change colors of:" id="TdS-ax-srd">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -386,7 +386,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zOO-f8-JwW">
-                                                    <rect key="frame" x="171" y="174" width="77" height="25"/>
+                                                    <rect key="frame" x="171" y="175" width="77" height="25"/>
                                                     <popUpButtonCell key="cell" type="push" title="Bars" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="3Ls-VW-Pps" id="Dsf-ji-l5J">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
@@ -402,7 +402,7 @@
                                                     </connections>
                                                 </popUpButton>
                                                 <box hidden="YES" boxType="custom" cornerRadius="4" title="Icons" id="8zU-14-QQa">
-                                                    <rect key="frame" x="22" y="17" width="255" height="117"/>
+                                                    <rect key="frame" x="22" y="18" width="255" height="117"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <view key="contentView" id="UjE-qO-fia">
                                                         <rect key="frame" x="1" y="1" width="253" height="115"/>
@@ -501,7 +501,7 @@
                                                     </view>
                                                 </box>
                                                 <box boxType="custom" cornerRadius="4" title="Bars" id="VQh-Gr-ghR">
-                                                    <rect key="frame" x="22" y="17" width="255" height="147"/>
+                                                    <rect key="frame" x="22" y="18" width="255" height="147"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <view key="contentView" id="RIo-Rr-r3n">
                                                         <rect key="frame" x="1" y="1" width="253" height="145"/>
@@ -590,8 +590,7 @@
                                                                     <font key="font" metaFont="system"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="volumeHelp:" target="KlL-pV-FiE" id="nZh-v0-E4R"/>
-                                                                    <segue destination="cji-1o-bMa" kind="popover" popoverAnchorView="WuT-TW-coG" popoverBehavior="t" preferredEdge="maxY" id="6fV-QA-dcS"/>
+                                                                    <action selector="displayVolumeColorHelp:" target="KlL-pV-FiE" id="Iw1-l7-ecR"/>
                                                                 </connections>
                                                             </button>
                                                             <button toolTip="Reset default colors" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tRf-Hx-ial">
@@ -618,6 +617,17 @@
                                                         </constraints>
                                                     </view>
                                                 </box>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwV-j8-WM6">
+                                                    <rect key="frame" x="137" y="225" width="72" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="check" title="Flat bar" bezelStyle="regularSquare" imagePosition="left" inset="2" id="VrC-g1-GIW">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="shouldUseFlatBar:" target="KlL-pV-FiE" id="JFX-s7-VU6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yXd-DK-P3W" firstAttribute="centerX" secondItem="8zU-14-QQa" secondAttribute="centerX" id="13F-tI-TaG"/>
@@ -793,6 +803,7 @@
                         <outlet property="brightnessIconColorOutlet" destination="ghq-Wy-LQP" id="Nkb-4U-hkA"/>
                         <outlet property="chagedColorOfLabel" destination="FLV-hq-l4L" id="i05-35-M28"/>
                         <outlet property="changedColorOfOutlet" destination="zOO-f8-JwW" id="lGu-Ev-h4T"/>
+                        <outlet property="continuousCheckHelpBtn" destination="IQ5-YB-cfs" id="luO-iz-wHq"/>
                         <outlet property="continuousCheckOutlet" destination="f21-hD-jmd" id="wEa-ZR-enJ"/>
                         <outlet property="enabledBarsOutlet" destination="4rc-p0-xNQ" id="ZSx-HT-3gs"/>
                         <outlet property="heightSliderOutlet" destination="wqM-pV-mgI" id="T0B-nF-keP"/>
@@ -803,6 +814,7 @@
                         <outlet property="keyboardIconColorOutlet" destination="JUc-1a-Mus" id="bBH-qQ-aQx"/>
                         <outlet property="lastCheckForUpdatesOutlet" destination="rlB-o6-api" id="w3q-BE-zNq"/>
                         <outlet property="launchAtLoginOutlet" destination="Kqn-E7-wLn" id="LRn-3g-qHZ"/>
+                        <outlet property="marginHelpBtn" destination="d4b-Jz-J74" id="I6j-v9-aTM"/>
                         <outlet property="marginStepperOutlet" destination="ifq-vl-p4i" id="ZHx-S8-Efz"/>
                         <outlet property="marginValueOutlet" destination="7Lf-lB-SKO" id="D5F-vW-ck1"/>
                         <outlet property="positionOutlet" destination="hPz-eZ-0oB" id="2Em-MS-ceJ"/>
@@ -811,6 +823,7 @@
                         <outlet property="spuStandardUpdaterController" destination="Ybb-NY-68V" id="xKH-32-ugq"/>
                         <outlet property="thicknessSlider" destination="M7a-g6-Qbm" id="paO-8u-lGJ"/>
                         <outlet property="thicknessValue" destination="Ua1-b0-fOM" id="K7f-wK-ljf"/>
+                        <outlet property="volumeColorHelpBtn" destination="WuT-TW-coG" id="p8Y-r2-e0p"/>
                         <outlet property="volumeDisabledColorOutlet" destination="ecn-u0-J82" id="c5m-2a-cbD"/>
                         <outlet property="volumeEnabledColorOutlet" destination="6xM-9y-mee" id="Cmz-j6-UIw"/>
                         <outlet property="volumeIconColorOutlet" destination="UyP-6P-fB5" id="X1h-09-L4r"/>
@@ -821,10 +834,10 @@
             </objects>
             <point key="canvasLocation" x="714.5" y="151"/>
         </scene>
-        <!--View Controller-->
+        <!--Single Popover-->
         <scene sceneID="4PQ-QS-9BO">
             <objects>
-                <viewController id="cji-1o-bMa" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="volumeColorHelp" id="cji-1o-bMa" customClass="SinglePopover" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="aTO-Ml-hcN">
                         <rect key="frame" x="0.0" y="0.0" width="306" height="120"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -848,10 +861,10 @@
             </objects>
             <point key="canvasLocation" x="1306" y="151"/>
         </scene>
-        <!--View Controller-->
+        <!--Single Popover-->
         <scene sceneID="C27-cS-ssD">
             <objects>
-                <viewController id="eR0-g4-VN0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="marginHelp" id="eR0-g4-VN0" customClass="SinglePopover" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="D9D-OC-1P3">
                         <rect key="frame" x="0.0" y="0.0" width="306" height="120"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -872,10 +885,10 @@
             </objects>
             <point key="canvasLocation" x="850" y="534"/>
         </scene>
-        <!--View Controller-->
+        <!--Single Popover-->
         <scene sceneID="gzs-uI-OTE">
             <objects>
-                <viewController id="2H7-Wu-NeM" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="continuousCheckHelp" id="2H7-Wu-NeM" customClass="SinglePopover" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="xsp-Ku-BXW">
                         <rect key="frame" x="0.0" y="0.0" width="306" height="104"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -895,7 +908,7 @@
                 </viewController>
                 <customObject id="3BZ-a2-TJk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="397" y="534"/>
+            <point key="canvasLocation" x="495" y="542"/>
         </scene>
     </scenes>
     <resources>

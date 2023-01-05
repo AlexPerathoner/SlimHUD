@@ -74,6 +74,40 @@ class SettingsViewController: NSViewController {
 
     }
 
+    var volumeColorHelpVC: SinglePopover?
+    @IBAction func displayVolumeColorHelp(_ sender: Any) {
+        if !(volumeColorHelpVC?.isVisible ?? false) {
+            let storyboard = NSStoryboard(name: "Settings", bundle: nil)
+            let vc = storyboard.instantiateController(
+                // swiftlint:disable:next force_cast
+                withIdentifier: "volumeColorHelp") as! SinglePopover
+            volumeColorHelpVC = vc
+            self.present(vc, asPopoverRelativeTo: .zero, of: volumeColorHelpBtn, preferredEdge: .maxY, behavior: .transient)
+        }
+    }
+    var marginHelpVC: SinglePopover?
+    @IBAction func displayMarginHelp(_ sender: Any) {
+        if !(marginHelpVC?.isVisible ?? false) {
+            let storyboard = NSStoryboard(name: "Settings", bundle: nil)
+            let vc = storyboard.instantiateController(
+                // swiftlint:disable:next force_cast
+                withIdentifier: "marginHelp") as! SinglePopover
+            marginHelpVC = vc
+            self.present(vc, asPopoverRelativeTo: .zero, of: marginHelpBtn, preferredEdge: .maxY, behavior: .transient)
+        }
+    }
+    var continuousCheckHelpVC: SinglePopover?
+    @IBAction func displayContinuousCheckHelp(_ sender: Any) {
+        if !(continuousCheckHelpVC?.isVisible ?? false) {
+            let storyboard = NSStoryboard(name: "Settings", bundle: nil)
+            let vc = storyboard.instantiateController(
+                // swiftlint:disable:next force_cast
+                withIdentifier: "continuousCheckHelp") as! SinglePopover
+            continuousCheckHelpVC = vc
+            self.present(vc, asPopoverRelativeTo: .zero, of: continuousCheckHelpBtn, preferredEdge: .maxY, behavior: .transient)
+        }
+    }
+
     // MARK: - Outlets
 
     // MARK: General tab
@@ -115,5 +149,10 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var volumeIconColorOutlet: NSColorWell!
     @IBOutlet weak var brightnessIconColorOutlet: NSColorWell!
     @IBOutlet weak var keyboardIconColorOutlet: NSColorWell!
+
+    // MARK: Help buttons
+    @IBOutlet weak var volumeColorHelpBtn: NSButton!
+    @IBOutlet weak var marginHelpBtn: NSButton!
+    @IBOutlet weak var continuousCheckHelpBtn: NSButton!
 
 }
