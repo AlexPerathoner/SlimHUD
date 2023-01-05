@@ -53,7 +53,8 @@ class SettingsController: NSView, HudsControllerInterface {
         keyboardBar.foreground = DefaultColors.Azure
         setBackgroundColor(color: DefaultColors.DarkGray)
     }
-
+    
+    @available(OSX 10.14, *)
     func setupDefaultIconsColors() {
         setVolumeIconsTint(.white)
         setBrightnessIconsTint(.white)
@@ -69,13 +70,17 @@ class SettingsController: NSView, HudsControllerInterface {
     func setVolumeEnabledColor(color: NSColor) {
         volumeBar.foreground = color
         volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
-        setVolumeIconsTint(settingsManager.volumeIconColor)
+        if #available(OSX 10.14, *) {
+            setVolumeIconsTint(settingsManager.volumeIconColor)
+        }
     }
 
     func setVolumeDisabledColor(color: NSColor) {
         volumeBar.foreground = color
         volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
-        setVolumeIconsTint(settingsManager.volumeIconColor)
+        if #available(OSX 10.14, *) {
+            setVolumeIconsTint(settingsManager.volumeIconColor)
+        }
     }
 
     func setBrightnessColor(color: NSColor) {
@@ -129,7 +134,7 @@ class SettingsController: NSView, HudsControllerInterface {
     }
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
-            keyboardImage.image = keyboardImage.image?.tint(with: color)
+        keyboardImage.image = keyboardImage.image?.tint(with: color)
     }
 
     func updateAll() {
