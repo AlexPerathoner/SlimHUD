@@ -79,6 +79,7 @@ class SettingsViewController: NSViewController {
         if(!(volumeColorHelpVC?.isVisible ?? false)) {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
             let vc = storyboard.instantiateController(
+                // swiftlint:disable:next force_cast
                 withIdentifier: "volumeColorHelp") as! SinglePopover
             volumeColorHelpVC = vc
             self.present(vc, asPopoverRelativeTo: .zero, of: volumeColorHelpBtn, preferredEdge: .maxY, behavior: .transient)
@@ -89,6 +90,7 @@ class SettingsViewController: NSViewController {
         if(!(marginHelpVC?.isVisible ?? false)) {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
             let vc = storyboard.instantiateController(
+                // swiftlint:disable:next force_cast
                 withIdentifier: "marginHelp") as! SinglePopover
             marginHelpVC = vc
             self.present(vc, asPopoverRelativeTo: .zero, of: marginHelpBtn, preferredEdge: .maxY, behavior: .transient)
@@ -99,6 +101,7 @@ class SettingsViewController: NSViewController {
         if(!(continuousCheckHelpVC?.isVisible ?? false)) {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
             let vc = storyboard.instantiateController(
+                // swiftlint:disable:next force_cast
                 withIdentifier: "continuousCheckHelp") as! SinglePopover
             continuousCheckHelpVC = vc
             self.present(vc, asPopoverRelativeTo: .zero, of: continuousCheckHelpBtn, preferredEdge: .maxY, behavior: .transient)
