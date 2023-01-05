@@ -1,4 +1,5 @@
 # 1.4.1 - Fixes
+* Add option to make inside bar flat or round
 * Fix bug: icons not centered
 * Fix bug: HUDs not resizable
 * FIx bug: popovers memory leak in settings window

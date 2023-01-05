@@ -86,7 +86,18 @@ class SettingsController: NSView, HudsControllerInterface {
 
     // isn't showed in preview
     func setHeight(height: CGFloat) {}
-    func setThickness(thickness: CGFloat) {}
+    func setThickness(thickness: CGFloat) {
+        setFlatBar(progressBar: volumeBar, thickness: 7)
+        setFlatBar(progressBar: brightnessBar, thickness: 7)
+        setFlatBar(progressBar: keyboardBar, thickness: 7)
+    }
+    private func setFlatBar(progressBar: ProgressBar, thickness: CGFloat) {
+        if settingsManager.flatBar {
+            progressBar.progressLayer.cornerRadius = 0
+        } else {
+            progressBar.progressLayer.cornerRadius = thickness/2
+        }
+    }
 
     func setShouldUseAnimation(shouldUseAnimation: Bool) {
         volumeHud.animated = shouldUseAnimation

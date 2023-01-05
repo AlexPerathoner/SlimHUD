@@ -617,6 +617,17 @@
                                                         </constraints>
                                                     </view>
                                                 </box>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwV-j8-WM6">
+                                                    <rect key="frame" x="137" y="225" width="72" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="check" title="Flat bar" bezelStyle="regularSquare" imagePosition="left" inset="2" id="VrC-g1-GIW">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="shouldUseFlatBar:" target="KlL-pV-FiE" id="JFX-s7-VU6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yXd-DK-P3W" firstAttribute="centerX" secondItem="8zU-14-QQa" secondAttribute="centerX" id="13F-tI-TaG"/>
