@@ -7,6 +7,10 @@ assignees: ''
 
 ---
 
+**Before opening this issue, have you?**
+- [ ] Searched for similar issues
+- [ ] Downloaded the latest version of SlimHUD
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
