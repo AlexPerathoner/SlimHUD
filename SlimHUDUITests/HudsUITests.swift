@@ -11,14 +11,14 @@ final class HudsUITest: SparkleUITests {
     var app = XCUIApplication()
     override func setUpWithError() throws {
         continueAfterFailure = false
-        
+
         app.launch()
 
         if CommandLine.arguments.contains("-sparkle-will-alert") {
             SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         }
     }
-    
+
     func testTriggerVolumeHud() throws {
         XCTAssert(app.windows.count == 0)
         do {
@@ -31,7 +31,7 @@ final class HudsUITest: SparkleUITests {
         } catch AppleScriptError.emptyOutput {
             NSLog("Applescript returned empty output")
         }
-        
+
         usleep(500000)
         XCTAssert(app.windows.count == 1)
     }

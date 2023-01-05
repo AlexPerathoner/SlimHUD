@@ -27,9 +27,9 @@ class SparkleUITests: UITestsUtils {
             timeoutCountdown -= 1
         }
     }
-    
+
     override func setUpWithError() throws {
         continueAfterFailure = false
-        
+
     }
 }

@@ -12,14 +12,14 @@ final class SettingsUITest: SparkleUITests {
     var app = XCUIApplication()
     override func setUpWithError() throws {
         continueAfterFailure = false
-        
+
         app.launch()
 
         if CommandLine.arguments.contains("-sparkle-will-alert") {
             SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         }
     }
-    
+
     func testOpenSettingsWindow() throws {
         let settingsWindow = openSettingsWindow()
 
@@ -28,29 +28,29 @@ final class SettingsUITest: SparkleUITests {
         usleep(500000)
         XCTAssertTrue(app.windows.count >= 2)
     }
-    
+
     func testCloseWindow() throws {
-        
+
         // try closing with cmd + w
         let statusItem = UITestsUtils.getStatusItem(app: app)
         var settingsWindow = openSettingsWindow()
-        
+
         settingsWindow.typeKey("w", modifierFlags: .command)
-        
+
         XCTAssertFalse(settingsWindow.isHittable)
-        
+
         // try closing with cmd + q
         settingsWindow = openSettingsWindow()
-        
+
         settingsWindow.typeKey("w", modifierFlags: .command)
-        
+
         XCTAssertFalse(settingsWindow.isHittable)
         // app should still be running
         XCTAssertTrue(statusItem.exists)
     }
-    
+
     private func openSettingsWindow() -> XCUIElement {
-        
+
         let statusItem = SparkleUITests.getStatusItem(app: app)
 
         let preferencesMenuItem = statusItem.menuItems["Settings..."]
@@ -63,7 +63,7 @@ final class SettingsUITest: SparkleUITests {
         preferencesMenuItem.click()
 
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
-        
+
         return settingsWindow
     }
 }
