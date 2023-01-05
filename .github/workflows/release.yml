@@ -12,10 +12,10 @@ env:
 
 jobs:
   release:
+    if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, '/release') && github.event.comment.user.login == github.repository_owner }}
     name: "Create Release"
     runs-on: macos-12
     environment: sparkle-release
-    if: github.event.issue.pull_request && contains(github.event.comment.body, '/release') && github.event.comment.user.login == "${{ github.repository_owner }}"
     steps:
       - name: Add reactions # adding reactions to the comment to show that the action is running
         uses: peter-evans/create-or-update-comment@v2
