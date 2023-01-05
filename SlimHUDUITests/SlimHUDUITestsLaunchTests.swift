@@ -6,9 +6,9 @@
 ////  Copyright © 2022 Alex Perathoner. All rights reserved.
 ////
 //
-//import XCTest
+// import XCTest
 //
-//final class SlimHUDUITestsLaunchTests: SparkleUITests {
+// final class SlimHUDUITestsLaunchTests: SparkleUITests {
 //    func testAppInMenuBar() throws {
 //        let app = XCUIApplication()
 //        app.launch()
@@ -24,4 +24,4 @@
 //        attachment.lifetime = .keepAlways
 //        add(attachment)
 //    }
-//}
+// }

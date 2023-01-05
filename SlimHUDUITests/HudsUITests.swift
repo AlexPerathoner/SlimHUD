@@ -21,7 +21,7 @@ final class HudsUITest: SparkleUITests {
         usleep(500000)
         XCTAssert(app.windows.count >= 1)
     }
-    
+
     private func changeVolume() {
         let task = Process()
         task.launchPath = "/usr/bin/osascript"

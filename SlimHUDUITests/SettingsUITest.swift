@@ -6,9 +6,9 @@
 ////  Copyright © 2022 Alex Perathoner. All rights reserved.
 ////
 //
-//import XCTest
+// import XCTest
 //
-//final class SettingsUITest: SparkleUITests {
+// final class SettingsUITest: SparkleUITests {
 //    var app = XCUIApplication()
 //    override func setUpWithError() throws {
 //        continueAfterFailure = false
@@ -62,4 +62,4 @@
 //
 //        return settingsWindow
 //    }
-//}
+// }
