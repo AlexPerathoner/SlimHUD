@@ -29,6 +29,7 @@ class SettingsManager {
     private static let EnabledBarsKey = "enabledBars"
     private static let MarginKey = "marginValue"
     private static let ShowQuitAlert = "showQuitAlert"
+    private static let FlatBar = "flatBar"
 
     // MARK: - Bars colors
     var backgroundColor: NSColor {
@@ -110,6 +111,12 @@ class SettingsManager {
             UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
         }
     }
+    
+    var flatBar: Bool {
+        didSet {
+            UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBar)
+        }
+    }
 
     // MARK: - General
     var enabledBars: EnabledBars {
@@ -167,6 +174,7 @@ class SettingsManager {
         enabledBars = EnabledBars(volumeBar: volumeBarEnabled, brightnessBar: brightnessBarEnabled, keyboardBar: keyboardBarEnabled)
         marginValue = UserDefaultsManager.getInt(for: SettingsManager.MarginKey, defaultValue: 10)
         showQuitAlert = UserDefaultsManager.getBool(for: SettingsManager.ShowQuitAlert, defaultValue: true)
+        flatBar = UserDefaultsManager.getBool(for: SettingsManager.FlatBar, defaultValue: false)
     }
 
     func resetDefaultBarsColors() {
@@ -207,6 +215,7 @@ class SettingsManager {
         UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
         UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.ShouldUseAnimationKey)
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
+        UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBar)
     }
 
     deinit {

@@ -194,7 +194,11 @@ class Displayer: HudsControllerInterface {
     private func setThickness(barView: BarView, thickness: CGFloat) {
         barView.setFrameSize(NSSize(width: thickness + Constants.ShadowRadius * 2, height: barView.frame.height))
         barView.bar.progressLayer.frame.size.width = thickness // setting up inner layer
-        barView.bar.progressLayer.cornerRadius = thickness/2
+        if(settingsManager.flatBar) {
+            barView.bar.progressLayer.cornerRadius = 0
+        } else {
+            barView.bar.progressLayer.cornerRadius = thickness/2
+        }
         barView.bar.layer?.cornerRadius = thickness/2 // setting up outer layer
         barView.bar.frame.size.width = thickness
     }
