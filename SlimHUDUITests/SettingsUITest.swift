@@ -9,15 +9,19 @@
 import XCTest
 
 final class SettingsUITest: SparkleUITests {
-    func testOpenSettingsWindow() throws {
-        let app = XCUIApplication()
+    var app = XCUIApplication()
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+        
         app.launch()
 
         if CommandLine.arguments.contains("-sparkle-will-alert") {
             SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         }
-        
-        let settingsWindow = openSettingsWindow(app: app)
+    }
+    
+    func testOpenSettingsWindow() throws {
+        let settingsWindow = openSettingsWindow()
 
         addScreenshot(window: settingsWindow, name: "Settings window")
 
@@ -25,7 +29,27 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertTrue(app.windows.count >= 2)
     }
     
-    func openSettingsWindow(app: XCUIApplication) -> XCUIElement {
+    func testCloseWindow() throws {
+        
+        // try closing with cmd + w
+        let statusItem = UITestsUtils.getStatusItem(app: app)
+        var settingsWindow = openSettingsWindow()
+        
+        settingsWindow.typeKey("w", modifierFlags: .command)
+        
+        XCTAssertFalse(settingsWindow.isHittable)
+        
+        // try closing with cmd + q
+        settingsWindow = openSettingsWindow()
+        
+        settingsWindow.typeKey("w", modifierFlags: .command)
+        
+        XCTAssertFalse(settingsWindow.isHittable)
+        // app should still be running
+        XCTAssertTrue(statusItem.exists)
+    }
+    
+    private func openSettingsWindow() -> XCUIElement {
         
         let statusItem = SparkleUITests.getStatusItem(app: app)
 
@@ -41,27 +65,5 @@ final class SettingsUITest: SparkleUITests {
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
         
         return settingsWindow
-    }
-    
-    func testCloseWindow() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        // try closing with cmd + w
-        let statusItem = UITestsUtils.getStatusItem(app: app)
-        var settingsWindow = openSettingsWindow(app: app)
-        
-        settingsWindow.typeKey("w", modifierFlags: .command)
-        
-        XCTAssertFalse(settingsWindow.isHittable)
-        
-        // try closing with cmd + q
-        settingsWindow = openSettingsWindow(app: app)
-        
-        settingsWindow.typeKey("w", modifierFlags: .command)
-        
-        XCTAssertFalse(settingsWindow.isHittable)
-        // app should still be running
-        XCTAssertTrue(statusItem.exists)
     }
 }

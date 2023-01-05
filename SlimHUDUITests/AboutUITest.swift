@@ -9,19 +9,44 @@
 import XCTest
 
 final class AboutUITests: SparkleUITests {
-    func testOpenAboutWindow() throws {
-        let app = XCUIApplication()
+    var app = XCUIApplication()
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+        
         app.launch()
 
         if CommandLine.arguments.contains("-sparkle-will-alert") {
             SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         }
-        let aboutWindow = openAboutWindow(app: app)
+    }
+    
+    func testOpenAboutWindow() throws {
+        let aboutWindow = openAboutWindow()
         
         addScreenshot(window: aboutWindow, name: "About window")
     }
     
-    func openAboutWindow(app: XCUIApplication) -> XCUIElement {
+    func testCloseWindow() throws {
+        
+        // try closing with cmd + w
+        let statusItem = UITestsUtils.getStatusItem(app: app)
+        var aboutWindow = openAboutWindow()
+        
+        aboutWindow.typeKey("w", modifierFlags: .command)
+        
+        XCTAssertFalse(aboutWindow.isHittable)
+        
+        // try closing with cmd + q
+        aboutWindow = openAboutWindow()
+        
+        aboutWindow.typeKey("w", modifierFlags: .command)
+        
+        XCTAssertFalse(aboutWindow.isHittable)
+        // app should still be running
+        XCTAssertTrue(statusItem.exists)
+    }
+    
+    private func openAboutWindow() -> XCUIElement {
         
         let statusItem = UITestsUtils.getStatusItem(app: app)
 
@@ -39,25 +64,4 @@ final class AboutUITests: SparkleUITests {
         return aboutWindow
     }
     
-    func testCloseWindow() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        // try closing with cmd + w
-        let statusItem = UITestsUtils.getStatusItem(app: app)
-        var aboutWindow = openAboutWindow(app: app)
-        
-        aboutWindow.typeKey("w", modifierFlags: .command)
-        
-        XCTAssertFalse(aboutWindow.isHittable)
-        
-        // try closing with cmd + q
-        aboutWindow = openAboutWindow(app: app)
-        
-        aboutWindow.typeKey("w", modifierFlags: .command)
-        
-        XCTAssertFalse(aboutWindow.isHittable)
-        // app should still be running
-        XCTAssertTrue(statusItem.exists)
-    }
 }

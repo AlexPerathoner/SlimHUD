@@ -10,6 +10,7 @@
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
+		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
 		FA59F946296235080053B39D /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59F945296235080053B39D /* AppleScriptError.swift */; };
 		FA64B59F296638DA00600F85 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B59E296638DA00600F85 /* Alert.swift */; };
 		FA64B5A52966579D00600F85 /* release.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A12966579D00600F85 /* release.yml */; };
@@ -90,6 +91,7 @@
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
+		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
 		FA59F945296235080053B39D /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
 		FA64B59E296638DA00600F85 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FA64B5A12966579D00600F85 /* release.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = release.yml; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */,
 				FA95EE7F2957445D005B39CD /* AboutUITest.swift */,
 				FA95EE8129574471005B39CD /* SettingsUITest.swift */,
+				FA56F6DF29666AB1008177B1 /* HudsUITests.swift */,
 			);
 			path = SlimHUDUITests;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */,
+				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */,
 				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,
