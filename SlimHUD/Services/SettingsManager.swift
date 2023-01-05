@@ -111,7 +111,7 @@ class SettingsManager {
             UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
         }
     }
-    
+
     var flatBar: Bool {
         didSet {
             UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBar)

@@ -92,7 +92,7 @@ class SettingsController: NSView, HudsControllerInterface {
         setFlatBar(progressBar: keyboardBar, thickness: 7)
     }
     private func setFlatBar(progressBar: ProgressBar, thickness: CGFloat) {
-        if(settingsManager.flatBar) {
+        if settingsManager.flatBar {
             progressBar.progressLayer.cornerRadius = 0
         } else {
             progressBar.progressLayer.cornerRadius = thickness/2

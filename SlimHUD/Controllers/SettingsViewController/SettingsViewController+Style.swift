@@ -38,7 +38,7 @@ extension SettingsViewController {
         delegate?.setShouldUseAnimation(shouldUseAnimation: shouldUseAnimation)
         preview.setShouldUseAnimation(shouldUseAnimation: shouldUseAnimation)
     }
-    
+
     @IBAction func shouldUseFlatBar(_ sender: NSButton) {
         let shouldUseFlatBar = sender.boolValue()
         settingsManager.flatBar = shouldUseFlatBar
