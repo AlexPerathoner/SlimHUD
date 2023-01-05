@@ -18,7 +18,7 @@ final class HudsUITest: SparkleUITests {
     func testTriggerVolumeHud() throws {
         XCTAssert(app.windows.count == 0)
         do {
-            let a = try AppleScriptRunner.run(script: "return (get volume settings)")
+            let a = try AppleScriptRunner.run(script: "return output volume of (get volume settings)") // XCTAssertEqual failed: ("The operation couldn’t be completed. (SlimHUDUITests.AppleScriptError error 2.)") is not equal to ("")
             XCTAssertEqual(a, "")
         } catch {
             XCTAssertEqual(error.localizedDescription, "")
