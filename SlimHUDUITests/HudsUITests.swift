@@ -14,7 +14,7 @@ final class HudsUITest: SparkleUITests {
         continueAfterFailure = false
         app.launch()
     }
-    
+
     func testTriggerVolumeHud() throws {
         XCTAssert(app.windows.count == 0)
         do {
@@ -25,7 +25,7 @@ final class HudsUITest: SparkleUITests {
         usleep(500000)
         XCTAssert(app.windows.count >= 1)
     }
-    
+
     func testTriggerVolumeHud2() throws {
         XCTAssert(app.windows.count == 0)
         let task = Process()
