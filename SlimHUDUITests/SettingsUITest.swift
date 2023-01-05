@@ -12,8 +12,10 @@ final class SettingsUITest: SparkleUITests {
     func testOpenSettingsWindow() throws {
         let app = XCUIApplication()
         app.launch()
-
-        SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
+        
+        if CommandLine.arguments.contains("-sparkle-will-alert") {
+            SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
+        }
         let statusItem = SparkleUITests.getStatusItem(app: app)
 
         let preferencesMenuItem = statusItem.menuItems["Settings..."]
