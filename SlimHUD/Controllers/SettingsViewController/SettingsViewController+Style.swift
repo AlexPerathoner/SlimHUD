@@ -97,20 +97,23 @@ extension SettingsViewController {
     @available(OSX 10.14, *)
     @IBAction func volumeIconColorChanged(_ sender: NSColorWell) {
         settingsManager.volumeIconColor = sender.color
-        delegate?.setVolumeIconsTint(sender.color)
-        preview.setVolumeIconsTint(sender.color)
+        delegate?.setVolumeIconsTint(sender.color)        
+        preview.setVolumeDisabledColor(color: settingsManager.volumeDisabledColor)
+        preview.setVolumeEnabledColor(color: settingsManager.volumeEnabledColor)
     }
     @available(OSX 10.14, *)
     @IBAction func brightnessIconChanged(_ sender: NSColorWell) {
         settingsManager.brightnessIconColor = sender.color
         delegate?.setBrightnessIconsTint(sender.color)
         preview.setBrightnessIconsTint(sender.color)
+        preview.setup()
     }
     @available(OSX 10.14, *)
     @IBAction func keyboardIconColorChanged(_ sender: NSColorWell) {
         settingsManager.keyboardIconColor = sender.color
         delegate?.setKeyboardIconsTint(sender.color)
         preview.setKeyboardIconsTint(sender.color)
+        preview.setup()
     }
 
 }

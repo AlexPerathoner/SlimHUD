@@ -69,11 +69,13 @@ class SettingsController: NSView, HudsControllerInterface {
     func setVolumeEnabledColor(color: NSColor) {
         volumeBar.foreground = color
         volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
+        setVolumeIconsTint(settingsManager.volumeIconColor)
     }
 
     func setVolumeDisabledColor(color: NSColor) {
         volumeBar.foreground = color
         volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
+        setVolumeIconsTint(settingsManager.volumeIconColor)
     }
 
     func setBrightnessColor(color: NSColor) {
