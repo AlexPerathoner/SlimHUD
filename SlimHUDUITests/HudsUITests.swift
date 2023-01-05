@@ -18,7 +18,8 @@ final class HudsUITest: SparkleUITests {
     func testTriggerVolumeHud() throws {
         XCTAssert(app.windows.count == 0)
         do {
-            try AppleScriptRunner.run(script: "set volume output volume 40")
+            let a = try AppleScriptRunner.run(script: "return (get volume settings)")
+            XCTAssertEqual(a, "")
         } catch {
             XCTAssertEqual(error.localizedDescription, "")
             NSLog("Applescript returned empty output")
