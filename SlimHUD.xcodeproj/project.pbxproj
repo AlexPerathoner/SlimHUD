@@ -17,6 +17,7 @@
 		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
 		FA59F946296235080053B39D /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59F945296235080053B39D /* AppleScriptError.swift */; };
 		FA64B59F296638DA00600F85 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B59E296638DA00600F85 /* Alert.swift */; };
+		FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B5AA2966645100600F85 /* SinglePopover.swift */; };
 		FA64B5A52966579D00600F85 /* release.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A12966579D00600F85 /* release.yml */; };
 		FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A22966579D00600F85 /* xcode-build.yml */; };
 		FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A32966579D00600F85 /* swift-lint.yml */; };
@@ -99,6 +100,7 @@
 		FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAUITestSetup.swift; sourceTree = "<group>"; };
 		FA59F945296235080053B39D /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
 		FA64B59E296638DA00600F85 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		FA64B5AA2966645100600F85 /* SinglePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePopover.swift; sourceTree = "<group>"; };
 		FA64B5A12966579D00600F85 /* release.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = release.yml; sourceTree = "<group>"; };
 		FA64B5A22966579D00600F85 /* xcode-build.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-build.yml"; sourceTree = "<group>"; };
 		FA64B5A32966579D00600F85 /* swift-lint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "swift-lint.yml"; sourceTree = "<group>"; };
@@ -185,6 +187,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA64B5A92966643600600F85 /* SinglePopover */ = {
+			isa = PBXGroup;
+			children = (
+				FA64B5AA2966645100600F85 /* SinglePopover.swift */,
+			);
+			path = SinglePopover;
+			sourceTree = "<group>";
+		};
 		FA64B5A02966579D00600F85 /* workflows */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +352,7 @@
 				FA95EE632956FEEA005B39CD /* Settings */,
 				FA95EE6929573EF8005B39CD /* About */,
 				FA95EE6629573EE5005B39CD /* BarView */,
+				FA64B5A92966643600600F85 /* SinglePopover */,
 				FA95EE6E29573F47005B39CD /* Kauntey Suryawanshi */,
 			);
 			path = Views;
@@ -558,6 +569,7 @@
 				FA95EE572956FE91005B39CD /* BoolExtension.swift in Sources */,
 				FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */,
 				FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */,
+				FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */,
 				FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */,
 				FA95EE442956FE20005B39CD /* LoginItemList.swift in Sources */,
 				FA95EE7429573F71005B39CD /* BaseView.swift in Sources */,
