@@ -14,6 +14,7 @@
 		FA56F6E829666DCB008177B1 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59F945296235080053B39D /* AppleScriptError.swift */; };
 		FA56F6EA29666DF7008177B1 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6E929666DF7008177B1 /* AppleScriptRunner.swift */; };
 		FA56F6EB29666DF7008177B1 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6E929666DF7008177B1 /* AppleScriptRunner.swift */; };
+		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
 		FA59F946296235080053B39D /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59F945296235080053B39D /* AppleScriptError.swift */; };
 		FA64B59F296638DA00600F85 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B59E296638DA00600F85 /* Alert.swift */; };
 		FA64B5A52966579D00600F85 /* release.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A12966579D00600F85 /* release.yml */; };
@@ -95,6 +96,7 @@
 		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
 		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
 		FA56F6E929666DF7008177B1 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
+		FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAUITestSetup.swift; sourceTree = "<group>"; };
 		FA59F945296235080053B39D /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
 		FA64B59E296638DA00600F85 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FA64B5A12966579D00600F85 /* release.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = release.yml; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 		FA95EE832957448E005B39CD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */,
 				FA95EE8429574495005B39CD /* SparkleUITests.swift */,
 				FA56F6DD29666815008177B1 /* UITestsUtils.swift */,
 			);
@@ -605,6 +608,7 @@
 				FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */,
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA56F6EB29666DF7008177B1 /* AppleScriptRunner.swift in Sources */,
+				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
 				FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */,
 				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,

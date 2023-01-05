@@ -30,6 +30,5 @@ class SparkleUITests: UITestsUtils {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
-
     }
 }
