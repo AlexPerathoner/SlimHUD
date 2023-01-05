@@ -18,16 +18,16 @@ final class AAAUITestSetup: SparkleUITests {
             SparkleUITests.waitForAlertAndClose(app: app, timeout: 7)
         }
     }
-    
+
     /// Will close dialog opened by Sparkle asking to 
     func testBSecondLaunch() {
         if CommandLine.arguments.contains("-sparkle-will-alert") {
             var checkAutomaticallyForUpdatesClicked = false
             var timeout = TIMEOUT
-            while(!checkAutomaticallyForUpdatesClicked && timeout > 0) {
+            while !checkAutomaticallyForUpdatesClicked && timeout > 0 {
                 let app = XCUIApplication()
                 app.launch()
-                if(app.windows.count > 0) {
+                if app.windows.count > 0 {
                     app.windows.firstMatch.typeText("\r")
                 }
                 timeout -= 1
