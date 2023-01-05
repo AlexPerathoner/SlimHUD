@@ -45,7 +45,7 @@ jobs:
   wait-for-results-creation:
     runs-on: ubuntu-latest
     needs: unit-tests-run
-    if: github.event_name == 'pull_request'
+    if: success() || failure()
     steps:
       - name: Wait 7 seconds
         run: sleep 7
