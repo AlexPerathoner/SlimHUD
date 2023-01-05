@@ -15,7 +15,7 @@ extension NSImage {
     static let BrightnessImageFileName = "brightness"
     static let KeyboardImageFileName = "backlight"
     static let StatusIconFileName = "statusIcon"
-    
+
     func tint(with color: NSColor) -> NSImage {
         self.lockFocus()
         color.set()
