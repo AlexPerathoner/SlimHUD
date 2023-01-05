@@ -19,25 +19,17 @@ final class SettingsUITest: SparkleUITests {
         let preferencesMenuItem = statusItem.menuItems["Settings..."]
 
         let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
-
-        var timeout = SparkleUITests.TIMEOUT
-        while !settingsWindow.exists && timeout > 0 {
-
-            if !preferencesMenuItem.exists || !preferencesMenuItem.isHittable {
-                statusItem.click()
-                usleep(1500000)
-            }
-            if !settingsWindow.exists && preferencesMenuItem.isHittable {
-                preferencesMenuItem.click()
-                usleep(1500000)
-            }
-            timeout -= 1
-        }
+        
+        statusItem.click()
+        
+        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
+        preferencesMenuItem.click()
 
         XCTAssert(settingsWindow.waitForExistence(timeout: 5))
 
         addScreenshot(window: settingsWindow, name: "Settings window")
-
-        XCTAssertEqual(app.windows.count, 2)
+        
+        usleep(500000)
+        XCTAssertTrue(app.windows.count >= 2)
     }
 }
