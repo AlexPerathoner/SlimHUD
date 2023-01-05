@@ -19,12 +19,14 @@ final class HudsUITest: SparkleUITests {
         XCTAssert(app.windows.count == 0)
         do {
             try AppleScriptRunner.run(script: "set volume output volume 40")
-        } catch AppleScriptError.emptyOutput {
+        } catch {
+            XCTAssertEqual(error.localizedDescription, "")
             NSLog("Applescript returned empty output")
         }
         usleep(300000)
         do {
-            try AppleScriptRunner.run(script: "set volume output volume 10")
+            let a = try AppleScriptRunner.run(script: "set volume output volume 10")
+            XCTAssertEqual(a, "")
         } catch AppleScriptError.emptyOutput {
             NSLog("Applescript returned empty output")
         }
