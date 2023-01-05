@@ -41,10 +41,18 @@ jobs:
           title: ${{ env.test-results-check-name }}
           upload-bundles: never
           show-code-coverage: true
+          
+  wait-for-results-creation:
+    runs-on: ubuntu-latest
+    needs: unit-tests-run
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Wait 7 seconds
+        run: sleep 7
 
   create-comment-unit-tests-with-coverage:
     runs-on: ubuntu-latest
-    needs: unit-tests-run
+    needs: wait-for-results-creation
     if: github.event_name == 'pull_request'
     steps:
       - uses: actions/github-script@v6
@@ -52,6 +60,7 @@ jobs:
         with:
           result-encoding: string
           script: |
+            
             const workflows = await github.rest.actions.listWorkflowRunsForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
