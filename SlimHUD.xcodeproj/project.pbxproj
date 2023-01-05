@@ -11,6 +11,9 @@
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
 		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
+		FA56F6E829666DCB008177B1 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59F945296235080053B39D /* AppleScriptError.swift */; };
+		FA56F6EA29666DF7008177B1 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6E929666DF7008177B1 /* AppleScriptRunner.swift */; };
+		FA56F6EB29666DF7008177B1 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6E929666DF7008177B1 /* AppleScriptRunner.swift */; };
 		FA59F946296235080053B39D /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59F945296235080053B39D /* AppleScriptError.swift */; };
 		FA64B59F296638DA00600F85 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B59E296638DA00600F85 /* Alert.swift */; };
 		FA64B5A52966579D00600F85 /* release.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A12966579D00600F85 /* release.yml */; };
@@ -28,7 +31,6 @@
 		FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */; };
 		FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */; };
 		FA95EE312956FDA2005B39CD /* SettingsViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */; };
-		FA95EE342956FDC1005B39CD /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE332956FDC1005B39CD /* AppleScriptRunner.swift */; };
 		FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */; };
 		FA95EE382956FDD8005B39CD /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE372956FDD8005B39CD /* DisplayManager.swift */; };
 		FA95EE3A2956FDE7005B39CD /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE392956FDE7005B39CD /* OSDUIManager.swift */; };
@@ -92,6 +94,7 @@
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
 		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
+		FA56F6E929666DF7008177B1 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FA59F945296235080053B39D /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
 		FA64B59E296638DA00600F85 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FA64B5A12966579D00600F85 /* release.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = release.yml; sourceTree = "<group>"; };
@@ -111,7 +114,6 @@
 		FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
 		FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
 		FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Style.swift"; sourceTree = "<group>"; };
-		FA95EE332956FDC1005B39CD /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
 		FA95EE372956FDD8005B39CD /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
 		FA95EE392956FDE7005B39CD /* OSDUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSDUIManager.swift; sourceTree = "<group>"; };
@@ -278,7 +280,7 @@
 		FA95EE322956FDB2005B39CD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FA95EE332956FDC1005B39CD /* AppleScriptRunner.swift */,
+				FA56F6E929666DF7008177B1 /* AppleScriptRunner.swift */,
 				FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */,
 				FA95EE372956FDD8005B39CD /* DisplayManager.swift */,
 				FA95EE392956FDE7005B39CD /* OSDUIManager.swift */,
@@ -556,6 +558,7 @@
 				FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */,
 				FA95EE442956FE20005B39CD /* LoginItemList.swift in Sources */,
 				FA95EE7429573F71005B39CD /* BaseView.swift in Sources */,
+				FA56F6EA29666DF7008177B1 /* AppleScriptRunner.swift in Sources */,
 				FA95EE5B2956FEA9005B39CD /* NSSegmentedControlExtension.swift in Sources */,
 				FA95EE3A2956FDE7005B39CD /* OSDUIManager.swift in Sources */,
 				FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */,
@@ -582,7 +585,6 @@
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
 				FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */,
 				FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */,
-				FA95EE342956FDC1005B39CD /* AppleScriptRunner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,8 +601,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA56F6E829666DCB008177B1 /* AppleScriptError.swift in Sources */,
 				FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */,
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
+				FA56F6EB29666DF7008177B1 /* AppleScriptRunner.swift in Sources */,
 				FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */,
 				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,
