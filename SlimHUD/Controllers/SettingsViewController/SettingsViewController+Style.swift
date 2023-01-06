@@ -113,14 +113,12 @@ extension SettingsViewController {
         settingsManager.brightnessIconColor = sender.color
         delegate?.setBrightnessIconsTint(sender.color)
         preview.setBrightnessIconsTint(sender.color)
-        preview.setup()
     }
     @available(OSX 10.14, *)
     @IBAction func keyboardIconColorChanged(_ sender: NSColorWell) {
         settingsManager.keyboardIconColor = sender.color
         delegate?.setKeyboardIconsTint(sender.color)
         preview.setKeyboardIconsTint(sender.color)
-        preview.setup()
     }
 
 }

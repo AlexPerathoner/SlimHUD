@@ -123,8 +123,15 @@ class SettingsController: NSView, HudsControllerInterface {
         }
     }
     
+    // FIXME: changing icons tint in preview only works if instantiation AND tinting are called twice
     @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor, enabled: Bool) {
+        if(enabled) {
+            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
+        } else {
+            volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
+        }
+        volumeImage.image = volumeImage.image?.tint(with: color)
         if(enabled) {
             volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
         } else {
@@ -140,9 +147,13 @@ class SettingsController: NSView, HudsControllerInterface {
     func setBrightnessIconsTint(_ color: NSColor) {
         brightnessImage.image = NSImage(named: NSImage.BrightnessImageFileName)
         brightnessImage.image = brightnessImage.image?.tint(with: color)
+        brightnessImage.image = NSImage(named: NSImage.BrightnessImageFileName)
+        brightnessImage.image = brightnessImage.image?.tint(with: color)
     }
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
+        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName)
+        keyboardImage.image = keyboardImage.image?.tint(with: color)
         keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName)
         keyboardImage.image = keyboardImage.image?.tint(with: color)
     }
