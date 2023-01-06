@@ -53,8 +53,10 @@ class SettingsController: NSView, HudsControllerInterface {
         keyboardBar.foreground = DefaultColors.Azure
         setBackgroundColor(color: DefaultColors.DarkGray)
     }
-
+    
+    @available(OSX 10.14, *)
     func setupDefaultIconsColors() {
+        settingsManager.volumeIconColor = .white
         setVolumeIconsTint(.white)
         setBrightnessIconsTint(.white)
         setKeyboardIconsTint(.white)
@@ -68,12 +70,16 @@ class SettingsController: NSView, HudsControllerInterface {
 
     func setVolumeEnabledColor(color: NSColor) {
         volumeBar.foreground = color
-        volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
+        if #available(OSX 10.14, *) {
+            setVolumeIconsTint(settingsManager.volumeIconColor, enabled: true)
+        }
     }
 
     func setVolumeDisabledColor(color: NSColor) {
         volumeBar.foreground = color
-        volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
+        if #available(OSX 10.14, *) {
+            setVolumeIconsTint(settingsManager.volumeIconColor, enabled: false)
+        }
     }
 
     func setBrightnessColor(color: NSColor) {
@@ -116,27 +122,40 @@ class SettingsController: NSView, HudsControllerInterface {
             keyboardView.isHidden = !enabledBars.keyboardBar
         }
     }
-
+    
+    // FIXME: changing icons tint in preview only works if instantiation AND tinting are called twice
+    @available(OSX 10.14, *)
+    func setVolumeIconsTint(_ color: NSColor, enabled: Bool) {
+        if(enabled) {
+            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
+        } else {
+            volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
+        }
+        volumeImage.image = volumeImage.image?.tint(with: color)
+        if(enabled) {
+            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
+        } else {
+            volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
+        }
+        volumeImage.image = volumeImage.image?.tint(with: color)
+    }
+    @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor) {
-        if #available(OSX 10.14, *) {
-            volumeImage.contentTintColor = color
-        } else {
-            NSLog("Can't change icons' tint - MacOS 10.14+ needed")
-        }
+        setVolumeIconsTint(settingsManager.volumeIconColor, enabled: true)
     }
+    @available(OSX 10.14, *)
     func setBrightnessIconsTint(_ color: NSColor) {
-        if #available(OSX 10.14, *) {
-            brightnessImage.contentTintColor = color
-        } else {
-            NSLog("Can't change icons' tint - MacOS 10.14+ needed")
-        }
+        brightnessImage.image = NSImage(named: NSImage.BrightnessImageFileName)
+        brightnessImage.image = brightnessImage.image?.tint(with: color)
+        brightnessImage.image = NSImage(named: NSImage.BrightnessImageFileName)
+        brightnessImage.image = brightnessImage.image?.tint(with: color)
     }
+    @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
-        if #available(OSX 10.14, *) {
-            keyboardImage.contentTintColor = color
-        } else {
-            NSLog("Can't change icons' tint - MacOS 10.14+ needed")
-        }
+        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName)
+        keyboardImage.image = keyboardImage.image?.tint(with: color)
+        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName)
+        keyboardImage.image = keyboardImage.image?.tint(with: color)
     }
 
     func updateAll() {
@@ -149,9 +168,12 @@ class SettingsController: NSView, HudsControllerInterface {
         setBrightnessColor(color: settingsManager.brightnessColor)
         setKeyboardColor(color: settingsManager.keyboardColor)
         setShouldUseAnimation(shouldUseAnimation: settingsManager.shouldUseAnimation)
-        setVolumeIconsTint(settingsManager.volumeIconColor)
-        setBrightnessIconsTint(settingsManager.brightnessIconColor)
-        setKeyboardIconsTint(settingsManager.keyboardIconColor)
+        
+        if #available(OSX 10.14, *) {
+            setVolumeIconsTint(settingsManager.volumeIconColor)
+            setBrightnessIconsTint(settingsManager.brightnessIconColor)
+            setKeyboardIconsTint(settingsManager.keyboardIconColor)
+        }
     }
 
     var value: Float = 0.5

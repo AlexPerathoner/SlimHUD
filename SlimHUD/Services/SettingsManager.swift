@@ -155,7 +155,7 @@ class SettingsManager {
         keyboardColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardColorKey, defaultValue: DefaultColors.Azure)
 
         volumeIconColor = UserDefaultsManager.getItem(for: SettingsManager.VolumeIconColorKey, defaultValue: .white)
-        brightnessIconColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessColorKey, defaultValue: .white)
+        brightnessIconColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessIconColorKey, defaultValue: .white)
         keyboardIconColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardIconColorKey, defaultValue: .white)
 
         shouldShowShadows = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowShadowsKey, defaultValue: true)
