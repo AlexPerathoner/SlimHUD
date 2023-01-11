@@ -6,9 +6,8 @@
         <language>en</language>
         <item>
             <title>1.4.1</title>
-            <pubDate>Wed, 11 Jan 2023 04:23:30 +0000</pubDate>
+            <pubDate>Wed, 11 Jan 2023 04:54:48 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
-            <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>1.4.1</sparkle:version>
             <sparkle:shortVersionString>1.4.1</sparkle:shortVersionString>
             <description><![CDATA[<h1>Fixes</h1>
@@ -19,7 +18,7 @@
 <li>Fix bug: popovers memory leak in settings window</li>
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.1-beta/SlimHUD.zip" length="5458068" type="application/octet-stream" sparkle:edSignature="XgfCazdwBrMXbbsWIRSLDvHoldSEEHYy07EDWGRmW+ZZoHP4vZb9T/jDrKg3Ek8IUFLN/xYQ3ZKS6UwrQSKcCQ=="/>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.1/SlimHUD.zip" length="5459927" type="application/octet-stream" sparkle:edSignature="KWwaRCplJKyt7fnAVsvEhu75uPE1Cp3rUhiCcMj4WZqrnue2oThPchk9vLDBJT1be0tt5qo/IyhojhXuJgrtCQ=="/>
         </item>
         <item>
             <title>1.4.0</title>
