@@ -278,6 +278,9 @@ jobs:
           mv artifacts/artifact/latest_changes latest_changes
           mkdir Release
           mv artifacts/app/${{ env.projname }}.zip Release/
+      - name: Override versions in project # set new version in project
+        run: |
+          sed -i '' "s/_VERSION = $(xcrun agvtool what-version -terse)/_VERSION = ${{ steps.info.outputs.new_version }}/g" ${{ env.projname }}.xcodeproj/project.pbxproj;
       - name: Prepare Sparkle update creation # Import Sparkle private key, remove unnecessary files in Release folder
         env:
           PRIVATE_SPARKLE_KEY: ${{ secrets.PRIVATE_SPARKLE_KEY }}
@@ -323,7 +326,7 @@ jobs:
 
   ending:
     name: Ending job
-    if: always()
+    if: ${{ always() && github.event.issue.pull_request && contains(github.event.comment.body, '/release') && github.event.comment.user.login == github.repository_owner }}
     runs-on: ubuntu-latest
     needs: [pre-release, release]
     steps:
