@@ -31,7 +31,7 @@ jobs:
               repo: context.repo.repo,
               pull_number: context.issue.number,
             });
-            if (pr.data.draft || pr.data.mergeable_state !== "clean") {
+            if (pr.data.draft || !pr.data.mergeable) {
               core.setFailed("PR is not ready to be merged");
             }
       - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
@@ -75,6 +75,7 @@ jobs:
           from_branch: ${{ steps.comment-branch.outputs.base_ref }}
           target_branch: ${{ steps.comment-branch.outputs.head_ref }}
           github_token: ${{ github.token }}
+          message: "Sync branch"
 
   archive:
     name: Build and export app
@@ -191,11 +192,6 @@ jobs:
               --channel ${{ env.beta-channel-name }} \
               -o docs/Support/appcast.xml \
               Release/
-      - name: Save generated appcast
-        uses: actions/upload-artifact@master
-        with:
-          name: appcast
-          path: docs/Support/appcast.xml
       - name: Create GitHub beta release # Upload .zip to GitHub release
         uses: softprops/action-gh-release@v1
         with:
@@ -210,15 +206,10 @@ jobs:
         run: |
           echo "Beta Release v${{ steps.info.outputs.new_version }} created" > $GITHUB_STEP_SUMMARY
 
-      - uses: actions/checkout@v3 # checkout again, directly on the main branch, as it's a prerelease
+      - uses: actions/checkout@v3 # checkout again
         if: success()
-      - name: Remove old appcast # remove old appcast
-        run: rm -rf docs/Support/appcast.xml
-      - name: Retrieve previously generated appcast
-        uses: actions/download-artifact@master
         with:
-          name: appcast
-          path: docs/Support
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
       - name: Saving appcast # commits only appcast to main
         uses: stefanzweifel/git-auto-commit-action@v4
         id: commit-appcast
@@ -308,6 +299,7 @@ jobs:
           ref: ${{ steps.comment-branch.outputs.head_ref }}
       - name: Merge PR # merge PR
         uses: devmasx/merge-branch@master
+        if: ${{ contains(join(needs.*.result, ','), 'success') }}
         with:
           type: now
           from_branch: ${{ steps.comment-branch.outputs.head_ref }}
