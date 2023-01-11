@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA1F1897296F777B009B2288 /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FA1F1896296F777B009B2288 /* MediaKeyTap */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
 		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
 		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
@@ -169,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA95EE242956FD3A005B39CD /* Sparkle in Frameworks */,
+				FA1F1897296F777B009B2288 /* MediaKeyTap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +437,7 @@
 			name = SlimHUD;
 			packageProductDependencies = (
 				FA95EE232956FD3A005B39CD /* Sparkle */,
+				FA1F1896296F777B009B2288 /* MediaKeyTap */,
 			);
 			productName = SlimHUD;
 			productReference = FA95EDF12956FCBF005B39CD /* SlimHUD.app */;
@@ -510,6 +513,7 @@
 			mainGroup = FA95EDE82956FCBF005B39CD;
 			packageReferences = (
 				FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */,
+				FA1F1895296F777B009B2288 /* XCRemoteSwiftPackageReference "MediaKeyTap" */,
 			);
 			productRefGroup = FA95EDF22956FCBF005B39CD /* Products */;
 			projectDirPath = "";
@@ -941,6 +945,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA1F1895296F777B009B2288 /* XCRemoteSwiftPackageReference "MediaKeyTap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MonitorControl/MediaKeyTap";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -952,6 +964,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA1F1896296F777B009B2288 /* MediaKeyTap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1F1895296F777B009B2288 /* XCRemoteSwiftPackageReference "MediaKeyTap" */;
+			productName = MediaKeyTap;
+		};
 		FA95EE232956FD3A005B39CD /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */;
