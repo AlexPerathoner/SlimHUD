@@ -39,6 +39,13 @@ extension SettingsViewController {
         preview.setShouldUseAnimation(shouldUseAnimation: shouldUseAnimation)
     }
 
+    @IBAction func shouldUseFlatBar(_ sender: NSButton) {
+        let shouldUseFlatBar = sender.boolValue()
+        settingsManager.flatBar = shouldUseFlatBar
+        preview.setThickness(thickness: CGFloat(settingsManager.barThickness))
+        delegate?.setThickness(thickness: CGFloat(settingsManager.barThickness))
+    }
+
     @IBAction func resetDefaultsBarColors(_ sender: Any) {
         // updating bars and preview
         delegate?.setupDefaultBarsColors()
@@ -93,11 +100,13 @@ extension SettingsViewController {
         delegate?.setKeyboardColor(color: sender.color)
         preview.setKeyboardColor(color: sender.color)
     }
+
     @available(OSX 10.14, *)
     @IBAction func volumeIconColorChanged(_ sender: NSColorWell) {
         settingsManager.volumeIconColor = sender.color
         delegate?.setVolumeIconsTint(sender.color)
-        preview.setVolumeIconsTint(sender.color)
+        preview.setVolumeDisabledColor(color: settingsManager.volumeDisabledColor)
+        preview.setVolumeEnabledColor(color: settingsManager.volumeEnabledColor)
     }
     @available(OSX 10.14, *)
     @IBAction func brightnessIconChanged(_ sender: NSColorWell) {

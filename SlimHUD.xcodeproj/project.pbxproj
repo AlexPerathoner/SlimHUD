@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
+		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
+		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
+		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
+		FA64B59F296638DA00600F85 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B59E296638DA00600F85 /* Alert.swift */; };
+		FA64B5A52966579D00600F85 /* release.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A12966579D00600F85 /* release.yml */; };
+		FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A22966579D00600F85 /* xcode-build.yml */; };
+		FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A32966579D00600F85 /* swift-lint.yml */; };
+		FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */; };
+		FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B5AA2966645100600F85 /* SinglePopover.swift */; };
+		FA8B1A4B296E70D80015AAEB /* UpdaterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8B1A4A296E70D80015AAEB /* UpdaterDelegate.swift */; };
 		FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EDF42956FCBF005B39CD /* AppDelegate.swift */; };
 		FA95EDF92956FCC1005B39CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA95EDF82956FCC1005B39CD /* Assets.xcassets */; };
 		FA95EE132956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */; };
@@ -18,7 +30,6 @@
 		FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */; };
 		FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */; };
 		FA95EE312956FDA2005B39CD /* SettingsViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */; };
-		FA95EE342956FDC1005B39CD /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE332956FDC1005B39CD /* AppleScriptRunner.swift */; };
 		FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */; };
 		FA95EE382956FDD8005B39CD /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE372956FDD8005B39CD /* DisplayManager.swift */; };
 		FA95EE3A2956FDE7005B39CD /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE392956FDE7005B39CD /* OSDUIManager.swift */; };
@@ -58,6 +69,9 @@
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
+		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
+		FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579F29675F7700C32A80 /* AppleScriptError.swift */; };
+		FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +92,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
+		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
+		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
+		FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAUITestSetup.swift; sourceTree = "<group>"; };
+		FA64B59E296638DA00600F85 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		FA64B5A12966579D00600F85 /* release.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = release.yml; sourceTree = "<group>"; };
+		FA64B5A22966579D00600F85 /* xcode-build.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-build.yml"; sourceTree = "<group>"; };
+		FA64B5A32966579D00600F85 /* swift-lint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "swift-lint.yml"; sourceTree = "<group>"; };
+		FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-ui-tests.yml"; sourceTree = "<group>"; };
+		FA64B5AA2966645100600F85 /* SinglePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePopover.swift; sourceTree = "<group>"; };
+		FA8B1A4A296E70D80015AAEB /* UpdaterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterDelegate.swift; sourceTree = "<group>"; };
 		FA95EDF12956FCBF005B39CD /* SlimHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA95EDF42956FCBF005B39CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA95EDF82956FCC1005B39CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,7 +117,6 @@
 		FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
 		FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
 		FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Style.swift"; sourceTree = "<group>"; };
-		FA95EE332956FDC1005B39CD /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
 		FA95EE372956FDD8005B39CD /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
 		FA95EE392956FDE7005B39CD /* OSDUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSDUIManager.swift; sourceTree = "<group>"; };
@@ -133,6 +158,9 @@
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMethod.swift; sourceTree = "<group>"; };
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
+		FAFC579F29675F7700C32A80 /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
+		FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIApplicationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,9 +189,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA64B5A02966579D00600F85 /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				FA64B5A12966579D00600F85 /* release.yml */,
+				FA64B5A22966579D00600F85 /* xcode-build.yml */,
+				FA64B5A32966579D00600F85 /* swift-lint.yml */,
+				FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */,
+			);
+			name = workflows;
+			path = .github/workflows;
+			sourceTree = "<group>";
+		};
+		FA64B5A92966643600600F85 /* SinglePopover */ = {
+			isa = PBXGroup;
+			children = (
+				FA64B5AA2966645100600F85 /* SinglePopover.swift */,
+			);
+			path = SinglePopover;
+			sourceTree = "<group>";
+		};
 		FA95EDE82956FCBF005B39CD = {
 			isa = PBXGroup;
 			children = (
+				FA0E038729663319004066FF /* README.md */,
+				FA0E038529663300004066FF /* Release_Notes.md */,
+				FA64B5A02966579D00600F85 /* workflows */,
 				FA95EDF32956FCBF005B39CD /* SlimHUD */,
 				FA95EE052956FCC1005B39CD /* SlimHUDTests */,
 				FA95EE0F2956FCC1005B39CD /* SlimHUDUITests */,
@@ -209,10 +260,11 @@
 		FA95EE0F2956FCC1005B39CD /* SlimHUDUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FA95EE832957448E005B39CD /* SparkleUITests */,
+				FA95EE832957448E005B39CD /* Utils */,
 				FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */,
 				FA95EE7F2957445D005B39CD /* AboutUITest.swift */,
 				FA95EE8129574471005B39CD /* SettingsUITest.swift */,
+				FA56F6DF29666AB1008177B1 /* HudsUITests.swift */,
 			);
 			path = SlimHUDUITests;
 			sourceTree = "<group>";
@@ -242,7 +294,7 @@
 		FA95EE322956FDB2005B39CD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FA95EE332956FDC1005B39CD /* AppleScriptRunner.swift */,
+				FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */,
 				FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */,
 				FA95EE372956FDD8005B39CD /* DisplayManager.swift */,
 				FA95EE392956FDE7005B39CD /* OSDUIManager.swift */,
@@ -254,6 +306,7 @@
 				FA95EE452956FE2A005B39CD /* PositionManager.swift */,
 				FA95EE472956FE37005B39CD /* Displayer.swift */,
 				FA95EE492956FE44005B39CD /* SettingsManager.swift */,
+				FA8B1A4A296E70D80015AAEB /* UpdaterDelegate.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -261,13 +314,11 @@
 		FA95EE4B2956FE50005B39CD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FA95EE4C2956FE5D005B39CD /* EnabledBars.swift */,
 				FA95EE4E2956FE69005B39CD /* NSViewExtension.swift */,
 				FA95EE502956FE73005B39CD /* NSButtonExtension.swift */,
 				FA95EE522956FE7C005B39CD /* NSControlExtension.swift */,
 				FA95EE542956FE86005B39CD /* NSImageExtension.swift */,
 				FA95EE562956FE91005B39CD /* BoolExtension.swift */,
-				FA95EE582956FE9A005B39CD /* Position.swift */,
 				FA95EE5A2956FEA9005B39CD /* NSSegmentedControlExtension.swift */,
 				FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */,
 			);
@@ -279,7 +330,10 @@
 			children = (
 				FA95EE5F2956FECE005B39CD /* Errors */,
 				FA95EE5D2956FEC3005B39CD /* Constants.swift */,
+				FA95EE4C2956FE5D005B39CD /* EnabledBars.swift */,
+				FA95EE582956FE9A005B39CD /* Position.swift */,
 				FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */,
+				FA64B59E296638DA00600F85 /* Alert.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -288,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				FA95EE602956FED6005B39CD /* SensorError.swift */,
+				FAFC579F29675F7700C32A80 /* AppleScriptError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -300,6 +355,7 @@
 				FA95EE632956FEEA005B39CD /* Settings */,
 				FA95EE6929573EF8005B39CD /* About */,
 				FA95EE6629573EE5005B39CD /* BarView */,
+				FA64B5A92966643600600F85 /* SinglePopover */,
 				FA95EE6E29573F47005B39CD /* Kauntey Suryawanshi */,
 			);
 			path = Views;
@@ -342,12 +398,15 @@
 			path = "Kauntey Suryawanshi";
 			sourceTree = "<group>";
 		};
-		FA95EE832957448E005B39CD /* SparkleUITests */ = {
+		FA95EE832957448E005B39CD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */,
 				FA95EE8429574495005B39CD /* SparkleUITests.swift */,
+				FA56F6DD29666815008177B1 /* UITestsUtils.swift */,
+				FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */,
 			);
-			path = SparkleUITests;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FA95EE8629575892005B39CD /* Services */ = {
@@ -468,9 +527,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0E038629663300004066FF /* Release_Notes.md in Resources */,
 				FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */,
+				FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */,
 				FA95EE78295741CB005B39CD /* About.storyboard in Resources */,
+				FA0E03882966331A004066FF /* README.md in Resources */,
+				FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */,
+				FA64B5A52966579D00600F85 /* release.yml in Resources */,
 				FA95EE7A295741D2005B39CD /* BarView.xib in Resources */,
+				FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */,
 				FA95EDF92956FCC1005B39CD /* Assets.xcassets in Resources */,
 				FA95EE7E295741E6005B39CD /* Settings.storyboard in Resources */,
 			);
@@ -508,11 +573,14 @@
 				FA95EE572956FE91005B39CD /* BoolExtension.swift in Sources */,
 				FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */,
 				FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */,
+				FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */,
 				FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */,
+				FA8B1A4B296E70D80015AAEB /* UpdaterDelegate.swift in Sources */,
 				FA95EE442956FE20005B39CD /* LoginItemList.swift in Sources */,
 				FA95EE7429573F71005B39CD /* BaseView.swift in Sources */,
 				FA95EE5B2956FEA9005B39CD /* NSSegmentedControlExtension.swift in Sources */,
 				FA95EE3A2956FDE7005B39CD /* OSDUIManager.swift in Sources */,
+				FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */,
 				FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */,
 				FA95EE6B29573F0B005B39CD /* AboutViewController.swift in Sources */,
 				FA95EE482956FE37005B39CD /* Displayer.swift in Sources */,
@@ -522,6 +590,8 @@
 				FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */,
 				FA95EE462956FE2A005B39CD /* PositionManager.swift in Sources */,
 				FA95EE382956FDD8005B39CD /* DisplayManager.swift in Sources */,
+				FA64B59F296638DA00600F85 /* Alert.swift in Sources */,
+				FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */,
 				FA95EE592956FE9A005B39CD /* Position.swift in Sources */,
 				FA95EE4F2956FE69005B39CD /* NSViewExtension.swift in Sources */,
 				FA95EE4D2956FE5D005B39CD /* EnabledBars.swift in Sources */,
@@ -535,7 +605,6 @@
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
 				FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */,
 				FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */,
-				FA95EE342956FDC1005B39CD /* AppleScriptRunner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +621,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */,
+				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
+				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
+				FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */,
 				FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */,
 				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,

@@ -16,11 +16,84 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
+    var settingsWindowController: SettingsWindowController?
+    var aboutWindowController: AboutWindowController?
+
     @IBOutlet weak var statusMenu: NSMenu!
 
     @IBAction func quitCliked(_ sender: Any) {
+        if isSomeWindowVisible() {
+            if settingsManager.showQuitAlert {
+                let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs",
+                                              text: "If you want to quit, click quit again",
+                                              buttonsTitle: ["OK", "Quit now", "Don't show again"])
+                if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
+                    quit()
+                }
+                if alertResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
+                    settingsManager.showQuitAlert = false
+                }
+            }
+            closeAllWindows()
+            NSApplication.shared.setActivationPolicy(.accessory)
+        } else {
+            quit()
+        }
+    }
+
+    func closeAllWindows() {
+        settingsWindowController?.close()
+        aboutWindowController?.close()
+    }
+
+    func quit() {
         settingsManager.saveAllItems()
         exit(0)
+    }
+
+    @IBAction func aboutClicked(_ sender: Any) {
+        if aboutWindowController != nil {
+            aboutWindowController?.showWindow(self)
+        } else {
+            if let wc = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as? AboutWindowController {
+                aboutWindowController = wc
+                wc.delegate = self
+                wc.showWindow(self)
+            }
+        }
+        NSApplication.shared.setActivationPolicy(.regular)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    @IBAction func settingsClicked(_ sender: Any) {
+        if settingsWindowController != nil {
+            settingsWindowController?.showWindow(self)
+        } else {
+            if let wc = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
+                settingsWindowController = wc
+                wc.delegate = self
+                wc.showWindow(self)
+            }
+        }
+        NSApplication.shared.setActivationPolicy(.regular)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    func setAccessoryActivationPolicyIfAllWindowsClosed() {
+        // hiding app if not both windows are visible
+        if isOnlyOneWindowVisible() {
+            NSApplication.shared.setActivationPolicy(.accessory)
+        }
+    }
+
+    func isSomeWindowVisible() -> Bool {
+        return ((aboutWindowController?.window?.isVisible ?? false) || (settingsWindowController?.window?.isVisible ?? false)) &&
+            NSApplication.shared.activationPolicy() != .accessory
+    }
+
+    func isOnlyOneWindowVisible() -> Bool {
+        return (aboutWindowController?.window?.isVisible ?? false) != (settingsWindowController?.window?.isVisible ?? false) &&
+        NSApplication.shared.activationPolicy() != .accessory
     }
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()

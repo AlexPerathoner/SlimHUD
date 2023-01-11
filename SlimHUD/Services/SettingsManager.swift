@@ -28,6 +28,8 @@ class SettingsManager {
     private static let PositionKey = "position"
     private static let EnabledBarsKey = "enabledBars"
     private static let MarginKey = "marginValue"
+    private static let ShowQuitAlert = "showQuitAlert"
+    private static let FlatBar = "flatBar"
 
     // MARK: - Bars colors
     var backgroundColor: NSColor {
@@ -110,6 +112,12 @@ class SettingsManager {
         }
     }
 
+    var flatBar: Bool {
+        didSet {
+            UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBar)
+        }
+    }
+
     // MARK: - General
     var enabledBars: EnabledBars {
         didSet {
@@ -123,6 +131,12 @@ class SettingsManager {
     var marginValue: Int {
         didSet {
             UserDefaults.standard.set(marginValue, forKey: SettingsManager.MarginKey)
+        }
+    }
+
+    var showQuitAlert: Bool {
+        didSet {
+            UserDefaults.standard.set(showQuitAlert, forKey: SettingsManager.ShowQuitAlert)
         }
     }
 
@@ -141,7 +155,7 @@ class SettingsManager {
         keyboardColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardColorKey, defaultValue: DefaultColors.Azure)
 
         volumeIconColor = UserDefaultsManager.getItem(for: SettingsManager.VolumeIconColorKey, defaultValue: .white)
-        brightnessIconColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessColorKey, defaultValue: .white)
+        brightnessIconColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessIconColorKey, defaultValue: .white)
         keyboardIconColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardIconColorKey, defaultValue: .white)
 
         shouldShowShadows = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowShadowsKey, defaultValue: true)
@@ -150,7 +164,8 @@ class SettingsManager {
         barThickness = UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey, defaultValue: 7)
         let rawPosition = UserDefaultsManager.getString(for: SettingsManager.PositionKey, defaultValue: "left")
         position = Position(rawValue: rawPosition) ?? .left
-        shouldContinuouslyCheck = UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
+        shouldContinuouslyCheck = CommandLine.arguments.contains(SettingsManager.ShouldContinuouslyCheckKey) ?
+            true : UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
         shouldUseAnimation = UserDefaultsManager.getBool(for: SettingsManager.ShouldUseAnimationKey, defaultValue: true)
         let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.EnabledBarsKey, defaultValue: [true, true, true])
         let (volumeBarEnabled, brightnessBarEnabled, keyboardBarEnabled) =
@@ -159,6 +174,12 @@ class SettingsManager {
              enabledBarsRaw[EnabledBars.KeyboardBarIndex])
         enabledBars = EnabledBars(volumeBar: volumeBarEnabled, brightnessBar: brightnessBarEnabled, keyboardBar: keyboardBarEnabled)
         marginValue = UserDefaultsManager.getInt(for: SettingsManager.MarginKey, defaultValue: 10)
+        if CommandLine.arguments.contains("showQuitAlert") {
+            let indexOfValue = CommandLine.arguments.firstIndex(of: "showQuitAlert")! + 1
+            UserDefaults.standard.set(CommandLine.arguments[indexOfValue], forKey: SettingsManager.ShowQuitAlert)
+        }
+        showQuitAlert = UserDefaultsManager.getBool(for: SettingsManager.ShowQuitAlert, defaultValue: true)
+        flatBar = UserDefaultsManager.getBool(for: SettingsManager.FlatBar, defaultValue: false)
     }
 
     func resetDefaultBarsColors() {
@@ -199,6 +220,7 @@ class SettingsManager {
         UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
         UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.ShouldUseAnimationKey)
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
+        UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBar)
     }
 
     deinit {
