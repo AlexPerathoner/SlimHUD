@@ -21,7 +21,7 @@ extension NSImage {
         let image = self.copy() as! NSImage
         self.lockFocus()
         color.set()
-        let srcSpacePortionRect = NSRect(origin: NSZeroPoint, size: image.size)
+        let srcSpacePortionRect = NSRect(origin: NSPoint.zero, size: image.size)
         srcSpacePortionRect.fill(using: .sourceAtop)
         self.unlockFocus()
         return image

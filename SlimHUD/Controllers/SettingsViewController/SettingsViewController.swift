@@ -8,13 +8,22 @@
 import Cocoa
 import Sparkle
 
-class SettingsViewController: NSViewController {
+class SettingsViewController: NSViewController, SPUUpdaterDelegate {
     let loginItemsList = LoginItemsList()
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
     @IBOutlet weak var preview: SettingsController!
     weak var delegate: HudsControllerInterface?
     @IBOutlet var spuStandardUpdaterController: SPUStandardUpdaterController!
+
+    @IBOutlet weak var checkBetaUpdatesOutlet: NSButton!
+    func allowedChannels(for updater: SPUUpdater) -> Set<String> {
+        if checkBetaUpdatesOutlet.boolValue() {
+            return Set(["beta"])
+        } else {
+            return Set()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

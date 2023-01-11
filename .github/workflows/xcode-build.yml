@@ -41,19 +41,11 @@ jobs:
           title: ${{ env.test-results-check-name }}
           upload-bundles: never
           show-code-coverage: true
-          
-  wait-for-results-creation:
-    runs-on: ubuntu-latest
-    needs: unit-tests-run
-    if: success() || failure()
-    steps:
-      - name: Wait 15 seconds
-        run: sleep 15
 
   create-comment-unit-tests-with-coverage:
     runs-on: ubuntu-latest
-    needs: wait-for-results-creation
-    if: github.event_name == 'pull_request'
+    needs: unit-tests-run
+    if: github.event_name == 'pull_request' && (success() || failure())
     steps:
       - uses: actions/github-script@v6
         id: get-run

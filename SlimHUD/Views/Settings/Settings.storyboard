@@ -152,25 +152,6 @@
                                                         <action selector="checkForUpdates:" target="Ybb-NY-68V" id="xQA-mg-8ie"/>
                                                     </connections>
                                                 </button>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GBx-2Y-xd0">
-                                                    <rect key="frame" x="18" y="131" width="74" height="16"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="r1c-lR-bLk"/>
-                                                    </constraints>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Last check:" id="bCq-IT-QYz">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rlB-o6-api">
-                                                    <rect key="frame" x="117" y="131" width="167" height="16"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ZCD-B6-P0l">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kqn-E7-wLn">
                                                     <rect key="frame" x="18" y="16" width="119" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="twC-ta-xYI">
@@ -181,6 +162,33 @@
                                                         <action selector="launchAtLoginClicked:" target="KlL-pV-FiE" id="b4o-6i-DCU"/>
                                                     </connections>
                                                 </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cTt-k3-2Sh">
+                                                    <rect key="frame" x="15" y="130" width="168" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="check" title="Check for beta updates" bezelStyle="regularSquare" imagePosition="left" inset="2" id="v4e-AX-oMO">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GBx-2Y-xd0">
+                                                    <rect key="frame" x="18" y="101" width="74" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="r1c-lR-bLk"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Last check:" id="bCq-IT-QYz">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rlB-o6-api">
+                                                    <rect key="frame" x="117" y="101" width="167" height="16"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ZCD-B6-P0l">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="NLO-F0-6eW" firstAttribute="top" secondItem="7Lf-lB-SKO" secondAttribute="bottom" constant="20" id="0ru-rp-DjE"/>
@@ -202,7 +210,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="IQ5-YB-cfs" secondAttribute="bottom" constant="43" id="TVN-cv-wlt"/>
                                                 <constraint firstAttribute="trailing" secondItem="d4b-Jz-J74" secondAttribute="trailing" constant="17" id="WFo-Fb-fAE"/>
                                                 <constraint firstItem="d4b-Jz-J74" firstAttribute="leading" secondItem="ifq-vl-p4i" secondAttribute="trailing" constant="71" id="YME-Av-taC"/>
-                                                <constraint firstItem="GBx-2Y-xd0" firstAttribute="top" secondItem="R84-uu-mql" secondAttribute="bottom" constant="14" id="aNx-Zt-F9J"/>
+                                                <constraint firstItem="GBx-2Y-xd0" firstAttribute="top" secondItem="R84-uu-mql" secondAttribute="bottom" constant="44" id="aNx-Zt-F9J"/>
                                                 <constraint firstItem="IQ5-YB-cfs" firstAttribute="top" secondItem="aDZ-lb-0zq" secondAttribute="bottom" constant="16" id="aTe-5O-SD4"/>
                                                 <constraint firstItem="rlB-o6-api" firstAttribute="leading" secondItem="GBx-2Y-xd0" secondAttribute="trailing" constant="29" id="cIE-ws-7gr"/>
                                                 <constraint firstItem="Kqn-E7-wLn" firstAttribute="leading" secondItem="f21-hD-jmd" secondAttribute="leading" id="d7m-oC-Bf9"/>
@@ -217,7 +225,7 @@
                                                 <constraint firstItem="rlB-o6-api" firstAttribute="trailing" secondItem="aDZ-lb-0zq" secondAttribute="trailing" id="uIx-2o-udJ"/>
                                                 <constraint firstItem="ifq-vl-p4i" firstAttribute="top" secondItem="d4b-Jz-J74" secondAttribute="top" id="vtj-x6-nme"/>
                                                 <constraint firstItem="ifq-vl-p4i" firstAttribute="leading" secondItem="7Lf-lB-SKO" secondAttribute="trailing" constant="8" symbolic="YES" id="w4V-eZ-dlJ"/>
-                                                <constraint firstItem="aDZ-lb-0zq" firstAttribute="top" secondItem="GBx-2Y-xd0" secondAttribute="bottom" constant="51" id="x7K-5x-52A"/>
+                                                <constraint firstItem="aDZ-lb-0zq" firstAttribute="top" secondItem="GBx-2Y-xd0" secondAttribute="bottom" constant="21" id="x7K-5x-52A"/>
                                                 <constraint firstItem="cHO-OC-7yP" firstAttribute="leading" secondItem="GBx-2Y-xd0" secondAttribute="leading" id="ymg-oW-bDs"/>
                                                 <constraint firstItem="7Lf-lB-SKO" firstAttribute="top" secondItem="4rc-p0-xNQ" secondAttribute="bottom" constant="16" id="za7-fo-FRI"/>
                                             </constraints>
@@ -803,6 +811,7 @@
                         <outlet property="brightnessIconColorOutlet" destination="ghq-Wy-LQP" id="Nkb-4U-hkA"/>
                         <outlet property="chagedColorOfLabel" destination="FLV-hq-l4L" id="i05-35-M28"/>
                         <outlet property="changedColorOfOutlet" destination="zOO-f8-JwW" id="lGu-Ev-h4T"/>
+                        <outlet property="checkBetaUpdatesOutlet" destination="cTt-k3-2Sh" id="XTK-pk-6R3"/>
                         <outlet property="continuousCheckHelpBtn" destination="IQ5-YB-cfs" id="luO-iz-wHq"/>
                         <outlet property="continuousCheckOutlet" destination="f21-hD-jmd" id="wEa-ZR-enJ"/>
                         <outlet property="enabledBarsOutlet" destination="4rc-p0-xNQ" id="ZSx-HT-3gs"/>
@@ -830,7 +839,12 @@
                     </connections>
                 </viewController>
                 <customObject id="UTx-fl-OKg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="Ybb-NY-68V" customClass="SPUStandardUpdaterController"/>
+                <customObject id="Ybb-NY-68V" customClass="SPUStandardUpdaterController">
+                    <connections>
+                        <outlet property="updaterDelegate" destination="KlL-pV-FiE" id="Bqf-FE-lyf"/>
+                    </connections>
+                </customObject>
+                <customObject id="tC1-8n-1ht" customClass="SparkleUpdaterDelegate" customModule="SlimHUD" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="714.5" y="151"/>
         </scene>
@@ -912,7 +926,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSRefreshTemplate" width="18" height="21"/>
+        <image name="NSRefreshTemplate" width="17" height="20"/>
         <image name="backlight" width="225" height="120"/>
         <image name="brightness" width="224" height="223"/>
         <image name="brightnessSegmTemplate" width="116" height="115"/>
