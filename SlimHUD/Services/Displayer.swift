@@ -202,7 +202,7 @@ class Displayer: HudsControllerInterface {
         barView.bar.layer?.cornerRadius = thickness/2 // setting up outer layer
         barView.bar.frame.size.width = thickness
     }
-    
+
     @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor) {
         getIcon(hud: volumeHud).contentTintColor = color

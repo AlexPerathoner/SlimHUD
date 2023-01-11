@@ -53,7 +53,7 @@ class SettingsController: NSView, HudsControllerInterface {
         keyboardBar.foreground = DefaultColors.Azure
         setBackgroundColor(color: DefaultColors.DarkGray)
     }
-    
+
     @available(OSX 10.14, *)
     func setupDefaultIconsColors() {
         settingsManager.volumeIconColor = .white
@@ -122,17 +122,17 @@ class SettingsController: NSView, HudsControllerInterface {
             keyboardView.isHidden = !enabledBars.keyboardBar
         }
     }
-    
+
     // FIXME: changing icons tint in preview only works if instantiation AND tinting are called twice
     @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor, enabled: Bool) {
-        if(enabled) {
+        if enabled {
             volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
         } else {
             volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
         }
         volumeImage.image = volumeImage.image?.tint(with: color)
-        if(enabled) {
+        if enabled {
             volumeImage.image = NSImage(named: NSImage.VolumeImageFileName)
         } else {
             volumeImage.image = NSImage(named: NSImage.NoVolumeImageFileName)
@@ -168,7 +168,7 @@ class SettingsController: NSView, HudsControllerInterface {
         setBrightnessColor(color: settingsManager.brightnessColor)
         setKeyboardColor(color: settingsManager.keyboardColor)
         setShouldUseAnimation(shouldUseAnimation: settingsManager.shouldUseAnimation)
-        
+
         if #available(OSX 10.14, *) {
             setVolumeIconsTint(settingsManager.volumeIconColor)
             setBrightnessIconsTint(settingsManager.brightnessIconColor)
