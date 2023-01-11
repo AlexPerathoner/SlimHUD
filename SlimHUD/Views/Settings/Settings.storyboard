@@ -162,14 +162,6 @@
                                                         <action selector="launchAtLoginClicked:" target="KlL-pV-FiE" id="b4o-6i-DCU"/>
                                                     </connections>
                                                 </button>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cTt-k3-2Sh">
-                                                    <rect key="frame" x="15" y="130" width="168" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Check for beta updates" bezelStyle="regularSquare" imagePosition="left" inset="2" id="v4e-AX-oMO">
-                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GBx-2Y-xd0">
                                                     <rect key="frame" x="18" y="101" width="74" height="16"/>
                                                     <constraints>
@@ -189,6 +181,17 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ag-pT-8Fo">
+                                                    <rect key="frame" x="13" y="122" width="180" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Check for Beta Updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xgn-Io-8ZT">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="checkBetaUpdates:" target="KlL-pV-FiE" id="bfc-Ic-xwn"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="NLO-F0-6eW" firstAttribute="top" secondItem="7Lf-lB-SKO" secondAttribute="bottom" constant="20" id="0ru-rp-DjE"/>
@@ -811,7 +814,6 @@
                         <outlet property="brightnessIconColorOutlet" destination="ghq-Wy-LQP" id="Nkb-4U-hkA"/>
                         <outlet property="chagedColorOfLabel" destination="FLV-hq-l4L" id="i05-35-M28"/>
                         <outlet property="changedColorOfOutlet" destination="zOO-f8-JwW" id="lGu-Ev-h4T"/>
-                        <outlet property="checkBetaUpdatesOutlet" destination="cTt-k3-2Sh" id="XTK-pk-6R3"/>
                         <outlet property="continuousCheckHelpBtn" destination="IQ5-YB-cfs" id="luO-iz-wHq"/>
                         <outlet property="continuousCheckOutlet" destination="f21-hD-jmd" id="wEa-ZR-enJ"/>
                         <outlet property="enabledBarsOutlet" destination="4rc-p0-xNQ" id="ZSx-HT-3gs"/>
@@ -832,6 +834,7 @@
                         <outlet property="spuStandardUpdaterController" destination="Ybb-NY-68V" id="xKH-32-ugq"/>
                         <outlet property="thicknessSlider" destination="M7a-g6-Qbm" id="paO-8u-lGJ"/>
                         <outlet property="thicknessValue" destination="Ua1-b0-fOM" id="K7f-wK-ljf"/>
+                        <outlet property="updaterDelegate" destination="5GR-Zv-iUz" id="rdG-CE-7j0"/>
                         <outlet property="volumeColorHelpBtn" destination="WuT-TW-coG" id="p8Y-r2-e0p"/>
                         <outlet property="volumeDisabledColorOutlet" destination="ecn-u0-J82" id="c5m-2a-cbD"/>
                         <outlet property="volumeEnabledColorOutlet" destination="6xM-9y-mee" id="Cmz-j6-UIw"/>
@@ -839,12 +842,12 @@
                     </connections>
                 </viewController>
                 <customObject id="UTx-fl-OKg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="5GR-Zv-iUz" customClass="UpdaterDelegate" customModule="SlimHUD" customModuleProvider="target"/>
                 <customObject id="Ybb-NY-68V" customClass="SPUStandardUpdaterController">
                     <connections>
-                        <outlet property="updaterDelegate" destination="KlL-pV-FiE" id="Bqf-FE-lyf"/>
+                        <outlet property="updaterDelegate" destination="5GR-Zv-iUz" id="Gl8-EY-ti9"/>
                     </connections>
                 </customObject>
-                <customObject id="tC1-8n-1ht" customClass="SparkleUpdaterDelegate" customModule="SlimHUD" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="714.5" y="151"/>
         </scene>

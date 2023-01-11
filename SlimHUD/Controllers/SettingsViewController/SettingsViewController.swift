@@ -15,15 +15,7 @@ class SettingsViewController: NSViewController, SPUUpdaterDelegate {
     @IBOutlet weak var preview: SettingsController!
     weak var delegate: HudsControllerInterface?
     @IBOutlet var spuStandardUpdaterController: SPUStandardUpdaterController!
-
-    @IBOutlet weak var checkBetaUpdatesOutlet: NSButton!
-    func allowedChannels(for updater: SPUUpdater) -> Set<String> {
-        if checkBetaUpdatesOutlet.boolValue() {
-            return Set(["beta"])
-        } else {
-            return Set()
-        }
-    }
+    @IBOutlet var updaterDelegate: UpdaterDelegate!
 
     override func awakeFromNib() {
         super.awakeFromNib()

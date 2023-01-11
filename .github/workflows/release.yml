@@ -25,6 +25,8 @@ jobs:
           else
             echo "env=deploy-release" >> $GITHUB_OUTPUT
           fi
+      - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
+        id: comment-branch
       - name: start deployment
         uses: bobheadxi/deployments@v1.3.0
         id: deployment
@@ -32,6 +34,7 @@ jobs:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
           env: ${{ steps.check-beta.outputs.env }}
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
       - name: Save deployment id to file
         run: echo ${{ steps.deployment.outputs.deployment_id }} > deployment_id
       - name: Save deployment id
@@ -56,8 +59,6 @@ jobs:
             if (pr.data.draft || !pr.data.mergeable) {
               core.setFailed("PR is not ready to be merged");
             }
-      - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
-        id: comment-branch
       - uses: actions/checkout@v3
         if: success()
         with:
@@ -92,6 +93,7 @@ jobs:
           rm new_version
       - name: Sync branch
         uses: devmasx/merge-branch@master
+        if: ${{ !contains(github.event.comment.body, 'beta') }}
         with:
           type: now
           from_branch: ${{ steps.comment-branch.outputs.base_ref }}
@@ -358,27 +360,3 @@ jobs:
         with:
           comment-id: ${{ github.event.comment.id }}
           reactions: confused
-      - name: update deployment status
-        uses: bobheadxi/deployments@v1.3.0
-        if: ${{ always() && !contains(github.event.comment.body, 'beta') }}
-        with:
-          step: finish
-          token: ${{ secrets.GITHUB_TOKEN }}
-          status: ${{ needs.release.status }}
-          env: deploy-release
-          deployment_id: $(cat artifacts/artifact/deployment_id)
-      - name: Output jobs output
-        if: ${{ always() && contains(github.event.comment.body, 'beta') }}
-        run: |
-          echo $(cat artifacts/artifact/deployment_id)
-          echo ${{ needs.pre-release.status }}
-
-      - name: update deployment status
-        uses: bobheadxi/deployments@v1.3.0
-        if: ${{ always() && contains(github.event.comment.body, 'beta') }}
-        with:
-          step: finish
-          token: ${{ secrets.GITHUB_TOKEN }}
-          status: ${{ needs.pre-release.status }}
-          env: deploy-beta
-          deployment_id: $(cat artifacts/artifact/deployment_id)

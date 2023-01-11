@@ -5,13 +5,30 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>1.4.1</title>
+            <pubDate>Wed, 11 Jan 2023 04:23:30 +0000</pubDate>
+            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1.4.1</sparkle:version>
+            <sparkle:shortVersionString>1.4.1</sparkle:shortVersionString>
+            <description><![CDATA[<h1>Fixes</h1>
+<ul>
+<li>Add option to make inside bar flat or round</li>
+<li>Fix bug: icons not centered</li>
+<li>Fix bug: HUDs not resizable</li>
+<li>Fix bug: popovers memory leak in settings window</li>
+</ul>]]></description>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.1-beta/SlimHUD.zip" length="5458068" type="application/octet-stream" sparkle:edSignature="XgfCazdwBrMXbbsWIRSLDvHoldSEEHYy07EDWGRmW+ZZoHP4vZb9T/jDrKg3Ek8IUFLN/xYQ3ZKS6UwrQSKcCQ=="/>
+        </item>
+        <item>
             <title>1.4.0</title>
             <pubDate>Sun, 01 Jan 2023 18:13:12 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
             <sparkle:version>1.4.0</sparkle:version>
             <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
             <sparkle:tags>
-            <sparkle:criticalUpdate></sparkle:criticalUpdate>
+                <sparkle:criticalUpdate/>
             </sparkle:tags>
             <description><![CDATA[<h1>Fixes</h1>
               <h2>Critical update!</h2>

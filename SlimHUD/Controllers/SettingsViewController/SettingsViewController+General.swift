@@ -36,4 +36,12 @@ extension SettingsViewController {
         settingsManager.marginValue = marginValue
     }
 
+    @IBAction func checkBetaUpdates(_ sender: Any) {
+        updaterDelegate.checkBetaUpdates = true
+        spuStandardUpdaterController.checkForUpdates(self)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.updaterDelegate.checkBetaUpdates = false
+        }
+    }
+
 }
