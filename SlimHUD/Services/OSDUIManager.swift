@@ -9,7 +9,7 @@ import Foundation
 
 class OSDUIManager {
     private init() {}
-    
+
     public static func start() {
         do {
             let task = Process()
