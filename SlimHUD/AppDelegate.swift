@@ -13,11 +13,12 @@ import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSWindowController, NSApplicationDelegate {
-
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
     var settingsWindowController: SettingsWindowController?
     var aboutWindowController: AboutWindowController?
+    
+    var keyPressObserver = KeyPressObserver()
 
     @IBOutlet weak var statusMenu: NSMenu!
 
@@ -150,6 +151,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
             self.positionManager.setupHUDsPosition(false)
             self.changesObserver.resetTemporarelyDisabledBars()
         }
+        
+        keyPressObserver.startObserving()
 
         OSDUIManager.stop()
     }

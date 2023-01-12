@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
-		FA1F1897296F777B009B2288 /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FA1F1896296F777B009B2288 /* MediaKeyTap */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
 		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
 		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
@@ -70,6 +69,7 @@
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
+		FAD154E1296F8AF000AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E0296F8AF000AC8BBB /* MediaKeyTap */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
 		FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579F29675F7700C32A80 /* AppleScriptError.swift */; };
 		FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */; };
@@ -170,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA95EE242956FD3A005B39CD /* Sparkle in Frameworks */,
-				FA1F1897296F777B009B2288 /* MediaKeyTap in Frameworks */,
+				FAD154E1296F8AF000AC8BBB /* MediaKeyTap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +437,7 @@
 			name = SlimHUD;
 			packageProductDependencies = (
 				FA95EE232956FD3A005B39CD /* Sparkle */,
-				FA1F1896296F777B009B2288 /* MediaKeyTap */,
+				FAD154E0296F8AF000AC8BBB /* MediaKeyTap */,
 			);
 			productName = SlimHUD;
 			productReference = FA95EDF12956FCBF005B39CD /* SlimHUD.app */;
@@ -513,7 +513,7 @@
 			mainGroup = FA95EDE82956FCBF005B39CD;
 			packageReferences = (
 				FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */,
-				FA1F1895296F777B009B2288 /* XCRemoteSwiftPackageReference "MediaKeyTap" */,
+				FAD154DF296F8AF000AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */,
 			);
 			productRefGroup = FA95EDF22956FCBF005B39CD /* Products */;
 			projectDirPath = "";
@@ -783,7 +783,6 @@
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
-				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -814,7 +813,6 @@
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
-				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -945,14 +943,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA1F1895296F777B009B2288 /* XCRemoteSwiftPackageReference "MediaKeyTap" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MonitorControl/MediaKeyTap";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -961,18 +951,26 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		FAD154DF296F8AF000AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AlexPerathoner/MediaKeyTap";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA1F1896296F777B009B2288 /* MediaKeyTap */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA1F1895296F777B009B2288 /* XCRemoteSwiftPackageReference "MediaKeyTap" */;
-			productName = MediaKeyTap;
-		};
 		FA95EE232956FD3A005B39CD /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		FAD154E0296F8AF000AC8BBB /* MediaKeyTap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAD154DF296F8AF000AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */;
+			productName = MediaKeyTap;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
