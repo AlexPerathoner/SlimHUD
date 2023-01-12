@@ -47,6 +47,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     func quit() {
         settingsManager.saveAllItems()
+        OSDUIManager.start()
         exit(0)
     }
 
