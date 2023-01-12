@@ -88,22 +88,10 @@ class ChangesObserver {
         displayer.showVolumeHUD()
     }
     @objc func showBrightnessHUD() {
-        do {
-            brightnessView.bar.progress = try DisplayManager.getDisplayBrightness()
-            displayer.showBrightnessHUD()
-        } catch {
-            temporarelyDisabledBars.brightnessBar = true
-            NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
-        }
+        displayer.showBrightnessHUD()
     }
     @objc func showKeyboardHUD() {
-        do {
-            keyboardView.bar.progress = try KeyboardManager.getKeyboardBrightness()
-            displayer.showKeyboardHUD()
-        } catch {
-            temporarelyDisabledBars.keyboardBar = true
-            NSLog("Failed to retrieve keyboard brightness")
-        }
+        displayer.showKeyboardHUD()
     }
 
     @objc func checkChanges() {
