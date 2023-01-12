@@ -6,9 +6,9 @@
 //
 
 import Cocoa
+import MediaKeyTap
 
 class KeyPressObserver: NSApplication {
-
     static let volumeChanged = Notification.Name("SlimHUD.volumeChanged")
     static let brightnessChanged = Notification.Name("SlimHUD.brightnessChanged")
     static let keyboardIlluminationChanged = Notification.Name("SlimHUD.keyboardIlluminationChanged")
@@ -43,6 +43,28 @@ class KeyPressObserver: NSApplication {
             default:
                 break
             }
+        }
+    }
+
+    var mediaKeyTap: MediaKeyTap?
+
+    override func awakeFromNib() {
+        self.mediaKeyTap = MediaKeyTap(delegate: self, on: .keyDownAndUp)
+        self.mediaKeyTap?.start()
+    }
+}
+
+extension KeyPressObserver: MediaKeyTapDelegate {
+    func handle(mediaKey: MediaKey, event: KeyEvent?, modifiers: NSEvent.ModifierFlags?) {
+        switch mediaKey {
+        case .volumeUp, .volumeDown, .mute:
+            NotificationCenter.default.post(name: KeyPressObserver.volumeChanged, object: self)
+        case .brightnessDown, .brightnessUp:
+            NotificationCenter.default.post(name: KeyPressObserver.brightnessChanged, object: self)
+        case .keyboardBrightnessUp, .keyboardBrightnessDown, .keyboardBrightnessToggle:
+            NotificationCenter.default.post(name: KeyPressObserver.keyboardIlluminationChanged, object: self)
+        default:
+            return
         }
     }
 }
