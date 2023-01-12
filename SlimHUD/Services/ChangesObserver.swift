@@ -11,6 +11,7 @@ import Cocoa
 class ChangesObserver {
     private var oldFullScreen: Bool
     private var oldVolume: Float
+    private var oldMuted: Bool
     private var oldBrightness: Float = 0
     private var oldKeyboard: Float = 0
 
@@ -26,6 +27,7 @@ class ChangesObserver {
     init(positionManager: PositionManager, displayer: Displayer, volumeView: BarView, brightnessView: BarView, keyboardView: BarView) {
         oldFullScreen = DisplayManager.isInFullscreenMode()
         oldVolume = VolumeManager.getOutputVolume()
+        oldMuted = VolumeManager.isMuted()
 
         do {
             oldBrightness = try DisplayManager.getDisplayBrightness()
@@ -62,26 +64,24 @@ class ChangesObserver {
     }
 
     private func createObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(showVolumeHUD), name: KeyPressObserver.volumeChanged, object: nil)
         DistributedNotificationCenter.default.addObserver(self,
                                                           selector: #selector(showVolumeHUD),
                                                           name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"),
                                                           object: nil)
-
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showVolumeHUD),
+                                               name: KeyPressObserver.volumeChanged,
+                                               object: nil)
         // observers for brightness
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(showBrightnessHUD),
                                                name: KeyPressObserver.brightnessChanged,
                                                object: nil)
-
         // observers for keyboard backlight
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(showKeyboardHUD),
-                                               name: KeyPressObserver.keyboardIlluminationChanged, object: nil)
-        DistributedNotificationCenter.default.addObserver(self,
-                                                          selector: #selector(showVolumeHUD),
-                                                          name: NSNotification.Name(rawValue: "com.apple.sound.settingsChangedNotification"),
-                                                          object: nil)
+                                               name: KeyPressObserver.keyboardIlluminationChanged,
+                                               object: nil)
     }
 
     @objc func showVolumeHUD() {
@@ -101,14 +101,16 @@ class ChangesObserver {
             positionManager.setupHUDsPosition(newFullScreen)
             oldFullScreen = newFullScreen
         }
-
-        if settingsManager.enabledBars.brightnessBar && !temporarelyDisabledBars.brightnessBar {
-            checkBrightnessChanges()
+        if settingsManager.shouldContinuouslyCheck {
+            if settingsManager.enabledBars.brightnessBar && !temporarelyDisabledBars.brightnessBar {
+                checkBrightnessChanges()
+            }
+            if settingsManager.enabledBars.keyboardBar && !temporarelyDisabledBars.keyboardBar {
+                checkKeyboardChanges()
+            }
         }
-        if settingsManager.enabledBars.keyboardBar && !temporarelyDisabledBars.keyboardBar {
-            checkKeyboardChanges()
-        }
-        if settingsManager.shouldContinuouslyCheck && settingsManager.enabledBars.volumeBar {
+        // volume can't change on its own, so we always continuously check it
+        if settingsManager.enabledBars.volumeBar && settingsManager.enabledBars.volumeBar {
             checkVolumeChanges()
         }
     }
@@ -120,10 +122,12 @@ class ChangesObserver {
 
     private func checkVolumeChanges() {
         let newVolume = VolumeManager.getOutputVolume()
+        let newMuted = VolumeManager.isMuted()
         volumeView.bar!.progress = newVolume
-        if !isAlmost(firstNumber: oldVolume, secondNumber: newVolume) {
+        if !isAlmost(firstNumber: oldVolume, secondNumber: newVolume) || newMuted != oldMuted {
             displayer.showVolumeHUD()
             oldVolume = newVolume
+            oldMuted = newMuted
         }
         volumeView.bar!.progress = newVolume
     }

@@ -13,7 +13,6 @@ import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSWindowController, NSApplicationDelegate {
-
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
     var settingsWindowController: SettingsWindowController?
@@ -48,6 +47,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     func quit() {
         settingsManager.saveAllItems()
+        OSDUIManager.start()
         exit(0)
     }
 

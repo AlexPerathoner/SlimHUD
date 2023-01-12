@@ -54,9 +54,7 @@ class Displayer: HudsControllerInterface {
         let muted = VolumeManager.isMuted()
         let volumeView = getBarView(hud: volumeHud)
         setColor(for: volumeView.bar!, muted)
-        if !settingsManager.shouldContinuouslyCheck {
-            volumeView.bar!.progress = VolumeManager.getOutputVolume()
-        }
+        volumeView.bar!.progress = VolumeManager.getOutputVolume()
 
         if muted {
             volumeView.image!.image = NSImage(named: NSImage.NoVolumeImageFileName)
@@ -71,6 +69,18 @@ class Displayer: HudsControllerInterface {
 
     func showBrightnessHUD() {
         if !settingsManager.enabledBars.brightnessBar {return}
+        // if the function is being called because the key has been pressed, the display's brightness
+        //  hasn't completely changed yet (or not at all). So for the next half a second, we continously check its value.
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            do {
+                self.getProgressBar(hud: self.brightnessHud).progress = try DisplayManager.getDisplayBrightness()
+            } catch {
+                NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            timer.invalidate()
+        }
         brightnessHud.show()
         volumeHud.hide(animated: false)
         keyboardHud.hide(animated: false)
@@ -78,6 +88,18 @@ class Displayer: HudsControllerInterface {
     }
     func showKeyboardHUD() {
         if !settingsManager.enabledBars.keyboardBar {return}
+        // if the function is being called because the key has been pressed, the keyboard's brightness
+        //  hasn't completely changed yet (or not at all). So for the next half a second, we continously check its value.
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            do {
+                self.getProgressBar(hud: self.keyboardHud).progress = try KeyboardManager.getKeyboardBrightness()
+            } catch {
+                NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            timer.invalidate()
+        }
         keyboardHud.show()
         volumeHud.hide(animated: false)
         brightnessHud.hide(animated: false)
