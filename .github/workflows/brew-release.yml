@@ -1,9 +1,10 @@
 name: "Update brew formula"
 on:
-  rss:
-    url: https://alexperathoner.github.io/SlimHUD/Support/appcast.xml
-# Should run only when a new release is published, after its github pages deployment has finished
-
+  workflow_run:
+    workflows: [Create Release]
+    types:
+      - completed
+ 
 jobs:
   update-brew-formula:
     runs-on: ubuntu-latest
@@ -21,4 +22,4 @@ jobs:
             return latest_release.data.tag_name.replace("v", "")
       - name: Update formula # Homebrew bump-cask-pr action to update formula
         run: |
-          brew bump-cask-pr --version ${{ steps.get-release.outputs.result }} slimhud
+          brew bump-cask-pr --version ${{ steps.get-release.outputs.result }} --no-browse --debug --verbose slimhud
