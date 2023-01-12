@@ -1,3 +1,6 @@
+# 1.4.2 - Improved non-continous checks
+* Show system HUDs after SlimHUD quit
+
 # 1.4.1 - Fixes
 * Add option to make inside bar flat or round
 * Fix bug: icons not centered
