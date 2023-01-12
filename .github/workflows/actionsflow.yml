@@ -1,0 +1,40 @@
+name: Actionsflow
+on:
+  schedule:
+    # Run every day at 15:00
+    - cron: "0 15 * * *"
+  push:
+    branches:
+      - main
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      include:
+        description: "--include: workflow file filter, you can use glob format to filter your workflows, the default value is empty value, means no filter will be using"
+        required: false
+        default: ""
+      force:
+        description: "--force: whether force to run workflow, true or false"
+        required: false
+        default: "false"
+      verbose:
+        description: "--verbose: debug workflow, true or false"
+        required: false
+        default: "false"
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    name: Run
+    concurrency: actionsflow
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Actionsflow
+        uses: actionsflow/actionsflow-action@v1
+        with:
+          args: "build --include ${{ github.event.inputs.include || ''}} -f ${{github.event.inputs.force=='true' && 'true' || 'false'}} --verbose ${{github.event.inputs.verbose=='true' && 'true' || 'false'}}"
+          json-secrets: ${{ toJSON(secrets) }}
+          json-github: ${{ toJSON(github) }}
+      - name: Setup act
+        uses: actionsflow/setup-act-for-actionsflow@v1
+      - name: Run act
+        run: act --workflows ./dist/workflows --secret-file ./dist/.secrets --eventpath ./dist/event.json --env-file ./dist/.env -P ubuntu-latest=actionsflow/act-environment:v1 -P ubuntu-18.04=actionsflow/act-environment:v1
