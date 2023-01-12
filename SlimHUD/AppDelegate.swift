@@ -18,8 +18,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     var settingsWindowController: SettingsWindowController?
     var aboutWindowController: AboutWindowController?
     
-    var keyPressObserver = KeyPressObserver()
-
     @IBOutlet weak var statusMenu: NSMenu!
 
     @IBAction func quitCliked(_ sender: Any) {
@@ -152,8 +150,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
             self.changesObserver.resetTemporarelyDisabledBars()
         }
         
-        keyPressObserver.startObserving()
-
         OSDUIManager.stop()
     }
 }
