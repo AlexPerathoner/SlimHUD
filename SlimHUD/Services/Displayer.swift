@@ -71,7 +71,7 @@ class Displayer: HudsControllerInterface {
         if !settingsManager.enabledBars.brightnessBar {return}
         // if the function is being called because the key has been pressed, the display's brightness
         //  hasn't completely changed yet (or not at all). So for the next half a second, we continously check its value.
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             do {
                 self.getProgressBar(hud: self.brightnessHud).progress = try DisplayManager.getDisplayBrightness()
             } catch {
@@ -90,7 +90,7 @@ class Displayer: HudsControllerInterface {
         if !settingsManager.enabledBars.keyboardBar {return}
         // if the function is being called because the key has been pressed, the keyboard's brightness
         //  hasn't completely changed yet (or not at all). So for the next half a second, we continously check its value.
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             do {
                 self.getProgressBar(hud: self.keyboardHud).progress = try KeyboardManager.getKeyboardBrightness()
             } catch {

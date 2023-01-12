@@ -12,7 +12,7 @@ class KeyPressObserver: NSApplication {
     static let volumeChanged = Notification.Name("SlimHUD.volumeChanged")
     static let brightnessChanged = Notification.Name("SlimHUD.brightnessChanged")
     static let keyboardIlluminationChanged = Notification.Name("SlimHUD.keyboardIlluminationChanged")
-    
+
     /* Capturing media key events. Doesn't work on devices with touch bar, but more efficient, so it should be preferred to using continuous check.
      * TODO: automatically decide if SlimHUD should use this or continuous check, removing toggle in settings
      * Taken from https://stackoverflow.com/a/32769093/6884062
@@ -45,9 +45,9 @@ class KeyPressObserver: NSApplication {
             }
         }
     }
-    
+
     var mediaKeyTap: MediaKeyTap?
-    
+
     override func awakeFromNib() {
         self.mediaKeyTap = MediaKeyTap(delegate: self, on: .keyDownAndUp)
         self.mediaKeyTap?.start()

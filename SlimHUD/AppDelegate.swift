@@ -17,7 +17,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     var settingsWindowController: SettingsWindowController?
     var aboutWindowController: AboutWindowController?
-    
+
     @IBOutlet weak var statusMenu: NSMenu!
 
     @IBAction func quitCliked(_ sender: Any) {
@@ -149,7 +149,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
             self.positionManager.setupHUDsPosition(false)
             self.changesObserver.resetTemporarelyDisabledBars()
         }
-        
+
         OSDUIManager.stop()
     }
 }
