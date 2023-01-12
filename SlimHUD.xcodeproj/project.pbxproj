@@ -69,7 +69,7 @@
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
-		FAD154E1296F8AF000AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E0296F8AF000AC8BBB /* MediaKeyTap */; };
+		FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
 		FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579F29675F7700C32A80 /* AppleScriptError.swift */; };
 		FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */; };
@@ -170,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA95EE242956FD3A005B39CD /* Sparkle in Frameworks */,
-				FAD154E1296F8AF000AC8BBB /* MediaKeyTap in Frameworks */,
+				FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +437,7 @@
 			name = SlimHUD;
 			packageProductDependencies = (
 				FA95EE232956FD3A005B39CD /* Sparkle */,
-				FAD154E0296F8AF000AC8BBB /* MediaKeyTap */,
+				FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */,
 			);
 			productName = SlimHUD;
 			productReference = FA95EDF12956FCBF005B39CD /* SlimHUD.app */;
@@ -513,7 +513,7 @@
 			mainGroup = FA95EDE82956FCBF005B39CD;
 			packageReferences = (
 				FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */,
-				FAD154DF296F8AF000AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */,
+				FAD154E3296F8CFF00AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */,
 			);
 			productRefGroup = FA95EDF22956FCBF005B39CD /* Products */;
 			projectDirPath = "";
@@ -951,12 +951,12 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		FAD154DF296F8AF000AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */ = {
+		FAD154E3296F8CFF00AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AlexPerathoner/MediaKeyTap";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = revision;
+				revision = bd1402a89a0f0caa9b0a6cd0cc9b76fe55bf3f4e;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -967,9 +967,9 @@
 			package = FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
 		};
-		FAD154E0296F8AF000AC8BBB /* MediaKeyTap */ = {
+		FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FAD154DF296F8AF000AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */;
+			package = FAD154E3296F8CFF00AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */;
 			productName = MediaKeyTap;
 		};
 /* End XCSwiftPackageProductDependency section */
