@@ -24,7 +24,7 @@ class Displayer: HudsControllerInterface {
         let volumeIcon = getIcon(hud: volumeHud)
         let brightnessIcon = getIcon(hud: brightnessHud)
         let keyboardIcon = getIcon(hud: keyboardHud)
-    
+
         volumeIcon.image = NSImage(named: NSImage.VolumeImageFileName.three)
         brightnessIcon.image = NSImage(named: NSImage.BrightnessImageFileName.two)
         keyboardIcon.image = NSImage(named: NSImage.KeyboardImageFileName.two)
@@ -260,7 +260,7 @@ extension Displayer { // todo move to icon manager
     private func getVolumeIcon(for progress: Float, isMuted: Bool) -> NSImage {
         return NSImage(named: getVolumeIconName(for: progress, isMuted: isMuted))!
     }
-    
+
     private func getKeyboardIconName(for progress: Float) -> String {
         if progress < 0.5 {
             return NSImage.KeyboardImageFileName.one
@@ -270,7 +270,7 @@ extension Displayer { // todo move to icon manager
     private func getKeyboardIcon(for progress: Float) -> NSImage {
         return NSImage(named: getKeyboardIconName(for: progress))!
     }
-    
+
     private func getBrightnessIconName(for progress: Float) -> String {
         if progress < 0.5 {
             return NSImage.BrightnessImageFileName.one
