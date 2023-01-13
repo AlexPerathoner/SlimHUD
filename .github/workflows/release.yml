@@ -254,7 +254,7 @@ jobs:
 
   release:
     name: "Create Release"
-    runs-on: macos-latest
+    runs-on: macos-12
     environment: deploy-release
     needs: archive
     if: ${{ !contains(github.event.comment.body, 'beta') }}

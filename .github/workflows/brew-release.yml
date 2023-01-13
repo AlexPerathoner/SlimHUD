@@ -1,0 +1,25 @@
+name: "Update brew formula"
+on:
+  workflow_run:
+    workflows: [Create Release]
+    types:
+      - completed
+ 
+jobs:
+  update-brew-formula:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve last version # GitHub Rest API to retrieve last release version
+        uses: actions/github-script@v6
+        id: get-release
+        with:
+          result-encoding: string
+          script: |
+            const latest_release = await github.rest.repos.getLatestRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            return latest_release.data.tag_name.replace("v", "")
+      - name: Update formula # Homebrew bump-cask-pr action to update formula
+        run: |
+          brew bump-cask-pr --version ${{ steps.get-release.outputs.result }} --no-browse --debug --verbose slimhud
