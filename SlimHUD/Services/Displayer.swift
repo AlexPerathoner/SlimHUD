@@ -138,8 +138,8 @@ class Displayer: HudsControllerInterface {
     }
 
     func updateAllAttributes() {
-        setHeight(height: settingsManager.barHeight)
-        setThickness(thickness: settingsManager.barThickness)
+        setHeight(height: CGFloat(settingsManager.barHeight))
+        setThickness(thickness: CGFloat(settingsManager.barThickness))
         updateIcons(isHidden: !settingsManager.shouldShowIcons)
         updateShadows(enabled: settingsManager.shouldShowShadows)
         setBackgroundColor(color: settingsManager.backgroundColor)

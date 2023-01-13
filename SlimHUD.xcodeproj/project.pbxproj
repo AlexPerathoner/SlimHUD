@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
 		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
 		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
@@ -95,6 +96,7 @@
 /* Begin PBXFileReference section */
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
 		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
 		FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAUITestSetup.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				FA95EE292956FD68005B39CD /* SettingsViewController */,
 				FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */,
 				FA95EE252956FD45005B39CD /* AboutWindowController.swift */,
+				FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */,
 				FA95EE272956FD54005B39CD /* SettingsWindowController.swift */,
 			);
 			path = Controllers;
@@ -607,6 +610,7 @@
 				FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */,
 				FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */,
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
+				FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */,
 				FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */,
 				FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */,
 			);
