@@ -14,6 +14,7 @@ class Hud: NSView {
     private var animated = true
 
     /// The NSView that is going to be displayed when show() is called
+    // swiftlint:disable:next force_cast
     private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
     private var originPosition: CGPoint
     private var screenEdge: Position = .left
@@ -94,7 +95,7 @@ class Hud: NSView {
         }
     }
 
-    func hide(animated: Bool) { // TODO: find out why this exists
+    func hide(animated: Bool) {
         if !isHidden {
             guard let view = hudView else { return }
             if animated {
