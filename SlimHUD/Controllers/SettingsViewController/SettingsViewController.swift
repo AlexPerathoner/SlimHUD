@@ -70,9 +70,7 @@ class SettingsViewController: NSViewController, SPUUpdaterDelegate {
             chagedColorOfLabel.stringValue = "Changing colors of bars"
         }
 
-        preview.settingsManager = settingsManager
         preview.setup()
-
     }
 
     var volumeColorHelpVC: SinglePopover?

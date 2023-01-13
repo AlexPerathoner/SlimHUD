@@ -674,7 +674,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="250" height="304"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <subviews>
-                                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="d5M-pg-g2d" userLabel="Volume">
+                                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="d5M-pg-g2d" userLabel="Volume" customClass="BarView" customModule="SlimHUD" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="12" width="47" height="280"/>
                                                             <subviews>
                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="aIF-Ux-qm7" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
@@ -703,7 +703,7 @@
                                                                 <constraint firstAttribute="bottom" secondItem="Z7X-R9-G2U" secondAttribute="bottom" constant="13" id="cvj-u2-Pvt"/>
                                                             </constraints>
                                                         </customView>
-                                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="oS6-Zd-iqx" userLabel="Brightness">
+                                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="oS6-Zd-iqx" userLabel="Brightness" customClass="BarView" customModule="SlimHUD" customModuleProvider="target">
                                                             <rect key="frame" x="102" y="12" width="47" height="280"/>
                                                             <subviews>
                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="1pS-25-F9g" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
@@ -732,7 +732,7 @@
                                                                 <constraint firstItem="1pS-25-F9g" firstAttribute="centerX" secondItem="pnP-XU-V10" secondAttribute="centerX" id="bH0-g8-ZLj"/>
                                                             </constraints>
                                                         </customView>
-                                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="TKY-CF-3zP" userLabel="Keyboard">
+                                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="TKY-CF-3zP" userLabel="Keyboard" customClass="BarView" customModule="SlimHUD" customModuleProvider="target">
                                                             <rect key="frame" x="183" y="12" width="47" height="280"/>
                                                             <subviews>
                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="qaC-lT-2UD" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">

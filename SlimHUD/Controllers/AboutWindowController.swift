@@ -8,7 +8,7 @@
 import Cocoa
 
 class AboutWindowController: NSWindowController, NSWindowDelegate {
-    weak var delegate: AppDelegate?
+    weak var delegate: MainMenuController?
 
     override func windowDidLoad() {
         NSApp.activate(ignoringOtherApps: true)

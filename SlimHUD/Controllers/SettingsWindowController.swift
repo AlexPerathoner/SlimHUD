@@ -8,7 +8,7 @@
 import Cocoa
 
 class SettingsWindowController: NSWindowController, NSWindowDelegate {
-    weak var delegate: AppDelegate?
+    weak var delegate: MainMenuController?
 
     private var previewTimer: Timer?
 

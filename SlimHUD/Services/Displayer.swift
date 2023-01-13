@@ -21,43 +21,20 @@ class Displayer: HudsControllerInterface {
         self.brightnessHud = brightnessHud
         self.keyboardHud = keyboardHud
 
-        let volumeIcon = getIcon(hud: volumeHud)
-        let brightnessIcon = getIcon(hud: brightnessHud)
-        let keyboardIcon = getIcon(hud: keyboardHud)
-
-        volumeIcon.image = NSImage(named: NSImage.VolumeImageFileName.three)
-        brightnessIcon.image = NSImage(named: NSImage.BrightnessImageFileName.three)
-        keyboardIcon.image = NSImage(named: NSImage.KeyboardImageFileName.three)
-        setIconsAnchorPointAndWantsLayer(icon: volumeIcon)
-        setIconsAnchorPointAndWantsLayer(icon: brightnessIcon)
-        setIconsAnchorPointAndWantsLayer(icon: keyboardIcon)
-    }
-
-    private func setIconsAnchorPointAndWantsLayer(icon: NSImageView) {
-        icon.wantsLayer = true
-        icon.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-    }
-
-    private func getBarView(hud: Hud) -> BarView { // todo should find way to change type of attribute inside of Hud
-        // swiftlint:disable:next force_cast
-        return hud.view as! BarView
-    }
-
-    private func getProgressBar(hud: Hud) -> ProgressBar {
-        return getBarView(hud: hud).bar
-    }
-    private func getIcon(hud: Hud) -> NSImageView {
-        return getBarView(hud: hud).image
+        volumeHud.setIconImage(icon: NSImage(named: NSImage.VolumeImageFileName.three)!)
+        brightnessHud.setIconImage(icon: NSImage(named: NSImage.BrightnessImageFileName.three)!)
+        keyboardHud.setIconImage(icon: NSImage(named: NSImage.KeyboardImageFileName.three)!)
     }
 
     func showVolumeHUD() {
         if !settingsManager.enabledBars.volumeBar {return}
         let isMuted = VolumeManager.isMuted()
-        let volumeView = getBarView(hud: volumeHud)
-        setColor(for: volumeView.bar!, isMuted)
+        volumeHud.setForegroundColor(color1: settingsManager.volumeDisabledColor,
+                                     color2: settingsManager.volumeEnabledColor,
+                                     based_on: isMuted)
         let progress = VolumeManager.getOutputVolume()
-        volumeView.bar!.progress = progress
-        getIcon(hud: volumeHud).image = IconManager.getVolumeIcon(for: progress, isMuted: isMuted)
+        volumeHud.setProgress(progress: progress)
+        volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: progress, isMuted: isMuted))
         volumeHud.show()
         brightnessHud.hide(animated: false)
         keyboardHud.hide(animated: false)
@@ -71,8 +48,8 @@ class Displayer: HudsControllerInterface {
         let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             do {
                 let progress = try DisplayManager.getDisplayBrightness()
-                self.getProgressBar(hud: self.brightnessHud).progress = progress
-                self.getIcon(hud: self.brightnessHud).image = IconManager.getBrightnessIcon(for: progress)
+                self.brightnessHud.setProgress(progress: progress)
+                self.brightnessHud.setIconImage(icon: IconManager.getBrightnessIcon(for: progress))
             } catch {
                 NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
             }
@@ -92,8 +69,8 @@ class Displayer: HudsControllerInterface {
         let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             do {
                 let progress = try KeyboardManager.getKeyboardBrightness()
-                self.getProgressBar(hud: self.keyboardHud).progress = progress
-                self.getIcon(hud: self.keyboardHud).image = IconManager.getKeyboardIcon(for: progress)
+                self.keyboardHud.setProgress(progress: progress)
+                self.keyboardHud.setIconImage(icon: IconManager.getKeyboardIcon(for: progress))
             } catch {
                 NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
             }
@@ -115,35 +92,23 @@ class Displayer: HudsControllerInterface {
         }
     }
 
-    func updateAnimation(shouldUseAnimation: Bool) {
-        volumeHud.animated = shouldUseAnimation
-        brightnessHud.animated = shouldUseAnimation
-        keyboardHud.animated = shouldUseAnimation
-
-        getProgressBar(hud: volumeHud).setupAnimation(animated: shouldUseAnimation)
-        getProgressBar(hud: brightnessHud).setupAnimation(animated: shouldUseAnimation)
-        getProgressBar(hud: keyboardHud).setupAnimation(animated: shouldUseAnimation)
-    }
-
     func updateShadows(enabled: Bool) {
-        getBarView(hud: volumeHud).setupShadow(enabled, Constants.ShadowRadius)
-        getBarView(hud: brightnessHud).setupShadow(enabled, Constants.ShadowRadius)
-        getBarView(hud: keyboardHud).setupShadow(enabled, Constants.ShadowRadius)
+        volumeHud.setShadow(enabled, Constants.ShadowRadius)
+        brightnessHud.setShadow(enabled, Constants.ShadowRadius)
+        keyboardHud.setShadow(enabled, Constants.ShadowRadius)
     }
 
     func updateIcons(isHidden: Bool) {
-        getIcon(hud: volumeHud).isHidden = isHidden
-        getIcon(hud: brightnessHud).isHidden = isHidden
-        getIcon(hud: keyboardHud).isHidden = isHidden
+        volumeHud.hideIcon(isHidden: isHidden)
+        brightnessHud.hideIcon(isHidden: isHidden)
+        keyboardHud.hideIcon(isHidden: isHidden)
     }
 
     func setupDefaultBarsColors() {
-        getProgressBar(hud: volumeHud).foreground = DefaultColors.Blue
-        getProgressBar(hud: brightnessHud).foreground = DefaultColors.Yellow
-        getProgressBar(hud: keyboardHud).foreground = DefaultColors.Azure
-        setBrightnessColor(color: DefaultColors.Yellow)
         setVolumeEnabledColor(color: DefaultColors.Blue)
         setVolumeDisabledColor(color: DefaultColors.Gray)
+        setBrightnessColor(color: DefaultColors.Yellow)
+        setKeyboardColor(color: DefaultColors.Azure)
         setBackgroundColor(color: DefaultColors.DarkGray)
     }
 
@@ -155,9 +120,9 @@ class Displayer: HudsControllerInterface {
     }
 
     func setBackgroundColor(color: NSColor) {
-        getProgressBar(hud: volumeHud).background = color
-        getProgressBar(hud: brightnessHud).background = color
-        getProgressBar(hud: keyboardHud).background = color
+        volumeHud.setBackgroundColor(color: color)
+        brightnessHud.setBackgroundColor(color: color)
+        keyboardHud.setBackgroundColor(color: color)
     }
     func setVolumeEnabledColor(color: NSColor) {
         settingsManager.volumeEnabledColor = color
@@ -166,13 +131,15 @@ class Displayer: HudsControllerInterface {
         settingsManager.volumeDisabledColor = color
     }
     func setBrightnessColor(color: NSColor) {
-        getProgressBar(hud: brightnessHud).foreground = color
+        brightnessHud.setForegroundColor(color: color)
     }
     func setKeyboardColor(color: NSColor) {
-        getProgressBar(hud: keyboardHud).foreground = color
+        keyboardHud.setForegroundColor(color: color)
     }
 
-    func updateAll() {
+    func updateAllAttributes() {
+        setHeight(height: CGFloat(settingsManager.barHeight))
+        setThickness(thickness: CGFloat(settingsManager.barThickness))
         updateIcons(isHidden: !settingsManager.shouldShowIcons)
         updateShadows(enabled: settingsManager.shouldShowShadows)
         setBackgroundColor(color: settingsManager.backgroundColor)
@@ -189,54 +156,36 @@ class Displayer: HudsControllerInterface {
     }
 
     func setShouldUseAnimation(shouldUseAnimation: Bool) {
-        setShouldUseAnimation(hud: volumeHud, shouldUseAnimation: shouldUseAnimation)
-        setShouldUseAnimation(hud: brightnessHud, shouldUseAnimation: shouldUseAnimation)
-        setShouldUseAnimation(hud: keyboardHud, shouldUseAnimation: shouldUseAnimation)
-    }
-    private func setShouldUseAnimation(hud: Hud, shouldUseAnimation: Bool) {
-        hud.animated = shouldUseAnimation
-        getProgressBar(hud: hud).setupAnimation(animated: shouldUseAnimation)
+        volumeHud.setShouldUseAnimation(shouldUseAnimation)
+        brightnessHud.setShouldUseAnimation(shouldUseAnimation)
+        keyboardHud.setShouldUseAnimation(shouldUseAnimation)
     }
 
     func setHeight(height: CGFloat) {
-        setHeight(view: getBarView(hud: volumeHud), height: height)
-        setHeight(view: getBarView(hud: brightnessHud), height: height)
-        setHeight(view: getBarView(hud: keyboardHud), height: height)
-        positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
-    }
-    private func setHeight(view: BarView, height: CGFloat) {
-        view.setFrameSize(NSSize(width: view.frame.width, height: height + Constants.ShadowRadius * 3))
+        volumeHud.setHeight(height: height)
+        brightnessHud.setHeight(height: height)
+        keyboardHud.setHeight(height: height)
+        positionManager.setupHUDsPosition(isFullscreen: DisplayManager.isInFullscreenMode())
     }
 
     func setThickness(thickness: CGFloat) {
-        setThickness(barView: getBarView(hud: volumeHud), thickness: thickness)
-        setThickness(barView: getBarView(hud: brightnessHud), thickness: thickness)
-        setThickness(barView: getBarView(hud: keyboardHud), thickness: thickness)
-        positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
-    }
-    private func setThickness(barView: BarView, thickness: CGFloat) {
-        barView.setFrameSize(NSSize(width: thickness + Constants.ShadowRadius * 2, height: barView.frame.height))
-        barView.bar.progressLayer.frame.size.width = thickness // setting up inner layer
-        if settingsManager.flatBar {
-            barView.bar.progressLayer.cornerRadius = 0
-        } else {
-            barView.bar.progressLayer.cornerRadius = thickness/2
-        }
-        barView.bar.layer?.cornerRadius = thickness/2 // setting up outer layer
-        barView.bar.frame.size.width = thickness
+        volumeHud.setThickness(thickness: thickness, flatBar: settingsManager.flatBar)
+        brightnessHud.setThickness(thickness: thickness, flatBar: settingsManager.flatBar)
+        keyboardHud.setThickness(thickness: thickness, flatBar: settingsManager.flatBar)
+        positionManager.setupHUDsPosition(isFullscreen: DisplayManager.isInFullscreenMode())
     }
 
     @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor) {
-        getIcon(hud: volumeHud).contentTintColor = color
+        volumeHud.setIconTint(color)
     }
     @available(OSX 10.14, *)
     func setBrightnessIconsTint(_ color: NSColor) {
-        getIcon(hud: brightnessHud).contentTintColor = color
+        brightnessHud.setIconTint(color)
     }
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
-        getIcon(hud: keyboardHud).contentTintColor = color
+        keyboardHud.setIconTint(color)
     }
 
 }
