@@ -24,9 +24,10 @@ class Displayer: HudsControllerInterface {
         let volumeIcon = getIcon(hud: volumeHud)
         let brightnessIcon = getIcon(hud: brightnessHud)
         let keyboardIcon = getIcon(hud: keyboardHud)
-        volumeIcon.image = NSImage(named: NSImage.VolumeImageFileName)
-        brightnessIcon.image = NSImage(named: NSImage.BrightnessImageFileName)
-        keyboardIcon.image = NSImage(named: NSImage.KeyboardImageFileName)
+    
+        volumeIcon.image = NSImage(named: NSImage.VolumeImageFileName.three)
+        brightnessIcon.image = NSImage(named: NSImage.BrightnessImageFileName.two)
+        keyboardIcon.image = NSImage(named: NSImage.KeyboardImageFileName.two)
         setIconsAnchorPointAndWantsLayer(icon: volumeIcon)
         setIconsAnchorPointAndWantsLayer(icon: brightnessIcon)
         setIconsAnchorPointAndWantsLayer(icon: keyboardIcon)
@@ -57,9 +58,9 @@ class Displayer: HudsControllerInterface {
         volumeView.bar!.progress = VolumeManager.getOutputVolume()
 
         if muted {
-            volumeView.image!.image = NSImage(named: NSImage.NoVolumeImageFileName)
+            volumeView.image!.image = NSImage(named: NSImage.VolumeImageFileName.no)
         } else {
-            volumeView.image!.image = NSImage(named: NSImage.VolumeImageFileName)
+            volumeView.image!.image = NSImage(named: NSImage.VolumeImageFileName.three)
         }
         volumeHud.show()
         brightnessHud.hide(animated: false)

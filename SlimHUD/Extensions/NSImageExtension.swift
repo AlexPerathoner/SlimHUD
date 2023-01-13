@@ -10,10 +10,21 @@ import AppKit
 
 extension NSImage {
 
-    static let VolumeImageFileName = "volume"
-    static let NoVolumeImageFileName = "noVolume"
-    static let BrightnessImageFileName = "brightness"
-    static let KeyboardImageFileName = "backlight"
+    struct VolumeImageFileName {
+        static let no = "volume-no"
+        static let zero = "volume-zero"
+        static let one = "volume-one"
+        static let two = "volume-two"
+        static let three = "volume-three"
+    }
+    struct BrightnessImageFileName {
+        static let one = "sun-one"
+        static let two = "sun-two"
+    }
+    struct KeyboardImageFileName {
+        static let one = "key-one"
+        static let two = "key-two"
+    }
     static let StatusIconFileName = "statusIcon"
 
     func tint(with color: NSColor) -> NSImage {
