@@ -13,10 +13,6 @@ class KeyPressObserver: NSApplication {
     static let brightnessChanged = Notification.Name("SlimHUD.brightnessChanged")
     static let keyboardIlluminationChanged = Notification.Name("SlimHUD.keyboardIlluminationChanged")
 
-    /* Capturing media key events. Doesn't work on devices with touch bar, but more efficient, so it should be preferred to using continuous check.
-     * TODO: automatically decide if SlimHUD should use this or continuous check, removing toggle in settings
-     * Taken from https://stackoverflow.com/a/32769093/6884062
-     */
     override func sendEvent(_ event: NSEvent) {
         if event.type == .systemDefined && event.subtype.rawValue == 8 {
             let keyCode = ((event.data1 & 0xFFFF0000) >> 16)

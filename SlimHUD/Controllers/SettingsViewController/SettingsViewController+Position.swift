@@ -22,7 +22,8 @@ extension SettingsViewController {
         default:
             settingsManager.position = .left
         }
-        delegate?.positionManager.setupHUDsPosition(false)
+        // as the settings window is the frontmost window, fullscreen is certainly false
+        delegate?.positionManager.setupHUDsPosition(isFullscreen: false)
     }
 
     @IBAction func heightSlider(_ sender: NSSlider) {
