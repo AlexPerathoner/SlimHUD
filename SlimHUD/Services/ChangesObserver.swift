@@ -18,13 +18,10 @@ class ChangesObserver {
     private var settingsManager: SettingsManager = SettingsManager.getInstance()
     private var positionManager: PositionManager
     private var displayer: Displayer
-    private var volumeView: BarView
-    private var brightnessView: BarView
-    private var keyboardView: BarView
 
     private var temporarelyDisabledBars = EnabledBars(volumeBar: false, brightnessBar: false, keyboardBar: false)
 
-    init(positionManager: PositionManager, displayer: Displayer, volumeView: BarView, brightnessView: BarView, keyboardView: BarView) {
+    init(positionManager: PositionManager, displayer: Displayer) {
         oldFullScreen = DisplayManager.isInFullscreenMode()
         oldVolume = VolumeManager.getOutputVolume()
         oldMuted = VolumeManager.isMuted()
@@ -47,9 +44,6 @@ class ChangesObserver {
 
         self.positionManager = positionManager
         self.displayer = displayer
-        self.volumeView = volumeView
-        self.brightnessView = brightnessView
-        self.keyboardView = keyboardView
     }
 
     func startObserving() {
@@ -123,13 +117,13 @@ class ChangesObserver {
     private func checkVolumeChanges() {
         let newVolume = VolumeManager.getOutputVolume()
         let newMuted = VolumeManager.isMuted()
-        volumeView.bar!.progress = newVolume
+        displayer.volumeHud.setProgress(progress: newVolume) // TODO: check why twice(?)
         if !isAlmost(firstNumber: oldVolume, secondNumber: newVolume) || newMuted != oldMuted {
             displayer.showVolumeHUD()
             oldVolume = newVolume
             oldMuted = newMuted
         }
-        volumeView.bar!.progress = newVolume
+        displayer.volumeHud.setProgress(progress: newVolume)
     }
 
     private func checkBrightnessChanges() {
@@ -142,7 +136,7 @@ class ChangesObserver {
                 displayer.showBrightnessHUD()
                 oldBrightness = newBrightness
             }
-            brightnessView.bar?.progress = newBrightness
+            displayer.brightnessHud.setProgress(progress: newBrightness)
         } catch {
             temporarelyDisabledBars.brightnessBar = true
             NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
@@ -156,7 +150,7 @@ class ChangesObserver {
                 displayer.showKeyboardHUD()
                 oldKeyboard = newKeyboard
             }
-            keyboardView.bar?.progress = try KeyboardManager.getKeyboardBrightness()
+            displayer.keyboardHud.setProgress(progress: newKeyboard)
         } catch {
             temporarelyDisabledBars.keyboardBar = true
             NSLog("""

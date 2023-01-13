@@ -112,9 +112,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     lazy var positionManager = PositionManager(volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
     lazy var displayer = Displayer(positionManager: positionManager, volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
-    lazy var changesObserver = ChangesObserver(positionManager: positionManager, displayer: displayer,
-                                               volumeView: volumeView, brightnessView: brightnessView,
-                                               keyboardView: keyboardView)
+    lazy var changesObserver = ChangesObserver(positionManager: positionManager, displayer: displayer)
 
     override func awakeFromNib() {
         super.awakeFromNib()
