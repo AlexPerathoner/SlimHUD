@@ -16,9 +16,9 @@ class SettingsController: NSView, HudsControllerInterface {
 
     lazy var positionManager: PositionManager = PositionManager(volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
 
-    @IBOutlet weak var volumeView: NSView!
-    @IBOutlet weak var brightnessView: NSView!
-    @IBOutlet weak var keyboardView: NSView!
+    @IBOutlet weak var volumeView: BarView!
+    @IBOutlet weak var brightnessView: BarView!
+    @IBOutlet weak var keyboardView: BarView!
 
     @IBOutlet weak var volumeBar: ProgressBar!
     @IBOutlet weak var brightnessBar: ProgressBar!
@@ -28,11 +28,18 @@ class SettingsController: NSView, HudsControllerInterface {
     @IBOutlet weak var brightnessImage: NSImageView!
     @IBOutlet weak var keyboardImage: NSImageView!
 
-    func setup() {
-        volumeHud.view = volumeView
-        brightnessHud.view = brightnessView
-        keyboardHud.view = keyboardView
-        updateAll()
+    func setup() { // TODO: find way to remove this, move to init or smt similar
+        volumeView.setBar(bar: volumeBar)
+        brightnessView.setBar(bar: brightnessBar)
+        keyboardView.setBar(bar: keyboardBar)
+        volumeView.setIconImageView(icon: volumeImage)
+        brightnessView.setIconImageView(icon: brightnessImage)
+        keyboardView.setIconImageView(icon: keyboardImage)
+        
+        volumeHud.setBarView(barView: volumeView)
+        brightnessHud.setBarView(barView: brightnessView)
+        keyboardHud.setBarView(barView: keyboardView)
+        updateAllAttributes()
     }
 
     func updateShadows(enabled: Bool) {
@@ -106,12 +113,9 @@ class SettingsController: NSView, HudsControllerInterface {
     }
 
     func setShouldUseAnimation(shouldUseAnimation: Bool) {
-        volumeHud.animated = shouldUseAnimation
-        brightnessHud.animated = shouldUseAnimation
-        keyboardHud.animated = shouldUseAnimation
-        volumeBar.setupAnimation(animated: shouldUseAnimation)
-        brightnessBar.setupAnimation(animated: shouldUseAnimation)
-        keyboardBar.setupAnimation(animated: shouldUseAnimation)
+        volumeHud.setShouldUseAnimation(shouldUseAnimation)
+        brightnessHud.setShouldUseAnimation(shouldUseAnimation)
+        keyboardHud.setShouldUseAnimation(shouldUseAnimation)
         showAnimation()
     }
 
@@ -158,7 +162,7 @@ class SettingsController: NSView, HudsControllerInterface {
         keyboardImage.image = keyboardImage.image?.tint(with: color)
     }
 
-    func updateAll() {
+    func updateAllAttributes() {
         enabledBars = settingsManager.enabledBars
         updateIcons(isHidden: !(settingsManager.shouldShowIcons))
         updateShadows(enabled: settingsManager.shouldShowShadows)

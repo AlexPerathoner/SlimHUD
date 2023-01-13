@@ -42,7 +42,7 @@ class ChangesObserver {
             NSLog("""
                   Failed to retrieve keyboard brightness. Is no keyboard with backlight connected?
                   Disabling keyboard HUD. If you think this is an error please report it on GitHub.
-                  """)  // todo show alert? also when re-enabling hud if it didnt work
+                  """)  // TODO: show alert? also when re-enabling hud if it didnt work
         }
 
         self.positionManager = positionManager

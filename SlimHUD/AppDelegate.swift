@@ -105,6 +105,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     // swiftlint:disable:next force_cast
     var keyboardView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
 
+    // TODO: perhaps subclass each HUD to a custom one, barview then gets created accordingly and hidden completely from outside
     var volumeHud = Hud()
     var brightnessHud = Hud()
     var keyboardHud = Hud()
@@ -127,14 +128,14 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         }
 
         // Setting up huds
-        volumeHud.view = volumeView
-        brightnessHud.view = brightnessView
-        keyboardHud.view = keyboardView
+        volumeHud.setBarView(barView: volumeView)
+        brightnessHud.setBarView(barView: brightnessView)
+        keyboardHud.setBarView(barView: keyboardView)
 
         displayer.setHeight(height: CGFloat(settingsManager.barHeight))
         displayer.setThickness(thickness: CGFloat(settingsManager.barThickness))
 
-        displayer.updateAll()
+        displayer.updateAllAttributes()
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
