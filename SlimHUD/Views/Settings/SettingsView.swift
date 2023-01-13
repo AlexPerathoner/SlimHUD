@@ -35,7 +35,7 @@ class SettingsController: NSView, HudsControllerInterface {
         volumeView.setIconImageView(icon: volumeImage)
         brightnessView.setIconImageView(icon: brightnessImage)
         keyboardView.setIconImageView(icon: keyboardImage)
-        
+
         volumeHud.setBarView(barView: volumeView)
         brightnessHud.setBarView(barView: brightnessView)
         keyboardHud.setBarView(barView: keyboardView)

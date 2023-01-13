@@ -37,7 +37,7 @@ class Hud: NSView {
         setFrameOrigin(position)
         setup()
     }
-    
+
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -52,7 +52,7 @@ class Hud: NSView {
         window.animationBehavior = .none
         windowController = NSWindowController(window: window)
     }
-    
+
     func setBarView(barView: BarView) {
         self.barView = barView
         barView.setupIconAnchorPointAndLayer()
@@ -139,28 +139,28 @@ class Hud: NSView {
         }
         self.perform(#selector(hideDelayed(_:)), with: animated.toInt(), afterDelay: delay)
     }
-    
+
     public func hideIcon(isHidden: Bool) {
         barView.hideIcon(isHidden: isHidden)
     }
-    
+
     @available(macOS 10.14, *)
     public func setIconTint(_ color: NSColor) {
         barView.setIconTint(color)
     }
-    
+
     public func setIconImage(icon: NSImage) {
         barView.setIconImage(icon: icon)
     }
-    
+
     public func setShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {
         barView.setupShadow(enabled, shadowRadius)
     }
-    
+
     public func setHeight(height: CGFloat) {
         barView.setFrameSize(NSSize(width: barView.frame.width, height: height + Constants.ShadowRadius * 3))
     }
-    
+
     public func setThickness(thickness: CGFloat, flatBar: Bool) {
         barView.setFrameSize(NSSize(width: thickness + Constants.ShadowRadius * 2, height: barView.frame.height))
         barView.bar.progressLayer.frame.size.width = thickness // setting up inner layer
@@ -172,11 +172,11 @@ class Hud: NSView {
         barView.bar.layer?.cornerRadius = thickness/2 // setting up outer layer
         barView.bar.frame.size.width = thickness
     }
-    
+
     public func getFrame() -> NSRect {
         return barView.frame
     }
-    
+
     public func setOrientation(isHorizontal: Bool, position: Position) {
         let barViewFrame = barView.frame
         barView.layer?.anchorPoint = CGPoint(x: 0, y: 0)
@@ -195,23 +195,23 @@ class Hud: NSView {
         if position == .top {
             barView.setFrameOrigin(.init(x: 0, y: Constants.ShadowRadius + barViewFrame.width))
         }
-        
+
         barView.setIconRotation(isHorizontal: isHorizontal)
     }
-    
+
     public func setProgress(progress: Float) {
         barView.bar.progress = progress
     }
-    
+
     public func setShouldUseAnimation(_ shouldUseAnimation: Bool) {
         self.animated = shouldUseAnimation
         barView.bar.setupAnimation(animated: shouldUseAnimation)
     }
-    
+
     public func setForegroundColor(color: NSColor) {
         barView.bar.foreground = color
     }
-    
+
     // TODO: find better way for this. Perhaps subclass to VolumeHUD and add a second color "disabled"? ~ could also handle double icon
     public func setForegroundColor(color1: NSColor, color2: NSColor, based_on useFirst: Bool) {
         if useFirst {
@@ -223,10 +223,10 @@ class Hud: NSView {
     public func setBackgroundColor(color: NSColor) {
         barView.bar.background = color
     }
-    
+
     public func setPosition(originPosition: CGPoint, screenEdge: Position) {
         self.originPosition = originPosition
         self.screenEdge = screenEdge
     }
 }
-    
+

@@ -55,7 +55,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
         OSDUIManager.stop()
     }
-    
+
     @IBOutlet weak var statusMenu: NSMenu!
 
 }

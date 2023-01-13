@@ -8,12 +8,12 @@
 import Cocoa
 
 class MainMenuController: NSWindowController {
-    
+
     var settingsWindowController: SettingsWindowController?
     var aboutWindowController: AboutWindowController?
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
-    
+
     @IBAction func quitCliked(_ sender: Any) {
         if isSomeWindowVisible() {
             if settingsManager.showQuitAlert {
@@ -68,7 +68,7 @@ class MainMenuController: NSWindowController {
             NSApplication.shared.setActivationPolicy(.accessory)
         }
     }
-    
+
     private func closeAllWindows() {
         settingsWindowController?.close()
         aboutWindowController?.close()
