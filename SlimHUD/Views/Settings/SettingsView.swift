@@ -152,9 +152,9 @@ class SettingsController: NSView, HudsControllerInterface {
     }
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
-        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName.two)
+        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName.three)
         keyboardImage.image = keyboardImage.image?.tint(with: color)
-        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName.two)
+        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName.three)
         keyboardImage.image = keyboardImage.image?.tint(with: color)
     }
 

@@ -26,8 +26,8 @@ class Displayer: HudsControllerInterface {
         let keyboardIcon = getIcon(hud: keyboardHud)
     
         volumeIcon.image = NSImage(named: NSImage.VolumeImageFileName.three)
-        brightnessIcon.image = NSImage(named: NSImage.BrightnessImageFileName.two)
-        keyboardIcon.image = NSImage(named: NSImage.KeyboardImageFileName.two)
+        brightnessIcon.image = NSImage(named: NSImage.BrightnessImageFileName.three)
+        keyboardIcon.image = NSImage(named: NSImage.KeyboardImageFileName.three)
         setIconsAnchorPointAndWantsLayer(icon: volumeIcon)
         setIconsAnchorPointAndWantsLayer(icon: brightnessIcon)
         setIconsAnchorPointAndWantsLayer(icon: keyboardIcon)
@@ -247,11 +247,11 @@ extension Displayer { // todo move to icon manager
             return NSImage.VolumeImageFileName.no
         }
         switch progress {
-        case 0..<0.25:
+        case 0..<0.1:
             return NSImage.VolumeImageFileName.zero
-        case 0.25..<0.5:
+        case 0.1..<0.4:
             return NSImage.VolumeImageFileName.one
-        case 0.5..<0.75:
+        case 0.4..<0.7:
             return NSImage.VolumeImageFileName.two
         default:
             return NSImage.VolumeImageFileName.three
@@ -262,20 +262,32 @@ extension Displayer { // todo move to icon manager
     }
     
     private func getKeyboardIconName(for progress: Float) -> String {
-        if progress < 0.5 {
+        switch progress {
+        case 0..<0.1:
+            return NSImage.KeyboardImageFileName.zero
+        case 0.1..<0.4:
             return NSImage.KeyboardImageFileName.one
+        case 0.4..<0.7:
+            return NSImage.KeyboardImageFileName.two
+        default:
+            return NSImage.KeyboardImageFileName.three
         }
-        return NSImage.KeyboardImageFileName.two
     }
     private func getKeyboardIcon(for progress: Float) -> NSImage {
         return NSImage(named: getKeyboardIconName(for: progress))!
     }
     
     private func getBrightnessIconName(for progress: Float) -> String {
-        if progress < 0.5 {
+        switch progress {
+        case 0..<0.1:
+            return NSImage.BrightnessImageFileName.zero
+        case 0.1..<0.4:
             return NSImage.BrightnessImageFileName.one
+        case 0.4..<0.7:
+            return NSImage.BrightnessImageFileName.two
+        default:
+            return NSImage.BrightnessImageFileName.three
         }
-        return NSImage.BrightnessImageFileName.two
     }
     private func getBrightnessIcon(for progress: Float) -> NSImage {
         return NSImage(named: getBrightnessIconName(for: progress))!

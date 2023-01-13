@@ -12,18 +12,22 @@ extension NSImage {
 
     struct VolumeImageFileName {
         static let no = "volume-no"
-        static let zero = "volume-zero"
-        static let one = "volume-one"
-        static let two = "volume-two"
-        static let three = "volume-three"
+        static let zero = "volume-0"
+        static let one = "volume-1"
+        static let two = "volume-2"
+        static let three = "volume-3"
     }
     struct BrightnessImageFileName {
-        static let one = "sun-one"
-        static let two = "sun-two"
+        static let zero = "sun-0"
+        static let one = "sun-1"
+        static let two = "sun-2"
+        static let three = "sun-3"
     }
     struct KeyboardImageFileName {
-        static let one = "key-one"
-        static let two = "key-two"
+        static let zero = "key-0"
+        static let one = "key-1"
+        static let two = "key-2"
+        static let three = "key-3"
     }
     static let StatusIconFileName = "statusIcon"
 
