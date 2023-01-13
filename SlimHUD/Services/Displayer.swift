@@ -57,7 +57,7 @@ class Displayer: HudsControllerInterface {
         setColor(for: volumeView.bar!, isMuted)
         let progress = VolumeManager.getOutputVolume()
         volumeView.bar!.progress = progress
-        getIcon(hud: volumeHud).image = getVolumeIcon(for: progress, isMuted: isMuted)
+        getIcon(hud: volumeHud).image = IconManager.getVolumeIcon(for: progress, isMuted: isMuted)
         volumeHud.show()
         brightnessHud.hide(animated: false)
         keyboardHud.hide(animated: false)
@@ -72,7 +72,7 @@ class Displayer: HudsControllerInterface {
             do {
                 let progress = try DisplayManager.getDisplayBrightness()
                 self.getProgressBar(hud: self.brightnessHud).progress = progress
-                self.getIcon(hud: self.brightnessHud).image = self.getBrightnessIcon(for: progress)
+                self.getIcon(hud: self.brightnessHud).image = IconManager.getBrightnessIcon(for: progress)
             } catch {
                 NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
             }
@@ -93,7 +93,7 @@ class Displayer: HudsControllerInterface {
             do {
                 let progress = try KeyboardManager.getKeyboardBrightness()
                 self.getProgressBar(hud: self.keyboardHud).progress = progress
-                self.getIcon(hud: self.keyboardHud).image = self.getKeyboardIcon(for: progress)
+                self.getIcon(hud: self.keyboardHud).image = IconManager.getKeyboardIcon(for: progress)
             } catch {
                 NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
             }
@@ -239,57 +239,4 @@ class Displayer: HudsControllerInterface {
         getIcon(hud: keyboardHud).contentTintColor = color
     }
 
-}
-
-extension Displayer { // todo move to icon manager
-    private func getVolumeIconName(for progress: Float, isMuted: Bool) -> String {
-        if isMuted {
-            return NSImage.VolumeImageFileName.no
-        }
-        switch progress {
-        case 0..<0.1:
-            return NSImage.VolumeImageFileName.zero
-        case 0.1..<0.4:
-            return NSImage.VolumeImageFileName.one
-        case 0.4..<0.7:
-            return NSImage.VolumeImageFileName.two
-        default:
-            return NSImage.VolumeImageFileName.three
-        }
-    }
-    private func getVolumeIcon(for progress: Float, isMuted: Bool) -> NSImage {
-        return NSImage(named: getVolumeIconName(for: progress, isMuted: isMuted))!
-    }
-
-    private func getKeyboardIconName(for progress: Float) -> String {
-        switch progress {
-        case 0..<0.1:
-            return NSImage.KeyboardImageFileName.zero
-        case 0.1..<0.4:
-            return NSImage.KeyboardImageFileName.one
-        case 0.4..<0.7:
-            return NSImage.KeyboardImageFileName.two
-        default:
-            return NSImage.KeyboardImageFileName.three
-        }
-    }
-    private func getKeyboardIcon(for progress: Float) -> NSImage {
-        return NSImage(named: getKeyboardIconName(for: progress))!
-    }
-
-    private func getBrightnessIconName(for progress: Float) -> String {
-        switch progress {
-        case 0..<0.1:
-            return NSImage.BrightnessImageFileName.zero
-        case 0.1..<0.4:
-            return NSImage.BrightnessImageFileName.one
-        case 0.4..<0.7:
-            return NSImage.BrightnessImageFileName.two
-        default:
-            return NSImage.BrightnessImageFileName.three
-        }
-    }
-    private func getBrightnessIcon(for progress: Float) -> NSImage {
-        return NSImage(named: getBrightnessIconName(for: progress))!
-    }
 }
