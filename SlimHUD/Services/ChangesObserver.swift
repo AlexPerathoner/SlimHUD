@@ -98,7 +98,7 @@ class ChangesObserver {
         let newFullScreen = DisplayManager.isInFullscreenMode()
 
         if newFullScreen != oldFullScreen {
-            positionManager.setupHUDsPosition(newFullScreen)
+            positionManager.setupHUDsPosition(isFullscreen: newFullScreen)
             oldFullScreen = newFullScreen
         }
         if settingsManager.shouldContinuouslyCheck {

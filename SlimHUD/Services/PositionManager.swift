@@ -20,7 +20,7 @@ class PositionManager {
         self.keyboardHud = keyboardHud
     }
 
-    func setupHUDsPosition(_ isFullscreen: Bool) {
+    func setupHUDsPosition(isFullscreen: Bool) {
         volumeHud.hide(animated: false)
         brightnessHud.hide(animated: false)
         keyboardHud.hide(animated: false)
@@ -28,6 +28,7 @@ class PositionManager {
         let barViewFrame = volumeHud.getFrame()
 
         let screenFrame = DisplayManager.getScreenFrame()
+        let screenEdge = settingsManager.position
         var visibleFrame = DisplayManager.getVisibleScreenFrame()
         var xDockHeight: CGFloat = 0
         var yDockHeight: CGFloat = 0
@@ -46,9 +47,9 @@ class PositionManager {
                                                                          screenFrame: screenFrame,
                                                                          isInFullscreen: isFullscreen)
 
-        setHudsPosition(originPosition: originPosition)
+        setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
 
-        let isHudHorizontal = settingsManager.position == .bottom || settingsManager.position == .top
+        let isHudHorizontal = screenEdge == .bottom || screenEdge == .top
 
         // set bar views orientation
         setBarsOrientation(isHorizontal: isHudHorizontal)
@@ -78,14 +79,10 @@ class PositionManager {
         return position
     }
 
-    private func setHudsPosition(originPosition: CGPoint) {
-        setHudPosition(hud: volumeHud, originPosition: originPosition)
-        setHudPosition(hud: brightnessHud, originPosition: originPosition)
-        setHudPosition(hud: keyboardHud, originPosition: originPosition)
-    }
-    private func setHudPosition(hud: Hud, originPosition: CGPoint) {
-        hud.originPosition = originPosition
-        hud.screenEdge = settingsManager.position
+    private func setHudsPosition(originPosition: CGPoint, screenEdge: Position) {
+        volumeHud.setPosition(originPosition: originPosition, screenEdge: screenEdge)
+        brightnessHud.setPosition(originPosition: originPosition, screenEdge: screenEdge)
+        keyboardHud.setPosition(originPosition: originPosition, screenEdge: screenEdge)
     }
 
     private func setBarsOrientation(isHorizontal: Bool) {

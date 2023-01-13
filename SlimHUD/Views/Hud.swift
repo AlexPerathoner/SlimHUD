@@ -15,8 +15,8 @@ class Hud: NSView {
 
     /// The NSView that is going to be displayed when show() is called
     private var barView: BarView!
-    var originPosition: CGPoint // TODO: make private
-    var screenEdge: Position = .left
+    private var originPosition: CGPoint
+    private var screenEdge: Position = .left
 
     private var hudView: NSView! {
         return windowController?.window?.contentView
@@ -221,5 +221,10 @@ class Hud: NSView {
     }
     public func setBackgroundColor(color: NSColor) {
         barView.bar.background = color
+    }
+    
+    public func setPosition(originPosition: CGPoint, screenEdge: Position) {
+        self.originPosition = originPosition
+        self.screenEdge = screenEdge
     }
 }

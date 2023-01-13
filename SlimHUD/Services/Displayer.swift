@@ -163,14 +163,14 @@ class Displayer: HudsControllerInterface {
         volumeHud.setHeight(height: height)
         brightnessHud.setHeight(height: height)
         keyboardHud.setHeight(height: height)
-        positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
+        positionManager.setupHUDsPosition(isFullscreen: DisplayManager.isInFullscreenMode())
     }
 
     func setThickness(thickness: CGFloat) {
         volumeHud.setThickness(thickness: thickness, flatBar: settingsManager.flatBar)
         brightnessHud.setThickness(thickness: thickness, flatBar: settingsManager.flatBar)
         keyboardHud.setThickness(thickness: thickness, flatBar: settingsManager.flatBar)
-        positionManager.setupHUDsPosition(DisplayManager.isInFullscreenMode())
+        positionManager.setupHUDsPosition(isFullscreen: DisplayManager.isInFullscreenMode())
     }
 
     @available(OSX 10.14, *)
