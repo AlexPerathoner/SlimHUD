@@ -18,6 +18,47 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     var settingsWindowController: SettingsWindowController?
     var aboutWindowController: AboutWindowController?
 
+    var settingsManager: SettingsManager = SettingsManager.getInstance()
+
+    var volumeHud = Hud()
+    var brightnessHud = Hud()
+    var keyboardHud = Hud()
+
+    lazy var positionManager = PositionManager(volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
+    lazy var displayer = Displayer(positionManager: positionManager, volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
+    lazy var changesObserver = ChangesObserver(positionManager: positionManager, displayer: displayer)
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        // menu bar
+        statusItem.menu = statusMenu
+
+        if let button = statusItem.button {
+            button.image = NSImage(named: NSImage.StatusIconFileName)
+            button.image?.isTemplate = true
+        }
+
+        displayer.updateAllAttributes()
+    }
+
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        NSColor.ignoresAlpha = false
+        NSApplication.shared.setActivationPolicy(.accessory)
+
+        // continuous check - 0.2 should not take more than 1/800 CPU
+        changesObserver.startObserving()
+
+        NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
+                                               object: NSApplication.shared,
+                                               queue: OperationQueue.main) { _ -> Void in
+            self.positionManager.setupHUDsPosition(isFullscreen: false)
+            self.changesObserver.resetTemporarelyDisabledBars()
+        }
+
+        OSDUIManager.stop()
+    }
+    
     @IBOutlet weak var statusMenu: NSMenu!
 
     @IBAction func quitCliked(_ sender: Any) {
@@ -94,62 +135,5 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     func isOnlyOneWindowVisible() -> Bool {
         return (aboutWindowController?.window?.isVisible ?? false) != (settingsWindowController?.window?.isVisible ?? false) &&
         NSApplication.shared.activationPolicy() != .accessory
-    }
-
-    var settingsManager: SettingsManager = SettingsManager.getInstance()
-
-    // swiftlint:disable:next force_cast
-    var volumeView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
-    // swiftlint:disable:next force_cast
-    var brightnessView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
-    // swiftlint:disable:next force_cast
-    var keyboardView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
-
-    // TODO: perhaps subclass each HUD to a custom one, barview then gets created accordingly and hidden completely from outside
-    var volumeHud = Hud()
-    var brightnessHud = Hud()
-    var keyboardHud = Hud()
-
-    lazy var positionManager = PositionManager(volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
-    lazy var displayer = Displayer(positionManager: positionManager, volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
-    lazy var changesObserver = ChangesObserver(positionManager: positionManager, displayer: displayer)
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        // menu bar
-        statusItem.menu = statusMenu
-
-        if let button = statusItem.button {
-            button.image = NSImage(named: NSImage.StatusIconFileName)
-            button.image?.isTemplate = true
-        }
-
-        // Setting up huds
-        volumeHud.setBarView(barView: volumeView)
-        brightnessHud.setBarView(barView: brightnessView)
-        keyboardHud.setBarView(barView: keyboardView)
-
-        displayer.setHeight(height: CGFloat(settingsManager.barHeight))
-        displayer.setThickness(thickness: CGFloat(settingsManager.barThickness))
-
-        displayer.updateAllAttributes()
-    }
-
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        NSColor.ignoresAlpha = false
-        NSApplication.shared.setActivationPolicy(.accessory)
-
-        // continuous check - 0.2 should not take more than 1/800 CPU
-        changesObserver.startObserving()
-
-        NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
-                                               object: NSApplication.shared,
-                                               queue: OperationQueue.main) { _ -> Void in
-            self.positionManager.setupHUDsPosition(isFullscreen: false)
-            self.changesObserver.resetTemporarelyDisabledBars()
-        }
-
-        OSDUIManager.stop()
     }
 }

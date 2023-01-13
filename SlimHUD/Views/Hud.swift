@@ -14,7 +14,7 @@ class Hud: NSView {
     private var animated = true
 
     /// The NSView that is going to be displayed when show() is called
-    private var barView: BarView!
+    private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
     private var originPosition: CGPoint
     private var screenEdge: Position = .left
 
@@ -228,3 +228,4 @@ class Hud: NSView {
         self.screenEdge = screenEdge
     }
 }
+    
