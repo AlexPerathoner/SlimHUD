@@ -77,33 +77,33 @@ class SettingsViewController: NSViewController, SPUUpdaterDelegate {
     @IBAction func displayVolumeColorHelp(_ sender: Any) {
         if !(volumeColorHelpVC?.isVisible ?? false) {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
-            let vc = storyboard.instantiateController(
+            let viewController = storyboard.instantiateController(
                 // swiftlint:disable:next force_cast
                 withIdentifier: "volumeColorHelp") as! SinglePopover
-            volumeColorHelpVC = vc
-            self.present(vc, asPopoverRelativeTo: .zero, of: volumeColorHelpBtn, preferredEdge: .maxY, behavior: .transient)
+            volumeColorHelpVC = viewController
+            self.present(viewController, asPopoverRelativeTo: .zero, of: volumeColorHelpBtn, preferredEdge: .maxY, behavior: .transient)
         }
     }
     var marginHelpVC: SinglePopover?
     @IBAction func displayMarginHelp(_ sender: Any) {
         if !(marginHelpVC?.isVisible ?? false) {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
-            let vc = storyboard.instantiateController(
+            let viewController = storyboard.instantiateController(
                 // swiftlint:disable:next force_cast
                 withIdentifier: "marginHelp") as! SinglePopover
-            marginHelpVC = vc
-            self.present(vc, asPopoverRelativeTo: .zero, of: marginHelpBtn, preferredEdge: .maxY, behavior: .transient)
+            marginHelpVC = viewController
+            self.present(viewController, asPopoverRelativeTo: .zero, of: marginHelpBtn, preferredEdge: .maxY, behavior: .transient)
         }
     }
     var continuousCheckHelpVC: SinglePopover?
     @IBAction func displayContinuousCheckHelp(_ sender: Any) {
         if !(continuousCheckHelpVC?.isVisible ?? false) {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
-            let vc = storyboard.instantiateController(
+            let viewController = storyboard.instantiateController(
                 // swiftlint:disable:next force_cast
                 withIdentifier: "continuousCheckHelp") as! SinglePopover
-            continuousCheckHelpVC = vc
-            self.present(vc, asPopoverRelativeTo: .zero, of: continuousCheckHelpBtn, preferredEdge: .maxY, behavior: .transient)
+            continuousCheckHelpVC = viewController
+            self.present(viewController, asPopoverRelativeTo: .zero, of: continuousCheckHelpBtn, preferredEdge: .maxY, behavior: .transient)
         }
     }
 
