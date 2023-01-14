@@ -98,7 +98,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "showQuitAlert"
+            argument = "showQuitAlert true"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
