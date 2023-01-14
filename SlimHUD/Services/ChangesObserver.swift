@@ -117,13 +117,13 @@ class ChangesObserver {
     private func checkVolumeChanges() {
         let newVolume = VolumeManager.getOutputVolume()
         let newMuted = VolumeManager.isMuted()
-        displayer.volumeHud.setProgress(progress: newVolume) // TODO: check why twice(?)
+        displayer.setVolumeProgress(newVolume)
         if !isAlmost(firstNumber: oldVolume, secondNumber: newVolume) || newMuted != oldMuted {
             displayer.showVolumeHUD()
             oldVolume = newVolume
             oldMuted = newMuted
         }
-        displayer.volumeHud.setProgress(progress: newVolume)
+        displayer.setVolumeProgress(newVolume)
     }
 
     private func checkBrightnessChanges() {
@@ -136,7 +136,7 @@ class ChangesObserver {
                 displayer.showBrightnessHUD()
                 oldBrightness = newBrightness
             }
-            displayer.brightnessHud.setProgress(progress: newBrightness)
+            displayer.setBrightnessProgress(newBrightness)
         } catch {
             temporarelyDisabledBars.brightnessBar = true
             NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
@@ -150,7 +150,7 @@ class ChangesObserver {
                 displayer.showKeyboardHUD()
                 oldKeyboard = newKeyboard
             }
-            displayer.keyboardHud.setProgress(progress: newKeyboard)
+            displayer.setKeyboardProgress(newKeyboard)
         } catch {
             temporarelyDisabledBars.keyboardBar = true
             NSLog("""

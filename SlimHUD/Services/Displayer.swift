@@ -9,11 +9,11 @@ import Foundation
 import Cocoa
 
 class Displayer: HudsControllerInterface {
-    var settingsManager: SettingsManager = SettingsManager.getInstance()
+    private var settingsManager: SettingsManager = SettingsManager.getInstance()
     var positionManager: PositionManager
-    var volumeHud: Hud
-    var brightnessHud: Hud
-    var keyboardHud: Hud
+    private var volumeHud: Hud
+    private var brightnessHud: Hud
+    private var keyboardHud: Hud
 
     init(positionManager: PositionManager, volumeHud: Hud, brightnessHud: Hud, keyboardHud: Hud) {
         self.positionManager = positionManager
@@ -186,6 +186,16 @@ class Displayer: HudsControllerInterface {
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
         keyboardHud.setIconTint(color)
+    }
+    
+    public func setVolumeProgress(_ progress: Float) {
+        volumeHud.setProgress(progress: progress)
+    }
+    public func setBrightnessProgress(_ progress: Float) {
+        brightnessHud.setProgress(progress: progress)
+    }
+    public func setKeyboardProgress(_ progress: Float) {
+        keyboardHud.setProgress(progress: progress)
     }
 
 }
