@@ -11,6 +11,7 @@ import AppKit
 extension NSImage {
 
     struct VolumeImageFileName {
+        // swiftlint:disable:next identifier_name
         static let no = "volume-no"
         static let zero = "volume-0"
         static let one = "volume-1"
