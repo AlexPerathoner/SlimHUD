@@ -38,10 +38,10 @@ class MainMenuController: NSWindowController {
         if aboutWindowController != nil {
             aboutWindowController?.showWindow(self)
         } else {
-            if let wc = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as? AboutWindowController {
-                aboutWindowController = wc
-                wc.delegate = self
-                wc.showWindow(self)
+            if let windowController = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as? AboutWindowController {
+                aboutWindowController = windowController
+                windowController.delegate = self
+                windowController.showWindow(self)
             }
         }
         NSApplication.shared.setActivationPolicy(.regular)
@@ -52,10 +52,10 @@ class MainMenuController: NSWindowController {
         if settingsWindowController != nil {
             settingsWindowController?.showWindow(self)
         } else {
-            if let wc = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
-                settingsWindowController = wc
-                wc.delegate = self
-                wc.showWindow(self)
+            if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
+                settingsWindowController = windowController
+                windowController.delegate = self
+                windowController.showWindow(self)
             }
         }
         NSApplication.shared.setActivationPolicy(.regular)
