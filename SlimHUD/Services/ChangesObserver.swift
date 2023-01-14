@@ -103,7 +103,7 @@ class ChangesObserver {
             checkVolumeChanges()
         }
     }
-    
+
     private func checkFullScreenChanges() {
         let newFullScreen = DisplayManager.isInFullscreenMode()
 
@@ -111,7 +111,7 @@ class ChangesObserver {
             positionManager.setupHUDsPosition(isFullscreen: newFullScreen)
             oldFullScreen = newFullScreen
         }
-        
+
     }
 
     private func isAlmost(firstNumber: Float, secondNumber: Float) -> Bool { // used to partially prevent the bars to display when no user input happened

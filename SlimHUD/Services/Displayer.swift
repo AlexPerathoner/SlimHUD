@@ -187,7 +187,7 @@ class Displayer: HudsControllerInterface {
     func setKeyboardIconsTint(_ color: NSColor) {
         keyboardHud.setIconTint(color)
     }
-    
+
     public func setVolumeProgress(_ progress: Float) {
         volumeHud.setProgress(progress: progress)
     }
