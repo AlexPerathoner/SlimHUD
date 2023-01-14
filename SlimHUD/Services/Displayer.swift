@@ -30,10 +30,10 @@ class Displayer: HudsControllerInterface {
         if !settingsManager.enabledBars.volumeBar {
             return
         }
-        let muted = VolumeManager.isMuted()
+        let isMuted = VolumeManager.isMuted()
         volumeHud.setForegroundColor(color1: settingsManager.volumeDisabledColor,
                                      color2: settingsManager.volumeEnabledColor,
-                                     basedOn: muted)
+                                     basedOn: isMuted)
         let progress = VolumeManager.getOutputVolume()
         volumeHud.setProgress(progress: progress)
         volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: progress, isMuted: isMuted))
