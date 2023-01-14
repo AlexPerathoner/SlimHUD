@@ -10,7 +10,7 @@ import Cocoa
 class IconManager { // todo move to icon manager
     private static func getVolumeIconName(for progress: Float, isMuted: Bool) -> String {
         if isMuted {
-            return NSImage.VolumeImageFileName.no
+            return NSImage.VolumeImageFileName.disable
         }
         switch progress {
         case 0..<0.1:

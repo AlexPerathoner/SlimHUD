@@ -133,13 +133,13 @@ class SettingsController: NSView, HudsControllerInterface {
         if enabled {
             volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.three)
         } else {
-            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.no)
+            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.disable)
         }
         volumeImage.image = volumeImage.image?.tint(with: color)
         if enabled {
             volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.three)
         } else {
-            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.no)
+            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.disable)
         }
         volumeImage.image = volumeImage.image?.tint(with: color)
     }
