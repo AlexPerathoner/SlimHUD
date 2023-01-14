@@ -212,7 +212,7 @@ class Hud: NSView {
     }
 
     // TODO: find better way for this. Perhaps subclass to VolumeHUD and add a second color "disabled"? ~ could also handle double icon
-    public func setForegroundColor(color1: NSColor, color2: NSColor, based_on useFirst: Bool) {
+    public func setForegroundColor(color1: NSColor, color2: NSColor, basedOn useFirst: Bool) {
         if useFirst {
             setForegroundColor(color: color1)
         } else {

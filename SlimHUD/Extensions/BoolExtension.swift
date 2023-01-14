@@ -10,15 +10,10 @@ import Cocoa
 
 extension Bool {
     func toStateValue() -> NSControl.StateValue {
-        if self {
-            return .on
-        } else {
-            return .off
-        }
+        return self ? .on : .off
     }
 
     func toInt() -> Int {
-        if self {return 1}
-        return 0
+        return self ? 1 : 0
     }
 }
