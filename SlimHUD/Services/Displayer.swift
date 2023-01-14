@@ -33,7 +33,7 @@ class Displayer: HudsControllerInterface {
         let muted = VolumeManager.isMuted()
         volumeHud.setForegroundColor(color1: settingsManager.volumeDisabledColor,
                                      color2: settingsManager.volumeEnabledColor,
-                                     based_on: muted)
+                                     basedOn: muted)
         volumeHud.setProgress(progress: VolumeManager.getOutputVolume())
 
         if muted {

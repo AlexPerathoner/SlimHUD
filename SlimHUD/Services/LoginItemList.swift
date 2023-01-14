@@ -11,7 +11,7 @@ class LoginItemsList: NSObject {
     let loginItemsList: LSSharedFileList = LSSharedFileListCreate(nil, kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil)!.takeRetainedValue()
 
     func addLoginItem() -> Bool {
-        var path = LoginItemsList.appPath()
+        let path = LoginItemsList.appPath()
         if getLoginItem() != nil {
             print("Login Item has already been added to the list.")
             return true
