@@ -32,6 +32,14 @@ jobs:
           -resultBundlePath TestResults \
           -test-iterations 3 -retry-tests-on-failure \
           CODE_SIGNING_ALLOWED=NO
+      - name: Post test results
+        uses: kishikawakatsumi/xcresulttool@v1
+        if: success() || failure()
+        with:
+          path: "TestResults.xcresult"
+          title: ${{ env.test-results-check-name }}
+          upload-bundles: never
+          show-code-coverage: true
       - name: Generate coverage report
         run: |
           bash ./Configuration/xccov-to-sonarqube-generic.sh TestResults.xcresult/ > sonarqube-generic-coverage.xml
