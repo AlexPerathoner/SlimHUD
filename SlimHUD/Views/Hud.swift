@@ -13,8 +13,8 @@ class Hud: NSView {
     private var animationMovement: CGFloat = 20
     private var animated = true
 
-    // swiftlint:disable:next force_cast
     /// The NSView that is going to be displayed when show() is called
+    // swiftlint:disable:next force_cast
     private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
     private var originPosition: CGPoint
     private var screenEdge: Position = .left
@@ -114,11 +114,11 @@ class Hud: NSView {
                     case .bottom:
                         view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
                     }
-                }) {
+                }, completionHandler: {
                     self.isHidden = true
                     self.removeFromSuperview()
                     self.windowController?.close()
-                }
+                })
             } else {
                 view.setFrameOrigin(originPosition)
                 view.alphaValue = 0
