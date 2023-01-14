@@ -65,16 +65,16 @@ class PositionManager {
         switch hudPosition {
         case .left:
             position = CGPoint(x: dockPosition == .right ? 0 : xDockHeight,
-                               y: (visibleFrame.height/2) - (hudFrame.height/2) + yDockHeight)
+                           y: (visibleFrame.height/2) - (hudFrame.height/2) + yDockHeight)
         case .right:
             position = CGPoint(x: screenFrame.width - hudFrame.width - Constants.ShadowRadius - (dockPosition == .left ? 0 : xDockHeight),
-                               y: (visibleFrame.height/2) - (hudFrame.height/2)  + yDockHeight)
+                           y: (visibleFrame.height/2) - (hudFrame.height/2)  + yDockHeight)
         case .bottom:
             position = CGPoint(x: (screenFrame.width/2) - (hudFrame.height/2),
-                               y: yDockHeight)
+                           y: yDockHeight)
         case .top:
             position = CGPoint(x: (screenFrame.width/2) - (hudFrame.height/2),
-                               y: screenFrame.height - hudFrame.width - Constants.ShadowRadius - (isInFullscreen ? 0 : DisplayManager.getMenuBarThickness()))
+                           y: screenFrame.height - hudFrame.width - Constants.ShadowRadius - (isInFullscreen ? 0 : DisplayManager.getMenuBarThickness()))
         }
         return position
     }
