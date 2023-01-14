@@ -303,14 +303,13 @@ jobs:
               --download-url-prefix https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/releases/download/v${{ steps.info.outputs.new_version }}/ \
               -o docs/Support/appcast.xml \
               Release/
-      - name: Saving appcast # commits only appcast to main
+      - name: Saving changes # commits changes to branch (version bump, appcast.xml)
         uses: stefanzweifel/git-auto-commit-action@v4
-        id: commit-appcast
         with:
           file_pattern: |
             docs/Support/appcast.xml
             ${{ env.projname }}.xcodeproj/project.pbxproj
-          commit_message: "Bump version to v${{ steps.info.outputs.new_version }}"
+          commit_message: "Update version to v${{ steps.info.outputs.new_version }}"
       - name: Create GitHub release # Upload .zip to GitHub release
         uses: softprops/action-gh-release@v1
         with:
@@ -321,13 +320,6 @@ jobs:
           files: Release/${{ env.projname }}.zip
           draft: false
           prerelease: ${{ steps.channel.outputs.prerelease }}
-      - name: Saving changes # commits changes to branch (version bump, appcast.xml)
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          file_pattern: |
-            docs/Support/appcast.xml
-            ${{ env.projname }}.xcodeproj/project.pbxproj
-          commit_message: "Update version to v${{ steps.info.outputs.new_version }}"
       - name: Create summary # create summary for PR
         run: |
           echo "Release v${{ steps.info.outputs.new_version }} created." > $GITHUB_STEP_SUMMARY
