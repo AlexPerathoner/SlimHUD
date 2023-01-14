@@ -36,7 +36,9 @@ class KeyboardManager {
 
     // Raw value of sensor is non linear, correcting it
     private static func getKeyboardBrightnessProportioned(raw: Float) -> Float {
-        if raw <= 0.07 { return 0 }
+        if raw <= 0.07 {
+            return 0
+        }
         return (log10(raw+0.03)+1)
     }
 
@@ -66,14 +68,13 @@ class KeyboardManager {
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         task.waitUntilExit()
 
-        if let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? NSDictionary {
-            if let keyboards = plist["CBKeyboards"] as? [String: [String: Any]] {
-                for keyboard in keyboards.values {
-                    if let backlightInfo = keyboard["CBKeyboardBacklightContainer"] as? [String: Any],
-                        backlightInfo["KeyboardBacklightBuiltIn"] as? Bool == true,
-                        let brightness = backlightInfo["KeyboardBacklightBrightness"] as? Float {
-                            return brightness
-                    }
+        if let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? NSDictionary,
+           let keyboards = plist["CBKeyboards"] as? [String: [String: Any]] {
+            for keyboard in keyboards.values {
+                if let backlightInfo = keyboard["CBKeyboardBacklightContainer"] as? [String: Any],
+                    backlightInfo["KeyboardBacklightBuiltIn"] as? Bool == true,
+                    let brightness = backlightInfo["KeyboardBacklightBrightness"] as? Float {
+                        return brightness
                 }
             }
         }

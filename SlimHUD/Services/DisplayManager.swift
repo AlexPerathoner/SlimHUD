@@ -58,14 +58,13 @@ class DisplayManager {
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         task.waitUntilExit()
 
-        if let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? NSDictionary {
-            if let displays = plist["CBDisplays"] as? [String: [String: Any]] {
-                for display in displays.values {
-                    if let displayInfo = display["Display"] as? [String: Any],
-                        displayInfo["DisplayServicesIsBuiltInDisplay"] as? Bool == true,
-                        let brightness = displayInfo["DisplayServicesBrightness"] as? Float {
-                            return brightness
-                    }
+        if let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? NSDictionary,
+           let displays = plist["CBDisplays"] as? [String: [String: Any]] {
+            for display in displays.values {
+                if let displayInfo = display["Display"] as? [String: Any],
+                    displayInfo["DisplayServicesIsBuiltInDisplay"] as? Bool == true,
+                    let brightness = displayInfo["DisplayServicesBrightness"] as? Float {
+                        return brightness
                 }
             }
         }
@@ -136,7 +135,9 @@ class DisplayManager {
         for window in windows {
             if let windowName = window[kCGWindowOwnerName] as? String {
                 // if Window Server or Dock are visible the user is certainly not using fullscreen
-                if windowName == "Window Server" || windowName == "Dock" {return false}
+                if windowName == "Window Server" || windowName == "Dock" {
+                    return false
+                }
                 if window[kCGWindowBounds]?["Height"] as? CGFloat ?? 0 == screenSize.height &&
                     window[kCGWindowBounds]?["Width"] as? CGFloat ?? 0 == screenSize.width &&
                     windowName != "SlimHUD" {

@@ -27,11 +27,13 @@ class Displayer: HudsControllerInterface {
     }
 
     func showVolumeHUD() {
-        if !settingsManager.enabledBars.volumeBar {return}
+        if !settingsManager.enabledBars.volumeBar {
+            return
+        }
         let muted = VolumeManager.isMuted()
         volumeHud.setForegroundColor(color1: settingsManager.volumeDisabledColor,
                                      color2: settingsManager.volumeEnabledColor,
-                                     based_on: muted)
+                                     basedOn: muted)
         volumeHud.setProgress(progress: VolumeManager.getOutputVolume())
 
         if muted {
@@ -46,7 +48,9 @@ class Displayer: HudsControllerInterface {
     }
 
     func showBrightnessHUD() {
-        if !settingsManager.enabledBars.brightnessBar {return}
+        if !settingsManager.enabledBars.brightnessBar {
+            return
+        }
         // if the function is being called because the key has been pressed, the display's brightness
         //  hasn't completely changed yet (or not at all). So for the next half a second, we continously check its value.
         let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
@@ -65,7 +69,9 @@ class Displayer: HudsControllerInterface {
         brightnessHud.dismiss(delay: 1.5)
     }
     func showKeyboardHUD() {
-        if !settingsManager.enabledBars.keyboardBar {return}
+        if !settingsManager.enabledBars.keyboardBar {
+            return
+        }
         // if the function is being called because the key has been pressed, the keyboard's brightness
         //  hasn't completely changed yet (or not at all). So for the next half a second, we continously check its value.
         let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
