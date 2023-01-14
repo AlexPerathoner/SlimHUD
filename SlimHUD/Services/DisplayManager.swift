@@ -58,14 +58,13 @@ class DisplayManager {
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         task.waitUntilExit()
 
-        if let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? NSDictionary {
-            if let displays = plist["CBDisplays"] as? [String: [String: Any]] {
-                for display in displays.values {
-                    if let displayInfo = display["Display"] as? [String: Any],
-                        displayInfo["DisplayServicesIsBuiltInDisplay"] as? Bool == true,
-                        let brightness = displayInfo["DisplayServicesBrightness"] as? Float {
-                            return brightness
-                    }
+        if let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? NSDictionary,
+           let displays = plist["CBDisplays"] as? [String: [String: Any]] {
+            for display in displays.values {
+                if let displayInfo = display["Display"] as? [String: Any],
+                    displayInfo["DisplayServicesIsBuiltInDisplay"] as? Bool == true,
+                    let brightness = displayInfo["DisplayServicesBrightness"] as? Float {
+                        return brightness
                 }
             }
         }

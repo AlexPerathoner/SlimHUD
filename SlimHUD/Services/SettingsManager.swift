@@ -28,8 +28,8 @@ class SettingsManager {
     private static let PositionKey = "position"
     private static let EnabledBarsKey = "enabledBars"
     private static let MarginKey = "marginValue"
-    private static let ShowQuitAlert = "showQuitAlert"
-    private static let FlatBar = "flatBar"
+    private static let ShowQuitAlertKey = "showQuitAlert"
+    private static let FlatBarKey = "flatBar"
 
     // MARK: - Bars colors
     var backgroundColor: NSColor {
@@ -114,7 +114,7 @@ class SettingsManager {
 
     var flatBar: Bool {
         didSet {
-            UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBar)
+            UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
         }
     }
 
@@ -136,7 +136,7 @@ class SettingsManager {
 
     var showQuitAlert: Bool {
         didSet {
-            UserDefaults.standard.set(showQuitAlert, forKey: SettingsManager.ShowQuitAlert)
+            UserDefaults.standard.set(showQuitAlert, forKey: SettingsManager.ShowQuitAlertKey)
         }
     }
 
@@ -176,10 +176,10 @@ class SettingsManager {
         marginValue = UserDefaultsManager.getInt(for: SettingsManager.MarginKey, defaultValue: 10)
         if CommandLine.arguments.contains("showQuitAlert") {
             let indexOfValue = CommandLine.arguments.firstIndex(of: "showQuitAlert")! + 1
-            UserDefaults.standard.set(CommandLine.arguments[indexOfValue], forKey: SettingsManager.ShowQuitAlert)
+            UserDefaults.standard.set(CommandLine.arguments[indexOfValue], forKey: SettingsManager.ShowQuitAlertKey)
         }
-        showQuitAlert = UserDefaultsManager.getBool(for: SettingsManager.ShowQuitAlert, defaultValue: true)
-        flatBar = UserDefaultsManager.getBool(for: SettingsManager.FlatBar, defaultValue: false)
+        showQuitAlert = UserDefaultsManager.getBool(for: SettingsManager.ShowQuitAlertKey, defaultValue: true)
+        flatBar = UserDefaultsManager.getBool(for: SettingsManager.FlatBarKey, defaultValue: false)
     }
 
     func resetDefaultBarsColors() {
@@ -220,7 +220,7 @@ class SettingsManager {
         UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
         UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.ShouldUseAnimationKey)
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
-        UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBar)
+        UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
     }
 
     deinit {

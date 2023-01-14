@@ -1,10 +1,11 @@
+appcast_path = 'docs/Support/appcast.xml'
 
 def get_new_version():
     with open('new_version', 'r') as f:
         return f.read()
 
-def get_last_item():
-    with open('docs/Support/appcast.xml', 'r') as f:
+def get_last_item_indexes():
+    with open(appcast_path, 'r') as f:
         lines = f.readlines()
         start_index = 0
         for line in lines:
@@ -14,22 +15,17 @@ def get_last_item():
         for line in lines:
             if '</item>' in line:
                 end_index = lines.index(line)
-        return "".join(lines[start_index:end_index+1])
+                return lines, start_index, end_index
+
+def get_last_item():
+    lines, start_index, end_index = get_last_item_indexes()
+    return "".join(lines[start_index:end_index+1])
 
 def remove_last_item_of_appcast():
-    with open('docs/Support/appcast.xml', 'r') as f:
-        lines = f.readlines()
-        start_index = 0
-        for line in lines:
-            if '<item>' in line:
-                start_index = lines.index(line)
-        end_index = 0
-        for line in lines:
-            if '</item>' in line:
-                end_index = lines.index(line)
-        lines = lines[:start_index] + lines[end_index+1:]
-        with open('docs/Support/appcast.xml', 'w') as f:
-            f.writelines(lines)
+    lines, start_index, end_index = get_last_item_indexes()
+    lines = lines[:start_index] + lines[end_index+1:]
+    with open(appcast_path, 'w') as f:
+        f.writelines(lines)
     
 
 if __name__ == '__main__':

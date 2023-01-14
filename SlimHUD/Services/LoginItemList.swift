@@ -32,8 +32,6 @@ class LoginItemsList: NSObject {
     }
 
     func removeLoginItem() -> Bool {
-
-        var path = LoginItemsList.appPath()
         // remove Login Item from the Login Items list
         if let oldLoginItem = getLoginItem() {
             print("Old login item is: ", oldLoginItem)
@@ -47,8 +45,7 @@ class LoginItemsList: NSObject {
     }
 
     func getLoginItem() -> LSSharedFileListItem! {
-
-        var path = LoginItemsList.appPath()
+        let path = LoginItemsList.appPath()
 
         // Copy all login items in the list
         let loginItems: NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil)!.takeRetainedValue()
@@ -58,11 +55,11 @@ class LoginItemsList: NSObject {
 
         // Iterate through login items to find one for given path
         print("App URL: ", path)
-        for var index in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
+        for index in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
         {
 
             // swiftlint:disable:next force_cast
-            var nextLoginItem: LSSharedFileListItem = loginItems.object(at: index) as! LSSharedFileListItem
+            let nextLoginItem: LSSharedFileListItem = loginItems.object(at: index) as! LSSharedFileListItem
 
             if LSSharedFileListItemResolve(nextLoginItem, 0, &nextItemUrl, nil) == noErr {
 

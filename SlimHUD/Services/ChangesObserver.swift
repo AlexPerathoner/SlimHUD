@@ -99,7 +99,7 @@ class ChangesObserver {
             }
         }
         // volume can't change on its own, so we always continuously check it
-        if settingsManager.enabledBars.volumeBar && settingsManager.enabledBars.volumeBar {
+        if settingsManager.enabledBars.volumeBar {
             checkVolumeChanges()
         }
     }

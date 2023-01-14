@@ -5,6 +5,7 @@
 # SlimHUD
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD?ref=badge_shield)
 [![CodeFactor](https://www.codefactor.io/repository/github/alexperathoner/slimhud/badge)](https://www.codefactor.io/repository/github/alexperathoner/slimhud)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AlexPerathoner_SlimHUD&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=AlexPerathoner_SlimHUD)
 
 
 Replacement for MacOS' HUDs.

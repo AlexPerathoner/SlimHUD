@@ -9,7 +9,7 @@
 import XCTest
 
 class SparkleUITests: UITestsUtils {
-    static var TIMEOUT = 10
+    static var TimeOut = 10
 
     static public func closeAlerts(app: XCUIApplication) -> Bool {
         var closedSomeDialogs = false
