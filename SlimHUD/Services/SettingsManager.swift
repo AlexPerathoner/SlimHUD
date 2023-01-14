@@ -175,8 +175,7 @@ class SettingsManager {
         enabledBars = EnabledBars(volumeBar: volumeBarEnabled, brightnessBar: brightnessBarEnabled, keyboardBar: keyboardBarEnabled)
         marginValue = UserDefaultsManager.getInt(for: SettingsManager.MarginKey, defaultValue: 10)
         if CommandLine.arguments.contains("showQuitAlert") {
-            let indexOfValue = CommandLine.arguments.firstIndex(of: "showQuitAlert")! + 1
-            UserDefaults.standard.set(CommandLine.arguments[indexOfValue], forKey: SettingsManager.ShowQuitAlertKey)
+            UserDefaults.standard.set(true, forKey: SettingsManager.ShowQuitAlertKey)
         }
         showQuitAlert = UserDefaultsManager.getBool(for: SettingsManager.ShowQuitAlertKey, defaultValue: true)
         flatBar = UserDefaultsManager.getBool(for: SettingsManager.FlatBarKey, defaultValue: false)
