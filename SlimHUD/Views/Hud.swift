@@ -14,8 +14,7 @@ class Hud: NSView {
     private var animated = true
 
     /// The NSView that is going to be displayed when show() is called
-    // swiftlint:disable:next force_cast
-    private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView
+    private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView // swiftlint:disable:this force_cast
     private var originPosition: CGPoint
     private var screenEdge: Position = .left
 
