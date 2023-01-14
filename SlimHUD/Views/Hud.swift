@@ -229,4 +229,3 @@ class Hud: NSView {
         self.screenEdge = screenEdge
     }
 }
-
