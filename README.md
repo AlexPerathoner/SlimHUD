@@ -23,14 +23,7 @@ Each feature can be toggled from the settings window.<br>To access the settings 
 
 Here's a full list of the features:
 
-* When changing volume / brightness / keyboard's backlight a small icon is shown under the bar. The icons are:
-
-<p align="center">
-	<img src = "SlimHUD/Assets.xcassets/TemplateBars/backlight.imageset/backlight.png" width=50 margin="10 10 10 10">
-	<img src = "SlimHUD/Assets.xcassets/TemplateBars/noVolume.imageset/noVolume.png" width=50 margin="10 10 10 10">
-	<img src = "SlimHUD/Assets.xcassets/TemplateBars/brightness.imageset/brightness.png" width=50 margin="10 10 10 10">
-	<img src = "SlimHUD/Assets.xcassets/TemplateBars/backlight.imageset/backlight.png" width=50 margin="10 10 10 10">
-</p>	
+* When changing volume / brightness / keyboard's backlight a small icon is shown under the bar.
 
 
 * If you don't like the flat look of the bar you can enable a shadow effect.
