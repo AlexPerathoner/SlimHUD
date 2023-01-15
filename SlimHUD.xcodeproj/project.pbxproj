@@ -71,6 +71,7 @@
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
 		FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */; };
+		FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5122970F80E00C8D5DB /* IconManager.swift */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
 		FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579F29675F7700C32A80 /* AppleScriptError.swift */; };
 		FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */; };
@@ -161,6 +162,7 @@
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMethod.swift; sourceTree = "<group>"; };
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		FAF1A5122970F80E00C8D5DB /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
 		FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FAFC579F29675F7700C32A80 /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
 		FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIApplicationExtension.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				FA95EE432956FE20005B39CD /* LoginItemList.swift */,
 				FA95EE452956FE2A005B39CD /* PositionManager.swift */,
 				FA95EE472956FE37005B39CD /* Displayer.swift */,
+				FAF1A5122970F80E00C8D5DB /* IconManager.swift */,
 				FA95EE492956FE44005B39CD /* SettingsManager.swift */,
 				FA8B1A4A296E70D80015AAEB /* UpdaterDelegate.swift */,
 			);
@@ -589,6 +592,7 @@
 				FA95EE3A2956FDE7005B39CD /* OSDUIManager.swift in Sources */,
 				FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */,
 				FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */,
+				FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */,
 				FA95EE6B29573F0B005B39CD /* AboutViewController.swift in Sources */,
 				FA95EE482956FE37005B39CD /* Displayer.swift in Sources */,
 				FA95EE3C2956FDF1005B39CD /* KeyboardManager.swift in Sources */,

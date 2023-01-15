@@ -32,7 +32,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         statusItem.menu = statusMenu
 
         if let button = statusItem.button {
-            button.image = NSImage(named: NSImage.StatusIconFileName)
+            button.image = IconManager.getStatusIcon()
             button.image?.isTemplate = true
         }
 

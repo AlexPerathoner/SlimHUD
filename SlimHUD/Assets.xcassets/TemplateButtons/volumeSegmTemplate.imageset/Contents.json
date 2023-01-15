@@ -1,17 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "volumeSegm.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "vol.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

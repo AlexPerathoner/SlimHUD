@@ -9,13 +9,6 @@ import Cocoa
 import AppKit
 
 extension NSImage {
-
-    static let VolumeImageFileName = "volume"
-    static let NoVolumeImageFileName = "noVolume"
-    static let BrightnessImageFileName = "brightness"
-    static let KeyboardImageFileName = "backlight"
-    static let StatusIconFileName = "statusIcon"
-
     func tint(with color: NSColor) -> NSImage {
         // swiftlint:disable:next force_cast
         let image = self.copy() as! NSImage

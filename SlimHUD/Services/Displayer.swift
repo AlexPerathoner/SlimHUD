@@ -21,26 +21,22 @@ class Displayer: HudsControllerInterface {
         self.brightnessHud = brightnessHud
         self.keyboardHud = keyboardHud
 
-        volumeHud.setIconImage(icon: NSImage(named: NSImage.VolumeImageFileName)!)
-        brightnessHud.setIconImage(icon: NSImage(named: NSImage.BrightnessImageFileName)!)
-        keyboardHud.setIconImage(icon: NSImage(named: NSImage.KeyboardImageFileName)!)
+        volumeHud.setIconImage(icon: IconManager.getStandardVolumeIcon(isMuted: VolumeManager.isMuted()))
+        brightnessHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
+        keyboardHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
     }
 
     func showVolumeHUD() {
         if !settingsManager.enabledBars.volumeBar {
             return
         }
-        let muted = VolumeManager.isMuted()
+        let isMuted = VolumeManager.isMuted()
         volumeHud.setForegroundColor(color1: settingsManager.volumeDisabledColor,
                                      color2: settingsManager.volumeEnabledColor,
-                                     basedOn: muted)
-        volumeHud.setProgress(progress: VolumeManager.getOutputVolume())
-
-        if muted {
-            volumeHud.setIconImage(icon: NSImage(named: NSImage.NoVolumeImageFileName)!)
-        } else {
-            volumeHud.setIconImage(icon: NSImage(named: NSImage.VolumeImageFileName)!)
-        }
+                                     basedOn: isMuted)
+        let progress = VolumeManager.getOutputVolume()
+        volumeHud.setProgress(progress: progress)
+        volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: progress, isMuted: isMuted))
         volumeHud.show()
         brightnessHud.hide(animated: false)
         keyboardHud.hide(animated: false)
@@ -55,7 +51,9 @@ class Displayer: HudsControllerInterface {
         //  hasn't completely changed yet (or not at all). So for the next half a second, we continously check its value.
         let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             do {
-                self.brightnessHud.setProgress(progress: try DisplayManager.getDisplayBrightness())
+                let progress = try DisplayManager.getDisplayBrightness()
+                self.brightnessHud.setProgress(progress: progress)
+                self.brightnessHud.setIconImage(icon: IconManager.getBrightnessIcon(for: progress))
             } catch {
                 NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
             }
@@ -76,7 +74,9 @@ class Displayer: HudsControllerInterface {
         //  hasn't completely changed yet (or not at all). So for the next half a second, we continously check its value.
         let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             do {
-                self.keyboardHud.setProgress(progress: try KeyboardManager.getKeyboardBrightness())
+                let progress = try KeyboardManager.getKeyboardBrightness()
+                self.keyboardHud.setProgress(progress: progress)
+                self.keyboardHud.setIconImage(icon: IconManager.getKeyboardIcon(for: progress))
             } catch {
                 NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
             }
@@ -104,7 +104,7 @@ class Displayer: HudsControllerInterface {
         keyboardHud.setShadow(enabled, Constants.ShadowRadius)
     }
 
-    func updateIcons(isHidden: Bool) {
+    func hideIcon(isHidden: Bool) {
         volumeHud.hideIcon(isHidden: isHidden)
         brightnessHud.hideIcon(isHidden: isHidden)
         keyboardHud.hideIcon(isHidden: isHidden)
@@ -146,7 +146,7 @@ class Displayer: HudsControllerInterface {
     func updateAllAttributes() {
         setHeight(height: CGFloat(settingsManager.barHeight))
         setThickness(thickness: CGFloat(settingsManager.barThickness))
-        updateIcons(isHidden: !settingsManager.shouldShowIcons)
+        hideIcon(isHidden: !settingsManager.shouldShowIcons)
         updateShadows(enabled: settingsManager.shouldShowShadows)
         setBackgroundColor(color: settingsManager.backgroundColor)
         setVolumeEnabledColor(color: settingsManager.volumeEnabledColor)

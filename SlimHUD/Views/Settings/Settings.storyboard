@@ -690,7 +690,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="Vaa-jG-PxP"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="volume" id="b04-95-vyq"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="volume-three" id="b04-95-vyq"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -702,6 +702,10 @@
                                                                 <constraint firstItem="aIF-Ux-qm7" firstAttribute="leading" secondItem="d5M-pg-g2d" secondAttribute="leading" constant="20" symbolic="YES" id="ciT-yA-FO6"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Z7X-R9-G2U" secondAttribute="bottom" constant="13" id="cvj-u2-Pvt"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="bar" destination="aIF-Ux-qm7" id="38f-qs-T4m"/>
+                                                                <outlet property="icon" destination="Z7X-R9-G2U" id="2dE-sT-jyu"/>
+                                                            </connections>
                                                         </customView>
                                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="oS6-Zd-iqx" userLabel="Brightness" customClass="BarView" customModule="SlimHUD" customModuleProvider="target">
                                                             <rect key="frame" x="102" y="12" width="47" height="280"/>
@@ -719,7 +723,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="5RB-fz-OOE"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="brightness" id="JSR-1K-KxI"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="sun-two" id="JSR-1K-KxI"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -748,7 +752,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="LiP-6Q-CZC"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="backlight" id="3uN-l4-LOv"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="key-two" id="3uN-l4-LOv"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -930,11 +934,11 @@
     </scenes>
     <resources>
         <image name="NSRefreshTemplate" width="17" height="20"/>
-        <image name="backlight" width="225" height="120"/>
-        <image name="brightness" width="224" height="223"/>
-        <image name="brightnessSegmTemplate" width="116" height="115"/>
-        <image name="keyboardSegmTemplate" width="116" height="115"/>
-        <image name="volume" width="116" height="75"/>
-        <image name="volumeSegmTemplate" width="116" height="115"/>
+        <image name="brightnessSegmTemplate" width="346" height="346"/>
+        <image name="key-two" width="382" height="211"/>
+        <image name="keyboardSegmTemplate" width="382" height="211"/>
+        <image name="sun-two" width="326" height="326"/>
+        <image name="volume-three" width="409" height="292"/>
+        <image name="volumeSegmTemplate" width="409" height="295"/>
     </resources>
 </document>

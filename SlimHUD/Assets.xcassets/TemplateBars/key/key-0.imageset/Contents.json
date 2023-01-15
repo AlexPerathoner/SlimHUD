@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "volume.png",
+      "filename" : "key0.png",
       "idiom" : "universal"
     }
   ],
@@ -12,6 +12,6 @@
   "properties" : {
     "compression-type" : "lossless",
     "preserves-vector-representation" : true,
-    "template-rendering-intent" : "original"
+    "template-rendering-intent" : "template"
   }
 }

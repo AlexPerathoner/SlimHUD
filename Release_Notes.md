@@ -1,3 +1,6 @@
+# 1.5.0 - New look
+* Icons change depending on value
+
 # 1.4.2 - Improved non-continous checks
 * Show system HUDs after SlimHUD quit
 * Fix: HUDs didn't always appear when pressing keys 

@@ -13,10 +13,12 @@ class BarView: NSView {
 
     @IBOutlet weak var bar: ProgressBar!
     @IBOutlet private var icon: NSImageView!
-
-    public func setupIconAnchorPointAndLayer() {
-        icon.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        icon.wantsLayer = true
+    
+    override func awakeFromNib() {
+        if let icon = icon { // not set in
+            icon.wantsLayer = true
+            icon.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        }
     }
 
     public func hideIcon(isHidden: Bool) {
@@ -27,9 +29,31 @@ class BarView: NSView {
     public func setIconTint(_ color: NSColor) {
         icon.contentTintColor = color
     }
+    
+    private func hasIconChanged(newIcon: NSImage) -> Bool {
+        return icon.image != newIcon
+    }
 
     public func setIconImage(icon: NSImage) {
-        self.icon.image = icon
+        var color: NSColor?
+        if #available(macOS 10.14, *) {
+            color = self.icon.contentTintColor
+        }
+        if hasIconChanged(newIcon: icon) {
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0.1)
+            
+            let transition = CATransition()
+            transition.type = CATransitionType.fade
+            
+            self.icon.layer?.add(transition, forKey: kCATransition)
+            self.icon.image = icon
+            if #available(macOS 10.14, *) {
+                self.icon.contentTintColor = color
+            }
+            
+            CATransaction.commit()
+        }
     }
     public func setIconImageView(icon: NSImageView) {
         self.icon = icon

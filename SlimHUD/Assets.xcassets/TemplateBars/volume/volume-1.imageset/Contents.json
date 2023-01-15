@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "sun.png",
+      "filename" : "vol1.png",
       "idiom" : "universal"
     }
   ],
@@ -10,6 +10,8 @@
     "version" : 1
   },
   "properties" : {
+    "compression-type" : "lossless",
+    "preserves-vector-representation" : true,
     "template-rendering-intent" : "template"
   }
 }
