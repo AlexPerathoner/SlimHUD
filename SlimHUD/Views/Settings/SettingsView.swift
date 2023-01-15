@@ -127,21 +127,14 @@ class SettingsController: NSView, HudsControllerInterface {
         }
     }
 
-    // FIXME: changing icons tint in preview only works if instantiation AND tinting are called twice
     @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor, enabled: Bool) {
         if enabled {
-            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.three)
+            volumeHud.setIconImage(icon: NSImage(named: NSImage.VolumeImageFileName.three)!)
         } else {
-            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.disable)
+            volumeHud.setIconImage(icon: NSImage(named: NSImage.VolumeImageFileName.disable)!)
         }
-        volumeImage.image = volumeImage.image?.tint(with: color)
-        if enabled {
-            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.three)
-        } else {
-            volumeImage.image = NSImage(named: NSImage.VolumeImageFileName.disable)
-        }
-        volumeImage.image = volumeImage.image?.tint(with: color)
+        volumeHud.setIconTint(color)
     }
     @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor) {
@@ -149,17 +142,13 @@ class SettingsController: NSView, HudsControllerInterface {
     }
     @available(OSX 10.14, *)
     func setBrightnessIconsTint(_ color: NSColor) {
-        brightnessImage.image = NSImage(named: NSImage.BrightnessImageFileName.two)
-        brightnessImage.image = brightnessImage.image?.tint(with: color)
-        brightnessImage.image = NSImage(named: NSImage.BrightnessImageFileName.two)
-        brightnessImage.image = brightnessImage.image?.tint(with: color)
+        brightnessHud.setIconImage(icon: NSImage(named: NSImage.BrightnessImageFileName.three)!)
+        brightnessHud.setIconTint(color)
     }
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
-        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName.three)
-        keyboardImage.image = keyboardImage.image?.tint(with: color)
-        keyboardImage.image = NSImage(named: NSImage.KeyboardImageFileName.three)
-        keyboardImage.image = keyboardImage.image?.tint(with: color)
+        keyboardHud.setIconImage(icon: NSImage(named: NSImage.KeyboardImageFileName.three)!)
+        keyboardHud.setIconTint(color)
     }
 
     func updateAllAttributes() {

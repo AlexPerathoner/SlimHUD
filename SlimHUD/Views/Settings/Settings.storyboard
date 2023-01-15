@@ -702,6 +702,10 @@
                                                                 <constraint firstItem="aIF-Ux-qm7" firstAttribute="leading" secondItem="d5M-pg-g2d" secondAttribute="leading" constant="20" symbolic="YES" id="ciT-yA-FO6"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Z7X-R9-G2U" secondAttribute="bottom" constant="13" id="cvj-u2-Pvt"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="bar" destination="aIF-Ux-qm7" id="38f-qs-T4m"/>
+                                                                <outlet property="icon" destination="Z7X-R9-G2U" id="2dE-sT-jyu"/>
+                                                            </connections>
                                                         </customView>
                                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="oS6-Zd-iqx" userLabel="Brightness" customClass="BarView" customModule="SlimHUD" customModuleProvider="target">
                                                             <rect key="frame" x="102" y="12" width="47" height="280"/>

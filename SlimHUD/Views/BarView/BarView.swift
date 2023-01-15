@@ -15,8 +15,10 @@ class BarView: NSView {
     @IBOutlet private var icon: NSImageView!
     
     override func awakeFromNib() {
-        icon.wantsLayer = true
-        icon.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        if let icon = icon { // not set in
+            icon.wantsLayer = true
+            icon.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        }
     }
 
     public func hideIcon(isHidden: Bool) {
@@ -33,6 +35,10 @@ class BarView: NSView {
     }
 
     public func setIconImage(icon: NSImage) {
+        var color: NSColor?
+        if #available(macOS 10.14, *) {
+            color = self.icon.contentTintColor
+        }
         if hasIconChanged(newIcon: icon) {
             CATransaction.begin()
             CATransaction.setAnimationDuration(0.1)
@@ -42,6 +48,9 @@ class BarView: NSView {
             
             self.icon.layer?.add(transition, forKey: kCATransition)
             self.icon.image = icon
+            if #available(macOS 10.14, *) {
+                self.icon.contentTintColor = color
+            }
             
             CATransaction.commit()
         }
