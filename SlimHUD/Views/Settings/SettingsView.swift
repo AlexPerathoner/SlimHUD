@@ -174,7 +174,7 @@ class SettingsController: NSView, HudsControllerInterface {
             self.brightnessHud.setProgress(progress: progress)
             self.keyboardHud.setProgress(progress: progress)
             
-            self.volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: progress, isMuted: false)) // TODO: should Iconmanager whener possible (in other classes)
+            self.volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: progress, isMuted: false))
             self.brightnessHud.setIconImage(icon: IconManager.getBrightnessIcon(for: progress))
             self.keyboardHud.setIconImage(icon: IconManager.getKeyboardIcon(for: progress))
             
