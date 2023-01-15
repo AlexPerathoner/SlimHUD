@@ -21,9 +21,9 @@ class Displayer: HudsControllerInterface {
         self.brightnessHud = brightnessHud
         self.keyboardHud = keyboardHud
 
-        volumeHud.setIconImage(icon: NSImage(named: NSImage.VolumeImageFileName.three)!)
-        brightnessHud.setIconImage(icon: NSImage(named: NSImage.BrightnessImageFileName.three)!)
-        keyboardHud.setIconImage(icon: NSImage(named: NSImage.KeyboardImageFileName.three)!)
+        volumeHud.setIconImage(icon: IconManager.getStandardVolumeIcon(isMuted: VolumeManager.isMuted()))
+        brightnessHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
+        keyboardHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
     }
 
     func showVolumeHUD() {

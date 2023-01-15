@@ -122,11 +122,7 @@ class SettingsController: NSView, HudsControllerInterface {
 
     @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor, enabled: Bool) {
-        if enabled {
-            volumeHud.setIconImage(icon: NSImage(named: NSImage.VolumeImageFileName.three)!)
-        } else {
-            volumeHud.setIconImage(icon: NSImage(named: NSImage.VolumeImageFileName.disable)!)
-        }
+        volumeHud.setIconImage(icon: IconManager.getStandardVolumeIcon(isMuted: enabled))
         volumeHud.setIconTint(color)
     }
     @available(OSX 10.14, *)
@@ -135,12 +131,12 @@ class SettingsController: NSView, HudsControllerInterface {
     }
     @available(OSX 10.14, *)
     func setBrightnessIconsTint(_ color: NSColor) {
-        brightnessHud.setIconImage(icon: NSImage(named: NSImage.BrightnessImageFileName.three)!)
+        brightnessHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
         brightnessHud.setIconTint(color)
     }
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor) {
-        keyboardHud.setIconImage(icon: NSImage(named: NSImage.KeyboardImageFileName.three)!)
+        keyboardHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
         keyboardHud.setIconTint(color)
     }
 
@@ -161,11 +157,17 @@ class SettingsController: NSView, HudsControllerInterface {
             setKeyboardIconsTint(settingsManager.keyboardIconColor)
         }
     }
+    
+    var previewTimer: Timer?
 
     func showAnimation() {
         var value: Float = 0.5
         
-        let timerChangeValue = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { _ in
+        if previewTimer != nil {
+            previewTimer?.invalidate()
+        }
+        
+        previewTimer = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { _ in
             let progress = value.truncatingRemainder(dividingBy: 1.0)
             
             self.volumeHud.setProgress(progress: progress)
@@ -179,8 +181,9 @@ class SettingsController: NSView, HudsControllerInterface {
             value += 0.1
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 12.0) {
-            timerChangeValue.invalidate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
+            self.previewTimer?.invalidate()
+            self.previewTimer = nil
         }
     }
 
