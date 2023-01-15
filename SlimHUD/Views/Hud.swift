@@ -41,7 +41,7 @@ class Hud: NSView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setup() {
+    func setup() { // TOOD: should be in awakeFromNib
         isHidden = true
         let window = NSWindow(contentRect: DisplayManager.getScreenFrame(),
                               styleMask: .borderless, backing: .buffered, defer: true,
@@ -54,7 +54,6 @@ class Hud: NSView {
 
     func setBarView(barView: BarView) {
         self.barView = barView
-        barView.setupIconAnchorPointAndLayer()
     }
 
     func show() {

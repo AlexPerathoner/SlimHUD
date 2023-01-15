@@ -28,7 +28,7 @@ class SettingsController: NSView, HudsControllerInterface {
     @IBOutlet weak var brightnessImage: NSImageView!
     @IBOutlet weak var keyboardImage: NSImageView!
 
-    func setup() { // TODO: find way to remove this, move to init or smt similar
+    func setup() { // TODO: find way to remove this, move to awakeFromNib
         volumeView.setBar(bar: volumeBar)
         brightnessView.setBar(bar: brightnessBar)
         keyboardView.setBar(bar: keyboardBar)
