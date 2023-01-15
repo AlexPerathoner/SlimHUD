@@ -21,8 +21,8 @@ extension SettingsViewController {
     @IBAction func shouldShowIconsAction(_ sender: NSButton) {
         let shouldShowIcons = sender.boolValue()
         settingsManager.shouldShowIcons = shouldShowIcons
-        delegate?.updateIcons(isHidden: !shouldShowIcons)
-        preview.updateIcons(isHidden: !shouldShowIcons)
+        delegate?.hideIcon(isHidden: !shouldShowIcons)
+        preview.hideIcon(isHidden: !shouldShowIcons)
     }
 
     @IBAction func shouldShowShadows(_ sender: NSButton) {

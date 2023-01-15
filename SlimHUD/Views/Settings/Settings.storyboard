@@ -934,11 +934,11 @@
     </scenes>
     <resources>
         <image name="NSRefreshTemplate" width="17" height="20"/>
-        <image name="brightnessSegmTemplate" width="116" height="115"/>
+        <image name="brightnessSegmTemplate" width="346" height="346"/>
         <image name="key-two" width="382" height="211"/>
-        <image name="keyboardSegmTemplate" width="116" height="115"/>
+        <image name="keyboardSegmTemplate" width="382" height="211"/>
         <image name="sun-two" width="326" height="326"/>
         <image name="volume-three" width="409" height="292"/>
-        <image name="volumeSegmTemplate" width="116" height="115"/>
+        <image name="volumeSegmTemplate" width="409" height="295"/>
     </resources>
 </document>

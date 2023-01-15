@@ -9,7 +9,7 @@ import Cocoa
 
 protocol HudsControllerInterface: AnyObject {
     func updateShadows(enabled: Bool)
-    func updateIcons(isHidden: Bool)
+    func hideIcon(isHidden: Bool)
     func setupDefaultBarsColors()
     func setBackgroundColor(color: NSColor)
     func setVolumeEnabledColor(color: NSColor)

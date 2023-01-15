@@ -104,7 +104,7 @@ class Displayer: HudsControllerInterface {
         keyboardHud.setShadow(enabled, Constants.ShadowRadius)
     }
 
-    func updateIcons(isHidden: Bool) {
+    func hideIcon(isHidden: Bool) {
         volumeHud.hideIcon(isHidden: isHidden)
         brightnessHud.hideIcon(isHidden: isHidden)
         keyboardHud.hideIcon(isHidden: isHidden)
@@ -146,7 +146,7 @@ class Displayer: HudsControllerInterface {
     func updateAllAttributes() {
         setHeight(height: CGFloat(settingsManager.barHeight))
         setThickness(thickness: CGFloat(settingsManager.barThickness))
-        updateIcons(isHidden: !settingsManager.shouldShowIcons)
+        hideIcon(isHidden: !settingsManager.shouldShowIcons)
         updateShadows(enabled: settingsManager.shouldShowShadows)
         setBackgroundColor(color: settingsManager.backgroundColor)
         setVolumeEnabledColor(color: settingsManager.volumeEnabledColor)

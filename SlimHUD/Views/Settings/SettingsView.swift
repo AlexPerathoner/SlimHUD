@@ -43,21 +43,21 @@ class SettingsController: NSView, HudsControllerInterface {
     }
 
     func updateShadows(enabled: Bool) {
-        volumeView.setupShadow(enabled, 20)
-        brightnessView.setupShadow(enabled, 20)
-        keyboardView.setupShadow(enabled, 20)
+        volumeHud.setShadow(enabled, 20)
+        brightnessHud.setShadow(enabled, 20)
+        keyboardHud.setShadow(enabled, 20)
     }
 
-    func updateIcons(isHidden: Bool) {
-        volumeImage.isHidden = isHidden
-        brightnessImage.isHidden = isHidden
-        keyboardImage.isHidden = isHidden
+    func hideIcon(isHidden: Bool) {
+        volumeHud.hideIcon(isHidden: isHidden)
+        brightnessHud.hideIcon(isHidden: isHidden)
+        keyboardHud.hideIcon(isHidden: isHidden)
     }
 
     func setupDefaultBarsColors() {
-        volumeBar.foreground = DefaultColors.Blue
-        brightnessBar.foreground = DefaultColors.Yellow
-        keyboardBar.foreground = DefaultColors.Azure
+        volumeHud.setForegroundColor(color: DefaultColors.Blue)
+        brightnessHud.setForegroundColor(color: DefaultColors.Yellow)
+        keyboardHud.setForegroundColor(color: DefaultColors.Azure)
         setBackgroundColor(color: DefaultColors.DarkGray)
     }
 
@@ -70,20 +70,20 @@ class SettingsController: NSView, HudsControllerInterface {
     }
 
     func setBackgroundColor(color: NSColor) {
-        volumeBar.background = color
-        brightnessBar.background = color
-        keyboardBar.background = color
+        volumeHud.setBackgroundColor(color: color)
+        brightnessHud.setBackgroundColor(color: color)
+        keyboardHud.setBackgroundColor(color: color)
     }
 
     func setVolumeEnabledColor(color: NSColor) {
-        volumeBar.foreground = color
+        volumeHud.setForegroundColor(color: color)
         if #available(OSX 10.14, *) {
             setVolumeIconsTint(settingsManager.volumeIconColor, enabled: true)
         }
     }
 
     func setVolumeDisabledColor(color: NSColor) {
-        volumeBar.foreground = color
+        volumeHud.setForegroundColor(color: color)
         if #available(OSX 10.14, *) {
             setVolumeIconsTint(settingsManager.volumeIconColor, enabled: false)
         }
@@ -100,16 +100,9 @@ class SettingsController: NSView, HudsControllerInterface {
     // isn't showed in preview
     func setHeight(height: CGFloat) {}
     func setThickness(thickness: CGFloat) {
-        setFlatBar(progressBar: volumeBar, thickness: 7)
-        setFlatBar(progressBar: brightnessBar, thickness: 7)
-        setFlatBar(progressBar: keyboardBar, thickness: 7)
-    }
-    private func setFlatBar(progressBar: ProgressBar, thickness: CGFloat) {
-        if settingsManager.flatBar {
-            progressBar.progressLayer.cornerRadius = 0
-        } else {
-            progressBar.progressLayer.cornerRadius = thickness/2
-        }
+        volumeHud.setThickness(thickness: 7, flatBar: settingsManager.flatBar)
+        brightnessHud.setThickness(thickness: 7, flatBar: settingsManager.flatBar)
+        keyboardHud.setThickness(thickness: 7, flatBar: settingsManager.flatBar)
     }
 
     func setShouldUseAnimation(shouldUseAnimation: Bool) {
@@ -153,7 +146,7 @@ class SettingsController: NSView, HudsControllerInterface {
 
     func updateAllAttributes() {
         enabledBars = settingsManager.enabledBars
-        updateIcons(isHidden: !(settingsManager.shouldShowIcons))
+        hideIcon(isHidden: !(settingsManager.shouldShowIcons))
         updateShadows(enabled: settingsManager.shouldShowShadows)
         setBackgroundColor(color: settingsManager.backgroundColor)
         setVolumeDisabledColor(color: settingsManager.volumeDisabledColor)
@@ -169,23 +162,25 @@ class SettingsController: NSView, HudsControllerInterface {
         }
     }
 
-    var value: Float = 0.5
-    var timerChangeValue: Timer?
     func showAnimation() {
-        if timerChangeValue != nil {
-            timerChangeValue?.invalidate()
-        }
-        timerChangeValue = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { (_) in
-            let val = (self.value).truncatingRemainder(dividingBy: 1.0)
-            self.volumeBar.progress = val
-            self.brightnessBar.progress = val
-            self.keyboardBar.progress = val
-            self.value += 0.1
+        var value: Float = 0.5
+        
+        let timerChangeValue = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { _ in
+            let progress = value.truncatingRemainder(dividingBy: 1.0)
+            
+            self.volumeHud.setProgress(progress: progress)
+            self.brightnessHud.setProgress(progress: progress)
+            self.keyboardHud.setProgress(progress: progress)
+            
+            self.volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: progress, isMuted: false)) // TODO: should Iconmanager whener possible (in other classes)
+            self.brightnessHud.setIconImage(icon: IconManager.getBrightnessIcon(for: progress))
+            self.keyboardHud.setIconImage(icon: IconManager.getKeyboardIcon(for: progress))
+            
+            value += 0.1
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
-            self.timerChangeValue?.invalidate()
-            self.timerChangeValue = nil
+        DispatchQueue.main.asyncAfter(deadline: .now() + 12.0) {
+            timerChangeValue.invalidate()
         }
     }
 
