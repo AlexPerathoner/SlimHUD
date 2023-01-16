@@ -27,21 +27,21 @@ class Hud: NSView {
     private override init(frame frameRect: NSRect) {
         originPosition = .zero
         super.init(frame: frameRect)
-        setup()
+        commonInit()
     }
 
     init(position: CGPoint) {
         self.originPosition = position
         super.init(frame: .zero)
         setFrameOrigin(position)
-        setup()
+        commonInit()
     }
 
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setup() { // TOOD: should be in awakeFromNib
+    private func commonInit() {
         isHidden = true
         let window = NSWindow(contentRect: DisplayManager.getScreenFrame(),
                               styleMask: .borderless, backing: .buffered, defer: true,
