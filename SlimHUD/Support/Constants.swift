@@ -17,4 +17,5 @@ class DefaultColors {
 
 class Constants {
     static let ShadowRadius: CGFloat = 20
+    static let AnimationDuration: CGFloat = 0.3
 }

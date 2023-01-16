@@ -10,7 +10,7 @@ import AppKit
 class Hud: NSView {
 
     private var animationDuration: TimeInterval = 0.3
-    private var animationMovement: CGFloat = 20
+    private var animationMovement: CGFloat = 20 // TODO: remove this
     private var animationStyle = AnimationStyle.Slide
 
     /// The NSView that is going to be displayed when show() is called
@@ -18,7 +18,7 @@ class Hud: NSView {
     private var originPosition: CGPoint
     private var screenEdge: Position = .left
 
-    private var hudView: NSView! {
+    private var hudView: NSView! { // TODO: check why not using self
         return windowController?.window?.contentView
     }
 
@@ -60,70 +60,60 @@ class Hud: NSView {
         if isHidden {
             guard let hudView = hudView else { return }
             windowController?.showWindow(self)
-            frame = hudView.frame
-            if !hudView.subviews.isEmpty {
+            frame = hudView.frame // TODO: check if this necessary
+            if !hudView.subviews.isEmpty { // TODO: this too
                 hudView.subviews = []
             }
             hudView.addSubview(barView)
 
             // animation only if not yet visible
-
-            switch screenEdge {
-            case .left:
-                hudView.setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
-            case .right:
-                hudView.setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
-            case .top:
-                hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
-            case .bottom:
-                hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
-            }
+            
             self.isHidden = false
-            if animationStyle != .None { // TODO: update for different animations
-                NSAnimationContext.runAnimationGroup({ (context) in
-                    // slide + fade in animation
-                    context.duration = animationDuration
-                    hudView.animator().alphaValue = 1
-                    hudView.animator().setFrameOrigin(originPosition)
-                })
-            } else {
-                hudView.setFrameOrigin(originPosition)
-                hudView.alphaValue = 1
+            
+            switch animationStyle {
+            case .None: Animator.popIn(hudView: hudView, originPosition: originPosition)
+            case .Slide: Animator.slideIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
+            case .PopInFadeOut: Animator.popIn(hudView: hudView, originPosition: originPosition)
+            case .Fade: Animator.fade(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
+            case .GrowBlur: Animator.growBlur(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
+//            case .SideGrow: Animator.sideGrowIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
+            default: Animator.popIn(hudView: hudView, originPosition: originPosition)
             }
         }
     }
+    
 
     func hide(animated: Bool) {
         if !isHidden {
             guard let view = hudView else { return }
-            if animationStyle != .None { // TODO: update for different animations
-                NSAnimationContext.runAnimationGroup({ (context) in
-                    // slide + fade out animation
-                    context.duration = animationDuration
-                    view.animator().alphaValue = 0
-
-                    switch screenEdge {
-                    case .left:
-                        view.animator().setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
-                    case .right:
-                        view.animator().setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
-                    case .top:
-                        view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
-                    case .bottom:
-                        view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
-                    }
-                }, completionHandler: {
-                    self.isHidden = true
-                    self.removeFromSuperview()
-                    self.windowController?.close()
-                })
-            } else {
+//            if animationStyle != .None { // TODO: update for different animations
+//                NSAnimationContext.runAnimationGroup({ (context) in
+//                    // slide + fade out animation
+//                    context.duration = animationDuration
+//                    view.animator().alphaValue = 0
+//
+//                    switch screenEdge {
+//                    case .left:
+//                        view.animator().setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
+//                    case .right:
+//                        view.animator().setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
+//                    case .top:
+//                        view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
+//                    case .bottom:
+//                        view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
+//                    }
+//                }, completionHandler: {
+//                    self.isHidden = true
+//                    self.removeFromSuperview()
+//                    self.windowController?.close()
+//                })
+//            } else {
                 view.setFrameOrigin(originPosition)
                 view.alphaValue = 0
                 isHidden = true
                 removeFromSuperview()
                 windowController?.close()
-            }
+//            }
         }
     }
 
