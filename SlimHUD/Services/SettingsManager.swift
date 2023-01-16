@@ -22,7 +22,7 @@ class SettingsManager {
     private static let ShouldShowIconsKey = "shouldShowIcons"
     private static let ShouldShowShadowsKey = "shouldShowShadows"
     private static let ShouldContinuouslyCheckKey = "shouldContinuouslyCheck"
-    private static let ShouldUseAnimationKey = "shouldUseAnimation"
+    private static let AnimationStyleKey = "animationStyle"
     private static let BarHeightKey = "barHeight"
     private static let BarThicknessKey = "barThickness"
     private static let PositionKey = "position"
@@ -90,9 +90,9 @@ class SettingsManager {
             UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
         }
     }
-    var shouldUseAnimation: Bool {
+    var animationStyle: AnimationStyle {
         didSet {
-            UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.ShouldUseAnimationKey)
+            UserDefaults.standard.set(animationStyle, forKey: SettingsManager.AnimationStyleKey)
         }
     }
 
@@ -166,7 +166,7 @@ class SettingsManager {
         position = Position(rawValue: rawPosition) ?? .left
         shouldContinuouslyCheck = CommandLine.arguments.contains(SettingsManager.ShouldContinuouslyCheckKey) ?
             true : UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
-        shouldUseAnimation = UserDefaultsManager.getBool(for: SettingsManager.ShouldUseAnimationKey, defaultValue: true)
+        animationStyle = AnimationStyle(from: UserDefaultsManager.getString(for: SettingsManager.AnimationStyleKey, defaultValue: "None"))
         let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.EnabledBarsKey, defaultValue: [true, true, true])
         let (volumeBarEnabled, brightnessBarEnabled, keyboardBarEnabled) =
             (enabledBarsRaw[EnabledBars.VolumeBarIndex],
@@ -218,7 +218,7 @@ class SettingsManager {
                               enabledBars.keyboardBar]
         UserDefaults.standard.set(enabledBarsRaw, forKey: SettingsManager.EnabledBarsKey)
         UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
-        UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.ShouldUseAnimationKey)
+        UserDefaults.standard.set(animationStyle, forKey: SettingsManager.AnimationStyleKey)
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
         UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
     }
