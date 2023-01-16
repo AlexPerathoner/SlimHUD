@@ -31,12 +31,13 @@ extension SettingsViewController {
         delegate?.updateShadows(enabled: shouldShowShadows)
         preview.updateShadows(enabled: shouldShowShadows)
     }
-
-    @IBAction func shouldUseAnimations(_ sender: NSButton) {
-        let shouldUseAnimation = sender.boolValue()
-        settingsManager.shouldUseAnimation = shouldUseAnimation
-        delegate?.setShouldUseAnimation(shouldUseAnimation: shouldUseAnimation)
-        preview.setShouldUseAnimation(shouldUseAnimation: shouldUseAnimation)
+    
+    
+    @IBAction func changeAnimationStyleClicked(_ sender: NSPopUpButton) {
+        let animationStyle = AnimationStyle(from: sender.indexOfSelectedItem)
+        settingsManager.animationStyle = animationStyle
+        delegate?.setAnimationStyle(animationStyle: animationStyle)
+        preview.setAnimationStyle(animationStyle: animationStyle)
     }
 
     @IBAction func shouldUseFlatBar(_ sender: NSButton) {

@@ -11,7 +11,7 @@ class Hud: NSView {
 
     private var animationDuration: TimeInterval = 0.3
     private var animationMovement: CGFloat = 20
-    private var animated = true
+    private var animationStyle = AnimationStyle.Slide
 
     /// The NSView that is going to be displayed when show() is called
     private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView // swiftlint:disable:this force_cast
@@ -79,7 +79,7 @@ class Hud: NSView {
                 hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
             }
             self.isHidden = false
-            if animated {
+            if animationStyle != .None { // TODO: update for different animations
                 NSAnimationContext.runAnimationGroup({ (context) in
                     // slide + fade in animation
                     context.duration = animationDuration
@@ -96,7 +96,7 @@ class Hud: NSView {
     func hide(animated: Bool) {
         if !isHidden {
             guard let view = hudView else { return }
-            if animated {
+            if animationStyle != .None { // TODO: update for different animations
                 NSAnimationContext.runAnimationGroup({ (context) in
                     // slide + fade out animation
                     context.duration = animationDuration
@@ -133,9 +133,9 @@ class Hud: NSView {
 
     public func dismiss(delay: TimeInterval) {
         if !isHidden {
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideDelayed(_:)), object: animated.toInt())
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideDelayed(_:)), object: animationStyle)
         }
-        self.perform(#selector(hideDelayed(_:)), with: animated.toInt(), afterDelay: delay)
+        self.perform(#selector(hideDelayed(_:)), with: animationStyle, afterDelay: delay) // TODO: check if it should be passed as int to obj func
     }
 
     public func hideIcon(isHidden: Bool) {
@@ -201,9 +201,9 @@ class Hud: NSView {
         barView.bar.progress = progress
     }
 
-    public func setShouldUseAnimation(_ shouldUseAnimation: Bool) {
-        self.animated = shouldUseAnimation
-        barView.bar.setupAnimation(animated: shouldUseAnimation)
+    public func setAnimationStyle(_ animationStyle: AnimationStyle) {
+        self.animationStyle = animationStyle
+        barView.bar.setupAnimationStyle(animationStyle: animationStyle)
     }
 
     public func setForegroundColor(color: NSColor) {

@@ -17,8 +17,8 @@ open class ProgressBar: DeterminateAnimation {
     open var progressLayer = CAShapeLayer()
     private var animationTime: CFTimeInterval = 0.36
 
-    open func setupAnimation(animated: Bool) {
-        if animated {
+    func setupAnimationStyle(animationStyle: AnimationStyle) {
+        if animationStyle != .None {
             animationTime = 0.36
         } else {
             animationTime = 0

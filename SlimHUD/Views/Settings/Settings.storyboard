@@ -658,6 +658,9 @@
                                                             </items>
                                                         </menu>
                                                     </popUpButtonCell>
+                                                    <connections>
+                                                        <action selector="changeAnimationStyleClicked:" target="KlL-pV-FiE" id="ogx-jC-Xka"/>
+                                                    </connections>
                                                 </popUpButton>
                                             </subviews>
                                             <constraints>
@@ -829,6 +832,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationStyleOutlet" destination="ugQ-ga-oTv" id="EDO-rg-Y3Q"/>
                         <outlet property="backgroundColorOutlet" destination="gaf-3N-HR5" id="cLP-Hg-FEh"/>
                         <outlet property="barsBox" destination="VQh-Gr-ghR" id="5ww-CU-jgc"/>
                         <outlet property="brightnessColorOutlet" destination="P9e-nh-i2k" id="fFw-Bl-2L4"/>

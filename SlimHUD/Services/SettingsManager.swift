@@ -92,7 +92,7 @@ class SettingsManager {
     }
     var animationStyle: AnimationStyle {
         didSet {
-            UserDefaults.standard.set(animationStyle, forKey: SettingsManager.AnimationStyleKey)
+            UserDefaults.standard.set(animationStyle.rawValue, forKey: SettingsManager.AnimationStyleKey)
         }
     }
 
@@ -166,7 +166,7 @@ class SettingsManager {
         position = Position(rawValue: rawPosition) ?? .left
         shouldContinuouslyCheck = CommandLine.arguments.contains(SettingsManager.ShouldContinuouslyCheckKey) ?
             true : UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
-        animationStyle = AnimationStyle(from: UserDefaultsManager.getString(for: SettingsManager.AnimationStyleKey, defaultValue: "None"))
+        animationStyle = AnimationStyle(from: UserDefaultsManager.getString(for: SettingsManager.AnimationStyleKey, defaultValue: ""))
         let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.EnabledBarsKey, defaultValue: [true, true, true])
         let (volumeBarEnabled, brightnessBarEnabled, keyboardBarEnabled) =
             (enabledBarsRaw[EnabledBars.VolumeBarIndex],
