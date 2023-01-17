@@ -108,43 +108,33 @@ class HudAnimator {
             completion()
         })
     }
-    
-    // TODO: shrink messes up with the container view -> update originPosition
+
     public static func shrinkIn(hudView: NSView, originPosition: CGPoint) { // TODO: Very similar to growIn / Out, refactor
         hudView.alphaValue = 0
-        let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
-        hudView.setFrameOrigin(originPosition)
-        print(originalBounds, GrowFactorComplementary)
-        print(-originalBounds.width * ShrinkFactorComplementary)
-        hudView.subviews[0].bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary,
-                                            y: originalBounds.height * ShrinkFactorComplementary,
-                                            width: originalBounds.width / GrowShrinkFactor,
-                                            height: originalBounds.height / GrowShrinkFactor)
-        
+        let originalBounds = hudView.subviews[0].bounds
+        hudView.subviews[0].setFrameOrigin(NSPoint(x: originPosition.x, y: originPosition.y))
+        hudView.subviews[0].bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary, y: originalBounds.height * ShrinkFactorComplementary, width: originalBounds.width / GrowShrinkFactor, height: originalBounds.height / GrowShrinkFactor)
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 1
             hudView.animator().subviews[0].bounds = originalBounds
-            print(originalBounds)
         })
     }
-    public static func shrinkOut(hudView: NSView, originPosition: CGPoint, completion: @escaping (() -> Void)) {
+    public static func shrinkOut(hudView: NSView, originPosition: CGPoint, completion: @escaping (() -> Void)) { // TODO: Very similar to growIn / Out, refactor
         hudView.alphaValue = 1
-        let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
-        hudView.setFrameOrigin(originPosition)
-        
+        let originalBounds = hudView.subviews[0].bounds
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 0
-            hudView.animator().subviews[0].bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary,
-                                                y: originalBounds.height * ShrinkFactorComplementary,
-                                                width: originalBounds.width / GrowShrinkFactor,
-                                                height: originalBounds.height / GrowShrinkFactor)
+            hudView.animator().subviews[0].bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary, y: originalBounds.height * ShrinkFactorComplementary, width: originalBounds.width / GrowShrinkFactor, height: originalBounds.height / GrowShrinkFactor)
         }, completionHandler: {
             hudView.subviews[0].bounds = originalBounds
+            hudView.subviews[0].setFrameOrigin(NSPoint(x: originPosition.x, y: originPosition.y))
             completion()
         })
     }
+    
+    // TODO: check again if all animations are working, after changing frame origin
     
     public static func sideGrowIn(hudView: NSView, originPosition: CGPoint, screenEdge: Position) {
         hudView.alphaValue = 0

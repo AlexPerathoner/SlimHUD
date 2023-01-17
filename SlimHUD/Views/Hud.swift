@@ -33,7 +33,6 @@ class Hud: NSView {
     init(position: CGPoint) {
         self.originPosition = position
         super.init(frame: .zero)
-        setFrameOrigin(position)
         commonInit()
     }
 
@@ -59,9 +58,9 @@ class Hud: NSView {
     func show() {
         if isHidden {
             guard let hudView = hudView else { return }
+            
             windowController?.showWindow(self)
-            frame = hudView.frame // TODO: check if this necessary
-            if !hudView.subviews.isEmpty { // TODO: this too
+            if !hudView.subviews.isEmpty {
                 hudView.subviews = []
             }
             hudView.addSubview(barView)
@@ -71,7 +70,7 @@ class Hud: NSView {
             switch animationStyle {
             case .None: HudAnimator.popIn(hudView: hudView, originPosition: originPosition)
             case .Slide: HudAnimator.slideIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
-            case .PopInFadeOut: HudAnimator.popIn(hudView: hudView, originPosition: originPosition) // TODO: should immediately show changes in ProgressBar
+            case .PopInFadeOut: HudAnimator.popIn(hudView: hudView, originPosition: originPosition)
             case .Fade: HudAnimator.fadeIn(hudView: hudView, originPosition: originPosition)
             case .Grow: HudAnimator.growIn(hudView: hudView, originPosition: originPosition)
             case .Shrink: HudAnimator.shrinkIn(hudView: hudView, originPosition: originPosition)

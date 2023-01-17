@@ -21,7 +21,7 @@ extension SettingsViewController {
     @IBAction func launchAtLoginClicked(_ sender: NSButton) {
         if sender.boolValue() {
             if !loginItemsList.addLoginItem() {
-                print("Error while adding Login Item to the list.")
+                print("Error while adding Login Item to the list.") // TODO: should be NSLog
             }
         } else {
             if !loginItemsList.removeLoginItem() {
