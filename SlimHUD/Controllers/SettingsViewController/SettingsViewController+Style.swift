@@ -34,7 +34,7 @@ extension SettingsViewController {
     
     
     @IBAction func changeAnimationStyleClicked(_ sender: NSPopUpButton) {
-        let animationStyle = AnimationStyle(from: sender.indexOfSelectedItem)
+        let animationStyle = AnimationStyle(from: sender.titleOfSelectedItem)
         settingsManager.animationStyle = animationStyle
         delegate?.setAnimationStyle(animationStyle: animationStyle)
         preview.setAnimationStyle(animationStyle: animationStyle)

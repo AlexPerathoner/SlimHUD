@@ -218,7 +218,7 @@ class SettingsManager {
                               enabledBars.keyboardBar]
         UserDefaults.standard.set(enabledBarsRaw, forKey: SettingsManager.EnabledBarsKey)
         UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
-        UserDefaults.standard.set(animationStyle, forKey: SettingsManager.AnimationStyleKey)
+        UserDefaults.standard.set(animationStyle.rawValue, forKey: SettingsManager.AnimationStyleKey)
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
         UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
     }

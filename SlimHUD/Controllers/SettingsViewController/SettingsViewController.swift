@@ -41,7 +41,7 @@ class SettingsViewController: NSViewController, SPUUpdaterDelegate {
         iconOutlet.state = settingsManager.shouldShowIcons.toStateValue()
         shadowOutlet.state = settingsManager.shouldShowShadows.toStateValue()
         continuousCheckOutlet.state = settingsManager.shouldContinuouslyCheck.toStateValue()
-        animationStyleOutlet.selectItem(at: settingsManager.animationStyle.intValue())
+        animationStyleOutlet.selectItem(withTitle: settingsManager.animationStyle.rawValue)
         backgroundColorOutlet.color = settingsManager.backgroundColor
         volumeEnabledColorOutlet.color = settingsManager.volumeEnabledColor
         volumeDisabledColorOutlet.color = settingsManager.volumeDisabledColor
