@@ -75,6 +75,7 @@ class Hud: NSView {
             case .Fade: Animator.fadeIn(hudView: hudView, originPosition: originPosition)
             case .Grow: Animator.growIn(hudView: hudView, originPosition: originPosition)
             case .Shrink: Animator.shrinkIn(hudView: hudView, originPosition: originPosition)
+            case .SideGrow: Animator.sideGrowIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
             default: Animator.popIn(hudView: hudView, originPosition: originPosition)
             }
         }
@@ -92,6 +93,7 @@ class Hud: NSView {
             case .Fade: Animator.fadeOut(hudView: hudView, originPosition: originPosition, completion: commonCompletion)
             case .Grow: Animator.growOut(hudView: hudView, originPosition: originPosition, completion: commonCompletion)
             case .Shrink: Animator.shrinkOut(hudView: hudView, originPosition: originPosition, completion: commonCompletion)
+            case .SideGrow: Animator.sideGrowOut(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge, completion: commonCompletion)
             default: Animator.popOut(hudView: hudView, originPosition: originPosition) {
                 self.isHidden = true
             }

@@ -130,7 +130,6 @@ class Animator {
             print(originalBounds)
         })
     }
-    
     public static func shrinkOut(hudView: NSView, originPosition: CGPoint, completion: @escaping (() -> Void)) {
         hudView.alphaValue = 1
         let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
@@ -143,6 +142,60 @@ class Animator {
                                                 y: originalBounds.height * ShrinkFactorComplementary,
                                                 width: originalBounds.width / GrowFactor,
                                                 height: originalBounds.height / GrowFactor)
+        }, completionHandler: {
+            hudView.subviews[0].bounds = originalBounds
+            completion()
+        })
+    }
+    
+    public static func sideGrowIn(hudView: NSView, originPosition: CGPoint, screenEdge: Position) {
+        hudView.alphaValue = 0
+        switch screenEdge {
+        case .left:
+            hudView.setFrameOrigin(.init(x: originPosition.x - AnimationMovement, y: originPosition.y))
+        case .right:
+            hudView.setFrameOrigin(.init(x: originPosition.x + AnimationMovement, y: originPosition.y))
+        case .top:
+            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + AnimationMovement))
+        case .bottom:
+            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - AnimationMovement))
+        }
+        
+        let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
+        hudView.subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
+                                            y: originalBounds.height * GrowFactorComplementary,
+                                            width: originalBounds.width * GrowFactor,
+                                            height: originalBounds.height * GrowFactor)
+        
+        NSAnimationContext.runAnimationGroup({ (context) in
+            context.duration = Constants.AnimationDuration
+            hudView.animator().alphaValue = 1
+            hudView.animator().setFrameOrigin(originPosition)
+            hudView.animator().subviews[0].bounds = originalBounds
+        })
+    }
+    public static func sideGrowOut(hudView: NSView, originPosition: CGPoint, screenEdge: Position, completion: @escaping (() -> Void)) {
+        hudView.alphaValue = 1
+        let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
+        hudView.setFrameOrigin(originPosition)
+        
+        NSAnimationContext.runAnimationGroup({ (context) in
+            context.duration = Constants.AnimationDuration
+            hudView.animator().alphaValue = 0
+            switch screenEdge {
+            case .left:
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x - AnimationMovement, y: originPosition.y))
+            case .right:
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x + AnimationMovement, y: originPosition.y))
+            case .top:
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + AnimationMovement))
+            case .bottom:
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - AnimationMovement))
+            }
+            hudView.animator().subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
+                                                y: originalBounds.height * GrowFactorComplementary,
+                                                width: originalBounds.width * GrowFactor,
+                                                height: originalBounds.height * GrowFactor)
         }, completionHandler: {
             hudView.subviews[0].bounds = originalBounds
             completion()
