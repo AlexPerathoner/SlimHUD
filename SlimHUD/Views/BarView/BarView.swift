@@ -46,6 +46,9 @@ class BarView: NSView {
             let transition = CATransition()
             transition.type = CATransitionType.fade
             
+            let timingFunction = CAMediaTimingFunction(name: .easeOut)
+            CATransaction.setAnimationTimingFunction(timingFunction)
+            
             self.icon.layer?.add(transition, forKey: kCATransition)
             self.icon.image = icon
             if #available(macOS 10.14, *) {

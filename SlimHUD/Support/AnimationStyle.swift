@@ -22,7 +22,7 @@ enum AnimationStyle: String {
         self = AnimationStyle(rawValue: rawValue) ?? AnimationStyle.DefaultValue
     }
     
-    init(from intValue: Int) {
+    init(from intValue: Int) { // TODO: remove this, handle in storyboard with identifiers
         switch intValue {
         case 0: self = .None
         case 1: self = .Slide
