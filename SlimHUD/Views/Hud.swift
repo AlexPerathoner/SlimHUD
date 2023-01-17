@@ -65,18 +65,16 @@ class Hud: NSView {
                 hudView.subviews = []
             }
             hudView.addSubview(barView)
-
-            // animation only if not yet visible
             
             self.isHidden = false
             
             switch animationStyle {
             case .None: Animator.popIn(hudView: hudView, originPosition: originPosition)
             case .Slide: Animator.slideIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
-            case .PopInFadeOut: Animator.popIn(hudView: hudView, originPosition: originPosition)
-            case .Fade: Animator.fade(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
-            case .GrowBlur: Animator.growBlur(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
-//            case .SideGrow: Animator.sideGrowIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
+            case .PopInFadeOut: Animator.popIn(hudView: hudView, originPosition: originPosition) // TODO: should immediately show changes in ProgressBar
+            case .Fade: Animator.fadeIn(hudView: hudView, originPosition: originPosition)
+            case .Grow: Animator.growIn(hudView: hudView, originPosition: originPosition)
+            case .Shrink: Animator.shrinkIn(hudView: hudView, originPosition: originPosition)
             default: Animator.popIn(hudView: hudView, originPosition: originPosition)
             }
         }
@@ -85,36 +83,25 @@ class Hud: NSView {
 
     func hide(animated: Bool) {
         if !isHidden {
-            guard let view = hudView else { return }
-//            if animationStyle != .None { // TODO: update for different animations
-//                NSAnimationContext.runAnimationGroup({ (context) in
-//                    // slide + fade out animation
-//                    context.duration = animationDuration
-//                    view.animator().alphaValue = 0
-//
-//                    switch screenEdge {
-//                    case .left:
-//                        view.animator().setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
-//                    case .right:
-//                        view.animator().setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
-//                    case .top:
-//                        view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
-//                    case .bottom:
-//                        view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
-//                    }
-//                }, completionHandler: {
-//                    self.isHidden = true
-//                    self.removeFromSuperview()
-//                    self.windowController?.close()
-//                })
-//            } else {
-                view.setFrameOrigin(originPosition)
-                view.alphaValue = 0
-                isHidden = true
-                removeFromSuperview()
-                windowController?.close()
-//            }
+            guard let hudView = hudView else { return }
+            
+            switch animationStyle {
+            case .None: Animator.popOut(hudView: hudView, originPosition: originPosition, completion: commonCompletion)
+            case .Slide: Animator.slideOut(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge, completion: commonCompletion)
+            case .PopInFadeOut: Animator.fadeOut(hudView: hudView, originPosition: originPosition, completion: commonCompletion)
+            case .Fade: Animator.fadeOut(hudView: hudView, originPosition: originPosition, completion: commonCompletion)
+            case .Grow: Animator.growOut(hudView: hudView, originPosition: originPosition, completion: commonCompletion)
+            case .Shrink: Animator.shrinkOut(hudView: hudView, originPosition: originPosition, completion: commonCompletion)
+            default: Animator.popOut(hudView: hudView, originPosition: originPosition) {
+                self.isHidden = true
+            }
+            }
         }
+    }
+    private func commonCompletion() {
+        self.isHidden = true
+        barView.removeFromSuperview()
+        self.windowController?.close()
     }
 
     @objc private func hideDelayed(_ animated: NSNumber?) {

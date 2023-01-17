@@ -8,13 +8,13 @@
 import Foundation
 
 enum AnimationStyle: String {
-    case None
-    case Slide
-    case PopInFadeOut
-    case GrowBlur
-    case ShrinkBlur
-    case Fade
-    case Grow
+    case None // done
+    case Slide // done
+    case PopInFadeOut // done
+    case GrowFade // TODO: remove
+    case ShrinkFade // TODO: remove
+    case Fade // done TODO: move up?
+    case Grow // done
     case Shrink
     case SideGrow
     
@@ -29,8 +29,8 @@ enum AnimationStyle: String {
         case 0: self = .None
         case 1: self = .Slide
         case 2: self = .PopInFadeOut
-        case 3: self = .GrowBlur
-        case 4: self = .ShrinkBlur
+        case 3: self = .GrowFade
+        case 4: self = .ShrinkFade
         case 5: self = .Fade
         case 6: self = .Grow
         case 7: self = .Shrink
@@ -44,8 +44,8 @@ enum AnimationStyle: String {
         case .None: return 0
         case .Slide: return 1
         case .PopInFadeOut: return 2
-        case .GrowBlur: return 3
-        case .ShrinkBlur: return 4
+        case .GrowFade: return 3
+        case .ShrinkFade: return 4
         case .Fade: return 5
         case .Grow: return 6
         case .Shrink: return 7
