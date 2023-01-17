@@ -69,13 +69,13 @@ class Hud: NSView {
             self.isHidden = false
             
             switch animationStyle {
-            case .None: Animator.popIn(hudView: hudView, originPosition: originPosition)
-            case .Slide: Animator.slideIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
-            case .PopInFadeOut: Animator.popIn(hudView: hudView, originPosition: originPosition) // TODO: should immediately show changes in ProgressBar
-            case .Fade: Animator.fadeIn(hudView: hudView, originPosition: originPosition)
-            case .Grow: Animator.growIn(hudView: hudView, originPosition: originPosition)
-            case .Shrink: Animator.shrinkIn(hudView: hudView, originPosition: originPosition)
-            case .SideGrow: Animator.sideGrowIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
+            case .None: HudAnimator.popIn(hudView: hudView, originPosition: originPosition)
+            case .Slide: HudAnimator.slideIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
+            case .PopInFadeOut: HudAnimator.popIn(hudView: hudView, originPosition: originPosition) // TODO: should immediately show changes in ProgressBar
+            case .Fade: HudAnimator.fadeIn(hudView: hudView, originPosition: originPosition)
+            case .Grow: HudAnimator.growIn(hudView: hudView, originPosition: originPosition)
+            case .Shrink: HudAnimator.shrinkIn(hudView: hudView, originPosition: originPosition)
+            case .SideGrow: HudAnimator.sideGrowIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
             }
         }
     }
@@ -86,13 +86,13 @@ class Hud: NSView {
             guard let hudView = hudView else { return }
             
             switch animationStyle {
-            case .None: Animator.popOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Slide: Animator.slideOut(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
-            case .PopInFadeOut: Animator.fadeOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Fade: Animator.fadeOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Grow: Animator.growOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Shrink: Animator.shrinkOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .SideGrow: Animator.sideGrowOut(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+            case .None: HudAnimator.popOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .Slide: HudAnimator.slideOut(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+            case .PopInFadeOut: HudAnimator.fadeOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .Fade: HudAnimator.fadeOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .Grow: HudAnimator.growOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .Shrink: HudAnimator.shrinkOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .SideGrow: HudAnimator.sideGrowOut(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
             }
         }
     }

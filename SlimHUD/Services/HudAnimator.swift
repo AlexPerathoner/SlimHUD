@@ -1,5 +1,5 @@
 //
-//  Animator.swift
+//  HudAnimator.swift
 //  SlimHUD
 //
 //  Created by Alex Perathoner on 16/01/23.
@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class Animator {
+class HudAnimator {
     private static let GrowShrinkFactor: CGFloat = 1.6
     private static let GrowFactorComplementary: CGFloat = (1-GrowShrinkFactor) / 2
     private static let ShrinkFactorComplementary: CGFloat = (1-1/GrowShrinkFactor) / 2
