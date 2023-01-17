@@ -16,6 +16,16 @@ class DefaultColors {
 }
 
 class Constants {
+    private init() {}
+    
     static let ShadowRadius: CGFloat = 20
-    static let AnimationDuration: CGFloat = 0.3
+    
+    struct Animation {
+        private init() {}
+        
+        static let Duration: CGFloat = 0.3
+        static let Movement: CGFloat = 20
+    }
 }
+
+

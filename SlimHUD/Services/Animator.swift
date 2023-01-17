@@ -8,11 +8,9 @@
 import Cocoa
 
 class Animator {
-    
-    private static var AnimationMovement: CGFloat = 20 // TODO: move to constants?
-    private static var GrowFactor: CGFloat = 1.6 // TODO: Rename
-    private static var GrowFactorComplementary: CGFloat = (1-GrowFactor) / 2
-    private static var ShrinkFactorComplementary: CGFloat = (1-1/GrowFactor) / 2
+    private static let GrowShrinkFactor: CGFloat = 1.6
+    private static let GrowFactorComplementary: CGFloat = (1-GrowShrinkFactor) / 2
+    private static let ShrinkFactorComplementary: CGFloat = (1-1/GrowShrinkFactor) / 2
     
     public static func popIn(hudView: NSView, originPosition: CGPoint) {
         hudView.setFrameOrigin(originPosition)
@@ -27,16 +25,16 @@ class Animator {
         hudView.alphaValue = 0
         switch screenEdge {
         case .left:
-            hudView.setFrameOrigin(.init(x: originPosition.x - AnimationMovement, y: originPosition.y))
+            hudView.setFrameOrigin(.init(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y))
         case .right:
-            hudView.setFrameOrigin(.init(x: originPosition.x + AnimationMovement, y: originPosition.y))
+            hudView.setFrameOrigin(.init(x: originPosition.x + Constants.Animation.Movement, y: originPosition.y))
         case .top:
-            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + AnimationMovement))
+            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + Constants.Animation.Movement))
         case .bottom:
-            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - AnimationMovement))
+            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - Constants.Animation.Movement))
         }
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 1
             hudView.animator().setFrameOrigin(originPosition)
         })
@@ -44,17 +42,17 @@ class Animator {
     public static func slideOut(hudView: NSView, originPosition: CGPoint, screenEdge: Position, completion: @escaping (() -> Void)) {
         hudView.alphaValue = 1
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 0
             switch screenEdge {
             case .left:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x - AnimationMovement, y: originPosition.y))
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y))
             case .right:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x + AnimationMovement, y: originPosition.y))
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x + Constants.Animation.Movement, y: originPosition.y))
             case .top:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + AnimationMovement))
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + Constants.Animation.Movement))
             case .bottom:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - AnimationMovement))
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - Constants.Animation.Movement))
             }
         }, completionHandler: completion)
     }
@@ -64,7 +62,7 @@ class Animator {
         hudView.setFrameOrigin(originPosition)
         
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 1
         })
     }
@@ -73,7 +71,7 @@ class Animator {
         hudView.setFrameOrigin(originPosition)
         
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 0
         }, completionHandler: completion)
     }
@@ -84,11 +82,11 @@ class Animator {
         hudView.setFrameOrigin(originPosition)
         hudView.subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
                                             y: originalBounds.height * GrowFactorComplementary,
-                                            width: originalBounds.width * GrowFactor,
-                                            height: originalBounds.height * GrowFactor)
+                                            width: originalBounds.width * GrowShrinkFactor,
+                                            height: originalBounds.height * GrowShrinkFactor)
         
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 1
             hudView.animator().subviews[0].bounds = originalBounds
         })
@@ -99,12 +97,12 @@ class Animator {
         hudView.setFrameOrigin(originPosition)
         
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 0
             hudView.animator().subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
                                                 y: originalBounds.height * GrowFactorComplementary,
-                                                width: originalBounds.width * GrowFactor,
-                                                height: originalBounds.height * GrowFactor)
+                                                width: originalBounds.width * GrowShrinkFactor,
+                                                height: originalBounds.height * GrowShrinkFactor)
         }, completionHandler: {
             hudView.subviews[0].bounds = originalBounds
             completion()
@@ -120,11 +118,11 @@ class Animator {
         print(-originalBounds.width * ShrinkFactorComplementary)
         hudView.subviews[0].bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary,
                                             y: originalBounds.height * ShrinkFactorComplementary,
-                                            width: originalBounds.width / GrowFactor,
-                                            height: originalBounds.height / GrowFactor)
+                                            width: originalBounds.width / GrowShrinkFactor,
+                                            height: originalBounds.height / GrowShrinkFactor)
         
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration * 5
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 1
             hudView.animator().subviews[0].bounds = originalBounds
             print(originalBounds)
@@ -136,12 +134,12 @@ class Animator {
         hudView.setFrameOrigin(originPosition)
         
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration * 5
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 0
             hudView.animator().subviews[0].bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary,
                                                 y: originalBounds.height * ShrinkFactorComplementary,
-                                                width: originalBounds.width / GrowFactor,
-                                                height: originalBounds.height / GrowFactor)
+                                                width: originalBounds.width / GrowShrinkFactor,
+                                                height: originalBounds.height / GrowShrinkFactor)
         }, completionHandler: {
             hudView.subviews[0].bounds = originalBounds
             completion()
@@ -152,23 +150,23 @@ class Animator {
         hudView.alphaValue = 0
         switch screenEdge {
         case .left:
-            hudView.setFrameOrigin(.init(x: originPosition.x - AnimationMovement, y: originPosition.y))
+            hudView.setFrameOrigin(.init(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y))
         case .right:
-            hudView.setFrameOrigin(.init(x: originPosition.x + AnimationMovement, y: originPosition.y))
+            hudView.setFrameOrigin(.init(x: originPosition.x + Constants.Animation.Movement, y: originPosition.y))
         case .top:
-            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + AnimationMovement))
+            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + Constants.Animation.Movement))
         case .bottom:
-            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - AnimationMovement))
+            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - Constants.Animation.Movement))
         }
         
         let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
         hudView.subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
                                             y: originalBounds.height * GrowFactorComplementary,
-                                            width: originalBounds.width * GrowFactor,
-                                            height: originalBounds.height * GrowFactor)
+                                            width: originalBounds.width * GrowShrinkFactor,
+                                            height: originalBounds.height * GrowShrinkFactor)
         
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 1
             hudView.animator().setFrameOrigin(originPosition)
             hudView.animator().subviews[0].bounds = originalBounds
@@ -180,27 +178,25 @@ class Animator {
         hudView.setFrameOrigin(originPosition)
         
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = Constants.AnimationDuration
+            context.duration = Constants.Animation.Duration
             hudView.animator().alphaValue = 0
             switch screenEdge {
             case .left:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x - AnimationMovement, y: originPosition.y))
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y))
             case .right:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x + AnimationMovement, y: originPosition.y))
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x + Constants.Animation.Movement, y: originPosition.y))
             case .top:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + AnimationMovement))
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + Constants.Animation.Movement))
             case .bottom:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - AnimationMovement))
+                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - Constants.Animation.Movement))
             }
             hudView.animator().subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
                                                 y: originalBounds.height * GrowFactorComplementary,
-                                                width: originalBounds.width * GrowFactor,
-                                                height: originalBounds.height * GrowFactor)
+                                                width: originalBounds.width * GrowShrinkFactor,
+                                                height: originalBounds.height * GrowShrinkFactor)
         }, completionHandler: {
             hudView.subviews[0].bounds = originalBounds
             completion()
         })
     }
-    
-    // TODO: check all with all edges
 }
