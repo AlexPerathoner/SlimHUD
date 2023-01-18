@@ -61,20 +61,23 @@ class Hud: NSView {
             
             windowController?.showWindow(self)
             if !hudView.subviews.isEmpty {
-                hudView.subviews = []
+                for subView in hudView.subviews {
+                    subView.removeFromSuperview()
+                }
             }
             hudView.addSubview(barView)
+            hudView.subviews[0].setFrameOrigin(NSPoint(x: originPosition.x, y: originPosition.y))
             
             self.isHidden = false
             
             switch animationStyle {
-            case .None: HudAnimator.popIn(hudView: hudView, originPosition: originPosition)
-            case .Slide: HudAnimator.slideIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
-            case .PopInFadeOut: HudAnimator.popIn(hudView: hudView, originPosition: originPosition)
-            case .Fade: HudAnimator.fadeIn(hudView: hudView, originPosition: originPosition)
-            case .Grow: HudAnimator.growIn(hudView: hudView, originPosition: originPosition)
-            case .Shrink: HudAnimator.shrinkIn(hudView: hudView, originPosition: originPosition)
-            case .SideGrow: HudAnimator.sideGrowIn(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge)
+            case .None: HudAnimator.popIn(barView: barView, originPosition: originPosition)
+            case .Slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
+            case .PopInFadeOut: HudAnimator.popIn(barView: barView, originPosition: originPosition)
+            case .Fade: HudAnimator.fadeIn(barView: barView, originPosition: originPosition)
+            case .Grow: HudAnimator.growIn(barView: barView, originPosition: originPosition)
+            case .Shrink: HudAnimator.shrinkIn(barView: barView, originPosition: originPosition)
+            case .SideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
             }
         }
     }
@@ -82,16 +85,14 @@ class Hud: NSView {
 
     func hide(animated: Bool) {
         if !isHidden {
-            guard let hudView = hudView else { return }
-            
             switch animationStyle {
-            case .None: HudAnimator.popOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Slide: HudAnimator.slideOut(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
-            case .PopInFadeOut: HudAnimator.fadeOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Fade: HudAnimator.fadeOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Grow: HudAnimator.growOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Shrink: HudAnimator.shrinkOut(hudView: hudView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .SideGrow: HudAnimator.sideGrowOut(hudView: hudView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+            case .None: HudAnimator.popOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .Slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+            case .PopInFadeOut: HudAnimator.fadeOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .Fade: HudAnimator.fadeOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .Grow: HudAnimator.growOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .Shrink: HudAnimator.shrinkOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+            case .SideGrow: HudAnimator.sideGrowOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
             }
         }
     }

@@ -12,181 +12,154 @@ class HudAnimator {
     private static let GrowFactorComplementary: CGFloat = (1-GrowShrinkFactor) / 2
     private static let ShrinkFactorComplementary: CGFloat = (1-1/GrowShrinkFactor) / 2
     
-    public static func popIn(hudView: NSView, originPosition: CGPoint) {
-        hudView.setFrameOrigin(originPosition)
-        hudView.alphaValue = 1
+    public static func popIn(barView: BarView, originPosition: CGPoint) {
+        barView.setFrameOrigin(originPosition)
+        barView.alphaValue = 1
     }
-    public static func popOut(hudView: NSView, originPosition: CGPoint, completion: @escaping (() -> Void)) {
-        hudView.setFrameOrigin(originPosition)
-        hudView.alphaValue = 0
+    public static func popOut(barView: BarView, originPosition: CGPoint, completion: @escaping (() -> Void)) {
+        barView.setFrameOrigin(originPosition)
+        barView.alphaValue = 0
         completion()
     }
-    public static func slideIn(hudView: NSView, originPosition: CGPoint, screenEdge: Position) {
-        hudView.alphaValue = 0
-        switch screenEdge {
-        case .left:
-            hudView.setFrameOrigin(.init(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y))
-        case .right:
-            hudView.setFrameOrigin(.init(x: originPosition.x + Constants.Animation.Movement, y: originPosition.y))
-        case .top:
-            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + Constants.Animation.Movement))
-        case .bottom:
-            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - Constants.Animation.Movement))
-        }
+    public static func slideIn(barView: BarView, originPosition: CGPoint, screenEdge: Position) {
+        barView.alphaValue = 0
+        barView.setFrameOrigin(getExternalFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 1
-            hudView.animator().setFrameOrigin(originPosition)
+            barView.animator().alphaValue = 1
+            barView.animator().setFrameOrigin(originPosition)
         })
     }
-    public static func slideOut(hudView: NSView, originPosition: CGPoint, screenEdge: Position, completion: @escaping (() -> Void)) {
-        hudView.alphaValue = 1
+    public static func slideOut(barView: BarView, originPosition: CGPoint, screenEdge: Position, completion: @escaping (() -> Void)) {
+        barView.alphaValue = 1
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 0
-            switch screenEdge {
-            case .left:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y))
-            case .right:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x + Constants.Animation.Movement, y: originPosition.y))
-            case .top:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + Constants.Animation.Movement))
-            case .bottom:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - Constants.Animation.Movement))
-            }
+            barView.animator().alphaValue = 0
+            barView.animator().setFrameOrigin(getExternalFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
         }, completionHandler: completion)
     }
     
-    public static func fadeIn(hudView: NSView, originPosition: CGPoint) {
-        hudView.alphaValue = 0
-        hudView.setFrameOrigin(originPosition)
+    public static func fadeIn(barView: BarView, originPosition: CGPoint) {
+        barView.alphaValue = 0
+        barView.setFrameOrigin(originPosition)
         
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 1
+            barView.animator().alphaValue = 1
         })
     }
-    public static func fadeOut(hudView: NSView, originPosition: CGPoint, completion: @escaping (() -> Void)) {
-        hudView.alphaValue = 1
-        hudView.setFrameOrigin(originPosition)
+    public static func fadeOut(barView: BarView, originPosition: CGPoint, completion: @escaping (() -> Void)) {
+        barView.alphaValue = 1
+        barView.setFrameOrigin(originPosition)
         
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 0
+            barView.animator().alphaValue = 0
         }, completionHandler: completion)
     }
     
-    public static func growIn(hudView: NSView, originPosition: CGPoint) {
-        hudView.alphaValue = 0
-        let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
-        hudView.setFrameOrigin(originPosition)
-        hudView.subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
+    public static func growIn(barView: BarView, originPosition: CGPoint) {
+        barView.alphaValue = 0
+        let originalBounds = barView.bounds
+        barView.setFrameOrigin(originPosition)
+        barView.bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
                                             y: originalBounds.height * GrowFactorComplementary,
                                             width: originalBounds.width * GrowShrinkFactor,
                                             height: originalBounds.height * GrowShrinkFactor)
         
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 1
-            hudView.animator().subviews[0].bounds = originalBounds
+            barView.animator().alphaValue = 1
+            barView.animator().bounds = originalBounds
         })
     }
-    public static func growOut(hudView: NSView, originPosition: CGPoint, completion: @escaping (() -> Void)) {
-        hudView.alphaValue = 1
-        let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
-        hudView.setFrameOrigin(originPosition)
+    public static func growOut(barView: BarView, originPosition: CGPoint, completion: @escaping (() -> Void)) {
+        barView.alphaValue = 1
+        let originalBounds = barView.bounds
+        barView.setFrameOrigin(originPosition)
         
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 0
-            hudView.animator().subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
+            barView.animator().alphaValue = 0
+            barView.animator().bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
                                                 y: originalBounds.height * GrowFactorComplementary,
                                                 width: originalBounds.width * GrowShrinkFactor,
                                                 height: originalBounds.height * GrowShrinkFactor)
         }, completionHandler: {
-            hudView.subviews[0].bounds = originalBounds
+            barView.bounds = originalBounds
             completion()
         })
     }
 
-    public static func shrinkIn(hudView: NSView, originPosition: CGPoint) { // TODO: Very similar to growIn / Out, refactor
-        hudView.alphaValue = 0
-        let originalBounds = hudView.subviews[0].bounds
-        hudView.subviews[0].setFrameOrigin(NSPoint(x: originPosition.x, y: originPosition.y))
-        hudView.subviews[0].bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary, y: originalBounds.height * ShrinkFactorComplementary, width: originalBounds.width / GrowShrinkFactor, height: originalBounds.height / GrowShrinkFactor)
+    public static func shrinkIn(barView: BarView, originPosition: CGPoint) {
+        barView.alphaValue = 0
+        let originalBounds = barView.bounds
+        barView.bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary, y: originalBounds.height * ShrinkFactorComplementary, width: originalBounds.width / GrowShrinkFactor, height: originalBounds.height / GrowShrinkFactor)
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 1
-            hudView.animator().subviews[0].bounds = originalBounds
+            barView.animator().alphaValue = 1
+            barView.animator().bounds = originalBounds
         })
     }
-    public static func shrinkOut(hudView: NSView, originPosition: CGPoint, completion: @escaping (() -> Void)) { // TODO: Very similar to growIn / Out, refactor
-        hudView.alphaValue = 1
-        let originalBounds = hudView.subviews[0].bounds
+    public static func shrinkOut(barView: BarView, originPosition: CGPoint, completion: @escaping (() -> Void)) {
+        barView.alphaValue = 1
+        let originalBounds = barView.bounds
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 0
-            hudView.animator().subviews[0].bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary, y: originalBounds.height * ShrinkFactorComplementary, width: originalBounds.width / GrowShrinkFactor, height: originalBounds.height / GrowShrinkFactor)
+            barView.animator().alphaValue = 0
+            barView.animator().bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary, y: originalBounds.height * ShrinkFactorComplementary, width: originalBounds.width / GrowShrinkFactor, height: originalBounds.height / GrowShrinkFactor)
         }, completionHandler: {
-            hudView.subviews[0].bounds = originalBounds
-            hudView.subviews[0].setFrameOrigin(NSPoint(x: originPosition.x, y: originPosition.y))
+            barView.bounds = originalBounds
             completion()
         })
     }
     
-    // TODO: check again if all animations are working, after changing frame origin
-    
-    public static func sideGrowIn(hudView: NSView, originPosition: CGPoint, screenEdge: Position) {
-        hudView.alphaValue = 0
-        switch screenEdge {
-        case .left:
-            hudView.setFrameOrigin(.init(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y))
-        case .right:
-            hudView.setFrameOrigin(.init(x: originPosition.x + Constants.Animation.Movement, y: originPosition.y))
-        case .top:
-            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + Constants.Animation.Movement))
-        case .bottom:
-            hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - Constants.Animation.Movement))
-        }
+    public static func sideGrowIn(barView: BarView, originPosition: CGPoint, screenEdge: Position) {
+        barView.alphaValue = 0
+        barView.setFrameOrigin(getExternalFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
         
-        let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
-        hudView.subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
+        let originalBounds = barView.bounds
+        barView.bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
                                             y: originalBounds.height * GrowFactorComplementary,
                                             width: originalBounds.width * GrowShrinkFactor,
                                             height: originalBounds.height * GrowShrinkFactor)
         
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 1
-            hudView.animator().setFrameOrigin(originPosition)
-            hudView.animator().subviews[0].bounds = originalBounds
+            barView.animator().alphaValue = 1
+            barView.animator().setFrameOrigin(originPosition)
+            barView.animator().bounds = originalBounds
         })
     }
-    public static func sideGrowOut(hudView: NSView, originPosition: CGPoint, screenEdge: Position, completion: @escaping (() -> Void)) {
-        hudView.alphaValue = 1
-        let originalBounds = hudView.subviews[0].bounds // TODO: find better way to access this
-        hudView.setFrameOrigin(originPosition)
+    public static func sideGrowOut(barView: BarView, originPosition: CGPoint, screenEdge: Position, completion: @escaping (() -> Void)) {
+        barView.alphaValue = 1
+        let originalBounds = barView.bounds
+        barView.setFrameOrigin(originPosition)
         
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
-            hudView.animator().alphaValue = 0
-            switch screenEdge {
-            case .left:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y))
-            case .right:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x + Constants.Animation.Movement, y: originPosition.y))
-            case .top:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + Constants.Animation.Movement))
-            case .bottom:
-                hudView.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - Constants.Animation.Movement))
-            }
-            hudView.animator().subviews[0].bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
+            barView.animator().alphaValue = 0
+            barView.animator().setFrameOrigin(getExternalFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
+            barView.animator().bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
                                                 y: originalBounds.height * GrowFactorComplementary,
                                                 width: originalBounds.width * GrowShrinkFactor,
                                                 height: originalBounds.height * GrowShrinkFactor)
         }, completionHandler: {
-            hudView.subviews[0].bounds = originalBounds
+            barView.bounds = originalBounds
             completion()
         })
+    }
+    
+    private static func getExternalFrameOrigin(originPosition: CGPoint, screenEdge: Position) -> CGPoint {
+        switch screenEdge {
+        case .left:
+            return CGPoint(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y)
+        case .right:
+            return CGPoint(x: originPosition.x + Constants.Animation.Movement, y: originPosition.y)
+        case .top:
+            return CGPoint(x: originPosition.x, y: originPosition.y + Constants.Animation.Movement)
+        case .bottom:
+            return CGPoint(x: originPosition.x, y: originPosition.y - Constants.Animation.Movement)
+        }
     }
 }
