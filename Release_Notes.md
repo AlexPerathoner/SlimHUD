@@ -1,5 +1,6 @@
 # 1.5.0 - New look
-* Dynamic icons change depending on bar value
+* Icons change depending on value
+* Add multiple in-out animation styles
 * New look for the settings window
 
 @kaydenanderson

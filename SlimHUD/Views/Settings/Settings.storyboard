@@ -378,16 +378,6 @@
                                                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="yXd-DK-P3W">
                                                     <rect key="frame" x="17" y="203" width="265" height="5"/>
                                                 </box>
-                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oo7-Ya-W0B">
-                                                    <rect key="frame" x="137" y="254" width="94" height="18"/>
-                                                    <buttonCell key="cell" type="check" title="Animations" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="v2d-vm-Skb">
-                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="shouldUseAnimations:" target="KlL-pV-FiE" id="bcz-YQ-N3O"/>
-                                                    </connections>
-                                                </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FLV-hq-l4L">
                                                     <rect key="frame" x="20" y="181" width="111" height="16"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Change colors of:" id="TdS-ax-srd">
@@ -639,13 +629,42 @@
                                                         <action selector="shouldUseFlatBar:" target="KlL-pV-FiE" id="JFX-s7-VU6"/>
                                                     </connections>
                                                 </button>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fQ-u3-qfN">
+                                                    <rect key="frame" x="116" y="255" width="69" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Animation:" id="N4N-CB-wPB">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugQ-ga-oTv">
+                                                    <rect key="frame" x="203" y="249" width="78" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <popUpButtonCell key="cell" type="push" title="None" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="10i-Dc-pGd" id="2TG-bD-PWU">
+                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="menu"/>
+                                                        <menu key="menu" id="3F2-vE-liI">
+                                                            <items>
+                                                                <menuItem title="None" state="on" id="10i-Dc-pGd"/>
+                                                                <menuItem title="Slide" id="rhg-Mf-vdq"/>
+                                                                <menuItem title="Pop in + fade out" id="azP-xL-sLA"/>
+                                                                <menuItem title="Fade" id="4tj-Ql-v5L"/>
+                                                                <menuItem title="Grow" id="hot-LD-jIz"/>
+                                                                <menuItem title="Shrink" id="je7-k7-Xci"/>
+                                                                <menuItem title="Side grow" id="ZCZ-xG-1Sz"/>
+                                                            </items>
+                                                        </menu>
+                                                    </popUpButtonCell>
+                                                    <connections>
+                                                        <action selector="changeAnimationStyleClicked:" target="KlL-pV-FiE" id="ogx-jC-Xka"/>
+                                                    </connections>
+                                                </popUpButton>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yXd-DK-P3W" firstAttribute="centerX" secondItem="8zU-14-QQa" secondAttribute="centerX" id="13F-tI-TaG"/>
-                                                <constraint firstItem="ifN-oA-u43" firstAttribute="baseline" secondItem="Oo7-Ya-W0B" secondAttribute="baseline" id="6tj-IV-Aan"/>
                                                 <constraint firstItem="FLV-hq-l4L" firstAttribute="top" secondItem="yXd-DK-P3W" secondAttribute="bottom" constant="8" symbolic="YES" id="CL4-lg-Q2w"/>
                                                 <constraint firstItem="FLV-hq-l4L" firstAttribute="leading" secondItem="VQh-Gr-ghR" secondAttribute="leading" id="JPW-1p-2wk"/>
-                                                <constraint firstItem="Oo7-Ya-W0B" firstAttribute="leading" secondItem="ifN-oA-u43" secondAttribute="trailing" constant="62" id="NWN-T7-oOn"/>
                                                 <constraint firstItem="VQh-Gr-ghR" firstAttribute="top" secondItem="zOO-f8-JwW" secondAttribute="bottom" constant="14" id="Rxe-aV-kTQ"/>
                                                 <constraint firstItem="ifN-oA-u43" firstAttribute="leading" secondItem="1Ew-KO-4h4" secondAttribute="leading" id="X9r-4y-PSb"/>
                                                 <constraint firstAttribute="trailing" secondItem="zOO-f8-JwW" secondAttribute="trailing" constant="55" id="ad7-rn-INQ"/>
@@ -690,7 +709,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="Vaa-jG-PxP"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="volume-three" id="b04-95-vyq"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="volume-3" id="b04-95-vyq"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -723,7 +742,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="5RB-fz-OOE"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="sun-two" id="JSR-1K-KxI"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="sun-2" id="JSR-1K-KxI"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -752,7 +771,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="LiP-6Q-CZC"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="key-two" id="3uN-l4-LOv"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="key-3" id="3uN-l4-LOv"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -811,7 +830,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animationsOutlet" destination="Oo7-Ya-W0B" id="ffe-Fc-BNG"/>
+                        <outlet property="animationStyleOutlet" destination="ugQ-ga-oTv" id="EDO-rg-Y3Q"/>
                         <outlet property="backgroundColorOutlet" destination="gaf-3N-HR5" id="cLP-Hg-FEh"/>
                         <outlet property="barsBox" destination="VQh-Gr-ghR" id="5ww-CU-jgc"/>
                         <outlet property="brightnessColorOutlet" destination="P9e-nh-i2k" id="fFw-Bl-2L4"/>
@@ -821,6 +840,7 @@
                         <outlet property="continuousCheckHelpBtn" destination="IQ5-YB-cfs" id="luO-iz-wHq"/>
                         <outlet property="continuousCheckOutlet" destination="f21-hD-jmd" id="wEa-ZR-enJ"/>
                         <outlet property="enabledBarsOutlet" destination="4rc-p0-xNQ" id="ZSx-HT-3gs"/>
+                        <outlet property="flatBarOutlet" destination="zwV-j8-WM6" id="Dc6-tF-D2F"/>
                         <outlet property="heightSliderOutlet" destination="wqM-pV-mgI" id="T0B-nF-keP"/>
                         <outlet property="heightValue" destination="Eoi-NJ-z6L" id="sVB-Qc-f49"/>
                         <outlet property="iconOutlet" destination="ifN-oA-u43" id="dZb-Jj-h25"/>
@@ -935,10 +955,10 @@
     <resources>
         <image name="NSRefreshTemplate" width="17" height="20"/>
         <image name="brightnessSegmTemplate" width="346" height="346"/>
-        <image name="key-two" width="382" height="211"/>
+        <image name="key-3" width="382" height="211"/>
         <image name="keyboardSegmTemplate" width="382" height="211"/>
-        <image name="sun-two" width="326" height="326"/>
-        <image name="volume-three" width="409" height="292"/>
+        <image name="sun-2" width="346" height="346"/>
+        <image name="volume-3" width="409" height="295"/>
         <image name="volumeSegmTemplate" width="409" height="295"/>
     </resources>
 </document>
