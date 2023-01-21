@@ -6,7 +6,7 @@
         <language>en</language>
         <item>
             <title>1.5.0</title>
-            <pubDate>Sat, 21 Jan 2023 21:31:12 +0000</pubDate>
+            <pubDate>Sat, 21 Jan 2023 22:12:32 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
             <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>1.5.0</sparkle:version>
@@ -17,7 +17,7 @@
 <li>Add multiple in-out animation styles</li>
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.0-beta/SlimHUD.zip" length="5547837" type="application/octet-stream" sparkle:edSignature="aoo3x7a29wTHztEakoczXyX6whwOjtXgRtGyK0XkxuCxPhOZiqcvoTrhrc2BSTgJc1qHQs/EqPUog4lXfkk+Bg=="/>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.0-beta/SlimHUD.zip" length="5547934" type="application/octet-stream" sparkle:edSignature="zEaCv9wGcvY2AtbrIXfNyd3/hbEcq2XwGze/g0z7Sf5ebt1JTwU2N52EVu1GgYnVoJ6v+LafvXjsXrMPipOuBg=="/>
         </item>
         <item>
             <title>1.4.2</title>
