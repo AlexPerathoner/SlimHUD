@@ -11,4 +11,7 @@ extension XCUIApplication {
     func shouldContinuouslyCheck() {
         launchArguments += ["shouldContinuouslyCheck"]
     }
+    func shouldShowSettingsAtLaunch() {
+        launchArguments += ["showSettingsAtLaunch"]
+    }
 }

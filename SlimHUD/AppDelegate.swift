@@ -44,9 +44,17 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         }
 
         OSDUIManager.stop()
+        
+        if CommandLine.arguments.contains("showSettingsAtLaunch") {
+            showSettingsWindow()
+        }
     }
     
     func applicationDidBecomeActive(_ notification: Notification) {
+        showSettingsWindow()
+    }
+    
+    func showSettingsWindow() {
         if settingsWindowController != nil {
             settingsWindowController?.showWindow(self)
         } else {
