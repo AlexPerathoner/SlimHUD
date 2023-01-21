@@ -52,7 +52,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         } else {
             if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
                 settingsWindowController = windowController
-                windowController.delegate = self
                 windowController.showWindow(self)
             }
         }
@@ -63,8 +62,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     @IBAction func quitCliked(_ sender: Any) {  // todo deal with this
         if isSomeWindowVisible() {
             if settingsManager.showQuitAlert {
-                let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs",
-                                              text: "If you want to quit, click quit again",
+                let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs in background",
+                                              text: "If you want to quit, click \"Quit now\"",
                                               buttonsTitle: ["OK", "Quit now", "Don't show again"])
                 if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
                     quit()
@@ -90,15 +89,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         exit(0)
     }
     
-    
     private func isSomeWindowVisible() -> Bool {
         return ((settingsWindowController?.window?.isVisible ?? false)) &&
             NSApplication.shared.activationPolicy() != .accessory
     }
-
-    private func isOnlyOneWindowVisible() -> Bool {
-        return (settingsWindowController?.window?.isVisible ?? false) &&
-        NSApplication.shared.activationPolicy() != .accessory
-    }
-
 }

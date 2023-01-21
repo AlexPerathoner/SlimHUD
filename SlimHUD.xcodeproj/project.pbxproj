@@ -24,7 +24,6 @@
 		FA95EE132956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */; };
 		FA95EE212956FCF0005B39CD /*  HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */; };
 		FA95EE242956FD3A005B39CD /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA95EE232956FD3A005B39CD /* Sparkle */; };
-		FA95EE262956FD45005B39CD /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE252956FD45005B39CD /* AboutWindowController.swift */; };
 		FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE272956FD54005B39CD /* SettingsWindowController.swift */; };
 		FA95EE2B2956FD7B005B39CD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */; };
 		FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */; };
@@ -113,7 +112,6 @@
 		FA95EE0C2956FCC1005B39CD /* SlimHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " HudsControllerInterface.swift"; sourceTree = "<group>"; };
-		FA95EE252956FD45005B39CD /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		FA95EE272956FD54005B39CD /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
@@ -278,7 +276,6 @@
 			children = (
 				FA95EE292956FD68005B39CD /* SettingsViewController */,
 				FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */,
-				FA95EE252956FD45005B39CD /* AboutWindowController.swift */,
 				FA95EE272956FD54005B39CD /* SettingsWindowController.swift */,
 			);
 			path = Controllers;
@@ -569,7 +566,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA95EE262956FD45005B39CD /* AboutWindowController.swift in Sources */,
 				FA95EE422956FE14005B39CD /* VolumeManager.swift in Sources */,
 				FA95EE532956FE7C005B39CD /* NSControlExtension.swift in Sources */,
 				FA95EE7229573F63005B39CD /* DeterminateAnimation.swift in Sources */,

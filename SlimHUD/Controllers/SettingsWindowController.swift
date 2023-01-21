@@ -8,16 +8,12 @@
 import Cocoa
 
 class SettingsWindowController: NSWindowController, NSWindowDelegate {
-    weak var delegate: MainMenuController?
-
     private var previewTimer: Timer?
 
     // swiftlint:disable:next force_cast
     var displayer = (NSApplication.shared.delegate as! AppDelegate).displayer
 
     override func windowDidLoad() {
-        window?.delegate = self
-
         NSApp.activate(ignoringOtherApps: true)
         NSApplication.shared.setActivationPolicy(.regular)
 
@@ -32,7 +28,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
     func windowWillClose(_ notification: Notification) {
         hidePreviewHud()
-        delegate?.setAccessoryActivationPolicyIfAllWindowsClosed()
+        NSApplication.shared.setActivationPolicy(.accessory)
     }
 
     private func showPreviewHud() {
