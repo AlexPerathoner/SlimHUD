@@ -237,7 +237,7 @@ jobs:
       - uses: actions/checkout@v3 # checkout on the branch used by GH Pages
         if: success()
         with:
-          ref: ${{ steps.comment-branch.outputs.base_ref }} # in this case it's 'master'
+          ref: master
       - name: Remove old appcast # remove old appcast
         run: rm -rf docs/Support/appcast.xml
       - name: Retrieve previously generated appcast
@@ -318,8 +318,8 @@ jobs:
           fail_on_unmatched_files: true
           body_path: latest_changes
           files: Release/${{ env.projname }}.zip
+          prerelease: false
           draft: false
-          prerelease: ${{ steps.channel.outputs.prerelease }}
       - name: Create summary # create summary for PR
         run: |
           echo "Release v${{ steps.info.outputs.new_version }} created." > $GITHUB_STEP_SUMMARY
@@ -358,6 +358,7 @@ jobs:
       - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
         id: comment-branch
       - uses: actions/checkout@v3 # checkout again, because the previous checkout is detached
+        if: ${{ contains(join(needs.*.result, ','), 'success') && !contains(github.event.comment.body, 'beta') }}
         with:
           ref: ${{ steps.comment-branch.outputs.head_ref }}
       - name: Merge PR # merge PR
