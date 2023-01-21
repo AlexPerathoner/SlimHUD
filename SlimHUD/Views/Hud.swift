@@ -56,6 +56,7 @@ class Hud: NSView {
                     subView.removeFromSuperview()
                 }
             }
+            resetBounds(of: barView)
             barView.setFrameOrigin(originPosition)
             hudView.addSubview(barView)
             
@@ -72,6 +73,11 @@ class Hud: NSView {
             case .SideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
             }
         }
+    }
+    // Changing animation type during an animation can mess up the bounds, so resetting them before showing
+    func resetBounds(of barView: BarView) {
+        barView.bounds = barView.frame
+        barView.bounds.origin = .zero
     }
 
     func hide(animated: Bool) {
