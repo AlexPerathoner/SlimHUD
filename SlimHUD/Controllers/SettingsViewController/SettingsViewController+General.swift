@@ -21,11 +21,11 @@ extension SettingsViewController {
     @IBAction func launchAtLoginClicked(_ sender: NSButton) {
         if sender.boolValue() {
             if !loginItemsList.addLoginItem() {
-                print("Error while adding Login Item to the list.") // TODO: should be NSLog
+                NSLog("Error while adding Login Item to the list.")
             }
         } else {
             if !loginItemsList.removeLoginItem() {
-                print("Error while removing Login Item from the list.")
+                NSLog("Error while removing Login Item from the list.")
             }
         }
     }

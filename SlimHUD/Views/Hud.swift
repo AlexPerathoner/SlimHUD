@@ -63,12 +63,12 @@ class Hud: NSView {
             windowController?.showWindow(self)
             
             switch animationStyle {
-            case .None: HudAnimator.popIn(barView: barView, originPosition: originPosition)
+            case .None: HudAnimator.popIn(barView: barView)
             case .Slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
-            case .PopInFadeOut: HudAnimator.popIn(barView: barView, originPosition: originPosition)
-            case .Fade: HudAnimator.fadeIn(barView: barView, originPosition: originPosition)
-            case .Grow: HudAnimator.growIn(barView: barView, originPosition: originPosition)
-            case .Shrink: HudAnimator.shrinkIn(barView: barView, originPosition: originPosition)
+            case .PopInFadeOut: HudAnimator.popIn(barView: barView)
+            case .Fade: HudAnimator.fadeIn(barView: barView)
+            case .Grow: HudAnimator.growIn(barView: barView)
+            case .Shrink: HudAnimator.shrinkIn(barView: barView)
             case .SideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
             }
         }
@@ -78,16 +78,16 @@ class Hud: NSView {
         if !isHidden {
             if(animated) {
                 switch animationStyle {
-                case .None: HudAnimator.popOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+                case .None: HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
                 case .Slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
-                case .PopInFadeOut: HudAnimator.fadeOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-                case .Fade: HudAnimator.fadeOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-                case .Grow: HudAnimator.growOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-                case .Shrink: HudAnimator.shrinkOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+                case .PopInFadeOut: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .Fade: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .Grow: HudAnimator.growOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .Shrink: HudAnimator.shrinkOut(barView: barView, completion: commonAnimationOutCompletion)
                 case .SideGrow: HudAnimator.sideGrowOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
                 }
             } else{
-                HudAnimator.popOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+                HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
             }
         }
     }
