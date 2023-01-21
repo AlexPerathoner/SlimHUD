@@ -43,7 +43,7 @@ class PositionManager {
                                                                          xDockHeight: xDockHeight,
                                                                          yDockHeight: yDockHeight,
                                                                          visibleFrame: visibleFrame,
-                                                                         hudFrame: barViewFrame,
+                                                                         barViewFrame: barViewFrame,
                                                                          screenFrame: screenFrame,
                                                                          isInFullscreen: isFullscreen)
 
@@ -59,21 +59,21 @@ class PositionManager {
 
     static func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
                                             xDockHeight: CGFloat, yDockHeight: CGFloat,
-                                            visibleFrame: NSRect, hudFrame: NSRect, screenFrame: NSRect,
+                                            visibleFrame: NSRect, barViewFrame: NSRect, screenFrame: NSRect,
                                             isInFullscreen: Bool) -> CGPoint {
         var position: CGPoint
         switch hudPosition {
         case .left:
             position = CGPoint(x: dockPosition == .right ? 0 : xDockHeight,
-                           y: (visibleFrame.height/2) - (hudFrame.height/2) + yDockHeight)
+                           y: (visibleFrame.height/2) - (barViewFrame.height/2) + yDockHeight)
         case .right:
-            position = CGPoint(x: screenFrame.width - hudFrame.width - (dockPosition == .left ? 0 : xDockHeight),
-                           y: (visibleFrame.height/2) - (hudFrame.height/2) + yDockHeight)
+            position = CGPoint(x: screenFrame.width - barViewFrame.width - (dockPosition == .left ? 0 : xDockHeight),
+                           y: (visibleFrame.height/2) - (barViewFrame.height/2) + yDockHeight)
         case .bottom:
-            position = CGPoint(x: (screenFrame.width/2) - (hudFrame.height/2),
-                               y: yDockHeight + hudFrame.width)
+            position = CGPoint(x: (screenFrame.width/2) - (barViewFrame.height/2),
+                               y: yDockHeight + barViewFrame.width)
         case .top:
-            position = CGPoint(x: (screenFrame.width/2) - (hudFrame.height/2),
+            position = CGPoint(x: (screenFrame.width/2) - (barViewFrame.height/2),
                            y: screenFrame.height - (isInFullscreen ? 0 : DisplayManager.getMenuBarThickness()))
         }
         return position

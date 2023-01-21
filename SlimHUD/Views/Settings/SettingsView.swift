@@ -99,7 +99,7 @@ class SettingsController: NSView, HudsControllerInterface {
         keyboardBar.foreground = color
     }
 
-    // isn't showed in preview
+    // isn't shown in preview
     func setHeight(height: CGFloat) {}
     func setThickness(thickness: CGFloat) {
         volumeHud.setThickness(thickness: 7, flatBar: settingsManager.flatBar)

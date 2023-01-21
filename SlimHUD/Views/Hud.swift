@@ -9,8 +9,6 @@ import AppKit
 
 class Hud: NSView {
 
-    private var animationDuration: TimeInterval = 0.3
-    private var animationMovement: CGFloat = 20 // TODO: remove this
     private var animationStyle = AnimationStyle.Slide
 
     /// The NSView that is going to be displayed when show() is called
@@ -27,12 +25,6 @@ class Hud: NSView {
     private override init(frame frameRect: NSRect) {
         originPosition = .zero
         super.init(frame: frameRect)
-        commonInit()
-    }
-
-    init(position: CGPoint) {
-        self.originPosition = position
-        super.init(frame: .zero)
         commonInit()
     }
 
@@ -59,16 +51,16 @@ class Hud: NSView {
         if isHidden {
             guard let hudView = hudView else { return }
             
-            windowController?.showWindow(self)
             if !hudView.subviews.isEmpty {
                 for subView in hudView.subviews {
                     subView.removeFromSuperview()
                 }
             }
+            barView.setFrameOrigin(originPosition)
             hudView.addSubview(barView)
-            hudView.subviews[0].setFrameOrigin(NSPoint(x: originPosition.x, y: originPosition.y))
             
             self.isHidden = false
+            windowController?.showWindow(self)
             
             switch animationStyle {
             case .None: HudAnimator.popIn(barView: barView, originPosition: originPosition)
@@ -81,18 +73,21 @@ class Hud: NSView {
             }
         }
     }
-    
 
     func hide(animated: Bool) {
         if !isHidden {
-            switch animationStyle {
-            case .None: HudAnimator.popOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
-            case .PopInFadeOut: HudAnimator.fadeOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Fade: HudAnimator.fadeOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Grow: HudAnimator.growOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .Shrink: HudAnimator.shrinkOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
-            case .SideGrow: HudAnimator.sideGrowOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+            if(animated) {
+                switch animationStyle {
+                case .None: HudAnimator.popOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+                case .Slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+                case .PopInFadeOut: HudAnimator.fadeOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+                case .Fade: HudAnimator.fadeOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+                case .Grow: HudAnimator.growOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+                case .Shrink: HudAnimator.shrinkOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
+                case .SideGrow: HudAnimator.sideGrowOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+                }
+            } else{
+                HudAnimator.popOut(barView: barView, originPosition: originPosition, completion: commonAnimationOutCompletion)
             }
         }
     }
@@ -102,15 +97,15 @@ class Hud: NSView {
         self.windowController?.close()
     }
 
-    @objc private func hideDelayed(_ animated: NSNumber?) {
-        hide(animated: animated != 0)
+    @objc private func hideDelayed(_ animated: AnyObject?) {
+        hide(animated: (animated as? AnimationStyle) != .None)
     }
 
     public func dismiss(delay: TimeInterval) {
         if !isHidden {
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideDelayed(_:)), object: animationStyle)
         }
-        self.perform(#selector(hideDelayed(_:)), with: animationStyle, afterDelay: delay) // TODO: check if it should be passed as int to obj func
+        self.perform(#selector(hideDelayed(_:)), with: animationStyle, afterDelay: delay)
     }
 
     public func hideIcon(isHidden: Bool) {
