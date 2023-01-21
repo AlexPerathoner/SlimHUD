@@ -13,9 +13,8 @@ import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSWindowController, NSApplicationDelegate {
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-
     var settingsManager: SettingsManager = SettingsManager.getInstance()
+    var settingsWindowController: SettingsWindowController?
 
     var volumeHud = Hud()
     var brightnessHud = Hud()
@@ -27,15 +26,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        // menu bar
-        statusItem.menu = statusMenu
-
-        if let button = statusItem.button {
-            button.image = IconManager.getStatusIcon()
-            button.image?.isTemplate = true
-        }
-
         displayer.updateAllAttributes()
     }
 
@@ -55,7 +45,60 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
         OSDUIManager.stop()
     }
+    
+    func applicationDidBecomeActive(_ notification: Notification) {
+        if settingsWindowController != nil {
+            settingsWindowController?.showWindow(self)
+        } else {
+            if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
+                settingsWindowController = windowController
+                windowController.delegate = self
+                windowController.showWindow(self)
+            }
+        }
+        NSApplication.shared.setActivationPolicy(.regular)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    @IBAction func quitCliked(_ sender: Any) {  // todo deal with this
+        if isSomeWindowVisible() {
+            if settingsManager.showQuitAlert {
+                let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs",
+                                              text: "If you want to quit, click quit again",
+                                              buttonsTitle: ["OK", "Quit now", "Don't show again"])
+                if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
+                    quit()
+                }
+                if alertResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
+                    settingsManager.showQuitAlert = false
+                }
+            }
+            closeAllWindows()
+            NSApplication.shared.setActivationPolicy(.accessory)
+        } else {
+            quit()
+        }
+    }
+    
+    private func closeAllWindows() {
+        settingsWindowController?.close()
+    }
 
-    @IBOutlet weak var statusMenu: NSMenu!
+    private func quit() {
+        settingsManager.saveAllItems()
+        OSDUIManager.start()
+        exit(0)
+    }
+    
+    
+    private func isSomeWindowVisible() -> Bool {
+        return ((settingsWindowController?.window?.isVisible ?? false)) &&
+            NSApplication.shared.activationPolicy() != .accessory
+    }
+
+    private func isOnlyOneWindowVisible() -> Bool {
+        return (settingsWindowController?.window?.isVisible ?? false) &&
+        NSApplication.shared.activationPolicy() != .accessory
+    }
 
 }
