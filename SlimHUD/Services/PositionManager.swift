@@ -21,9 +21,9 @@ class PositionManager {
     }
 
     func setupHUDsPosition(isFullscreen: Bool) {
-        volumeHud.hide(animated: false)
-        brightnessHud.hide(animated: false)
-        keyboardHud.hide(animated: false)
+//        volumeHud.hide(animated: false)
+//        brightnessHud.hide(animated: false)
+//        keyboardHud.hide(animated: false)
 
         let barViewFrame = volumeHud.getFrame()
 
@@ -47,12 +47,12 @@ class PositionManager {
                                                                          screenFrame: screenFrame,
                                                                          isInFullscreen: isFullscreen)
 
-        setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
 
         let isHudHorizontal = screenEdge == .bottom || screenEdge == .top
-
-        // set bar views orientation
+        
         setBarsOrientation(isHorizontal: isHudHorizontal)
+        
+        setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
 
         NSLog("screenFrame is \(screenFrame) \(originPosition)")
     }

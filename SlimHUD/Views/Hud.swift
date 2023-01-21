@@ -195,5 +195,18 @@ class Hud: NSView {
     public func setPosition(originPosition: CGPoint, screenEdge: Position) {
         self.originPosition = originPosition
         self.screenEdge = screenEdge
+        
+        guard let hudView = hudView else { return }
+        
+        if !hudView.subviews.isEmpty {
+            for subView in hudView.subviews {
+                
+                NSAnimationContext.runAnimationGroup({ (context) in
+                    context.duration = Constants.Animation.Duration / 2
+                    subView.animator().setFrameOrigin(originPosition)
+                })
+                
+            }
+        }
     }
 }
