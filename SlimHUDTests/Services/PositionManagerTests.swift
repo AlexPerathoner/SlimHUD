@@ -67,7 +67,7 @@ final class PositionManagerTests: XCTestCase {
                                                                       visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
-        XCTAssertEqual(actualPoint, CGPoint(x: 1373, y: 320))
+        XCTAssertEqual(actualPoint, CGPoint(x: 1393, y: 320))
     }
 
     func testCalculateHudsOriginRightNoDock() throws {
@@ -86,7 +86,7 @@ final class PositionManagerTests: XCTestCase {
                                                                       visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
-        XCTAssertEqual(actualPoint, CGPoint(x: 1373, y: 289))
+        XCTAssertEqual(actualPoint, CGPoint(x: 1393, y: 289))
     }
 
     func testCalculateHudsOriginTopWithAndWithoutDockAndMenuBar() throws {
@@ -106,7 +106,7 @@ final class PositionManagerTests: XCTestCase {
                                                                       visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
-        XCTAssertEqual(actualPoint1, CGPoint(x: 571.5, y: 811))
+        XCTAssertEqual(actualPoint1, CGPoint(x: 571.5, y: 878))
 
         // actual point with MenuBar and without Dock
         yDockHeight = Constants.Screen.DockSize
@@ -156,7 +156,7 @@ final class PositionManagerTests: XCTestCase {
                                                                       visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
-        XCTAssertEqual(actualPoint, CGPoint(x: 571.5, y: Constants.Screen.DockSize))
+        XCTAssertEqual(actualPoint, CGPoint(x: 571.5, y: 109.0))
     }
 
     func testCalculateHudsOriginBottomNoDock() throws {
@@ -175,7 +175,7 @@ final class PositionManagerTests: XCTestCase {
                                                                       visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
-        XCTAssertEqual(actualPoint, CGPoint(x: 571.5, y: 0))
+        XCTAssertEqual(actualPoint, CGPoint(x: 571.5, y: 47))
     }
 
     // MARK: - menu bar not visible
@@ -234,7 +234,7 @@ final class PositionManagerTests: XCTestCase {
                                                                       visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
-        XCTAssertEqual(actualPoint, CGPoint(x: 1373, y: 332.5))
+        XCTAssertEqual(actualPoint, CGPoint(x: 1393, y: 332.5))
     }
 
     func testCalculateHudsOriginRightNoDockNoMenuBar() throws {
@@ -253,6 +253,6 @@ final class PositionManagerTests: XCTestCase {
                                                                       visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
-        XCTAssertEqual(actualPoint, CGPoint(x: 1373, y: 301.5))
+        XCTAssertEqual(actualPoint, CGPoint(x: 1393, y: 301.5))
     }
 }

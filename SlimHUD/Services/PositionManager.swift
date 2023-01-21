@@ -70,7 +70,7 @@ class PositionManager {
             position = CGPoint(x: screenFrame.width - hudFrame.width - (dockPosition == .left ? 0 : xDockHeight),
                            y: (visibleFrame.height/2) - (hudFrame.height/2) + yDockHeight)
         case .bottom:
-            position = CGPoint(x: (screenFrame.width/2) - (hudFrame.height/2), // TODO: update tests
+            position = CGPoint(x: (screenFrame.width/2) - (hudFrame.height/2),
                                y: yDockHeight + hudFrame.width)
         case .top:
             position = CGPoint(x: (screenFrame.width/2) - (hudFrame.height/2),

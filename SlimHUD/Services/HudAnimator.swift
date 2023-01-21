@@ -23,7 +23,7 @@ class HudAnimator {
     }
     public static func slideIn(barView: BarView, originPosition: CGPoint, screenEdge: Position) {
         barView.alphaValue = 0
-        let i = getExternalFrameOrigin(originPosition: originPosition, screenEdge: screenEdge)
+        let i = getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge)
         print(i, originPosition     )
         barView.setFrameOrigin(i)
         NSAnimationContext.runAnimationGroup({ (context) in
@@ -37,7 +37,7 @@ class HudAnimator {
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
             barView.animator().alphaValue = 0
-            barView.animator().setFrameOrigin(getExternalFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
+            barView.animator().setFrameOrigin(getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
         }, completionHandler: completion)
     }
     
@@ -118,7 +118,7 @@ class HudAnimator {
     
     public static func sideGrowIn(barView: BarView, originPosition: CGPoint, screenEdge: Position) {
         barView.alphaValue = 0
-        barView.setFrameOrigin(getExternalFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
+        barView.setFrameOrigin(getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
         
         let originalBounds = barView.bounds
         barView.bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
@@ -141,7 +141,7 @@ class HudAnimator {
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
             barView.animator().alphaValue = 0
-            barView.animator().setFrameOrigin(getExternalFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
+            barView.animator().setFrameOrigin(getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
             barView.animator().bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
                                                 y: originalBounds.height * GrowFactorComplementary,
                                                 width: originalBounds.width * GrowShrinkFactor,
@@ -152,7 +152,7 @@ class HudAnimator {
         })
     }
     
-    private static func getExternalFrameOrigin(originPosition: CGPoint, screenEdge: Position) -> CGPoint {
+    public static func getAnimationFrameOrigin(originPosition: CGPoint, screenEdge: Position) -> CGPoint {
         switch screenEdge {
         case .left:
             return CGPoint(x: originPosition.x - Constants.Animation.Movement, y: originPosition.y)

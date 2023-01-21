@@ -13,6 +13,9 @@ final class Constants {
         static let ShortEdge: CGFloat = 47
         static let LongEdge: CGFloat = 297
     }
+    public struct Animation {
+        static let Movement: CGFloat = 20
+    }
     public struct Screen {
         static let Width: CGFloat = 1440
         static let Height: CGFloat = 900

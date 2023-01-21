@@ -19,6 +19,7 @@
 		FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A32966579D00600F85 /* swift-lint.yml */; };
 		FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */; };
 		FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B5AA2966645100600F85 /* SinglePopover.swift */; };
+		FA767E75297C5DAD0006E091 /* HudAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */; };
 		FA7811E32975EFE500FEE1AA /* AnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */; };
 		FA7811E52975FE9400FEE1AA /* HudAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E42975FE9400FEE1AA /* HudAnimator.swift */; };
 		FA8B1A4B296E70D80015AAEB /* UpdaterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8B1A4A296E70D80015AAEB /* UpdaterDelegate.swift */; };
@@ -109,6 +110,7 @@
 		FA64B5A32966579D00600F85 /* swift-lint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "swift-lint.yml"; sourceTree = "<group>"; };
 		FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-ui-tests.yml"; sourceTree = "<group>"; };
 		FA64B5AA2966645100600F85 /* SinglePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePopover.swift; sourceTree = "<group>"; };
+		FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimatorTests.swift; sourceTree = "<group>"; };
 		FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStyle.swift; sourceTree = "<group>"; };
 		FA7811E42975FE9400FEE1AA /* HudAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimator.swift; sourceTree = "<group>"; };
 		FA8B1A4A296E70D80015AAEB /* UpdaterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterDelegate.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				FA95EE872957589E005B39CD /* PositionManagerTests.swift */,
+				FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 			files = (
 				FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */,
 				FA95EE8A295758B1005B39CD /* Constants.swift in Sources */,
+				FA767E75297C5DAD0006E091 /* HudAnimatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
