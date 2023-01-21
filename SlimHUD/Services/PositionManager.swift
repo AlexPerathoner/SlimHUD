@@ -55,6 +55,7 @@ class PositionManager {
     }
     
     private func resetPreviewIcon() {
+        // FIXME: should be solved in a better way
         let volume = VolumeManager.getOutputVolume()
         volumeHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
         volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: volume, isMuted: VolumeManager.isMuted()))
