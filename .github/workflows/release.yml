@@ -29,7 +29,7 @@ jobs:
         id: comment-branch
       - name: start deployment
         uses: bobheadxi/deployments@v1.3.0
-        id: deployment
+        id: ${{ steps.comment-branch.outputs.head_ref }}
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
