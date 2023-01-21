@@ -26,7 +26,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 0, y: 320))
@@ -45,7 +45,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 0, y: 289))
@@ -64,7 +64,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 1393, y: 320))
@@ -83,7 +83,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 1393, y: 289))
@@ -103,7 +103,7 @@ final class PositionManagerTests: XCTestCase {
         // actual point with MenuBar and with Dock
         let actualPoint1 = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint1, CGPoint(x: 571.5, y: 878))
@@ -116,7 +116,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint2 = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint1, actualPoint2)
@@ -124,7 +124,7 @@ final class PositionManagerTests: XCTestCase {
         // actual point without MenuBar and with Dock
         let actualPoint3 = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint1, actualPoint3)
@@ -134,7 +134,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint4 = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint1, actualPoint4)
@@ -153,7 +153,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 571.5, y: 109.0))
@@ -172,7 +172,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 571.5, y: 47))
@@ -193,7 +193,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 0, y: 332.5))
@@ -212,7 +212,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 0, y: 301.5))
@@ -231,7 +231,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 1393, y: 332.5))
@@ -250,7 +250,7 @@ final class PositionManagerTests: XCTestCase {
 
         let actualPoint = PositionManager.calculateHUDsOriginPosition(hudPosition: hudPosition, dockPosition: dockPosition,
                                                                       xDockHeight: xDockHeight, yDockHeight: yDockHeight,
-                                                                      visibleFrame: visibleFrame, hudFrame: hudSize, screenFrame: Constants.Screen.Frame,
+                                                                      visibleFrame: visibleFrame, barViewFrame: hudSize, screenFrame: Constants.Screen.Frame,
                                                                       isInFullscreen: isInFullscreen)
 
         XCTAssertEqual(actualPoint, CGPoint(x: 1393, y: 301.5))
