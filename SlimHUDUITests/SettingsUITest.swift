@@ -27,7 +27,6 @@
 
     func testCloseWindow() throws {
         let app = XCUIApplication()
-        app.showCmdQAlert(false)
         app.launch()
 
         // try closing with cmd + w

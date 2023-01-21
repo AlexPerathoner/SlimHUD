@@ -61,17 +61,12 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     
     @IBAction func quitCliked(_ sender: Any) {  // todo deal with this
         if isSomeWindowVisible() {
-            if settingsManager.showQuitAlert {
-                let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs in background",
-                                              text: "If you want to quit, click \"Quit now\"",
-                                              buttonsTitle: ["OK", "Quit now", "Don't show again"])
-                if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
-                    quit()
-                }
-                if alertResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
-                    settingsManager.showQuitAlert = false
-                }
-            }
+            let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs in the background",
+                                          text: "If you want to quit, click \"Quit now\"",
+                                          buttonsTitle: ["OK", "Quit now"])
+            if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
+                quit()
+            }            
             closeAllWindows()
             NSApplication.shared.setActivationPolicy(.accessory)
         } else {
