@@ -8,6 +8,7 @@
 import Cocoa
 
 class SettingsController: NSView, HudsControllerInterface {
+    
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 
     var volumeHud = Hud()
@@ -98,18 +99,18 @@ class SettingsController: NSView, HudsControllerInterface {
         keyboardBar.foreground = color
     }
 
-    // isn't showed in preview
+    // isn't shown in preview
     func setHeight(height: CGFloat) {}
     func setThickness(thickness: CGFloat) {
         volumeHud.setThickness(thickness: 7, flatBar: settingsManager.flatBar)
         brightnessHud.setThickness(thickness: 7, flatBar: settingsManager.flatBar)
         keyboardHud.setThickness(thickness: 7, flatBar: settingsManager.flatBar)
     }
-
-    func setShouldUseAnimation(shouldUseAnimation: Bool) {
-        volumeHud.setShouldUseAnimation(shouldUseAnimation)
-        brightnessHud.setShouldUseAnimation(shouldUseAnimation)
-        keyboardHud.setShouldUseAnimation(shouldUseAnimation)
+    
+    func setAnimationStyle(animationStyle: AnimationStyle) {
+        volumeHud.setAnimationStyle(animationStyle)
+        brightnessHud.setAnimationStyle(animationStyle)
+        keyboardHud.setAnimationStyle(animationStyle)
         showAnimation()
     }
 
@@ -150,7 +151,8 @@ class SettingsController: NSView, HudsControllerInterface {
         setVolumeEnabledColor(color: settingsManager.volumeEnabledColor)
         setBrightnessColor(color: settingsManager.brightnessColor)
         setKeyboardColor(color: settingsManager.keyboardColor)
-        setShouldUseAnimation(shouldUseAnimation: settingsManager.shouldUseAnimation)
+        setAnimationStyle(animationStyle: settingsManager.animationStyle)
+        setThickness(thickness: 7)
 
         if #available(OSX 10.14, *) {
             setVolumeIconsTint(settingsManager.volumeIconColor)

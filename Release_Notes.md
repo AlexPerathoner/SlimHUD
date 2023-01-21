@@ -1,5 +1,6 @@
 # 1.5.0 - New look
 * Icons change depending on value
+* Add multiple in-out animation styles
 
 # 1.4.2 - Improved non-continous checks
 * Show system HUDs after SlimHUD quit

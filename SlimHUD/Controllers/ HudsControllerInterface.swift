@@ -18,7 +18,7 @@ protocol HudsControllerInterface: AnyObject {
     func setKeyboardColor(color: NSColor)
     func setHeight(height: CGFloat)
     func setThickness(thickness: CGFloat)
-    func setShouldUseAnimation(shouldUseAnimation: Bool)
+    func setAnimationStyle(animationStyle: AnimationStyle)
     @available(OSX 10.14, *)
     func setVolumeIconsTint(_ color: NSColor)
     @available(OSX 10.14, *)
