@@ -152,6 +152,7 @@ class SettingsController: NSView, HudsControllerInterface {
         setBrightnessColor(color: settingsManager.brightnessColor)
         setKeyboardColor(color: settingsManager.keyboardColor)
         setAnimationStyle(animationStyle: settingsManager.animationStyle)
+        setThickness(thickness: 7)
 
         if #available(OSX 10.14, *) {
             setVolumeIconsTint(settingsManager.volumeIconColor)

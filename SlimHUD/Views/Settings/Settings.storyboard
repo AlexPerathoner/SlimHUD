@@ -840,6 +840,7 @@
                         <outlet property="continuousCheckHelpBtn" destination="IQ5-YB-cfs" id="luO-iz-wHq"/>
                         <outlet property="continuousCheckOutlet" destination="f21-hD-jmd" id="wEa-ZR-enJ"/>
                         <outlet property="enabledBarsOutlet" destination="4rc-p0-xNQ" id="ZSx-HT-3gs"/>
+                        <outlet property="flatBarOutlet" destination="zwV-j8-WM6" id="Dc6-tF-D2F"/>
                         <outlet property="heightSliderOutlet" destination="wqM-pV-mgI" id="T0B-nF-keP"/>
                         <outlet property="heightValue" destination="Eoi-NJ-z6L" id="sVB-Qc-f49"/>
                         <outlet property="iconOutlet" destination="ifN-oA-u43" id="dZb-Jj-h25"/>

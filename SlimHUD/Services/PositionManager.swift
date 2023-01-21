@@ -21,10 +21,6 @@ class PositionManager {
     }
 
     func setupHUDsPosition(isFullscreen: Bool) {
-//        volumeHud.hide(animated: false)
-//        brightnessHud.hide(animated: false)
-//        keyboardHud.hide(animated: false)
-
         let barViewFrame = volumeHud.getFrame()
 
         let screenFrame = DisplayManager.getScreenFrame()
@@ -51,10 +47,17 @@ class PositionManager {
         let isHudHorizontal = screenEdge == .bottom || screenEdge == .top
         
         setBarsOrientation(isHorizontal: isHudHorizontal)
-        
         setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
+        
+        resetPreviewIcon()
 
         NSLog("screenFrame is \(screenFrame) \(originPosition)")
+    }
+    
+    private func resetPreviewIcon() {
+        let volume = VolumeManager.getOutputVolume()
+        volumeHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+        volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: volume, isMuted: VolumeManager.isMuted()))
     }
 
     static func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
@@ -87,6 +90,7 @@ class PositionManager {
 
     private func setBarsOrientation(isHorizontal: Bool) {
         volumeHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
+        
         brightnessHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
         keyboardHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
     }

@@ -40,6 +40,7 @@ class SettingsViewController: NSViewController, SPUUpdaterDelegate {
         launchAtLoginOutlet.state = loginItemsList.isLoginItemInList().toStateValue()
         iconOutlet.state = settingsManager.shouldShowIcons.toStateValue()
         shadowOutlet.state = settingsManager.shouldShowShadows.toStateValue()
+        flatBarOutlet.state = settingsManager.flatBar.toStateValue()
         continuousCheckOutlet.state = settingsManager.shouldContinuouslyCheck.toStateValue()
         animationStyleOutlet.selectItem(withTitle: settingsManager.animationStyle.rawValue)
         backgroundColorOutlet.color = settingsManager.backgroundColor
@@ -136,6 +137,8 @@ class SettingsViewController: NSViewController, SPUUpdaterDelegate {
     @IBOutlet weak var iconOutlet: NSButton!
     @IBOutlet weak var shadowOutlet: NSButton!
     @IBOutlet weak var animationStyleOutlet: NSPopUpButton!
+    @IBOutlet weak var flatBarOutlet: NSButton!
+    
     
     @IBOutlet weak var backgroundColorOutlet: NSColorWell!
     @IBOutlet weak var volumeEnabledColorOutlet: NSColorWell!
