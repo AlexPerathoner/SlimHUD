@@ -22,8 +22,7 @@ class HudAnimator {
     public static func slideIn(barView: BarView, originPosition: CGPoint, screenEdge: Position) {
         barView.alphaValue = 0
         barView.setFrameOrigin(originPosition)
-        let i = getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge)
-        barView.setFrameOrigin(i)
+        barView.setFrameOrigin(getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
             barView.animator().alphaValue = 1
