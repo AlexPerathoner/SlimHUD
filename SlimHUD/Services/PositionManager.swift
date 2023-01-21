@@ -21,10 +21,6 @@ class PositionManager {
     }
 
     func setupHUDsPosition(isFullscreen: Bool) {
-        volumeHud.hide(animated: false)
-        brightnessHud.hide(animated: false)
-        keyboardHud.hide(animated: false)
-
         let barViewFrame = volumeHud.getFrame()
 
         let screenFrame = DisplayManager.getScreenFrame()
@@ -43,38 +39,46 @@ class PositionManager {
                                                                          xDockHeight: xDockHeight,
                                                                          yDockHeight: yDockHeight,
                                                                          visibleFrame: visibleFrame,
-                                                                         hudFrame: barViewFrame,
+                                                                         barViewFrame: barViewFrame,
                                                                          screenFrame: screenFrame,
                                                                          isInFullscreen: isFullscreen)
 
-        setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
 
         let isHudHorizontal = screenEdge == .bottom || screenEdge == .top
-
-        // set bar views orientation
+        
         setBarsOrientation(isHorizontal: isHudHorizontal)
+        setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
+        
+        resetPreviewIcon()
 
         NSLog("screenFrame is \(screenFrame) \(originPosition)")
+    }
+    
+    private func resetPreviewIcon() {
+        // FIXME: should be solved in a better way
+        let volume = VolumeManager.getOutputVolume()
+        volumeHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+        volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: volume, isMuted: VolumeManager.isMuted()))
     }
 
     static func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
                                             xDockHeight: CGFloat, yDockHeight: CGFloat,
-                                            visibleFrame: NSRect, hudFrame: NSRect, screenFrame: NSRect,
+                                            visibleFrame: NSRect, barViewFrame: NSRect, screenFrame: NSRect,
                                             isInFullscreen: Bool) -> CGPoint {
         var position: CGPoint
         switch hudPosition {
         case .left:
             position = CGPoint(x: dockPosition == .right ? 0 : xDockHeight,
-                           y: (visibleFrame.height/2) - (hudFrame.height/2) + yDockHeight)
+                           y: (visibleFrame.height/2) - (barViewFrame.height/2) + yDockHeight)
         case .right:
-            position = CGPoint(x: screenFrame.width - hudFrame.width - Constants.ShadowRadius - (dockPosition == .left ? 0 : xDockHeight),
-                           y: (visibleFrame.height/2) - (hudFrame.height/2)  + yDockHeight)
+            position = CGPoint(x: screenFrame.width - barViewFrame.width - (dockPosition == .left ? 0 : xDockHeight),
+                           y: (visibleFrame.height/2) - (barViewFrame.height/2) + yDockHeight)
         case .bottom:
-            position = CGPoint(x: (screenFrame.width/2) - (hudFrame.height/2),
-                           y: yDockHeight)
+            position = CGPoint(x: (screenFrame.width/2) - (barViewFrame.height/2),
+                               y: yDockHeight + barViewFrame.width)
         case .top:
-            position = CGPoint(x: (screenFrame.width/2) - (hudFrame.height/2),
-                           y: screenFrame.height - hudFrame.width - Constants.ShadowRadius - (isInFullscreen ? 0 : DisplayManager.getMenuBarThickness()))
+            position = CGPoint(x: (screenFrame.width/2) - (barViewFrame.height/2),
+                           y: screenFrame.height - (isInFullscreen ? 0 : DisplayManager.getMenuBarThickness()))
         }
         return position
     }
@@ -87,6 +91,7 @@ class PositionManager {
 
     private func setBarsOrientation(isHorizontal: Bool) {
         volumeHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
+        
         brightnessHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
         keyboardHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
     }

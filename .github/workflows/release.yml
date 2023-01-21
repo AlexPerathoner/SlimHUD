@@ -337,7 +337,7 @@ jobs:
         run: |
           echo "new_version=$(cat artifacts/artifact/new_version)" >> $GITHUB_OUTPUT
       - name: Update brew formula # update brew formula
-        env: 
+        env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.BREW_TOKEN }}
         run: |
           brew bump-cask-pr --version ${{ steps.info.outputs.new_version }} --no-browse --debug --verbose slimhud

@@ -9,16 +9,14 @@ import AppKit
 
 class Hud: NSView {
 
-    private var animationDuration: TimeInterval = 0.3
-    private var animationMovement: CGFloat = 20
-    private var animated = true
+    private var animationStyle = AnimationStyle.Slide
 
     /// The NSView that is going to be displayed when show() is called
     private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView // swiftlint:disable:this force_cast
     private var originPosition: CGPoint
     private var screenEdge: Position = .left
 
-    private var hudView: NSView! {
+    private var hudView: NSView! { // TODO: check why not using self
         return windowController?.window?.contentView
     }
 
@@ -27,13 +25,6 @@ class Hud: NSView {
     private override init(frame frameRect: NSRect) {
         originPosition = .zero
         super.init(frame: frameRect)
-        commonInit()
-    }
-
-    init(position: CGPoint) {
-        self.originPosition = position
-        super.init(frame: .zero)
-        setFrameOrigin(position)
         commonInit()
     }
 
@@ -59,83 +50,68 @@ class Hud: NSView {
     func show() {
         if isHidden {
             guard let hudView = hudView else { return }
-            windowController?.showWindow(self)
-            frame = hudView.frame
+            
             if !hudView.subviews.isEmpty {
-                hudView.subviews = []
+                for subView in hudView.subviews {
+                    subView.removeFromSuperview()
+                }
             }
+            resetBounds(of: barView)
+            barView.setFrameOrigin(originPosition)
             hudView.addSubview(barView)
-
-            // animation only if not yet visible
-
-            switch screenEdge {
-            case .left:
-                hudView.setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
-            case .right:
-                hudView.setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
-            case .top:
-                hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
-            case .bottom:
-                hudView.setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
-            }
+            
             self.isHidden = false
-            if animated {
-                NSAnimationContext.runAnimationGroup({ (context) in
-                    // slide + fade in animation
-                    context.duration = animationDuration
-                    hudView.animator().alphaValue = 1
-                    hudView.animator().setFrameOrigin(originPosition)
-                })
-            } else {
-                hudView.setFrameOrigin(originPosition)
-                hudView.alphaValue = 1
+            windowController?.showWindow(self)
+            
+            switch animationStyle {
+            case .None: HudAnimator.popIn(barView: barView)
+            case .Slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
+            case .PopInFadeOut: HudAnimator.popIn(barView: barView)
+            case .Fade: HudAnimator.fadeIn(barView: barView)
+            case .Grow: HudAnimator.growIn(barView: barView)
+            case .Shrink: HudAnimator.shrinkIn(barView: barView)
+            case .SideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
             }
         }
+    }
+    // Changing animation type during an animation can mess up the bounds, so resetting them before showing
+    func resetBounds(of barView: BarView) {
+        barView.bounds = barView.frame
+        barView.bounds.origin = .zero
     }
 
     func hide(animated: Bool) {
         if !isHidden {
-            guard let view = hudView else { return }
-            if animated {
-                NSAnimationContext.runAnimationGroup({ (context) in
-                    // slide + fade out animation
-                    context.duration = animationDuration
-                    view.animator().alphaValue = 0
-
-                    switch screenEdge {
-                    case .left:
-                        view.animator().setFrameOrigin(.init(x: originPosition.x - animationMovement, y: originPosition.y))
-                    case .right:
-                        view.animator().setFrameOrigin(.init(x: originPosition.x + animationMovement, y: originPosition.y))
-                    case .top:
-                        view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y + animationMovement))
-                    case .bottom:
-                        view.animator().setFrameOrigin(.init(x: originPosition.x, y: originPosition.y - animationMovement))
-                    }
-                }, completionHandler: {
-                    self.isHidden = true
-                    self.removeFromSuperview()
-                    self.windowController?.close()
-                })
-            } else {
-                view.setFrameOrigin(originPosition)
-                view.alphaValue = 0
-                isHidden = true
-                removeFromSuperview()
-                windowController?.close()
+            if(animated) {
+                switch animationStyle {
+                case .None: HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .Slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+                case .PopInFadeOut: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .Fade: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .Grow: HudAnimator.growOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .Shrink: HudAnimator.shrinkOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .SideGrow: HudAnimator.sideGrowOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+                }
+            } else{
+                HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
             }
         }
     }
+    private func commonAnimationOutCompletion() {
+        self.isHidden = true
+        barView.removeFromSuperview()
+        self.windowController?.close()
+    }
 
-    @objc private func hideDelayed(_ animated: NSNumber?) {
-        hide(animated: animated != 0)
+    @objc private func hideDelayed(_ animated: AnyObject?) {
+        hide(animated: (animated as? AnimationStyle) != .None)
     }
 
     public func dismiss(delay: TimeInterval) {
         if !isHidden {
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideDelayed(_:)), object: animated.toInt())
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideDelayed(_:)), object: animationStyle)
         }
-        self.perform(#selector(hideDelayed(_:)), with: animated.toInt(), afterDelay: delay)
+        self.perform(#selector(hideDelayed(_:)), with: animationStyle, afterDelay: delay)
     }
 
     public func hideIcon(isHidden: Bool) {
@@ -201,9 +177,9 @@ class Hud: NSView {
         barView.bar.progress = progress
     }
 
-    public func setShouldUseAnimation(_ shouldUseAnimation: Bool) {
-        self.animated = shouldUseAnimation
-        barView.bar.setupAnimation(animated: shouldUseAnimation)
+    public func setAnimationStyle(_ animationStyle: AnimationStyle) {
+        self.animationStyle = animationStyle
+        barView.bar.setupAnimationStyle(animationStyle: animationStyle)
     }
 
     public func setForegroundColor(color: NSColor) {
@@ -225,5 +201,18 @@ class Hud: NSView {
     public func setPosition(originPosition: CGPoint, screenEdge: Position) {
         self.originPosition = originPosition
         self.screenEdge = screenEdge
+        
+        guard let hudView = hudView else { return }
+        
+        if !hudView.subviews.isEmpty {
+            for subView in hudView.subviews {
+                
+                NSAnimationContext.runAnimationGroup({ (context) in
+                    context.duration = Constants.Animation.Duration / 2
+                    subView.animator().setFrameOrigin(originPosition)
+                })
+                
+            }
+        }
     }
 }

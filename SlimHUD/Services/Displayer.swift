@@ -153,18 +153,18 @@ class Displayer: HudsControllerInterface {
         setVolumeDisabledColor(color: settingsManager.volumeDisabledColor)
         setBrightnessColor(color: settingsManager.brightnessColor)
         setKeyboardColor(color: settingsManager.keyboardColor)
-        setShouldUseAnimation(shouldUseAnimation: settingsManager.shouldUseAnimation)
+        setAnimationStyle(animationStyle: settingsManager.animationStyle)
         if #available(OSX 10.14, *) {
             setVolumeIconsTint(settingsManager.volumeIconColor)
             setBrightnessIconsTint(settingsManager.brightnessIconColor)
             setKeyboardIconsTint(settingsManager.keyboardIconColor)
         }
     }
-
-    func setShouldUseAnimation(shouldUseAnimation: Bool) {
-        volumeHud.setShouldUseAnimation(shouldUseAnimation)
-        brightnessHud.setShouldUseAnimation(shouldUseAnimation)
-        keyboardHud.setShouldUseAnimation(shouldUseAnimation)
+    
+    func setAnimationStyle(animationStyle: AnimationStyle) {
+        volumeHud.setAnimationStyle(animationStyle)
+        brightnessHud.setAnimationStyle(animationStyle)
+        keyboardHud.setAnimationStyle(animationStyle)
     }
 
     func setHeight(height: CGFloat) {

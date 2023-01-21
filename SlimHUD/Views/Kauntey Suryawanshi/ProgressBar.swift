@@ -15,13 +15,13 @@ import Cocoa
 open class ProgressBar: DeterminateAnimation {
 
     open var progressLayer = CAShapeLayer()
-    private var animationTime: CFTimeInterval = 0.36
+    private var animationDuration: CFTimeInterval = Constants.Animation.Duration
 
-    open func setupAnimation(animated: Bool) {
-        if animated {
-            animationTime = 0.36
+    func setupAnimationStyle(animationStyle: AnimationStyle) {
+        if animationStyle == .None || animationStyle == .PopInFadeOut {
+            animationDuration = 0
         } else {
-            animationTime = 0
+            animationDuration = Constants.Animation.Duration
         }
     }
 
@@ -43,9 +43,9 @@ open class ProgressBar: DeterminateAnimation {
 
     override func updateProgress() {
         CATransaction.begin()
-        CATransaction.setAnimationDuration(animationTime)
-        let timing = CAMediaTimingFunction(name: .easeOut)
-        CATransaction.setAnimationTimingFunction(timing)
+        CATransaction.setAnimationDuration(animationDuration)
+        let timingFunction = CAMediaTimingFunction(name: .easeOut)
+        CATransaction.setAnimationTimingFunction(timingFunction)
         progressLayer.frame.size.height = bounds.height * CGFloat(progress)
         CATransaction.commit()
     }
