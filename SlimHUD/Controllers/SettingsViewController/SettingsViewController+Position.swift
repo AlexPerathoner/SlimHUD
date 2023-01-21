@@ -24,6 +24,10 @@ extension SettingsViewController {
         }
         // as the settings window is the frontmost window, fullscreen is certainly false
         delegate?.positionManager.setupHUDsPosition(isFullscreen: false)
+        // TODO: frame is handled badly. When calling setupHUDsPosition the huds are first hidden,
+        //      show causes the window to be re-instantied, but it shouldn't be needed.
+        //      Also, the hud is shortly shown in the origin of the display, before going to the right position
+        delegate?.positionManager.volumeHud.show()
     }
 
     @IBAction func heightSlider(_ sender: NSSlider) {
