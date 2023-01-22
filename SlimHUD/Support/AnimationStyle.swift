@@ -21,4 +21,13 @@ enum AnimationStyle: String {
     init(from rawValue: String?) {
         self = AnimationStyle(rawValue: rawValue ?? "") ?? AnimationStyle.DefaultValue
     }
+    
+    func requiresInMovement() -> Bool {
+        switch self {
+        case .Slide, .SideGrow:
+            return true
+        default:
+            return false
+        }
+    }
 }

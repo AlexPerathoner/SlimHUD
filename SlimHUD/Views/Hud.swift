@@ -51,10 +51,16 @@ class Hud: NSView {
         if isHidden {
             self.isHidden = false
             guard let hudView = hudView else { return }
-            if hudView.subviews.isEmpty {
+            if hudView.subviews.isEmpty { // TODO: check if maybe when changing screen it should re-instantiate window
                 hudView.addSubview(barView)
             }
             windowController?.showWindow(self)
+            
+            if animationStyle.requiresInMovement() {
+                barView.setFrameOrigin(HudAnimator.getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
+            } else {
+                barView.setFrameOrigin(originPosition)
+            }
             
             switch animationStyle {
             case .None: HudAnimator.popIn(barView: barView, originPosition: originPosition)
@@ -179,11 +185,16 @@ class Hud: NSView {
         self.screenEdge = screenEdge
         
         guard let hudView = hudView else { return }
-        if !hudView.subviews.isEmpty {
+        if !hudView.subviews.isEmpty { // TODO: create extension in nsview to retrieve barView (to use in animator, too)
             for subView in hudView.subviews {
                 NSAnimationContext.runAnimationGroup({ (context) in
                     context.duration = Constants.Animation.Duration / 2
-                    subView.animator().setFrameOrigin(originPosition)
+                    if animationStyle.requiresInMovement() && hudView.isHidden {
+                        let adjustedOriginPosition = HudAnimator.getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge)
+                        subView.animator().setFrameOrigin(adjustedOriginPosition)
+                    } else {
+                        subView.animator().setFrameOrigin(originPosition)
+                    }
                 })
             }
         }
