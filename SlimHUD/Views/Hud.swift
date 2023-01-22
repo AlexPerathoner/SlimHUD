@@ -139,7 +139,6 @@ class Hud: NSView {
     }
 
     public func setOrientation(isHorizontal: Bool, position: Position) {
-        let barViewFrame = barView.frame
         barView.layer?.anchorPoint = CGPoint(x: 0, y: 0)
         if isHorizontal {
             barView.frameCenterRotation = -90
