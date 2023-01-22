@@ -48,7 +48,6 @@ class PositionManager {
         
         setBarsOrientation(isHorizontal: isHudHorizontal)
         setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
-        
         resetPreviewIcon()
 
         NSLog("screenFrame is \(screenFrame) \(originPosition)")
@@ -91,7 +90,6 @@ class PositionManager {
 
     private func setBarsOrientation(isHorizontal: Bool) {
         volumeHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
-        
         brightnessHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
         keyboardHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
     }
