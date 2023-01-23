@@ -14,7 +14,4 @@ extension XCUIApplication {
     func shouldShowSettingsAtLaunch() {
         launchArguments += ["showSettingsAtLaunch"]
     }
-    func shouldShowSettingsAtLaunch() {
-        launchArguments += ["showSettingsAtLaunch"]
-    }
 }
