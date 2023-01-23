@@ -63,13 +63,13 @@ class Hud: NSView {
             }
             
             switch animationStyle {
-            case .None: HudAnimator.popIn(barView: barView, originPosition: originPosition)
-            case .Slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
-            case .PopInFadeOut: HudAnimator.popIn(barView: barView, originPosition: originPosition)
-            case .Fade: HudAnimator.fadeIn(barView: barView, originPosition: originPosition)
-            case .Grow: HudAnimator.growIn(barView: barView, originPosition: originPosition)
-            case .Shrink: HudAnimator.shrinkIn(barView: barView, originPosition: originPosition)
-            case .SideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
+            case .None: HudAnimator.popIn(barView: barView)
+            case .Slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition)
+            case .PopInFadeOut: HudAnimator.popIn(barView: barView)
+            case .Fade: HudAnimator.fadeIn(barView: barView)
+            case .Grow: HudAnimator.growIn(barView: barView)
+            case .Shrink: HudAnimator.shrinkIn(barView: barView)
+            case .SideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition)
             }
         }
     }

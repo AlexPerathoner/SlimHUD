@@ -12,14 +12,14 @@ class HudAnimator {
     private static let GrowFactorComplementary: CGFloat = (1-GrowShrinkFactor) / 2
     private static let ShrinkFactorComplementary: CGFloat = (1-1/GrowShrinkFactor) / 2
     
-    public static func popIn(barView: BarView, originPosition: CGPoint) {
+    public static func popIn(barView: BarView) {
         barView.alphaValue = 1
     }
     public static func popOut(barView: BarView, completion: @escaping (() -> Void)) {
         barView.alphaValue = 0
         completion()
     }
-    public static func slideIn(barView: BarView, originPosition: CGPoint, screenEdge: Position) {
+    public static func slideIn(barView: BarView, originPosition: CGPoint) {
         barView.alphaValue = 0
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
@@ -36,7 +36,7 @@ class HudAnimator {
         }, completionHandler: completion)
     }
     
-    public static func fadeIn(barView: BarView, originPosition: CGPoint) {
+    public static func fadeIn(barView: BarView) {
         barView.alphaValue = 0
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
@@ -51,7 +51,7 @@ class HudAnimator {
         }, completionHandler: completion)
     }
     
-    public static func growIn(barView: BarView, originPosition: CGPoint) {
+    public static func growIn(barView: BarView) {
         barView.alphaValue = 0
         let originalBounds = barView.bounds
         barView.bounds = NSRect(x: originalBounds.width * GrowFactorComplementary,
@@ -84,7 +84,7 @@ class HudAnimator {
         })
     }
 
-    public static func shrinkIn(barView: BarView, originPosition: CGPoint) {
+    public static func shrinkIn(barView: BarView) {
         barView.alphaValue = 0
         let originalBounds = barView.bounds
         barView.bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary, y: originalBounds.height * ShrinkFactorComplementary, width: originalBounds.width / GrowShrinkFactor, height: originalBounds.height / GrowShrinkFactor)
@@ -109,7 +109,7 @@ class HudAnimator {
         })
     }
     
-    public static func sideGrowIn(barView: BarView, originPosition: CGPoint, screenEdge: Position) {
+    public static func sideGrowIn(barView: BarView, originPosition: CGPoint) {
         barView.alphaValue = 0
         
         let originalBounds = barView.bounds
