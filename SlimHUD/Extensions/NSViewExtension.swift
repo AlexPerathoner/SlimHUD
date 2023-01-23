@@ -35,14 +35,14 @@ extension NSView {
         }
     }
 
-    func setupShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {
+    func setupShadow(_ enabled: Bool, _ shadowRadius: CGFloat, _ color: CGColor = .black, offset: NSSize = .zero) { // TODO: remove _
         if enabled {
             shadow = NSShadow()
             wantsLayer = true
             superview?.wantsLayer = true
             layer?.shadowOpacity = 1
-            layer?.shadowColor = .black
-            layer?.shadowOffset = NSSize(width: 0, height: 0)
+            layer?.shadowColor = color
+            layer?.shadowOffset = offset
             layer?.shadowRadius = shadowRadius
         } else {
             shadow = nil

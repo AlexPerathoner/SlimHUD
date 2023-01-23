@@ -16,8 +16,7 @@ class CustomView: NSView {
     @IBInspectable var shadowed: Bool = true
     
     override func awakeFromNib() {
-        setupShadow(shadowed, 2)
-        layer?.shadowColor = shadowColor.cgColor
+        setupShadow(shadowed, 2, shadowColor.cgColor)
         layer?.backgroundColor = backgroundColor.cgColor
     }
 }
