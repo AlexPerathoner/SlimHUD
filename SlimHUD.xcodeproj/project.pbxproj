@@ -74,8 +74,6 @@
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
 		FACDE684297EEC5200EDF165 /* ShadowedBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE683297EEC5200EDF165 /* ShadowedBox.swift */; };
-		FACDE686297EEEBC00EDF165 /* TabSelectorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE685297EEEBC00EDF165 /* TabSelectorBox.swift */; };
-		FACDE688297EEF3900EDF165 /* TabSelectorBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACDE687297EEF3900EDF165 /* TabSelectorBox.xib */; };
 		FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */; };
 		FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5122970F80E00C8D5DB /* IconManager.swift */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
@@ -172,8 +170,6 @@
 		FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMethod.swift; sourceTree = "<group>"; };
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		FACDE683297EEC5200EDF165 /* ShadowedBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedBox.swift; sourceTree = "<group>"; };
-		FACDE685297EEEBC00EDF165 /* TabSelectorBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSelectorBox.swift; sourceTree = "<group>"; };
-		FACDE687297EEF3900EDF165 /* TabSelectorBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabSelectorBox.xib; sourceTree = "<group>"; };
 		FAF1A5122970F80E00C8D5DB /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
 		FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FAFC579F29675F7700C32A80 /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
@@ -386,10 +382,8 @@
 		FA95EE632956FEEA005B39CD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				FACDE689297EF47300EDF165 /* CustomViews */,
 				FA95EE7D295741E6005B39CD /* Settings.storyboard */,
-				FACDE683297EEC5200EDF165 /* ShadowedBox.swift */,
-				FACDE685297EEEBC00EDF165 /* TabSelectorBox.swift */,
-				FACDE687297EEF3900EDF165 /* TabSelectorBox.xib */,
 				FA95EE6429573ECD005B39CD /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -441,6 +435,14 @@
 				FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FACDE689297EF47300EDF165 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FACDE683297EEC5200EDF165 /* ShadowedBox.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,7 +561,6 @@
 				FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */,
 				FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */,
 				FA95EE78295741CB005B39CD /* About.storyboard in Resources */,
-				FACDE688297EEF3900EDF165 /* TabSelectorBox.xib in Resources */,
 				FA0E03882966331A004066FF /* README.md in Resources */,
 				FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */,
 				FA64B5A52966579D00600F85 /* release.yml in Resources */,
@@ -628,7 +629,6 @@
 				FA95EE4F2956FE69005B39CD /* NSViewExtension.swift in Sources */,
 				FA95EE4D2956FE5D005B39CD /* EnabledBars.swift in Sources */,
 				FACDE684297EEC5200EDF165 /* ShadowedBox.swift in Sources */,
-				FACDE686297EEEBC00EDF165 /* TabSelectorBox.swift in Sources */,
 				FA95EE552956FE86005B39CD /* NSImageExtension.swift in Sources */,
 				FA95EE402956FE06005B39CD /* UserDefaultsManager.swift in Sources */,
 				FA95EE6829573EEF005B39CD /* BarView.swift in Sources */,

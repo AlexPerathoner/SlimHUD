@@ -49,18 +49,17 @@ extension NSView {
         }
     }
 
-    class func fromNib(name: String) -> NSView? {
+    class func fromNib<T: NSView>(name: String, type: T.Type) -> T {
         var views: NSArray?
         if Bundle.main.loadNibNamed(name, owner: nil, topLevelObjects: &views) {
             if views?.firstObject is NSView {
                 // swiftlint:disable:next force_cast
-                return (views?.firstObject as! NSView)
+                return (views?.firstObject as! T)
             } else {
                 // swiftlint:disable:next force_cast
-                return (views?[1] as! NSView)
+                return (views?[1] as! T)
             }
         }
-        return nil
-
+        fatalError("Could not find needed xib")
     }
 }

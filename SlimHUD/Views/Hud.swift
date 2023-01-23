@@ -12,7 +12,7 @@ class Hud: NSView {
     private var animationStyle = AnimationStyle.Slide
 
     /// The NSView that is going to be displayed when show() is called
-    private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName) as! BarView // swiftlint:disable:this force_cast
+    private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName, type: BarView.self)
     private var originPosition: CGPoint
     private var screenEdge: Position = .left
 
