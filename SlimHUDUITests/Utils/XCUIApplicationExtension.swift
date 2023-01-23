@@ -14,4 +14,7 @@ extension XCUIApplication {
     func showCmdQAlert(_ showCmdQAlert: Bool) {
         launchArguments += ["showQuitAlert", showCmdQAlert.description]
     }
+    func shouldShowSettingsAtLaunch() {
+        launchArguments += ["showSettingsAtLaunch"]
+    }
 }

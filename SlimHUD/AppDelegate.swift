@@ -54,7 +54,24 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         }
 
         OSDUIManager.stop()
+        
+        if CommandLine.arguments.contains("showSettingsAtLaunch") {
+            showSettingsWindow()
+        }
     }
+    func showSettingsWindow() {
+        if settingsWindowController != nil {
+            settingsWindowController?.showWindow(self)
+        } else {
+            if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
+                settingsWindowController = windowController
+                windowController.showWindow(self)
+            }
+        }
+        NSApplication.shared.setActivationPolicy(.regular)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
 
     @IBOutlet weak var statusMenu: NSMenu!
 
