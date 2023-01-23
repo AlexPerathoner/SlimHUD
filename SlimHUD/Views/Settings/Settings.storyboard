@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5Rj-lD-9e5">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Lls-Rj-kcl">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
@@ -7,6 +7,82 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Window Controller-->
+        <scene sceneID="h3s-5o-cI4">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="Lls-Rj-kcl" customClass="SettingsWindowController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="SlimHUD" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="wHn-8U-RzU">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="425" y="462" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+                        <view key="contentView" id="aA4-Yy-Rkx">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="Lls-Rj-kcl" id="xER-03-eYX"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="pWp-io-RSv" kind="relationship" relationship="window.shadowedContentViewController" id="fQc-Sc-c7U"/>
+                    </connections>
+                </windowController>
+                <customObject id="FGC-Jw-f7G" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="-250"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="DEl-Jb-6fO">
+            <objects>
+                <viewController id="pWp-io-RSv" customClass="SettingsViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="yFf-q4-vSW">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="495"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box appearanceType="aqua" fixedFrame="YES" boxType="custom" borderType="none" borderWidth="6" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Rgz-2i-B8d">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="495"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="19R-mu-yLY">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="495"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <box appearanceType="aqua" fixedFrame="YES" boxType="custom" borderType="none" borderWidth="6" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="MgA-HZ-qbz" customClass="ShadowedBox" customModule="SlimHUD" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="409" width="400" height="86"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <view key="contentView" id="w5P-qj-yUN">
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="86"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <color key="borderColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="fillColor" red="0.99215680360794067" green="0.99215692281723022" blue="0.99215680360794067" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                    <size key="value" width="0.0" height="-20"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </box>
+                                    </subviews>
+                                </view>
+                                <color key="borderColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="fillColor" red="0.96470588445663452" green="0.96470588445663452" blue="0.96470588445663452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </box>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="5Np-UV-qXX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="630" y="-351.5"/>
+        </scene>
         <!--Window Controller-->
         <scene sceneID="0Jy-Y8-QFl">
             <objects>
