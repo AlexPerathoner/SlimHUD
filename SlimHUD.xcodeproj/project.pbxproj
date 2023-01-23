@@ -70,6 +70,7 @@
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
 		FACDE684297EEC5200EDF165 /* ShadowedBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE683297EEC5200EDF165 /* ShadowedBox.swift */; };
 		FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE68E297F105600EDF165 /* TabItemView.swift */; };
+		FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE692297F1BD300EDF165 /* TabsView.swift */; };
 		FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */; };
 		FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5122970F80E00C8D5DB /* IconManager.swift */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
@@ -162,6 +163,7 @@
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		FACDE683297EEC5200EDF165 /* ShadowedBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedBox.swift; sourceTree = "<group>"; };
 		FACDE68E297F105600EDF165 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
+		FACDE692297F1BD300EDF165 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		FAF1A5122970F80E00C8D5DB /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
 		FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FAFC579F29675F7700C32A80 /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 			children = (
 				FACDE683297EEC5200EDF165 /* ShadowedBox.swift */,
 				FACDE68E297F105600EDF165 /* TabItemView.swift */,
+				FACDE692297F1BD300EDF165 /* TabsView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */,
 				FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */,
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
+				FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */,
 				FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */,
 				FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */,
 			);

@@ -47,35 +47,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="495"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nEG-7b-BlF" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
+                                        <customView id="IeD-Gi-4xh" customClass="TabsView" customModule="SlimHUD" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="409" width="400" height="86"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <subviews>
-                                                <customView identifier="config-btn" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-vB-Jb0" customClass="TabItemView" customModule="SlimHUD" customModuleProvider="target">
-                                                    <rect key="frame" x="30" y="10" width="70" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="info.circle" catalog="system"/>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="About"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </customView>
-                                                <customView identifier="style-btn" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aI8-f8-bvd">
-                                                    <rect key="frame" x="120" y="10" width="70" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                </customView>
-                                                <customView identifier="design-btn" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-Cd-OWC">
-                                                    <rect key="frame" x="210" y="10" width="70" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                </customView>
-                                                <customView identifier="about-btn" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bc4-Kd-mi3">
-                                                    <rect key="frame" x="300" y="10" width="70" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                </customView>
-                                            </subviews>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.14026083493365921" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.14026083489999999" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                     <real key="value" value="20"/>
@@ -84,7 +61,7 @@
                                                     <size key="value" width="0.0" height="-20"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                                    <color key="value" red="0.99215680360794067" green="0.99215692281723022" blue="0.99215680360794067" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" red="0.99215680360000003" green="0.99215692280000001" blue="0.99215680360000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="YES"/>
                                             </userDefinedRuntimeAttributes>
@@ -1049,7 +1026,6 @@
     <resources>
         <image name="NSRefreshTemplate" width="17" height="20"/>
         <image name="brightnessSegmTemplate" width="346" height="346"/>
-        <image name="info.circle" catalog="system" width="15" height="15"/>
         <image name="key-3" width="382" height="211"/>
         <image name="keyboardSegmTemplate" width="382" height="211"/>
         <image name="sun-2" width="346" height="346"/>

@@ -8,7 +8,7 @@
 import Cocoa
 
 @IBDesignable
-class CustomView: NSView {
+class ShadowedBox: NSView {
     @IBInspectable var shadowColor: NSColor = .black
     
     @IBInspectable var backgroundColor: NSColor = .white
