@@ -29,7 +29,7 @@ jobs:
         id: comment-branch
       - name: start deployment
         uses: bobheadxi/deployments@v1.3.0
-        id: ${{ steps.comment-branch.outputs.head_ref }}
+        id: deployment
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -355,6 +355,7 @@ jobs:
         id: info
         run: |
           echo "new_version=$(cat artifacts/artifact/new_version)" >> $GITHUB_OUTPUT
+          echo "deployment_id=$(cat artifacts/artifact/deployment_id)" >> $GITHUB_OUTPUT
       - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
         id: comment-branch
       - uses: actions/checkout@v3 # checkout again, because the previous checkout is detached
@@ -379,9 +380,27 @@ jobs:
         with:
           comment-id: ${{ github.event.comment.id }}
           reactions: rocket
+      - name: Update deployment status (success)
+        uses: bobheadxi/deployments@v1
+        if: ${{ contains(join(needs.*.result, ','), 'success') }}
+        with:
+            step: finish
+            token: ${{ secrets.GITHUB_TOKEN }}
+            status: success
+            env: ${{ steps.deployment.outputs.env }}
+            deployment_id: ${{ steps.info.outputs.deployment_id }}
       - name: Add negative reaction
         if: ${{ contains(join(needs.*.result, ','), 'failure') }}
         uses: peter-evans/create-or-update-comment@v2
         with:
           comment-id: ${{ github.event.comment.id }}
           reactions: confused
+      - name: Update deployment status (failure)
+        uses: bobheadxi/deployments@v1
+        if: ${{ contains(join(needs.*.result, ','), 'failure') }}
+        with:
+            step: finish
+            token: ${{ secrets.GITHUB_TOKEN }}
+            status: failure
+            env: ${{ steps.deployment.outputs.env }}
+            deployment_id: ${{ steps.info.outputs.deployment_id }}
