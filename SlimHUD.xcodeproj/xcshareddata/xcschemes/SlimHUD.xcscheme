@@ -101,6 +101,10 @@
             argument = "showQuitAlert true"
             isEnabled = "YES">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "showSettingsAtLaunch"
+            isEnabled = "YES">
+         </CommandLineArgument>
       </CommandLineArguments>
    </LaunchAction>
    <ProfileAction

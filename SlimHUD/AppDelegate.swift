@@ -42,34 +42,18 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSColor.ignoresAlpha = false
         NSApplication.shared.setActivationPolicy(.accessory)
-
+        
         // continuous check - 0.2 should not take more than 1/800 CPU
         changesObserver.startObserving()
-
+        
         NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
                                                object: NSApplication.shared,
                                                queue: OperationQueue.main) { _ -> Void in
             self.positionManager.setupHUDsPosition(isFullscreen: false)
             self.changesObserver.resetTemporarelyDisabledBars()
         }
-
-        OSDUIManager.stop()
         
-        if CommandLine.arguments.contains("showSettingsAtLaunch") {
-            showSettingsWindow()
-        }
-    }
-    func showSettingsWindow() {
-        if settingsWindowController != nil {
-            settingsWindowController?.showWindow(self)
-        } else {
-            if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
-                settingsWindowController = windowController
-                windowController.showWindow(self)
-            }
-        }
-        NSApplication.shared.setActivationPolicy(.regular)
-        NSApp.activate(ignoringOtherApps: true)
+        OSDUIManager.stop()
     }
     
 

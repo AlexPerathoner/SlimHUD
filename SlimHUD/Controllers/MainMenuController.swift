@@ -33,6 +33,27 @@ class MainMenuController: NSWindowController {
             quit()
         }
     }
+    
+    override func awakeFromNib() {
+        if CommandLine.arguments.contains("showSettingsAtLaunch") {
+            showSettingsWindow()
+        }
+    }
+    
+    func showSettingsWindow() {
+        if settingsWindowController != nil {
+            settingsWindowController?.showWindow(self)
+        } else {
+            if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
+                settingsWindowController = windowController
+                windowController.showWindow(self)
+            }
+        }
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {_ in
+            NSApplication.shared.setActivationPolicy(.regular)
+            NSApp.activate(ignoringOtherApps: true)
+        })
+    }
 
     @IBAction func aboutClicked(_ sender: Any) {
         if aboutWindowController != nil {
@@ -49,17 +70,7 @@ class MainMenuController: NSWindowController {
     }
 
     @IBAction func settingsClicked(_ sender: Any) {
-        if settingsWindowController != nil {
-            settingsWindowController?.showWindow(self)
-        } else {
-            if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
-                settingsWindowController = windowController
-                windowController.delegate = self
-                windowController.showWindow(self)
-            }
-        }
-        NSApplication.shared.setActivationPolicy(.regular)
-        NSApp.activate(ignoringOtherApps: true)
+        showSettingsWindow()
     }
 
     public func setAccessoryActivationPolicyIfAllWindowsClosed() {
