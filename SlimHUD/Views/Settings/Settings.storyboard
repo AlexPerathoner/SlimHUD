@@ -52,7 +52,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
                                                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xz-DJ-Noo" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                                    <rect key="frame" x="18" y="269" width="364" height="132"/>
+                                                    <rect key="frame" x="18" y="274" width="364" height="132"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <subviews>
                                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05T-6F-HbC" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -99,7 +99,7 @@
                                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xow-YQ-oim">
                                                                     <rect key="frame" x="7" y="37" width="18" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                    <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="TBm-UL-9Zq">
+                                                                    <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="TBm-UL-9Zq">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
@@ -141,7 +141,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </customView>
                                                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XEo-HK-8gV" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                                    <rect key="frame" x="18" y="156" width="220" height="104"/>
+                                                    <rect key="frame" x="18" y="158" width="220" height="104"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qiw-4Z-T8T" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
@@ -188,7 +188,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </customView>
                                                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZgY-sa-O8b" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                                    <rect key="frame" x="247" y="157" width="135" height="104"/>
+                                                    <rect key="frame" x="247" y="158" width="135" height="104"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQw-Et-mdO" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
