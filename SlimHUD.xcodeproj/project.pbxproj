@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA322FC4297F485700E8F31A /* StandardLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA322FC3297F485700E8F31A /* StandardLabel.swift */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
 		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
 		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
@@ -68,7 +69,7 @@
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
-		FACDE684297EEC5200EDF165 /* ShadowedBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE683297EEC5200EDF165 /* ShadowedBox.swift */; };
+		FACDE684297EEC5200EDF165 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE683297EEC5200EDF165 /* CustomView.swift */; };
 		FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE68E297F105600EDF165 /* TabItemView.swift */; };
 		FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE692297F1BD300EDF165 /* TabsView.swift */; };
 		FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */; };
@@ -98,6 +99,7 @@
 /* Begin PBXFileReference section */
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA322FC3297F485700E8F31A /* StandardLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLabel.swift; sourceTree = "<group>"; };
 		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
 		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
 		FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAUITestSetup.swift; sourceTree = "<group>"; };
@@ -161,7 +163,7 @@
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMethod.swift; sourceTree = "<group>"; };
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
-		FACDE683297EEC5200EDF165 /* ShadowedBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedBox.swift; sourceTree = "<group>"; };
+		FACDE683297EEC5200EDF165 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		FACDE68E297F105600EDF165 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
 		FACDE692297F1BD300EDF165 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		FAF1A5122970F80E00C8D5DB /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
@@ -421,7 +423,8 @@
 		FACDE689297EF47300EDF165 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				FACDE683297EEC5200EDF165 /* ShadowedBox.swift */,
+				FA322FC3297F485700E8F31A /* StandardLabel.swift */,
+				FACDE683297EEC5200EDF165 /* CustomView.swift */,
 				FACDE68E297F105600EDF165 /* TabItemView.swift */,
 				FACDE692297F1BD300EDF165 /* TabsView.swift */,
 			);
@@ -608,13 +611,14 @@
 				FA95EE592956FE9A005B39CD /* Position.swift in Sources */,
 				FA95EE4F2956FE69005B39CD /* NSViewExtension.swift in Sources */,
 				FA95EE4D2956FE5D005B39CD /* EnabledBars.swift in Sources */,
-				FACDE684297EEC5200EDF165 /* ShadowedBox.swift in Sources */,
+				FACDE684297EEC5200EDF165 /* CustomView.swift in Sources */,
 				FA95EE552956FE86005B39CD /* NSImageExtension.swift in Sources */,
 				FA95EE402956FE06005B39CD /* UserDefaultsManager.swift in Sources */,
 				FA95EE6829573EEF005B39CD /* BarView.swift in Sources */,
 				FA95EE612956FED6005B39CD /* SensorError.swift in Sources */,
 				FA95EE4A2956FE44005B39CD /* SettingsManager.swift in Sources */,
 				FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */,
+				FA322FC4297F485700E8F31A /* StandardLabel.swift in Sources */,
 				FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */,
 				FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */,
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,

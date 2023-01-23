@@ -8,7 +8,7 @@
 import Cocoa
 
 @IBDesignable
-class TabsView: ShadowedBox {
+class TabsView: CustomView {
     private var totalWidth: Int = 400 //TODO: constants
     private var elementsWidth: Int = 70
     private var offset: Int = 40 // TODO: rename
@@ -16,6 +16,7 @@ class TabsView: ShadowedBox {
     private var size: NSSize = .init(width: 71, height: 45)
     
     var tabs: [TabItemView] = []
+    var contentViews: [NSView] = []
     
     private func calculateFrameForTabItem(index: Int) -> NSRect {
         let origin = NSPoint(x: offset+(Int(size.width)+offsetInternal)*index, y: 10) // Todo move to constants
@@ -27,7 +28,7 @@ class TabsView: ShadowedBox {
         self.backgroundColor = NSColor(red:253/255.0, green:253/255.0, blue:253/255.0, alpha:1.0)
         self.shadowColor = .black
         
-        let tabItem1 = TabItemView(frame: calculateFrameForTabItem(index: 0)) // TODO: create generator
+        let tabItem1 = TabItemView(frame: calculateFrameForTabItem(index: 0))
         let tabItem2 = TabItemView(frame: calculateFrameForTabItem(index: 1))
         let tabItem3 = TabItemView(frame: calculateFrameForTabItem(index: 2))
         let tabItem4 = TabItemView(frame: calculateFrameForTabItem(index: 3))
@@ -51,8 +52,9 @@ class TabsView: ShadowedBox {
             tabItem4.image = NSImage.init(systemSymbolName: "info.circle", accessibilityDescription: nil)
         }
         
-        for tab in tabs {
+        for (index, tab) in tabs.enumerated() {
             addSubview(tab)
+            tab.index = index
             tab.delegate = self
             tab.awakeFromNib()
         }
@@ -65,6 +67,9 @@ class TabsView: ShadowedBox {
         }) {
             tab.selected = false
         }
+        for contentView in contentViews {
+            contentView.isHidden = true
+        }
+        contentViews[item.index].isHidden = false
     }
-    
 }

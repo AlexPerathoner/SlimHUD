@@ -25,6 +25,8 @@ class TabItemView: NSView {
     
     weak var delegate: TabsView?
     
+    var index = 0
+    
     override func awakeFromNib() {
         textField = createLabel()
         imageView = createImageView()
@@ -39,20 +41,21 @@ class TabItemView: NSView {
         textField.alignment = .center
         textField.setFrameSize(NSSize(width: 70, height: 16))
         textField.setFrameOrigin(.init(x: 0, y: 2))
-        textField.font = NSFont.systemFont(ofSize: 11)
+        textField.font = NSFont.init(name: "SF Pro", size: 10)
         textField.isEditable = false
         textField.isSelectable = false
         textField.isBordered = false
         textField.isBezeled = false
         textField.drawsBackground = false
+        
         return textField
     }
     
     private func createImageView() -> NSImageView {
         let imageView = NSImageView(image: image)
         imageView.alignment = .center
-        imageView.setFrameSize(NSSize(width: 70, height: 23))
-        imageView.setFrameOrigin(.init(x: 0, y: 18))
+        imageView.setFrameSize(NSSize(width: 70, height: 20))
+        imageView.setFrameOrigin(.init(x: 0, y: 20))
         imageView.isEditable = false
         imageView.imageScaling = .scaleProportionallyUpOrDown
         return imageView

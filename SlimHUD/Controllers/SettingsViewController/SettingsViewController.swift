@@ -12,12 +12,22 @@ class SettingsViewController: NSViewController, SPUUpdaterDelegate {
     let loginItemsList = LoginItemsList()
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
-    @IBOutlet weak var preview: SettingsController!
+    @IBOutlet weak var preview: SettingsController! // TODO: remove preview
     weak var delegate: HudsControllerInterface?
     @IBOutlet var spuStandardUpdaterController: SPUStandardUpdaterController!
     @IBOutlet var updaterDelegate: UpdaterDelegate!
-
-//    override func awakeFromNib() {
+    
+    @IBOutlet weak var tabsView: TabsView!
+    
+    override func awakeFromNib() {
+        tabsView.contentViews = [configView] //, styleView, designView, aboutView]
+    }
+    
+    @IBOutlet weak var configView: NSView!
+    @IBOutlet weak var styleView: NSView!
+    @IBOutlet weak var designView: NSView!
+    @IBOutlet weak var aboutView: NSView!
+    //    override func awakeFromNib() {
 //        super.awakeFromNib()
 //        // swiftlint:disable:next force_cast
 //        self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
