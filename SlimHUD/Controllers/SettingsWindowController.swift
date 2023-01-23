@@ -32,7 +32,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
     func windowWillClose(_ notification: Notification) {
         hidePreviewHud()
-        delegate?.setAccessoryActivationPolicyIfAllWindowsClosed()
+        NSApplication.shared.setActivationPolicy(.accessory)
     }
 
     private func showPreviewHud() {

@@ -10,7 +10,6 @@ import Cocoa
 class MainMenuController: NSWindowController {
 
     var settingsWindowController: SettingsWindowController?
-    var aboutWindowController: AboutWindowController?
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 
@@ -55,34 +54,12 @@ class MainMenuController: NSWindowController {
         })
     }
 
-    @IBAction func aboutClicked(_ sender: Any) {
-        if aboutWindowController != nil {
-            aboutWindowController?.showWindow(self)
-        } else {
-            if let windowController = NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as? AboutWindowController {
-                aboutWindowController = windowController
-                windowController.delegate = self
-                windowController.showWindow(self)
-            }
-        }
-        NSApplication.shared.setActivationPolicy(.regular)
-        NSApp.activate(ignoringOtherApps: true)
-    }
-
     @IBAction func settingsClicked(_ sender: Any) {
         showSettingsWindow()
     }
 
-    public func setAccessoryActivationPolicyIfAllWindowsClosed() {
-        // hiding app if not both windows are visible
-        if isOnlyOneWindowVisible() {
-            NSApplication.shared.setActivationPolicy(.accessory)
-        }
-    }
-
     private func closeAllWindows() {
         settingsWindowController?.close()
-        aboutWindowController?.close()
     }
 
     private func quit() {
@@ -92,12 +69,7 @@ class MainMenuController: NSWindowController {
     }
 
     private func isSomeWindowVisible() -> Bool {
-        return ((aboutWindowController?.window?.isVisible ?? false) || (settingsWindowController?.window?.isVisible ?? false)) &&
+        return (settingsWindowController?.window?.isVisible ?? false) &&
             NSApplication.shared.activationPolicy() != .accessory
-    }
-
-    private func isOnlyOneWindowVisible() -> Bool {
-        return (aboutWindowController?.window?.isVisible ?? false) != (settingsWindowController?.window?.isVisible ?? false) &&
-        NSApplication.shared.activationPolicy() != .accessory
     }
 }

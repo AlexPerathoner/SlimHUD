@@ -24,12 +24,6 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="SlimHUD" id="H2T-wn-cOi" userLabel="statusMenu">
                                     <items>
-                                        <menuItem title="About..." id="Y7B-0i-puc">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="aboutClicked:" target="Rye-fc-SjU" id="yAV-La-Ryd"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem title="Check for Updates..." id="5S5-O1-oWe">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>

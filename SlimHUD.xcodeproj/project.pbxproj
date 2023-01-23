@@ -28,7 +28,6 @@
 		FA95EE132956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */; };
 		FA95EE212956FCF0005B39CD /*  HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */; };
 		FA95EE242956FD3A005B39CD /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA95EE232956FD3A005B39CD /* Sparkle */; };
-		FA95EE262956FD45005B39CD /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE252956FD45005B39CD /* AboutWindowController.swift */; };
 		FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE272956FD54005B39CD /* SettingsWindowController.swift */; };
 		FA95EE2B2956FD7B005B39CD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */; };
 		FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */; };
@@ -57,16 +56,13 @@
 		FA95EE612956FED6005B39CD /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE602956FED6005B39CD /* SensorError.swift */; };
 		FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6429573ECD005B39CD /* SettingsView.swift */; };
 		FA95EE6829573EEF005B39CD /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6729573EEF005B39CD /* BarView.swift */; };
-		FA95EE6B29573F0B005B39CD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6A29573F0B005B39CD /* AboutViewController.swift */; };
 		FA95EE6D29573F36005B39CD /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6C29573F36005B39CD /* Hud.swift */; };
 		FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6F29573F55005B39CD /* ProgressBar.swift */; };
 		FA95EE7229573F63005B39CD /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE7129573F63005B39CD /* DeterminateAnimation.swift */; };
 		FA95EE7429573F71005B39CD /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE7329573F71005B39CD /* BaseView.swift */; };
-		FA95EE78295741CB005B39CD /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE77295741CA005B39CD /* About.storyboard */; };
 		FA95EE7A295741D2005B39CD /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE79295741D2005B39CD /* BarView.xib */; };
 		FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE7B295741DE005B39CD /* MainMenu.storyboard */; };
 		FA95EE7E295741E6005B39CD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE7D295741E6005B39CD /* Settings.storyboard */; };
-		FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE7F2957445D005B39CD /* AboutUITest.swift */; };
 		FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8129574471005B39CD /* SettingsUITest.swift */; };
 		FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8429574495005B39CD /* SparkleUITests.swift */; };
 		FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE872957589E005B39CD /* PositionManagerTests.swift */; };
@@ -122,7 +118,6 @@
 		FA95EE0C2956FCC1005B39CD /* SlimHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " HudsControllerInterface.swift"; sourceTree = "<group>"; };
-		FA95EE252956FD45005B39CD /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		FA95EE272956FD54005B39CD /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
@@ -151,18 +146,15 @@
 		FA95EE602956FED6005B39CD /* SensorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
 		FA95EE6429573ECD005B39CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA95EE6729573EEF005B39CD /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
-		FA95EE6A29573F0B005B39CD /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FA95EE6C29573F36005B39CD /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		FA95EE6F29573F55005B39CD /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA95EE7129573F63005B39CD /* DeterminateAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
 		FA95EE7329573F71005B39CD /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA95EE7529574141005B39CD /* SlimHUD.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
 		FA95EE762957416E005B39CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		FA95EE77295741CA005B39CD /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		FA95EE79295741D2005B39CD /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
 		FA95EE7B295741DE005B39CD /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		FA95EE7D295741E6005B39CD /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		FA95EE7F2957445D005B39CD /* AboutUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUITest.swift; sourceTree = "<group>"; };
 		FA95EE8129574471005B39CD /* SettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITest.swift; sourceTree = "<group>"; };
 		FA95EE8429574495005B39CD /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
 		FA95EE872957589E005B39CD /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
@@ -276,7 +268,6 @@
 			children = (
 				FA95EE832957448E005B39CD /* Utils */,
 				FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */,
-				FA95EE7F2957445D005B39CD /* AboutUITest.swift */,
 				FA95EE8129574471005B39CD /* SettingsUITest.swift */,
 				FA56F6DF29666AB1008177B1 /* HudsUITests.swift */,
 			);
@@ -288,7 +279,6 @@
 			children = (
 				FA95EE292956FD68005B39CD /* SettingsViewController */,
 				FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */,
-				FA95EE252956FD45005B39CD /* AboutWindowController.swift */,
 				FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */,
 				FA95EE272956FD54005B39CD /* SettingsWindowController.swift */,
 			);
@@ -371,7 +361,6 @@
 				FA95EE7B295741DE005B39CD /* MainMenu.storyboard */,
 				FA95EE6C29573F36005B39CD /* Hud.swift */,
 				FA95EE632956FEEA005B39CD /* Settings */,
-				FA95EE6929573EF8005B39CD /* About */,
 				FA95EE6629573EE5005B39CD /* BarView */,
 				FA64B5A92966643600600F85 /* SinglePopover */,
 				FA95EE6E29573F47005B39CD /* Kauntey Suryawanshi */,
@@ -396,15 +385,6 @@
 				FA95EE6729573EEF005B39CD /* BarView.swift */,
 			);
 			path = BarView;
-			sourceTree = "<group>";
-		};
-		FA95EE6929573EF8005B39CD /* About */ = {
-			isa = PBXGroup;
-			children = (
-				FA95EE77295741CA005B39CD /* About.storyboard */,
-				FA95EE6A29573F0B005B39CD /* AboutViewController.swift */,
-			);
-			path = About;
 			sourceTree = "<group>";
 		};
 		FA95EE6E29573F47005B39CD /* Kauntey Suryawanshi */ = {
@@ -560,7 +540,6 @@
 				FA0E038629663300004066FF /* Release_Notes.md in Resources */,
 				FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */,
 				FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */,
-				FA95EE78295741CB005B39CD /* About.storyboard in Resources */,
 				FA0E03882966331A004066FF /* README.md in Resources */,
 				FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */,
 				FA64B5A52966579D00600F85 /* release.yml in Resources */,
@@ -593,7 +572,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7811E52975FE9400FEE1AA /* HudAnimator.swift in Sources */,
-				FA95EE262956FD45005B39CD /* AboutWindowController.swift in Sources */,
 				FA95EE422956FE14005B39CD /* VolumeManager.swift in Sources */,
 				FA95EE532956FE7C005B39CD /* NSControlExtension.swift in Sources */,
 				FA95EE7229573F63005B39CD /* DeterminateAnimation.swift in Sources */,
@@ -615,7 +593,6 @@
 				FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */,
 				FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */,
 				FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */,
-				FA95EE6B29573F0B005B39CD /* AboutViewController.swift in Sources */,
 				FA95EE482956FE37005B39CD /* Displayer.swift in Sources */,
 				FA95EE3C2956FDF1005B39CD /* KeyboardManager.swift in Sources */,
 				FA95EE2B2956FD7B005B39CD /* SettingsViewController.swift in Sources */,
@@ -661,7 +638,6 @@
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
 				FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */,
-				FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */,
 				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,
 				FA95EE132956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift in Sources */,
