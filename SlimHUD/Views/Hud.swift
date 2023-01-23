@@ -49,35 +49,29 @@ class Hud: NSView {
 
     func show() {
         if isHidden {
-            guard let hudView = hudView else { return }
-            
-            if !hudView.subviews.isEmpty {
-                for subView in hudView.subviews {
-                    subView.removeFromSuperview()
-                }
-            }
-            resetBounds(of: barView)
-            barView.setFrameOrigin(originPosition)
-            hudView.addSubview(barView)
-            
             self.isHidden = false
+            guard let hudView = hudView else { return }
+            if hudView.subviews.isEmpty {
+                hudView.addSubview(barView)
+            }
             windowController?.showWindow(self)
+            
+            if animationStyle.requiresInMovement() {
+                barView.setFrameOrigin(HudAnimator.getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
+            } else {
+                barView.setFrameOrigin(originPosition)
+            }
             
             switch animationStyle {
             case .None: HudAnimator.popIn(barView: barView)
-            case .Slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
+            case .Slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition)
             case .PopInFadeOut: HudAnimator.popIn(barView: barView)
             case .Fade: HudAnimator.fadeIn(barView: barView)
             case .Grow: HudAnimator.growIn(barView: barView)
             case .Shrink: HudAnimator.shrinkIn(barView: barView)
-            case .SideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition, screenEdge: screenEdge)
+            case .SideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition)
             }
         }
-    }
-    // Changing animation type during an animation can mess up the bounds, so resetting them before showing
-    func resetBounds(of barView: BarView) {
-        barView.bounds = barView.frame
-        barView.bounds.origin = .zero
     }
 
     func hide(animated: Bool) {
@@ -99,7 +93,6 @@ class Hud: NSView {
     }
     private func commonAnimationOutCompletion() {
         self.isHidden = true
-        barView.removeFromSuperview()
         self.windowController?.close()
     }
 
@@ -152,22 +145,11 @@ class Hud: NSView {
     }
 
     public func setOrientation(isHorizontal: Bool, position: Position) {
-        let barViewFrame = barView.frame
         barView.layer?.anchorPoint = CGPoint(x: 0, y: 0)
         if isHorizontal {
             barView.frameCenterRotation = -90
-            barView.setFrameOrigin(.init(x: 0, y: barViewFrame.width))
         } else {
             barView.frameCenterRotation = 0
-            barView.setFrameOrigin(.init(x: 0, y: 0))
-        }
-
-        // needs a bit more space for displaying shadows...
-        if position == .right {
-            barView.setFrameOrigin(.init(x: Constants.ShadowRadius, y: 0))
-        }
-        if position == .top {
-            barView.setFrameOrigin(.init(x: 0, y: Constants.ShadowRadius + barViewFrame.width))
         }
 
         barView.setIconRotation(isHorizontal: isHorizontal)
@@ -201,18 +183,15 @@ class Hud: NSView {
     public func setPosition(originPosition: CGPoint, screenEdge: Position) {
         self.originPosition = originPosition
         self.screenEdge = screenEdge
-        
-        guard let hudView = hudView else { return }
-        
-        if !hudView.subviews.isEmpty {
-            for subView in hudView.subviews {
                 
-                NSAnimationContext.runAnimationGroup({ (context) in
-                    context.duration = Constants.Animation.Duration / 2
-                    subView.animator().setFrameOrigin(originPosition)
-                })
-                
+        NSAnimationContext.runAnimationGroup({ (context) in
+            context.duration = Constants.Animation.Duration / 2
+            if animationStyle.requiresInMovement() && hudView.isHidden {
+                let adjustedOriginPosition = HudAnimator.getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge)
+                barView.animator().setFrameOrigin(adjustedOriginPosition)
+            } else {
+                barView.animator().setFrameOrigin(originPosition)
             }
-        }
+        })
     }
 }
