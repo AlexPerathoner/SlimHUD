@@ -51,7 +51,7 @@ class Hud: NSView {
         if isHidden {
             self.isHidden = false
             guard let hudView = hudView else { return }
-            if hudView.subviews.isEmpty { // TODO: check if maybe when changing screen it should re-instantiate window
+            if hudView.subviews.isEmpty {
                 hudView.addSubview(barView)
             }
             windowController?.showWindow(self)
@@ -183,20 +183,15 @@ class Hud: NSView {
     public func setPosition(originPosition: CGPoint, screenEdge: Position) {
         self.originPosition = originPosition
         self.screenEdge = screenEdge
-        
-        guard let hudView = hudView else { return }
-        if !hudView.subviews.isEmpty { // TODO: create extension in nsview to retrieve barView (to use in animator, too)
-            for subView in hudView.subviews {
-                NSAnimationContext.runAnimationGroup({ (context) in
-                    context.duration = Constants.Animation.Duration / 2
-                    if animationStyle.requiresInMovement() && hudView.isHidden {
-                        let adjustedOriginPosition = HudAnimator.getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge)
-                        subView.animator().setFrameOrigin(adjustedOriginPosition)
-                    } else {
-                        subView.animator().setFrameOrigin(originPosition)
-                    }
-                })
+                
+        NSAnimationContext.runAnimationGroup({ (context) in
+            context.duration = Constants.Animation.Duration / 2
+            if animationStyle.requiresInMovement() && hudView.isHidden {
+                let adjustedOriginPosition = HudAnimator.getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge)
+                barView.animator().setFrameOrigin(adjustedOriginPosition)
+            } else {
+                barView.animator().setFrameOrigin(originPosition)
             }
-        }
+        })
     }
 }
