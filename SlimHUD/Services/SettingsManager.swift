@@ -28,7 +28,6 @@ class SettingsManager {
     private static let PositionKey = "position"
     private static let EnabledBarsKey = "enabledBars"
     private static let MarginKey = "marginValue"
-    private static let ShowQuitAlertKey = "showQuitAlert"
     private static let FlatBarKey = "flatBar"
 
     // MARK: - Bars colors
@@ -134,12 +133,6 @@ class SettingsManager {
         }
     }
 
-    var showQuitAlert: Bool {
-        didSet {
-            UserDefaults.standard.set(showQuitAlert, forKey: SettingsManager.ShowQuitAlertKey)
-        }
-    }
-
     // MARK: - Class methods
 
     static private let singletonSettingsController = SettingsManager()
@@ -174,11 +167,6 @@ class SettingsManager {
              enabledBarsRaw[EnabledBars.KeyboardBarIndex])
         enabledBars = EnabledBars(volumeBar: volumeBarEnabled, brightnessBar: brightnessBarEnabled, keyboardBar: keyboardBarEnabled)
         marginValue = UserDefaultsManager.getInt(for: SettingsManager.MarginKey, defaultValue: 10)
-        if CommandLine.arguments.contains("showQuitAlert") {
-            let indexOfValue = CommandLine.arguments.firstIndex(of: "showQuitAlert")! + 1
-            UserDefaults.standard.set(CommandLine.arguments[indexOfValue], forKey: SettingsManager.ShowQuitAlertKey)
-        }
-        showQuitAlert = UserDefaultsManager.getBool(for: SettingsManager.ShowQuitAlertKey, defaultValue: true)
         flatBar = UserDefaultsManager.getBool(for: SettingsManager.FlatBarKey, defaultValue: false)
     }
 

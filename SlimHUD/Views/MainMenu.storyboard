@@ -11,7 +11,6 @@
                 <customObject id="Fkg-Y0-35E" customClass="SPUStandardUpdaterController"/>
                 <customObject id="hbL-WD-91l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="ev8-l2-p2M" customClass="NSFontManager"/>
-                <customObject id="Rye-fc-SjU" customClass="MainMenuController" customModule="SlimHUD" customModuleProvider="target"/>
                 <customObject id="RpS-ln-g5c" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
                     <connections>
                         <outlet property="statusMenu" destination="H2T-wn-cOi" id="3Tt-yF-EdJ"/>
@@ -30,12 +29,6 @@
                                                 <action selector="checkForUpdates:" target="Fkg-Y0-35E" id="KIR-aE-2zD"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Settings..." id="MKQ-CJ-4R5">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="settingsClicked:" target="Rye-fc-SjU" id="Zjr-Uv-0MC"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="vC6-xV-rB2"/>
                                         <menuItem title="Close Window" keyEquivalent="w" id="hoa-94-aFq">
                                             <connections>
@@ -44,7 +37,7 @@
                                         </menuItem>
                                         <menuItem title="Quit" keyEquivalent="q" id="xeo-u1-C0T">
                                             <connections>
-                                                <action selector="quitCliked:" target="Rye-fc-SjU" id="2e6-sL-f82"/>
+                                                <action selector="quitCliked:" target="RpS-ln-g5c" id="7B7-Ka-RgN"/>
                                             </connections>
                                         </menuItem>
                                     </items>
