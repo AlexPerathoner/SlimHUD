@@ -66,169 +66,18 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </customView>
-                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8pg-lM-e3Q" userLabel="Design">
+                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-MA-tQ0" userLabel="About">
                                             <rect key="frame" x="0.0" y="0.0" width="400" height="409"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
-                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4K-2t-rcY" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                                    <rect key="frame" x="18" y="222" width="364" height="179"/>
+                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTh-Bu-KCg" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="246" width="364" height="155"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <subviews>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFC-yn-kQr" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                            <rect key="frame" x="18" y="131" width="184" height="20"/>
+                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xx-En-svB" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                            <rect key="frame" x="144" y="115" width="202" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" alignment="left" title="Size" id="u5h-pF-pZE">
-                                                                <font key="font" size="17" name="SFPro-Semibold"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                    <real key="value" value="15"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </textField>
-                                                        <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnu-m9-sgg">
-                                                            <rect key="frame" x="18" y="97" width="281" height="28"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="1Rv-ki-feB"/>
-                                                        </slider>
-                                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HvF-9z-w42">
-                                                            <rect key="frame" x="305" y="103" width="39" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="231" drawsBackground="YES" id="7zs-b4-MN0">
-                                                                <font key="font" size="13" name="SFCompact-Regular"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJW-cB-58m" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                            <rect key="frame" x="18" y="55" width="184" height="20"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" alignment="left" title="Thickness" id="MTP-jE-pim">
-                                                                <font key="font" size="17" name="SFPro-Semibold"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                    <real key="value" value="15"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </textField>
-                                                        <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QxR-bT-ZC6">
-                                                            <rect key="frame" x="18" y="21" width="281" height="28"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="QZJ-Ap-9zQ"/>
-                                                        </slider>
-                                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2KL-sc-5Rk">
-                                                            <rect key="frame" x="305" y="27" width="39" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="231" drawsBackground="YES" id="tVl-Gu-Dhj">
-                                                                <font key="font" size="13" name="SFCompact-Regular"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                    </subviews>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <integer key="value" value="26"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                                            <color key="value" red="0.91372555489999996" green="0.91372555489999996" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </customView>
-                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jB9-E3-RaD" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                                    <rect key="frame" x="18" y="110" width="364" height="104"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <subviews>
-                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgJ-Cp-E2N">
-                                                            <rect key="frame" x="18" y="62" width="63" height="18"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <buttonCell key="cell" type="check" title="Icons" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="d40-GZ-ut4">
-                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                <font key="font" size="15" name="SFPro-Regular"/>
-                                                            </buttonCell>
-                                                        </button>
-                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKl-nT-KCf">
-                                                            <rect key="frame" x="18" y="23" width="89" height="18"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <buttonCell key="cell" type="check" title="Shadows" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wGn-9X-Nik">
-                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                <font key="font" size="15" name="SFPro-Regular"/>
-                                                            </buttonCell>
-                                                        </button>
-                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-7u-mlX">
-                                                            <rect key="frame" x="178" y="66" width="78" height="18"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <buttonCell key="cell" type="check" title="Flat bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="jia-Nf-plN">
-                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                <font key="font" size="15" name="SFPro-Regular"/>
-                                                            </buttonCell>
-                                                        </button>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6dE-SI-CQq" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                            <rect key="frame" x="178" y="34" width="184" height="20"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" alignment="left" title="Animations:" id="lL0-D3-QWF">
-                                                                <font key="font" size="17" name="SFPro-Semibold"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                    <real key="value" value="15"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </textField>
-                                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hpx-hA-uxc">
-                                                            <rect key="frame" x="177" y="5" width="78" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <popUpButtonCell key="cell" type="push" title="None" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ojV-Kx-XSQ" id="5s5-Tk-iWf">
-                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="menu"/>
-                                                                <menu key="menu" id="iAF-46-Oag">
-                                                                    <items>
-                                                                        <menuItem title="None" state="on" id="ojV-Kx-XSQ"/>
-                                                                        <menuItem title="Slide" id="gBy-n1-H9b"/>
-                                                                        <menuItem title="Etc" id="oAg-jK-b2f"/>
-                                                                    </items>
-                                                                </menu>
-                                                            </popUpButtonCell>
-                                                        </popUpButton>
-                                                    </subviews>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <integer key="value" value="26"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                                            <color key="value" red="0.91372555489999996" green="0.91372555489999996" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </customView>
-                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-pl-icC" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                                    <rect key="frame" x="18" y="19" width="364" height="83"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <subviews>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-tx-6Dt" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                            <rect key="frame" x="18" y="39" width="184" height="20"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" alignment="left" title="Reset Design" id="QPU-yt-ehV">
+                                                            <textFieldCell key="cell" alignment="left" title="You're running SlimHUD" id="dil-T0-w92">
                                                                 <font key="font" size="17" name="SFPro-Semibold"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -240,34 +89,50 @@
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
                                                                     <real key="value" value="5"/>
                                                                 </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </textField>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Kn-zh-hkS" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                            <rect key="frame" x="18" y="18" width="184" height="20"/>
+                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ozh-ur-pKd" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                            <rect key="frame" x="144" y="20" width="202" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" alignment="left" title="for all HUDs" id="fYu-YZ-kmm">
+                                                            <textFieldCell key="cell" alignment="left" title="Created with ❤️ by Alex Perathoner Redesigned by Kayden Anderson" id="fgi-wd-sHP">
+                                                                <font key="font" size="13" name="SFPro-Regular"/>
+                                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                    <real key="value" value="11"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mce-ux-vKC">
+                                                            <rect key="frame" x="13" y="17" width="120" height="120"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="JCV-UV-w0s"/>
+                                                        </imageView>
+                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESZ-nj-tbv" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                            <rect key="frame" x="144" y="58" width="202" height="49"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" alignment="left" title="1.5.0" id="yN9-1F-gVK">
                                                                 <font key="font" size="17" name="SFPro-Semibold"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                    <real key="value" value="13"/>
+                                                                    <real key="value" value="55"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
-                                                                    <real key="value" value="5"/>
+                                                                    <real key="value" value="0.0"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </textField>
-                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxj-4c-am9">
-                                                            <rect key="frame" x="248" y="25" width="103" height="32"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zdH-TL-x5z">
-                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="system"/>
-                                                            </buttonCell>
-                                                        </button>
                                                     </subviews>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -289,6 +154,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="aboutView" destination="ua5-MA-tQ0" id="xe6-gZ-98H"/>
                         <outlet property="designView" destination="8pg-lM-e3Q" id="YQ0-BP-Ika"/>
                         <outlet property="styleView" destination="7CG-cS-E5O" id="dAF-XP-wfT"/>
                         <outlet property="tabsView" destination="IeD-Gi-4xh" id="4zV-q0-NbA"/>
@@ -580,21 +446,6 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
-                                </subviews>
-                            </customView>
-                            <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-MA-tQ0" userLabel="About">
-                                <rect key="frame" x="-160" y="99" width="400" height="409"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Tn-Sw-ZA9">
-                                        <rect key="frame" x="178" y="238" width="41" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="About" id="XeV-iE-Cf1">
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
                                 </subviews>
                             </customView>
                         </subviews>
@@ -1690,8 +1541,239 @@
             </objects>
             <point key="canvasLocation" x="328" y="200"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="CFN-zP-rEr">
+            <objects>
+                <viewController id="oXP-qf-ooD" sceneMemberID="viewController">
+                    <view key="view" id="jbO-Qb-rbg">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="681"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8pg-lM-e3Q" userLabel="Design">
+                                <rect key="frame" x="0.0" y="-39" width="450" height="445"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4K-2t-rcY" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="258" width="364" height="179"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFC-yn-kQr" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                <rect key="frame" x="18" y="131" width="184" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" alignment="left" title="Size" id="u5h-pF-pZE">
+                                                    <font key="font" size="17" name="SFPro-Semibold"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnu-m9-sgg">
+                                                <rect key="frame" x="18" y="97" width="281" height="28"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="1Rv-ki-feB"/>
+                                            </slider>
+                                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HvF-9z-w42">
+                                                <rect key="frame" x="305" y="103" width="39" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="231" drawsBackground="YES" id="7zs-b4-MN0">
+                                                    <font key="font" size="13" name="SFCompact-Regular"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJW-cB-58m" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                <rect key="frame" x="18" y="55" width="184" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" alignment="left" title="Thickness" id="MTP-jE-pim">
+                                                    <font key="font" size="17" name="SFPro-Semibold"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QxR-bT-ZC6">
+                                                <rect key="frame" x="18" y="21" width="281" height="28"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="QZJ-Ap-9zQ"/>
+                                            </slider>
+                                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2KL-sc-5Rk">
+                                                <rect key="frame" x="305" y="27" width="39" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="231" drawsBackground="YES" id="tVl-Gu-Dhj">
+                                                    <font key="font" size="13" name="SFCompact-Regular"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="26"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" red="0.91372555489999996" green="0.91372555489999996" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </customView>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jB9-E3-RaD" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="146" width="364" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgJ-Cp-E2N">
+                                                <rect key="frame" x="18" y="62" width="63" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="check" title="Icons" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="d40-GZ-ut4">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="15" name="SFPro-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKl-nT-KCf">
+                                                <rect key="frame" x="18" y="23" width="89" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="check" title="Shadows" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wGn-9X-Nik">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="15" name="SFPro-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-7u-mlX">
+                                                <rect key="frame" x="178" y="66" width="78" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="check" title="Flat bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="jia-Nf-plN">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="15" name="SFPro-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6dE-SI-CQq" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                <rect key="frame" x="178" y="34" width="184" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" alignment="left" title="Animations:" id="lL0-D3-QWF">
+                                                    <font key="font" size="17" name="SFPro-Semibold"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hpx-hA-uxc">
+                                                <rect key="frame" x="177" y="5" width="78" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <popUpButtonCell key="cell" type="push" title="None" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ojV-Kx-XSQ" id="5s5-Tk-iWf">
+                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="menu"/>
+                                                    <menu key="menu" id="iAF-46-Oag">
+                                                        <items>
+                                                            <menuItem title="None" state="on" id="ojV-Kx-XSQ"/>
+                                                            <menuItem title="Slide" id="gBy-n1-H9b"/>
+                                                            <menuItem title="Etc" id="oAg-jK-b2f"/>
+                                                        </items>
+                                                    </menu>
+                                                </popUpButtonCell>
+                                            </popUpButton>
+                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="26"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" red="0.91372555489999996" green="0.91372555489999996" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </customView>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-pl-icC" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="55" width="364" height="83"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-tx-6Dt" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                <rect key="frame" x="18" y="39" width="184" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" alignment="left" title="Reset Design" id="QPU-yt-ehV">
+                                                    <font key="font" size="17" name="SFPro-Semibold"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="17"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Kn-zh-hkS" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                <rect key="frame" x="18" y="18" width="184" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" alignment="left" title="for all HUDs" id="fYu-YZ-kmm">
+                                                    <font key="font" size="17" name="SFPro-Semibold"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxj-4c-am9">
+                                                <rect key="frame" x="248" y="25" width="103" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zdH-TL-x5z">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
+                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="26"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" red="0.91372555489999996" green="0.91372555489999996" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </customView>
+                                </subviews>
+                            </customView>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="NOA-2L-nZS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1215" y="-897.5"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="NSApplicationIcon" width="32" height="32"/>
         <image name="NSRefreshTemplate" width="18" height="21"/>
         <image name="background" width="489" height="276"/>
         <image name="brightnessSegmTemplate" width="346" height="346"/>
