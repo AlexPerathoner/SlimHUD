@@ -20,7 +20,7 @@ class SettingsViewController: NSViewController, SPUUpdaterDelegate {
     @IBOutlet weak var tabsView: TabsView!
     
     override func awakeFromNib() {
-        tabsView.contentViews = [configView] //, styleView, designView, aboutView]
+        tabsView.contentViews = [styleView] //, styleView, designView, aboutView]
     }
     
     @IBOutlet weak var configView: NSView!
