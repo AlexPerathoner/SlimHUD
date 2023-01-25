@@ -17,16 +17,13 @@ class SettingsViewController: NSViewController, SPUUpdaterDelegate {
     @IBOutlet var spuStandardUpdaterController: SPUStandardUpdaterController!
     @IBOutlet var updaterDelegate: UpdaterDelegate!
     
-    @IBOutlet weak var tabsView: TabsView!
-    
     override func awakeFromNib() {
-        tabsView.contentViews = [aboutView] //, styleView, designView, aboutView]
+        
+        
+        
     }
     
-    @IBOutlet weak var configView: NSView!
-    @IBOutlet weak var styleView: NSView!
-    @IBOutlet weak var designView: NSView!
-    @IBOutlet weak var aboutView: NSView!
+    
     //    override func awakeFromNib() {
 //        super.awakeFromNib()
 //        // swiftlint:disable:next force_cast

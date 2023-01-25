@@ -16,10 +16,10 @@ class TabsView: CustomView {
     private var size: NSSize = .init(width: 71, height: 45)
     
     var tabs: [TabItemView] = []
-    var contentViews: [NSView] = []
+    weak var tabsContentView: TabsContentView?
     
     private func calculateFrameForTabItem(index: Int) -> NSRect {
-        let origin = NSPoint(x: offset+(Int(size.width)+offsetInternal)*index, y: 10) // Todo move to constants
+        let origin = NSPoint(x: offset+(Int(size.width)+offsetInternal)*index, y: 9) // TODO: move to constants
         return NSRect.init(origin: origin, size: size)
     }
     
@@ -58,6 +58,7 @@ class TabsView: CustomView {
             tab.delegate = self
             tab.awakeFromNib()
         }
+        
         super.awakeFromNib()
     }
     
@@ -67,9 +68,6 @@ class TabsView: CustomView {
         }) {
             tab.selected = false
         }
-        for contentView in contentViews {
-            contentView.isHidden = true
-        }
-        contentViews[item.index].isHidden = false
+        tabsContentView?.selectItem(index: item.index)
     }
 }
