@@ -1,14 +1,14 @@
+////
+////  SettingsUITests.swift
+////  SettingsUITests
+////
+////  Created by Alex Perathoner on 22/12/22.
+////  Copyright © 2022 Alex Perathoner. All rights reserved.
+////
 //
-//  SettingsUITests.swift
-//  SettingsUITests
+// import XCTest
 //
-//  Created by Alex Perathoner on 22/12/22.
-//  Copyright © 2022 Alex Perathoner. All rights reserved.
-//
-
- import XCTest
-
- final class SettingsUITest: SparkleUITests {
+// final class SettingsUITest: SparkleUITests {
 //    override func setUpWithError() throws {
 //        continueAfterFailure = false
 //    }
@@ -69,4 +69,4 @@
 //
 //        return settingsWindow
 //    }
- }
+// }
