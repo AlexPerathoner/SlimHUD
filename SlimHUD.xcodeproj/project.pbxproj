@@ -10,7 +10,7 @@
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
 		FA232B4A2981DE6000F96E51 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B492981DE6000F96E51 /* ConfigViewController.swift */; };
-		FA232B4C2981E1FC00F96E51 /* TabsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4B2981E1FC00F96E51 /* TabsContentView.swift */; };
+		FA232B4C2981E1FC00F96E51 /* TabsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4B2981E1FC00F96E51 /* TabsManager.swift */; };
 		FA232B4E2981E6A900F96E51 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4D2981E6A900F96E51 /* AboutViewController.swift */; };
 		FA232B502981E6CA00F96E51 /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */; };
 		FA232B522981E6D800F96E51 /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B512981E6D800F96E51 /* StyleViewController.swift */; };
@@ -60,7 +60,6 @@
 		FA95EE5B2956FEA9005B39CD /* NSSegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE5A2956FEA9005B39CD /* NSSegmentedControlExtension.swift */; };
 		FA95EE5E2956FEC3005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE5D2956FEC3005B39CD /* Constants.swift */; };
 		FA95EE612956FED6005B39CD /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE602956FED6005B39CD /* SensorError.swift */; };
-		FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6429573ECD005B39CD /* SettingsView.swift */; };
 		FA95EE6829573EEF005B39CD /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6729573EEF005B39CD /* BarView.swift */; };
 		FA95EE6D29573F36005B39CD /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6C29573F36005B39CD /* Hud.swift */; };
 		FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6F29573F55005B39CD /* ProgressBar.swift */; };
@@ -106,7 +105,7 @@
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FA232B492981DE6000F96E51 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
-		FA232B4B2981E1FC00F96E51 /* TabsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsContentView.swift; sourceTree = "<group>"; };
+		FA232B4B2981E1FC00F96E51 /* TabsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsManager.swift; sourceTree = "<group>"; };
 		FA232B4D2981E6A900F96E51 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
 		FA232B512981E6D800F96E51 /* StyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +157,6 @@
 		FA95EE5A2956FEA9005B39CD /* NSSegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSegmentedControlExtension.swift; sourceTree = "<group>"; };
 		FA95EE5D2956FEC3005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA95EE602956FED6005B39CD /* SensorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
-		FA95EE6429573ECD005B39CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA95EE6729573EEF005B39CD /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		FA95EE6C29573F36005B39CD /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		FA95EE6F29573F55005B39CD /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -234,7 +232,7 @@
 		FA95EDE82956FCBF005B39CD = {
 			isa = PBXGroup;
 			children = (
-				FA232B4B2981E1FC00F96E51 /* TabsContentView.swift */,
+				FA232B4B2981E1FC00F96E51 /* TabsManager.swift */,
 				FA0E038729663319004066FF /* README.md */,
 				FA0E038529663300004066FF /* Release_Notes.md */,
 				FA64B5A02966579D00600F85 /* workflows */,
@@ -393,7 +391,6 @@
 			children = (
 				FACDE689297EF47300EDF165 /* CustomViews */,
 				FA95EE7D295741E6005B39CD /* Settings.storyboard */,
-				FA95EE6429573ECD005B39CD /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -641,12 +638,11 @@
 				FA95EE4A2956FE44005B39CD /* SettingsManager.swift in Sources */,
 				FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */,
 				FA322FC4297F485700E8F31A /* StandardLabel.swift in Sources */,
-				FA232B4C2981E1FC00F96E51 /* TabsContentView.swift in Sources */,
+				FA232B4C2981E1FC00F96E51 /* TabsManager.swift in Sources */,
 				FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */,
 				FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */,
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
 				FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */,
-				FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */,
 				FA232B4E2981E6A900F96E51 /* AboutViewController.swift in Sources */,
 				FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */,
 			);

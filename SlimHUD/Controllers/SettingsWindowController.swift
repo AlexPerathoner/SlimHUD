@@ -24,10 +24,12 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
         showPreviewHud()
+        // TODO: enable all bars (for settings preview)
     }
 
     func windowWillClose(_ notification: Notification) {
         hidePreviewHud()
+        // TODO: enable only some bars
         NSApplication.shared.setActivationPolicy(.accessory)
     }
 
@@ -35,7 +37,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
         if previewTimer == nil { // windowDidLoad() could be called multiple times
             // sends a notification every second causing the bar to appear and be kept visible
             previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (_) in
-                self.displayer.showVolumeHUD()
+                self.displayer.showVolumeHUD() // TODO: should be possible to change displayed hud depending on what is being changed in settings
             }
             RunLoop.current.add(previewTimer!, forMode: .eventTracking)
         }

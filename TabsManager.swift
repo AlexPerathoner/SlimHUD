@@ -7,8 +7,7 @@
 
 import Cocoa
 
-class TabsContentView: NSView {
-    
+class TabsManager: NSView {
     var tabs: TabsView = TabsView(frame: .init(x: 0, y: 414, width: 400, height: 86))
     var contentViews: [NSView] = []
     var view: NSView?

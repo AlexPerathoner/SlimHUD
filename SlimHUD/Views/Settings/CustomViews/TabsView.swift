@@ -16,7 +16,7 @@ class TabsView: CustomView {
     private var size: NSSize = .init(width: 71, height: 45)
     
     var tabs: [TabItemView] = []
-    weak var tabsContentView: TabsContentView?
+    weak var tabsContentView: TabsManager?
     
     private func calculateFrameForTabItem(index: Int) -> NSRect {
         let origin = NSPoint(x: offset+(Int(size.width)+offsetInternal)*index, y: 9) // TODO: move to constants

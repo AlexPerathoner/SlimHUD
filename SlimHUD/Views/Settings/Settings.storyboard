@@ -39,7 +39,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView id="IeD-Gi-4xh" customClass="TabsContentView" customModule="SlimHUD" customModuleProvider="target">
+                            <customView id="IeD-Gi-4xh" customClass="TabsManager" customModule="SlimHUD" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -64,6 +64,7 @@
                         <outlet property="aboutView" destination="ua5-MA-tQ0" id="xe6-gZ-98H"/>
                         <outlet property="designView" destination="8pg-lM-e3Q" id="YQ0-BP-Ika"/>
                         <outlet property="styleView" destination="7CG-cS-E5O" id="dAF-XP-wfT"/>
+                        <outlet property="tabsManager" destination="IeD-Gi-4xh" id="Ov2-aU-aXR"/>
                         <outlet property="tabsView" destination="IeD-Gi-4xh" id="4zV-q0-NbA"/>
                     </connections>
                 </viewController>
