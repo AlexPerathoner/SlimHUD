@@ -232,7 +232,6 @@
 		FA95EDE82956FCBF005B39CD = {
 			isa = PBXGroup;
 			children = (
-				FA232B4B2981E1FC00F96E51 /* TabsManager.swift */,
 				FA0E038729663319004066FF /* README.md */,
 				FA0E038529663300004066FF /* Release_Notes.md */,
 				FA64B5A02966579D00600F85 /* workflows */,
@@ -437,6 +436,7 @@
 		FACDE689297EF47300EDF165 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				FA232B4B2981E1FC00F96E51 /* TabsManager.swift */,
 				FA322FC3297F485700E8F31A /* StandardLabel.swift */,
 				FA322FC5297F506200E8F31A /* EdgeSelector.swift */,
 				FACDE683297EEC5200EDF165 /* CustomView.swift */,

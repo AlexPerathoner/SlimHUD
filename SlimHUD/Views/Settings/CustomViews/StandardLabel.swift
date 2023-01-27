@@ -31,6 +31,11 @@ class StandardLabel: NSTextField {
         updateSpacing()
     }
     
+    func setStringValue(value: String) {
+        stringValue = value
+        updateSpacing()
+    }
+    
     func updateSpacing() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing

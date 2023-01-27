@@ -11,12 +11,12 @@ class TabsManager: NSView {
     var tabs: TabsView = TabsView(frame: .init(x: 0, y: 414, width: 400, height: 86))
     var contentViews: [NSView] = []
     var view: NSView?
-    
+
     override func awakeFromNib() {
         addSubview(tabs)
         tabs.tabsContentView = self
         tabs.awakeFromNib()
-        
+
         let storyboard = NSStoryboard(name: "Settings", bundle: nil)
         if let config = storyboard.instantiateController(withIdentifier: "config") as? ConfigViewController,
            let design = storyboard.instantiateController(withIdentifier: "design") as? DesignViewController,
@@ -32,11 +32,12 @@ class TabsManager: NSView {
         }
         super.awakeFromNib()
     }
-    
+
     func selectItem(index: Int) {
         for contentView in contentViews {
             contentView.isHidden = true
         }
         contentViews[index].isHidden = false
     }
+    
 }

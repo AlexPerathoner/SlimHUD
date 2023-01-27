@@ -11,7 +11,11 @@ import Cocoa
 class CustomView: NSView {
     @IBInspectable var shadowColor: NSColor = .black
     
-    @IBInspectable var backgroundColor: NSColor = .white
+    @IBInspectable var backgroundColor: NSColor = .darkGray {
+        didSet {
+            layer?.backgroundColor = backgroundColor.cgColor
+        }
+    }
     
     @IBInspectable var shadowed: Bool = true
     

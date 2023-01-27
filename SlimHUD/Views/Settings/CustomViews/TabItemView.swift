@@ -67,11 +67,7 @@ class TabItemView: NSView {
     }
     
     private func updateSelectionStyle() {
-        if selected {
-            self.layer?.backgroundColor = .init(gray: 0, alpha: 0.05)
-        } else {
-            self.layer?.backgroundColor = .init(gray: 0, alpha: 0)
-        }
+        updateBackgroundColor()
         if selected {
             textField?.textColor = TabItemView.selectedColor
         } else {
@@ -109,11 +105,7 @@ class TabItemView: NSView {
     }
     
     override func mouseExited(with event: NSEvent) {
-        if selected {
-            self.layer?.backgroundColor = .init(gray: 0, alpha: 0.05)
-        } else {
-            self.layer?.backgroundColor = .init(gray: 0, alpha: 0)
-        }
+        updateBackgroundColor()
     }
     
     override func updateTrackingAreas() {
@@ -128,5 +120,13 @@ class TabItemView: NSView {
         let options: NSTrackingArea.Options = [.mouseEnteredAndExited, .activeAlways]
         let trackingArea = NSTrackingArea(rect: self.bounds, options: options, owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
+    }
+    
+    func updateBackgroundColor() {
+        if selected {
+            self.layer?.backgroundColor = NSColor(named: "SelectionColor")!.cgColor
+        } else {
+            self.layer?.backgroundColor = .init(gray: 0, alpha: 0)
+        }
     }
 }
