@@ -638,6 +638,9 @@
                                                 <rect key="frame" x="18" y="91" width="281" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="1Rv-ki-feB"/>
+                                                <connections>
+                                                    <action selector="heightSlider:" target="oXP-qf-ooD" id="cBV-kg-elH"/>
+                                                </connections>
                                             </slider>
                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HvF-9z-w42">
                                                 <rect key="frame" x="305" y="97" width="39" height="21"/>
@@ -647,6 +650,9 @@
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
+                                                <connections>
+                                                    <action selector="sizeText:" target="oXP-qf-ooD" id="gNt-hQ-wgP"/>
+                                                </connections>
                                             </textField>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJW-cB-58m" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="18" y="54" width="184" height="20"/>
@@ -670,6 +676,9 @@
                                                 <rect key="frame" x="18" y="22" width="281" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="QZJ-Ap-9zQ"/>
+                                                <connections>
+                                                    <action selector="thicknessSlider:" target="oXP-qf-ooD" id="yWs-Yq-WCh"/>
+                                                </connections>
                                             </slider>
                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2KL-sc-5Rk">
                                                 <rect key="frame" x="305" y="28" width="39" height="21"/>
@@ -679,6 +688,9 @@
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
+                                                <connections>
+                                                    <action selector="thicknessText:" target="oXP-qf-ooD" id="vlO-pn-LGd"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <userDefinedRuntimeAttributes>
@@ -825,6 +837,12 @@
                             </customView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="sizeSlider" destination="dnu-m9-sgg" id="DhZ-AN-2c0"/>
+                        <outlet property="sizeValue" destination="HvF-9z-w42" id="N5E-Ct-KST"/>
+                        <outlet property="thicknessSlider" destination="QxR-bT-ZC6" id="dhU-60-xMZ"/>
+                        <outlet property="thicknessValue" destination="2KL-sc-5Rk" id="cmd-Ik-3I3"/>
+                    </connections>
                 </viewController>
                 <customObject id="NOA-2L-nZS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
