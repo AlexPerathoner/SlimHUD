@@ -7,7 +7,6 @@
 
 import Cocoa
 
-@IBDesignable
 class CustomView: NSView {
     @IBInspectable var shadowColor: NSColor = .black
     

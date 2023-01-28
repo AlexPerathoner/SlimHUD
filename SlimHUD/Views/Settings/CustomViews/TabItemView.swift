@@ -7,7 +7,6 @@
 
 import Cocoa
 
-@IBDesignable
 class TabItemView: NSView {
     @IBInspectable var image: NSImage!
     @IBInspectable var title: String = "About"
