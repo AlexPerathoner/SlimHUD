@@ -375,7 +375,7 @@
                                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKS-mE-K3g">
                                                 <rect key="frame" x="16" y="19" width="332" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="roundRect" trackingMode="selectAny" id="zuB-fV-lhQ">
+                                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="roundRect" trackingMode="selectOne" id="zuB-fV-lhQ">
                                                     <font key="font" metaFont="cellTitle"/>
                                                     <segments>
                                                         <segment image="volumeSegmTemplate" width="108" selected="YES"/>
