@@ -28,8 +28,6 @@ class EdgeSelector: NSView {
         buttonLeft.edge = .left
         buttonRight.edge = .right
         buttonBottom.edge = .bottom
-        
-        buttonLeft.state = .on
     }
     
     // used by the delegate to update the buttons' states
@@ -40,7 +38,7 @@ class EdgeSelector: NSView {
         buttonBottom.state = .off
         switch edge {
         case .bottom:
-            buttonTop.state = .on
+            buttonBottom.state = .on
             break
         case .right:
             buttonRight.state = .on
