@@ -17,7 +17,7 @@ class StyleViewController: NSViewController {
         do {
             return try hudToEditOutlet.getSelectedBar()
         } catch {
-            fatalError("Multiple HUDs selected")
+            fatalError("Multiple / No HUDs selected")
         }
     }
     
@@ -106,55 +106,6 @@ class StyleViewController: NSViewController {
             break
         }
     }
-    private func setVolumeBackgroundColor(_ color: NSColor) {
-        settingsManager.volumeBackgroundColor = color
-        delegate?.setVolumeBackgroundColor(color: color)
-    }
-    private func setVolumeEnabledColor(_ color: NSColor) {
-        settingsManager.volumeEnabledColor = color
-        delegate?.setVolumeEnabledColor(color: color)
-    }
-    private func setVolumeDisabledColor(_ color: NSColor) {
-        settingsManager.volumeDisabledColor = color
-        delegate?.setVolumeDisabledColor(color: color)
-    }
-    private func setVolumeIconColor(_ color: NSColor) {
-        settingsManager.volumeIconColor = color
-        if #available(macOS 10.14, *) {
-            delegate?.setVolumeIconsTint(color)
-        }
-    }
-    
-    private func setBrightnessBackgroundColor(_ color: NSColor) {
-        settingsManager.brightnessBackgroundColor = color
-        delegate?.setBrightnessBackgroundColor(color: color)
-    }
-    private func setBrightnessColor(_ color: NSColor) {
-        settingsManager.brightnessColor = color
-        delegate?.setBrightnessColor(color: color)
-    }
-    private func setBrightnessIconColor(_ color: NSColor) {
-        settingsManager.brightnessIconColor = color
-        if #available(macOS 10.14, *) {
-            delegate?.setBrightnessIconsTint(color)
-        }
-    }
-    
-    private func setKeyboardBackgroundColor(_ color: NSColor) {
-        settingsManager.keyboardBackgroundColor = color
-        delegate?.setKeyboardBackgroundColor(color: color)
-    }
-    private func setKeyboardColor(_ color: NSColor) {
-        settingsManager.keyboardColor = color
-        delegate?.setKeyboardColor(color: color)
-    }
-    private func setKeyboardIconColor(_ color: NSColor) {
-        settingsManager.keyboardIconColor = color
-        if #available(macOS 10.14, *) {
-            delegate?.setKeyboardIconsTint(color)
-        }
-    }
-    
     
     @IBAction func resetStyle(_ sender: Any) {
         switch getSelectedHud() {
@@ -176,4 +127,60 @@ class StyleViewController: NSViewController {
         }
     }
     
+}
+
+
+
+extension StyleViewController {
+    // MARK: volume HUD style methods
+    private func setVolumeBackgroundColor(_ color: NSColor) {
+        settingsManager.volumeBackgroundColor = color
+        delegate?.setVolumeBackgroundColor(color: color)
+    }
+    private func setVolumeEnabledColor(_ color: NSColor) {
+        settingsManager.volumeEnabledColor = color
+        delegate?.setVolumeEnabledColor(color: color)
+    }
+    private func setVolumeDisabledColor(_ color: NSColor) {
+        settingsManager.volumeDisabledColor = color
+        delegate?.setVolumeDisabledColor(color: color)
+    }
+    private func setVolumeIconColor(_ color: NSColor) {
+        settingsManager.volumeIconColor = color
+        if #available(macOS 10.14, *) {
+            delegate?.setVolumeIconsTint(color)
+        }
+    }
+    
+    // MARK: brightness HUD style methods
+    private func setBrightnessBackgroundColor(_ color: NSColor) {
+        settingsManager.brightnessBackgroundColor = color
+        delegate?.setBrightnessBackgroundColor(color: color)
+    }
+    private func setBrightnessColor(_ color: NSColor) {
+        settingsManager.brightnessColor = color
+        delegate?.setBrightnessColor(color: color)
+    }
+    private func setBrightnessIconColor(_ color: NSColor) {
+        settingsManager.brightnessIconColor = color
+        if #available(macOS 10.14, *) {
+            delegate?.setBrightnessIconsTint(color)
+        }
+    }
+    
+    // MARK: keyboard HUD style methods
+    private func setKeyboardBackgroundColor(_ color: NSColor) {
+        settingsManager.keyboardBackgroundColor = color
+        delegate?.setKeyboardBackgroundColor(color: color)
+    }
+    private func setKeyboardColor(_ color: NSColor) {
+        settingsManager.keyboardColor = color
+        delegate?.setKeyboardColor(color: color)
+    }
+    private func setKeyboardIconColor(_ color: NSColor) {
+        settingsManager.keyboardIconColor = color
+        if #available(macOS 10.14, *) {
+            delegate?.setKeyboardIconsTint(color)
+        }
+    }
 }
