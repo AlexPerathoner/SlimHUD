@@ -156,7 +156,7 @@
                                                     </segments>
                                                 </segmentedCell>
                                                 <connections>
-                                                    <action selector="enabledBarsChanged:" target="zap-3a-Qsd" id="S3y-NP-rcG"/>
+                                                    <action selector="enabledBarsClicked:" target="zap-3a-Qsd" id="NEW-Tn-dko"/>
                                                 </connections>
                                             </segmentedControl>
                                         </subviews>
@@ -427,7 +427,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
-                                                    <action selector="setBarColor:" target="O34-wh-55Y" id="PRc-h6-UUd"/>
+                                                    <action selector="setBarColorClicked:" target="O34-wh-55Y" id="d7j-Yj-D7G"/>
                                                 </connections>
                                             </colorWell>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ba1-SG-Zfc" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
@@ -565,7 +565,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
-                                                    <action selector="setFillColor:" target="O34-wh-55Y" id="hwU-J6-5xX"/>
+                                                    <action selector="setFillColorClicked:" target="O34-wh-55Y" id="Omm-kk-mHv"/>
                                                 </connections>
                                             </colorWell>
                                         </subviews>
