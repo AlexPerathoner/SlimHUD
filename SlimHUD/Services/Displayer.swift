@@ -110,9 +110,13 @@ class Displayer: HudsControllerInterface {
         keyboardHud.hideIcon(isHidden: isHidden)
     }
 
-    func setBackgroundColor(color: NSColor) {
+    func setVolumeBackgroundColor(color: NSColor) {
         volumeHud.setBackgroundColor(color: color)
+    }
+    func setBrightnessBackgroundColor(color: NSColor) {
         brightnessHud.setBackgroundColor(color: color)
+    }
+    func setKeyboardBackgroundColor(color: NSColor) {
         keyboardHud.setBackgroundColor(color: color)
     }
     func setVolumeEnabledColor(color: NSColor) {
@@ -133,7 +137,9 @@ class Displayer: HudsControllerInterface {
         setThickness(thickness: CGFloat(settingsManager.barThickness))
         hideIcon(isHidden: !settingsManager.shouldShowIcons)
         updateShadows(enabled: settingsManager.shouldShowShadows)
-        setBackgroundColor(color: settingsManager.backgroundColor)
+        setVolumeBackgroundColor(color: settingsManager.volumeBackgroundColor)
+        setBrightnessBackgroundColor(color: settingsManager.brightnessBackgroundColor)
+        setKeyboardBackgroundColor(color: settingsManager.keyboardBackgroundColor)
         setVolumeEnabledColor(color: settingsManager.volumeEnabledColor)
         setVolumeDisabledColor(color: settingsManager.volumeDisabledColor)
         setBrightnessColor(color: settingsManager.brightnessColor)

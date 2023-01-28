@@ -10,7 +10,9 @@ import Cocoa
 protocol HudsControllerInterface: AnyObject {
     func updateShadows(enabled: Bool)
     func hideIcon(isHidden: Bool)
-    func setBackgroundColor(color: NSColor)
+    func setVolumeBackgroundColor(color: NSColor)
+    func setBrightnessBackgroundColor(color: NSColor)
+    func setKeyboardBackgroundColor(color: NSColor)
     func setVolumeEnabledColor(color: NSColor)
     func setVolumeDisabledColor(color: NSColor)
     func setBrightnessColor(color: NSColor)
