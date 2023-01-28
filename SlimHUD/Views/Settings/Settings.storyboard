@@ -155,6 +155,9 @@
                                                         <segment alignment="right" image="keyboardSegmTemplate" imageScaling="proportionallyUpOrDown" width="55" selected="YES"/>
                                                     </segments>
                                                 </segmentedCell>
+                                                <connections>
+                                                    <action selector="enabledBarsChanged:" target="zap-3a-Qsd" id="S3y-NP-rcG"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <userDefinedRuntimeAttributes>
@@ -195,6 +198,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="launchAtLoginClicked:" target="zap-3a-Qsd" id="e5e-xs-1gP"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <userDefinedRuntimeAttributes>
@@ -235,6 +241,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="continuousCheckClicked:" target="zap-3a-Qsd" id="wHn-C4-eVf"/>
+                                                </connections>
                                             </button>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RcJ-zh-5o8" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="18" y="45" width="152" height="30"/>
@@ -289,7 +298,10 @@
                                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ey4-vm-74X">
                                                 <rect key="frame" x="95" y="13" width="19" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="LS0-6X-YQc"/>
+                                                <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="100" doubleValue="5" id="LS0-6X-YQc"/>
+                                                <connections>
+                                                    <action selector="marginValueChanged:" target="zap-3a-Qsd" id="QVe-kS-gwV"/>
+                                                </connections>
                                             </stepper>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74i-bE-195">
                                                 <rect key="frame" x="53" y="19" width="39" height="16"/>
@@ -333,6 +345,14 @@
                             </customView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="continuousCheckOutlet" destination="fkD-2H-T2B" id="KTU-Fa-0cp"/>
+                        <outlet property="edgeOutlet" destination="VgX-4r-T4f" id="yPZ-du-6Oq"/>
+                        <outlet property="enabledBarsOutlet" destination="s45-Vq-x4E" id="UkQ-gt-dij"/>
+                        <outlet property="launchAtLoginOutlet" destination="JNA-8h-6Cf" id="Bae-uX-JK2"/>
+                        <outlet property="marginOutlet" destination="74i-bE-195" id="eXg-CZ-uM6"/>
+                        <outlet property="marginStepperOutlet" destination="ey4-vm-74X" id="r1R-sH-JRV"/>
+                    </connections>
                 </viewController>
                 <customObject id="c0P-su-zTR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1190,6 +1210,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="lastCheckForUpdatesOutlet" destination="vVT-eF-obs" id="7zL-Nr-mEy"/>
                         <outlet property="spuStandardUpdaterController" destination="fcV-pP-VF1" id="Y9r-5p-onH"/>
                         <outlet property="updaterDelegate" destination="Pci-1u-CsO" id="DHU-Ib-KyD"/>
                         <outlet property="versionLabel" destination="ESZ-nj-tbv" id="sAj-fb-mmc"/>

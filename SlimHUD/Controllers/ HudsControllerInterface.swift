@@ -26,6 +26,5 @@ protocol HudsControllerInterface: AnyObject {
     func setBrightnessIconsTint(_ color: NSColor)
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor)
-    @available(OSX 10.14, *)
     var positionManager: PositionManager { get }
 }

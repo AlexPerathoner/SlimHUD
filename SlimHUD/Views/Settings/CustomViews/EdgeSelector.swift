@@ -9,7 +9,8 @@ import Cocoa
 
 @IBDesignable
 class EdgeSelector: NSView {
-    var edge: Position = .left
+    private var edge: Position = .left
+    weak var delegate: ConfigViewController?
     
     var buttonTop = RadioEdgeSelector(frame: .init(x: 72, y: 67, width: 18, height: 18))
     var buttonLeft = RadioEdgeSelector(frame: .init(x: 7, y: 37, width: 18, height: 18))
@@ -31,6 +32,29 @@ class EdgeSelector: NSView {
         buttonLeft.state = .on
     }
     
+    // used by the delegate to update the buttons' states
+    func setEdge(edge: Position) {
+        buttonTop.state = .off
+        buttonLeft.state = .off
+        buttonRight.state = .off
+        buttonBottom.state = .off
+        switch edge {
+        case .bottom:
+            buttonTop.state = .on
+            break
+        case .right:
+            buttonRight.state = .on
+            break
+        case .left:
+            buttonLeft.state = .on
+            break
+        case .top:
+            buttonTop.state = .on
+            break
+        }
+    }
+    
+    // used by the children buttons
     func setEdge(item: RadioEdgeSelector) {
         edge = item.edge
         
@@ -40,8 +64,7 @@ class EdgeSelector: NSView {
         buttonBottom.state = .off
         
         item.state = .on
-        
-        // TODO: update to delegate
+        delegate?.setPosition(edge: edge)
     }
 }
 

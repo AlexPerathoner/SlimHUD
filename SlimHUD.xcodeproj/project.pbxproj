@@ -36,10 +36,6 @@
 		FA95EE212956FCF0005B39CD /*  HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */; };
 		FA95EE242956FD3A005B39CD /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA95EE232956FD3A005B39CD /* Sparkle */; };
 		FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE272956FD54005B39CD /* SettingsWindowController.swift */; };
-		FA95EE2B2956FD7B005B39CD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */; };
-		FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */; };
-		FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */; };
-		FA95EE312956FDA2005B39CD /* SettingsViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */; };
 		FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */; };
 		FA95EE382956FDD8005B39CD /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE372956FDD8005B39CD /* DisplayManager.swift */; };
 		FA95EE3A2956FDE7005B39CD /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE392956FDE7005B39CD /* OSDUIManager.swift */; };
@@ -134,10 +130,6 @@
 		FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " HudsControllerInterface.swift"; sourceTree = "<group>"; };
 		FA95EE272956FD54005B39CD /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
-		FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
-		FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
-		FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Style.swift"; sourceTree = "<group>"; };
 		FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
 		FA95EE372956FDD8005B39CD /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
 		FA95EE392956FDE7005B39CD /* OSDUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSDUIManager.swift; sourceTree = "<group>"; };
@@ -303,14 +295,10 @@
 		FA95EE292956FD68005B39CD /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */,
 				FA232B492981DE6000F96E51 /* ConfigViewController.swift */,
 				FA232B4D2981E6A900F96E51 /* AboutViewController.swift */,
 				FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */,
 				FA232B512981E6D800F96E51 /* StyleViewController.swift */,
-				FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */,
-				FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */,
-				FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */,
 			);
 			path = SettingsViewController;
 			sourceTree = "<group>";
@@ -617,13 +605,10 @@
 				FA95EE5B2956FEA9005B39CD /* NSSegmentedControlExtension.swift in Sources */,
 				FA95EE3A2956FDE7005B39CD /* OSDUIManager.swift in Sources */,
 				FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */,
-				FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */,
 				FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */,
 				FA95EE482956FE37005B39CD /* Displayer.swift in Sources */,
 				FA95EE3C2956FDF1005B39CD /* KeyboardManager.swift in Sources */,
 				FA232B502981E6CA00F96E51 /* DesignViewController.swift in Sources */,
-				FA95EE2B2956FD7B005B39CD /* SettingsViewController.swift in Sources */,
-				FA95EE312956FDA2005B39CD /* SettingsViewController+Style.swift in Sources */,
 				FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */,
 				FA95EE462956FE2A005B39CD /* PositionManager.swift in Sources */,
 				FA232B522981E6D800F96E51 /* StyleViewController.swift in Sources */,
@@ -640,7 +625,6 @@
 				FA95EE6829573EEF005B39CD /* BarView.swift in Sources */,
 				FA95EE612956FED6005B39CD /* SensorError.swift in Sources */,
 				FA95EE4A2956FE44005B39CD /* SettingsManager.swift in Sources */,
-				FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */,
 				FA322FC4297F485700E8F31A /* StandardLabel.swift in Sources */,
 				FA232B4C2981E1FC00F96E51 /* TabsManager.swift in Sources */,
 				FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */,

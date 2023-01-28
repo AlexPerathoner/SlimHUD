@@ -12,8 +12,16 @@ class AboutViewController: NSViewController {
     @IBOutlet weak var versionLabel: StandardLabel!
     @IBOutlet var spuStandardUpdaterController: SPUStandardUpdaterController!
     @IBOutlet var updaterDelegate: UpdaterDelegate!
+    @IBOutlet weak var lastCheckForUpdatesOutlet: StandardLabel!
     
     override func viewDidLoad() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy - HH:mm"
+        if let lastCheckDate = spuStandardUpdaterController.updater.lastUpdateCheckDate {
+            lastCheckForUpdatesOutlet.stringValue = formatter.string(from: lastCheckDate)
+        } else {
+            lastCheckForUpdatesOutlet.stringValue = " - "
+        }
         versionLabel.setStringValue(value: getVersion())
     }
     
