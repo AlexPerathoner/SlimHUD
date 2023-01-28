@@ -55,15 +55,15 @@
             <objects>
                 <viewController storyboardIdentifier="config" id="zap-3a-Qsd" customClass="ConfigViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="3EM-jq-nJ5">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="409"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="410"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FZs-tX-UVl" userLabel="Config">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="409"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="410"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOZ-lQ-8Xn" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="262" width="364" height="132"/>
+                                        <rect key="frame" x="18" y="263" width="364" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jp0-H3-XqJ" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -124,7 +124,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0jg-kT-Ece" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="146" width="220" height="104"/>
+                                        <rect key="frame" x="18" y="147" width="220" height="104"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x6v-ZG-YSG" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
@@ -168,7 +168,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37F-7k-737" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="247" y="146" width="135" height="104"/>
+                                        <rect key="frame" x="247" y="147" width="135" height="104"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-Bk-RhL" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
@@ -343,15 +343,15 @@
             <objects>
                 <viewController storyboardIdentifier="style" id="O34-wh-55Y" customClass="StyleViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="WVk-Vc-buC">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="409"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="410"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7CG-cS-E5O" userLabel="Style">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="409"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="410"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xjI-Z0-72k" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="310" width="364" height="81"/>
+                                        <rect key="frame" x="18" y="314" width="364" height="81"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yeJ-Rr-fKg" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
@@ -396,16 +396,16 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4T-PL-x2T" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="114" width="364" height="184"/>
+                                        <rect key="frame" x="18" y="118" width="364" height="185"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMd-RO-vtj">
-                                                <rect key="frame" x="27" y="131" width="44" height="28"/>
+                                                <rect key="frame" x="27" y="132" width="44" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ba1-SG-Zfc" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="146" width="184" height="20"/>
+                                                <rect key="frame" x="74" y="147" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Bar color" id="XNe-FO-EVc">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -423,7 +423,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7I-fh-DNa" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="124" width="184" height="20"/>
+                                                <rect key="frame" x="74" y="125" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="The empty bar" id="UPn-Cn-yfr">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -441,12 +441,12 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtr-G9-Sm3">
-                                                <rect key="frame" x="27" y="76" width="44" height="28"/>
+                                                <rect key="frame" x="27" y="77" width="44" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uHP-KE-LLo" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="91" width="184" height="20"/>
+                                                <rect key="frame" x="74" y="92" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Fill color" id="PsA-Z4-302">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -464,7 +464,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YWW-aU-DDz" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="69" width="184" height="20"/>
+                                                <rect key="frame" x="74" y="70" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="The fill inside the bar" id="PUV-4x-JZN">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -482,12 +482,12 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-FR-SS2">
-                                                <rect key="frame" x="27" y="21" width="44" height="28"/>
+                                                <rect key="frame" x="27" y="22" width="44" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvG-Vv-YZJ" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="36" width="184" height="20"/>
+                                                <rect key="frame" x="74" y="37" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Icon color" id="5bs-7g-dtk">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -505,7 +505,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-ih-IsP" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="14" width="184" height="20"/>
+                                                <rect key="frame" x="74" y="15" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="The icon's tint" id="nbT-Qw-J0w">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -534,11 +534,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GoP-7U-I95" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="19" width="364" height="83"/>
+                                        <rect key="frame" x="18" y="15" width="364" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KLe-zY-OOD" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="39" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="46" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Reset Style" id="1jc-wK-F2b">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -555,7 +555,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-cd-KxA" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="18" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="25" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="for selected HUD" id="uVg-av-2nA">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -573,7 +573,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xu-qX-WXh">
-                                                <rect key="frame" x="248" y="25" width="103" height="32"/>
+                                                <rect key="frame" x="248" y="28" width="103" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pWC-ZG-rTz">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -613,11 +613,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4K-2t-rcY" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="231" width="364" height="171"/>
+                                        <rect key="frame" x="18" y="240" width="364" height="155"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFC-yn-kQr" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="123" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="115" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Size" id="u5h-pF-pZE">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -635,7 +635,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnu-m9-sgg">
-                                                <rect key="frame" x="18" y="91" width="281" height="28"/>
+                                                <rect key="frame" x="18" y="83" width="281" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="1Rv-ki-feB"/>
                                                 <connections>
@@ -643,7 +643,7 @@
                                                 </connections>
                                             </slider>
                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HvF-9z-w42">
-                                                <rect key="frame" x="305" y="97" width="39" height="21"/>
+                                                <rect key="frame" x="305" y="89" width="39" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="231" drawsBackground="YES" id="7zs-b4-MN0">
                                                     <font key="font" size="13" name="SFCompact-Regular"/>
@@ -655,7 +655,7 @@
                                                 </connections>
                                             </textField>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJW-cB-58m" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="54" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="46" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Thickness" id="MTP-jE-pim">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -673,7 +673,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QxR-bT-ZC6">
-                                                <rect key="frame" x="18" y="22" width="281" height="28"/>
+                                                <rect key="frame" x="18" y="14" width="281" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="QZJ-Ap-9zQ"/>
                                                 <connections>
@@ -681,7 +681,7 @@
                                                 </connections>
                                             </slider>
                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2KL-sc-5Rk">
-                                                <rect key="frame" x="305" y="28" width="39" height="21"/>
+                                                <rect key="frame" x="305" y="20" width="39" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="231" drawsBackground="YES" id="tVl-Gu-Dhj">
                                                     <font key="font" size="13" name="SFCompact-Regular"/>
@@ -704,11 +704,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jB9-E3-RaD" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="115" width="364" height="104"/>
+                                        <rect key="frame" x="18" y="117" width="364" height="111"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgJ-Cp-E2N">
-                                                <rect key="frame" x="18" y="62" width="63" height="18"/>
+                                                <rect key="frame" x="18" y="69" width="63" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="check" title="Icons" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="d40-GZ-ut4">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -716,7 +716,7 @@
                                                 </buttonCell>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKl-nT-KCf">
-                                                <rect key="frame" x="18" y="23" width="89" height="18"/>
+                                                <rect key="frame" x="18" y="30" width="89" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="check" title="Shadows" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wGn-9X-Nik">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -724,7 +724,7 @@
                                                 </buttonCell>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-7u-mlX">
-                                                <rect key="frame" x="178" y="66" width="78" height="18"/>
+                                                <rect key="frame" x="178" y="73" width="78" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="check" title="Flat bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="jia-Nf-plN">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -732,7 +732,7 @@
                                                 </buttonCell>
                                             </button>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6dE-SI-CQq" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="178" y="32" width="184" height="20"/>
+                                                <rect key="frame" x="178" y="39" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Animations:" id="lL0-D3-QWF">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -750,7 +750,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hpx-hA-uxc">
-                                                <rect key="frame" x="177" y="7" width="78" height="25"/>
+                                                <rect key="frame" x="177" y="14" width="78" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <popUpButtonCell key="cell" type="push" title="None" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ojV-Kx-XSQ" id="5s5-Tk-iWf">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -776,11 +776,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-pl-icC" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="20" width="364" height="83"/>
+                                        <rect key="frame" x="18" y="15" width="364" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-tx-6Dt" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="39" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="46" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Reset Design" id="QPU-yt-ehV">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -797,7 +797,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Kn-zh-hkS" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="18" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="25" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="for all HUDs" id="fYu-YZ-kmm">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -815,7 +815,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxj-4c-am9">
-                                                <rect key="frame" x="248" y="25" width="103" height="32"/>
+                                                <rect key="frame" x="248" y="28" width="103" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zdH-TL-x5z">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -856,17 +856,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="410"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ua5-MA-tQ0" userLabel="About">
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-MA-tQ0" userLabel="About">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="410"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="xTh-Bu-KCg" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="247" width="364" height="155"/>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTh-Bu-KCg" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="240" width="364" height="155"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="3Xx-En-svB" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xx-En-svB" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="144" y="105" width="202" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="NAB-3g-sRH"/>
-                                                </constraints>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="You're running SlimHUD" id="dil-T0-w92">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
                                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -882,15 +882,14 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mce-ux-vKC">
+                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mce-ux-vKC">
                                                 <rect key="frame" x="13" y="17" width="120" height="120"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="Ry4-lK-oy8"/>
-                                                </constraints>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="JCV-UV-w0s"/>
                                             </imageView>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ESZ-nj-tbv" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESZ-nj-tbv" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="144" y="48" width="202" height="49"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="1.5.0" id="yN9-1F-gVK">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -906,11 +905,9 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="CoW-aL-A5P" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CoW-aL-A5P" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="144" y="20" width="202" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="abS-Js-Fa4"/>
-                                                </constraints>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Created with ❤️" id="OWW-LQ-blH">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -927,21 +924,6 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="3Xx-En-svB" firstAttribute="leading" secondItem="ESZ-nj-tbv" secondAttribute="leading" id="2rP-52-zf7"/>
-                                            <constraint firstItem="CoW-aL-A5P" firstAttribute="top" secondItem="ESZ-nj-tbv" secondAttribute="bottom" constant="8" symbolic="YES" id="3sR-5l-Lef"/>
-                                            <constraint firstItem="Mce-ux-vKC" firstAttribute="centerY" secondItem="xTh-Bu-KCg" secondAttribute="centerY" id="ADu-WP-Iyp"/>
-                                            <constraint firstItem="Mce-ux-vKC" firstAttribute="top" secondItem="xTh-Bu-KCg" secondAttribute="top" constant="18" id="Bxw-xR-0jX"/>
-                                            <constraint firstAttribute="bottom" secondItem="CoW-aL-A5P" secondAttribute="bottom" constant="20" symbolic="YES" id="Ph9-34-Zno"/>
-                                            <constraint firstItem="ESZ-nj-tbv" firstAttribute="leading" secondItem="CoW-aL-A5P" secondAttribute="leading" id="RGB-PK-7oQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="3Xx-En-svB" secondAttribute="trailing" constant="20" symbolic="YES" id="XWS-GA-0Cq"/>
-                                            <constraint firstItem="Mce-ux-vKC" firstAttribute="leading" secondItem="xTh-Bu-KCg" secondAttribute="leading" constant="13" id="Xat-e0-NBB"/>
-                                            <constraint firstItem="ESZ-nj-tbv" firstAttribute="top" secondItem="3Xx-En-svB" secondAttribute="bottom" constant="8" symbolic="YES" id="hTm-C3-qr7"/>
-                                            <constraint firstItem="3Xx-En-svB" firstAttribute="trailing" secondItem="ESZ-nj-tbv" secondAttribute="trailing" id="jLh-BE-Ex0"/>
-                                            <constraint firstItem="3Xx-En-svB" firstAttribute="top" secondItem="xTh-Bu-KCg" secondAttribute="top" constant="30" id="lWy-oj-vbq"/>
-                                            <constraint firstItem="ESZ-nj-tbv" firstAttribute="trailing" secondItem="CoW-aL-A5P" secondAttribute="trailing" id="wDx-jE-VHh"/>
-                                            <constraint firstItem="3Xx-En-svB" firstAttribute="leading" secondItem="Mce-ux-vKC" secondAttribute="trailing" constant="13" id="zKJ-cZ-wde"/>
-                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="26"/>
@@ -952,11 +934,13 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="2Gf-hP-mvb" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="21" width="177" height="120"/>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Gf-hP-mvb" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="15" width="177" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wud-aL-c9d" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wud-aL-c9d" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="18" y="85" width="141" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="center" title="Contributors" id="sDf-hS-BHU">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -972,11 +956,9 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nKq-dZ-rxm">
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nKq-dZ-rxm">
                                                 <rect key="frame" x="20" y="59" width="137" height="18"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="18" id="xRC-5U-Zln"/>
-                                                </constraints>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="inline" title="Alex Perathoner" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="aDC-Ur-u5C">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="13" name="SFCompact-Bold"/>
@@ -985,11 +967,9 @@
                                                     <action selector="clickedContributorsAlexPerathoner:" target="GsN-sy-8E9" id="1aA-kr-yB4"/>
                                                 </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wy6-rr-elV">
-                                                <rect key="frame" x="20" y="33" width="137" height="18"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="18" id="Ofh-xz-d0v"/>
-                                                </constraints>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wy6-rr-elV">
+                                                <rect key="frame" x="20" y="34" width="137" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="inline" title="Kayden Anderson" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="boQ-CA-OZE">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="13" name="SFCompact-Bold"/>
@@ -998,11 +978,9 @@
                                                     <action selector="clickedContributorsKaydenAnderson:" target="GsN-sy-8E9" id="sq2-7i-Xg1"/>
                                                 </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g8X-gV-fuD">
-                                                <rect key="frame" x="20" y="7" width="137" height="19"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="19" id="598-MV-Qf6"/>
-                                                </constraints>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g8X-gV-fuD">
+                                                <rect key="frame" x="20" y="9" width="137" height="19"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="inline" title="GameParrot" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="WY2-Zb-Ydd">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="13" name="SFCompact-Bold"/>
@@ -1012,20 +990,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="wud-aL-c9d" firstAttribute="leading" secondItem="2Gf-hP-mvb" secondAttribute="leading" constant="20" symbolic="YES" id="44v-ty-FdS"/>
-                                            <constraint firstItem="nKq-dZ-rxm" firstAttribute="trailing" secondItem="Wy6-rr-elV" secondAttribute="trailing" id="54D-Rh-MGh"/>
-                                            <constraint firstItem="nKq-dZ-rxm" firstAttribute="leading" secondItem="Wy6-rr-elV" secondAttribute="leading" id="DFy-K1-Kqk"/>
-                                            <constraint firstItem="nKq-dZ-rxm" firstAttribute="top" secondItem="wud-aL-c9d" secondAttribute="bottom" constant="8" symbolic="YES" id="EaP-ft-D5v"/>
-                                            <constraint firstAttribute="trailing" secondItem="wud-aL-c9d" secondAttribute="trailing" constant="20" symbolic="YES" id="Gd7-rd-0Js"/>
-                                            <constraint firstItem="Wy6-rr-elV" firstAttribute="trailing" secondItem="g8X-gV-fuD" secondAttribute="trailing" id="Iy1-TT-S56"/>
-                                            <constraint firstItem="wud-aL-c9d" firstAttribute="trailing" secondItem="nKq-dZ-rxm" secondAttribute="trailing" id="X9c-sK-Zsv"/>
-                                            <constraint firstItem="wud-aL-c9d" firstAttribute="leading" secondItem="nKq-dZ-rxm" secondAttribute="leading" id="Xs8-6J-m1X"/>
-                                            <constraint firstItem="g8X-gV-fuD" firstAttribute="top" secondItem="Wy6-rr-elV" secondAttribute="bottom" constant="7" id="ZSq-CL-ZQH"/>
-                                            <constraint firstItem="wud-aL-c9d" firstAttribute="top" secondItem="2Gf-hP-mvb" secondAttribute="top" constant="15" id="hhb-9x-fGb"/>
-                                            <constraint firstItem="Wy6-rr-elV" firstAttribute="leading" secondItem="g8X-gV-fuD" secondAttribute="leading" id="jHf-af-vNl"/>
-                                            <constraint firstItem="Wy6-rr-elV" firstAttribute="top" secondItem="nKq-dZ-rxm" secondAttribute="bottom" constant="8" symbolic="YES" id="lxI-YQ-LX2"/>
-                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="26"/>
@@ -1036,14 +1000,13 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="a0f-uO-Qql" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="205" y="21" width="177" height="120"/>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a0f-uO-Qql" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
+                                        <rect key="frame" x="205" y="15" width="177" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Eii-Ku-WO0" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eii-Ku-WO0" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="18" y="80" width="141" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="OIG-Ht-ClZ"/>
-                                                </constraints>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="center" title="Join the Beta" id="aLl-Gk-O3c">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1059,8 +1022,9 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="byh-nb-qFz" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byh-nb-qFz" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="18" y="39" width="141" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="center" title="Try out the latest beta" id="q8X-in-dqi">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1076,11 +1040,9 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VeK-uP-bvV">
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeK-uP-bvV">
                                                 <rect key="frame" x="41" y="11" width="95" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="Sur-yd-NQp"/>
-                                                </constraints>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XQw-hB-kp9">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1090,18 +1052,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Eii-Ku-WO0" firstAttribute="leading" secondItem="a0f-uO-Qql" secondAttribute="leading" constant="20" symbolic="YES" id="96l-qF-nsl"/>
-                                            <constraint firstAttribute="trailing" secondItem="Eii-Ku-WO0" secondAttribute="trailing" constant="20" symbolic="YES" id="Cp4-9m-IAW"/>
-                                            <constraint firstItem="Eii-Ku-WO0" firstAttribute="top" secondItem="a0f-uO-Qql" secondAttribute="top" constant="20" symbolic="YES" id="Cx1-hb-2F0"/>
-                                            <constraint firstAttribute="bottom" secondItem="VeK-uP-bvV" secondAttribute="bottom" constant="18" id="Gcj-IR-XTX"/>
-                                            <constraint firstItem="VeK-uP-bvV" firstAttribute="leading" secondItem="a0f-uO-Qql" secondAttribute="leading" constant="48" id="Joi-aY-FNp"/>
-                                            <constraint firstItem="byh-nb-qFz" firstAttribute="centerX" secondItem="VeK-uP-bvV" secondAttribute="centerX" id="NEQ-4b-b3n"/>
-                                            <constraint firstItem="Eii-Ku-WO0" firstAttribute="leading" secondItem="byh-nb-qFz" secondAttribute="leading" id="UzI-Zk-rqb"/>
-                                            <constraint firstItem="byh-nb-qFz" firstAttribute="top" secondItem="Eii-Ku-WO0" secondAttribute="bottom" constant="8" symbolic="YES" id="f0O-ds-HAZ"/>
-                                            <constraint firstItem="VeK-uP-bvV" firstAttribute="top" secondItem="byh-nb-qFz" secondAttribute="bottom" constant="1" id="fXw-om-gCl"/>
-                                            <constraint firstItem="Eii-Ku-WO0" firstAttribute="trailing" secondItem="byh-nb-qFz" secondAttribute="trailing" id="mjO-rs-KJy"/>
-                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="26"/>
@@ -1112,11 +1062,13 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="xg7-eQ-kGH" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="153" width="364" height="82"/>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xg7-eQ-kGH" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="147" width="364" height="81"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u0a-DC-wjU">
-                                                <rect key="frame" x="11" y="24" width="146" height="32"/>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u0a-DC-wjU">
+                                                <rect key="frame" x="13" y="22" width="137" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Check for updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tf4-c3-Wbd">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1125,8 +1077,9 @@
                                                     <action selector="checkForUpdates:" target="fcV-pP-VF1" id="liH-af-1Up"/>
                                                 </connections>
                                             </button>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="vVT-eF-obs" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="169" y="34" width="197" height="20"/>
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVT-eF-obs" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                <rect key="frame" x="154" y="32" width="192" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Last checked: 13. Jan 2023" id="Aoa-Cr-mSr">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1142,25 +1095,15 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l7R-az-NIz">
-                                                <rect key="frame" x="169" y="21" width="149" height="18"/>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l7R-az-NIz">
+                                                <rect key="frame" x="154" y="19" width="149" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="check" title="Check automatically" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cwR-WA-TC7">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="u0a-DC-wjU" firstAttribute="leading" secondItem="xg7-eQ-kGH" secondAttribute="leading" constant="18" id="AjX-4Y-JeD"/>
-                                            <constraint firstItem="vVT-eF-obs" firstAttribute="leading" secondItem="l7R-az-NIz" secondAttribute="leading" id="Cgi-n5-rGP"/>
-                                            <constraint firstItem="vVT-eF-obs" firstAttribute="leading" secondItem="u0a-DC-wjU" secondAttribute="trailing" constant="21" id="Hfp-XE-XKq"/>
-                                            <constraint firstAttribute="trailing" secondItem="vVT-eF-obs" secondAttribute="trailing" id="JNl-lH-wZJ"/>
-                                            <constraint firstItem="u0a-DC-wjU" firstAttribute="centerY" secondItem="xg7-eQ-kGH" secondAttribute="centerY" id="LHg-Ab-GIA"/>
-                                            <constraint firstItem="l7R-az-NIz" firstAttribute="top" secondItem="xg7-eQ-kGH" secondAttribute="top" constant="44" id="LM1-k3-vBU"/>
-                                            <constraint firstItem="vVT-eF-obs" firstAttribute="top" secondItem="xg7-eQ-kGH" secondAttribute="top" constant="28" id="vop-38-nFu"/>
-                                            <constraint firstAttribute="bottom" secondItem="vVT-eF-obs" secondAttribute="bottom" constant="34" id="xG0-oo-cxW"/>
-                                            <constraint firstItem="u0a-DC-wjU" firstAttribute="top" secondItem="xg7-eQ-kGH" secondAttribute="top" constant="31" id="zH8-p9-eIm"/>
-                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="26"/>
@@ -1172,33 +1115,8 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="a0f-uO-Qql" firstAttribute="leading" secondItem="ua5-MA-tQ0" secondAttribute="leading" constant="205" id="6AK-SF-s0D"/>
-                                    <constraint firstAttribute="width" constant="400" id="GCr-kX-tUR"/>
-                                    <constraint firstItem="xTh-Bu-KCg" firstAttribute="centerX" secondItem="ua5-MA-tQ0" secondAttribute="centerX" id="KC6-Co-7Z4"/>
-                                    <constraint firstItem="2Gf-hP-mvb" firstAttribute="bottom" secondItem="a0f-uO-Qql" secondAttribute="bottom" id="Q7v-Vk-FAd"/>
-                                    <constraint firstItem="2Gf-hP-mvb" firstAttribute="top" secondItem="xg7-eQ-kGH" secondAttribute="bottom" constant="12" id="Tc8-KH-1sg"/>
-                                    <constraint firstItem="xg7-eQ-kGH" firstAttribute="trailing" secondItem="a0f-uO-Qql" secondAttribute="trailing" id="Tph-ZS-om4"/>
-                                    <constraint firstItem="xTh-Bu-KCg" firstAttribute="top" secondItem="ua5-MA-tQ0" secondAttribute="top" constant="8" id="V1c-AX-oMZ"/>
-                                    <constraint firstItem="a0f-uO-Qql" firstAttribute="leading" secondItem="2Gf-hP-mvb" secondAttribute="trailing" constant="10" id="VwF-kd-IxI"/>
-                                    <constraint firstAttribute="height" constant="410" id="Wie-N0-SdP"/>
-                                    <constraint firstItem="xg7-eQ-kGH" firstAttribute="top" secondItem="ua5-MA-tQ0" secondAttribute="top" constant="175" id="Xu5-PY-PwQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Gf-hP-mvb" secondAttribute="bottom" constant="21" id="dvW-JN-caJ"/>
-                                    <constraint firstItem="xTh-Bu-KCg" firstAttribute="leading" secondItem="ua5-MA-tQ0" secondAttribute="leading" constant="18" id="e2x-tJ-1ip"/>
-                                    <constraint firstItem="xTh-Bu-KCg" firstAttribute="leading" secondItem="xg7-eQ-kGH" secondAttribute="leading" id="fYL-oK-Gw8"/>
-                                    <constraint firstItem="xg7-eQ-kGH" firstAttribute="top" secondItem="xTh-Bu-KCg" secondAttribute="bottom" constant="12" id="iqC-an-vD2"/>
-                                    <constraint firstItem="xTh-Bu-KCg" firstAttribute="trailing" secondItem="xg7-eQ-kGH" secondAttribute="trailing" id="kB2-20-Tz6"/>
-                                    <constraint firstItem="2Gf-hP-mvb" firstAttribute="top" secondItem="a0f-uO-Qql" secondAttribute="top" id="u8b-Mb-dOz"/>
-                                    <constraint firstItem="xg7-eQ-kGH" firstAttribute="leading" secondItem="2Gf-hP-mvb" secondAttribute="leading" id="y6M-f2-VQi"/>
-                                </constraints>
                             </customView>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ua5-MA-tQ0" secondAttribute="bottom" id="EBo-Xr-PMv"/>
-                            <constraint firstItem="ua5-MA-tQ0" firstAttribute="top" secondItem="Pv9-sk-2W4" secondAttribute="top" id="Gch-oB-Y23"/>
-                            <constraint firstAttribute="trailing" secondItem="ua5-MA-tQ0" secondAttribute="trailing" id="TyY-U7-uHT"/>
-                            <constraint firstItem="ua5-MA-tQ0" firstAttribute="leading" secondItem="Pv9-sk-2W4" secondAttribute="leading" id="q1B-mb-PHl"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="spuStandardUpdaterController" destination="fcV-pP-VF1" id="Y9r-5p-onH"/>
@@ -1220,7 +1138,7 @@
         <image name="keyboardSegmTemplate" width="382" height="211"/>
         <image name="volumeSegmTemplate" width="409" height="295"/>
         <namedColor name="BoxColor">
-            <color red="0.91372549020000005" green="0.91372549020000005" blue="0.91400000000000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.91399997472763062" green="0.91399997472763062" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
