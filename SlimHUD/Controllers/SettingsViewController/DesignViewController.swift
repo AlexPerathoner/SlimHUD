@@ -36,23 +36,29 @@ class DesignViewController: NSViewController {
     }
     
     @IBAction func sizeSlider(_ sender: NSSlider) {
-        sizeValue.stringValue = String(sender.integerValue)
-        settingsManager.barHeight = sender.integerValue
-        delegate?.setHeight(height: CGFloat(sender.integerValue))
+        setSize(sender.integerValue)
+    }
+    
+    private func setSize(_ value: Int) {
+        sizeValue.stringValue = String(value)
+        settingsManager.barHeight = value
+        delegate?.setHeight(height: CGFloat(value))
     }
 
     @IBAction func thicknessSlider(_ sender: NSSlider) {
-        thicknessValue.stringValue = String(sender.integerValue)
-        settingsManager.barThickness = sender.integerValue
-        delegate?.setThickness(thickness: CGFloat(sender.integerValue))
+        setThickness(sender.integerValue)
+    }
+    
+    private func setThickness(_ value: Int) {
+        thicknessValue.stringValue = String(value)
+        settingsManager.barThickness = value
+        delegate?.setThickness(thickness: CGFloat(value))
     }
     
     @IBAction func sizeText(_ sender: NSTextField) {
         if let newValue = Int(sender.stringValue) {
             if newValue > 0 {
-                sizeSlider.integerValue = newValue
-                settingsManager.barHeight = sender.integerValue
-                delegate?.setHeight(height: CGFloat(newValue))
+                setSize(newValue)
             } else {
                 sizeValue.stringValue = String(sizeSlider.integerValue)
             }
@@ -61,9 +67,7 @@ class DesignViewController: NSViewController {
     @IBAction func thicknessText(_ sender: NSTextField) {
         if let newValue = Int(sender.stringValue) {
             if newValue > 0 {
-                thicknessSlider.integerValue = newValue
-                settingsManager.barThickness = sender.integerValue
-                delegate?.setThickness(thickness: CGFloat(newValue))
+                setThickness(newValue)
             } else {
                 thicknessValue.stringValue = String(thicknessSlider.integerValue)
             }
@@ -71,34 +75,47 @@ class DesignViewController: NSViewController {
     }
     
     @IBAction func iconsClicked(_ sender: NSButton) {
-        let shouldShowIcons = sender.boolValue()
-        settingsManager.shouldShowIcons = shouldShowIcons
-        delegate?.hideIcon(isHidden: !shouldShowIcons)
+        showIcons(sender.boolValue())
+    }
+    private func showIcons(_ value: Bool) {
+        settingsManager.shouldShowIcons = value
+        delegate?.hideIcon(isHidden: !value)
     }
     
     @IBAction func flatBarClicked(_ sender: NSButton) {
-        let shouldUseFlatBar = sender.boolValue()
-        settingsManager.flatBar = shouldUseFlatBar
+        useFlatBar(sender.boolValue())
+    }
+    private func useFlatBar(_ value: Bool) {
+        settingsManager.flatBar = value
         delegate?.setThickness(thickness: CGFloat(settingsManager.barThickness))
     }
     
     @IBAction func shadowsClicked(_ sender: NSButton) {
-        let shouldShowShadows = sender.boolValue()
-        settingsManager.shouldShowShadows = shouldShowShadows
-        delegate?.updateShadows(enabled: shouldShowShadows)
+        showShadows(sender.boolValue())
+    }
+    private func showShadows(_ value: Bool) {
+        settingsManager.shouldShowShadows = value
+        delegate?.updateShadows(enabled: value)
     }
     
     @IBAction func animationStyleClicked(_ sender: NSPopUpButton) {
-        let animationStyle = AnimationStyle(from: sender.titleOfSelectedItem)
-        settingsManager.animationStyle = animationStyle
-        delegate?.setAnimationStyle(animationStyle: animationStyle)
+        setAnimationStyle(AnimationStyle(from: sender.titleOfSelectedItem))
+    }
+    private func setAnimationStyle(_ value: AnimationStyle) {
+        settingsManager.animationStyle = value
+        delegate?.setAnimationStyle(animationStyle: value)
     }
     
     @IBAction func playAnimationStyle(_ sender: Any) {
-        
+        // TODO: implement this
     }
     
     @IBAction func resetDesignClicked(_ sender: Any) {
-        
+        setSize(210)
+        setThickness(9)
+        showIcons(true)
+        useFlatBar(true)
+        showShadows(true)
+        setAnimationStyle(.Slide)
     }
 }
