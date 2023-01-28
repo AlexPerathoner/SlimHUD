@@ -22,8 +22,10 @@ class StyleViewController: NSViewController {
     }
     
     @IBOutlet weak var barColorOutlet: NSColorWell!
-    @IBOutlet weak var fillColorOutlet: NSColorWell! // TODO: deal with volume bar (two fill colors)
+    @IBOutlet weak var fillColorOutlet: NSColorWell!
     @IBOutlet weak var iconColorOutlet: NSColorWell!
+    
+    @IBOutlet weak var secondFillColorOutlet: NSColorWell!
     
     @IBOutlet weak var iconColorsContainerOutlet: NSView!
     
@@ -39,19 +41,32 @@ class StyleViewController: NSViewController {
         case .volume:
             barColorOutlet.color = settingsManager.volumeBackgroundColor
             fillColorOutlet.color = settingsManager.volumeEnabledColor
+            secondFillColorOutlet.color = settingsManager.volumeDisabledColor
             iconColorOutlet.color = settingsManager.volumeIconColor
+            showSecondaryFillColorOutlet(true)
             break
         case .brightness:
             barColorOutlet.color = settingsManager.brightnessBackgroundColor
             fillColorOutlet.color = settingsManager.brightnessColor
             iconColorOutlet.color = settingsManager.brightnessIconColor
+            showSecondaryFillColorOutlet(false)
             break
         case .keyboard:
             barColorOutlet.color = settingsManager.keyboardBackgroundColor
             fillColorOutlet.color = settingsManager.keyboardColor
             iconColorOutlet.color = settingsManager.keyboardIconColor
+            showSecondaryFillColorOutlet(false)
             break
         }
+    }
+    
+    private func showSecondaryFillColorOutlet(_ value: Bool) {
+        var newFrame: NSRect = .init(x: 27, y: 77, width: 44, height: 28)
+        if value {
+            newFrame = .init(x: 27, y: 90, width: 44, height: 24)
+        }
+        fillColorOutlet.frame = newFrame
+        secondFillColorOutlet.isHidden = !value
     }
     
     @IBAction func setBarColorClicked(_ sender: NSColorWell) {
@@ -60,6 +75,11 @@ class StyleViewController: NSViewController {
     @IBAction func setFillColorClicked(_ sender: NSColorWell) {
         setFillColor(hud: getSelectedHud(), color: sender.color)
     }
+    @IBAction func setSecondaryFillColorClicked(_ sender: NSColorWell) {
+        // secondary fill exists for volume hud only
+        setVolumeDisabledColor(sender.color)
+    }
+    
     @IBAction func setIconColorClicked(_ sender: NSColorWell) {
         setIconColor(hud: getSelectedHud(), color: sender.color)
     }
@@ -81,8 +101,7 @@ class StyleViewController: NSViewController {
     private func setFillColor(hud: SelectedHud, color: NSColor) {
         switch hud {
         case .volume:
-            setVolumeEnabledColor(color) // TODO: change this
-            setVolumeDisabledColor(color) // TODO: change this
+            setVolumeEnabledColor(color)
             break
         case .brightness:
             setBrightnessColor(color)

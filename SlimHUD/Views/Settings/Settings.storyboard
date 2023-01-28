@@ -446,12 +446,12 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtr-G9-Sm3">
-                                                <rect key="frame" x="27" y="77" width="44" height="28"/>
+                                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVg-1z-b5r">
+                                                <rect key="frame" x="27" y="68" width="44" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
-                                                    <action selector="setFillColor:" target="O34-wh-55Y" id="hwU-J6-5xX"/>
+                                                    <action selector="setSecondaryFillColorClicked:" target="O34-wh-55Y" id="SWd-4e-rKo"/>
                                                 </connections>
                                             </colorWell>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uHP-KE-LLo" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
@@ -540,6 +540,14 @@
                                                     </textField>
                                                 </subviews>
                                             </customView>
+                                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtr-G9-Sm3">
+                                                <rect key="frame" x="27" y="90" width="44" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="setFillColor:" target="O34-wh-55Y" id="hwU-J6-5xX"/>
+                                                </connections>
+                                            </colorWell>
                                         </subviews>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -622,6 +630,7 @@
                         <outlet property="hudToEditOutlet" destination="XKS-mE-K3g" id="kUJ-kY-yLO"/>
                         <outlet property="iconColorOutlet" destination="LRb-FR-SS2" id="AE9-Bp-vU8"/>
                         <outlet property="iconColorsContainerOutlet" destination="q4f-VK-NMO" id="AQl-jT-gKO"/>
+                        <outlet property="secondFillColorOutlet" destination="eVg-1z-b5r" id="rYj-bl-49k"/>
                     </connections>
                 </viewController>
                 <customObject id="Ntz-MW-Iqs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
