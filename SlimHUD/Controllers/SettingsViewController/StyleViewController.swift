@@ -108,7 +108,7 @@ class StyleViewController: NSViewController {
     }
     private func setVolumeBackgroundColor(_ color: NSColor) {
         settingsManager.volumeBackgroundColor = color
-        // delegate?.setVolumeEnabledColor(color: color) // TODO: add methods
+        delegate?.setVolumeBackgroundColor(color: color)
     }
     private func setVolumeEnabledColor(_ color: NSColor) {
         settingsManager.volumeEnabledColor = color
@@ -127,7 +127,7 @@ class StyleViewController: NSViewController {
     
     private func setBrightnessBackgroundColor(_ color: NSColor) {
         settingsManager.brightnessBackgroundColor = color
-        // delegate?.setVolumeEnabledColor(color: color) // TODO: add methods
+        delegate?.setBrightnessBackgroundColor(color: color)
     }
     private func setBrightnessColor(_ color: NSColor) {
         settingsManager.brightnessColor = color
@@ -142,7 +142,7 @@ class StyleViewController: NSViewController {
     
     private func setKeyboardBackgroundColor(_ color: NSColor) {
         settingsManager.keyboardBackgroundColor = color
-        // delegate?.setVolumeEnabledColor(color: color) // TODO: add methods
+        delegate?.setKeyboardBackgroundColor(color: color)
     }
     private func setKeyboardColor(_ color: NSColor) {
         settingsManager.keyboardColor = color
@@ -174,6 +174,6 @@ class StyleViewController: NSViewController {
             setKeyboardColor(DefaultColors.Azure)
             break
         }
-    }   
+    }
     
 }
