@@ -23,12 +23,12 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
-        showPreviewHud()
+//        showPreviewHud() // TODO: re-add
         // TODO: enable all bars (for settings preview)
     }
 
     func windowWillClose(_ notification: Notification) {
-        hidePreviewHud()
+//        hidePreviewHud()
         // TODO: enable only some bars
         NSApplication.shared.setActivationPolicy(.accessory)
     }

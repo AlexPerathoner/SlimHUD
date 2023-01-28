@@ -538,7 +538,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KLe-zY-OOD" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="46" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="43" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Reset Style" id="1jc-wK-F2b">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -555,11 +555,11 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-cd-KxA" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="25" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="20" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="for selected HUD" id="uVg-av-2nA">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <userDefinedRuntimeAttributes>
@@ -637,16 +637,16 @@
                                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnu-m9-sgg">
                                                 <rect key="frame" x="18" y="83" width="281" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="1Rv-ki-feB"/>
+                                                <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="640" doubleValue="213" tickMarkPosition="above" sliderType="linear" id="1Rv-ki-feB"/>
                                                 <connections>
-                                                    <action selector="heightSlider:" target="oXP-qf-ooD" id="cBV-kg-elH"/>
+                                                    <action selector="sizeSlider:" target="oXP-qf-ooD" id="pfq-OV-2fu"/>
                                                 </connections>
                                             </slider>
                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HvF-9z-w42">
                                                 <rect key="frame" x="305" y="89" width="39" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="231" drawsBackground="YES" id="7zs-b4-MN0">
-                                                    <font key="font" size="13" name="SFCompact-Regular"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="213" drawsBackground="YES" id="7zs-b4-MN0">
+                                                    <font key="font" metaFont="smallSystem"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -675,7 +675,7 @@
                                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QxR-bT-ZC6">
                                                 <rect key="frame" x="18" y="14" width="281" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="QZJ-Ap-9zQ"/>
+                                                <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="50" doubleValue="9" tickMarkPosition="above" sliderType="linear" id="QZJ-Ap-9zQ"/>
                                                 <connections>
                                                     <action selector="thicknessSlider:" target="oXP-qf-ooD" id="yWs-Yq-WCh"/>
                                                 </connections>
@@ -683,8 +683,8 @@
                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2KL-sc-5Rk">
                                                 <rect key="frame" x="305" y="20" width="39" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="231" drawsBackground="YES" id="tVl-Gu-Dhj">
-                                                    <font key="font" size="13" name="SFCompact-Regular"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" title="9" drawsBackground="YES" id="tVl-Gu-Dhj">
+                                                    <font key="font" metaFont="smallSystem"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -714,6 +714,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="15" name="SFPro-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="iconsClicked:" target="oXP-qf-ooD" id="cJY-au-VAB"/>
+                                                </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKl-nT-KCf">
                                                 <rect key="frame" x="18" y="30" width="89" height="18"/>
@@ -722,14 +725,20 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="15" name="SFPro-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="shadowsClicked:" target="oXP-qf-ooD" id="M1X-go-LIK"/>
+                                                </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-7u-mlX">
-                                                <rect key="frame" x="178" y="73" width="78" height="18"/>
+                                                <rect key="frame" x="178" y="69" width="78" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="check" title="Flat bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="jia-Nf-plN">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="15" name="SFPro-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="flatBarClicked:" target="oXP-qf-ooD" id="9Xr-jJ-bPe"/>
+                                                </connections>
                                             </button>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6dE-SI-CQq" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="178" y="39" width="184" height="20"/>
@@ -759,11 +768,29 @@
                                                         <items>
                                                             <menuItem title="None" state="on" id="ojV-Kx-XSQ"/>
                                                             <menuItem title="Slide" id="gBy-n1-H9b"/>
-                                                            <menuItem title="Etc" id="oAg-jK-b2f"/>
+                                                            <menuItem title="Pop in + fade out" id="oAg-jK-b2f"/>
+                                                            <menuItem title="Fade" id="GW2-7b-rcq" userLabel="Fade"/>
+                                                            <menuItem title="Grow" id="Bpu-EW-KRT" userLabel="Grow"/>
+                                                            <menuItem title="Shrink" id="QM7-bf-JyK" userLabel="Shrink"/>
+                                                            <menuItem title="SideGrow" id="kji-ZH-oZn" userLabel="SideGrow"/>
                                                         </items>
                                                     </menu>
                                                 </popUpButtonCell>
+                                                <connections>
+                                                    <action selector="animationStyleClicked:" target="oXP-qf-ooD" id="QVG-sY-AhH"/>
+                                                </connections>
                                             </popUpButton>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zx-ri-k3G">
+                                                <rect key="frame" x="317" y="27" width="28" height="23"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="play.fill" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EEH-4z-Y1u">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="playAnimationStyle:" target="oXP-qf-ooD" id="eUV-Q2-Knu"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -780,7 +807,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-tx-6Dt" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="46" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="43" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Reset Design" id="QPU-yt-ehV">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -797,11 +824,11 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Kn-zh-hkS" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="25" width="184" height="20"/>
+                                                <rect key="frame" x="18" y="20" width="184" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="for all HUDs" id="fYu-YZ-kmm">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <userDefinedRuntimeAttributes>
@@ -821,6 +848,9 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="resetDesignClicked:" target="oXP-qf-ooD" id="gXZ-lP-9vh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <userDefinedRuntimeAttributes>
@@ -838,6 +868,10 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="animationStyleOutlet" destination="hpx-hA-uxc" id="mfO-z1-aae"/>
+                        <outlet property="flatBarOutlet" destination="wYw-7u-mlX" id="dFZ-n3-1wS"/>
+                        <outlet property="iconsOutlet" destination="cgJ-Cp-E2N" id="7K8-Of-UIn"/>
+                        <outlet property="shadowsOutlet" destination="hKl-nT-KCf" id="N2F-De-Dw8"/>
                         <outlet property="sizeSlider" destination="dnu-m9-sgg" id="DhZ-AN-2c0"/>
                         <outlet property="sizeValue" destination="HvF-9z-w42" id="N5E-Ct-KST"/>
                         <outlet property="thicknessSlider" destination="QxR-bT-ZC6" id="dhU-60-xMZ"/>
@@ -910,7 +944,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="Created with ❤️" id="OWW-LQ-blH">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <userDefinedRuntimeAttributes>
@@ -1027,7 +1061,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="center" title="Try out the latest beta" id="q8X-in-dqi">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <userDefinedRuntimeAttributes>
@@ -1136,6 +1170,7 @@
         <image name="background" width="489" height="276"/>
         <image name="brightnessSegmTemplate" width="346" height="346"/>
         <image name="keyboardSegmTemplate" width="382" height="211"/>
+        <image name="play.fill" catalog="system" width="12" height="13"/>
         <image name="volumeSegmTemplate" width="409" height="295"/>
         <namedColor name="BoxColor">
             <color red="0.91399997472763062" green="0.91399997472763062" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

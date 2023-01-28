@@ -25,10 +25,10 @@ class TabsManager: NSView {
 
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
             if let config = storyboard.instantiateController(withIdentifier: "config") as? ConfigViewController,
-               let design = storyboard.instantiateController(withIdentifier: "design") as? DesignViewController,
                let style = storyboard.instantiateController(withIdentifier: "style") as? StyleViewController,
+               let design = storyboard.instantiateController(withIdentifier: "design") as? DesignViewController,
                let about = storyboard.instantiateController(withIdentifier: "about") as? AboutViewController {
-                for view in [config.view, design.view, style.view, about.view] {
+                for view in [config.view, style.view, design.view, about.view] {
                     contentViews.append(view)
                     view.setFrameOrigin(.zero)
                     addSubview(view)
