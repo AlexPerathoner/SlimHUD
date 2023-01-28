@@ -110,21 +110,6 @@ class Displayer: HudsControllerInterface {
         keyboardHud.hideIcon(isHidden: isHidden)
     }
 
-    func setupDefaultBarsColors() {
-        setVolumeEnabledColor(color: DefaultColors.Blue)
-        setVolumeDisabledColor(color: DefaultColors.Gray)
-        setBrightnessColor(color: DefaultColors.Yellow)
-        setKeyboardColor(color: DefaultColors.Azure)
-        setBackgroundColor(color: DefaultColors.DarkGray)
-    }
-
-    @available(OSX 10.14, *)
-    func setupDefaultIconsColors() {
-        setVolumeIconsTint(.white)
-        setBrightnessIconsTint(.white)
-        setKeyboardIconsTint(.white)
-    }
-
     func setBackgroundColor(color: NSColor) {
         volumeHud.setBackgroundColor(color: color)
         brightnessHud.setBackgroundColor(color: color)

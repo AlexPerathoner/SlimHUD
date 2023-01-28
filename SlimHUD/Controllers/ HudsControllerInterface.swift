@@ -10,7 +10,6 @@ import Cocoa
 protocol HudsControllerInterface: AnyObject {
     func updateShadows(enabled: Bool)
     func hideIcon(isHidden: Bool)
-    func setupDefaultBarsColors()
     func setBackgroundColor(color: NSColor)
     func setVolumeEnabledColor(color: NSColor)
     func setVolumeDisabledColor(color: NSColor)
@@ -26,6 +25,5 @@ protocol HudsControllerInterface: AnyObject {
     @available(OSX 10.14, *)
     func setKeyboardIconsTint(_ color: NSColor)
     @available(OSX 10.14, *)
-    func setupDefaultIconsColors()
     var positionManager: PositionManager { get }
 }

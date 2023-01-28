@@ -383,6 +383,9 @@
                                                         <segment image="keyboardSegmTemplate" imageScaling="proportionallyUpOrDown" width="107"/>
                                                     </segments>
                                                 </segmentedCell>
+                                                <connections>
+                                                    <action selector="selectedHudClicked:" target="O34-wh-55Y" id="QLg-DQ-xbi"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <userDefinedRuntimeAttributes>
@@ -403,6 +406,9 @@
                                                 <rect key="frame" x="27" y="132" width="44" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="setBarColor:" target="O34-wh-55Y" id="PRc-h6-UUd"/>
+                                                </connections>
                                             </colorWell>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ba1-SG-Zfc" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="74" y="147" width="184" height="20"/>
@@ -444,6 +450,9 @@
                                                 <rect key="frame" x="27" y="77" width="44" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="setFillColor:" target="O34-wh-55Y" id="hwU-J6-5xX"/>
+                                                </connections>
                                             </colorWell>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uHP-KE-LLo" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="74" y="92" width="184" height="20"/>
@@ -481,47 +490,56 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-FR-SS2">
-                                                <rect key="frame" x="27" y="22" width="44" height="28"/>
+                                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q4f-VK-NMO">
+                                                <rect key="frame" x="0.0" y="5" width="364" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </colorWell>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvG-Vv-YZJ" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="37" width="184" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <textFieldCell key="cell" alignment="left" title="Icon color" id="5bs-7g-dtk">
-                                                    <font key="font" size="17" name="SFPro-Semibold"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                        <real key="value" value="17"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-ih-IsP" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="15" width="184" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <textFieldCell key="cell" alignment="left" title="The icon's tint" id="nbT-Qw-J0w">
-                                                    <font key="font" size="17" name="SFPro-Semibold"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                        <real key="value" value="13"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
+                                                <subviews>
+                                                    <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-FR-SS2">
+                                                        <rect key="frame" x="27" y="14" width="44" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="setIconColor:" target="O34-wh-55Y" id="UDd-Zs-KKh"/>
+                                                        </connections>
+                                                    </colorWell>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvG-Vv-YZJ" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                        <rect key="frame" x="74" y="32" width="184" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" alignment="left" title="Icon color" id="5bs-7g-dtk">
+                                                            <font key="font" size="17" name="SFPro-Semibold"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <real key="value" value="17"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-ih-IsP" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
+                                                        <rect key="frame" x="74" y="10" width="184" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" alignment="left" title="The icon's tint" id="nbT-Qw-J0w">
+                                                            <font key="font" size="17" name="SFPro-Semibold"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </customView>
                                         </subviews>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -579,6 +597,9 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="resetStyle:" target="O34-wh-55Y" id="o6e-S4-R10"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <userDefinedRuntimeAttributes>
@@ -595,10 +616,17 @@
                             </customView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="barColorOutlet" destination="QMd-RO-vtj" id="CIg-KN-U8i"/>
+                        <outlet property="fillColorOutlet" destination="rtr-G9-Sm3" id="0wk-cR-qyI"/>
+                        <outlet property="hudToEditOutlet" destination="XKS-mE-K3g" id="kUJ-kY-yLO"/>
+                        <outlet property="iconColorOutlet" destination="LRb-FR-SS2" id="AE9-Bp-vU8"/>
+                        <outlet property="iconColorsContainerOutlet" destination="q4f-VK-NMO" id="AQl-jT-gKO"/>
+                    </connections>
                 </viewController>
                 <customObject id="Ntz-MW-Iqs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1634" y="-533.5"/>
+            <point key="canvasLocation" x="1634" y="-534"/>
         </scene>
         <!--Design View Controller-->
         <scene sceneID="CFN-zP-rEr">

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA22D04E2985DC2300821D1C /* LogicError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22D04D2985DC2300821D1C /* LogicError.swift */; };
 		FA232B4A2981DE6000F96E51 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B492981DE6000F96E51 /* ConfigViewController.swift */; };
 		FA232B4C2981E1FC00F96E51 /* TabsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4B2981E1FC00F96E51 /* TabsManager.swift */; };
 		FA232B4E2981E6A900F96E51 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4D2981E6A900F96E51 /* AboutViewController.swift */; };
@@ -104,6 +105,7 @@
 /* Begin PBXFileReference section */
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA22D04D2985DC2300821D1C /* LogicError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicError.swift; sourceTree = "<group>"; };
 		FA232B492981DE6000F96E51 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		FA232B4B2981E1FC00F96E51 /* TabsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsManager.swift; sourceTree = "<group>"; };
 		FA232B4D2981E6A900F96E51 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			children = (
 				FA95EE602956FED6005B39CD /* SensorError.swift */,
 				FAFC579F29675F7700C32A80 /* AppleScriptError.swift */,
+				FA22D04D2985DC2300821D1C /* LogicError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				FA95EE572956FE91005B39CD /* BoolExtension.swift in Sources */,
 				FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */,
 				FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */,
+				FA22D04E2985DC2300821D1C /* LogicError.swift in Sources */,
 				FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */,
 				FA322FC6297F506200E8F31A /* EdgeSelector.swift in Sources */,
 				FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */,
