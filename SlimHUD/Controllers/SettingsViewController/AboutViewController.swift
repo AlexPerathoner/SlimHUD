@@ -55,4 +55,8 @@ class AboutViewController: NSViewController {
     @IBAction func clickedContributorsGameParrot(_ sender: Any) {
         openWebsite(url: "https://github.com/GameParrot")
     }
+    
+    @IBAction func openRepo(_ sender: Any) {
+        openWebsite(url: "https://github.com/AlexPerathoner/SlimHUD")
+    }
 }
