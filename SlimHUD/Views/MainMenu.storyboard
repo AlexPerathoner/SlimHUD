@@ -11,11 +11,7 @@
                 <customObject id="Fkg-Y0-35E" customClass="SPUStandardUpdaterController"/>
                 <customObject id="hbL-WD-91l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="ev8-l2-p2M" customClass="NSFontManager"/>
-                <customObject id="RpS-ln-g5c" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
-                    <connections>
-                        <outlet property="statusMenu" destination="H2T-wn-cOi" id="3Tt-yF-EdJ"/>
-                    </connections>
-                </customObject>
+                <customObject id="RpS-ln-g5c" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target"/>
                 <application id="Tr2-0q-69d" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="Dag-xE-9ax">
                         <items>
@@ -30,6 +26,27 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="vC6-xV-rB2"/>
+                                        <menuItem title="General" keyEquivalent="1" id="U4U-hB-CYg">
+                                            <connections>
+                                                <action selector="openGeneralTab:" target="RpS-ln-g5c" id="J5Z-Ds-w18"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Design" keyEquivalent="2" id="gQz-ob-6GR" userLabel="Design">
+                                            <connections>
+                                                <action selector="openDesignTab:" target="RpS-ln-g5c" id="4si-ye-tdl"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Style" keyEquivalent="3" id="Grp-js-MQc">
+                                            <connections>
+                                                <action selector="openStyleTab:" target="RpS-ln-g5c" id="kVJ-fG-gbG"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="About" keyEquivalent="4" id="oY1-SC-V1C" userLabel="About">
+                                            <connections>
+                                                <action selector="openAboutTab:" target="RpS-ln-g5c" id="coj-9H-pS9"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="llu-Fc-Pfp"/>
                                         <menuItem title="Close Window" keyEquivalent="w" id="hoa-94-aFq">
                                             <connections>
                                                 <action selector="performClose:" target="hbL-WD-91l" id="SCF-2P-Tnq"/>

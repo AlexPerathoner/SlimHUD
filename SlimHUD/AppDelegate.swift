@@ -23,6 +23,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     lazy var positionManager = PositionManager(volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
     lazy var displayer = Displayer(positionManager: positionManager, volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
     lazy var changesObserver = ChangesObserver(positionManager: positionManager, displayer: displayer)
+    
+    weak var settingsViewTabsManager: TabsManager?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -80,6 +82,22 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         } else {
             quit()
         }
+    }
+    
+    @IBAction func openGeneralTab(_ sender: Any) {
+        settingsViewTabsManager?.selectItem(index: 0)
+    }
+    
+    @IBAction func openDesignTab(_ sender: Any) {
+        settingsViewTabsManager?.selectItem(index: 1)
+    }
+    
+    @IBAction func openStyleTab(_ sender: Any) {
+        settingsViewTabsManager?.selectItem(index: 2)
+    }
+    
+    @IBAction func openAboutTab(_ sender: Any) {
+        settingsViewTabsManager?.selectItem(index: 3)
     }
     
     private func closeAllWindows() {

@@ -9,8 +9,6 @@ import Cocoa
 
 @IBDesignable
 class TabsView: CustomView {
-    private static let TotalWidth: Int = 400
-    private static let ElementsWidth: Int = 70
     private static let Offset: Int = 40
     private static let OffsetInternal: Int = 12
     private static let Size: NSSize = .init(width: 71, height: 45)
@@ -60,6 +58,13 @@ class TabsView: CustomView {
         }
         
         super.awakeFromNib()
+    }
+    
+    func selectItem(index: Int) {
+        for tab in tabs {
+            tab.selected = false
+        }
+        tabs[index].selected = true
     }
     
     func selectItem(item: TabItemView) {

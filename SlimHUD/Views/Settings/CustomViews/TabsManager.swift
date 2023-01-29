@@ -18,6 +18,7 @@ class TabsManager: NSView {
     var aboutVC: AboutViewController?
 
     override func awakeFromNib() {
+        (NSApplication.shared.delegate as! AppDelegate).settingsViewTabsManager = self
         if configVC == nil {
             addSubview(tabs)
             tabs.tabsContentView = self
@@ -43,8 +44,13 @@ class TabsManager: NSView {
         }
         super.awakeFromNib()
     }
-
+    
     func selectItem(index: Int) {
+        tabs.selectItem(index: index)
+        showItem(index: index)
+    }
+
+    func showItem(index: Int) {
         for contentView in contentViews {
             contentView.isHidden = true
         }
