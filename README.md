@@ -12,19 +12,18 @@ Replacement for MacOS' HUDs.
 
 Every day you change your volume or brightness and an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
 ## Features - Settings
-Each feature can be toggled from the settings window.<br>To access the settings window search the SlimHUD icon in you menu app and select `Settings...`
+Each feature can be toggled from the settings window.<br>To access the settings window start SlimHUD again, while it's already running. The settings window will appear:
 
-
-<img align="left"  width="23%" src="Screens/menubar.png">
 
 <p align="center">
-<img src = "Screens/settingsWindow.png" height=300>
+<img src = "Screens/settings/settings-general.png" height=300>
+<img src = "Screens/settings/settings-style.png" height=300>
+<img src = "Screens/settings/settings-design.png" height=300>
 </p>
 
-Here's a full list of the features:
+Here's are some of the things you can customise:
 
 * When changing volume / brightness / keyboard's backlight a small icon is shown under the bar.
-
 
 * If you don't like the flat look of the bar you can enable a shadow effect.
 <p align="center">
@@ -33,20 +32,18 @@ Here's a full list of the features:
 </p>
 
 
-* If you don't like the slide-in animation you can disable it. The bar will then just appear and disappear. 
+* There are multiple animation styles: 
 
 <p align="center">
-<img src = "Screens/Animations/animations2.gif" width=250 height=47>
 <img src = "Screens/Animations/animations.gif"  width=47 height=250>
 <img src = "Screens/Animations/noAnimations.gif" width=47 height=250>
-<img src = "Screens/Animations/noAnimations2.gif" width=250 height=47>
 </p>
 
 * Continuously check for changes (*recommended if you use a TouchBar*): shows the HUDs when using the volume / brightness slider.
 
-* Each bar (volume / brightness / keyboard's backlight) has it's own color. If you want to reset the colors to the default values click on the reset icon.<br>The background color is the same for every bar.<br>You can also choose the color of the volume when its muted.
+* Each bar (volume / brightness / keyboard's backlight) has it's own color.<br>You can also choose the color of the volume when its muted.
 <p align="center">
-<img src = "Screens/colors.png" width=250>
+<img src = "Screens/volumeDisabled.gif" height=250>
 </p>
 
 * Each icon (volume / brightness / keyboard's backlight) also has it's own color! <sup>[1](#note1)</sup>
