@@ -45,19 +45,16 @@ class StyleViewController: NSViewController {
             secondFillColorOutlet.color = settingsManager.volumeDisabledColor
             iconColorOutlet.color = settingsManager.volumeIconColor
             showSecondaryFillColorOutlet(true)
-            break
         case .brightness:
             barColorOutlet.color = settingsManager.brightnessBackgroundColor
             fillColorOutlet.color = settingsManager.brightnessColor
             iconColorOutlet.color = settingsManager.brightnessIconColor
             showSecondaryFillColorOutlet(false)
-            break
         case .keyboard:
             barColorOutlet.color = settingsManager.keyboardBackgroundColor
             fillColorOutlet.color = settingsManager.keyboardColor
             iconColorOutlet.color = settingsManager.keyboardIconColor
             showSecondaryFillColorOutlet(false)
-            break
         }
     }
     
@@ -89,13 +86,10 @@ class StyleViewController: NSViewController {
         switch hud {
         case .volume:
             setVolumeBackgroundColor(color)
-            break
         case .brightness:
             setBrightnessBackgroundColor(color)
-            break
         case .keyboard:
             setKeyboardBackgroundColor(color)
-            break
         }
     }
     
@@ -103,13 +97,10 @@ class StyleViewController: NSViewController {
         switch hud {
         case .volume:
             setVolumeEnabledColor(color)
-            break
         case .brightness:
             setBrightnessColor(color)
-            break
         case .keyboard:
             setKeyboardColor(color)
-            break
         }
     }
     
@@ -117,13 +108,10 @@ class StyleViewController: NSViewController {
         switch hud {
         case .volume:
             setVolumeIconColor(color)
-            break
         case .brightness:
             setBrightnessIconColor(color)
-            break
         case .keyboard:
             setKeyboardIconColor(color)
-            break
         }
     }
     
@@ -133,17 +121,14 @@ class StyleViewController: NSViewController {
             setVolumeBackgroundColor(DefaultColors.DarkGray)
             setVolumeEnabledColor(DefaultColors.Blue)
             setVolumeIconColor(.white)
-            break
         case .brightness:
             setBrightnessBackgroundColor(DefaultColors.DarkGray)
             setBrightnessIconColor(.white)
             setKeyboardColor(DefaultColors.Yellow)
-            break
         case .keyboard:
             setKeyboardBackgroundColor(DefaultColors.DarkGray)
             setKeyboardIconColor(.white)
             setKeyboardColor(DefaultColors.Azure)
-            break
         }
     }
     

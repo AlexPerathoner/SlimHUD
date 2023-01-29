@@ -7,7 +7,6 @@
 
 import Cocoa
 
-@IBDesignable
 class EdgeSelector: NSView {
     private var edge: Position = .left
     weak var delegate: ConfigViewController?
@@ -39,16 +38,12 @@ class EdgeSelector: NSView {
         switch edge {
         case .bottom:
             buttonBottom.state = .on
-            break
         case .right:
             buttonRight.state = .on
-            break
         case .left:
             buttonLeft.state = .on
-            break
         case .top:
             buttonTop.state = .on
-            break
         }
     }
     
