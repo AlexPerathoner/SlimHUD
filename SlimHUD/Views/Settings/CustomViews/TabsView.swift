@@ -9,18 +9,18 @@ import Cocoa
 
 @IBDesignable
 class TabsView: CustomView {
-    private var totalWidth: Int = 400 //TODO: constants
-    private var elementsWidth: Int = 70
-    private var offset: Int = 40 // TODO: rename
-    private var offsetInternal: Int = 12 // TODO: rename
-    private var size: NSSize = .init(width: 71, height: 45)
+    private static let TotalWidth: Int = 400
+    private static let ElementsWidth: Int = 70
+    private static let Offset: Int = 40
+    private static let OffsetInternal: Int = 12
+    private static let Size: NSSize = .init(width: 71, height: 45)
     
     var tabs: [TabItemView] = []
     weak var tabsContentView: TabsManager?
     
     private func calculateFrameForTabItem(index: Int) -> NSRect {
-        let origin = NSPoint(x: offset+(Int(size.width)+offsetInternal)*index, y: 9) // TODO: move to constants
-        return NSRect.init(origin: origin, size: size)
+        let origin = NSPoint(x: TabsView.Offset+(Int(TabsView.Size.width)+TabsView.OffsetInternal)*index, y: 9)
+        return NSRect.init(origin: origin, size: TabsView.Size)
     }
     
     override func awakeFromNib() {
