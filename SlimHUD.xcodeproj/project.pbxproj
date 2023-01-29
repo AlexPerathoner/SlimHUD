@@ -26,6 +26,7 @@
 		FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A32966579D00600F85 /* swift-lint.yml */; };
 		FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */; };
 		FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B5AA2966645100600F85 /* SinglePopover.swift */; };
+		FA6BE8C32986D0AB005E966F /* ColoredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BE8C22986D0AB005E966F /* ColoredButton.swift */; };
 		FA767E75297C5DAD0006E091 /* HudAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */; };
 		FA7811E32975EFE500FEE1AA /* AnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */; };
 		FA7811E52975FE9400FEE1AA /* HudAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E42975FE9400FEE1AA /* HudAnimator.swift */; };
@@ -118,6 +119,7 @@
 		FA64B5A32966579D00600F85 /* swift-lint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "swift-lint.yml"; sourceTree = "<group>"; };
 		FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-ui-tests.yml"; sourceTree = "<group>"; };
 		FA64B5AA2966645100600F85 /* SinglePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePopover.swift; sourceTree = "<group>"; };
+		FA6BE8C22986D0AB005E966F /* ColoredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredButton.swift; sourceTree = "<group>"; };
 		FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimatorTests.swift; sourceTree = "<group>"; };
 		FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStyle.swift; sourceTree = "<group>"; };
 		FA7811E42975FE9400FEE1AA /* HudAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimator.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			children = (
 				FA232B4B2981E1FC00F96E51 /* TabsManager.swift */,
 				FA322FC3297F485700E8F31A /* StandardLabel.swift */,
+				FA6BE8C22986D0AB005E966F /* ColoredButton.swift */,
 				FA322FC5297F506200E8F31A /* EdgeSelector.swift */,
 				FACDE683297EEC5200EDF165 /* CustomView.swift */,
 				FACDE68E297F105600EDF165 /* TabItemView.swift */,
@@ -598,6 +601,7 @@
 				FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */,
 				FA322FC6297F506200E8F31A /* EdgeSelector.swift in Sources */,
 				FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */,
+				FA6BE8C32986D0AB005E966F /* ColoredButton.swift in Sources */,
 				FA8B1A4B296E70D80015AAEB /* UpdaterDelegate.swift in Sources */,
 				FA7811E32975EFE500FEE1AA /* AnimationStyle.swift in Sources */,
 				FA95EE442956FE20005B39CD /* LoginItemList.swift in Sources */,

@@ -618,13 +618,21 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xu-qX-WXh">
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xu-qX-WXh" customClass="ColoredButton" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="248" y="28" width="103" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pWC-ZG-rTz">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                                        <real key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="resetStyle:" target="O34-wh-55Y" id="o6e-S4-R10"/>
                                                 </connections>
@@ -898,13 +906,21 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxj-4c-am9">
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxj-4c-am9" customClass="ColoredButton" customModule="SlimHUD" customModuleProvider="target">
                                                 <rect key="frame" x="248" y="28" width="103" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zdH-TL-x5z">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                                        <real key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="resetDesignClicked:" target="oXP-qf-ooD" id="gXZ-lP-9vh"/>
                                                 </connections>
@@ -1044,7 +1060,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nKq-dZ-rxm">
-                                                <rect key="frame" x="20" y="59" width="137" height="18"/>
+                                                <rect key="frame" x="20" y="60" width="137" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="inline" title="Alex Perathoner" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="aDC-Ur-u5C">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1055,7 +1071,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wy6-rr-elV">
-                                                <rect key="frame" x="20" y="34" width="137" height="18"/>
+                                                <rect key="frame" x="20" y="35" width="137" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="inline" title="Kayden Anderson" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="boQ-CA-OZE">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1066,7 +1082,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g8X-gV-fuD">
-                                                <rect key="frame" x="20" y="9" width="137" height="19"/>
+                                                <rect key="frame" x="20" y="10" width="137" height="19"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="inline" title="GameParrot" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="WY2-Zb-Ydd">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
