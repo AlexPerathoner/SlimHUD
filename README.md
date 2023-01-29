@@ -23,45 +23,42 @@ Each feature can be toggled from the settings window.<br>To access the settings 
 
 Here's are some of the things you can customise:
 
-* When changing volume / brightness / keyboard's backlight a small icon is shown under the bar.
+* When changing volume / brightness / keyboard's backlight a small **icon** is shown under the bar.
 
-* If you don't like the flat look of the bar you can enable a shadow effect.
+* If you don't like the flat look of the bar you can enable a **shadow** effect.
 <p align="center">
 	<img src = "Screens/Shadows/noShadow.jpeg" height=250>
 	<img src = "Screens/Shadows/shadow.jpeg" height =250>
 </p>
 
 
-* There are multiple animation styles: 
+* There are multiple **animation** styles: 
 
-<p align="center">
-<img src = "Screens/Animations/animations.gif"  width=47 height=250>
-<img src = "Screens/Animations/noAnimations.gif" width=47 height=250>
-</p>
+|<img src = "Screens/animations/no.gif">|<img src = "Screens/animations/fade.gif">|<img src = "Screens/animations/grow.gif">|<img src = "Screens/animations/popinfadeout.gif">|<img src = "Screens/animations/shrink.gif">|<img src = "Screens/animations/side.gif">|<img src = "Screens/animations/sidegrow.gif">|
+|--:|---|---|---|---|---|--:|
 
-* Continuously check for changes (*recommended if you use a TouchBar*): shows the HUDs when using the volume / brightness slider.
+* Continuously check for changes (*recommended if you use a **TouchBar***): shows the HUDs when using the volume / brightness slider.
 
-* Each bar (volume / brightness / keyboard's backlight) has it's own color.<br>You can also choose the color of the volume when its muted.
+* Each bar (volume / brightness / keyboard's backlight) has it's own **color**.<br>You can also choose the color of the volume when its muted.
 <p align="center">
 <img src = "Screens/volumeDisabled.gif" height=250>
 </p>
 
-* Each icon (volume / brightness / keyboard's backlight) also has it's own color! <sup>[1](#note1)</sup>
+* Each **icon** (volume / brightness / keyboard's backlight) also has it's own color! <sup>[1](#note1)</sup>
 
-* If you think that the default bar is too small you can easily adjust its size.
+* If you think that the default bar is too small you can easily adjust its **size**.
 
 |<img src = "Screens/Size/small.png">|<img src = "Screens/Size/middle.png">|<img src = "Screens/Size/big.png">|
 |--:|---|--:|
 
-
-* The HUDs can appear on any edge: left, right, bottom or top; it's up to you!
+* The HUDs can appear on any **edge**: left, right, bottom or top; it's up to you!
 
 |<img src = "Screens/Position/left.png">|<img src = "Screens/Position/right.png">|
 |--:|---|
 |<img src = "Screens/Position/top.png">|<img src = "Screens/Position/bottom.png">|
 
 
-* Lastly don't forget to **enable the launch at login function!**
+* Lastly don't forget to enable the **launch at login** function!
 
 <a name="note1"></a><sup>[1](#note1)</sup>:
 > Only available in MacOS 10.14 and later.
