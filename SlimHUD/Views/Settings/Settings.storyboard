@@ -838,7 +838,7 @@
                                                             <menuItem title="Fade" id="GW2-7b-rcq" userLabel="Fade"/>
                                                             <menuItem title="Grow" id="Bpu-EW-KRT" userLabel="Grow"/>
                                                             <menuItem title="Shrink" id="QM7-bf-JyK" userLabel="Shrink"/>
-                                                            <menuItem title="SideGrow" id="kji-ZH-oZn" userLabel="SideGrow"/>
+                                                            <menuItem title="Side grow" id="kji-ZH-oZn" userLabel="SideGrow"/>
                                                         </items>
                                                     </menu>
                                                 </popUpButtonCell>
