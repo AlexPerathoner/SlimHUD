@@ -65,6 +65,8 @@ class RadioEdgeSelector: NSButton {
     weak var delegate: EdgeSelector?
     var edge: Position = .left
     
+    
+    
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
         delegate?.setEdge(item: self)
