@@ -27,14 +27,13 @@ Here's are some of the things you can customise:
 
 * If you don't like the flat look of the bar you can enable a **shadow** effect.
 <p align="center">
-	<img src = "Screens/Shadows/noShadow.jpeg" height=250>
-	<img src = "Screens/Shadows/shadow.jpeg" height =250>
+	<img src = "Screens/shadows.gif" height=250>
 </p>
 
 
 * There are multiple **animation** styles: 
 
-|<img src = "Screens/animations/no.gif">|<img src = "Screens/animations/fade.gif">|<img src = "Screens/animations/grow.gif">|<img src = "Screens/animations/popinfadeout.gif">|<img src = "Screens/animations/shrink.gif">|<img src = "Screens/animations/side.gif">|<img src = "Screens/animations/sidegrow.gif">|
+|<img src = "Screens/animations/no.gif" height=250>|<img src = "Screens/animations/fade.gif" height=250>|<img src = "Screens/animations/grow.gif" height=250>|<img src = "Screens/animations/popinfadeout.gif" height=250>|<img src = "Screens/animations/shrink.gif" height=250>|<img src = "Screens/animations/side.gif" height=250>|<img src = "Screens/animations/sidegrow.gif" height=250>|
 |--:|---|---|---|---|---|--:|
 
 * Continuously check for changes (*recommended if you use a **TouchBar***): shows the HUDs when using the volume / brightness slider.
