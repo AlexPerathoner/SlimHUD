@@ -59,13 +59,38 @@ class EdgeSelector: NSView {
         item.state = .on
         delegate?.setPosition(edge: edge)
     }
+    
+    private static let Width = 163.0
+    private static let Height = 92.0
+    private static let ViewRatio = Height / Width
+    private static let Origin = NSPoint(x: 200, y: 284)
+    override func mouseDown(with event: NSEvent) {
+        let normalizedX = Double(event.locationInWindow.x - EdgeSelector.Origin.x) * EdgeSelector.ViewRatio
+        let y = Double(event.locationInWindow.y - EdgeSelector.Origin.y)
+        let invertedY = EdgeSelector.Height - y
+
+        var clickedEdge: Position = .right
+        if normalizedX < y {
+            if normalizedX < invertedY {
+                clickedEdge = .left
+            } else {
+                clickedEdge = .top
+            }
+        } else {
+            if normalizedX < invertedY {
+                clickedEdge = .bottom
+            } else {
+                clickedEdge = .right
+            }
+        }
+        setEdge(edge: clickedEdge)
+        delegate?.setPosition(edge: clickedEdge)
+    }
 }
 
 class RadioEdgeSelector: NSButton {
     weak var delegate: EdgeSelector?
     var edge: Position = .left
-    
-    
     
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
