@@ -637,14 +637,6 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <color key="bezelColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                        <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="textSize">
-                                                        <real key="value" value="13"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="resetStyle:" target="O34-wh-55Y" id="o6e-S4-R10"/>
                                                 </connections>
@@ -929,14 +921,6 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <color key="bezelColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                        <color key="value" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="textSize">
-                                                        <real key="value" value="13"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="resetDesignClicked:" target="oXP-qf-ooD" id="gXZ-lP-9vh"/>
                                                 </connections>
@@ -1011,7 +995,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="JCV-UV-w0s"/>
                                                 <connections>
-                                                    <action selector="openRepo:" target="GsN-sy-8E9" id="Ifv-cA-OdK"/>
+                                                    <action selector="clickedOpenRepo:" target="GsN-sy-8E9" id="P7o-6l-ObQ"/>
                                                 </connections>
                                             </imageView>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESZ-nj-tbv" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
@@ -1040,7 +1024,7 @@
                                                     <font key="font" metaFont="smallSystemBold"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="openRepo:" target="GsN-sy-8E9" id="VGk-it-aPb"/>
+                                                    <action selector="clickedOpenRepo:" target="GsN-sy-8E9" id="4Bp-lc-Hs4"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ozW-t3-7se">

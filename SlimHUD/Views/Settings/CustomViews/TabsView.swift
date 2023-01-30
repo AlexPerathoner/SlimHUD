@@ -7,7 +7,6 @@
 
 import Cocoa
 
-@IBDesignable
 class TabsView: CustomView {
     private static let Offset: Int = 40
     private static let OffsetInternal: Int = 12
@@ -74,5 +73,18 @@ class TabsView: CustomView {
             tab.selected = false
         }
         tabsContentView?.selectItem(index: item.index)
+    }
+
+    // FIXME: way used in CustomView should work fine
+    @objc override func updateBackgroundColor() {
+        var newColor: NSColor = .white
+        if #available(macOS 10.14, *) {
+            if effectiveAppearance.name == NSAppearance.Name.aqua {
+                newColor = NSColor(white: 0.196, alpha: 1)
+            } else {
+                newColor = NSColor(white: 0.925, alpha: 1)
+            }
+        }
+        layer?.backgroundColor = newColor.cgColor
     }
 }
