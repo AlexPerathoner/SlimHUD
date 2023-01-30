@@ -42,11 +42,16 @@ class TabsView: CustomView {
         tabs.append(tabItem3)
         tabs.append(tabItem4)
         
-        if #available(macOS 13.0, *) { // TODO: use icons
+        if #available(macOS 13.0, *) {
             tabItem1.image = NSImage.init(systemSymbolName: "wrench.adjustable", accessibilityDescription: nil)
             tabItem2.image = NSImage.init(systemSymbolName: "eyedropper", accessibilityDescription: nil)
             tabItem3.image = NSImage.init(systemSymbolName: "square.stack.3d.down.dottedline", accessibilityDescription: nil)
             tabItem4.image = NSImage.init(systemSymbolName: "info.circle", accessibilityDescription: nil)
+        } else {
+            tabItem1.image = IconManager.getConfigIcon()
+            tabItem2.image = IconManager.getStyleIcon()
+            tabItem3.image = IconManager.getDesignIcon()
+            tabItem4.image = IconManager.getAboutIcon()
         }
         
         for (index, tab) in tabs.enumerated() {

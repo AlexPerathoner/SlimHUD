@@ -27,6 +27,12 @@ class IconManager {
         static let two = "key-2"
         static let three = "key-3"
     }
+    private struct SettingsTabsIcons {
+        static let config = "wrench.adjustable"
+        static let style = "eyedropper"
+        static let design = "square.stack.3d.down.dottedline"
+        static let about = "info.circle"
+    }
     private static let StatusIconFileName = "statusIcon"
     
     public static func getStatusIcon() -> NSImage {
@@ -91,5 +97,18 @@ class IconManager {
     }
     static func getBrightnessIcon(for progress: Float) -> NSImage {
         return NSImage(named: getBrightnessIconName(for: progress))!
+    }
+    
+    static func getConfigIcon() -> NSImage {
+        return NSImage(named: IconManager.SettingsTabsIcons.config)!
+    }
+    static func getStyleIcon() -> NSImage {
+        return NSImage(named: IconManager.SettingsTabsIcons.style)!
+    }
+    static func getDesignIcon() -> NSImage {
+        return NSImage(named: IconManager.SettingsTabsIcons.design)!
+    }
+    static func getAboutIcon() -> NSImage {
+        return NSImage(named: IconManager.SettingsTabsIcons.about)!
     }
 }
