@@ -60,6 +60,7 @@ class DesignViewController: NSViewController {
         if let newValue = Int(sender.stringValue) {
             if newValue > 0 {
                 setSize(newValue)
+                sizeSlider.integerValue = newValue
             } else {
                 sizeValue.stringValue = String(sizeSlider.integerValue)
             }
@@ -69,6 +70,7 @@ class DesignViewController: NSViewController {
         if let newValue = Int(sender.stringValue) {
             if newValue > 0 {
                 setThickness(newValue)
+                thicknessSlider.integerValue = newValue
             } else {
                 thicknessValue.stringValue = String(thicknessSlider.integerValue)
             }
