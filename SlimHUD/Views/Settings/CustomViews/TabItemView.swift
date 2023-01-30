@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class TabItemView: NSView {
+class TabItemView: CustomView {
     @IBInspectable var image: NSImage!
     @IBInspectable var title: String = "About"
     @IBInspectable var selected: Bool = false {
@@ -31,8 +31,10 @@ class TabItemView: NSView {
         imageView = createImageView()
         addSubview(imageView!)
         addSubview(textField!)
-        setupBorder()
+        self.cornerRadius = 5
+        backgroundColorName = "SelectionColor"
         updateSelectionStyle()
+        super.awakeFromNib()
     }
     
     private func createLabel() -> NSTextField {
@@ -60,11 +62,6 @@ class TabItemView: NSView {
         return imageView
     }
     
-    private func setupBorder() {
-        self.wantsLayer = true
-        self.layer?.cornerRadius = 5
-    }
-    
     private func updateSelectionStyle() {
         updateBackgroundColor()
         if selected {
@@ -81,13 +78,6 @@ class TabItemView: NSView {
         }
         setupShadow(selected, 2, .init(gray: 0, alpha: 0.13), offset: NSSize(width: -2, height: 2))
     }
-    
-    // TODO: widnow title of settings not visible
-    
-    
-    // TODO: add method to select, add delegate, which should change view
-    
-    // TODO: add tabView manager, which shows all the items, does all the stuff
 
     override func mouseUp(with event: NSEvent) {
         selected = true
@@ -121,9 +111,9 @@ class TabItemView: NSView {
         self.addTrackingArea(trackingArea)
     }
     
-    func updateBackgroundColor() {
+    override func updateBackgroundColor() {
         if selected {
-            self.layer?.backgroundColor = NSColor(named: "SelectionColor")!.cgColor
+            self.layer?.backgroundColor = NSColor(named: backgroundColorName)?.cgColor
         } else {
             self.layer?.backgroundColor = .init(gray: 0, alpha: 0)
         }

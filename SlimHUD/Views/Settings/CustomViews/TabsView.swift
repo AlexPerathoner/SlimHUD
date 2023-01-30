@@ -23,7 +23,7 @@ class TabsView: CustomView {
     
     override func awakeFromNib() {
         self.shadowed = true
-        self.backgroundColor = NSColor(named: "PrimaryColor")!
+        self.backgroundColorName = "PrimaryColor"
         self.shadowColor = .black
         
         let tabItem1 = TabItemView(frame: calculateFrameForTabItem(index: 0))

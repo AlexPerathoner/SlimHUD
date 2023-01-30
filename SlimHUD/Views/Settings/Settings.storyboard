@@ -125,6 +125,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0jg-kT-Ece" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -172,6 +173,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37F-7k-737" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -215,6 +217,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wnj-iV-Q9E" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -276,6 +279,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lez-98-gIv" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -343,6 +347,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                 </subviews>
@@ -420,6 +425,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4T-PL-x2T" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -581,6 +587,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GoP-7U-I95" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -651,6 +658,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                 </subviews>
@@ -771,6 +779,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jB9-E3-RaD" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -870,6 +879,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-pl-icC" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -940,6 +950,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                 </subviews>
@@ -1052,6 +1063,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Gf-hP-mvb" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -1118,6 +1130,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a0f-uO-Qql" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -1180,6 +1193,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xg7-eQ-kGH" customClass="CustomView" customModule="SlimHUD" customModuleProvider="target">
@@ -1232,6 +1246,7 @@
                                                 <color key="value" name="BoxColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="BoxColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                 </subviews>

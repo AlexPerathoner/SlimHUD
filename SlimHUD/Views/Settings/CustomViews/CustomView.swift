@@ -10,9 +10,9 @@ import Cocoa
 class CustomView: NSView {
     @IBInspectable var shadowColor: NSColor = .black
     
-    @IBInspectable var backgroundColor: NSColor = .darkGray {
+    @IBInspectable var backgroundColorName: String = "" {
         didSet {
-            layer?.backgroundColor = backgroundColor.cgColor
+            updateBackgroundColor()
         }
     }
     
@@ -23,7 +23,12 @@ class CustomView: NSView {
     
     override func awakeFromNib() {
         setupShadow(shadowed, 2, shadowColor.cgColor)
-        layer?.backgroundColor = backgroundColor.cgColor
+        layer?.backgroundColor = NSColor(named: backgroundColorName)?.cgColor
         layer?.cornerRadius = cornerRadius
+        DistributedNotificationCenter.default.addObserver(self, selector: #selector(updateBackgroundColor), name: NSNotification.Name(rawValue: "AppleInterfaceThemeChangedNotification"), object: nil)
+    }
+    
+    @objc func updateBackgroundColor() {
+        layer?.backgroundColor = NSColor(named: backgroundColorName)?.cgColor
     }
 }
