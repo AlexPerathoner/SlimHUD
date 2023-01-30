@@ -14,7 +14,7 @@ extension NSSegmentedControl {
                            brightnessBar: isSelected(forSegment: EnabledBars.BrightnessBarIndex),
                            keyboardBar: isSelected(forSegment: EnabledBars.KeyboardBarIndex))
     }
-    
+
     func getSelectedBar() throws -> SelectedHud {
         let enabledBars = getBarState()
         var selectedCount = 0

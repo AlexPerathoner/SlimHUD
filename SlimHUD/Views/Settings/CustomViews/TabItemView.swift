@@ -15,17 +15,17 @@ class TabItemView: CustomView {
             updateSelectionStyle()
         }
     }
-    
-    private static let selectedColor = NSColor(red:0, green:0.4784, blue:1, alpha:1.0)
-    private static let unselectedColor = NSColor(red:0.494, green:0.494, blue:0.494, alpha:1.0)
-    
+
+    private static let selectedColor = NSColor(red: 0, green: 0.4784, blue: 1, alpha: 1.0)
+    private static let unselectedColor = NSColor(red: 0.494, green: 0.494, blue: 0.494, alpha: 1.0)
+
     private var textField: NSTextField?
     private var imageView: NSImageView?
-    
+
     weak var delegate: TabsView?
-    
+
     var index = 0
-    
+
     override func awakeFromNib() {
         textField = createLabel()
         imageView = createImageView()
@@ -36,7 +36,7 @@ class TabItemView: CustomView {
         updateSelectionStyle()
         super.awakeFromNib()
     }
-    
+
     private func createLabel() -> NSTextField {
         let newTextField = NSTextField(string: title)
         newTextField.alignment = .center
@@ -50,7 +50,7 @@ class TabItemView: CustomView {
         newTextField.drawsBackground = false
         return newTextField
     }
-    
+
     private func createImageView() -> NSImageView {
         let newImageView = NSImageView(image: image)
         newImageView.alignment = .center
@@ -60,7 +60,7 @@ class TabItemView: CustomView {
         newImageView.imageScaling = .scaleProportionallyUpOrDown
         return newImageView
     }
-    
+
     private func updateSelectionStyle() {
         updateBackgroundColor()
         if selected {
@@ -83,22 +83,22 @@ class TabItemView: CustomView {
         updateSelectionStyle()
         delegate?.selectItem(item: self)
     }
-    
+
     override func mouseDown(with event: NSEvent) {
         self.layer?.backgroundColor = .init(gray: 0, alpha: 0.2)
     }
-    
+
     override func mouseEntered(with event: NSEvent) {
         self.layer?.backgroundColor = .init(gray: 0, alpha: 0.1)
     }
-    
+
     override func mouseExited(with event: NSEvent) {
         updateBackgroundColor()
     }
-    
+
     override func updateTrackingAreas() {
         super.updateTrackingAreas()
-        
+
         if !self.trackingAreas.isEmpty {
             for trackingArea in trackingAreas {
                 self.removeTrackingArea(trackingArea)
@@ -109,7 +109,7 @@ class TabItemView: CustomView {
         let trackingArea = NSTrackingArea(rect: self.bounds, options: options, owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
     }
-    
+
     override func updateBackgroundColor() {
         if selected {
             self.layer?.backgroundColor = NSColor(named: backgroundColorName)?.cgColor

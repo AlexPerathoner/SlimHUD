@@ -13,33 +13,33 @@ class DesignViewController: NSViewController {
 
     @IBOutlet weak var thicknessValue: NSTextField!
     @IBOutlet weak var sizeValue: NSTextField!
-    
+
     @IBOutlet weak var thicknessSlider: NSSlider!
     @IBOutlet weak var sizeSlider: NSSlider!
-    
+
     @IBOutlet weak var iconsOutlet: NSButton!
     @IBOutlet weak var flatBarOutlet: NSButton!
     @IBOutlet weak var shadowsOutlet: NSButton!
     @IBOutlet weak var animationStyleOutlet: NSPopUpButton!
-    
+
     override func viewDidLoad() {
         self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
         thicknessValue.stringValue = String(settingsManager.barThickness)
         sizeValue.stringValue = String(settingsManager.barHeight)
-        
+
         thicknessSlider.integerValue = settingsManager.barThickness
         sizeSlider.integerValue = settingsManager.barHeight
-        
+
         iconsOutlet.state = settingsManager.shouldShowIcons.toStateValue()
         flatBarOutlet.state = settingsManager.flatBar.toStateValue()
         shadowsOutlet.state = settingsManager.shouldShowShadows.toStateValue()
         animationStyleOutlet.selectItem(withTitle: settingsManager.animationStyle.rawValue)
     }
-    
+
     @IBAction func sizeSlider(_ sender: NSSlider) {
         setSize(sender.integerValue)
     }
-    
+
     private func setSize(_ value: Int) {
         sizeValue.stringValue = String(value)
         settingsManager.barHeight = value
@@ -49,13 +49,13 @@ class DesignViewController: NSViewController {
     @IBAction func thicknessSlider(_ sender: NSSlider) {
         setThickness(sender.integerValue)
     }
-    
+
     private func setThickness(_ value: Int) {
         thicknessValue.stringValue = String(value)
         settingsManager.barThickness = value
         delegate?.setThickness(thickness: CGFloat(value))
     }
-    
+
     @IBAction func sizeText(_ sender: NSTextField) {
         if let newValue = Int(sender.stringValue) {
             if newValue > 0 {
@@ -76,7 +76,7 @@ class DesignViewController: NSViewController {
             }
         }
     }
-    
+
     @IBAction func iconsClicked(_ sender: NSButton) {
         showIcons(sender.boolValue())
     }
@@ -84,7 +84,7 @@ class DesignViewController: NSViewController {
         settingsManager.shouldShowIcons = value
         delegate?.hideIcon(isHidden: !value)
     }
-    
+
     @IBAction func flatBarClicked(_ sender: NSButton) {
         useFlatBar(sender.boolValue())
     }
@@ -92,7 +92,7 @@ class DesignViewController: NSViewController {
         settingsManager.flatBar = value
         delegate?.setThickness(thickness: CGFloat(settingsManager.barThickness))
     }
-    
+
     @IBAction func shadowsClicked(_ sender: NSButton) {
         showShadows(sender.boolValue())
     }
@@ -100,7 +100,7 @@ class DesignViewController: NSViewController {
         settingsManager.shouldShowShadows = value
         delegate?.updateShadows(enabled: value)
     }
-    
+
     @IBAction func animationStyleClicked(_ sender: NSPopUpButton) {
         setAnimationStyle(AnimationStyle(from: sender.titleOfSelectedItem))
     }
@@ -108,11 +108,11 @@ class DesignViewController: NSViewController {
         settingsManager.animationStyle = value
         delegate?.setAnimationStyle(animationStyle: value)
     }
-    
+
     @IBAction func playAnimationStyle(_ sender: Any) {
         // TODO: implement this
     }
-    
+
     @IBAction func resetDesignClicked(_ sender: Any) {
         setSize(210)
         setThickness(9)

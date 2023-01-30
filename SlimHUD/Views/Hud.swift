@@ -55,13 +55,13 @@ class Hud: NSView {
                 hudView.addSubview(barView)
             }
             windowController?.showWindow(self)
-            
+
             if animationStyle.requiresInMovement() {
                 barView.setFrameOrigin(HudAnimator.getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
             } else {
                 barView.setFrameOrigin(originPosition)
             }
-            
+
             switch animationStyle {
             case .None: HudAnimator.popIn(barView: barView)
             case .Slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition)
@@ -76,7 +76,7 @@ class Hud: NSView {
 
     func hide(animated: Bool) {
         if !isHidden {
-            if(animated) {
+            if animated {
                 switch animationStyle {
                 case .None: HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
                 case .Slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
@@ -86,7 +86,7 @@ class Hud: NSView {
                 case .Shrink: HudAnimator.shrinkOut(barView: barView, completion: commonAnimationOutCompletion)
                 case .SideGrow: HudAnimator.sideGrowOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
                 }
-            } else{
+            } else {
                 HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
             }
         }
@@ -183,7 +183,7 @@ class Hud: NSView {
     public func setPosition(originPosition: CGPoint, screenEdge: Position) {
         self.originPosition = originPosition
         self.screenEdge = screenEdge
-                
+
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration / 2
             if animationStyle.requiresInMovement() && hudView.isHidden {

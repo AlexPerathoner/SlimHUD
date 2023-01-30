@@ -21,7 +21,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
         window?.identifier = .init(rawValue: "Settings")
         super.windowDidLoad()
-        
+
         if let viewController = self.contentViewController as? SettingsViewController {
             viewController.setWindowController(self)
         }

@@ -11,12 +11,12 @@ class TabsManager: NSView {
     var tabs: TabsView = TabsView(frame: .init(x: 0, y: 414, width: 400, height: 86))
     var contentViews: [NSView] = []
     var view: NSView?
-    
+
     var configVC: ConfigViewController?
     var designVC: DesignViewController?
     var styleVC: StyleViewController?
     var aboutVC: AboutViewController?
-    
+
     public func setWindowController(_ windowController: SettingsWindowController) {
         styleVC?.windowController = windowController
     }
@@ -42,13 +42,13 @@ class TabsManager: NSView {
                 designVC = design
                 styleVC = style
                 aboutVC = about
-                
+
                 selectItem(index: 0)
             }
         }
         super.awakeFromNib()
     }
-    
+
     func selectItem(index: Int) {
         tabs.selectItem(index: index)
         showItem(index: index)
@@ -60,5 +60,5 @@ class TabsManager: NSView {
         }
         contentViews[index].isHidden = false
     }
-    
+
 }

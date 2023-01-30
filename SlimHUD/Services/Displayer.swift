@@ -14,7 +14,7 @@ class Displayer: HudsControllerInterface {
     private var volumeHud: Hud
     private var brightnessHud: Hud
     private var keyboardHud: Hud
-    
+
     public var temporarelyEnableAllBars = false
 
     init(positionManager: PositionManager, volumeHud: Hud, brightnessHud: Hud, keyboardHud: Hud) {
@@ -155,7 +155,7 @@ class Displayer: HudsControllerInterface {
             setKeyboardIconsTint(settingsManager.keyboardIconColor)
         }
     }
-    
+
     func setAnimationStyle(animationStyle: AnimationStyle) {
         volumeHud.setAnimationStyle(animationStyle)
         brightnessHud.setAnimationStyle(animationStyle)

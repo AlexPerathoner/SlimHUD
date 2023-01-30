@@ -11,17 +11,17 @@ class ConfigViewController: NSViewController {
     private let loginItemsList = LoginItemsList()
     weak var delegate: HudsControllerInterface?
     var settingsManager = SettingsManager.getInstance()
-    
+
     @IBOutlet weak var edgeOutlet: EdgeSelector!
     @IBOutlet weak var marginOutlet: NSTextField!
     @IBOutlet weak var continuousCheckOutlet: NSButton!
     @IBOutlet weak var launchAtLoginOutlet: NSButton!
     @IBOutlet weak var enabledBarsOutlet: NSSegmentedControl!
     @IBOutlet weak var marginStepperOutlet: NSStepper!
-    
+
     override func viewDidLoad() {
         self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
-        
+
         edgeOutlet.delegate = self
         edgeOutlet.setEdge(edge: settingsManager.position)
         do {
@@ -34,17 +34,17 @@ class ConfigViewController: NSViewController {
         continuousCheckOutlet.state = settingsManager.shouldContinuouslyCheck.toStateValue()
         launchAtLoginOutlet.state = loginItemsList.isLoginItemInList().toStateValue()
     }
-    
+
     func setPosition(edge: Position) {
         settingsManager.position = edge
         // as the settings window is the frontmost window, fullscreen is certainly false
         delegate?.positionManager.setupHUDsPosition(isFullscreen: false)
     }
-    
+
     @IBAction func enabledBarsClicked(_ sender: NSSegmentedControl) {
         settingsManager.enabledBars = sender.getBarState()
     }
-    
+
     @IBAction func launchAtLoginClicked(_ sender: NSButton) {
         if sender.boolValue() {
             if !loginItemsList.addLoginItem() {
@@ -56,11 +56,11 @@ class ConfigViewController: NSViewController {
             }
         }
     }
-    
+
     @IBAction func continuousCheckClicked(_ sender: NSButton) {
         settingsManager.shouldContinuouslyCheck = sender.boolValue()
     }
-    
+
     @IBAction func marginValueChanged(_ sender: NSStepper) {
         let marginValue = sender.integerValue
         settingsManager.marginValue = marginValue

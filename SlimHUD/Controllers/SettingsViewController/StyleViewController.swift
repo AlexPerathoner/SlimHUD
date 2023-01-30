@@ -11,9 +11,9 @@ class StyleViewController: NSViewController {
     weak var delegate: HudsControllerInterface?
     weak var windowController: SettingsWindowController?
     var settingsManager = SettingsManager.getInstance()
-    
+
     @IBOutlet weak var hudToEditOutlet: NSSegmentedControl!
-    
+
     private func getSelectedHud() -> SelectedHud {
         do {
             return try hudToEditOutlet.getSelectedBar()
@@ -21,15 +21,15 @@ class StyleViewController: NSViewController {
             fatalError("Multiple / No HUDs selected")
         }
     }
-    
+
     @IBOutlet weak var barColorOutlet: NSColorWell!
     @IBOutlet weak var fillColorOutlet: NSColorWell!
     @IBOutlet weak var iconColorOutlet: NSColorWell!
-    
+
     @IBOutlet weak var secondFillColorOutlet: NSColorWell!
-    
+
     @IBOutlet weak var iconColorsContainerOutlet: NSView!
-    
+
     override func viewDidLoad() {
         self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
         selectedHudClicked(self)
@@ -37,7 +37,7 @@ class StyleViewController: NSViewController {
             iconColorsContainerOutlet.isHidden = true
         }
     }
-    
+
     @IBAction func selectedHudClicked(_ sender: Any) {
         let selectedHud = getSelectedHud()
         switch selectedHud {
@@ -60,7 +60,7 @@ class StyleViewController: NSViewController {
         }
         windowController?.showPreviewHud(bar: selectedHud)
     }
-    
+
     private func showSecondaryFillColorOutlet(_ value: Bool) {
         var newFrame: NSRect = .init(x: 27, y: 77, width: 44, height: 28)
         if value {
@@ -69,7 +69,7 @@ class StyleViewController: NSViewController {
         fillColorOutlet.frame = newFrame
         secondFillColorOutlet.isHidden = !value
     }
-    
+
     @IBAction func setBarColorClicked(_ sender: NSColorWell) {
         setBackgroundColor(hud: getSelectedHud(), color: sender.color)
     }
@@ -80,11 +80,11 @@ class StyleViewController: NSViewController {
         // secondary fill exists for volume hud only
         setVolumeDisabledColor(sender.color)
     }
-    
+
     @IBAction func setIconColorClicked(_ sender: NSColorWell) {
         setIconColor(hud: getSelectedHud(), color: sender.color)
     }
-    
+
     private func setBackgroundColor(hud: SelectedHud, color: NSColor) {
         switch hud {
         case .volume:
@@ -95,7 +95,7 @@ class StyleViewController: NSViewController {
             setKeyboardBackgroundColor(color)
         }
     }
-    
+
     private func setFillColor(hud: SelectedHud, color: NSColor) {
         switch hud {
         case .volume:
@@ -106,7 +106,7 @@ class StyleViewController: NSViewController {
             setKeyboardColor(color)
         }
     }
-    
+
     private func setIconColor(hud: SelectedHud, color: NSColor) {
         switch hud {
         case .volume:
@@ -117,7 +117,7 @@ class StyleViewController: NSViewController {
             setKeyboardIconColor(color)
         }
     }
-    
+
     @IBAction func resetStyle(_ sender: Any) {
         switch getSelectedHud() {
         case .volume:
@@ -134,10 +134,8 @@ class StyleViewController: NSViewController {
             setKeyboardColor(DefaultColors.Azure)
         }
     }
-    
+
 }
-
-
 
 extension StyleViewController {
     // MARK: volume HUD style methods
@@ -159,7 +157,7 @@ extension StyleViewController {
             delegate?.setVolumeIconsTint(color)
         }
     }
-    
+
     // MARK: brightness HUD style methods
     private func setBrightnessBackgroundColor(_ color: NSColor) {
         settingsManager.brightnessBackgroundColor = color
@@ -175,7 +173,7 @@ extension StyleViewController {
             delegate?.setBrightnessIconsTint(color)
         }
     }
-    
+
     // MARK: keyboard HUD style methods
     private func setKeyboardBackgroundColor(_ color: NSColor) {
         settingsManager.keyboardBackgroundColor = color

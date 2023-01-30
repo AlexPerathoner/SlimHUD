@@ -9,7 +9,7 @@ import Cocoa
 
 class SettingsViewController: NSViewController {
     @IBOutlet weak var tabsManager: TabsManager!
-    
+
     func setWindowController(_ windowController: SettingsWindowController) {
         tabsManager.setWindowController(windowController)
     }

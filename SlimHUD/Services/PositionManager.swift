@@ -43,16 +43,15 @@ class PositionManager {
                                                                          screenFrame: screenFrame,
                                                                          isInFullscreen: isFullscreen)
 
-
         let isHudHorizontal = screenEdge == .bottom || screenEdge == .top
-        
+
         setBarsOrientation(isHorizontal: isHudHorizontal)
         setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
         resetPreviewIcon()
 
         NSLog("screenFrame is \(screenFrame) \(originPosition)")
     }
-    
+
     private func resetPreviewIcon() {
         // FIXME: should be solved in a better way
         let volume = VolumeManager.getOutputVolume()

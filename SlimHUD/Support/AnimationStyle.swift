@@ -15,13 +15,13 @@ enum AnimationStyle: String {
     case Grow
     case Shrink
     case SideGrow = "Side grow"
-    
+
     private static let DefaultValue = AnimationStyle.Slide
-    
+
     init(from rawValue: String?) {
         self = AnimationStyle(rawValue: rawValue ?? "") ?? AnimationStyle.DefaultValue
     }
-    
+
     func requiresInMovement() -> Bool {
         switch self {
         case .Slide, .SideGrow:
