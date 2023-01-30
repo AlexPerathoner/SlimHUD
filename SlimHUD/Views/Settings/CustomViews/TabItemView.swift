@@ -38,28 +38,27 @@ class TabItemView: CustomView {
     }
     
     private func createLabel() -> NSTextField {
-        let textField = NSTextField(string: title)
-        textField.alignment = .center
-        textField.setFrameSize(NSSize(width: 70, height: 16))
-        textField.setFrameOrigin(.init(x: 0, y: 2))
-        textField.font = NSFont.init(name: "SF Pro", size: 10)
-        textField.isEditable = false
-        textField.isSelectable = false
-        textField.isBordered = false
-        textField.isBezeled = false
-        textField.drawsBackground = false
-        
-        return textField
+        let newTextField = NSTextField(string: title)
+        newTextField.alignment = .center
+        newTextField.setFrameSize(NSSize(width: 70, height: 16))
+        newTextField.setFrameOrigin(.init(x: 0, y: 2))
+        newTextField.font = NSFont.init(name: "SF Pro", size: 10)
+        newTextField.isEditable = false
+        newTextField.isSelectable = false
+        newTextField.isBordered = false
+        newTextField.isBezeled = false
+        newTextField.drawsBackground = false
+        return newTextField
     }
     
     private func createImageView() -> NSImageView {
-        let imageView = NSImageView(image: image)
-        imageView.alignment = .center
-        imageView.setFrameSize(NSSize(width: 70, height: 20))
-        imageView.setFrameOrigin(.init(x: 0, y: 20))
-        imageView.isEditable = false
-        imageView.imageScaling = .scaleProportionallyUpOrDown
-        return imageView
+        let newImageView = NSImageView(image: image)
+        newImageView.alignment = .center
+        newImageView.setFrameSize(NSSize(width: 70, height: 20))
+        newImageView.setFrameOrigin(.init(x: 0, y: 20))
+        newImageView.isEditable = false
+        newImageView.imageScaling = .scaleProportionallyUpOrDown
+        return newImageView
     }
     
     private func updateSelectionStyle() {
@@ -76,7 +75,7 @@ class TabItemView: CustomView {
                 imageView?.contentTintColor = TabItemView.unselectedColor
             }
         }
-        setupShadow(selected, 2, .init(gray: 0, alpha: 0.13), offset: NSSize(width: -2, height: 2))
+        setupShadow(enabled: selected, shadowRadius: 2, color: .init(gray: 0, alpha: 0.13), offset: NSSize(width: -2, height: 2))
     }
 
     override func mouseUp(with event: NSEvent) {

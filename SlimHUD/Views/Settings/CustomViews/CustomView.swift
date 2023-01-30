@@ -22,7 +22,7 @@ class CustomView: NSView {
     
     
     override func awakeFromNib() {
-        setupShadow(shadowed, 2, shadowColor.cgColor)
+        setupShadow(enabled: shadowed, shadowRadius: 2, color: shadowColor.cgColor)
         layer?.backgroundColor = NSColor(named: backgroundColorName)?.cgColor
         layer?.cornerRadius = cornerRadius
         DistributedNotificationCenter.default.addObserver(self, selector: #selector(updateBackgroundColor), name: NSNotification.Name(rawValue: "AppleInterfaceThemeChangedNotification"), object: nil)

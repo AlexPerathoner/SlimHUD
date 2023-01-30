@@ -69,7 +69,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         NSApp.activate(ignoringOtherApps: true)
     }
     
-    @IBAction func quitCliked(_ sender: Any) {  // todo deal with this
+    @IBAction func quitCliked(_ sender: Any) {
         if isSomeWindowVisible() {
             let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs in the background",
                                           text: "If you want to quit, click \"Quit now\"",
@@ -112,7 +112,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     }
     
     private func isSomeWindowVisible() -> Bool {
-        return ((settingsWindowController?.window?.isVisible ?? false)) &&
+        return (settingsWindowController?.window?.isVisible ?? false) &&
             NSApplication.shared.activationPolicy() != .accessory
     }
 }

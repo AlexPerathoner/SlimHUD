@@ -121,7 +121,7 @@ class Hud: NSView {
     }
 
     public func setShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {
-        barView.setupShadow(enabled, shadowRadius)
+        barView.setupShadow(enabled: enabled, shadowRadius: shadowRadius)
     }
 
     public func setHeight(height: CGFloat) {
