@@ -297,11 +297,11 @@
 		FA95EE292956FD68005B39CD /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FA232B492981DE6000F96E51 /* ConfigViewController.swift */,
 				FA9A815729882EBF00C282C9 /* SettingsViewController.swift */,
-				FA232B4D2981E6A900F96E51 /* AboutViewController.swift */,
-				FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */,
+				FA232B492981DE6000F96E51 /* ConfigViewController.swift */,
 				FA232B512981E6D800F96E51 /* StyleViewController.swift */,
+				FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */,
+				FA232B4D2981E6A900F96E51 /* AboutViewController.swift */,
 			);
 			path = SettingsViewController;
 			sourceTree = "<group>";
