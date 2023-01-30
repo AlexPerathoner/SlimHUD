@@ -8,18 +8,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Lint (fix)
         uses: norio-nomura/action-swiftlint@3.2.1
         with:
           args: --fix
         env:
           DIFF_BASE: ${{ github.base_ref }}
+        with:
+          args:  --config .swiftlint.yml
       - name: Lint (check)
         id: swiftlint-output
         uses: norio-nomura/action-swiftlint@3.2.1
         env:
           DIFF_BASE: ${{ github.base_ref }}
+        with:
+          args:  --config .swiftlint.yml
       - name: Saving changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
