@@ -56,7 +56,11 @@ class AboutViewController: NSViewController {
         openWebsite(url: "https://github.com/GameParrot")
     }
     
-    @IBAction func openRepo(_ sender: Any) {
+    @IBAction func clickedOpenRepo(_ sender: Any) {
         openWebsite(url: "https://github.com/AlexPerathoner/SlimHUD")
+    }
+    
+    @IBAction func clickedDonate(_ sender: Any) {
+        openWebsite(url: "https://www.buymeacoffee.com/alexpera")
     }
 }

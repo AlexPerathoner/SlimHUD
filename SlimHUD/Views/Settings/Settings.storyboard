@@ -974,7 +974,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xx-En-svB" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="144" y="105" width="202" height="20"/>
+                                                <rect key="frame" x="144" y="119" width="202" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="You're running SlimHUD" id="dil-T0-w92">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -1000,7 +1000,7 @@
                                                 </connections>
                                             </imageView>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESZ-nj-tbv" customClass="StandardLabel" customModule="SlimHUD" customModuleProvider="target">
-                                                <rect key="frame" x="144" y="48" width="202" height="49"/>
+                                                <rect key="frame" x="144" y="62" width="202" height="49"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" alignment="left" title="1.5.0" id="yN9-1F-gVK">
                                                     <font key="font" size="17" name="SFPro-Semibold"/>
@@ -1018,7 +1018,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HxE-YV-e8I">
-                                                <rect key="frame" x="146" y="17" width="198" height="18"/>
+                                                <rect key="frame" x="146" y="36" width="198" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="inline" title="Help us improve!" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="tf3-59-vUu">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1026,6 +1026,17 @@
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="openRepo:" target="GsN-sy-8E9" id="VGk-it-aPb"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ozW-t3-7se">
+                                                <rect key="frame" x="146" y="14" width="198" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="inline" title="Donate" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="pp5-ru-H22">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="smallSystemBold"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="clickedDonate:" target="GsN-sy-8E9" id="5Jn-Ah-tiR"/>
                                                 </connections>
                                             </button>
                                         </subviews>
