@@ -36,19 +36,23 @@
         <scene sceneID="DEl-Jb-6fO">
             <objects>
                 <viewController id="pWp-io-RSv" customClass="SettingsViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="yFf-q4-vSW" customClass="TabsManager" customModule="SlimHUD" customModuleProvider="target">
+                    <view key="view" id="LV5-al-Djs">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <view id="yFf-q4-vSW" customClass="TabsManager" customModule="SlimHUD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </view>
+                        </subviews>
                     </view>
                     <connections>
-                        <outlet property="aboutView" destination="ua5-MA-tQ0" id="xe6-gZ-98H"/>
-                        <outlet property="designView" destination="8pg-lM-e3Q" id="YQ0-BP-Ika"/>
-                        <outlet property="styleView" destination="7CG-cS-E5O" id="dAF-XP-wfT"/>
+                        <outlet property="tabsManager" destination="yFf-q4-vSW" id="u0A-1x-MLk"/>
                     </connections>
                 </viewController>
                 <customObject id="5Np-UV-qXX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="615" y="-352"/>
+            <point key="canvasLocation" x="609" y="-345"/>
         </scene>
         <!--Config View Controller-->
         <scene sceneID="Plm-Ub-HWu">

@@ -12,6 +12,8 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
     // swiftlint:disable:next force_cast
     var displayer = (NSApplication.shared.delegate as! AppDelegate).displayer
+    // when the settings window is opened, the initially showed hud is the volume's one
+    private var currentPreviewHud: SelectedHud? = .volume
 
     override func windowDidLoad() {
         NSApp.activate(ignoringOtherApps: true)
@@ -19,27 +21,43 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
         window?.identifier = .init(rawValue: "Settings")
         super.windowDidLoad()
+        
+        if let viewController = self.contentViewController as? SettingsViewController {
+            viewController.setWindowController(self)
+        }
     }
 
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
-//        showPreviewHud() // TODO: re-add
-        // TODO: enable all bars (for settings preview)
+        showPreviewHud(bar: nil)
+        displayer.temporarelyEnableAllBars = true
     }
 
     func windowWillClose(_ notification: Notification) {
-//        hidePreviewHud()
-        // TODO: enable only some bars
+        hidePreviewHud()
+        displayer.temporarelyEnableAllBars = false
         NSApplication.shared.setActivationPolicy(.accessory)
     }
 
-    private func showPreviewHud() {
-        if previewTimer == nil { // windowDidLoad() could be called multiple times
+    public func showPreviewHud(bar: SelectedHud?) {
+        if previewTimer == nil || currentPreviewHud != bar { // windowDidLoad() could be called multiple times
+            hidePreviewHud()
             // sends a notification every second causing the bar to appear and be kept visible
-            previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (_) in
-                self.displayer.showVolumeHUD() // TODO: should be possible to change displayed hud depending on what is being changed in settings
+            if bar == .brightness {
+                previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (_) in
+                    self.displayer.showBrightnessHUD()
+                }
+            } else if bar == .keyboard {
+                previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (_) in
+                    self.displayer.showKeyboardHUD()
+                }
+            } else {
+                previewTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { (_) in
+                    self.displayer.showVolumeHUD()
+                }
             }
             RunLoop.current.add(previewTimer!, forMode: .eventTracking)
+            currentPreviewHud = bar
         }
     }
 

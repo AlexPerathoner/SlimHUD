@@ -14,6 +14,8 @@ class Displayer: HudsControllerInterface {
     private var volumeHud: Hud
     private var brightnessHud: Hud
     private var keyboardHud: Hud
+    
+    public var temporarelyEnableAllBars = false
 
     init(positionManager: PositionManager, volumeHud: Hud, brightnessHud: Hud, keyboardHud: Hud) {
         self.positionManager = positionManager
@@ -27,7 +29,7 @@ class Displayer: HudsControllerInterface {
     }
 
     func showVolumeHUD() {
-        if !settingsManager.enabledBars.volumeBar {
+        if !(settingsManager.enabledBars.volumeBar || temporarelyEnableAllBars) {
             return
         }
         let isMuted = VolumeManager.isMuted()
@@ -44,7 +46,7 @@ class Displayer: HudsControllerInterface {
     }
 
     func showBrightnessHUD() {
-        if !settingsManager.enabledBars.brightnessBar {
+        if !(settingsManager.enabledBars.brightnessBar || temporarelyEnableAllBars) {
             return
         }
         // if the function is being called because the key has been pressed, the display's brightness
@@ -55,6 +57,7 @@ class Displayer: HudsControllerInterface {
                 self.brightnessHud.setProgress(progress: progress)
                 self.brightnessHud.setIconImage(icon: IconManager.getBrightnessIcon(for: progress))
             } catch {
+                self.brightnessHud.setProgress(progress: 0.5)
                 NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
             }
         }
@@ -67,7 +70,7 @@ class Displayer: HudsControllerInterface {
         brightnessHud.dismiss(delay: 1.5)
     }
     func showKeyboardHUD() {
-        if !settingsManager.enabledBars.keyboardBar {
+        if !(settingsManager.enabledBars.keyboardBar || temporarelyEnableAllBars) {
             return
         }
         // if the function is being called because the key has been pressed, the keyboard's brightness
@@ -78,6 +81,7 @@ class Displayer: HudsControllerInterface {
                 self.keyboardHud.setProgress(progress: progress)
                 self.keyboardHud.setIconImage(icon: IconManager.getKeyboardIcon(for: progress))
             } catch {
+                self.keyboardHud.setProgress(progress: 0.5)
                 NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
             }
         }

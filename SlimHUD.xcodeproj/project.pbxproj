@@ -69,6 +69,7 @@
 		FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8429574495005B39CD /* SparkleUITests.swift */; };
 		FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE872957589E005B39CD /* PositionManagerTests.swift */; };
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
+		FA9A815829882EBF00C282C9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A815729882EBF00C282C9 /* SettingsViewController.swift */; };
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
 		FACDE684297EEC5200EDF165 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE683297EEC5200EDF165 /* CustomView.swift */; };
@@ -165,6 +166,7 @@
 		FA95EE8429574495005B39CD /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
 		FA95EE872957589E005B39CD /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA9A815729882EBF00C282C9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMethod.swift; sourceTree = "<group>"; };
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		FACDE683297EEC5200EDF165 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				FA232B492981DE6000F96E51 /* ConfigViewController.swift */,
+				FA9A815729882EBF00C282C9 /* SettingsViewController.swift */,
 				FA232B4D2981E6A900F96E51 /* AboutViewController.swift */,
 				FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */,
 				FA232B512981E6D800F96E51 /* StyleViewController.swift */,
@@ -612,6 +615,7 @@
 				FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */,
 				FA95EE462956FE2A005B39CD /* PositionManager.swift in Sources */,
 				FA232B522981E6D800F96E51 /* StyleViewController.swift in Sources */,
+				FA9A815829882EBF00C282C9 /* SettingsViewController.swift in Sources */,
 				FA95EE382956FDD8005B39CD /* DisplayManager.swift in Sources */,
 				FA64B59F296638DA00600F85 /* Alert.swift in Sources */,
 				FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */,

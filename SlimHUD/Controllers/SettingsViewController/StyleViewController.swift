@@ -9,6 +9,7 @@ import Cocoa
 
 class StyleViewController: NSViewController {
     weak var delegate: HudsControllerInterface?
+    weak var windowController: SettingsWindowController?
     var settingsManager = SettingsManager.getInstance()
     
     @IBOutlet weak var hudToEditOutlet: NSSegmentedControl!
@@ -38,7 +39,8 @@ class StyleViewController: NSViewController {
     }
     
     @IBAction func selectedHudClicked(_ sender: Any) {
-        switch getSelectedHud() {
+        let selectedHud = getSelectedHud()
+        switch selectedHud {
         case .volume:
             barColorOutlet.color = settingsManager.volumeBackgroundColor
             fillColorOutlet.color = settingsManager.volumeEnabledColor
@@ -56,6 +58,7 @@ class StyleViewController: NSViewController {
             iconColorOutlet.color = settingsManager.keyboardIconColor
             showSecondaryFillColorOutlet(false)
         }
+        windowController?.showPreviewHud(bar: selectedHud)
     }
     
     private func showSecondaryFillColorOutlet(_ value: Bool) {
