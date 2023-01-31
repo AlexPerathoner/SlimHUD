@@ -9,6 +9,7 @@ import Cocoa
 
 class DesignViewController: NSViewController {
     weak var delegate: HudsControllerInterface?
+    weak var windowController: SettingsWindowController?
     var settingsManager = SettingsManager.getInstance()
 
     @IBOutlet weak var thicknessValue: NSTextField!
@@ -110,7 +111,7 @@ class DesignViewController: NSViewController {
     }
 
     @IBAction func playAnimationStyle(_ sender: Any) {
-        // TODO: implement this
+        windowController?.restartPreviewHud()
     }
 
     @IBAction func resetDesignClicked(_ sender: Any) {

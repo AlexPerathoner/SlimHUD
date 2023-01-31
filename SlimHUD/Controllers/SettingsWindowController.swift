@@ -38,6 +38,12 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
         displayer.temporarelyEnableAllBars = false
         NSApplication.shared.setActivationPolicy(.accessory)
     }
+    
+    public func restartPreviewHud() {
+        let oldHud = currentPreviewHud
+        hidePreviewHud()
+        showPreviewHud(bar: oldHud)
+    }
 
     public func showPreviewHud(bar: SelectedHud?) {
         if previewTimer == nil || currentPreviewHud != bar { // windowDidLoad() could be called multiple times
@@ -64,5 +70,6 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
     private func hidePreviewHud() {
         previewTimer?.invalidate()
         previewTimer = nil
+        currentPreviewHud = nil
     }
 }

@@ -19,6 +19,7 @@ class TabsManager: NSView {
 
     public func setWindowController(_ windowController: SettingsWindowController) {
         styleVC?.windowController = windowController
+        designVC?.windowController = windowController
     }
 
     override func awakeFromNib() {
