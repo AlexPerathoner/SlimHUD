@@ -12,13 +12,13 @@ final class SettingsUITest: SparkleUITests {
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-     
+
     func testOpenSettingsWindow() throws {
         let app = XCUIApplication()
         app.launch()
-        
+
         XCTAssertTrue(app.windows.count == 0)
-        
+
         app.activate()
 
         let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
