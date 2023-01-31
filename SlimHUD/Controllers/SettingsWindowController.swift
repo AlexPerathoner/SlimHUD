@@ -38,7 +38,7 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
         displayer.temporarelyEnableAllBars = false
         NSApplication.shared.setActivationPolicy(.accessory)
     }
-    
+
     public func restartPreviewHud() {
         let oldHud = currentPreviewHud
         hidePreviewHud()
