@@ -16,8 +16,6 @@ jobs:
       - name: Lint (check)
         id: swiftlint-output
         uses: norio-nomura/action-swiftlint@3.2.1
-        env:
-          DIFF_BASE: ${{ github.base_ref }}
         with:
           args: --config .swiftlint.yml
       - name: Saving changes
