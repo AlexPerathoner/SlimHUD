@@ -31,6 +31,7 @@ class StyleViewController: NSViewController {
     @IBOutlet weak var iconColorsContainerOutlet: NSView!
 
     override func viewDidLoad() {
+        // swiftlint:disable:next force_cast
         self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
         selectedHudClicked(self)
         if #unavailable(macOS 10.14) {

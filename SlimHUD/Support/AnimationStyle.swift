@@ -8,15 +8,15 @@
 import Foundation
 
 enum AnimationStyle: String {
-    case None
-    case Slide
-    case PopInFadeOut = "Pop in + fade out"
-    case Fade
-    case Grow
-    case Shrink
-    case SideGrow = "Side grow"
+    case none = "None"
+    case slide = "Slide"
+    case popInFadeOut = "Pop in + fade out"
+    case fade = "Fade"
+    case grow = "Grow"
+    case shrink = "Shrink"
+    case sideGrow = "Side grow"
 
-    private static let DefaultValue = AnimationStyle.Slide
+    private static let DefaultValue = AnimationStyle.slide
 
     init(from rawValue: String?) {
         self = AnimationStyle(rawValue: rawValue ?? "") ?? AnimationStyle.DefaultValue
@@ -24,7 +24,7 @@ enum AnimationStyle: String {
 
     func requiresInMovement() -> Bool {
         switch self {
-        case .Slide, .SideGrow:
+        case .slide, .sideGrow:
             return true
         default:
             return false

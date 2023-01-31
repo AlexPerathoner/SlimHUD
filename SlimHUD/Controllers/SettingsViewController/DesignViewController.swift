@@ -24,6 +24,7 @@ class DesignViewController: NSViewController {
     @IBOutlet weak var animationStyleOutlet: NSPopUpButton!
 
     override func viewDidLoad() {
+        // swiftlint:disable:next force_cast
         self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
         thicknessValue.stringValue = String(settingsManager.barThickness)
         sizeValue.stringValue = String(settingsManager.barHeight)
@@ -120,6 +121,6 @@ class DesignViewController: NSViewController {
         showIcons(true)
         useFlatBar(true)
         showShadows(true)
-        setAnimationStyle(.Slide)
+        setAnimationStyle(.slide)
     }
 }

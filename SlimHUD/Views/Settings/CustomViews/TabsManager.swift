@@ -23,6 +23,7 @@ class TabsManager: NSView {
     }
 
     override func awakeFromNib() {
+        // swiftlint:disable:next force_cast
         (NSApplication.shared.delegate as! AppDelegate).settingsViewTabsManager = self
         if configVC == nil {
             addSubview(tabs)

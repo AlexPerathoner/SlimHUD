@@ -87,7 +87,10 @@ class HudAnimator {
     public static func shrinkIn(barView: BarView) {
         barView.alphaValue = 0
         let originalBounds = barView.bounds
-        barView.bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary, y: originalBounds.height * ShrinkFactorComplementary, width: originalBounds.width / GrowShrinkFactor, height: originalBounds.height / GrowShrinkFactor)
+        barView.bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary,
+                                y: originalBounds.height * ShrinkFactorComplementary,
+                                width: originalBounds.width / GrowShrinkFactor,
+                                height: originalBounds.height / GrowShrinkFactor)
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
             barView.animator().alphaValue = 1
@@ -102,7 +105,10 @@ class HudAnimator {
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = Constants.Animation.Duration
             barView.animator().alphaValue = 0
-            barView.animator().bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary, y: originalBounds.height * ShrinkFactorComplementary, width: originalBounds.width / GrowShrinkFactor, height: originalBounds.height / GrowShrinkFactor)
+            barView.animator().bounds = NSRect(x: originalBounds.width * ShrinkFactorComplementary,
+                                               y: originalBounds.height * ShrinkFactorComplementary,
+                                               width: originalBounds.width / GrowShrinkFactor,
+                                               height: originalBounds.height / GrowShrinkFactor)
         }, completionHandler: {
             barView.bounds = originalBounds
             completion()

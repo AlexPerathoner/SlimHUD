@@ -9,7 +9,7 @@ import Foundation
 
 enum LogicError: Error {
     enum EnabledBarsConversion: Error {
-        case MultipleBarsSelected
-        case NoBarsSelected
+        case multipleBarsSelected
+        case noBarsSelected
     }
 }

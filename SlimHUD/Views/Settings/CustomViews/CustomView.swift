@@ -24,7 +24,10 @@ class CustomView: NSView {
         setupShadow(enabled: shadowed, shadowRadius: 2, color: shadowColor.cgColor)
         layer?.backgroundColor = NSColor(named: backgroundColorName)?.cgColor
         layer?.cornerRadius = cornerRadius
-        DistributedNotificationCenter.default.addObserver(self, selector: #selector(updateBackgroundColor), name: NSNotification.Name(rawValue: "AppleInterfaceThemeChangedNotification"), object: nil)
+        DistributedNotificationCenter.default.addObserver(self,
+                                                          selector: #selector(updateBackgroundColor),
+                                                          name: NSNotification.Name(rawValue: "AppleInterfaceThemeChangedNotification"),
+                                                          object: nil)
     }
 
     @objc func updateBackgroundColor() {

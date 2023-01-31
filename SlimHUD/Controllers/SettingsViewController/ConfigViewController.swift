@@ -20,6 +20,7 @@ class ConfigViewController: NSViewController {
     @IBOutlet weak var marginStepperOutlet: NSStepper!
 
     override func viewDidLoad() {
+        // swiftlint:disable:next force_cast
         self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
 
         edgeOutlet.delegate = self

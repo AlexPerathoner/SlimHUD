@@ -9,7 +9,7 @@ import AppKit
 
 class Hud: NSView {
 
-    private var animationStyle = AnimationStyle.Slide
+    private var animationStyle = AnimationStyle.slide
 
     /// The NSView that is going to be displayed when show() is called
     private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName, type: BarView.self)
@@ -63,13 +63,13 @@ class Hud: NSView {
             }
 
             switch animationStyle {
-            case .None: HudAnimator.popIn(barView: barView)
-            case .Slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition)
-            case .PopInFadeOut: HudAnimator.popIn(barView: barView)
-            case .Fade: HudAnimator.fadeIn(barView: barView)
-            case .Grow: HudAnimator.growIn(barView: barView)
-            case .Shrink: HudAnimator.shrinkIn(barView: barView)
-            case .SideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition)
+            case .none: HudAnimator.popIn(barView: barView)
+            case .slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition)
+            case .popInFadeOut: HudAnimator.popIn(barView: barView)
+            case .fade: HudAnimator.fadeIn(barView: barView)
+            case .grow: HudAnimator.growIn(barView: barView)
+            case .shrink: HudAnimator.shrinkIn(barView: barView)
+            case .sideGrow: HudAnimator.sideGrowIn(barView: barView, originPosition: originPosition)
             }
         }
     }
@@ -78,13 +78,16 @@ class Hud: NSView {
         if !isHidden {
             if animated {
                 switch animationStyle {
-                case .None: HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
-                case .Slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
-                case .PopInFadeOut: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
-                case .Fade: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
-                case .Grow: HudAnimator.growOut(barView: barView, completion: commonAnimationOutCompletion)
-                case .Shrink: HudAnimator.shrinkOut(barView: barView, completion: commonAnimationOutCompletion)
-                case .SideGrow: HudAnimator.sideGrowOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+                case .none: HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+                case .popInFadeOut: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .fade: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .grow: HudAnimator.growOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .shrink: HudAnimator.shrinkOut(barView: barView, completion: commonAnimationOutCompletion)
+                case .sideGrow: HudAnimator.sideGrowOut(barView: barView,
+                                                        originPosition: originPosition,
+                                                        screenEdge: screenEdge,
+                                                        completion: commonAnimationOutCompletion)
                 }
             } else {
                 HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
@@ -97,7 +100,7 @@ class Hud: NSView {
     }
 
     @objc private func hideDelayed(_ animated: AnyObject?) {
-        hide(animated: (animated as? AnimationStyle) != .None)
+        hide(animated: (animated as? AnimationStyle) != .none)
     }
 
     public func dismiss(delay: TimeInterval) {

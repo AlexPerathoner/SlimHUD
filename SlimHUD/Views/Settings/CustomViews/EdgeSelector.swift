@@ -66,6 +66,7 @@ class EdgeSelector: NSView {
     private static let Origin = NSPoint(x: 200, y: 284)
     override func mouseDown(with event: NSEvent) {
         let normalizedX = Double(event.locationInWindow.x - EdgeSelector.Origin.x) * EdgeSelector.ViewRatio
+        // swiftlint:disable:next identifier_name
         let y = Double(event.locationInWindow.y - EdgeSelector.Origin.y)
         let invertedY = EdgeSelector.Height - y
 

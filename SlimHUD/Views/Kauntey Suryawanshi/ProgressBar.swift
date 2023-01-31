@@ -18,7 +18,7 @@ open class ProgressBar: DeterminateAnimation {
     private var animationDuration: CFTimeInterval = Constants.Animation.Duration
 
     func setupAnimationStyle(animationStyle: AnimationStyle) {
-        if animationStyle == .None || animationStyle == .PopInFadeOut {
+        if animationStyle == .none || animationStyle == .popInFadeOut {
             animationDuration = 0
         } else {
             animationDuration = Constants.Animation.Duration

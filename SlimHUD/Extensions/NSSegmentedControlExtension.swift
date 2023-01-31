@@ -32,10 +32,10 @@ extension NSSegmentedControl {
             selectedCount += 1
         }
         if selectedCount > 1 {
-            throw LogicError.EnabledBarsConversion.MultipleBarsSelected
+            throw LogicError.EnabledBarsConversion.multipleBarsSelected
         }
         if selectedCount == 0 {
-            throw LogicError.EnabledBarsConversion.NoBarsSelected
+            throw LogicError.EnabledBarsConversion.noBarsSelected
         }
         return selected
     }
