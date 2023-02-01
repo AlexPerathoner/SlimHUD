@@ -11,17 +11,23 @@ Every time you change your volume or brightness, an ugly and unbelievably old ov
 
 ---
 
-## 💻 Features
+## 💻 Purpose
 
 Instead of a large, bulky square in the middle of your screen, a small and slim bar appears on the side.
 
 <kbd><img width="600" alt="location" src="https://user-images.githubusercontent.com/104660117/215956263-c8285701-f7d8-43c0-9bce-8c405c14bdaa.png"></kbd>
 <br></br>
 
-There are several appearance effects that you can tailor to your liking.
+## ✏️ Customization
+
+There are several appearance effects that you can tailor.
 
 <img width="450" alt="effects" src="https://user-images.githubusercontent.com/104660117/215937256-ffb6e579-40d8-4b42-90ee-c36337e54be0.png">
 <br></br>
+
+
+|<img width="450" alt="effects" src="https://user-images.githubusercontent.com/104660117/215937256-ffb6e579-40d8-4b42-90ee-c36337e54be0.png">|<img width="41" alt="volume" src="https://user-images.githubusercontent.com/104660117/215955673-92fa1583-cfee-4a09-b89f-f7baebab5846.png"><body>⠀</body><img width="41" alt="bright" src="https://user-images.githubusercontent.com/104660117/215955668-f95ab39c-7cf2-4479-aa57-68c5a4108312.png"><body>⠀</body><img width="41" alt="keyboard" src="https://user-images.githubusercontent.com/104660117/215955670-dce29c10-e765-4d68-835e-8e75bb2f71e4.png">|
+|There are several appearance effects that you can tailor.|Every HUD (volume, brightness, keyboard) has its own style.|
 
 You can choose from multiple appearance animations.
 
