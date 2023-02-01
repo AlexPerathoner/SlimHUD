@@ -1,10 +1,9 @@
 <!--©Alexander Perathoner 19/03/2020-->
 
-![banner](https://user-images.githubusercontent.com/104660117/215970996-7f529fc5-7f7a-4e3a-b704-ff1cca200c27.png)
+![banner](https://user-images.githubusercontent.com/104660117/215970996-7f529fc5-7f7a-4e3a-b704-ff1cca200c27.png)  
 
----
-
-Every time you change your volume or brightness, an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
+Every time you change your volume or brightness, an ugly and unbelievably old overlay animation appears.  
+*SlimHUD* is what you need.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD?ref=badge_shield)
 [![CodeFactor](https://www.codefactor.io/repository/github/alexperathoner/slimhud/badge)](https://www.codefactor.io/repository/github/alexperathoner/slimhud)
