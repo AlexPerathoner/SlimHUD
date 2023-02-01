@@ -8,32 +8,19 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alexpera_slimhud&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=alexpera_slimhud)
 
 
-Replacement for MacOS' HUDs.
+The macOS HUD, redesigned.
 
-Every day you change your volume or brightness and an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
-## Features - Settings
-Each feature can be toggled from the settings window.<br>To access the settings window search the SlimHUD icon in you menu app and select `Settings...`
+Every day you change your volume or brightness, an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
+## Features
+Instead of a large, bulky square in the middle of your screen, a small and slim bar appears on the side.
 
+<kbd><img width="800" alt="screenshot" src="https://user-images.githubusercontent.com/104660117/215924604-d38774a5-5bdf-450a-ad01-280d12a02b83.png"></kbd>
 
-<img align="left"  width="23%" src="Screens/menubar.png">
+There are several appearance effects that you can tailor just to your liking.
 
-<p align="center">
-<img src = "Screens/settingsWindow.png" height=300>
-</p>
+![effects](https://user-images.githubusercontent.com/104660117/215931026-1a7f9b54-ee92-4416-92d2-6e57c63d12e0.png)
 
-Here's a full list of the features:
-
-* When changing volume / brightness / keyboard's backlight a small icon is shown under the bar.
-
-
-* If you don't like the flat look of the bar you can enable a shadow effect.
-<p align="center">
-	<img src = "Screens/Shadows/noShadow.jpeg" height=250>
-	<img src = "Screens/Shadows/shadow.jpeg" height =250>
-</p>
-
-
-* If you don't like the slide-in animation you can disable it. The bar will then just appear and disappear. 
+You can choose from multiple appearance animations.
 
 <p align="center">
 <img src = "Screens/Animations/animations2.gif" width=250 height=47>
@@ -42,19 +29,10 @@ Here's a full list of the features:
 <img src = "Screens/Animations/noAnimations2.gif" width=250 height=47>
 </p>
 
-* Continuously check for changes (*recommended if you use a TouchBar*): shows the HUDs when using the volume / brightness slider.
-
-* Each bar (volume / brightness / keyboard's backlight) has it's own color. If you want to reset the colors to the default values click on the reset icon.<br>The background color is the same for every bar.<br>You can also choose the color of the volume when its muted.
+* Every HUD (volume, brightness, keyboard backlight) has its own appearance.
 <p align="center">
 <img src = "Screens/colors.png" width=250>
 </p>
-
-* Each icon (volume / brightness / keyboard's backlight) also has it's own color! <sup>[1](#note1)</sup>
-
-* If you think that the default bar is too small you can easily adjust its size.
-
-|<img src = "Screens/Size/small.png">|<img src = "Screens/Size/middle.png">|<img src = "Screens/Size/big.png">|
-|--:|---|--:|
 
 
 * The HUDs can appear on any edge: left, right, bottom or top; it's up to you!
