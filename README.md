@@ -14,25 +14,35 @@ Every day you change your volume or brightness, an ugly and unbelievably old ove
 ## Features
 Instead of a large, bulky square in the middle of your screen, a small and slim bar appears on the side.
 
-<kbd><img width="800" alt="screenshot" src="https://user-images.githubusercontent.com/104660117/215924604-d38774a5-5bdf-450a-ad01-280d12a02b83.png"></kbd>
+<kbd><img width="600" alt="screenshot" src="https://user-images.githubusercontent.com/104660117/215924604-d38774a5-5bdf-450a-ad01-280d12a02b83.png"></kbd>
 
-There are several appearance effects that you can tailor just to your liking.
+There are several appearance effects that you can tailor to your liking.
 
-![effects](https://user-images.githubusercontent.com/104660117/215931026-1a7f9b54-ee92-4416-92d2-6e57c63d12e0.png)
+<img width="450" alt="effects" src="https://user-images.githubusercontent.com/104660117/215937256-ffb6e579-40d8-4b42-90ee-c36337e54be0.png">
 
 You can choose from multiple appearance animations.
 
-<p align="center">
-<img src = "Screens/Animations/animations2.gif" width=250 height=47>
-<img src = "Screens/Animations/animations.gif"  width=47 height=250>
-<img src = "Screens/Animations/noAnimations.gif" width=47 height=250>
-<img src = "Screens/Animations/noAnimations2.gif" width=250 height=47>
+<p>
+<img src = "https://user-images.githubusercontent.com/104660117/215941948-2b297736-2925-4964-8b26-795fdba21d56.gif" width=42 height=244>
+<body>⠀</body>
+<img src = "https://user-images.githubusercontent.com/104660117/215941955-d765a172-fea5-4b16-9e26-12be5c5da905.gif" width=42 height=244>
+<body>⠀</body>
+<img src = "https://user-images.githubusercontent.com/104660117/215941958-24fa8a00-7b7c-46f5-9bec-7e5448b13b46.gif" width=42 height=244>
+<body>⠀</body>
+<img src = "https://user-images.githubusercontent.com/104660117/215941959-609eff09-6aee-4a9f-a8e5-fa91c7e1da67.gif" width=42 height=244>
+<body>⠀</body>
+<img src = "https://user-images.githubusercontent.com/104660117/215941960-9cb988f2-ad89-4594-aa69-6465da595b5b.gif" width=42 height=244>
+<body>⠀</body>
+<img src = "https://user-images.githubusercontent.com/104660117/215941961-c88195f6-69ce-4b42-8f09-3eaf91a99683.gif" width=42 height=244>
+<body>⠀</body>
+<img src = "https://user-images.githubusercontent.com/104660117/215941964-0be9c0fd-096b-438d-ae44-cb000e2bfc24.gif" width=42 height=244>
+<br>
+<img src = "https://user-images.githubusercontent.com/104660117/215944787-0e009af2-af16-4a28-ae2a-cc0fe6541a25.png" width=434 height=145>
+</br>
 </p>
 
-* Every HUD (volume, brightness, keyboard backlight) has its own appearance.
-<p align="center">
-<img src = "Screens/colors.png" width=250>
-</p>
+
+Every HUD (volume, brightness, keyboard backlight) has its own appearance.
 
 
 * The HUDs can appear on any edge: left, right, bottom or top; it's up to you!
