@@ -1,6 +1,6 @@
 <!--©Alexander Perathoner 19/03/2020-->
 
-<img align="right" width="25%" src="Screens/Icon1024.png"> 
+<img align="right" width="27%" src="Screens/Icon1024.png"> 
 
 # SlimHUD
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD?ref=badge_shield)
