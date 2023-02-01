@@ -1,18 +1,18 @@
 <!--©Alexander Perathoner 19/03/2020-->
 
-<img align="right" width="27%" src="Screens/Icon1024.png"> 
+![banner](https://user-images.githubusercontent.com/104660117/215970996-7f529fc5-7f7a-4e3a-b704-ff1cca200c27.png)
 
-# SlimHUD
+---
+
+Every time you change your volume or brightness, an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD?ref=badge_shield)
 [![CodeFactor](https://www.codefactor.io/repository/github/alexperathoner/slimhud/badge)](https://www.codefactor.io/repository/github/alexperathoner/slimhud)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alexpera_slimhud&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=alexpera_slimhud)
 
+---
 
-The macOS HUD, redesigned.
-
-Every time you change your volume or brightness, an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
-
-## Features
+## 💻 Features
 
 Instead of a large, bulky square in the middle of your screen, a small and slim bar appears on the side.
 
@@ -68,10 +68,10 @@ The HUDs can appear on any side: left, right, bottom or top. It's up to you!
  <kbd><img width="400" alt="bottom@0 5x" src="https://user-images.githubusercontent.com/104660117/215958812-7e2676ba-892f-4189-88e4-3642d335f6e9.png"></kbd>
 </p>
 
-## Configuration
+## 🛠️ Configuration
 Documentation is available in the [wiki](https://github.com/AlexPerathoner/SlimHUD/wiki/Configure-SlimHUD).
 
-## Installation
+## 🏗️ Installation
 You can use `brew install slimhud`!
 
 Or, download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) and move it to `/Applications`.  
@@ -81,7 +81,7 @@ Or, download the [latest release](https://github.com/AlexPerathoner/SlimHUD/rele
 To uninstall, just delete SlimHUD from `/Applications`.  
 Sorry to see you go!
 
-## Credits
+## 🤝🏼‍ Credits
 Thanks to [w0lfschild](https://github.com/w0lfschild) ([cleanHUD](https://github.com/w0lfschild/cleanHUD)) and [massimobio](https://github.com/massimobio) ([ProgressHUD-Mac](https://github.com/massimobio/ProgressHUD-Mac)) for inspiring me to create this project.
  
 Thanks to [pirate](https://github.com/pirate) and [kaunteya](https://github.com/kaunteya), whose code from [mac-keyboard-brightness](https://github.com/pirate/mac-keyboard-brightness) and [ProgressKit](https://github.com/kaunteya/ProgressKit) (respectively) was used to complete this project.
@@ -90,13 +90,12 @@ And, thanks to [reitermarkus](https://github.com/reitermarkus), [ans87gh](https:
  
 SlimHUD is using [Sparkle](https://sparkle-project.org) to support automatic updates. Binaries are stored on GitHub and all connections use HTTPS.
 
-## Support
+## 🤟🏼 Support
 Starring this project is already great support! If you want to support me even more, you can buy me a beer! :D  
 <br><a href="https://www.buymeacoffee.com/alexpera"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=alexpera&button_colour=94e3fe&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" /></a>
 
-## License
+## 🪪 License
 
 This project is licensed under the GPL-3.0 License - see the [LICENSE.md](LICENSE.md) file for details
-
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FAlexPerathoner%2FSlimHUD?ref=badge_large)
