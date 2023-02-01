@@ -65,7 +65,6 @@ The HUDs can appear on any side: left, right, bottom or top. It's up to you!
  <kbd><img width="400" alt="top@0 5x" src="https://user-images.githubusercontent.com/104660117/215958743-e08bd02e-42e2-46b9-a6b3-9157c5d171e3.png"></kbd>
  <kbd><img width="400" alt="bottom@0 5x" src="https://user-images.githubusercontent.com/104660117/215958812-7e2676ba-892f-4189-88e4-3642d335f6e9.png"></kbd>
 </p>
-<br></br>
 
 ## Configuration
 Documentation is available in the [wiki](https://github.com/AlexPerathoner/SlimHUD/wiki/Configure-SlimHUD).
