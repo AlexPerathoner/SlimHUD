@@ -10,8 +10,10 @@
 
 The macOS HUD, redesigned.
 
-Every day you change your volume or brightness, an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
+Every time you change your volume or brightness, an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
+
 ## Features
+
 Instead of a large, bulky square in the middle of your screen, a small and slim bar appears on the side.
 
 <kbd><img width="600" alt="location" src="https://user-images.githubusercontent.com/104660117/215956263-c8285701-f7d8-43c0-9bce-8c405c14bdaa.png"></kbd>
