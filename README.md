@@ -67,30 +67,30 @@ The HUDs can appear on any side: left, right, bottom or top. It's up to you!
 </p>
 <br></br>
 
+## Configuration
+Documentation is available in the [wiki](https://github.com/AlexPerathoner/SlimHUD/wiki/Configure-SlimHUD).
+
 ## Installation
 You can use `brew install slimhud`!
 
-Or, download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) and move it to `/Applications`.
-Credits to [GameParrot](https://github.com/GameParrot) for making it so easy!
+Or, download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) and move it to `/Applications`.  
+<sup>Credits to [GameParrot](https://github.com/GameParrot) for making it so easy!</sup>
 
 ### Uninstalling
-If you'd like to restore the system's HUDs:
-
-1. Disable "launch at login" or delete SlimHUD from `/Applications`
+To uninstall, just delete SlimHUD from `/Applications`.  
+Sorry to see you go!
 
 ## Credits
-Thanks to [w0lfschild](https://gist.github.com/w0lfschild) and [massimobio](https://gist.github.com/massimobio) for creating respectively
- [cleanHUD](https://github.com/w0lfschild/cleanHUD) and [ProgressHUD-Mac](https://github.com/massimobio/ProgressHUD-Mac) and inspiring me to create this project.
+Thanks to [w0lfschild](https://github.com/w0lfschild) ([cleanHUD](https://github.com/w0lfschild/cleanHUD)) and [massimobio](https://github.com/massimobio) ([ProgressHUD-Mac](https://github.com/massimobio/ProgressHUD-Mac)) for inspiring me to create this project.
  
-Also thanks to [pirate](https://gist.github.com/pirate) and [kaunteya](https://gist.github.com/kaunteya), whose code from these project ([mac-keyboard-brightness](https://github.com/pirate/mac-keyboard-brightness) and [ProgressKit](https://github.com/kaunteya/ProgressKit)) was used to complete this project.
+Thanks to [pirate](https://github.com/pirate) and [kaunteya](https://github.com/kaunteya), whose code from [mac-keyboard-brightness](https://github.com/pirate/mac-keyboard-brightness) and [ProgressKit](https://github.com/kaunteya/ProgressKit) (respectively) was used to complete this project.
 
-Thanks to [reitermarkus](https://gist.github.com/reitermarkus), [ans87gh](https://gist.github.com/ans87gh) and [p-linnane](https://gist.github.com/p-linnane) for adding this project to brew.
+And, thanks to [reitermarkus](https://github.com/reitermarkus), [ans87gh](https://github.com/ans87gh) and [p-linnane](https://github.com/p-linnane) for adding this project to Homebrew!
  
-SlimHUD is using [Sparkle](https://sparkle-project.org) to support automatic updates. Binaries are stored on GitHub and connections use HTTPs.
+SlimHUD is using [Sparkle](https://sparkle-project.org) to support automatic updates. Binaries are stored on GitHub and all connections use HTTPS.
 
 ## Support
-Even starring this project is a great support! If you want to support me even more, you can buy me a beer! :D
-
+Starring this project is already great support! If you want to support me even more, you can buy me a beer! :D  
 <br><a href="https://www.buymeacoffee.com/alexpera"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=alexpera&button_colour=94e3fe&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" /></a>
 
 ## License
