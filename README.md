@@ -14,11 +14,13 @@ Every day you change your volume or brightness, an ugly and unbelievably old ove
 ## Features
 Instead of a large, bulky square in the middle of your screen, a small and slim bar appears on the side.
 
-<kbd><img width="600" alt="screenshot" src="https://user-images.githubusercontent.com/104660117/215924604-d38774a5-5bdf-450a-ad01-280d12a02b83.png"></kbd>
+<kbd><img width="600" alt="location" src="https://user-images.githubusercontent.com/104660117/215956263-c8285701-f7d8-43c0-9bce-8c405c14bdaa.png"></kbd>
+<br></br>
 
 There are several appearance effects that you can tailor to your liking.
 
 <img width="450" alt="effects" src="https://user-images.githubusercontent.com/104660117/215937256-ffb6e579-40d8-4b42-90ee-c36337e54be0.png">
+<br></br>
 
 You can choose from multiple appearance animations.
 
@@ -40,30 +42,36 @@ You can choose from multiple appearance animations.
 <img src = "https://user-images.githubusercontent.com/104660117/215944787-0e009af2-af16-4a28-ae2a-cc0fe6541a25.png" width=434 height=145>
 </br>
 </p>
+<br></br>
 
+Every HUD (volume, brightness, keyboard backlight) has its own style.
 
-Every HUD (volume, brightness, keyboard backlight) has its own appearance.
+<p>
+<img width="41" alt="volume" src="https://user-images.githubusercontent.com/104660117/215955673-92fa1583-cfee-4a09-b89f-f7baebab5846.png">
+ <body>⠀</body>
+<img width="41" alt="bright" src="https://user-images.githubusercontent.com/104660117/215955668-f95ab39c-7cf2-4479-aa57-68c5a4108312.png">
+  <body>⠀</body>
+<img width="41" alt="keyboard" src="https://user-images.githubusercontent.com/104660117/215955670-dce29c10-e765-4d68-835e-8e75bb2f71e4.png">
+</p>
+<br></br>
 
+The HUDs can appear on any side: left, right, bottom or top. It's up to you!
 
-* The HUDs can appear on any edge: left, right, bottom or top; it's up to you!
-
-|<img src = "Screens/Position/left.png">|<img src = "Screens/Position/right.png">|
-|--:|---|
-|<img src = "Screens/Position/top.png">|<img src = "Screens/Position/bottom.png">|
-
-
-* Lastly don't forget to **enable the launch at login function!**
-
-<a name="note1"></a><sup>[1](#note1)</sup>:
-> Only available in MacOS 10.14 and later.
+<p>
+ <kbd><img width="400" alt="left@0 5x" src="https://user-images.githubusercontent.com/104660117/215958622-4353c4ff-6b96-4aea-851e-422e8d0bac90.png"></kbd>
+ <kbd><img width="400" alt="right@0 5x" src="https://user-images.githubusercontent.com/104660117/215958673-79c286cb-ec36-4de9-8a57-205ae6834612.png"></kbd>
+</p>
+<p>
+ <kbd><img width="400" alt="top@0 5x" src="https://user-images.githubusercontent.com/104660117/215958743-e08bd02e-42e2-46b9-a6b3-9157c5d171e3.png"></kbd>
+ <kbd><img width="400" alt="bottom@0 5x" src="https://user-images.githubusercontent.com/104660117/215958812-7e2676ba-892f-4189-88e4-3642d335f6e9.png"></kbd>
+</p>
+<br></br>
 
 ## Installation
 You can use `brew install slimhud`!
 
-Or download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) and move it to `/Applications`.
-
+Or, download the [latest release](https://github.com/AlexPerathoner/SlimHUD/releases/latest) and move it to `/Applications`.
 Credits to [GameParrot](https://github.com/GameParrot) for making it so easy!
-
 
 ### Uninstalling
 If you'd like to restore the system's HUDs:
