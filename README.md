@@ -11,7 +11,7 @@ Every time you change your volume or brightness, an ugly and unbelievably old ov
 
 ---
 
-## 💻 Purpose
+## 💻 Function
 
 Instead of a large, bulky square in the middle of your screen, a small and slim bar appears on the side.
 
