@@ -6,7 +6,7 @@
         <language>en</language>
         <item>
             <title>1.5.0</title>
-            <pubDate>Tue, 07 Feb 2023 21:47:04 +0000</pubDate>
+            <pubDate>Tue, 07 Feb 2023 22:12:56 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
             <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>1.5.0</sparkle:version>
@@ -18,7 +18,7 @@
 <li>New look for the settings window</li>
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.0-beta/SlimHUD.zip" length="6005195" type="application/octet-stream" sparkle:edSignature="DZJkTQEeT1vo/DWt8cA57oVDgsLdQma1OoalxbAfkDiBoR97KsZfLR2PDPmAnDduwbp7FZp8Zolu3+m6JnEOAA=="/>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.0-beta/SlimHUD.zip" length="6005176" type="application/octet-stream" sparkle:edSignature="5kUQZOPGnOGfvgWpQRZWd8lQcAAl6jClJ1qrL5elxFuCPsg7ectUStQ3BEMmNb9JbWCk+y3d4PPTGuq75rhNAA=="/>
         </item>
         <item>
             <title>1.4.2</title>
