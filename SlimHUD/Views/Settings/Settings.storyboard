@@ -1245,7 +1245,11 @@
                     </connections>
                 </viewController>
                 <customObject id="2Ux-We-xnW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="fcV-pP-VF1" customClass="SPUStandardUpdaterController"/>
+                <customObject id="fcV-pP-VF1" customClass="SPUStandardUpdaterController">
+                    <connections>
+                        <outlet property="updaterDelegate" destination="Pci-1u-CsO" id="UMh-Am-bCc"/>
+                    </connections>
+                </customObject>
                 <customObject id="Pci-1u-CsO" customClass="UpdaterDelegate" customModule="SlimHUD" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1634" y="-57"/>
