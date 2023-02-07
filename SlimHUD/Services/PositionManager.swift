@@ -83,10 +83,10 @@ class PositionManager {
         volumeHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
         brightnessHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
         keyboardHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
-        
+
         resetPreviewIcons()
     }
-    
+
     private func resetPreviewIcons() {
         /* FIXME: should be solved in a better way: rotating the bounds of the bar causes the icon's constraints to break.
                   a solution for this is to reset the bar's icon. AA
