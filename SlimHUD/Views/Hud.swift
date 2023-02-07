@@ -119,8 +119,8 @@ class Hud: NSView {
         barView.setIconTint(color)
     }
 
-    public func setIconImage(icon: NSImage) {
-        barView.setIconImage(icon: icon)
+    public func setIconImage(icon: NSImage, force: Bool = false) {
+        barView.setIconImage(icon: icon, force: force)
     }
 
     public func setShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {

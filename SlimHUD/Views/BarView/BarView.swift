@@ -34,12 +34,12 @@ class BarView: NSView {
         return icon.image != newIcon
     }
 
-    public func setIconImage(icon: NSImage) {
+    public func setIconImage(icon: NSImage, force: Bool = false) {
         var color: NSColor?
         if #available(macOS 10.14, *) {
             color = self.icon.contentTintColor
         }
-        if hasIconChanged(newIcon: icon) {
+        if force || hasIconChanged(newIcon: icon) {
             CATransaction.begin()
             CATransaction.setAnimationDuration(0.1)
 
@@ -57,12 +57,6 @@ class BarView: NSView {
 
             CATransaction.commit()
         }
-    }
-    public func setIconImageView(icon: NSImageView) {
-        self.icon = icon
-    }
-    public func setBar(bar: ProgressBar) {
-        self.bar = bar
     }
 
     public func setIconRotation(isHorizontal: Bool) {
