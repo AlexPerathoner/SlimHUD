@@ -22,31 +22,27 @@ Instead of a large, bulky square in the middle of your screen, a small and slim 
 
 There are several appearance effects that you can tailor.
 
-<img width="450" alt="effects" src="https://user-images.githubusercontent.com/104660117/215937256-ffb6e579-40d8-4b42-90ee-c36337e54be0.png">
+<img width="545" alt="effects" src="/Screens/effects.png">
 <br></br>
-
-
-|<img width="450" alt="effects" src="https://user-images.githubusercontent.com/104660117/215937256-ffb6e579-40d8-4b42-90ee-c36337e54be0.png">|<img width="41" alt="volume" src="https://user-images.githubusercontent.com/104660117/215955673-92fa1583-cfee-4a09-b89f-f7baebab5846.png"><body>⠀</body><img width="41" alt="bright" src="https://user-images.githubusercontent.com/104660117/215955668-f95ab39c-7cf2-4479-aa57-68c5a4108312.png"><body>⠀</body><img width="41" alt="keyboard" src="https://user-images.githubusercontent.com/104660117/215955670-dce29c10-e765-4d68-835e-8e75bb2f71e4.png">|
-|There are several appearance effects that you can tailor.|Every HUD (volume, brightness, keyboard) has its own style.|
 
 You can choose from multiple appearance animations.
 
 <p>
-<img src = "https://user-images.githubusercontent.com/104660117/215941948-2b297736-2925-4964-8b26-795fdba21d56.gif" width=42 height=244>
+<img src = "/Screens/animations/fade.gif" width=53 height=305>
 <body>⠀</body>
-<img src = "https://user-images.githubusercontent.com/104660117/215941955-d765a172-fea5-4b16-9e26-12be5c5da905.gif" width=42 height=244>
+<img src = "/Screens/animations/grow.gif" width=53 height=305>
 <body>⠀</body>
-<img src = "https://user-images.githubusercontent.com/104660117/215941958-24fa8a00-7b7c-46f5-9bec-7e5448b13b46.gif" width=42 height=244>
+<img src = "/Screens/animations/none.gif" width=53 height=305>
 <body>⠀</body>
-<img src = "https://user-images.githubusercontent.com/104660117/215941959-609eff09-6aee-4a9f-a8e5-fa91c7e1da67.gif" width=42 height=244>
+<img src = "/Screens/animations/pop_in_fade_out.gif" width=53 height=305>
 <body>⠀</body>
-<img src = "https://user-images.githubusercontent.com/104660117/215941960-9cb988f2-ad89-4594-aa69-6465da595b5b.gif" width=42 height=244>
+<img src = "/Screens/animations/shrink.gif" width=53 height=305>
 <body>⠀</body>
-<img src = "https://user-images.githubusercontent.com/104660117/215941961-c88195f6-69ce-4b42-8f09-3eaf91a99683.gif" width=42 height=244>
+<img src = "/Screens/animations/side_grow.gif" width=53 height=305>
 <body>⠀</body>
-<img src = "https://user-images.githubusercontent.com/104660117/215941964-0be9c0fd-096b-438d-ae44-cb000e2bfc24.gif" width=42 height=244>
+<img src = "/Screens/animations/slide.gif" width=53 height=305>
 <br>
-<img src = "https://user-images.githubusercontent.com/104660117/215944787-0e009af2-af16-4a28-ae2a-cc0fe6541a25.png" width=434 height=145>
+<img src = "/Screens/animations/anims_titles.png" width=503 height=168>
 </br>
 </p>
 <br></br>
@@ -54,23 +50,23 @@ You can choose from multiple appearance animations.
 Every HUD (volume, brightness, keyboard backlight) has its own style.
 
 <p>
-<img width="41" alt="volume" src="https://user-images.githubusercontent.com/104660117/215955673-92fa1583-cfee-4a09-b89f-f7baebab5846.png">
+<img width="41" alt="volume" src="/Screens/hud_sides/volume.png">
  <body>⠀</body>
-<img width="41" alt="bright" src="https://user-images.githubusercontent.com/104660117/215955668-f95ab39c-7cf2-4479-aa57-68c5a4108312.png">
+<img width="41" alt="bright" src="/Screens/hud_sides/bright.png">
   <body>⠀</body>
-<img width="41" alt="keyboard" src="https://user-images.githubusercontent.com/104660117/215955670-dce29c10-e765-4d68-835e-8e75bb2f71e4.png">
+<img width="41" alt="keyboard" src="/Screens/hud_sides/keyboard.png">
 </p>
 <br></br>
 
 The HUDs can appear on any side: left, right, bottom or top. It's up to you!
 
 <p>
- <kbd><img width="400" alt="left@0 5x" src="https://user-images.githubusercontent.com/104660117/215958622-4353c4ff-6b96-4aea-851e-422e8d0bac90.png"></kbd>
- <kbd><img width="400" alt="right@0 5x" src="https://user-images.githubusercontent.com/104660117/215958673-79c286cb-ec36-4de9-8a57-205ae6834612.png"></kbd>
+ <kbd><img width="400" alt="left@0 5x" src="/Screens/positions/left@0.5x.png"></kbd>
+ <kbd><img width="400" alt="right@0 5x" src="/Screens/positions/right@0.5x.png"></kbd>
 </p>
 <p>
- <kbd><img width="400" alt="top@0 5x" src="https://user-images.githubusercontent.com/104660117/215958743-e08bd02e-42e2-46b9-a6b3-9157c5d171e3.png"></kbd>
- <kbd><img width="400" alt="bottom@0 5x" src="https://user-images.githubusercontent.com/104660117/215958812-7e2676ba-892f-4189-88e4-3642d335f6e9.png"></kbd>
+ <kbd><img width="400" alt="top@0 5x" src="/Screens/positions/top@0.5x.png"></kbd>
+ <kbd><img width="400" alt="bottom@0 5x" src="/Screens/positions/bottom@0.5x.png"></kbd>
 </p>
 
 ## 🛠️ Configuration
