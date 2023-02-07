@@ -57,8 +57,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     }
 
     func showSettingsWindow() {
-        if settingsWindowController != nil {
-            settingsWindowController?.showWindow(self)
+        if let settingsWindowController = settingsWindowController {
+            settingsWindowController.showWindow(self)
         } else {
             if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
                 settingsWindowController = windowController
