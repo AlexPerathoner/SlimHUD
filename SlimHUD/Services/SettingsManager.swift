@@ -11,7 +11,7 @@ class SettingsManager {
 
     // MARK: - Keys
 
-    private static let FirstStart = "firstStart"
+    private static let FirstStartKey = "firstStart"
     private static let VolumeBackgroundColorKey = "volumeBackgroundColor"
     private static let BrightnessBackgroundColorKey = "brightnessBackgroundColor"
     private static let KeyboardBackgroundColorKey = "keyboardBackgroundColor"
@@ -35,7 +35,7 @@ class SettingsManager {
 
     var firstStart: Bool {
         didSet {
-            UserDefaultsManager.setItem(firstStart, for: SettingsManager.FirstStart)
+            UserDefaultsManager.setItem(firstStart, for: SettingsManager.FirstStartKey)
         }
     }
 
@@ -160,7 +160,7 @@ class SettingsManager {
     }
 
     private init() {
-        firstStart = UserDefaultsManager.getBool(for: SettingsManager.FirstStart, defaultValue: true)
+        firstStart = UserDefaultsManager.getBool(for: SettingsManager.FirstStartKey, defaultValue: true)
         volumeBackgroundColor = UserDefaultsManager.getItem(for: SettingsManager.VolumeBackgroundColorKey, defaultValue: DefaultColors.DarkGray)
         brightnessBackgroundColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessBackgroundColorKey, defaultValue: DefaultColors.DarkGray)
         keyboardBackgroundColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardBackgroundColorKey, defaultValue: DefaultColors.DarkGray)
