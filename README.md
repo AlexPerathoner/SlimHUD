@@ -16,16 +16,14 @@ Every time you change your volume or brightness, an ugly and unbelievably old ov
 Instead of a large, bulky square in the middle of your screen, a small and slim bar appears on the side.
 
 <kbd><img width="600" alt="location" src="/Screens/location.jpg"></kbd>
-<br></br>
 
 ## ✏️ Customization
 
-There are several appearance effects that you can tailor.
+### There are several appearance effects that you can tailor.
 
 <img width="545" alt="effects" src="/Screens/effects.png">
-<br></br>
 
-You can choose from multiple appearance animations.
+### You can choose from multiple appearance animations.
 
 <p>
 <img src = "/Screens/animations/fade.gif" width=53 height=305>
@@ -45,9 +43,8 @@ You can choose from multiple appearance animations.
 <img src = "/Screens/animations/anims_titles.png" width=503 height=168>
 </br>
 </p>
-<br></br>
 
-Every HUD (volume, brightness, keyboard backlight) has its own style.
+### Every HUD (volume, brightness, keyboard) has its own style.
 
 <p>
 <img width="41" alt="volume" src="/Screens/hud_sides/volume.png">
@@ -56,9 +53,8 @@ Every HUD (volume, brightness, keyboard backlight) has its own style.
   <body>⠀</body>
 <img width="41" alt="keyboard" src="/Screens/hud_sides/keyboard.png">
 </p>
-<br></br>
 
-The HUDs can appear on any side: left, right, bottom or top. It's up to you!
+### The HUDs can appear on any side. It's up to you!
 
 <p>
  <kbd><img width="400" alt="left@0 5x" src="/Screens/positions/left@0.5x.png"></kbd>
@@ -70,7 +66,14 @@ The HUDs can appear on any side: left, right, bottom or top. It's up to you!
 </p>
 
 ## 🛠️ Configuration
-Documentation is available in the [wiki](https://github.com/AlexPerathoner/SlimHUD/wiki/Configure-SlimHUD).
+You can configure SlimHUD with its built-in Preferences.  
+Documentation on these preferences is available in the [SlimHUD wiki](https://github.com/AlexPerathoner/SlimHUD/wiki/Configure-SlimHUD).
+
+<p align="center">
+<img width = "320" src = "/Screens/settings/config.png">
+<img width = "320" src = "/Screens/settings/style.png">
+<img width = "320" src = "/Screens/settings/design.png">
+</p>
 
 ## 🏗️ Installation
 You can use `brew install slimhud`!
