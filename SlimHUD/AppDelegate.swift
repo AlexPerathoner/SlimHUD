@@ -77,7 +77,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         NSApplication.shared.setActivationPolicy(.regular)
         NSApp.activate(ignoringOtherApps: true)
     }
-    
+
     func showWelcomeWindow() {
         if let welcomeWindowController = welcomeWindowController {
             welcomeWindowController.showWindow(self)
