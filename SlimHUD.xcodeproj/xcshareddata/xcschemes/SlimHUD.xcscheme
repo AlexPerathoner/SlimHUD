@@ -102,7 +102,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "showSettingsAtLaunch"
+            argument = "firstStart"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

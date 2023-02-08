@@ -15,6 +15,7 @@ import Sparkle
 class AppDelegate: NSWindowController, NSApplicationDelegate {
     var settingsManager: SettingsManager = SettingsManager.getInstance()
     var settingsWindowController: SettingsWindowController?
+    var welcomeWindowController: WelcomeWindowController?
 
     var volumeHud = Hud()
     var brightnessHud = Hud()
@@ -50,10 +51,18 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         if CommandLine.arguments.contains("showSettingsAtLaunch") {
             showSettingsWindow()
         }
+        if settingsManager.firstStart || CommandLine.arguments.contains("firstStart") {
+            NSApp.activate(ignoringOtherApps: true)
+        }
     }
 
     func applicationDidBecomeActive(_ notification: Notification) {
-        showSettingsWindow()
+        if settingsManager.firstStart || CommandLine.arguments.contains("firstStart") {
+            showWelcomeWindow()
+            settingsManager.firstStart = false
+        } else {
+            showSettingsWindow()
+        }
     }
 
     func showSettingsWindow() {
@@ -62,6 +71,19 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         } else {
             if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
                 settingsWindowController = windowController
+                windowController.showWindow(self)
+            }
+        }
+        NSApplication.shared.setActivationPolicy(.regular)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    func showWelcomeWindow() {
+        if let welcomeWindowController = welcomeWindowController {
+            welcomeWindowController.showWindow(self)
+        } else {
+            if let windowController = NSStoryboard(name: "Welcome", bundle: nil).instantiateInitialController() as? WelcomeWindowController {
+                welcomeWindowController = windowController
                 windowController.showWindow(self)
             }
         }

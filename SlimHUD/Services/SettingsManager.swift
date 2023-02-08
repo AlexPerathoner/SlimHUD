@@ -10,7 +10,8 @@ import Cocoa
 class SettingsManager {
 
     // MARK: - Keys
-
+    
+    private static let FirstStart = "firstStart"
     private static let VolumeBackgroundColorKey = "volumeBackgroundColor"
     private static let BrightnessBackgroundColorKey = "brightnessBackgroundColor"
     private static let KeyboardBackgroundColorKey = "keyboardBackgroundColor"
@@ -31,6 +32,12 @@ class SettingsManager {
     private static let EnabledBarsKey = "enabledBars"
     private static let MarginKey = "marginValue"
     private static let FlatBarKey = "flatBar"
+    
+    var firstStart: Bool {
+        didSet {
+            UserDefaultsManager.setItem(firstStart, for: SettingsManager.FirstStart)
+        }
+    }
 
     // MARK: - Bars colors
     var volumeBackgroundColor: NSColor {
@@ -153,6 +160,7 @@ class SettingsManager {
     }
 
     private init() {
+        firstStart = UserDefaultsManager.getBool(for: SettingsManager.FirstStart, defaultValue: true)
         volumeBackgroundColor = UserDefaultsManager.getItem(for: SettingsManager.VolumeBackgroundColorKey, defaultValue: DefaultColors.DarkGray)
         brightnessBackgroundColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessBackgroundColorKey, defaultValue: DefaultColors.DarkGray)
         keyboardBackgroundColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardBackgroundColorKey, defaultValue: DefaultColors.DarkGray)
