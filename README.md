@@ -70,7 +70,11 @@ You can configure SlimHUD with its built-in Preferences.
 Documentation on these preferences is available in the [SlimHUD wiki](https://github.com/AlexPerathoner/SlimHUD/wiki/Configure-SlimHUD).
 
 <p align="center">
-
+<img width = "300" src = "/Screens/preferences/config.png">  
+<body>⠀</body>
+<img width = "300" src = "/Screens/preferences/style.png">  
+<body>⠀</body>
+<img width = "300" src = "/Screens/preferences/design.png">
 </p>
 
 ## 🏗️ Installation
