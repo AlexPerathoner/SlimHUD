@@ -43,21 +43,12 @@ class PositionManager {
                                                                          screenFrame: screenFrame,
                                                                          isInFullscreen: isFullscreen)
 
-
         let isHudHorizontal = screenEdge == .bottom || screenEdge == .top
-        
+
         setBarsOrientation(isHorizontal: isHudHorizontal)
         setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
-        resetPreviewIcon()
 
         NSLog("screenFrame is \(screenFrame) \(originPosition)")
-    }
-    
-    private func resetPreviewIcon() {
-        // FIXME: should be solved in a better way
-        let volume = VolumeManager.getOutputVolume()
-        volumeHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
-        volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: volume, isMuted: VolumeManager.isMuted()))
     }
 
     static func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
@@ -92,5 +83,32 @@ class PositionManager {
         volumeHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
         brightnessHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
         keyboardHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
+
+        resetPreviewIcons()
+    }
+
+    private func resetPreviewIcons() {
+        /* FIXME: should be solved in a better way: rotating the bounds of the bar causes the icon's constraints to break.
+                  a solution for this is to reset the bar's icon. AA
+         */
+        let volume = VolumeManager.getOutputVolume()
+        volumeHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+        volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: volume, isMuted: VolumeManager.isMuted()))
+        do {
+            let brightness = try DisplayManager.getDisplayBrightness()
+            brightnessHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+            brightnessHud.setIconImage(icon: IconManager.getBrightnessIcon(for: brightness))
+        } catch {
+            brightnessHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+            brightnessHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
+        }
+        do {
+            let keyboard = try KeyboardManager.getKeyboardBrightness()
+            keyboardHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
+            keyboardHud.setIconImage(icon: IconManager.getKeyboardIcon(for: keyboard))
+        } catch {
+            keyboardHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
+            keyboardHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+        }
     }
 }

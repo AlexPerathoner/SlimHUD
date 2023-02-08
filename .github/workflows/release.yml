@@ -22,8 +22,10 @@ jobs:
         run: |
           if [[ "${{ contains(github.event.comment.body, 'beta') }}" == "true" ]]; then
             echo "env=deploy-beta" >> $GITHUB_OUTPUT
+            echo "env=deploy-beta" >> env
           else
             echo "env=deploy-release" >> $GITHUB_OUTPUT
+            echo "env=deploy-release" >> env
           fi
       - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
         id: comment-branch
@@ -40,8 +42,9 @@ jobs:
       - name: Save deployment id
         uses: actions/upload-artifact@master
         with:
-          path: deployment_id
-          name: deployment_id
+          path: |
+            deployment_id
+            env
       - name: Add reactions # adding reactions to the comment to show that the action is running
         uses: peter-evans/create-or-update-comment@v2
         with:
@@ -356,6 +359,7 @@ jobs:
         run: |
           echo "new_version=$(cat artifacts/artifact/new_version)" >> $GITHUB_OUTPUT
           echo "deployment_id=$(cat artifacts/artifact/deployment_id)" >> $GITHUB_OUTPUT
+          echo "env=$(cat artifacts/artifact/env)" >> $GITHUB_OUTPUT
       - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
         id: comment-branch
       - uses: actions/checkout@v3 # checkout again, because the previous checkout is detached
@@ -387,7 +391,7 @@ jobs:
             step: finish
             token: ${{ secrets.GITHUB_TOKEN }}
             status: success
-            env: ${{ steps.deployment.outputs.env }}
+            env: ${{ steps.info.outputs.env }}
             deployment_id: ${{ steps.info.outputs.deployment_id }}
       - name: Add negative reaction
         if: ${{ contains(join(needs.*.result, ','), 'failure') }}

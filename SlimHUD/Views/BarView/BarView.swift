@@ -13,7 +13,7 @@ class BarView: NSView {
 
     @IBOutlet weak var bar: ProgressBar!
     @IBOutlet private var icon: NSImageView!
-    
+
     override func awakeFromNib() {
         if let icon = icon { // not set in
             icon.wantsLayer = true
@@ -29,40 +29,34 @@ class BarView: NSView {
     public func setIconTint(_ color: NSColor) {
         icon.contentTintColor = color
     }
-    
+
     private func hasIconChanged(newIcon: NSImage) -> Bool {
         return icon.image != newIcon
     }
 
-    public func setIconImage(icon: NSImage) {
+    public func setIconImage(icon: NSImage, force: Bool = false) {
         var color: NSColor?
         if #available(macOS 10.14, *) {
             color = self.icon.contentTintColor
         }
-        if hasIconChanged(newIcon: icon) {
+        if force || hasIconChanged(newIcon: icon) {
             CATransaction.begin()
             CATransaction.setAnimationDuration(0.1)
-            
+
             let transition = CATransition()
             transition.type = CATransitionType.fade
-            
+
             let timingFunction = CAMediaTimingFunction(name: .easeOut)
             CATransaction.setAnimationTimingFunction(timingFunction)
-            
+
             self.icon.layer?.add(transition, forKey: kCATransition)
             self.icon.image = icon
             if #available(macOS 10.14, *) {
                 self.icon.contentTintColor = color
             }
-            
+
             CATransaction.commit()
         }
-    }
-    public func setIconImageView(icon: NSImageView) {
-        self.icon = icon
-    }
-    public func setBar(bar: ProgressBar) {
-        self.bar = bar
     }
 
     public func setIconRotation(isHorizontal: Bool) {

@@ -5,10 +5,10 @@
 //  Created by Alex Perathoner on 05/01/23.
 //
 
-import Foundation
-import XCTest
+ import Foundation
+ import XCTest
 
-final class HudsUITest: SparkleUITests {
+ final class HudsUITest: SparkleUITests {
     var app = XCUIApplication()
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -33,4 +33,4 @@ final class HudsUITest: SparkleUITests {
         task.arguments = ["-e set volume output volume 50", "-e delay 1", "-e set volume output volume 20"]
         try task.run()
     }
-}
+ }
