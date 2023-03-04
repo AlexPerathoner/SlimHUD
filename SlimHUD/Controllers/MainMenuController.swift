@@ -8,7 +8,6 @@
 import Cocoa
 
 class MainMenuController: NSWindowController {
-
     @IBOutlet weak var generalMenuItemOutlet: NSMenuItem!
     @IBOutlet weak var designMenuItemOutlet: NSMenuItem!
     @IBOutlet weak var styleMenuItemOutlet: NSMenuItem!
@@ -20,19 +19,16 @@ class MainMenuController: NSWindowController {
 
     @IBAction func quitCliked(_ sender: Any) {
         if isSomeWindowVisible() {
-            if settingsManager.showQuitAlert {
-                let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs",
-                                              text: "If you want to quit, click quit again",
-                                              buttonsTitle: ["OK", "Quit now", "Don't show again"])
-                if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
-                    quit()
-                }
-                if alertResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
-                    settingsManager.showQuitAlert = false
-                }
+            let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs",
+                                          text: "If you want to quit, click quit again",
+                                          buttonsTitle: ["OK", "Quit now"])
+            if alertResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+                closeAllWindows(self)
+                NSApplication.shared.setActivationPolicy(.accessory)
             }
-            closeAllWindows(self)
-            NSApplication.shared.setActivationPolicy(.accessory)
+            if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
+                quit()
+            }
         } else {
             quit()
         }
