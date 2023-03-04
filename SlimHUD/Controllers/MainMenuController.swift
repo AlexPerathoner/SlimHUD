@@ -45,6 +45,9 @@ class MainMenuController: NSWindowController {
     }
 
     func showSettingsWindow() {
+        if isSomeWindowVisible() {
+            return
+        }
         toggleTabSwitcherMenuItems(isHidden: false)
         if settingsWindowController != nil {
             settingsWindowController?.showWindow(self)
@@ -54,7 +57,8 @@ class MainMenuController: NSWindowController {
                 windowController.showWindow(self)
             }
         }
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {_ in
+        // Settings window has now been opened, but isn't frontmost
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: {_ in
             NSApplication.shared.setActivationPolicy(.regular)
             NSApp.activate(ignoringOtherApps: true)
         })
