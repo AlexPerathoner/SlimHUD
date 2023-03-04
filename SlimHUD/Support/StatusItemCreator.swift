@@ -14,7 +14,7 @@ extension AppDelegate {
             if let statusItem = statusItem {
                 // menu bar
                 statusItem.menu = statusMenu
-                
+
                 if let button = statusItem.button {
                     button.image = IconManager.getStatusIcon()
                     button.image?.isTemplate = true
@@ -22,7 +22,7 @@ extension AppDelegate {
             }
         }
     }
-    
+
     func removeStatusItem() {
         if statusItem != nil {
             NSStatusBar.system.removeStatusItem(statusItem!)

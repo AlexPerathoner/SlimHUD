@@ -73,6 +73,7 @@ class ConfigViewController: NSViewController {
     @IBAction func hideMenuBarIconClicked(_ sender: NSButton) {
         let shouldHideMenuBarIcon = sender.boolValue()
         settingsManager.shouldHideMenuBarIcon = shouldHideMenuBarIcon
+        // swiftlint:disable:next force_cast
         let appDelegate = (NSApplication.shared.delegate as! AppDelegate)
         if shouldHideMenuBarIcon {
             appDelegate.removeStatusItem()
@@ -83,7 +84,7 @@ class ConfigViewController: NSViewController {
     }
 
     private func displayInfoDialog() {
-        let _ = showAlert(question: "Menu Bar Icon now hidden",
+        _ = showAlert(question: "Menu Bar Icon now hidden",
                                       text: "To access the settings window, launch SlimHUD again",
                                       buttonsTitle: ["OK"])
     }
