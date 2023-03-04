@@ -50,4 +50,16 @@ final class SettingsUITest: SparkleUITests {
 
         XCTAssertFalse(settingsWindow.isHittable)
     }
+
+    func testQuit() throws {
+        let app = XCUIApplication()
+        app.launch()
+        app.activate()
+        let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
+        settingsWindow.typeKey("q", modifierFlags: .command)
+        app.dialogs["alert"].buttons["Quit now"].click()
+
+        XCTAssertFalse(settingsWindow.isHittable)
+        XCTAssertFalse(app.exists)
+    }
  }
