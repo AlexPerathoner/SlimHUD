@@ -47,28 +47,28 @@
                                         <menuItem isSeparatorItem="YES" id="vC6-xV-rB2"/>
                                         <menuItem title="General" hidden="YES" keyEquivalent="1" id="U4U-hB-CYg">
                                             <connections>
-                                                <action selector="openGeneralTab:" target="RpS-ln-g5c" id="0fw-TT-dXj"/>
+                                                <action selector="openGeneralTab:" target="hbL-WD-91l" id="ZCS-5X-8l9"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Design" hidden="YES" keyEquivalent="2" id="gQz-ob-6GR" userLabel="Design">
                                             <connections>
-                                                <action selector="openDesignTab:" target="RpS-ln-g5c" id="4si-ye-tdl"/>
+                                                <action selector="openDesignTab:" target="hbL-WD-91l" id="B5h-Fx-R0m"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Style" hidden="YES" keyEquivalent="3" id="Grp-js-MQc">
                                             <connections>
-                                                <action selector="openStyleTab:" target="RpS-ln-g5c" id="kVJ-fG-gbG"/>
+                                                <action selector="openStyleTab:" target="hbL-WD-91l" id="JvR-R3-O5G"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="About" hidden="YES" keyEquivalent="4" id="oY1-SC-V1C" userLabel="About">
                                             <connections>
-                                                <action selector="openAboutTab:" target="RpS-ln-g5c" id="coj-9H-pS9"/>
+                                                <action selector="openAboutTab:" target="hbL-WD-91l" id="6yE-1J-rbb"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="llu-Fc-Pfp"/>
                                         <menuItem title="Close Window" keyEquivalent="w" id="hoa-94-aFq">
                                             <connections>
-                                                <action selector="close:" target="hbL-WD-91l" id="K7Z-d3-Jwh"/>
+                                                <action selector="performClose:" target="hbL-WD-91l" id="GgA-UM-z4M"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Quit" keyEquivalent="q" id="xeo-u1-C0T">
