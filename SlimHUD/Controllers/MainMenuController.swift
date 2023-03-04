@@ -8,6 +8,11 @@
 import Cocoa
 
 class MainMenuController: NSWindowController {
+    
+    @IBOutlet weak var generalMenuItemOutlet: NSMenuItem!
+    @IBOutlet weak var designMenuItemOutlet: NSMenuItem!
+    @IBOutlet weak var styleMenuItemOutlet: NSMenuItem!
+    @IBOutlet weak var aboutMenuItemOutlet: NSMenuItem!
 
     var settingsWindowController: SettingsWindowController?
 
@@ -26,7 +31,7 @@ class MainMenuController: NSWindowController {
                     settingsManager.showQuitAlert = false
                 }
             }
-            closeAllWindows()
+            closeAllWindows(self)
             NSApplication.shared.setActivationPolicy(.accessory)
         } else {
             quit()
@@ -40,6 +45,7 @@ class MainMenuController: NSWindowController {
     }
     
     func showSettingsWindow() {
+        toggleTabSwitcherMenuItems(isHidden: false)
         if settingsWindowController != nil {
             settingsWindowController?.showWindow(self)
         } else {
@@ -58,8 +64,9 @@ class MainMenuController: NSWindowController {
         showSettingsWindow()
     }
 
-    private func closeAllWindows() {
+    @IBAction func closeAllWindows(_ sender: Any) {
         settingsWindowController?.close()
+        toggleTabSwitcherMenuItems(isHidden: true)
     }
 
     private func quit() {
@@ -71,5 +78,12 @@ class MainMenuController: NSWindowController {
     private func isSomeWindowVisible() -> Bool {
         return (settingsWindowController?.window?.isVisible ?? false) &&
             NSApplication.shared.activationPolicy() != .accessory
+    }
+    
+    private func toggleTabSwitcherMenuItems(isHidden: Bool) {
+        generalMenuItemOutlet.isHidden = isHidden
+        designMenuItemOutlet.isHidden = isHidden
+        styleMenuItemOutlet.isHidden = isHidden
+        aboutMenuItemOutlet.isHidden = isHidden
     }
 }

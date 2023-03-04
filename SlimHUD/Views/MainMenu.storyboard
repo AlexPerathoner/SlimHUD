@@ -11,7 +11,14 @@
                 <customObject id="Fkg-Y0-35E" customClass="SPUStandardUpdaterController"/>
                 <customObject id="hbL-WD-91l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="ev8-l2-p2M" customClass="NSFontManager"/>
-                <customObject id="Rye-fc-SjU" customClass="MainMenuController" customModule="SlimHUD" customModuleProvider="target"/>
+                <customObject id="Rye-fc-SjU" customClass="MainMenuController" customModule="SlimHUD" customModuleProvider="target">
+                    <connections>
+                        <outlet property="aboutMenuItemOutlet" destination="oY1-SC-V1C" id="Agf-1e-B18"/>
+                        <outlet property="designMenuItemOutlet" destination="gQz-ob-6GR" id="V9h-Pi-w7l"/>
+                        <outlet property="generalMenuItemOutlet" destination="U4U-hB-CYg" id="izo-bF-WrN"/>
+                        <outlet property="styleMenuItemOutlet" destination="Grp-js-MQc" id="OaX-4R-z16"/>
+                    </connections>
+                </customObject>
                 <customObject id="RpS-ln-g5c" userLabel="Delegate" customClass="AppDelegate" customModule="SlimHUD" customModuleProvider="target">
                     <connections>
                         <outlet property="mainMenuController" destination="Rye-fc-SjU" id="OOJ-ko-dRd"/>
@@ -38,22 +45,22 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="vC6-xV-rB2"/>
-                                        <menuItem title="General" keyEquivalent="1" id="U4U-hB-CYg">
+                                        <menuItem title="General" hidden="YES" keyEquivalent="1" id="U4U-hB-CYg">
                                             <connections>
-                                                <action selector="openGeneralTab:" target="RpS-ln-g5c" id="J5Z-Ds-w18"/>
+                                                <action selector="openGeneralTab:" target="RpS-ln-g5c" id="0fw-TT-dXj"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Design" keyEquivalent="2" id="gQz-ob-6GR" userLabel="Design">
+                                        <menuItem title="Design" hidden="YES" keyEquivalent="2" id="gQz-ob-6GR" userLabel="Design">
                                             <connections>
                                                 <action selector="openDesignTab:" target="RpS-ln-g5c" id="4si-ye-tdl"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Style" keyEquivalent="3" id="Grp-js-MQc">
+                                        <menuItem title="Style" hidden="YES" keyEquivalent="3" id="Grp-js-MQc">
                                             <connections>
                                                 <action selector="openStyleTab:" target="RpS-ln-g5c" id="kVJ-fG-gbG"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="About" keyEquivalent="4" id="oY1-SC-V1C" userLabel="About">
+                                        <menuItem title="About" hidden="YES" keyEquivalent="4" id="oY1-SC-V1C" userLabel="About">
                                             <connections>
                                                 <action selector="openAboutTab:" target="RpS-ln-g5c" id="coj-9H-pS9"/>
                                             </connections>
@@ -61,7 +68,7 @@
                                         <menuItem isSeparatorItem="YES" id="llu-Fc-Pfp"/>
                                         <menuItem title="Close Window" keyEquivalent="w" id="hoa-94-aFq">
                                             <connections>
-                                                <action selector="performClose:" target="hbL-WD-91l" id="SCF-2P-Tnq"/>
+                                                <action selector="closeAllWindows:" target="Rye-fc-SjU" id="QGO-0a-RVA"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Quit" keyEquivalent="q" id="xeo-u1-C0T">
