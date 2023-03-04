@@ -46,6 +46,7 @@ class MainMenuController: NSWindowController {
 
     func showSettingsWindow() {
         if isSomeWindowVisible() {
+            NSApp.activate(ignoringOtherApps: true)
             return
         }
         toggleTabSwitcherMenuItems(isHidden: false)
