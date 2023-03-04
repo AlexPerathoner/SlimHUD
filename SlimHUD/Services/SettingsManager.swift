@@ -31,6 +31,7 @@ class SettingsManager {
     private static let EnabledBarsKey = "enabledBars"
     private static let MarginKey = "marginValue"
     private static let FlatBarKey = "flatBar"
+    private static let ShouldHideMenuBarIconKey = "shouldHideMenuBarIcon"
 
     // MARK: - Bars colors
     var volumeBackgroundColor: NSColor {
@@ -144,6 +145,12 @@ class SettingsManager {
             UserDefaults.standard.set(marginValue, forKey: SettingsManager.MarginKey)
         }
     }
+    
+    var shouldHideMenuBarIcon: Bool {
+        didSet {
+            UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
+        }
+    }
 
     // MARK: - Class methods
 
@@ -173,6 +180,7 @@ class SettingsManager {
         position = Position(rawValue: rawPosition) ?? .left
         shouldContinuouslyCheck = CommandLine.arguments.contains(SettingsManager.ShouldContinuouslyCheckKey) ?
             true : UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
+        shouldHideMenuBarIcon = UserDefaultsManager.getBool(for: SettingsManager.ShouldHideMenuBarIconKey, defaultValue: false)
         animationStyle = AnimationStyle(from: UserDefaultsManager.getString(for: SettingsManager.AnimationStyleKey, defaultValue: ""))
         let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.EnabledBarsKey, defaultValue: [true, true, true])
         let (volumeBarEnabled, brightnessBarEnabled, keyboardBarEnabled) =
@@ -212,6 +220,7 @@ class SettingsManager {
         UserDefaultsManager.setItem(volumeIconColor, for: SettingsManager.VolumeIconColorKey)
         UserDefaultsManager.setItem(brightnessIconColor, for: SettingsManager.BrightnessIconColorKey)
         UserDefaultsManager.setItem(keyboardIconColor, for: SettingsManager.KeyboardIconColorKey)
+        
 
         UserDefaults.standard.set(barHeight, forKey: SettingsManager.BarHeightKey)
         UserDefaults.standard.set(barThickness, forKey: SettingsManager.BarThicknessKey)
@@ -226,6 +235,7 @@ class SettingsManager {
         UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
         UserDefaults.standard.set(animationStyle.rawValue, forKey: SettingsManager.AnimationStyleKey)
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
+        UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
         UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
     }
 

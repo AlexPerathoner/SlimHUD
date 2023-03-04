@@ -18,6 +18,7 @@ class ConfigViewController: NSViewController {
     @IBOutlet weak var launchAtLoginOutlet: NSButton!
     @IBOutlet weak var enabledBarsOutlet: NSSegmentedControl!
     @IBOutlet weak var marginStepperOutlet: NSStepper!
+    @IBOutlet weak var hideMenuBarIconOutlet: NSButton!
 
     override func viewDidLoad() {
         // swiftlint:disable:next force_cast
@@ -34,6 +35,7 @@ class ConfigViewController: NSViewController {
         marginStepperOutlet.integerValue = settingsManager.marginValue
         continuousCheckOutlet.state = settingsManager.shouldContinuouslyCheck.toStateValue()
         launchAtLoginOutlet.state = loginItemsList.isLoginItemInList().toStateValue()
+        hideMenuBarIconOutlet.state = settingsManager.shouldHideMenuBarIcon.toStateValue()
     }
 
     func setPosition(edge: Position) {
@@ -61,10 +63,22 @@ class ConfigViewController: NSViewController {
     @IBAction func continuousCheckClicked(_ sender: NSButton) {
         settingsManager.shouldContinuouslyCheck = sender.boolValue()
     }
-
+    
     @IBAction func marginValueChanged(_ sender: NSStepper) {
         let marginValue = sender.integerValue
         settingsManager.marginValue = marginValue
         marginOutlet.stringValue = String(marginValue) + "%"
+    }
+    
+    @IBAction func hideMenuBarIconClicked(_ sender: NSButton) {
+        let shouldHideMenuBarIcon = sender.boolValue()
+        settingsManager.shouldHideMenuBarIcon = shouldHideMenuBarIcon
+        if shouldHideMenuBarIcon {
+            displayInfoDialog()
+        }
+    }
+    
+    private func displayInfoDialog() {
+        // TODO: explain how to open settings if menu bar icon is hidden
     }
 }

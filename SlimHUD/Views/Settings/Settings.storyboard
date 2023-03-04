@@ -397,7 +397,7 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="continuousCheckClicked:" target="zap-3a-Qsd" id="PKJ-og-tCX"/>
+                                                    <action selector="hideMenuBarIconClicked:" target="zap-3a-Qsd" id="xMU-Az-fdV"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -420,6 +420,7 @@
                         <outlet property="continuousCheckOutlet" destination="fkD-2H-T2B" id="KTU-Fa-0cp"/>
                         <outlet property="edgeOutlet" destination="VgX-4r-T4f" id="yPZ-du-6Oq"/>
                         <outlet property="enabledBarsOutlet" destination="s45-Vq-x4E" id="UkQ-gt-dij"/>
+                        <outlet property="hideMenuBarIconOutlet" destination="nvT-lZ-LZ1" id="yi6-zu-ep2"/>
                         <outlet property="launchAtLoginOutlet" destination="JNA-8h-6Cf" id="Bae-uX-JK2"/>
                         <outlet property="marginOutlet" destination="74i-bE-195" id="eXg-CZ-uM6"/>
                         <outlet property="marginStepperOutlet" destination="ey4-vm-74X" id="r1R-sH-JRV"/>
