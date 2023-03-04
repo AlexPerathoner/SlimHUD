@@ -24,7 +24,7 @@
             XCTAssertEqual(error.localizedDescription, "")
         }
         usleep(500000)
-        XCTAssert(app.windows.count >= 1)
+        XCTAssertTrue(isVolumeHudVisible(app: app))
     }
 
     private func changeVolume() throws {

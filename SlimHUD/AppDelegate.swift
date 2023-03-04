@@ -34,6 +34,10 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
             addStatusItem()
         }
 
+        volumeHud.identifier = NSUserInterfaceItemIdentifier("volumeHud")
+        brightnessHud.identifier = NSUserInterfaceItemIdentifier("brightnessHud")
+        volumeHud.window?.title = "volumeTitle"
+        brightnessHud.window?.title = "brightnesTitle"
         displayer.updateAllAttributes()
     }
 
