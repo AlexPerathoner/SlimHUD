@@ -63,13 +63,13 @@ class ConfigViewController: NSViewController {
     @IBAction func continuousCheckClicked(_ sender: NSButton) {
         settingsManager.shouldContinuouslyCheck = sender.boolValue()
     }
-    
+
     @IBAction func marginValueChanged(_ sender: NSStepper) {
         let marginValue = sender.integerValue
         settingsManager.marginValue = marginValue
         marginOutlet.stringValue = String(marginValue) + "%"
     }
-    
+
     @IBAction func hideMenuBarIconClicked(_ sender: NSButton) {
         let shouldHideMenuBarIcon = sender.boolValue()
         settingsManager.shouldHideMenuBarIcon = shouldHideMenuBarIcon
@@ -77,7 +77,7 @@ class ConfigViewController: NSViewController {
             displayInfoDialog()
         }
     }
-    
+
     private func displayInfoDialog() {
         // TODO: explain how to open settings if menu bar icon is hidden
     }

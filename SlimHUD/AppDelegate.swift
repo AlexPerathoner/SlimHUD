@@ -79,7 +79,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     @IBAction func openAboutTab(_ sender: Any) {
         settingsViewTabsManager?.selectItem(index: 3)
     }
-    
+
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var mainMenuController: MainMenuController!
 }

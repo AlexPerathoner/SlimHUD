@@ -146,7 +146,7 @@ class SettingsManager {
             UserDefaults.standard.set(marginValue, forKey: SettingsManager.MarginKey)
         }
     }
-    
+
     var shouldHideMenuBarIcon: Bool {
         didSet {
             UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
@@ -232,7 +232,6 @@ class SettingsManager {
         UserDefaultsManager.setItem(volumeIconColor, for: SettingsManager.VolumeIconColorKey)
         UserDefaultsManager.setItem(brightnessIconColor, for: SettingsManager.BrightnessIconColorKey)
         UserDefaultsManager.setItem(keyboardIconColor, for: SettingsManager.KeyboardIconColorKey)
-        
 
         UserDefaults.standard.set(barHeight, forKey: SettingsManager.BarHeightKey)
         UserDefaults.standard.set(barThickness, forKey: SettingsManager.BarThicknessKey)

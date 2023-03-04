@@ -8,7 +8,7 @@
 import Cocoa
 
 class MainMenuController: NSWindowController {
-    
+
     @IBOutlet weak var generalMenuItemOutlet: NSMenuItem!
     @IBOutlet weak var designMenuItemOutlet: NSMenuItem!
     @IBOutlet weak var styleMenuItemOutlet: NSMenuItem!
@@ -37,13 +37,13 @@ class MainMenuController: NSWindowController {
             quit()
         }
     }
-    
+
     override func awakeFromNib() {
         if CommandLine.arguments.contains("showSettingsAtLaunch") {
             showSettingsWindow()
         }
     }
-    
+
     func showSettingsWindow() {
         toggleTabSwitcherMenuItems(isHidden: false)
         if settingsWindowController != nil {
@@ -79,7 +79,7 @@ class MainMenuController: NSWindowController {
         return (settingsWindowController?.window?.isVisible ?? false) &&
             NSApplication.shared.activationPolicy() != .accessory
     }
-    
+
     private func toggleTabSwitcherMenuItems(isHidden: Bool) {
         generalMenuItemOutlet.isHidden = isHidden
         designMenuItemOutlet.isHidden = isHidden
