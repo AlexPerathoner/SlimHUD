@@ -26,28 +26,28 @@ final class SettingsUITest: SparkleUITests {
         addScreenshot(window: settingsWindow, name: "Settings")
     }
 
-    func testCloseWindow() throws {
+    func testCloseWindowWithCmdW() throws {
+        let app = XCUIApplication()
+        app.launch()
+        app.activate()
+        
+        let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
+        
+        settingsWindow.typeKey("w", modifierFlags: .command)
+        usleep(5000)
+        XCTAssertFalse(settingsWindow.isHittable)
+    }
+    
+    func testCloseWindowWithCmdQ() throws {
         let app = XCUIApplication()
         app.launch()
         app.activate()
 
-        var settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
-
-        settingsWindow.typeKey("w", modifierFlags: .command)
-
-        XCTAssertFalse(settingsWindow.isHittable)
-
-        // relaunching as the app is now in background and doesn't accept test interaction
-
-        app.launch()
-        app.activate()
-
-        // try closing with cmd + q
-        settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
+        let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
 
         settingsWindow.typeKey("q", modifierFlags: .command)
         app.dialogs["alert"].buttons["OK"].click()
-
+        usleep(5000)
         XCTAssertFalse(settingsWindow.isHittable)
     }
 
