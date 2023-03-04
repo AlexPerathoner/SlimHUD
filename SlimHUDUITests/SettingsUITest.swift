@@ -30,14 +30,14 @@ final class SettingsUITest: SparkleUITests {
         let app = XCUIApplication()
         app.launch()
         app.activate()
-        
+
         let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
-        
+
         settingsWindow.typeKey("w", modifierFlags: .command)
         usleep(5000)
         XCTAssertFalse(settingsWindow.isHittable)
     }
-    
+
     func testCloseWindowWithCmdQ() throws {
         let app = XCUIApplication()
         app.launch()
