@@ -27,6 +27,12 @@ class EdgeSelector: NSView {
         buttonLeft.edge = .left
         buttonRight.edge = .right
         buttonBottom.edge = .bottom
+
+        // needed for UI Tests
+        buttonTop.title = "Top"
+        buttonLeft.title = "Left"
+        buttonRight.title = "Right"
+        buttonBottom.title = "Bottom"
     }
 
     // used by the delegate to update the buttons' states
@@ -63,11 +69,12 @@ class EdgeSelector: NSView {
     private static let Width = 163.0
     private static let Height = 92.0
     private static let ViewRatio = Height / Width
-    private static let Origin = NSPoint(x: 200, y: 284)
+    private static let BottomLeftCornerRelativeToWindow = NSPoint(x: 200, y: 406)
+
     override func mouseDown(with event: NSEvent) {
-        let normalizedX = Double(event.locationInWindow.x - EdgeSelector.Origin.x) * EdgeSelector.ViewRatio
+        let normalizedX = Double(event.locationInWindow.x - EdgeSelector.BottomLeftCornerRelativeToWindow.x) * EdgeSelector.ViewRatio
         // swiftlint:disable:next identifier_name
-        let y = Double(event.locationInWindow.y - EdgeSelector.Origin.y)
+        let y = Double(event.locationInWindow.y - EdgeSelector.BottomLeftCornerRelativeToWindow.y)
         let invertedY = EdgeSelector.Height - y
 
         var clickedEdge: Position = .right

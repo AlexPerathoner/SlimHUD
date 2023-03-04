@@ -13,8 +13,9 @@ import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSWindowController, NSApplicationDelegate {
+    var statusItem: NSStatusItem?
+
     var settingsManager: SettingsManager = SettingsManager.getInstance()
-    var settingsWindowController: SettingsWindowController?
 
     var volumeHud = Hud()
     var brightnessHud = Hud()
@@ -28,6 +29,15 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        if !settingsManager.shouldHideMenuBarIcon {
+            addStatusItem()
+        }
+
+        volumeHud.identifier = NSUserInterfaceItemIdentifier("volumeHud")
+        brightnessHud.identifier = NSUserInterfaceItemIdentifier("brightnessHud")
+        volumeHud.window?.title = "volumeTitle"
+        brightnessHud.window?.title = "brightnesTitle"
         displayer.updateAllAttributes()
     }
 
@@ -46,42 +56,10 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         }
 
         OSDUIManager.stop()
-
-        if CommandLine.arguments.contains("showSettingsAtLaunch") {
-            showSettingsWindow()
-        }
     }
 
     func applicationDidBecomeActive(_ notification: Notification) {
-        showSettingsWindow()
-    }
-
-    func showSettingsWindow() {
-        if let settingsWindowController = settingsWindowController {
-            settingsWindowController.showWindow(self)
-        } else {
-            if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
-                settingsWindowController = windowController
-                windowController.showWindow(self)
-            }
-        }
-        NSApplication.shared.setActivationPolicy(.regular)
-        NSApp.activate(ignoringOtherApps: true)
-    }
-
-    @IBAction func quitCliked(_ sender: Any) {
-        if isSomeWindowVisible() {
-            let alertResponse = showAlert(question: "SlimHUD will continue to show HUDs in the background",
-                                          text: "If you want to quit, click \"Quit now\"",
-                                          buttonsTitle: ["OK", "Quit now"])
-            if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
-                quit()
-            }
-            closeAllWindows()
-            NSApplication.shared.setActivationPolicy(.accessory)
-        } else {
-            quit()
-        }
+        mainMenuController.showSettingsWindow()
     }
 
     @IBAction func openGeneralTab(_ sender: Any) {
@@ -100,18 +78,6 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
         settingsViewTabsManager?.selectItem(index: 3)
     }
 
-    private func closeAllWindows() {
-        settingsWindowController?.close()
-    }
-
-    private func quit() {
-        settingsManager.saveAllItems()
-        OSDUIManager.start()
-        exit(0)
-    }
-
-    private func isSomeWindowVisible() -> Bool {
-        return (settingsWindowController?.window?.isVisible ?? false) &&
-            NSApplication.shared.activationPolicy() != .accessory
-    }
+    @IBOutlet weak var statusMenu: NSMenu!
+    @IBOutlet weak var mainMenuController: MainMenuController!
 }

@@ -8,6 +8,8 @@
 import Cocoa
 
 class SettingsWindowController: NSWindowController, NSWindowDelegate {
+    weak var delegate: MainMenuController?
+
     private var previewTimer: Timer?
 
     // swiftlint:disable:next force_cast
@@ -16,6 +18,8 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
     private var currentPreviewHud: SelectedHud? = .volume
 
     override func windowDidLoad() {
+        window?.delegate = self
+
         NSApp.activate(ignoringOtherApps: true)
         NSApplication.shared.setActivationPolicy(.regular)
 
@@ -31,12 +35,14 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
         super.showWindow(sender)
         showPreviewHud(bar: nil)
         displayer.temporarelyEnableAllBars = true
+        delegate?.toggleTabSwitcherMenuItems(isHidden: false)
     }
 
     func windowWillClose(_ notification: Notification) {
         hidePreviewHud()
         displayer.temporarelyEnableAllBars = false
         NSApplication.shared.setActivationPolicy(.accessory)
+        delegate?.toggleTabSwitcherMenuItems(isHidden: true)
     }
 
     public func restartPreviewHud() {

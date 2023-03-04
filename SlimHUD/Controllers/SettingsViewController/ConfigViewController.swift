@@ -18,6 +18,7 @@ class ConfigViewController: NSViewController {
     @IBOutlet weak var launchAtLoginOutlet: NSButton!
     @IBOutlet weak var enabledBarsOutlet: NSSegmentedControl!
     @IBOutlet weak var marginStepperOutlet: NSStepper!
+    @IBOutlet weak var hideMenuBarIconOutlet: NSButton!
 
     override func viewDidLoad() {
         // swiftlint:disable:next force_cast
@@ -34,6 +35,7 @@ class ConfigViewController: NSViewController {
         marginStepperOutlet.integerValue = settingsManager.marginValue
         continuousCheckOutlet.state = settingsManager.shouldContinuouslyCheck.toStateValue()
         launchAtLoginOutlet.state = loginItemsList.isLoginItemInList().toStateValue()
+        hideMenuBarIconOutlet.state = settingsManager.shouldHideMenuBarIcon.toStateValue()
     }
 
     func setPosition(edge: Position) {
@@ -66,5 +68,24 @@ class ConfigViewController: NSViewController {
         let marginValue = sender.integerValue
         settingsManager.marginValue = marginValue
         marginOutlet.stringValue = String(marginValue) + "%"
+    }
+
+    @IBAction func hideMenuBarIconClicked(_ sender: NSButton) {
+        let shouldHideMenuBarIcon = sender.boolValue()
+        settingsManager.shouldHideMenuBarIcon = shouldHideMenuBarIcon
+        // swiftlint:disable:next force_cast
+        let appDelegate = (NSApplication.shared.delegate as! AppDelegate)
+        if shouldHideMenuBarIcon {
+            appDelegate.removeStatusItem()
+            displayInfoDialog()
+        } else {
+            appDelegate.addStatusItem()
+        }
+    }
+
+    private func displayInfoDialog() {
+        _ = showAlert(question: "Menu Bar Icon now hidden",
+                                      text: "To access the settings window, launch SlimHUD again",
+                                      buttonsTitle: ["OK"])
     }
 }

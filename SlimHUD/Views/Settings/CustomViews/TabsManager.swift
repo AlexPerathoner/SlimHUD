@@ -8,7 +8,8 @@
 import Cocoa
 
 class TabsManager: NSView {
-    var tabs: TabsView = TabsView(frame: .init(x: 0, y: 414, width: 400, height: 86))
+    static private let TabsViewHeight = 86
+    var tabs: TabsView = TabsView(frame: .init(x: 0, y: 0, width: 400, height: TabsViewHeight))
     var contentViews: [NSView] = []
     var view: NSView?
 
@@ -23,6 +24,7 @@ class TabsManager: NSView {
     }
 
     override func awakeFromNib() {
+        print(self.view?.frame)
         // swiftlint:disable:next force_cast
         (NSApplication.shared.delegate as! AppDelegate).settingsViewTabsManager = self
         if configVC == nil {
@@ -60,7 +62,22 @@ class TabsManager: NSView {
         for contentView in contentViews {
             contentView.isHidden = true
         }
-        contentViews[index].isHidden = false
+        let innerViewToShow = contentViews[index]
+        innerViewToShow.isHidden = false
+        let newContainerSize = NSSize(width: self.frame.width, height: innerViewToShow.frame.height + CGFloat(TabsManager.TabsViewHeight))
+        self.setFrameSize(newContainerSize)
+        tabs.setFrameOrigin(.init(x: 0, y: innerViewToShow.frame.height))
+        setWindowFrameSize(newSize: newContainerSize)
+    }
+
+    private func setWindowFrameSize(newSize: NSSize) {
+        if let window = window {
+            let oldFrame = window.frame
+            // window should be resized while keeping the top edge fixed
+            let newOrigin = CGPoint(x: oldFrame.origin.x,
+                                    y: oldFrame.origin.y + (oldFrame.height - newSize.height))
+            window.setFrame(NSRect(origin: newOrigin, size: newSize), display: true)
+        }
     }
 
 }

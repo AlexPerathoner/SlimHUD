@@ -31,6 +31,7 @@ class SettingsManager {
     private static let EnabledBarsKey = "enabledBars"
     private static let MarginKey = "marginValue"
     private static let FlatBarKey = "flatBar"
+    private static let ShouldHideMenuBarIconKey = "shouldHideMenuBarIcon"
 
     // MARK: - Bars colors
     var volumeBackgroundColor: NSColor {
@@ -145,6 +146,12 @@ class SettingsManager {
         }
     }
 
+    var shouldHideMenuBarIcon: Bool {
+        didSet {
+            UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
+        }
+    }
+
     // MARK: - Class methods
 
     static private let singletonSettingsController = SettingsManager()
@@ -173,6 +180,7 @@ class SettingsManager {
         position = Position(rawValue: rawPosition) ?? .left
         shouldContinuouslyCheck = CommandLine.arguments.contains(SettingsManager.ShouldContinuouslyCheckKey) ?
             true : UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
+        shouldHideMenuBarIcon = UserDefaultsManager.getBool(for: SettingsManager.ShouldHideMenuBarIconKey, defaultValue: false)
         animationStyle = AnimationStyle(from: UserDefaultsManager.getString(for: SettingsManager.AnimationStyleKey, defaultValue: ""))
         let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.EnabledBarsKey, defaultValue: [true, true, true])
         let (volumeBarEnabled, brightnessBarEnabled, keyboardBarEnabled) =
@@ -226,6 +234,7 @@ class SettingsManager {
         UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
         UserDefaults.standard.set(animationStyle.rawValue, forKey: SettingsManager.AnimationStyleKey)
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
+        UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
         UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
     }
 

@@ -11,7 +11,10 @@ extension XCUIApplication {
     func shouldContinuouslyCheck() {
         launchArguments += ["shouldContinuouslyCheck"]
     }
-    func shouldShowSettingsAtLaunch() {
+    func showSettings() {
         launchArguments += ["showSettingsAtLaunch"]
+    }
+    func showSparkleReminder() {
+        UserDefaults.standard.set(Date() + 80000, forKey: "SULastCheckTime")
     }
 }
