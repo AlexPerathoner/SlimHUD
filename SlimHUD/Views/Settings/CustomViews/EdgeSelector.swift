@@ -27,7 +27,7 @@ class EdgeSelector: NSView {
         buttonLeft.edge = .left
         buttonRight.edge = .right
         buttonBottom.edge = .bottom
-        
+
         // needed for UI Tests
         buttonTop.title = "Top"
         buttonLeft.title = "Left"
