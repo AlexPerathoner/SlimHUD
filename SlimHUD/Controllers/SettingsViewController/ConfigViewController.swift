@@ -83,6 +83,8 @@ class ConfigViewController: NSViewController {
     }
 
     private func displayInfoDialog() {
-        // TODO: explain how to open settings if menu bar icon is hidden
+        let _ = showAlert(question: "Menu Bar Icon now hidden",
+                                      text: "To access the settings window, launch SlimHUD again",
+                                      buttonsTitle: ["OK"])
     }
 }
