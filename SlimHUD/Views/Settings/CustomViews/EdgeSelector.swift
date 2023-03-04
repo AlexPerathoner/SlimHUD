@@ -63,11 +63,12 @@ class EdgeSelector: NSView {
     private static let Width = 163.0
     private static let Height = 92.0
     private static let ViewRatio = Height / Width
-    private static let Origin = NSPoint(x: 200, y: 284)
+    private static let BottomLeftCornerRelativeToWindow = NSPoint(x: 200, y: 406)
+    // TODO add UI Test for EdgeSelector
     override func mouseDown(with event: NSEvent) {
-        let normalizedX = Double(event.locationInWindow.x - EdgeSelector.Origin.x) * EdgeSelector.ViewRatio
+        let normalizedX = Double(event.locationInWindow.x - EdgeSelector.BottomLeftCornerRelativeToWindow.x) * EdgeSelector.ViewRatio
         // swiftlint:disable:next identifier_name
-        let y = Double(event.locationInWindow.y - EdgeSelector.Origin.y)
+        let y = Double(event.locationInWindow.y - EdgeSelector.BottomLeftCornerRelativeToWindow.y)
         let invertedY = EdgeSelector.Height - y
 
         var clickedEdge: Position = .right
