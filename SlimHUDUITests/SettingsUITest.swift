@@ -62,4 +62,18 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertFalse(settingsWindow.isHittable)
         XCTAssertFalse(app.exists)
     }
+    
+    func testSwitchTabs() throws {
+        let app = XCUIApplication()
+        app.showSettings()
+        app.launch()
+        
+        let settingsWindow = XCUIApplication().windows["Settings"]
+
+        settingsWindow.typeKey("4", modifierFlags:.command)
+        XCTAssertTrue(settingsWindow.images["application icon"].waitForExistence(timeout: 1))
+        
+        settingsWindow.typeKey("1", modifierFlags:.command)
+        XCTAssertTrue(settingsWindow.radioButtons["Top"].waitForExistence(timeout: 1))
+    }
  }
