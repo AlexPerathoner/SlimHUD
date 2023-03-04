@@ -8,15 +8,34 @@
 import XCTest
 
 final class ConfigSettingsUITest: SparkleUITests {
+    let app = XCUIApplication()
     override func setUpWithError() throws {
         continueAfterFailure = false
-    }
-
-    func testEdgeSelector() throws {
-        let app = XCUIApplication()
         app.showSettings()
         app.launch()
-
+    }
+    
+    func testHideStatusItem() throws {
+        let checkBox = app.windows["Settings"].children(matching: .checkBox).element(boundBy: 2)
+        
+        checkBox.click()
+        if checkBox.value as? Int == 0 {
+            XCTAssertTrue(app.menuBars.element(boundBy: 1).waitForExistence(timeout: 1))
+        } else {
+            app.dialogs["alert"].typeText("\r")
+            XCTAssertFalse(app.menuBars.element(boundBy: 1).waitForExistence(timeout: 1))
+        }
+        
+        checkBox.click()
+        if checkBox.value as? Int == 0 {
+            XCTAssertTrue(app.menuBars.element(boundBy: 1).waitForExistence(timeout: 1))
+        } else {
+            app.dialogs["alert"].typeText("\r")
+            XCTAssertFalse(app.menuBars.element(boundBy: 1).waitForExistence(timeout: 1))
+        }
+    }
+    
+    func testEdgeSelector() throws {
         let settingsWindow = app.windows["Settings"]
         let coordinate = settingsWindow.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
 

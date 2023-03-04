@@ -18,6 +18,7 @@ extension AppDelegate {
                 if let button = statusItem.button {
                     button.image = IconManager.getStatusIcon()
                     button.image?.isTemplate = true
+                    button.identifier = NSUserInterfaceItemIdentifier("StatusItem")
                 }
             }
         }
