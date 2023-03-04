@@ -13,7 +13,7 @@ import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSWindowController, NSApplicationDelegate {
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    var statusItem: NSStatusItem?
 
     var settingsManager: SettingsManager = SettingsManager.getInstance()
 
@@ -30,12 +30,8 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        // menu bar
-        statusItem.menu = statusMenu
-
-        if let button = statusItem.button {
-            button.image = IconManager.getStatusIcon()
-            button.image?.isTemplate = true
+        if !settingsManager.shouldHideMenuBarIcon {
+            addStatusItem()
         }
 
         displayer.updateAllAttributes()
@@ -59,9 +55,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ notification: Notification) {
-        if settingsManager.shouldHideMenuBarIcon {
-            mainMenuController.showSettingsWindow()
-        }
+        mainMenuController.showSettingsWindow()
     }
 
     @IBAction func openGeneralTab(_ sender: Any) {

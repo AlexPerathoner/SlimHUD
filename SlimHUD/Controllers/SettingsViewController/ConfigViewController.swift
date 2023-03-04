@@ -73,8 +73,12 @@ class ConfigViewController: NSViewController {
     @IBAction func hideMenuBarIconClicked(_ sender: NSButton) {
         let shouldHideMenuBarIcon = sender.boolValue()
         settingsManager.shouldHideMenuBarIcon = shouldHideMenuBarIcon
+        let appDelegate = (NSApplication.shared.delegate as! AppDelegate)
         if shouldHideMenuBarIcon {
+            appDelegate.removeStatusItem()
             displayInfoDialog()
+        } else {
+            appDelegate.addStatusItem()
         }
     }
 
