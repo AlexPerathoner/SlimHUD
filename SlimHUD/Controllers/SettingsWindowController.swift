@@ -35,12 +35,14 @@ class SettingsWindowController: NSWindowController, NSWindowDelegate {
         super.showWindow(sender)
         showPreviewHud(bar: nil)
         displayer.temporarelyEnableAllBars = true
+        delegate?.toggleTabSwitcherMenuItems(isHidden: false)
     }
 
     func windowWillClose(_ notification: Notification) {
         hidePreviewHud()
         displayer.temporarelyEnableAllBars = false
         NSApplication.shared.setActivationPolicy(.accessory)
+        delegate?.toggleTabSwitcherMenuItems(isHidden: true)
     }
 
     public func restartPreviewHud() {

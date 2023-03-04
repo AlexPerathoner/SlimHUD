@@ -23,7 +23,7 @@ class MainMenuController: NSWindowController {
                                           text: "If you want to quit, click quit again",
                                           buttonsTitle: ["OK", "Quit now"])
             if alertResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
-                closeAllWindows(self)
+                closeAllWindows()
                 NSApplication.shared.setActivationPolicy(.accessory)
             }
             if alertResponse == NSApplication.ModalResponse.alertSecondButtonReturn {
@@ -45,12 +45,12 @@ class MainMenuController: NSWindowController {
             NSApp.activate(ignoringOtherApps: true)
             return
         }
-        toggleTabSwitcherMenuItems(isHidden: false)
         if settingsWindowController != nil {
             settingsWindowController?.showWindow(self)
         } else {
             if let windowController = NSStoryboard(name: "Settings", bundle: nil).instantiateInitialController() as? SettingsWindowController {
                 settingsWindowController = windowController
+                settingsWindowController?.delegate = self
                 windowController.showWindow(self)
             }
         }
@@ -65,9 +65,8 @@ class MainMenuController: NSWindowController {
         showSettingsWindow()
     }
 
-    @IBAction func closeAllWindows(_ sender: Any) {
+    func closeAllWindows() {
         settingsWindowController?.close()
-        toggleTabSwitcherMenuItems(isHidden: true)
     }
 
     private func quit() {
@@ -81,7 +80,7 @@ class MainMenuController: NSWindowController {
             NSApplication.shared.activationPolicy() != .accessory
     }
 
-    private func toggleTabSwitcherMenuItems(isHidden: Bool) {
+    func toggleTabSwitcherMenuItems(isHidden: Bool) {
         generalMenuItemOutlet.isHidden = isHidden
         designMenuItemOutlet.isHidden = isHidden
         styleMenuItemOutlet.isHidden = isHidden

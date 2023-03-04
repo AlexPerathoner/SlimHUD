@@ -68,7 +68,7 @@
                                         <menuItem isSeparatorItem="YES" id="llu-Fc-Pfp"/>
                                         <menuItem title="Close Window" keyEquivalent="w" id="hoa-94-aFq">
                                             <connections>
-                                                <action selector="closeAllWindows:" target="Rye-fc-SjU" id="QGO-0a-RVA"/>
+                                                <action selector="close:" target="hbL-WD-91l" id="K7Z-d3-Jwh"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Quit" keyEquivalent="q" id="xeo-u1-C0T">
