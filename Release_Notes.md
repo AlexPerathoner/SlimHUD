@@ -2,6 +2,7 @@
 * Icons change depending on value
 * Add multiple in-out animation styles
 * New look for the settings window
+* Add option to hide the menu bar icon
 
 @kaydenanderson
 
