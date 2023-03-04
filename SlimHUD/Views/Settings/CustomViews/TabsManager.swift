@@ -69,7 +69,7 @@ class TabsManager: NSView {
         tabs.setFrameOrigin(.init(x: 0, y: innerViewToShow.frame.height))
         setWindowFrameSize(newSize: newContainerSize)
     }
-    
+
     private func setWindowFrameSize(newSize: NSSize) {
         if let window = window {
             let oldFrame = window.frame
