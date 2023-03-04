@@ -11,7 +11,7 @@ extension XCUIApplication {
     func shouldContinuouslyCheck() {
         launchArguments += ["shouldContinuouslyCheck"]
     }
-    func shouldShowSettingsAtLaunch() {
-        launchArguments += ["showSettingsAtLaunch"]
+    func showCmdQAlert(_ showCmdQAlert: Bool) {
+        launchArguments += ["showQuitAlert", showCmdQAlert.description]
     }
 }
