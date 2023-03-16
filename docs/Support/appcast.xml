@@ -6,9 +6,8 @@
         <language>en</language>
         <item>
             <title>1.5.0</title>
-            <pubDate>Sat, 04 Mar 2023 18:20:38 +0000</pubDate>
+            <pubDate>Thu, 16 Mar 2023 17:49:13 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
-            <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>1.5.0</sparkle:version>
             <sparkle:shortVersionString>1.5.0</sparkle:shortVersionString>
             <description><![CDATA[<h1>New look</h1>
@@ -16,9 +15,10 @@
 <li>Icons change depending on value</li>
 <li>Add multiple in-out animation styles</li>
 <li>New look for the settings window</li>
+<li>Add option to hide the menu bar icon</li>
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.0-beta/SlimHUD.zip" length="6016006" type="application/octet-stream" sparkle:edSignature="oEN5/jJbOa6S8aad+mZ67+8lgVW+RRFXx0S5gxl+/tVraK1Gasirvvts5MKo38moZA4fKeKkzrMlM5SlTJ+CDw=="/>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.0/SlimHUD.zip" length="6016059" type="application/octet-stream" sparkle:edSignature="7wM9yHZBRKhr2SsieQVJpjOPG3TECJ00lFezm1aF0BNbyuUKqeL1KzXBWReVmfsfV4V1x72+uX7H3h2uH5RaCQ=="/>
         </item>
         <item>
             <title>1.4.2</title>
@@ -49,30 +49,6 @@
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.1/SlimHUD.zip" length="5459927" type="application/octet-stream" sparkle:edSignature="KWwaRCplJKyt7fnAVsvEhu75uPE1Cp3rUhiCcMj4WZqrnue2oThPchk9vLDBJT1be0tt5qo/IyhojhXuJgrtCQ=="/>
-        </item>
-        <item>
-            <title>1.4.0</title>
-            <pubDate>Sun, 01 Jan 2023 18:13:12 +0000</pubDate>
-            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
-            <sparkle:version>1.4.0</sparkle:version>
-            <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
-            <sparkle:tags>
-                <sparkle:criticalUpdate/>
-            </sparkle:tags>
-            <description><![CDATA[<h1>Fixes</h1>
-              <h2>Critical update!</h2>
-              Due to changes in my signing certificates, this update can't be installed automatically!<br>Please download it manually from  <a href="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.0/SlimHUD.zip">GitHub</a>.
-<ul>
-<li>Fix bug: hud too near to the screen edge</li>
-<li>Hiding MacOS' default HUD without modifying system configuration files.</li>
-<li>Fix bug: implemented new ways to retrieve brightness</li>
-<li>Fix bug: keyboard backlight hud working again</li>
-<li>Update to Sparkle 2</li>
-<li>Change in signing certificates: please update manually to the <a href="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.0/SlimHUD.zip">latest release</a>!</li>
-<li>Disabling keyboard and display brightness bars until screen settings changes if it wasn't possible to retrieve their values</li>
-</ul>]]></description>
-            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.0/SlimHUD.zip" length="5435874" type="application/octet-stream"/>
         </item>
         <item>
             <title>Added support to MacOS 10.13</title>

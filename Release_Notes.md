@@ -1,3 +1,11 @@
+# 1.5.0 - New look
+* Icons change depending on value
+* Add multiple in-out animation styles
+* New look for the settings window
+* Add option to hide the menu bar icon
+
+@kaydenanderson
+
 # 1.4.2 - Improved non-continous checks
 * Show system HUDs after SlimHUD quit
 * Fix: HUDs didn't always appear when pressing keys 

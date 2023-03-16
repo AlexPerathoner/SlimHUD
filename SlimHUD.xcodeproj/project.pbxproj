@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA22D04E2985DC2300821D1C /* LogicError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22D04D2985DC2300821D1C /* LogicError.swift */; };
+		FA232B4A2981DE6000F96E51 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B492981DE6000F96E51 /* ConfigViewController.swift */; };
+		FA232B4C2981E1FC00F96E51 /* TabsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4B2981E1FC00F96E51 /* TabsManager.swift */; };
+		FA232B4E2981E6A900F96E51 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4D2981E6A900F96E51 /* AboutViewController.swift */; };
+		FA232B502981E6CA00F96E51 /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */; };
+		FA232B522981E6D800F96E51 /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B512981E6D800F96E51 /* StyleViewController.swift */; };
+		FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */; };
+		FA322FC4297F485700E8F31A /* StandardLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA322FC3297F485700E8F31A /* StandardLabel.swift */; };
+		FA322FC6297F506200E8F31A /* EdgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA322FC5297F506200E8F31A /* EdgeSelector.swift */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
 		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
 		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
@@ -18,18 +27,15 @@
 		FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A32966579D00600F85 /* swift-lint.yml */; };
 		FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */; };
 		FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B5AA2966645100600F85 /* SinglePopover.swift */; };
+		FA767E75297C5DAD0006E091 /* HudAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */; };
+		FA7811E32975EFE500FEE1AA /* AnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */; };
+		FA7811E52975FE9400FEE1AA /* HudAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E42975FE9400FEE1AA /* HudAnimator.swift */; };
 		FA8B1A4B296E70D80015AAEB /* UpdaterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8B1A4A296E70D80015AAEB /* UpdaterDelegate.swift */; };
 		FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EDF42956FCBF005B39CD /* AppDelegate.swift */; };
 		FA95EDF92956FCC1005B39CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA95EDF82956FCC1005B39CD /* Assets.xcassets */; };
-		FA95EE132956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */; };
-		FA95EE212956FCF0005B39CD /*  HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */; };
+		FA95EE212956FCF0005B39CD /* HudsControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE202956FCF0005B39CD /* HudsControllerInterface.swift */; };
 		FA95EE242956FD3A005B39CD /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FA95EE232956FD3A005B39CD /* Sparkle */; };
-		FA95EE262956FD45005B39CD /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE252956FD45005B39CD /* AboutWindowController.swift */; };
 		FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE272956FD54005B39CD /* SettingsWindowController.swift */; };
-		FA95EE2B2956FD7B005B39CD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */; };
-		FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */; };
-		FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */; };
-		FA95EE312956FDA2005B39CD /* SettingsViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */; };
 		FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */; };
 		FA95EE382956FDD8005B39CD /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE372956FDD8005B39CD /* DisplayManager.swift */; };
 		FA95EE3A2956FDE7005B39CD /* OSDUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE392956FDE7005B39CD /* OSDUIManager.swift */; };
@@ -51,25 +57,28 @@
 		FA95EE5B2956FEA9005B39CD /* NSSegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE5A2956FEA9005B39CD /* NSSegmentedControlExtension.swift */; };
 		FA95EE5E2956FEC3005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE5D2956FEC3005B39CD /* Constants.swift */; };
 		FA95EE612956FED6005B39CD /* SensorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE602956FED6005B39CD /* SensorError.swift */; };
-		FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6429573ECD005B39CD /* SettingsView.swift */; };
 		FA95EE6829573EEF005B39CD /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6729573EEF005B39CD /* BarView.swift */; };
-		FA95EE6B29573F0B005B39CD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6A29573F0B005B39CD /* AboutViewController.swift */; };
 		FA95EE6D29573F36005B39CD /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6C29573F36005B39CD /* Hud.swift */; };
 		FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE6F29573F55005B39CD /* ProgressBar.swift */; };
 		FA95EE7229573F63005B39CD /* DeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE7129573F63005B39CD /* DeterminateAnimation.swift */; };
 		FA95EE7429573F71005B39CD /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE7329573F71005B39CD /* BaseView.swift */; };
-		FA95EE78295741CB005B39CD /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE77295741CA005B39CD /* About.storyboard */; };
 		FA95EE7A295741D2005B39CD /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE79295741D2005B39CD /* BarView.xib */; };
 		FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE7B295741DE005B39CD /* MainMenu.storyboard */; };
 		FA95EE7E295741E6005B39CD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE7D295741E6005B39CD /* Settings.storyboard */; };
-		FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE7F2957445D005B39CD /* AboutUITest.swift */; };
 		FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8129574471005B39CD /* SettingsUITest.swift */; };
 		FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8429574495005B39CD /* SparkleUITests.swift */; };
 		FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE872957589E005B39CD /* PositionManagerTests.swift */; };
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
+		FA9A815829882EBF00C282C9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A815729882EBF00C282C9 /* SettingsViewController.swift */; };
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
+		FACDE684297EEC5200EDF165 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE683297EEC5200EDF165 /* CustomView.swift */; };
+		FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE68E297F105600EDF165 /* TabItemView.swift */; };
+		FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE692297F1BD300EDF165 /* TabsView.swift */; };
 		FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */; };
+		FAD49D0E29B38E680034A8D8 /* StatusItemCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */; };
+		FAD49D1029B398ED0034A8D8 /* ConfigSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0F29B398ED0034A8D8 /* ConfigSettingsTest.swift */; };
+		FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5122970F80E00C8D5DB /* IconManager.swift */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
 		FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579F29675F7700C32A80 /* AppleScriptError.swift */; };
 		FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */; };
@@ -95,6 +104,15 @@
 /* Begin PBXFileReference section */
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA22D04D2985DC2300821D1C /* LogicError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicError.swift; sourceTree = "<group>"; };
+		FA232B492981DE6000F96E51 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		FA232B4B2981E1FC00F96E51 /* TabsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsManager.swift; sourceTree = "<group>"; };
+		FA232B4D2981E6A900F96E51 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
+		FA232B512981E6D800F96E51 /* StyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
+		FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
+		FA322FC3297F485700E8F31A /* StandardLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLabel.swift; sourceTree = "<group>"; };
+		FA322FC5297F506200E8F31A /* EdgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeSelector.swift; sourceTree = "<group>"; };
 		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
 		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
 		FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAUITestSetup.swift; sourceTree = "<group>"; };
@@ -104,20 +122,17 @@
 		FA64B5A32966579D00600F85 /* swift-lint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "swift-lint.yml"; sourceTree = "<group>"; };
 		FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-ui-tests.yml"; sourceTree = "<group>"; };
 		FA64B5AA2966645100600F85 /* SinglePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePopover.swift; sourceTree = "<group>"; };
+		FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimatorTests.swift; sourceTree = "<group>"; };
+		FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStyle.swift; sourceTree = "<group>"; };
+		FA7811E42975FE9400FEE1AA /* HudAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimator.swift; sourceTree = "<group>"; };
 		FA8B1A4A296E70D80015AAEB /* UpdaterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterDelegate.swift; sourceTree = "<group>"; };
 		FA95EDF12956FCBF005B39CD /* SlimHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA95EDF42956FCBF005B39CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA95EDF82956FCC1005B39CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA95EE022956FCC1005B39CD /* SlimHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA95EE0C2956FCC1005B39CD /* SlimHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimHUDUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " HudsControllerInterface.swift"; sourceTree = "<group>"; };
-		FA95EE252956FD45005B39CD /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		FA95EE202956FCF0005B39CD /* HudsControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsControllerInterface.swift; sourceTree = "<group>"; };
 		FA95EE272956FD54005B39CD /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
-		FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+General.swift"; sourceTree = "<group>"; };
-		FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Position.swift"; sourceTree = "<group>"; };
-		FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Style.swift"; sourceTree = "<group>"; };
 		FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPressObserver.swift; sourceTree = "<group>"; };
 		FA95EE372956FDD8005B39CD /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
 		FA95EE392956FDE7005B39CD /* OSDUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSDUIManager.swift; sourceTree = "<group>"; };
@@ -139,26 +154,29 @@
 		FA95EE5A2956FEA9005B39CD /* NSSegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSegmentedControlExtension.swift; sourceTree = "<group>"; };
 		FA95EE5D2956FEC3005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA95EE602956FED6005B39CD /* SensorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorError.swift; sourceTree = "<group>"; };
-		FA95EE6429573ECD005B39CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA95EE6729573EEF005B39CD /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
-		FA95EE6A29573F0B005B39CD /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FA95EE6C29573F36005B39CD /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		FA95EE6F29573F55005B39CD /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		FA95EE7129573F63005B39CD /* DeterminateAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeterminateAnimation.swift; sourceTree = "<group>"; };
 		FA95EE7329573F71005B39CD /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA95EE7529574141005B39CD /* SlimHUD.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SlimHUD.entitlements; sourceTree = "<group>"; };
 		FA95EE762957416E005B39CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		FA95EE77295741CA005B39CD /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		FA95EE79295741D2005B39CD /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
 		FA95EE7B295741DE005B39CD /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		FA95EE7D295741E6005B39CD /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		FA95EE7F2957445D005B39CD /* AboutUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUITest.swift; sourceTree = "<group>"; };
 		FA95EE8129574471005B39CD /* SettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITest.swift; sourceTree = "<group>"; };
 		FA95EE8429574495005B39CD /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
 		FA95EE872957589E005B39CD /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA9A815729882EBF00C282C9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMethod.swift; sourceTree = "<group>"; };
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		FACDE683297EEC5200EDF165 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		FACDE68E297F105600EDF165 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
+		FACDE692297F1BD300EDF165 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemCreator.swift; sourceTree = "<group>"; };
+		FAD49D0F29B398ED0034A8D8 /* ConfigSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSettingsTest.swift; sourceTree = "<group>"; };
+		FAF1A5122970F80E00C8D5DB /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
 		FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FAFC579F29675F7700C32A80 /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
 		FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIApplicationExtension.swift; sourceTree = "<group>"; };
@@ -263,9 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				FA95EE832957448E005B39CD /* Utils */,
-				FA95EE122956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift */,
-				FA95EE7F2957445D005B39CD /* AboutUITest.swift */,
 				FA95EE8129574471005B39CD /* SettingsUITest.swift */,
+				FAD49D0F29B398ED0034A8D8 /* ConfigSettingsTest.swift */,
 				FA56F6DF29666AB1008177B1 /* HudsUITests.swift */,
 			);
 			path = SlimHUDUITests;
@@ -275,8 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				FA95EE292956FD68005B39CD /* SettingsViewController */,
-				FA95EE202956FCF0005B39CD /*  HudsControllerInterface.swift */,
-				FA95EE252956FD45005B39CD /* AboutWindowController.swift */,
+				FA95EE202956FCF0005B39CD /* HudsControllerInterface.swift */,
+				FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */,
 				FA95EE272956FD54005B39CD /* SettingsWindowController.swift */,
 			);
 			path = Controllers;
@@ -285,10 +302,11 @@
 		FA95EE292956FD68005B39CD /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FA95EE2A2956FD7B005B39CD /* SettingsViewController.swift */,
-				FA95EE2C2956FD89005B39CD /* SettingsViewController+General.swift */,
-				FA95EE2E2956FD95005B39CD /* SettingsViewController+Position.swift */,
-				FA95EE302956FDA2005B39CD /* SettingsViewController+Style.swift */,
+				FA9A815729882EBF00C282C9 /* SettingsViewController.swift */,
+				FA232B492981DE6000F96E51 /* ConfigViewController.swift */,
+				FA232B512981E6D800F96E51 /* StyleViewController.swift */,
+				FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */,
+				FA232B4D2981E6A900F96E51 /* AboutViewController.swift */,
 			);
 			path = SettingsViewController;
 			sourceTree = "<group>";
@@ -297,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */,
+				FA7811E42975FE9400FEE1AA /* HudAnimator.swift */,
 				FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */,
 				FA95EE372956FDD8005B39CD /* DisplayManager.swift */,
 				FA95EE392956FDE7005B39CD /* OSDUIManager.swift */,
@@ -307,6 +326,7 @@
 				FA95EE432956FE20005B39CD /* LoginItemList.swift */,
 				FA95EE452956FE2A005B39CD /* PositionManager.swift */,
 				FA95EE472956FE37005B39CD /* Displayer.swift */,
+				FAF1A5122970F80E00C8D5DB /* IconManager.swift */,
 				FA95EE492956FE44005B39CD /* SettingsManager.swift */,
 				FA8B1A4A296E70D80015AAEB /* UpdaterDelegate.swift */,
 			);
@@ -336,6 +356,8 @@
 				FA95EE582956FE9A005B39CD /* Position.swift */,
 				FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */,
 				FA64B59E296638DA00600F85 /* Alert.swift */,
+				FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */,
+				FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -345,6 +367,7 @@
 			children = (
 				FA95EE602956FED6005B39CD /* SensorError.swift */,
 				FAFC579F29675F7700C32A80 /* AppleScriptError.swift */,
+				FA22D04D2985DC2300821D1C /* LogicError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -355,7 +378,6 @@
 				FA95EE7B295741DE005B39CD /* MainMenu.storyboard */,
 				FA95EE6C29573F36005B39CD /* Hud.swift */,
 				FA95EE632956FEEA005B39CD /* Settings */,
-				FA95EE6929573EF8005B39CD /* About */,
 				FA95EE6629573EE5005B39CD /* BarView */,
 				FA64B5A92966643600600F85 /* SinglePopover */,
 				FA95EE6E29573F47005B39CD /* Kauntey Suryawanshi */,
@@ -366,8 +388,8 @@
 		FA95EE632956FEEA005B39CD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				FACDE689297EF47300EDF165 /* CustomViews */,
 				FA95EE7D295741E6005B39CD /* Settings.storyboard */,
-				FA95EE6429573ECD005B39CD /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -379,15 +401,6 @@
 				FA95EE6729573EEF005B39CD /* BarView.swift */,
 			);
 			path = BarView;
-			sourceTree = "<group>";
-		};
-		FA95EE6929573EF8005B39CD /* About */ = {
-			isa = PBXGroup;
-			children = (
-				FA95EE77295741CA005B39CD /* About.storyboard */,
-				FA95EE6A29573F0B005B39CD /* AboutViewController.swift */,
-			);
-			path = About;
 			sourceTree = "<group>";
 		};
 		FA95EE6E29573F47005B39CD /* Kauntey Suryawanshi */ = {
@@ -415,8 +428,22 @@
 			isa = PBXGroup;
 			children = (
 				FA95EE872957589E005B39CD /* PositionManagerTests.swift */,
+				FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FACDE689297EF47300EDF165 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FA232B4B2981E1FC00F96E51 /* TabsManager.swift */,
+				FACDE692297F1BD300EDF165 /* TabsView.swift */,
+				FACDE68E297F105600EDF165 /* TabItemView.swift */,
+				FA322FC3297F485700E8F31A /* StandardLabel.swift */,
+				FA322FC5297F506200E8F31A /* EdgeSelector.swift */,
+				FACDE683297EEC5200EDF165 /* CustomView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,7 +561,6 @@
 				FA0E038629663300004066FF /* Release_Notes.md in Resources */,
 				FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */,
 				FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */,
-				FA95EE78295741CB005B39CD /* About.storyboard in Resources */,
 				FA0E03882966331A004066FF /* README.md in Resources */,
 				FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */,
 				FA64B5A52966579D00600F85 /* release.yml in Resources */,
@@ -566,48 +592,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA95EE262956FD45005B39CD /* AboutWindowController.swift in Sources */,
+				FA7811E52975FE9400FEE1AA /* HudAnimator.swift in Sources */,
 				FA95EE422956FE14005B39CD /* VolumeManager.swift in Sources */,
 				FA95EE532956FE7C005B39CD /* NSControlExtension.swift in Sources */,
 				FA95EE7229573F63005B39CD /* DeterminateAnimation.swift in Sources */,
 				FA95EE3E2956FDFB005B39CD /* ChangesObserver.swift in Sources */,
-				FA95EE212956FCF0005B39CD /*  HudsControllerInterface.swift in Sources */,
+				FA95EE212956FCF0005B39CD /* HudsControllerInterface.swift in Sources */,
 				FA95EE6D29573F36005B39CD /* Hud.swift in Sources */,
 				FA95EE5E2956FEC3005B39CD /* Constants.swift in Sources */,
 				FA95EE572956FE91005B39CD /* BoolExtension.swift in Sources */,
 				FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */,
 				FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */,
+				FA22D04E2985DC2300821D1C /* LogicError.swift in Sources */,
 				FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */,
+				FA322FC6297F506200E8F31A /* EdgeSelector.swift in Sources */,
 				FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */,
 				FA8B1A4B296E70D80015AAEB /* UpdaterDelegate.swift in Sources */,
+				FA7811E32975EFE500FEE1AA /* AnimationStyle.swift in Sources */,
 				FA95EE442956FE20005B39CD /* LoginItemList.swift in Sources */,
 				FA95EE7429573F71005B39CD /* BaseView.swift in Sources */,
 				FA95EE5B2956FEA9005B39CD /* NSSegmentedControlExtension.swift in Sources */,
 				FA95EE3A2956FDE7005B39CD /* OSDUIManager.swift in Sources */,
 				FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */,
-				FA95EE2F2956FD95005B39CD /* SettingsViewController+Position.swift in Sources */,
-				FA95EE6B29573F0B005B39CD /* AboutViewController.swift in Sources */,
+				FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */,
 				FA95EE482956FE37005B39CD /* Displayer.swift in Sources */,
 				FA95EE3C2956FDF1005B39CD /* KeyboardManager.swift in Sources */,
-				FA95EE2B2956FD7B005B39CD /* SettingsViewController.swift in Sources */,
-				FA95EE312956FDA2005B39CD /* SettingsViewController+Style.swift in Sources */,
+				FA232B502981E6CA00F96E51 /* DesignViewController.swift in Sources */,
+				FAD49D0E29B38E680034A8D8 /* StatusItemCreator.swift in Sources */,
 				FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */,
 				FA95EE462956FE2A005B39CD /* PositionManager.swift in Sources */,
+				FA232B522981E6D800F96E51 /* StyleViewController.swift in Sources */,
+				FA9A815829882EBF00C282C9 /* SettingsViewController.swift in Sources */,
 				FA95EE382956FDD8005B39CD /* DisplayManager.swift in Sources */,
 				FA64B59F296638DA00600F85 /* Alert.swift in Sources */,
 				FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */,
 				FA95EE592956FE9A005B39CD /* Position.swift in Sources */,
 				FA95EE4F2956FE69005B39CD /* NSViewExtension.swift in Sources */,
 				FA95EE4D2956FE5D005B39CD /* EnabledBars.swift in Sources */,
+				FACDE684297EEC5200EDF165 /* CustomView.swift in Sources */,
 				FA95EE552956FE86005B39CD /* NSImageExtension.swift in Sources */,
 				FA95EE402956FE06005B39CD /* UserDefaultsManager.swift in Sources */,
+				FA232B4A2981DE6000F96E51 /* ConfigViewController.swift in Sources */,
 				FA95EE6829573EEF005B39CD /* BarView.swift in Sources */,
 				FA95EE612956FED6005B39CD /* SensorError.swift in Sources */,
 				FA95EE4A2956FE44005B39CD /* SettingsManager.swift in Sources */,
-				FA95EE2D2956FD89005B39CD /* SettingsViewController+General.swift in Sources */,
+				FA322FC4297F485700E8F31A /* StandardLabel.swift in Sources */,
+				FA232B4C2981E1FC00F96E51 /* TabsManager.swift in Sources */,
+				FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */,
 				FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */,
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
-				FA95EE6529573ECD005B39CD /* SettingsView.swift in Sources */,
+				FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */,
+				FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */,
+				FA232B4E2981E6A900F96E51 /* AboutViewController.swift in Sources */,
 				FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,6 +654,7 @@
 			files = (
 				FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */,
 				FA95EE8A295758B1005B39CD /* Constants.swift in Sources */,
+				FA767E75297C5DAD0006E091 /* HudAnimatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,10 +666,9 @@
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
 				FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */,
-				FA95EE802957445D005B39CD /* AboutUITest.swift in Sources */,
+				FAD49D1029B398ED0034A8D8 /* ConfigSettingsTest.swift in Sources */,
 				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,
-				FA95EE132956FCC1005B39CD /* SlimHUDUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,12 +810,13 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.4.1;
+				CURRENT_PROJECT_VERSION = 1.4.2;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SlimHUD/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;
@@ -787,7 +824,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -804,12 +842,13 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.4.1;
+				CURRENT_PROJECT_VERSION = 1.4.2;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SlimHUD/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Alex Perathoner. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = SlimHUD.KeyPressObserver;
@@ -817,7 +856,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -833,11 +873,11 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.1;
+				CURRENT_PROJECT_VERSION = 1.4.2;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -854,11 +894,11 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.1;
+				CURRENT_PROJECT_VERSION = 1.4.2;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -872,10 +912,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.1;
+				CURRENT_PROJECT_VERSION = 1.4.2;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUDUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -889,10 +929,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.1;
+				CURRENT_PROJECT_VERSION = 1.4.2;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUDUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;

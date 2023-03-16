@@ -15,6 +15,31 @@ extension NSSegmentedControl {
                            keyboardBar: isSelected(forSegment: EnabledBars.KeyboardBarIndex))
     }
 
+    func getSelectedBar() throws -> SelectedHud {
+        let enabledBars = getBarState()
+        var selectedCount = 0
+        var selected: SelectedHud = .volume
+        if enabledBars.volumeBar {
+            selected = .volume
+            selectedCount += 1
+        }
+        if enabledBars.brightnessBar {
+            selected = .brightness
+            selectedCount += 1
+        }
+        if enabledBars.keyboardBar {
+            selected = .keyboard
+            selectedCount += 1
+        }
+        if selectedCount > 1 {
+            throw LogicError.EnabledBarsConversion.multipleBarsSelected
+        }
+        if selectedCount == 0 {
+            throw LogicError.EnabledBarsConversion.noBarsSelected
+        }
+        return selected
+    }
+
     func setBarState(enabledBars: EnabledBars) throws {
         setSelected(enabledBars.volumeBar, forSegment: EnabledBars.VolumeBarIndex)
         setSelected(enabledBars.brightnessBar, forSegment: EnabledBars.BrightnessBarIndex)

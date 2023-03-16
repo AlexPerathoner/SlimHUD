@@ -20,14 +20,11 @@ class PositionManager {
         self.keyboardHud = keyboardHud
     }
 
-    func setupHUDsPosition(_ isFullscreen: Bool) {
-        volumeHud.hide(animated: false)
-        brightnessHud.hide(animated: false)
-        keyboardHud.hide(animated: false)
-
-        let barViewFrame = volumeHud.view.frame
+    func setupHUDsPosition(isFullscreen: Bool) {
+        let barViewFrame = volumeHud.getFrame()
 
         let screenFrame = DisplayManager.getScreenFrame()
+        let screenEdge = settingsManager.position
         var visibleFrame = DisplayManager.getVisibleScreenFrame()
         var xDockHeight: CGFloat = 0
         var yDockHeight: CGFloat = 0
@@ -42,89 +39,76 @@ class PositionManager {
                                                                          xDockHeight: xDockHeight,
                                                                          yDockHeight: yDockHeight,
                                                                          visibleFrame: visibleFrame,
-                                                                         hudSize: barViewFrame,
+                                                                         barViewFrame: barViewFrame,
                                                                          screenFrame: screenFrame,
                                                                          isInFullscreen: isFullscreen)
 
-        setHudsPosition(originPosition: originPosition)
+        let isHudHorizontal = screenEdge == .bottom || screenEdge == .top
 
-        let isHudHorizontal = settingsManager.position == .bottom || settingsManager.position == .top
-
-        // set bar views orientation
         setBarsOrientation(isHorizontal: isHudHorizontal)
-
-        // set icons rotation
-        if settingsManager.shouldShowIcons {
-            setIconsRotation(isHorizontal: isHudHorizontal)
-        }
+        setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
 
         NSLog("screenFrame is \(screenFrame) \(originPosition)")
     }
 
-    // todo write tests
     static func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
                                             xDockHeight: CGFloat, yDockHeight: CGFloat,
-                                            visibleFrame: NSRect, hudSize: NSRect, screenFrame: NSRect,
+                                            visibleFrame: NSRect, barViewFrame: NSRect, screenFrame: NSRect,
                                             isInFullscreen: Bool) -> CGPoint {
         var position: CGPoint
         switch hudPosition {
         case .left:
             position = CGPoint(x: dockPosition == .right ? 0 : xDockHeight,
-                               y: (visibleFrame.height/2) - (hudSize.height/2) + yDockHeight)
+                           y: (visibleFrame.height/2) - (barViewFrame.height/2) + yDockHeight)
         case .right:
-            position = CGPoint(x: screenFrame.width - hudSize.width - Constants.ShadowRadius - (dockPosition == .left ? 0 : xDockHeight),
-                               y: (visibleFrame.height/2) - (hudSize.height/2)  + yDockHeight)
+            position = CGPoint(x: screenFrame.width - barViewFrame.width - (dockPosition == .left ? 0 : xDockHeight),
+                           y: (visibleFrame.height/2) - (barViewFrame.height/2) + yDockHeight)
         case .bottom:
-            position = CGPoint(x: (screenFrame.width/2) - (hudSize.height/2),
-                               y: yDockHeight)
+            position = CGPoint(x: (screenFrame.width/2) - (barViewFrame.height/2),
+                               y: yDockHeight + barViewFrame.width)
         case .top:
-            position = CGPoint(x: (screenFrame.width/2) - (hudSize.height/2),
-                               y: screenFrame.height - hudSize.width - Constants.ShadowRadius - (isInFullscreen ? 0 : DisplayManager.getMenuBarThickness()))
+            position = CGPoint(x: (screenFrame.width/2) - (barViewFrame.height/2),
+                           y: screenFrame.height - (isInFullscreen ? 0 : DisplayManager.getMenuBarThickness()))
         }
         return position
     }
 
-    private func setHudsPosition(originPosition: CGPoint) {
-        setHudPosition(hud: volumeHud, originPosition: originPosition)
-        setHudPosition(hud: brightnessHud, originPosition: originPosition)
-        setHudPosition(hud: keyboardHud, originPosition: originPosition)
-    }
-    private func setHudPosition(hud: Hud, originPosition: CGPoint) {
-        hud.originPosition = originPosition
-        hud.screenEdge = settingsManager.position
+    private func setHudsPosition(originPosition: CGPoint, screenEdge: Position) {
+        volumeHud.setPosition(originPosition: originPosition, screenEdge: screenEdge)
+        brightnessHud.setPosition(originPosition: originPosition, screenEdge: screenEdge)
+        keyboardHud.setPosition(originPosition: originPosition, screenEdge: screenEdge)
     }
 
     private func setBarsOrientation(isHorizontal: Bool) {
-        setBarOrientation(barView: volumeHud.view, isHorizontal: isHorizontal)
-        setBarOrientation(barView: brightnessHud.view, isHorizontal: isHorizontal)
-        setBarOrientation(barView: keyboardHud.view, isHorizontal: isHorizontal)
-    }
-    private func setBarOrientation(barView: NSView, isHorizontal: Bool) {
-        let barViewFrame = barView.frame
-        barView.layer?.anchorPoint = CGPoint(x: 0, y: 0)
-        if isHorizontal {
-            barView.frameCenterRotation = -90
-            barView.setFrameOrigin(.init(x: 0, y: barViewFrame.width))
-        } else {
-            barView.frameCenterRotation = 0
-            barView.setFrameOrigin(.init(x: 0, y: 0))
-        }
+        volumeHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
+        brightnessHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
+        keyboardHud.setOrientation(isHorizontal: isHorizontal, position: settingsManager.position)
 
-        // needs a bit more space for displaying shadows...
-        if settingsManager.position == .right {
-            barView.setFrameOrigin(.init(x: Constants.ShadowRadius, y: 0))
-        }
-        if settingsManager.position == .top {
-            barView.setFrameOrigin(.init(x: 0, y: Constants.ShadowRadius + barViewFrame.width))
-        }
+        resetPreviewIcons()
     }
 
-    private func setIconsRotation(isHorizontal: Bool) {
-        if let volumeView = volumeHud.view as? BarView {
-            volumeView.setIconRotation(isHorizontal: isHorizontal)
+    private func resetPreviewIcons() {
+        /* FIXME: should be solved in a better way: rotating the bounds of the bar causes the icon's constraints to break.
+                  a solution for this is to reset the bar's icon. AA
+         */
+        let volume = VolumeManager.getOutputVolume()
+        volumeHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+        volumeHud.setIconImage(icon: IconManager.getVolumeIcon(for: volume, isMuted: VolumeManager.isMuted()))
+        do {
+            let brightness = try DisplayManager.getDisplayBrightness()
+            brightnessHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+            brightnessHud.setIconImage(icon: IconManager.getBrightnessIcon(for: brightness))
+        } catch {
+            brightnessHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+            brightnessHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
         }
-        if let keyboardView = keyboardHud.view as? BarView {
-            keyboardView.setIconRotation(isHorizontal: isHorizontal)
+        do {
+            let keyboard = try KeyboardManager.getKeyboardBrightness()
+            keyboardHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
+            keyboardHud.setIconImage(icon: IconManager.getKeyboardIcon(for: keyboard))
+        } catch {
+            keyboardHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
+            keyboardHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
         }
     }
 }

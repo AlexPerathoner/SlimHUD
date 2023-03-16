@@ -11,7 +11,9 @@ class SettingsManager {
 
     // MARK: - Keys
 
-    private static let BackgroundColorKey = "backgroundColor"
+    private static let VolumeBackgroundColorKey = "volumeBackgroundColor"
+    private static let BrightnessBackgroundColorKey = "brightnessBackgroundColor"
+    private static let KeyboardBackgroundColorKey = "keyboardBackgroundColor"
     private static let VolumeEnabledColorKey = "volumeEnabledColor"
     private static let VolumeDisabledColorKey = "volumeDisabledColor"
     private static let BrightnessColorKey = "brightnessColor"
@@ -22,19 +24,29 @@ class SettingsManager {
     private static let ShouldShowIconsKey = "shouldShowIcons"
     private static let ShouldShowShadowsKey = "shouldShowShadows"
     private static let ShouldContinuouslyCheckKey = "shouldContinuouslyCheck"
-    private static let ShouldUseAnimationKey = "shouldUseAnimation"
+    private static let AnimationStyleKey = "animationStyle"
     private static let BarHeightKey = "barHeight"
     private static let BarThicknessKey = "barThickness"
     private static let PositionKey = "position"
     private static let EnabledBarsKey = "enabledBars"
     private static let MarginKey = "marginValue"
-    private static let ShowQuitAlert = "showQuitAlert"
-    private static let FlatBar = "flatBar"
+    private static let FlatBarKey = "flatBar"
+    private static let ShouldHideMenuBarIconKey = "shouldHideMenuBarIcon"
 
     // MARK: - Bars colors
-    var backgroundColor: NSColor {
+    var volumeBackgroundColor: NSColor {
         didSet {
-            UserDefaultsManager.setItem(backgroundColor, for: SettingsManager.BackgroundColorKey)
+            UserDefaultsManager.setItem(volumeBackgroundColor, for: SettingsManager.VolumeBackgroundColorKey)
+        }
+    }
+    var brightnessBackgroundColor: NSColor {
+        didSet {
+            UserDefaultsManager.setItem(brightnessBackgroundColor, for: SettingsManager.BrightnessBackgroundColorKey)
+        }
+    }
+    var keyboardBackgroundColor: NSColor {
+        didSet {
+            UserDefaultsManager.setItem(keyboardBackgroundColor, for: SettingsManager.KeyboardBackgroundColorKey)
         }
     }
     var volumeEnabledColor: NSColor {
@@ -90,9 +102,9 @@ class SettingsManager {
             UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
         }
     }
-    var shouldUseAnimation: Bool {
+    var animationStyle: AnimationStyle {
         didSet {
-            UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.ShouldUseAnimationKey)
+            UserDefaults.standard.set(animationStyle.rawValue, forKey: SettingsManager.AnimationStyleKey)
         }
     }
 
@@ -114,7 +126,7 @@ class SettingsManager {
 
     var flatBar: Bool {
         didSet {
-            UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBar)
+            UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
         }
     }
 
@@ -134,9 +146,9 @@ class SettingsManager {
         }
     }
 
-    var showQuitAlert: Bool {
+    var shouldHideMenuBarIcon: Bool {
         didSet {
-            UserDefaults.standard.set(showQuitAlert, forKey: SettingsManager.ShowQuitAlert)
+            UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
         }
     }
 
@@ -148,7 +160,9 @@ class SettingsManager {
     }
 
     private init() {
-        backgroundColor = UserDefaultsManager.getItem(for: SettingsManager.BackgroundColorKey, defaultValue: DefaultColors.DarkGray)
+        volumeBackgroundColor = UserDefaultsManager.getItem(for: SettingsManager.VolumeBackgroundColorKey, defaultValue: DefaultColors.DarkGray)
+        brightnessBackgroundColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessBackgroundColorKey, defaultValue: DefaultColors.DarkGray)
+        keyboardBackgroundColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardBackgroundColorKey, defaultValue: DefaultColors.DarkGray)
         volumeEnabledColor = UserDefaultsManager.getItem(for: SettingsManager.VolumeEnabledColorKey, defaultValue: DefaultColors.Blue)
         volumeDisabledColor = UserDefaultsManager.getItem(for: SettingsManager.VolumeDisabledColorKey, defaultValue: DefaultColors.Gray)
         brightnessColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessColorKey, defaultValue: DefaultColors.Yellow)
@@ -166,7 +180,8 @@ class SettingsManager {
         position = Position(rawValue: rawPosition) ?? .left
         shouldContinuouslyCheck = CommandLine.arguments.contains(SettingsManager.ShouldContinuouslyCheckKey) ?
             true : UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
-        shouldUseAnimation = UserDefaultsManager.getBool(for: SettingsManager.ShouldUseAnimationKey, defaultValue: true)
+        shouldHideMenuBarIcon = UserDefaultsManager.getBool(for: SettingsManager.ShouldHideMenuBarIconKey, defaultValue: false)
+        animationStyle = AnimationStyle(from: UserDefaultsManager.getString(for: SettingsManager.AnimationStyleKey, defaultValue: ""))
         let enabledBarsRaw = UserDefaultsManager.getArr(for: SettingsManager.EnabledBarsKey, defaultValue: [true, true, true])
         let (volumeBarEnabled, brightnessBarEnabled, keyboardBarEnabled) =
             (enabledBarsRaw[EnabledBars.VolumeBarIndex],
@@ -174,16 +189,13 @@ class SettingsManager {
              enabledBarsRaw[EnabledBars.KeyboardBarIndex])
         enabledBars = EnabledBars(volumeBar: volumeBarEnabled, brightnessBar: brightnessBarEnabled, keyboardBar: keyboardBarEnabled)
         marginValue = UserDefaultsManager.getInt(for: SettingsManager.MarginKey, defaultValue: 10)
-        if CommandLine.arguments.contains("showQuitAlert") {
-            let indexOfValue = CommandLine.arguments.firstIndex(of: "showQuitAlert")! + 1
-            UserDefaults.standard.set(CommandLine.arguments[indexOfValue], forKey: SettingsManager.ShowQuitAlert)
-        }
-        showQuitAlert = UserDefaultsManager.getBool(for: SettingsManager.ShowQuitAlert, defaultValue: true)
-        flatBar = UserDefaultsManager.getBool(for: SettingsManager.FlatBar, defaultValue: false)
+        flatBar = UserDefaultsManager.getBool(for: SettingsManager.FlatBarKey, defaultValue: false)
     }
 
     func resetDefaultBarsColors() {
-        backgroundColor = DefaultColors.DarkGray
+        volumeBackgroundColor = DefaultColors.DarkGray
+        brightnessBackgroundColor = DefaultColors.DarkGray
+        keyboardBackgroundColor = DefaultColors.DarkGray
         volumeEnabledColor = DefaultColors.Blue
         volumeDisabledColor = DefaultColors.Gray
         brightnessColor = DefaultColors.Yellow
@@ -197,7 +209,9 @@ class SettingsManager {
     }
 
     func saveAllItems() {
-        UserDefaultsManager.setItem(backgroundColor, for: SettingsManager.BackgroundColorKey)
+        UserDefaultsManager.setItem(volumeBackgroundColor, for: SettingsManager.VolumeBackgroundColorKey)
+        UserDefaultsManager.setItem(brightnessBackgroundColor, for: SettingsManager.BrightnessBackgroundColorKey)
+        UserDefaultsManager.setItem(keyboardBackgroundColor, for: SettingsManager.KeyboardBackgroundColorKey)
         UserDefaultsManager.setItem(volumeEnabledColor, for: SettingsManager.VolumeEnabledColorKey)
         UserDefaultsManager.setItem(volumeDisabledColor, for: SettingsManager.VolumeDisabledColorKey)
         UserDefaultsManager.setItem(brightnessColor, for: SettingsManager.BrightnessColorKey)
@@ -218,9 +232,10 @@ class SettingsManager {
                               enabledBars.keyboardBar]
         UserDefaults.standard.set(enabledBarsRaw, forKey: SettingsManager.EnabledBarsKey)
         UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
-        UserDefaults.standard.set(shouldUseAnimation, forKey: SettingsManager.ShouldUseAnimationKey)
+        UserDefaults.standard.set(animationStyle.rawValue, forKey: SettingsManager.AnimationStyleKey)
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
-        UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBar)
+        UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
+        UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
     }
 
     deinit {

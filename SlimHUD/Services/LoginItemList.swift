@@ -11,12 +11,12 @@ class LoginItemsList: NSObject {
     let loginItemsList: LSSharedFileList = LSSharedFileListCreate(nil, kLSSharedFileListSessionLoginItems.takeRetainedValue(), nil)!.takeRetainedValue()
 
     func addLoginItem() -> Bool {
-        var path = LoginItemsList.appPath()
+        let path = LoginItemsList.appPath()
         if getLoginItem() != nil {
-            print("Login Item has already been added to the list.")
+            NSLog("Login Item has already been added to the list.")
             return true
         }
-        print("Path adding to Login Item list is: ", path)
+        NSLog("Path adding to Login Item list is: \(path)")
 
         // add new Login Item at the end of Login Items list
         if let loginItem = LSSharedFileListInsertItemURL(loginItemsList,
@@ -24,7 +24,7 @@ class LoginItemsList: NSObject {
                                                          nil, nil,
                                                          path,
                                                          nil, nil) {
-            print("Added login item is: ", loginItem)
+            NSLog("Added login item is: \(loginItem)")
             return true
         }
 
@@ -32,23 +32,20 @@ class LoginItemsList: NSObject {
     }
 
     func removeLoginItem() -> Bool {
-
-        var path = LoginItemsList.appPath()
         // remove Login Item from the Login Items list
         if let oldLoginItem = getLoginItem() {
-            print("Old login item is: ", oldLoginItem)
+            NSLog("Old login item is: \(oldLoginItem)")
             if LSSharedFileListItemRemove(loginItemsList, oldLoginItem) == noErr {
                 return true
             }
             return false
         }
-        print("Login Item for given path not found in the list.")
+        NSLog("Login Item for given path not found in the list.")
         return true
     }
 
     func getLoginItem() -> LSSharedFileListItem! {
-
-        var path = LoginItemsList.appPath()
+        let path = LoginItemsList.appPath()
 
         // Copy all login items in the list
         let loginItems: NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil)!.takeRetainedValue()
@@ -57,16 +54,16 @@ class LoginItemsList: NSObject {
         var nextItemUrl: Unmanaged<CFURL>?
 
         // Iterate through login items to find one for given path
-        print("App URL: ", path)
-        for var index in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
+        NSLog("App URL: \(path)")
+        for index in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
         {
 
             // swiftlint:disable:next force_cast
-            var nextLoginItem: LSSharedFileListItem = loginItems.object(at: index) as! LSSharedFileListItem
+            let nextLoginItem: LSSharedFileListItem = loginItems.object(at: index) as! LSSharedFileListItem
 
             if LSSharedFileListItemResolve(nextLoginItem, 0, &nextItemUrl, nil) == noErr {
 
-                print("Next login item URL: ", nextItemUrl!.takeUnretainedValue())
+                NSLog("Next login item URL: \(nextItemUrl!.takeUnretainedValue())")
                 // compare searched item URL passed in argument with next item URL
                 if nextItemUrl!.takeRetainedValue() == path {
                     foundLoginItem = nextLoginItem
@@ -85,7 +82,7 @@ class LoginItemsList: NSObject {
             // swiftlint:disable:next force_cast
             let lastLoginItem = loginItems.lastObject as! LSSharedFileListItem
 
-            print("Last login item is: ", lastLoginItem)
+            NSLog("Last login item is: \(lastLoginItem)")
             return lastLoginItem
         }
 

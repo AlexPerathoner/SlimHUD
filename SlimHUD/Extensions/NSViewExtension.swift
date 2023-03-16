@@ -35,32 +35,31 @@ extension NSView {
         }
     }
 
-    func setupShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {
+    func setupShadow(enabled: Bool, shadowRadius: CGFloat, color: CGColor = .black, offset: NSSize = .zero) {
+        wantsLayer = true
+        superview?.wantsLayer = true
         if enabled {
             shadow = NSShadow()
-            wantsLayer = true
-            superview?.wantsLayer = true
             layer?.shadowOpacity = 1
-            layer?.shadowColor = .black
-            layer?.shadowOffset = NSSize(width: 0, height: 0)
+            layer?.shadowColor = color
+            layer?.shadowOffset = offset
             layer?.shadowRadius = shadowRadius
         } else {
             shadow = nil
         }
     }
 
-    class func fromNib(name: String) -> NSView? {
+    class func fromNib<T: NSView>(name: String, type: T.Type) -> T {
         var views: NSArray?
         if Bundle.main.loadNibNamed(name, owner: nil, topLevelObjects: &views) {
             if views?.firstObject is NSView {
                 // swiftlint:disable:next force_cast
-                return (views?.firstObject as! NSView)
+                return (views?.firstObject as! T)
             } else {
                 // swiftlint:disable:next force_cast
-                return (views?[1] as! NSView)
+                return (views?[1] as! T)
             }
         }
-        return nil
-
+        fatalError("Could not find needed xib")
     }
 }

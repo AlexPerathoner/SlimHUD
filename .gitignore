@@ -8,6 +8,8 @@
 .AppleDouble
 .LSOverride
 
+# SonarQube
+.scannerwork
 
 # Thumbnails
 ._*

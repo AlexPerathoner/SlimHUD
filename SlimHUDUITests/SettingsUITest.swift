@@ -6,9 +6,9 @@
 //  Copyright © 2022 Alex Perathoner. All rights reserved.
 //
 
- import XCTest
+import XCTest
 
- final class SettingsUITest: SparkleUITests {
+final class SettingsUITest: SparkleUITests {
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
@@ -16,57 +16,86 @@
     func testOpenSettingsWindow() throws {
         let app = XCUIApplication()
         app.launch()
-        let settingsWindow = openSettingsWindow(app)
 
-        addScreenshot(window: settingsWindow, name: "Settings window")
+        XCTAssertTrue(app.windows.count == 0)
 
-        usleep(500000)
-        // preview HUD will also appear, so the windows count should be more than 1
-        XCTAssertEqual(app.windows.count, 2)
+        app.activate()
+
+        let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
+        XCTAssert(settingsWindow.waitForExistence(timeout: 5))
+        addScreenshot(window: settingsWindow, name: "Settings")
     }
 
-    func testCloseWindow() throws {
+    func testCloseWindowWithCmdW() throws {
         let app = XCUIApplication()
-        app.showCmdQAlert(false)
         app.launch()
+        app.activate()
 
-        // try closing with cmd + w
-        let statusItem = UITestsUtils.getStatusItem(app: app)
-        var settingsWindow = openSettingsWindow(app)
+        let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
 
         settingsWindow.typeKey("w", modifierFlags: .command)
-
+        usleep(5000)
         XCTAssertFalse(settingsWindow.isHittable)
+    }
 
-        // relaunching as the app is now in background and doesn't accept test interaction
-
+    func testCloseWindowWithCmdQ() throws {
+        let app = XCUIApplication()
         app.launch()
+        app.activate()
 
-        // try closing with cmd + q
-        settingsWindow = openSettingsWindow(app)
+        let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
 
         settingsWindow.typeKey("q", modifierFlags: .command)
+        app.dialogs["alert"].buttons["OK"].click()
+        usleep(5000)
+        XCTAssertFalse(settingsWindow.isHittable)
+    }
+
+    func testQuit() throws {
+        let app = XCUIApplication()
+        app.launch()
+        app.activate()
+        let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
+        settingsWindow.typeKey("q", modifierFlags: .command)
+        app.dialogs["alert"].buttons["Quit now"].click()
 
         XCTAssertFalse(settingsWindow.isHittable)
-        // app should still be running
-        XCTAssertTrue(statusItem.exists)
+        XCTAssertFalse(app.exists)
     }
 
-     private func openSettingsWindow(_ app: XCUIApplication) -> XCUIElement {
+    func testSwitchTabs() throws {
+        let app = XCUIApplication()
+        app.showSettings()
+        app.launch()
 
-        let statusItem = SparkleUITests.getStatusItem(app: app)
+        let settingsWindow = XCUIApplication().windows["Settings"]
 
-        let preferencesMenuItem = statusItem.menuItems["Settings..."]
+        settingsWindow.typeKey("4", modifierFlags: .command)
+        XCTAssertTrue(settingsWindow.images["application icon"].waitForExistence(timeout: 1))
 
-        let settingsWindow = app.windows.matching(identifier: "Settings").firstMatch
-
-        statusItem.click()
-
-        XCTAssert(preferencesMenuItem.waitForExistence(timeout: 5))
-        preferencesMenuItem.click()
-
-        XCTAssert(settingsWindow.waitForExistence(timeout: 5))
-
-        return settingsWindow
+        settingsWindow.typeKey("1", modifierFlags: .command)
+        XCTAssertTrue(settingsWindow.radioButtons["Top"].waitForExistence(timeout: 1))
     }
- }
+
+    func testChangePreviewHud() throws {
+        let app = XCUIApplication()
+        app.showSettings()
+        app.launch()
+
+        let settingsWindow = app.windows["Settings"]
+        settingsWindow.typeKey("2", modifierFlags: .command)
+
+        let radioGroupsQuery = settingsWindow.radioGroups
+        radioGroupsQuery.children(matching: .radioButton).element(boundBy: 0).click()
+        XCTAssertEqual(settingsWindow.colorWells.count, 4)
+        XCTAssertTrue(isVolumeHudVisible(app: app))
+
+        radioGroupsQuery.children(matching: .radioButton).element(boundBy: 1).click()
+        XCTAssertEqual(settingsWindow.colorWells.count, 3)
+        XCTAssertTrue(isBrightnessHudVisible(app: app))
+
+        radioGroupsQuery.children(matching: .radioButton).element(boundBy: 2).click()
+        XCTAssertEqual(settingsWindow.colorWells.count, 3)
+        XCTAssertTrue(isKeyboardHudVisible(app: app))
+    }
+}

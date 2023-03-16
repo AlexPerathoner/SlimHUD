@@ -18,13 +18,10 @@ class ChangesObserver {
     private var settingsManager: SettingsManager = SettingsManager.getInstance()
     private var positionManager: PositionManager
     private var displayer: Displayer
-    private var volumeView: BarView
-    private var brightnessView: BarView
-    private var keyboardView: BarView
 
     private var temporarelyDisabledBars = EnabledBars(volumeBar: false, brightnessBar: false, keyboardBar: false)
 
-    init(positionManager: PositionManager, displayer: Displayer, volumeView: BarView, brightnessView: BarView, keyboardView: BarView) {
+    init(positionManager: PositionManager, displayer: Displayer) {
         oldFullScreen = DisplayManager.isInFullscreenMode()
         oldVolume = VolumeManager.getOutputVolume()
         oldMuted = VolumeManager.isMuted()
@@ -42,14 +39,11 @@ class ChangesObserver {
             NSLog("""
                   Failed to retrieve keyboard brightness. Is no keyboard with backlight connected?
                   Disabling keyboard HUD. If you think this is an error please report it on GitHub.
-                  """)  // todo show alert? also when re-enabling hud if it didnt work
+                  """)  // TODO: show alert? also when re-enabling hud if it didnt work
         }
 
         self.positionManager = positionManager
         self.displayer = displayer
-        self.volumeView = volumeView
-        self.brightnessView = brightnessView
-        self.keyboardView = keyboardView
     }
 
     func startObserving() {
@@ -95,12 +89,7 @@ class ChangesObserver {
     }
 
     @objc func checkChanges() {
-        let newFullScreen = DisplayManager.isInFullscreenMode()
-
-        if newFullScreen != oldFullScreen {
-            positionManager.setupHUDsPosition(newFullScreen)
-            oldFullScreen = newFullScreen
-        }
+        checkFullScreenChanges()
         if settingsManager.shouldContinuouslyCheck {
             if settingsManager.enabledBars.brightnessBar && !temporarelyDisabledBars.brightnessBar {
                 checkBrightnessChanges()
@@ -110,9 +99,19 @@ class ChangesObserver {
             }
         }
         // volume can't change on its own, so we always continuously check it
-        if settingsManager.enabledBars.volumeBar && settingsManager.enabledBars.volumeBar {
+        if settingsManager.enabledBars.volumeBar {
             checkVolumeChanges()
         }
+    }
+
+    private func checkFullScreenChanges() {
+        let newFullScreen = DisplayManager.isInFullscreenMode()
+
+        if newFullScreen != oldFullScreen {
+            positionManager.setupHUDsPosition(isFullscreen: newFullScreen)
+            oldFullScreen = newFullScreen
+        }
+
     }
 
     private func isAlmost(firstNumber: Float, secondNumber: Float) -> Bool { // used to partially prevent the bars to display when no user input happened
@@ -123,13 +122,13 @@ class ChangesObserver {
     private func checkVolumeChanges() {
         let newVolume = VolumeManager.getOutputVolume()
         let newMuted = VolumeManager.isMuted()
-        volumeView.bar!.progress = newVolume
+        displayer.setVolumeProgress(newVolume)
         if !isAlmost(firstNumber: oldVolume, secondNumber: newVolume) || newMuted != oldMuted {
             displayer.showVolumeHUD()
             oldVolume = newVolume
             oldMuted = newMuted
         }
-        volumeView.bar!.progress = newVolume
+        displayer.setVolumeProgress(newVolume)
     }
 
     private func checkBrightnessChanges() {
@@ -142,7 +141,7 @@ class ChangesObserver {
                 displayer.showBrightnessHUD()
                 oldBrightness = newBrightness
             }
-            brightnessView.bar?.progress = newBrightness
+            displayer.setBrightnessProgress(newBrightness)
         } catch {
             temporarelyDisabledBars.brightnessBar = true
             NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
@@ -156,7 +155,7 @@ class ChangesObserver {
                 displayer.showKeyboardHUD()
                 oldKeyboard = newKeyboard
             }
-            keyboardView.bar?.progress = try KeyboardManager.getKeyboardBrightness()
+            displayer.setKeyboardProgress(newKeyboard)
         } catch {
             temporarelyDisabledBars.keyboardBar = true
             NSLog("""

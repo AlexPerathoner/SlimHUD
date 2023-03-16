@@ -16,3 +16,9 @@ struct EnabledBars {
     static let BrightnessBarIndex = 1
     static let KeyboardBarIndex = 2
 }
+
+enum SelectedHud {
+    case volume
+    case brightness
+    case keyboard
+}
