@@ -1,3 +1,6 @@
+# 1.5.1 - Background bar
+* Better visibility of the bar by adding custom shadows
+
 # 1.5.0 - New look
 * Icons change depending on value
 * Add multiple in-out animation styles
