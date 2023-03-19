@@ -177,7 +177,6 @@ jobs:
   pre-release:
     name: Create pre-release
     runs-on: macos-12
-    environment: deploy-beta
     needs: archive
     if: ${{ contains(github.event.comment.body, 'beta') }}
     steps:
@@ -258,7 +257,6 @@ jobs:
   release:
     name: "Create Release"
     runs-on: macos-12
-    environment: deploy-release
     needs: archive
     if: ${{ !contains(github.event.comment.body, 'beta') }}
     steps:
