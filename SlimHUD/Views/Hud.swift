@@ -123,8 +123,12 @@ class Hud: NSView {
         barView.setIconImage(icon: icon, force: force)
     }
 
-    public func setShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {
-        barView.setupShadow(enabled: enabled, shadowRadius: shadowRadius)
+    public func setShadow(enabled: Bool, shadowRadius: CGFloat, shadowType: ShadowType, color: NSColor) {
+        if shadowType == .nsshadow {
+            barView.setupShadow(enabled: enabled, shadowRadius: shadowRadius)
+        } else {
+            barView.setupShadowView(enabled: enabled, shadowRadius: shadowRadius, color: color.cgColor)
+        }
     }
 
     public func setHeight(height: CGFloat) {

@@ -103,9 +103,9 @@ class Displayer: HudsControllerInterface {
     }
 
     func updateShadows(enabled: Bool) {
-        volumeHud.setShadow(enabled, Constants.ShadowRadius)
-        brightnessHud.setShadow(enabled, Constants.ShadowRadius)
-        keyboardHud.setShadow(enabled, Constants.ShadowRadius)
+        volumeHud.setShadow(enabled: enabled, shadowRadius: Constants.ShadowRadius, shadowType: .view, color: .black) // todo update, add parameters
+        brightnessHud.setShadow(enabled: enabled, shadowRadius: Constants.ShadowRadius, shadowType: .view, color: .black)
+        keyboardHud.setShadow(enabled: enabled, shadowRadius: Constants.ShadowRadius, shadowType: .view, color: .black)
     }
 
     func hideIcon(isHidden: Bool) {
