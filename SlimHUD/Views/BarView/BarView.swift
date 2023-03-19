@@ -71,10 +71,10 @@ class BarView: NSView {
             }
         }
     }
-    
+
     public func setupShadowView(enabled: Bool, shadowRadius: CGFloat, color: CGColor = .black) {
         if enabled {
-            shadowView = NSView(frame: self.frame.insetBy(dx: 5, dy: 5)) //adjust size
+            shadowView = NSView(frame: self.frame.insetBy(dx: 5, dy: 5)) // adjust size
             shadowView.wantsLayer = true
             shadowView.layer?.cornerRadius = shadowRadius
             shadowView.layer?.backgroundColor = color
