@@ -76,7 +76,7 @@ class BarView: NSView {
         if enabled {
             shadowView = NSView(frame: self.frame.insetBy(dx: CGFloat(inset), dy: CGFloat(inset)))
             shadowView.wantsLayer = true
-            shadowView.layer?.cornerRadius = (min(self.frame.height, self.frame.width) - CGFloat(inset * 2)) / 2
+            shadowView.layer?.cornerRadius = (min(self.frame.height, self.frame.width) - CGFloat(inset * 2)) / 2.2 // rounded rectangle
             // todo use CGFloat(shadowRadius)
             shadowView.layer?.backgroundColor = color.cgColor
             self.addSubview(shadowView, positioned: .below, relativeTo: self) // todo set frame depending on icon shown / hidden
