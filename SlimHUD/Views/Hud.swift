@@ -127,7 +127,7 @@ class Hud: NSView {
         if shadowType == .nsshadow {
             barView.setupShadow(enabled: enabled, shadowRadius: Constants.ShadowRadius)
         } else {
-            barView.setupShadowAsView(enabled: enabled, shadowRadius: shadowRadius, color: color, inset: inset)
+            barView.setupShadowAsView(enabled: enabled, radius: shadowRadius, color: color, inset: inset)
         }
     }
 
