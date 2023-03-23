@@ -100,7 +100,7 @@ class Hud: NSView {
     }
 
     @objc private func hideDelayed(_ animated: AnyObject?) {
-        hide(animated: (animated as? AnimationStyle) != .none)
+        hide(animated: (animated as? AnimationStyle) != AnimationStyle.none)
     }
 
     public func dismiss(delay: TimeInterval) {
@@ -123,11 +123,11 @@ class Hud: NSView {
         barView.setIconImage(icon: icon, force: force)
     }
 
-    public func setShadow(enabled: Bool, shadowRadius: CGFloat, shadowType: ShadowType, color: NSColor) {
+    public func setShadow(enabled: Bool, shadowType: ShadowType, shadowRadius: Int, color: NSColor, inset: Int = 5) {
         if shadowType == .nsshadow {
-            barView.setupShadow(enabled: enabled, shadowRadius: shadowRadius)
+            barView.setupShadow(enabled: enabled, shadowRadius: Constants.ShadowRadius)
         } else {
-            barView.setupShadowView(enabled: enabled, shadowRadius: shadowRadius, color: color.cgColor)
+            barView.setupShadowAsView(enabled: enabled, shadowRadius: shadowRadius, color: color, inset: inset)
         }
     }
 

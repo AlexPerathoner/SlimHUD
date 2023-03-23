@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Cocoa
 
-enum ShadowType {
-    case view
-    case nsshadow
+enum ShadowType: String {
+    case view = "view"
+    case nsshadow = "nsshadow"
 }

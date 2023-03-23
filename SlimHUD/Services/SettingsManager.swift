@@ -23,6 +23,10 @@ class SettingsManager {
     private static let KeyboardIconColorKey = "keyboardIconColor"
     private static let ShouldShowIconsKey = "shouldShowIcons"
     private static let ShouldShowShadowsKey = "shouldShowShadows"
+    private static let ShadowColorKey = "shadowColor"
+    private static let ShadowTypeKey = "shadowType"
+    private static let ShadowInsetKey = "shadowInset"
+    private static let ShadowRadiusKey = "shadowRadius"
     private static let ShouldContinuouslyCheckKey = "shouldContinuouslyCheck"
     private static let AnimationStyleKey = "animationStyle"
     private static let BarHeightKey = "barHeight"
@@ -92,6 +96,27 @@ class SettingsManager {
             UserDefaults.standard.set(shouldShowShadows, forKey: SettingsManager.ShouldShowShadowsKey)
         }
     }
+    var shadowColor: NSColor {
+        didSet {
+            UserDefaultsManager.setItem(shadowColor, for: SettingsManager.ShadowColorKey)
+        }
+    }
+    var shadowType: ShadowType {
+        didSet {
+            UserDefaults.standard.set(shadowType.rawValue, forKey: SettingsManager.ShadowTypeKey)
+        }
+    }
+    var shadowInset: Int {
+        didSet {
+            UserDefaults.standard.set(shadowInset, forKey: SettingsManager.ShadowInsetKey)
+        }
+    }
+    var shadowRadius: Int {
+        didSet {
+            UserDefaults.standard.set(shadowRadius, forKey: SettingsManager.ShadowRadiusKey)
+        }
+    }
+    
     var shouldShowIcons: Bool {
         didSet {
             UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.ShouldShowIconsKey)
@@ -173,6 +198,11 @@ class SettingsManager {
         keyboardIconColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardIconColorKey, defaultValue: .white)
 
         shouldShowShadows = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowShadowsKey, defaultValue: true)
+        shadowColor = UserDefaultsManager.getItem(for: SettingsManager.ShadowColorKey, defaultValue: NSColor.black)
+        shadowType = ShadowType(rawValue: UserDefaultsManager.getString(for: SettingsManager.ShadowTypeKey, defaultValue: ShadowType.nsshadow.rawValue)) ?? ShadowType.nsshadow
+        shadowInset = UserDefaultsManager.getInt(for: SettingsManager.ShadowColorKey, defaultValue: 5)
+        shadowRadius = UserDefaultsManager.getInt(for: SettingsManager.ShadowColorKey, defaultValue: 10)
+        
         shouldShowIcons = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowIconsKey, defaultValue: true)
         barHeight = UserDefaultsManager.getInt(for: SettingsManager.BarHeightKey, defaultValue: 218)
         barThickness = UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey, defaultValue: 7)
@@ -209,6 +239,7 @@ class SettingsManager {
     }
 
     func saveAllItems() {
+        // todo check if should add items for shadows, if not needed delete method
         UserDefaultsManager.setItem(volumeBackgroundColor, for: SettingsManager.VolumeBackgroundColorKey)
         UserDefaultsManager.setItem(brightnessBackgroundColor, for: SettingsManager.BrightnessBackgroundColorKey)
         UserDefaultsManager.setItem(keyboardBackgroundColor, for: SettingsManager.KeyboardBackgroundColorKey)

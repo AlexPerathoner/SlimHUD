@@ -8,8 +8,8 @@
 import Cocoa
 
 protocol HudsControllerInterface: AnyObject {
-    func updateShadows(enabled: Bool)
-    func hideIcon(isHidden: Bool)
+    func updateShadows()
+    func updateIconsVisibility()
     func setVolumeBackgroundColor(color: NSColor)
     func setBrightnessBackgroundColor(color: NSColor)
     func setKeyboardBackgroundColor(color: NSColor)

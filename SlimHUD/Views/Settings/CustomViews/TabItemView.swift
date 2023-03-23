@@ -75,7 +75,7 @@ class TabItemView: CustomView {
                 imageView?.contentTintColor = TabItemView.unselectedColor
             }
         }
-        setupShadow(enabled: selected, shadowRadius: 2, color: .init(gray: 0, alpha: 0.13), offset: NSSize(width: -2, height: 2))
+        setupShadow(enabled: selected, shadowRadius: 2, color: .init(white: 0, alpha: 0.13), offset: NSSize(width: -2, height: 2))
     }
 
     override func mouseUp(with event: NSEvent) {

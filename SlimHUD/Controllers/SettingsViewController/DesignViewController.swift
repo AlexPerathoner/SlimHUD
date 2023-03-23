@@ -84,7 +84,7 @@ class DesignViewController: NSViewController {
     }
     private func showIcons(_ value: Bool) {
         settingsManager.shouldShowIcons = value
-        delegate?.hideIcon(isHidden: !value)
+        delegate?.updateIconsVisibility()
     }
 
     @IBAction func flatBarClicked(_ sender: NSButton) {
@@ -100,7 +100,7 @@ class DesignViewController: NSViewController {
     }
     private func showShadows(_ value: Bool) {
         settingsManager.shouldShowShadows = value
-        delegate?.updateShadows(enabled: value)
+        delegate?.updateShadows()
     }
 
     @IBAction func animationStyleClicked(_ sender: NSPopUpButton) {

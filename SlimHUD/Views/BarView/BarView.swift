@@ -72,14 +72,14 @@ class BarView: NSView {
         }
     }
 
-    public func setupShadowView(enabled: Bool, shadowRadius: CGFloat, color: CGColor = .black) {
+    public func setupShadowAsView(enabled: Bool, shadowRadius: Int, color: NSColor = .black, inset: Int = 5) {
         if enabled {
-            shadowView = NSView(frame: self.frame.insetBy(dx: 5, dy: 5)) // adjust size
+            shadowView = NSView(frame: self.frame.insetBy(dx: CGFloat(inset), dy: CGFloat(inset)))
             shadowView.wantsLayer = true
-            shadowView.layer?.cornerRadius = shadowRadius
-            shadowView.layer?.backgroundColor = color
-            shadowView.layer?.opacity = 1 // todo update / retrieve from color / maybe not necessary
-            self.addSubview(shadowView, positioned: .below, relativeTo: self)
+            shadowView.layer?.cornerRadius = (min(self.frame.height, self.frame.width) - CGFloat(inset * 2)) / 2
+            // todo use CGFloat(shadowRadius)
+            shadowView.layer?.backgroundColor = color.cgColor
+            self.addSubview(shadowView, positioned: .below, relativeTo: self) // todo set frame depending on icon shown / hidden
         } else {
             shadowView.removeFromSuperview()
         }
