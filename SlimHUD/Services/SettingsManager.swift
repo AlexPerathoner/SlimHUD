@@ -199,7 +199,8 @@ class SettingsManager {
 
         shouldShowShadows = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowShadowsKey, defaultValue: true)
         shadowColor = UserDefaultsManager.getItem(for: SettingsManager.ShadowColorKey, defaultValue: NSColor.black)
-        shadowType = ShadowType(rawValue: UserDefaultsManager.getString(for: SettingsManager.ShadowTypeKey, defaultValue: ShadowType.nsshadow.rawValue)) ?? ShadowType.nsshadow
+        let rawShadowType = UserDefaultsManager.getString(for: SettingsManager.ShadowTypeKey, defaultValue: ShadowType.nsshadow.rawValue)
+        shadowType = ShadowType(rawValue: rawShadowType) ?? .nsshadow
         shadowInset = UserDefaultsManager.getInt(for: SettingsManager.ShadowColorKey, defaultValue: 5)
         shadowRadius = UserDefaultsManager.getInt(for: SettingsManager.ShadowColorKey, defaultValue: 10)
 
