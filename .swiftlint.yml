@@ -5,7 +5,8 @@ line_length:
   error: 165
 
 function_parameter_count:
-  severity: warning
+  warning: 8
+  error: 10
 
 file_length:
   warning: 500

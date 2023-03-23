@@ -116,7 +116,7 @@ class SettingsManager {
             UserDefaults.standard.set(shadowRadius, forKey: SettingsManager.ShadowRadiusKey)
         }
     }
-    
+
     var shouldShowIcons: Bool {
         didSet {
             UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.ShouldShowIconsKey)
@@ -202,7 +202,7 @@ class SettingsManager {
         shadowType = ShadowType(rawValue: UserDefaultsManager.getString(for: SettingsManager.ShadowTypeKey, defaultValue: ShadowType.nsshadow.rawValue)) ?? ShadowType.nsshadow
         shadowInset = UserDefaultsManager.getInt(for: SettingsManager.ShadowColorKey, defaultValue: 5)
         shadowRadius = UserDefaultsManager.getInt(for: SettingsManager.ShadowColorKey, defaultValue: 10)
-        
+
         shouldShowIcons = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowIconsKey, defaultValue: true)
         barHeight = UserDefaultsManager.getInt(for: SettingsManager.BarHeightKey, defaultValue: 218)
         barThickness = UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey, defaultValue: 7)
