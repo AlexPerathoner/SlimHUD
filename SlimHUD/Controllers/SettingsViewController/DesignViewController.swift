@@ -96,7 +96,14 @@ class DesignViewController: NSViewController {
     }
 
     @IBAction func shadowTypeClicked(_ sender: NSPopUpButton) {
-        setShadowType(ShadowType(from: sender.titleOfSelectedItem)) // todo if custom... is clicked, show alert with additional info
+        let shadowType = ShadowType(from: sender.titleOfSelectedItem)
+        setShadowType(shadowType)
+        if shadowType == .view {
+            let storyboard = NSStoryboard(name: "Settings", bundle: nil)
+            if let shadowVC = storyboard.instantiateController(withIdentifier: "shadow") as? ShadowViewController {
+                self.present(shadowVC, asPopoverRelativeTo: sender.frame, of: sender, preferredEdge: .maxX, behavior: .transient)
+            }
+        }
     }
     private func setShadowType(_ value: ShadowType) {
         settingsManager.shadowType = value

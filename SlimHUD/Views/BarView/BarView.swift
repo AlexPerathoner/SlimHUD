@@ -18,7 +18,6 @@ class BarView: NSView {
     private var shadowColor: NSColor = .black
     private var shadowRadius: Int = 0
     private var shadowInset: Int = 5
-    private var shadowEnabled: Bool = false
 
     override func awakeFromNib() {
         if let icon = icon { // not set in
@@ -131,7 +130,7 @@ class BarView: NSView {
             return bar.frame.insetBy(dx: CGFloat(-20+(shadowInset)), dy: CGFloat(-20+shadowInset))
         } else {
             let size = self.frame.insetBy(dx: CGFloat(shadowInset), dy: CGFloat(shadowInset)).size
-            let origin = NSPoint(x: CGFloat((shadowInset)), y: CGFloat((shadowInset)))
+            let origin = NSPoint(x: CGFloat(shadowInset), y: CGFloat(shadowInset))
             return NSRect(origin: origin, size: size)
         }
     }

@@ -71,6 +71,7 @@
 		FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8429574495005B39CD /* SparkleUITests.swift */; };
 		FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE872957589E005B39CD /* PositionManagerTests.swift */; };
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
+		FA98AB4429CD194500D3F92A /* ShadowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98AB4329CD194500D3F92A /* ShadowViewController.swift */; };
 		FA9A815829882EBF00C282C9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A815729882EBF00C282C9 /* SettingsViewController.swift */; };
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
@@ -172,6 +173,7 @@
 		FA95EE8429574495005B39CD /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
 		FA95EE872957589E005B39CD /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA98AB4329CD194500D3F92A /* ShadowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowViewController.swift; sourceTree = "<group>"; };
 		FA9A815729882EBF00C282C9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMethod.swift; sourceTree = "<group>"; };
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				FA232B512981E6D800F96E51 /* StyleViewController.swift */,
 				FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */,
 				FA232B4D2981E6A900F96E51 /* AboutViewController.swift */,
+				FA98AB4329CD194500D3F92A /* ShadowViewController.swift */,
 			);
 			path = SettingsViewController;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				FA232B4C2981E1FC00F96E51 /* TabsManager.swift in Sources */,
 				FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */,
 				FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */,
+				FA98AB4429CD194500D3F92A /* ShadowViewController.swift in Sources */,
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
 				FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */,
 				FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */,
