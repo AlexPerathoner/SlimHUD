@@ -133,6 +133,7 @@ class Hud: NSView {
 
     public func setHeight(height: CGFloat) {
         barView.setFrameSize(NSSize(width: barView.frame.width, height: height + Constants.ShadowRadius * 3))
+        barView.updateShadowView()
     }
 
     public func setThickness(thickness: CGFloat, flatBar: Bool) {
@@ -145,6 +146,7 @@ class Hud: NSView {
         }
         barView.bar.layer?.cornerRadius = thickness/2 // setting up outer layer
         barView.bar.frame.size.width = thickness
+        barView.updateShadowView()
     }
 
     public func getFrame() -> NSRect {
