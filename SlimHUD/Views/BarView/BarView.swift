@@ -85,44 +85,46 @@ class BarView: NSView {
         shadowRadius = radius
         updateShadowView()
     }
-    
+
     public func updateShadowView() {
         if shadowView != nil {
             shadowView.removeFromSuperview()
             shadowView = nil
         }
         if shadowEnabled {
-            shadowView = NSView(frame: calculateShadowFrame())
+            let shadowFrame = calculateShadowFrame()
+            shadowView = NSView(frame: shadowFrame)
             shadowView.wantsLayer = true
             shadowView.layer?.cornerRadius = (min(self.frame.height, self.frame.width) - CGFloat(shadowInset * 2)) / 2.2 // rounded rectangle
-            // todo use CGFloat(shadowRadius) https://stackoverflow.com/questions/36490270/how-to-make-a-uiview-have-an-effect-of-transparent-gradient
             shadowView.layer?.backgroundColor = shadowColor.cgColor
-            
-            
-            shadowView.layer?.mask = createMaskLayer()
-            
+            if shadowRadius > 0 {
+                shadowView.layer?.mask = createMaskLayer(shadowFrame: shadowFrame)
+            }
             self.addSubview(shadowView, positioned: .below, relativeTo: icon.isHidden ? bar : self)
         }
     }
-    
-    private func createMaskLayer() -> CALayer {
+
+    private func createMaskLayer(shadowFrame: NSRect) -> CALayer {
+        let verticalGradientLength = CGFloat(shadowRadius) / shadowFrame.height * 1.5 // only because it looks better
         let verticalGradient = CAGradientLayer()
         verticalGradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         verticalGradient.endPoint = CGPoint(x: 0.0, y: 1.0)
         verticalGradient.colors = [NSColor.clear.withAlphaComponent(0.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(0.0).cgColor]
-        verticalGradient.locations = [NSNumber(value: 0.0),NSNumber(value: 0.05),NSNumber(value: 0.95),NSNumber(value: 1.0)]
+        verticalGradient.locations = [NSNumber(value: 0.0), NSNumber(value: verticalGradientLength), NSNumber(value: 1-verticalGradientLength), NSNumber(value: 1.0)]
         verticalGradient.frame = shadowView.bounds
 
+        let horizontalGradientLength = CGFloat(shadowRadius) / shadowFrame.width
         let horizontalGradient = CAGradientLayer()
         horizontalGradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         horizontalGradient.endPoint = CGPoint(x: 1.0, y: 0.0)
         horizontalGradient.colors = [NSColor.clear.withAlphaComponent(0.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(0.0).cgColor]
-        horizontalGradient.locations = [NSNumber(value: 0.0),NSNumber(value: 0.35),NSNumber(value: 0.65),NSNumber(value: 1.0)]
+        horizontalGradient.locations = [NSNumber(value: 0.0), NSNumber(value: horizontalGradientLength), NSNumber(value: 1-horizontalGradientLength), NSNumber(value: 1.0)]
         horizontalGradient.frame = shadowView.bounds
         verticalGradient.mask = horizontalGradient
+
         return verticalGradient.flatten()
     }
-    
+
     private func calculateShadowFrame() -> NSRect {
         if icon.isHidden {
             return bar.frame.insetBy(dx: CGFloat(-20+(shadowInset)), dy: CGFloat(-20+shadowInset))
