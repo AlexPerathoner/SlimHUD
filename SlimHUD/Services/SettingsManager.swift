@@ -22,7 +22,6 @@ class SettingsManager {
     private static let BrightnessIconColorKey = "brightnessIconColor"
     private static let KeyboardIconColorKey = "keyboardIconColor"
     private static let ShouldShowIconsKey = "shouldShowIcons"
-    private static let ShouldShowShadowsKey = "shouldShowShadows"
     private static let ShadowColorKey = "shadowColor"
     private static let ShadowTypeKey = "shadowType"
     private static let ShadowInsetKey = "shadowInset"
@@ -91,11 +90,6 @@ class SettingsManager {
     }
 
     // MARK: - Effects colors
-    var shouldShowShadows: Bool {
-        didSet {
-            UserDefaults.standard.set(shouldShowShadows, forKey: SettingsManager.ShouldShowShadowsKey)
-        }
-    }
     var shadowColor: NSColor {
         didSet {
             UserDefaultsManager.setItem(shadowColor, for: SettingsManager.ShadowColorKey)
@@ -197,8 +191,7 @@ class SettingsManager {
         brightnessIconColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessIconColorKey, defaultValue: .white)
         keyboardIconColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardIconColorKey, defaultValue: .white)
 
-        shouldShowShadows = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowShadowsKey, defaultValue: true)
-        shadowColor = UserDefaultsManager.getItem(for: SettingsManager.ShadowColorKey, defaultValue: NSColor.black)
+        shadowColor = UserDefaultsManager.getItem(for: SettingsManager.ShadowColorKey, defaultValue: NSColor.init(white: 0, alpha: 0.1))
         let rawShadowType = UserDefaultsManager.getString(for: SettingsManager.ShadowTypeKey, defaultValue: ShadowType.nsshadow.rawValue)
         shadowType = ShadowType(rawValue: rawShadowType) ?? .nsshadow
         shadowInset = UserDefaultsManager.getInt(for: SettingsManager.ShadowColorKey, defaultValue: 5)
@@ -256,7 +249,6 @@ class SettingsManager {
         UserDefaults.standard.set(barHeight, forKey: SettingsManager.BarHeightKey)
         UserDefaults.standard.set(barThickness, forKey: SettingsManager.BarThicknessKey)
         UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.ShouldShowIconsKey)
-        UserDefaults.standard.set(shouldShowShadows, forKey: SettingsManager.ShouldShowShadowsKey)
 
         UserDefaults.standard.set(marginValue, forKey: SettingsManager.MarginKey)
         let enabledBarsRaw = [enabledBars.volumeBar,

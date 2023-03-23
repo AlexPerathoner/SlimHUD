@@ -20,8 +20,8 @@ class DesignViewController: NSViewController {
 
     @IBOutlet weak var iconsOutlet: NSButton!
     @IBOutlet weak var flatBarOutlet: NSButton!
-    @IBOutlet weak var shadowsOutlet: NSButton!
     @IBOutlet weak var animationStyleOutlet: NSPopUpButton!
+    @IBOutlet weak var shadowTypeOutlet: NSPopUpButton!
 
     override func viewDidLoad() {
         // swiftlint:disable:next force_cast
@@ -34,8 +34,8 @@ class DesignViewController: NSViewController {
 
         iconsOutlet.state = settingsManager.shouldShowIcons.toStateValue()
         flatBarOutlet.state = settingsManager.flatBar.toStateValue()
-        shadowsOutlet.state = settingsManager.shouldShowShadows.toStateValue()
         animationStyleOutlet.selectItem(withTitle: settingsManager.animationStyle.rawValue)
+        shadowTypeOutlet.selectItem(withTitle: settingsManager.shadowType.rawValue)
     }
 
     @IBAction func sizeSlider(_ sender: NSSlider) {
@@ -95,11 +95,11 @@ class DesignViewController: NSViewController {
         delegate?.setThickness(thickness: CGFloat(settingsManager.barThickness))
     }
 
-    @IBAction func shadowsClicked(_ sender: NSButton) {
-        showShadows(sender.boolValue())
+    @IBAction func shadowTypeClicked(_ sender: NSPopUpButton) {
+        setShadowType(ShadowType(from: sender.titleOfSelectedItem)) // todo if custom... is clicked, show alert with additional info
     }
-    private func showShadows(_ value: Bool) {
-        settingsManager.shouldShowShadows = value
+    private func setShadowType(_ value: ShadowType) {
+        settingsManager.shadowType = value
         delegate?.updateShadows()
     }
 
@@ -120,7 +120,7 @@ class DesignViewController: NSViewController {
         setThickness(9)
         showIcons(true)
         useFlatBar(true)
-        showShadows(true)
         setAnimationStyle(.slide)
+        setShadowType(.nsshadow)
     }
 }

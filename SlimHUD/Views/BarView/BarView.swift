@@ -78,29 +78,30 @@ class BarView: NSView {
         }
     }
 
-    public func setupShadowAsView(enabled: Bool, radius: Int, color: NSColor = .black, inset: Int = 5) {
+    public func setupShadowAsView(radius: Int, color: NSColor = .black, inset: Int = 5) {
         shadowColor = color
-        shadowEnabled = enabled
         shadowInset = inset
         shadowRadius = radius
         updateShadowView()
     }
 
     public func updateShadowView() {
+        disableShadowView()
+        
+        let shadowFrame = calculateShadowFrame()
+        shadowView = NSView(frame: shadowFrame)
+        shadowView.wantsLayer = true
+        shadowView.layer?.cornerRadius = (min(self.frame.height, self.frame.width) - CGFloat(shadowInset * 2)) / 2.2 // rounded rectangle
+        shadowView.layer?.backgroundColor = shadowColor.cgColor
+        if shadowRadius > 0 {
+            shadowView.layer?.mask = createMaskLayer(shadowFrame: shadowFrame)
+        }
+        self.addSubview(shadowView, positioned: .below, relativeTo: icon.isHidden ? bar : self)
+    }
+    public func disableShadowView() {
         if shadowView != nil {
             shadowView.removeFromSuperview()
             shadowView = nil
-        }
-        if shadowEnabled {
-            let shadowFrame = calculateShadowFrame()
-            shadowView = NSView(frame: shadowFrame)
-            shadowView.wantsLayer = true
-            shadowView.layer?.cornerRadius = (min(self.frame.height, self.frame.width) - CGFloat(shadowInset * 2)) / 2.2 // rounded rectangle
-            shadowView.layer?.backgroundColor = shadowColor.cgColor
-            if shadowRadius > 0 {
-                shadowView.layer?.mask = createMaskLayer(shadowFrame: shadowFrame)
-            }
-            self.addSubview(shadowView, positioned: .below, relativeTo: icon.isHidden ? bar : self)
         }
     }
 
