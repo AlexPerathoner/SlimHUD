@@ -19,6 +19,7 @@
 		FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */; };
 		FA322FC4297F485700E8F31A /* StandardLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA322FC3297F485700E8F31A /* StandardLabel.swift */; };
 		FA322FC6297F506200E8F31A /* EdgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA322FC5297F506200E8F31A /* EdgeSelector.swift */; };
+		FA55A5EA29CCFF7D00415378 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55A5E929CCFF7D00415378 /* CALayer.swift */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
 		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
 		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
@@ -115,6 +116,7 @@
 		FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		FA322FC3297F485700E8F31A /* StandardLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLabel.swift; sourceTree = "<group>"; };
 		FA322FC5297F506200E8F31A /* EdgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeSelector.swift; sourceTree = "<group>"; };
+		FA55A5E929CCFF7D00415378 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
 		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
 		FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAUITestSetup.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				FA95EE562956FE91005B39CD /* BoolExtension.swift */,
 				FA95EE5A2956FEA9005B39CD /* NSSegmentedControlExtension.swift */,
 				FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */,
+				FA55A5E929CCFF7D00415378 /* CALayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				FA95EE3E2956FDFB005B39CD /* ChangesObserver.swift in Sources */,
 				FA95EE212956FCF0005B39CD /* HudsControllerInterface.swift in Sources */,
 				FA95EE6D29573F36005B39CD /* Hud.swift in Sources */,
+				FA55A5EA29CCFF7D00415378 /* CALayer.swift in Sources */,
 				FA95EE5E2956FEC3005B39CD /* Constants.swift in Sources */,
 				FA95EE572956FE91005B39CD /* BoolExtension.swift in Sources */,
 				FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */,
