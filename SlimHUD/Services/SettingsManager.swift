@@ -233,7 +233,6 @@ class SettingsManager {
     }
 
     func saveAllItems() {
-        // todo check if should add items for shadows, if not needed delete method
         UserDefaultsManager.setItem(volumeBackgroundColor, for: SettingsManager.VolumeBackgroundColorKey)
         UserDefaultsManager.setItem(brightnessBackgroundColor, for: SettingsManager.BrightnessBackgroundColorKey)
         UserDefaultsManager.setItem(keyboardBackgroundColor, for: SettingsManager.KeyboardBackgroundColorKey)
@@ -260,6 +259,11 @@ class SettingsManager {
         UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
         UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
         UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
+        
+        UserDefaultsManager.setItem(shadowColor, for: SettingsManager.ShadowColorKey)
+        UserDefaults.standard.set(shadowType.rawValue, forKey: SettingsManager.ShadowTypeKey)
+        UserDefaults.standard.set(shadowInset, forKey: SettingsManager.ShadowInsetKey)
+        UserDefaults.standard.set(shadowRadius, forKey: SettingsManager.ShadowRadiusKey)
     }
 
     deinit {
