@@ -80,7 +80,7 @@
 		FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE692297F1BD300EDF165 /* TabsView.swift */; };
 		FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */; };
 		FAD49D0E29B38E680034A8D8 /* StatusItemCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */; };
-		FAD49D1029B398ED0034A8D8 /* ConfigSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0F29B398ED0034A8D8 /* ConfigSettingsTest.swift */; };
+		FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITest.swift */; };
 		FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5122970F80E00C8D5DB /* IconManager.swift */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
 		FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579F29675F7700C32A80 /* AppleScriptError.swift */; };
@@ -181,7 +181,7 @@
 		FACDE68E297F105600EDF165 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
 		FACDE692297F1BD300EDF165 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemCreator.swift; sourceTree = "<group>"; };
-		FAD49D0F29B398ED0034A8D8 /* ConfigSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSettingsTest.swift; sourceTree = "<group>"; };
+		FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSettingsUITest.swift; sourceTree = "<group>"; };
 		FAF1A5122970F80E00C8D5DB /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
 		FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FAFC579F29675F7700C32A80 /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 			children = (
 				FA95EE832957448E005B39CD /* Utils */,
 				FA95EE8129574471005B39CD /* SettingsUITest.swift */,
-				FAD49D0F29B398ED0034A8D8 /* ConfigSettingsTest.swift */,
+				FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITest.swift */,
 				FA56F6DF29666AB1008177B1 /* HudsUITests.swift */,
 			);
 			path = SlimHUDUITests;
@@ -678,7 +678,7 @@
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
 				FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */,
-				FAD49D1029B398ED0034A8D8 /* ConfigSettingsTest.swift in Sources */,
+				FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITest.swift in Sources */,
 				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,
 			);
