@@ -31,7 +31,7 @@ class SparkleUITests: UITestsUtils {
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-    
+
     override class func setUp() {
         let options = XCTExpectedFailure.Options()
         options.isStrict = false
