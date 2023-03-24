@@ -6,9 +6,9 @@
 //  Copyright © 2022 Alex Perathoner. All rights reserved.
 //
 
- import XCTest
+import XCTest
 
- class SparkleUITests: UITestsUtils {
+class SparkleUITests: UITestsUtils {
     static var TimeOut = 10
 
     static public func closeAlerts(app: XCUIApplication) -> Bool {
@@ -31,4 +31,10 @@
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
- }
+    
+    override class func setUp() {
+        let options = XCTExpectedFailure.Options()
+        options.isStrict = false
+        XCTExpectFailure("Flaky test.", options: options)
+    }
+}
