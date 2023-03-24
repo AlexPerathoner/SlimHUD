@@ -194,8 +194,8 @@ class SettingsManager {
         shadowColor = UserDefaultsManager.getItem(for: SettingsManager.ShadowColorKey, defaultValue: NSColor.init(white: 0, alpha: 0.1))
         let rawShadowType = UserDefaultsManager.getString(for: SettingsManager.ShadowTypeKey, defaultValue: ShadowType.nsshadow.rawValue)
         shadowType = ShadowType(rawValue: rawShadowType) ?? .nsshadow
-        shadowInset = UserDefaultsManager.getInt(for: SettingsManager.ShadowColorKey, defaultValue: 5)
-        shadowRadius = UserDefaultsManager.getInt(for: SettingsManager.ShadowColorKey, defaultValue: 10)
+        shadowInset = UserDefaultsManager.getInt(for: SettingsManager.ShadowInsetKey, defaultValue: 5)
+        shadowRadius = UserDefaultsManager.getInt(for: SettingsManager.ShadowRadiusKey, defaultValue: 10)
 
         shouldShowIcons = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowIconsKey, defaultValue: true)
         barHeight = UserDefaultsManager.getInt(for: SettingsManager.BarHeightKey, defaultValue: 218)
@@ -231,43 +231,4 @@ class SettingsManager {
         brightnessIconColor = .white
         keyboardIconColor = .white
     }
-
-    func saveAllItems() {
-        UserDefaultsManager.setItem(volumeBackgroundColor, for: SettingsManager.VolumeBackgroundColorKey)
-        UserDefaultsManager.setItem(brightnessBackgroundColor, for: SettingsManager.BrightnessBackgroundColorKey)
-        UserDefaultsManager.setItem(keyboardBackgroundColor, for: SettingsManager.KeyboardBackgroundColorKey)
-        UserDefaultsManager.setItem(volumeEnabledColor, for: SettingsManager.VolumeEnabledColorKey)
-        UserDefaultsManager.setItem(volumeDisabledColor, for: SettingsManager.VolumeDisabledColorKey)
-        UserDefaultsManager.setItem(brightnessColor, for: SettingsManager.BrightnessColorKey)
-        UserDefaultsManager.setItem(keyboardColor, for: SettingsManager.KeyboardColorKey)
-
-        UserDefaultsManager.setItem(volumeIconColor, for: SettingsManager.VolumeIconColorKey)
-        UserDefaultsManager.setItem(brightnessIconColor, for: SettingsManager.BrightnessIconColorKey)
-        UserDefaultsManager.setItem(keyboardIconColor, for: SettingsManager.KeyboardIconColorKey)
-
-        UserDefaults.standard.set(barHeight, forKey: SettingsManager.BarHeightKey)
-        UserDefaults.standard.set(barThickness, forKey: SettingsManager.BarThicknessKey)
-        UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.ShouldShowIconsKey)
-
-        UserDefaults.standard.set(marginValue, forKey: SettingsManager.MarginKey)
-        let enabledBarsRaw = [enabledBars.volumeBar,
-                              enabledBars.brightnessBar,
-                              enabledBars.keyboardBar]
-        UserDefaults.standard.set(enabledBarsRaw, forKey: SettingsManager.EnabledBarsKey)
-        UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
-        UserDefaults.standard.set(animationStyle.rawValue, forKey: SettingsManager.AnimationStyleKey)
-        UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
-        UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
-        UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
-        
-        UserDefaultsManager.setItem(shadowColor, for: SettingsManager.ShadowColorKey)
-        UserDefaults.standard.set(shadowType.rawValue, forKey: SettingsManager.ShadowTypeKey)
-        UserDefaults.standard.set(shadowInset, forKey: SettingsManager.ShadowInsetKey)
-        UserDefaults.standard.set(shadowRadius, forKey: SettingsManager.ShadowRadiusKey)
-    }
-
-    deinit {
-        saveAllItems()
-    }
-
 }
