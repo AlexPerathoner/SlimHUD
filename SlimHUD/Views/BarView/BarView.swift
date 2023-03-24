@@ -109,16 +109,20 @@ class BarView: NSView {
         let verticalGradient = CAGradientLayer()
         verticalGradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         verticalGradient.endPoint = CGPoint(x: 0.0, y: 1.0)
-        verticalGradient.colors = [NSColor.clear.withAlphaComponent(0.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(0.0).cgColor]
-        verticalGradient.locations = [NSNumber(value: 0.0), NSNumber(value: verticalGradientLength), NSNumber(value: 1-verticalGradientLength), NSNumber(value: 1.0)]
+        verticalGradient.colors = [NSColor.clear.withAlphaComponent(0.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor,
+                                   NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(0.0).cgColor]
+        verticalGradient.locations = [NSNumber(value: 0.0), NSNumber(value: verticalGradientLength),
+                                      NSNumber(value: 1-verticalGradientLength), NSNumber(value: 1.0)]
         verticalGradient.frame = shadowView.bounds
 
         let horizontalGradientLength = CGFloat(shadowRadius) / shadowFrame.width
         let horizontalGradient = CAGradientLayer()
         horizontalGradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         horizontalGradient.endPoint = CGPoint(x: 1.0, y: 0.0)
-        horizontalGradient.colors = [NSColor.clear.withAlphaComponent(0.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(0.0).cgColor]
-        horizontalGradient.locations = [NSNumber(value: 0.0), NSNumber(value: horizontalGradientLength), NSNumber(value: 1-horizontalGradientLength), NSNumber(value: 1.0)]
+        horizontalGradient.colors = [NSColor.clear.withAlphaComponent(0.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor,
+                                     NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(0.0).cgColor]
+        horizontalGradient.locations = [NSNumber(value: 0.0), NSNumber(value: horizontalGradientLength),
+                                        NSNumber(value: 1-horizontalGradientLength), NSNumber(value: 1.0)]
         horizontalGradient.frame = shadowView.bounds
         verticalGradient.mask = horizontalGradient
 

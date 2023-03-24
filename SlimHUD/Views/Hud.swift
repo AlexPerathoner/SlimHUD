@@ -79,7 +79,8 @@ class Hud: NSView {
             if animated {
                 switch animationStyle {
                 case .none: HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
-                case .slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+                case .slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition,
+                                                  screenEdge: screenEdge, completion: commonAnimationOutCompletion)
                 case .popInFadeOut: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
                 case .fade: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
                 case .grow: HudAnimator.growOut(barView: barView, completion: commonAnimationOutCompletion)
