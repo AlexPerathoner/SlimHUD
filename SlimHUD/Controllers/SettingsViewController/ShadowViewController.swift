@@ -14,6 +14,9 @@ class ShadowViewController: NSViewController {
     @IBOutlet weak var radiusValue: NSTextField!
     @IBOutlet weak var radiusSlider: NSSlider!
     
+    @IBOutlet weak var insetValue: NSTextField!
+    @IBOutlet weak var insetSlider: NSSlider!
+    
     @IBOutlet weak var shadowColorOutlet: NSColorWell!
     
     
@@ -23,11 +26,13 @@ class ShadowViewController: NSViewController {
         
         radiusValue.stringValue = String(settingsManager.shadowRadius)
         radiusSlider.integerValue = settingsManager.shadowRadius
+        insetValue.stringValue = String(settingsManager.shadowInset)
+        insetSlider.integerValue = settingsManager.shadowInset
         shadowColorOutlet.color = settingsManager.shadowColor
     }
     
 
-    @IBAction func radiuSlider(_ sender: NSSlider) {
+    @IBAction func radiusSlider(_ sender: NSSlider) {
         setRadius(sender.integerValue)
     }
 
@@ -45,6 +50,22 @@ class ShadowViewController: NSViewController {
             } else {
                 radiusValue.stringValue = String(radiusSlider.integerValue)
             }
+        }
+    }
+    @IBAction func insetSlider(_ sender: NSSlider) {
+        setInset(sender.integerValue)
+    }
+
+    private func setInset(_ value: Int) {
+        insetValue.stringValue = String(value)
+        settingsManager.shadowInset = value
+        delegate?.updateShadows()
+    }
+
+    @IBAction func insetText(_ sender: NSTextField) {
+        if let newValue = Int(sender.stringValue) {
+            setInset(newValue)
+            insetSlider.integerValue = newValue
         }
     }
     
