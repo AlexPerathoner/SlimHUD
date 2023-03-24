@@ -12,7 +12,7 @@ enum ShadowType: String {
     case none = "None"
     case nsshadow = "Standard"
     case view = "Custom..."
-    
+
     private static let DefaultValue = ShadowType.nsshadow
 
     init(from rawValue: String?) {

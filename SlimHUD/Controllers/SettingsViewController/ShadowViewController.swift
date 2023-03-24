@@ -10,27 +10,25 @@ import Cocoa
 class ShadowViewController: NSViewController {
     weak var delegate: HudsControllerInterface?
     var settingsManager = SettingsManager.getInstance()
-    
+
     @IBOutlet weak var radiusValue: NSTextField!
     @IBOutlet weak var radiusSlider: NSSlider!
-    
+
     @IBOutlet weak var insetValue: NSTextField!
     @IBOutlet weak var insetSlider: NSSlider!
-    
+
     @IBOutlet weak var shadowColorOutlet: NSColorWell!
-    
-    
+
     override func viewDidLoad() {
         // swiftlint:disable:next force_cast
         self.delegate = (NSApplication.shared.delegate as! AppDelegate).displayer
-        
+
         radiusValue.stringValue = String(settingsManager.shadowRadius)
         radiusSlider.integerValue = settingsManager.shadowRadius
         insetValue.stringValue = String(settingsManager.shadowInset)
         insetSlider.integerValue = settingsManager.shadowInset
         shadowColorOutlet.color = settingsManager.shadowColor
     }
-    
 
     @IBAction func radiusSlider(_ sender: NSSlider) {
         setRadius(sender.integerValue)
@@ -68,10 +66,9 @@ class ShadowViewController: NSViewController {
             insetSlider.integerValue = newValue
         }
     }
-    
+
     @IBAction func setShadowColorClicked(_ sender: NSColorWell) {
         settingsManager.shadowColor = sender.color
         delegate?.updateShadows()
     }
 }
-

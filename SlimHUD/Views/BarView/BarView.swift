@@ -86,7 +86,7 @@ class BarView: NSView {
 
     public func updateShadowView() {
         disableShadowView()
-        
+
         let shadowFrame = calculateShadowFrame()
         shadowView = NSView(frame: shadowFrame)
         shadowView.wantsLayer = true
