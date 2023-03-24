@@ -27,7 +27,6 @@
 		FA64B5A52966579D00600F85 /* release.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A12966579D00600F85 /* release.yml */; };
 		FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A22966579D00600F85 /* xcode-build.yml */; };
 		FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A32966579D00600F85 /* swift-lint.yml */; };
-		FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */; };
 		FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B5AA2966645100600F85 /* SinglePopover.swift */; };
 		FA767E75297C5DAD0006E091 /* HudAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */; };
 		FA7811E32975EFE500FEE1AA /* AnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */; };
@@ -67,7 +66,7 @@
 		FA95EE7A295741D2005B39CD /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE79295741D2005B39CD /* BarView.xib */; };
 		FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE7B295741DE005B39CD /* MainMenu.storyboard */; };
 		FA95EE7E295741E6005B39CD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE7D295741E6005B39CD /* Settings.storyboard */; };
-		FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8129574471005B39CD /* SettingsUITest.swift */; };
+		FA95EE8229574471005B39CD /* SettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8129574471005B39CD /* SettingsUITests.swift */; };
 		FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8429574495005B39CD /* SparkleUITests.swift */; };
 		FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE872957589E005B39CD /* PositionManagerTests.swift */; };
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
@@ -80,7 +79,7 @@
 		FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE692297F1BD300EDF165 /* TabsView.swift */; };
 		FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */; };
 		FAD49D0E29B38E680034A8D8 /* StatusItemCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */; };
-		FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITest.swift */; };
+		FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITests.swift */; };
 		FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5122970F80E00C8D5DB /* IconManager.swift */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
 		FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579F29675F7700C32A80 /* AppleScriptError.swift */; };
@@ -125,7 +124,6 @@
 		FA64B5A12966579D00600F85 /* release.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = release.yml; sourceTree = "<group>"; };
 		FA64B5A22966579D00600F85 /* xcode-build.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-build.yml"; sourceTree = "<group>"; };
 		FA64B5A32966579D00600F85 /* swift-lint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "swift-lint.yml"; sourceTree = "<group>"; };
-		FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-ui-tests.yml"; sourceTree = "<group>"; };
 		FA64B5AA2966645100600F85 /* SinglePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePopover.swift; sourceTree = "<group>"; };
 		FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimatorTests.swift; sourceTree = "<group>"; };
 		FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStyle.swift; sourceTree = "<group>"; };
@@ -169,7 +167,7 @@
 		FA95EE79295741D2005B39CD /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
 		FA95EE7B295741DE005B39CD /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		FA95EE7D295741E6005B39CD /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		FA95EE8129574471005B39CD /* SettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITest.swift; sourceTree = "<group>"; };
+		FA95EE8129574471005B39CD /* SettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITests.swift; sourceTree = "<group>"; };
 		FA95EE8429574495005B39CD /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
 		FA95EE872957589E005B39CD /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -181,7 +179,7 @@
 		FACDE68E297F105600EDF165 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
 		FACDE692297F1BD300EDF165 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemCreator.swift; sourceTree = "<group>"; };
-		FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSettingsUITest.swift; sourceTree = "<group>"; };
+		FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSettingsUITests.swift; sourceTree = "<group>"; };
 		FAF1A5122970F80E00C8D5DB /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
 		FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FAFC579F29675F7700C32A80 /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				FA64B5A12966579D00600F85 /* release.yml */,
 				FA64B5A22966579D00600F85 /* xcode-build.yml */,
 				FA64B5A32966579D00600F85 /* swift-lint.yml */,
-				FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */,
 			);
 			name = workflows;
 			path = .github/workflows;
@@ -287,8 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				FA95EE832957448E005B39CD /* Utils */,
-				FA95EE8129574471005B39CD /* SettingsUITest.swift */,
-				FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITest.swift */,
+				FA95EE8129574471005B39CD /* SettingsUITests.swift */,
+				FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITests.swift */,
 				FA56F6DF29666AB1008177B1 /* HudsUITests.swift */,
 			);
 			path = SlimHUDUITests;
@@ -571,7 +568,6 @@
 				FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */,
 				FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */,
 				FA0E03882966331A004066FF /* README.md in Resources */,
-				FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */,
 				FA64B5A52966579D00600F85 /* release.yml in Resources */,
 				FA95EE7A295741D2005B39CD /* BarView.xib in Resources */,
 				FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */,
@@ -678,8 +674,8 @@
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
 				FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */,
-				FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITest.swift in Sources */,
-				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
+				FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITests.swift in Sources */,
+				FA95EE8229574471005B39CD /* SettingsUITests.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

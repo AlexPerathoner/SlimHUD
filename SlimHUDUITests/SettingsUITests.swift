@@ -13,6 +13,10 @@ final class SettingsUITest: SparkleUITests {
         continueAfterFailure = false
     }
 
+    func test() throws {
+        XCTAssertTrue(false)
+    }
+
     func testOpenSettingsWindow() throws {
         let app = XCUIApplication()
         app.launch()

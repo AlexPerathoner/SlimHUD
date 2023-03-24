@@ -10,6 +10,7 @@
 /// Tests are run in alphabetical order. Strange name is for that reason
 /// 
  final class AAAUITestSetup: SparkleUITests {
+     // FIXME: set user defaults instead to prevent alert
     /// Will close dialog opened by Sparkle telling there was an error while checking for updates (GitHub Runner can't connect to rss
     func testAFirstLaunch() {
         let app = XCUIApplication()
@@ -19,7 +20,7 @@
         }
     }
 
-    /// Will close dialog opened by Sparkle asking to 
+    /// Will close dialog opened by Sparkle asking to
     func testBSecondLaunch() {
         if CommandLine.arguments.contains("-sparkle-will-alert") {
             var checkAutomaticallyForUpdatesClicked = false
