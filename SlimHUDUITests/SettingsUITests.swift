@@ -101,21 +101,21 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertEqual(settingsWindow.colorWells.count, 3)
         XCTAssertTrue(isKeyboardHudVisible(app: app))
     }
-    
+
     func testOpenCustomShadowPopup() throws {
         let app = XCUIApplication()
         app.showSettings()
         app.setShadowType(shadowType: "Standard")
         app.launch()
-        
+
         let settingsWindow = XCUIApplication().windows["Settings"]
         settingsWindow.typeKey("3", modifierFlags: .command)
-        
+
         settingsWindow.popUpButtons["Standard"].click()
         settingsWindow.menuItems["Custom..."].click()
-        
+
         XCTAssertTrue(settingsWindow.popovers.count > 0)
-        
+
         XCTAssertEqual(2, settingsWindow.popovers.children(matching: .slider).count)
     }
 }
