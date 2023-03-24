@@ -192,7 +192,9 @@ class SettingsManager {
         keyboardIconColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardIconColorKey, defaultValue: .white)
 
         shadowColor = UserDefaultsManager.getItem(for: SettingsManager.ShadowColorKey, defaultValue: NSColor.init(white: 0, alpha: 0.1))
-        let rawShadowType = UserDefaultsManager.getString(for: SettingsManager.ShadowTypeKey, defaultValue: ShadowType.nsshadow.rawValue)
+        let rawShadowType = CommandLine.arguments.contains(SettingsManager.ShadowTypeKey) ?
+            CommandLine.arguments[CommandLine.arguments.firstIndex(of: SettingsManager.ShadowTypeKey)!] :
+            UserDefaultsManager.getString(for: SettingsManager.ShadowTypeKey, defaultValue: ShadowType.nsshadow.rawValue)
         shadowType = ShadowType(rawValue: rawShadowType) ?? .nsshadow
         shadowInset = UserDefaultsManager.getInt(for: SettingsManager.ShadowInsetKey, defaultValue: 5)
         shadowRadius = UserDefaultsManager.getInt(for: SettingsManager.ShadowRadiusKey, defaultValue: 10)

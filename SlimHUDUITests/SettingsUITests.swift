@@ -13,10 +13,6 @@ final class SettingsUITest: SparkleUITests {
         continueAfterFailure = false
     }
 
-    func test() throws {
-        XCTAssertTrue(false)
-    }
-
     func testOpenSettingsWindow() throws {
         let app = XCUIApplication()
         app.launch()
@@ -38,7 +34,7 @@ final class SettingsUITest: SparkleUITests {
         let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
 
         settingsWindow.typeKey("w", modifierFlags: .command)
-        usleep(5000)
+        usleep(10000)
         XCTAssertFalse(settingsWindow.isHittable)
     }
 
@@ -50,8 +46,9 @@ final class SettingsUITest: SparkleUITests {
         let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
 
         settingsWindow.typeKey("q", modifierFlags: .command)
+        usleep(10000)
         app.dialogs["alert"].buttons["OK"].click()
-        usleep(5000)
+        usleep(10000)
         XCTAssertFalse(settingsWindow.isHittable)
     }
 
@@ -61,7 +58,9 @@ final class SettingsUITest: SparkleUITests {
         app.activate()
         let settingsWindow = app.windows.matching(identifier: "SlimHUD").firstMatch
         settingsWindow.typeKey("q", modifierFlags: .command)
+        usleep(10000)
         app.dialogs["alert"].buttons["Quit now"].click()
+        usleep(10000)
 
         XCTAssertFalse(settingsWindow.isHittable)
         XCTAssertFalse(app.exists)
@@ -101,5 +100,22 @@ final class SettingsUITest: SparkleUITests {
         radioGroupsQuery.children(matching: .radioButton).element(boundBy: 2).click()
         XCTAssertEqual(settingsWindow.colorWells.count, 3)
         XCTAssertTrue(isKeyboardHudVisible(app: app))
+    }
+    
+    func testOpenCustomShadowPopup() throws {
+        let app = XCUIApplication()
+        app.showSettings()
+        app.setShadowType(shadowType: "Standard")
+        app.launch()
+        
+        let settingsWindow = XCUIApplication().windows["Settings"]
+        settingsWindow.typeKey("3", modifierFlags: .command)
+        
+        settingsWindow.popUpButtons["Standard"].click()
+        settingsWindow.menuItems["Custom..."].click()
+        
+        XCTAssertTrue(settingsWindow.popovers.count > 0)
+        
+        XCTAssertEqual(2, settingsWindow.popovers.children(matching: .slider).count)
     }
 }

@@ -5,11 +5,11 @@
 //  Created by Alex Perathoner on 05/01/23.
 //
 
- import XCTest
+import XCTest
 
 /// Tests are run in alphabetical order. Strange name is for that reason
 /// 
- final class AAAUITestSetup: SparkleUITests {
+final class AAAUITestSetup: SparkleUITests {
      // FIXME: set user defaults instead to prevent alert
     /// Will close dialog opened by Sparkle telling there was an error while checking for updates (GitHub Runner can't connect to rss
     func testAFirstLaunch() {
@@ -36,4 +36,4 @@
             }
         }
     }
- }
+}

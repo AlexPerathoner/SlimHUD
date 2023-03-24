@@ -14,6 +14,9 @@ extension XCUIApplication {
     func showSettings() {
         launchArguments += ["showSettingsAtLaunch"]
     }
+    func setShadowType(shadowType: String) {
+        launchArguments += ["shadowType", shadowType]
+    }
     func showSparkleReminder() {
         UserDefaults.standard.set(Date() + 80000, forKey: "SULastCheckTime")
     }
