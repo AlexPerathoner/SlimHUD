@@ -103,14 +103,14 @@ class Displayer: HudsControllerInterface {
     }
 
     func updateShadows() {
-        volumeHud.setShadow(shadowType: settingsManager.shadowType,
-                            shadowRadius: settingsManager.shadowRadius, color: settingsManager.shadowColor,
+        volumeHud.setShadow(type: settingsManager.shadowType,
+                            radius: settingsManager.shadowRadius, color: settingsManager.shadowColor,
                             inset: settingsManager.shadowInset)
-        brightnessHud.setShadow(shadowType: settingsManager.shadowType,
-                                shadowRadius: settingsManager.shadowRadius, color: settingsManager.shadowColor,
+        brightnessHud.setShadow(type: settingsManager.shadowType,
+                                radius: settingsManager.shadowRadius, color: settingsManager.shadowColor,
                                 inset: settingsManager.shadowInset)
-        keyboardHud.setShadow(shadowType: settingsManager.shadowType,
-                              shadowRadius: settingsManager.shadowRadius, color: settingsManager.shadowColor,
+        keyboardHud.setShadow(type: settingsManager.shadowType,
+                              radius: settingsManager.shadowRadius, color: settingsManager.shadowColor,
                               inset: settingsManager.shadowInset)
     }
 

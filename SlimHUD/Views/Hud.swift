@@ -20,7 +20,16 @@ class Hud: NSView {
         return windowController?.window?.contentView
     }
 
+    private var shadowType: ShadowType = .nsshadow
+    private var shadowColor: NSColor = .black
+    private var shadowRadius: Int = 0
+    private var shadowInset: Int = 5
+
     private var windowController: NSWindowController?
+
+    // flags to handle animation cancel (hud will show while hiding)
+    private var animatingOut = false
+    private var canceledAnimationOut = false
 
     private override init(frame frameRect: NSRect) {
         originPosition = .zero
@@ -48,8 +57,12 @@ class Hud: NSView {
     }
 
     func show() {
-        if isHidden {
+        if isHidden || animatingOut {
             self.isHidden = false
+            if animatingOut {
+                HudAnimator.cancel(barView: barView)
+                canceledAnimationOut = true
+            }
             guard let hudView = hudView else { return }
             if hudView.subviews.isEmpty {
                 hudView.addSubview(barView)
@@ -76,6 +89,7 @@ class Hud: NSView {
 
     func hide(animated: Bool) {
         if !isHidden {
+            animatingOut = true
             if animated {
                 switch animationStyle {
                 case .none: HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
@@ -95,9 +109,17 @@ class Hud: NSView {
             }
         }
     }
+    /// HudAnimator.cancel() completes the running animations immediately, so this completion is always being called
+    /// We need to check if it has been called because the hud really closed, or because it was canceled
+    /// Only if really ended (wasn't canceled), we close the windowController (otherwise it would make the hud disappear for some frames)
     private func commonAnimationOutCompletion() {
         self.isHidden = true
-        self.windowController?.close()
+        if !canceledAnimationOut {
+            self.windowController?.close()
+        }
+        // reset all flags
+        animatingOut = false
+        canceledAnimationOut = false
     }
 
     @objc private func hideDelayed(_ animated: AnyObject?) {
@@ -113,6 +135,7 @@ class Hud: NSView {
 
     public func hideIcon(isHidden: Bool) {
         barView.hideIcon(isHidden: isHidden)
+        updateShadow()
     }
 
     @available(macOS 10.14, *)
@@ -124,12 +147,19 @@ class Hud: NSView {
         barView.setIconImage(icon: icon, force: force)
     }
 
-    public func setShadow(shadowType: ShadowType, shadowRadius: Int, color: NSColor, inset: Int = 5) {
-        if shadowType == .none { // FIXME: solve this in a better way
+    public func setShadow(type: ShadowType, radius: Int, color: NSColor, inset: Int = 5) {
+        shadowType = type
+        shadowColor = color
+        shadowInset = inset
+        shadowRadius = radius
+        updateShadow()
+    }
+    private func updateShadow() {
+        if shadowType == .none {
             barView.setupShadow(enabled: false, shadowRadius: Constants.ShadowRadius)
             barView.disableShadowView()
         } else if shadowType == .view {
-            barView.setupShadowAsView(radius: shadowRadius, color: color, inset: inset)
+            barView.setupShadowAsView(radius: shadowRadius, color: shadowColor, inset: shadowInset)
             barView.setupShadow(enabled: false, shadowRadius: Constants.ShadowRadius)
         } else {
             barView.setupShadow(enabled: true, shadowRadius: Constants.ShadowRadius)
@@ -139,7 +169,7 @@ class Hud: NSView {
 
     public func setHeight(height: CGFloat) {
         barView.setFrameSize(NSSize(width: barView.frame.width, height: height + Constants.ShadowRadius * 3))
-        barView.updateShadowView()
+        updateShadow()
     }
 
     public func setThickness(thickness: CGFloat, flatBar: Bool) {
@@ -152,7 +182,7 @@ class Hud: NSView {
         }
         barView.bar.layer?.cornerRadius = thickness/2 // setting up outer layer
         barView.bar.frame.size.width = thickness
-        barView.updateShadowView()
+        updateShadow()
     }
 
     public func getFrame() -> NSRect {

@@ -15,9 +15,6 @@ class BarView: NSView {
     @IBOutlet private var icon: NSImageView!
 
     private var shadowView: NSView!
-    private var shadowColor: NSColor = .black
-    private var shadowRadius: Int = 0
-    private var shadowInset: Int = 5
 
     override func awakeFromNib() {
         if let icon = icon { // not set in
@@ -28,7 +25,6 @@ class BarView: NSView {
 
     public func hideIcon(isHidden: Bool) {
         icon.isHidden = isHidden
-        updateShadowView()
     }
 
     @available(OSX 10.14, *)
@@ -78,22 +74,15 @@ class BarView: NSView {
     }
 
     public func setupShadowAsView(radius: Int, color: NSColor = .black, inset: Int = 5) {
-        shadowColor = color
-        shadowInset = inset
-        shadowRadius = radius
-        updateShadowView()
-    }
-
-    public func updateShadowView() {
         disableShadowView()
 
-        let shadowFrame = calculateShadowFrame()
+        let shadowFrame = calculateShadowFrame(shadowInset: inset)
         shadowView = NSView(frame: shadowFrame)
         shadowView.wantsLayer = true
-        shadowView.layer?.cornerRadius = (min(self.frame.height, self.frame.width) - CGFloat(shadowInset * 2)) / 2.2 // rounded rectangle
-        shadowView.layer?.backgroundColor = shadowColor.cgColor
-        if shadowRadius > 0 {
-            shadowView.layer?.mask = createMaskLayer(shadowFrame: shadowFrame)
+        shadowView.layer?.cornerRadius = (min(self.frame.height, self.frame.width) - CGFloat(inset * 2)) / 2.2 // rounded rectangle
+        shadowView.layer?.backgroundColor = color.cgColor
+        if radius > 0 {
+            shadowView.layer?.mask = createMaskLayer(shadowFrame: shadowFrame, shadowRadius: radius)
         }
         self.addSubview(shadowView, positioned: .below, relativeTo: icon.isHidden ? bar : self)
     }
@@ -103,8 +92,7 @@ class BarView: NSView {
             shadowView = nil
         }
     }
-
-    private func createMaskLayer(shadowFrame: NSRect) -> CALayer {
+    private func createMaskLayer(shadowFrame: NSRect, shadowRadius: Int) -> CALayer {
         let verticalGradientLength = CGFloat(shadowRadius) / shadowFrame.height * 1.5 // only because it looks better
         let verticalGradient = CAGradientLayer()
         verticalGradient.startPoint = CGPoint(x: 0.0, y: 0.0)
@@ -129,7 +117,7 @@ class BarView: NSView {
         return verticalGradient.flatten()
     }
 
-    private func calculateShadowFrame() -> NSRect {
+    private func calculateShadowFrame(shadowInset: Int) -> NSRect {
         if icon.isHidden {
             return bar.frame.insetBy(dx: CGFloat(-20+(shadowInset)), dy: CGFloat(-20+shadowInset))
         } else {
