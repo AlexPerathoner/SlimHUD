@@ -22,7 +22,10 @@ class SettingsManager {
     private static let BrightnessIconColorKey = "brightnessIconColor"
     private static let KeyboardIconColorKey = "keyboardIconColor"
     private static let ShouldShowIconsKey = "shouldShowIcons"
-    private static let ShouldShowShadowsKey = "shouldShowShadows"
+    private static let ShadowColorKey = "shadowColor"
+    private static let ShadowTypeKey = "shadowType"
+    private static let ShadowInsetKey = "shadowInset"
+    private static let ShadowRadiusKey = "shadowRadius"
     private static let ShouldContinuouslyCheckKey = "shouldContinuouslyCheck"
     private static let AnimationStyleKey = "animationStyle"
     private static let BarHeightKey = "barHeight"
@@ -87,11 +90,27 @@ class SettingsManager {
     }
 
     // MARK: - Effects colors
-    var shouldShowShadows: Bool {
+    var shadowColor: NSColor {
         didSet {
-            UserDefaults.standard.set(shouldShowShadows, forKey: SettingsManager.ShouldShowShadowsKey)
+            UserDefaultsManager.setItem(shadowColor, for: SettingsManager.ShadowColorKey)
         }
     }
+    var shadowType: ShadowType {
+        didSet {
+            UserDefaults.standard.set(shadowType.rawValue, forKey: SettingsManager.ShadowTypeKey)
+        }
+    }
+    var shadowInset: Int {
+        didSet {
+            UserDefaults.standard.set(shadowInset, forKey: SettingsManager.ShadowInsetKey)
+        }
+    }
+    var shadowRadius: Int {
+        didSet {
+            UserDefaults.standard.set(shadowRadius, forKey: SettingsManager.ShadowRadiusKey)
+        }
+    }
+
     var shouldShowIcons: Bool {
         didSet {
             UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.ShouldShowIconsKey)
@@ -172,11 +191,24 @@ class SettingsManager {
         brightnessIconColor = UserDefaultsManager.getItem(for: SettingsManager.BrightnessIconColorKey, defaultValue: .white)
         keyboardIconColor = UserDefaultsManager.getItem(for: SettingsManager.KeyboardIconColorKey, defaultValue: .white)
 
-        shouldShowShadows = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowShadowsKey, defaultValue: true)
+        shadowColor = UserDefaultsManager.getItem(for: SettingsManager.ShadowColorKey, defaultValue: NSColor.init(white: 0, alpha: 0.1))
+        let rawShadowType = CommandLine.arguments.contains(SettingsManager.ShadowTypeKey) ?
+            CommandLine.arguments[CommandLine.arguments.firstIndex(of: SettingsManager.ShadowTypeKey)! + 1] :
+            UserDefaultsManager.getString(for: SettingsManager.ShadowTypeKey, defaultValue: ShadowType.nsshadow.rawValue)
+        shadowType = ShadowType(rawValue: rawShadowType) ?? .nsshadow
+        shadowInset = UserDefaultsManager.getInt(for: SettingsManager.ShadowInsetKey, defaultValue: 5)
+        shadowRadius = UserDefaultsManager.getInt(for: SettingsManager.ShadowRadiusKey, defaultValue: 10)
+
         shouldShowIcons = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowIconsKey, defaultValue: true)
-        barHeight = UserDefaultsManager.getInt(for: SettingsManager.BarHeightKey, defaultValue: 218)
-        barThickness = UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey, defaultValue: 7)
-        let rawPosition = UserDefaultsManager.getString(for: SettingsManager.PositionKey, defaultValue: "left")
+        barHeight = CommandLine.arguments.contains("hudSize") ?
+            Int(Float(CommandLine.arguments[CommandLine.arguments.firstIndex(of: "hudSize")! + 2])!) :
+            UserDefaultsManager.getInt(for: SettingsManager.BarHeightKey, defaultValue: 218)
+        barThickness = CommandLine.arguments.contains("hudSize") ?
+            Int(Float(CommandLine.arguments[CommandLine.arguments.firstIndex(of: "hudSize")! + 1])!) :
+            UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey, defaultValue: 7)
+        let rawPosition = CommandLine.arguments.contains("hudEdge") ?
+            CommandLine.arguments[CommandLine.arguments.firstIndex(of: "hudEdge")! + 1] :
+            UserDefaultsManager.getString(for: SettingsManager.PositionKey, defaultValue: "left")
         position = Position(rawValue: rawPosition) ?? .left
         shouldContinuouslyCheck = CommandLine.arguments.contains(SettingsManager.ShouldContinuouslyCheckKey) ?
             true : UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
@@ -207,39 +239,4 @@ class SettingsManager {
         brightnessIconColor = .white
         keyboardIconColor = .white
     }
-
-    func saveAllItems() {
-        UserDefaultsManager.setItem(volumeBackgroundColor, for: SettingsManager.VolumeBackgroundColorKey)
-        UserDefaultsManager.setItem(brightnessBackgroundColor, for: SettingsManager.BrightnessBackgroundColorKey)
-        UserDefaultsManager.setItem(keyboardBackgroundColor, for: SettingsManager.KeyboardBackgroundColorKey)
-        UserDefaultsManager.setItem(volumeEnabledColor, for: SettingsManager.VolumeEnabledColorKey)
-        UserDefaultsManager.setItem(volumeDisabledColor, for: SettingsManager.VolumeDisabledColorKey)
-        UserDefaultsManager.setItem(brightnessColor, for: SettingsManager.BrightnessColorKey)
-        UserDefaultsManager.setItem(keyboardColor, for: SettingsManager.KeyboardColorKey)
-
-        UserDefaultsManager.setItem(volumeIconColor, for: SettingsManager.VolumeIconColorKey)
-        UserDefaultsManager.setItem(brightnessIconColor, for: SettingsManager.BrightnessIconColorKey)
-        UserDefaultsManager.setItem(keyboardIconColor, for: SettingsManager.KeyboardIconColorKey)
-
-        UserDefaults.standard.set(barHeight, forKey: SettingsManager.BarHeightKey)
-        UserDefaults.standard.set(barThickness, forKey: SettingsManager.BarThicknessKey)
-        UserDefaults.standard.set(shouldShowIcons, forKey: SettingsManager.ShouldShowIconsKey)
-        UserDefaults.standard.set(shouldShowShadows, forKey: SettingsManager.ShouldShowShadowsKey)
-
-        UserDefaults.standard.set(marginValue, forKey: SettingsManager.MarginKey)
-        let enabledBarsRaw = [enabledBars.volumeBar,
-                              enabledBars.brightnessBar,
-                              enabledBars.keyboardBar]
-        UserDefaults.standard.set(enabledBarsRaw, forKey: SettingsManager.EnabledBarsKey)
-        UserDefaults.standard.set(position.rawValue, forKey: SettingsManager.PositionKey)
-        UserDefaults.standard.set(animationStyle.rawValue, forKey: SettingsManager.AnimationStyleKey)
-        UserDefaults.standard.set(shouldContinuouslyCheck, forKey: SettingsManager.ShouldContinuouslyCheckKey)
-        UserDefaults.standard.set(shouldHideMenuBarIcon, forKey: SettingsManager.ShouldHideMenuBarIconKey)
-        UserDefaults.standard.set(flatBar, forKey: SettingsManager.FlatBarKey)
-    }
-
-    deinit {
-        saveAllItems()
-    }
-
 }

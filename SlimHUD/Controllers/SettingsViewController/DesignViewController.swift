@@ -20,8 +20,8 @@ class DesignViewController: NSViewController {
 
     @IBOutlet weak var iconsOutlet: NSButton!
     @IBOutlet weak var flatBarOutlet: NSButton!
-    @IBOutlet weak var shadowsOutlet: NSButton!
     @IBOutlet weak var animationStyleOutlet: NSPopUpButton!
+    @IBOutlet weak var shadowTypeOutlet: NSPopUpButton!
 
     override func viewDidLoad() {
         // swiftlint:disable:next force_cast
@@ -34,8 +34,8 @@ class DesignViewController: NSViewController {
 
         iconsOutlet.state = settingsManager.shouldShowIcons.toStateValue()
         flatBarOutlet.state = settingsManager.flatBar.toStateValue()
-        shadowsOutlet.state = settingsManager.shouldShowShadows.toStateValue()
         animationStyleOutlet.selectItem(withTitle: settingsManager.animationStyle.rawValue)
+        shadowTypeOutlet.selectItem(withTitle: settingsManager.shadowType.rawValue)
     }
 
     @IBAction func sizeSlider(_ sender: NSSlider) {
@@ -84,7 +84,7 @@ class DesignViewController: NSViewController {
     }
     private func showIcons(_ value: Bool) {
         settingsManager.shouldShowIcons = value
-        delegate?.hideIcon(isHidden: !value)
+        delegate?.updateIconsVisibility()
     }
 
     @IBAction func flatBarClicked(_ sender: NSButton) {
@@ -95,12 +95,19 @@ class DesignViewController: NSViewController {
         delegate?.setThickness(thickness: CGFloat(settingsManager.barThickness))
     }
 
-    @IBAction func shadowsClicked(_ sender: NSButton) {
-        showShadows(sender.boolValue())
+    @IBAction func shadowTypeClicked(_ sender: NSPopUpButton) {
+        let shadowType = ShadowType(from: sender.titleOfSelectedItem)
+        setShadowType(shadowType)
+        if shadowType == .view {
+            let storyboard = NSStoryboard(name: "Settings", bundle: nil)
+            if let shadowVC = storyboard.instantiateController(withIdentifier: "shadow") as? ShadowPopupViewController {
+                self.present(shadowVC, asPopoverRelativeTo: sender.frame, of: sender, preferredEdge: .maxX, behavior: .transient)
+            }
+        }
     }
-    private func showShadows(_ value: Bool) {
-        settingsManager.shouldShowShadows = value
-        delegate?.updateShadows(enabled: value)
+    private func setShadowType(_ value: ShadowType) {
+        settingsManager.shadowType = value
+        delegate?.updateShadows()
     }
 
     @IBAction func animationStyleClicked(_ sender: NSPopUpButton) {
@@ -120,7 +127,7 @@ class DesignViewController: NSViewController {
         setThickness(9)
         showIcons(true)
         useFlatBar(true)
-        showShadows(true)
         setAnimationStyle(.slide)
+        setShadowType(.nsshadow)
     }
 }

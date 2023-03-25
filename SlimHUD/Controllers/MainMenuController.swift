@@ -70,7 +70,6 @@ class MainMenuController: NSWindowController {
     }
 
     private func quit() {
-        settingsManager.saveAllItems()
         OSDUIManager.start()
         exit(0)
     }

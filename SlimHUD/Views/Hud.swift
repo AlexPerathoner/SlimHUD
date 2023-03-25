@@ -79,7 +79,8 @@ class Hud: NSView {
             if animated {
                 switch animationStyle {
                 case .none: HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
-                case .slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition, screenEdge: screenEdge, completion: commonAnimationOutCompletion)
+                case .slide: HudAnimator.slideOut(barView: barView, originPosition: originPosition,
+                                                  screenEdge: screenEdge, completion: commonAnimationOutCompletion)
                 case .popInFadeOut: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
                 case .fade: HudAnimator.fadeOut(barView: barView, completion: commonAnimationOutCompletion)
                 case .grow: HudAnimator.growOut(barView: barView, completion: commonAnimationOutCompletion)
@@ -100,7 +101,7 @@ class Hud: NSView {
     }
 
     @objc private func hideDelayed(_ animated: AnyObject?) {
-        hide(animated: (animated as? AnimationStyle) != .none)
+        hide(animated: (animated as? AnimationStyle) != AnimationStyle.none)
     }
 
     public func dismiss(delay: TimeInterval) {
@@ -123,12 +124,22 @@ class Hud: NSView {
         barView.setIconImage(icon: icon, force: force)
     }
 
-    public func setShadow(_ enabled: Bool, _ shadowRadius: CGFloat) {
-        barView.setupShadow(enabled: enabled, shadowRadius: shadowRadius)
+    public func setShadow(shadowType: ShadowType, shadowRadius: Int, color: NSColor, inset: Int = 5) {
+        if shadowType == .none { // FIXME: solve this in a better way
+            barView.setupShadow(enabled: false, shadowRadius: Constants.ShadowRadius)
+            barView.disableShadowView()
+        } else if shadowType == .view {
+            barView.setupShadowAsView(radius: shadowRadius, color: color, inset: inset)
+            barView.setupShadow(enabled: false, shadowRadius: Constants.ShadowRadius)
+        } else {
+            barView.setupShadow(enabled: true, shadowRadius: Constants.ShadowRadius)
+            barView.disableShadowView()
+        }
     }
 
     public func setHeight(height: CGFloat) {
         barView.setFrameSize(NSSize(width: barView.frame.width, height: height + Constants.ShadowRadius * 3))
+        barView.updateShadowView()
     }
 
     public func setThickness(thickness: CGFloat, flatBar: Bool) {
@@ -141,6 +152,7 @@ class Hud: NSView {
         }
         barView.bar.layer?.cornerRadius = thickness/2 // setting up outer layer
         barView.bar.frame.size.width = thickness
+        barView.updateShadowView()
     }
 
     public func getFrame() -> NSRect {
