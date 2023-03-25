@@ -1,7 +1,15 @@
 name: Build and Analyze
 on:
   pull_request:
+    paths:
+      - 'SlimHUD/**'
+      - 'SlimHUDTests/**'
+      - 'SlimHUDUITests/**'
   push:
+    paths:
+      - 'SlimHUD/**'
+      - 'SlimHUDTests/**'
+      - 'SlimHUDUITests/**'
     branches:
       - develop
   workflow_dispatch:
@@ -11,7 +19,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  test-results-check-name: Unit Test results
+  test-results-check-name: Test results
 
 jobs:
   unit-tests-run:
