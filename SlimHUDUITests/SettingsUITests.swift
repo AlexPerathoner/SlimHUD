@@ -118,9 +118,9 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertTrue(settingsWindow.popovers.count > 0)
 
         XCTAssertEqual(2, settingsWindow.popovers.children(matching: .slider).count)
-        
+
     }
-    
+
     func testChangeValuesInShadowPopupRadiusInput() throws {
         let app = XCUIApplication()
         app.showSettings()
@@ -130,7 +130,7 @@ final class SettingsUITest: SparkleUITests {
         settingsWindow.typeKey("3", modifierFlags: .command)
         settingsWindow.popUpButtons["Custom..."].click()
         settingsWindow.menuItems["Custom..."].click()
-        
+
         let textFieldRadius = settingsWindow.popovers.children(matching: .textField).element(boundBy: 0)
         let sliderRadius = settingsWindow.popovers.children(matching: .slider).element(boundBy: 0)
         sliderRadius.adjust(toNormalizedSliderPosition: 0.5)
@@ -143,7 +143,7 @@ final class SettingsUITest: SparkleUITests {
         textFieldRadius.typeText("0\r")
         XCTAssertEqual(0.0, sliderRadius.normalizedSliderPosition)
     }
-    
+
     func testChangeValuesInShadowPopupInsetInput() throws {
         let app = XCUIApplication()
         app.showSettings()
@@ -154,8 +154,7 @@ final class SettingsUITest: SparkleUITests {
         settingsWindow.typeKey("3", modifierFlags: .command)
         settingsWindow.popUpButtons["Custom..."].click()
         settingsWindow.menuItems["Custom..."].click()
-        
-        
+
         let textFieldInset = settingsWindow.popovers.children(matching: .textField).element(boundBy: 1)
         let sliderInset = settingsWindow.popovers.children(matching: .slider).element(boundBy: 1)
         sliderInset.adjust(toNormalizedSliderPosition: 0.5)
@@ -163,7 +162,7 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertTrue("15" == textFieldInset.value as? String || "14" == textFieldInset.value as? String) // adjust(..) not able to drag to the very end of the slider
         sliderInset.adjust(toNormalizedSliderPosition: 0.0)
         XCTAssertTrue("-15" == textFieldInset.value as? String || "-14" == textFieldInset.value as? String) // adjust(..) not able to drag to the very end of the slider
-        
+
         // todo add calculation of position, get pixel, check for changes before / after slider
         let image = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
         XCTAssertEqual(image.pixelAt(x: 0, y: 0), RGBA(23453))
