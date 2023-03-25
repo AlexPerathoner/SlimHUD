@@ -1,7 +1,15 @@
 name: Build and Analyze
 on:
   pull_request:
+    paths:
+      - 'SlimHUD/**'
+      - 'SlimHUDTests/**'
+      - 'SlimHUDUITests/**'
   push:
+    paths:
+      - 'SlimHUD/**'
+      - 'SlimHUDTests/**'
+      - 'SlimHUDUITests/**'
     branches:
       - develop
   workflow_dispatch:
