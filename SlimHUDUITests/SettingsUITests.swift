@@ -135,9 +135,11 @@ final class SettingsUITest: SparkleUITests {
         let sliderRadius = settingsWindow.popovers.children(matching: .slider).element(boundBy: 0)
         sliderRadius.adjust(toNormalizedSliderPosition: 0.5)
         sliderRadius.adjust(toNormalizedSliderPosition: 1.0)
-        XCTAssertTrue("30" == textFieldRadius.value as? String || "29" == textFieldRadius.value as? String) // adjust(..) not able to drag to the very end of the slider
+        // adjust(..) not able to drag to the very end of the slider
+        XCTAssertTrue("30" == textFieldRadius.value as? String || "29" == textFieldRadius.value as? String)
         sliderRadius.adjust(toNormalizedSliderPosition: 0.0)
-        XCTAssertTrue("0" == textFieldRadius.value as? String || "1" == textFieldRadius.value as? String) // adjust(..) not able to drag to the very end of the slider
+        // adjust(..) not able to drag to the very end of the slider
+        XCTAssertTrue("0" == textFieldRadius.value as? String || "1" == textFieldRadius.value as? String)
         textFieldRadius.typeText("30\r")
         XCTAssertEqual(1.0, sliderRadius.normalizedSliderPosition)
         textFieldRadius.typeText("0\r")
@@ -159,9 +161,11 @@ final class SettingsUITest: SparkleUITests {
         let sliderInset = settingsWindow.popovers.children(matching: .slider).element(boundBy: 1)
         sliderInset.adjust(toNormalizedSliderPosition: 0.5)
         sliderInset.adjust(toNormalizedSliderPosition: 1.0)
-        XCTAssertTrue("15" == textFieldInset.value as? String || "14" == textFieldInset.value as? String) // adjust(..) not able to drag to the very end of the slider
+        // adjust(..) not able to drag to the very end of the slider
+        XCTAssertTrue("15" == textFieldInset.value as? String || "14" == textFieldInset.value as? String)
         sliderInset.adjust(toNormalizedSliderPosition: 0.0)
-        XCTAssertTrue("-15" == textFieldInset.value as? String || "-14" == textFieldInset.value as? String) // adjust(..) not able to drag to the very end of the slider
+        // adjust(..) not able to drag to the very end of the slider
+        XCTAssertTrue("-15" == textFieldInset.value as? String || "-14" == textFieldInset.value as? String)
 
         // todo add calculation of position, get pixel, check for changes before / after slider
         let image = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
