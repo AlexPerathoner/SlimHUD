@@ -5,6 +5,20 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>1.5.1</title>
+            <pubDate>Fri, 24 Mar 2023 00:13:30 +0000</pubDate>
+            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1.5.1</sparkle:version>
+            <sparkle:shortVersionString>1.5.1</sparkle:shortVersionString>
+            <description><![CDATA[<h1>Background bar</h1>
+<ul>
+<li>Better visibility of the bar by adding custom shadows</li>
+</ul>]]></description>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.1-beta/SlimHUD.zip" length="5740955" type="application/octet-stream" sparkle:edSignature="FiMD7kqPYYYfHvOMNj7ga7+gr1SQ/i2CClbQvXeH7RSG8BYqO4/CsW0ptBgWvv5k/VCkM130KhA101z9sSX5Dw=="/>
+        </item>
+        <item>
             <title>1.5.0</title>
             <pubDate>Thu, 16 Mar 2023 17:49:13 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
