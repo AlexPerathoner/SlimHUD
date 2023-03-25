@@ -5,18 +5,15 @@
 //  Created by Alex Perathoner on 05/01/23.
 //
 
- import Foundation
- import XCTest
+import Foundation
+import XCTest
 
- final class HudsUITest: SparkleUITests {
-    var app = XCUIApplication()
-    override func setUpWithError() throws {
-        continueAfterFailure = false
+final class HudsUITest: SparkleUITests {
+    func testTriggerVolumeHud() throws {
+        let app = XCUIApplication()
         app.shouldContinuouslyCheck()
         app.launch()
-    }
-
-    func testTriggerVolumeHud() throws {
+        
         XCTAssert(app.windows.count == 0)
         DispatchQueue.global().async {
             do {
@@ -41,4 +38,4 @@
                           "-e set volume output volume 20"]
         try task.run()
     }
- }
+}

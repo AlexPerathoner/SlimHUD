@@ -12,7 +12,7 @@ final class StyleSettingsUITests: UITestsUtils {
         let app = XCUIApplication()
         app.showSettings()
         app.launch()
-        
+
         let settingsWindow = app.windows["Settings"]
         settingsWindow.typeKey("3", modifierFlags: .command)
         let checkBox = settingsWindow.children(matching: .checkBox).element(boundBy: 0)

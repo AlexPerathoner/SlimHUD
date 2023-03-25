@@ -12,7 +12,7 @@ final class LaunchAtLoginTests: XCTestCase {
         let app = XCUIApplication()
         app.showSettings()
         app.launch()
-        
+
         let checkBox = XCUIApplication().windows["Settings"].children(matching: .checkBox).element(boundBy: 0)
         checkBox.click()
         sleep(1)
