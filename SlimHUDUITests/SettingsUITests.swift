@@ -118,7 +118,6 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertTrue(settingsWindow.popovers.count > 0)
 
         XCTAssertEqual(2, settingsWindow.popovers.children(matching: .slider).count)
-
     }
 
     func testChangeValuesInShadowPopupRadiusInput() throws {
