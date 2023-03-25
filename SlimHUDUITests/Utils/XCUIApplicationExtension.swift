@@ -17,6 +17,12 @@ extension XCUIApplication {
     func setShadowType(shadowType: String) {
         launchArguments += ["shadowType", shadowType]
     }
+    func setHudSize(size: NSSize) {
+        launchArguments += ["hudSize", size.width.description, size.height.description]
+    }
+    func setHudPosition(edge: String) {
+        launchArguments += ["hudEdge", edge]
+    }
     func showSparkleReminder() {
         UserDefaults.standard.set(Date() + 80000, forKey: "SULastCheckTime")
     }

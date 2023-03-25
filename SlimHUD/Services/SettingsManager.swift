@@ -200,9 +200,15 @@ class SettingsManager {
         shadowRadius = UserDefaultsManager.getInt(for: SettingsManager.ShadowRadiusKey, defaultValue: 10)
 
         shouldShowIcons = UserDefaultsManager.getBool(for: SettingsManager.ShouldShowIconsKey, defaultValue: true)
-        barHeight = UserDefaultsManager.getInt(for: SettingsManager.BarHeightKey, defaultValue: 218)
-        barThickness = UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey, defaultValue: 7)
-        let rawPosition = UserDefaultsManager.getString(for: SettingsManager.PositionKey, defaultValue: "left")
+        barHeight = CommandLine.arguments.contains("hudSize") ?
+            Int(Float(CommandLine.arguments[CommandLine.arguments.firstIndex(of: "hudSize")! + 2])!) :
+            UserDefaultsManager.getInt(for: SettingsManager.BarHeightKey, defaultValue: 218)
+        barThickness = CommandLine.arguments.contains("hudSize") ?
+            Int(Float(CommandLine.arguments[CommandLine.arguments.firstIndex(of: "hudSize")! + 1])!) :
+            UserDefaultsManager.getInt(for: SettingsManager.BarThicknessKey, defaultValue: 7)
+        let rawPosition = CommandLine.arguments.contains("hudEdge") ?
+            CommandLine.arguments[CommandLine.arguments.firstIndex(of: "hudEdge")! + 1] :
+            UserDefaultsManager.getString(for: SettingsManager.PositionKey, defaultValue: "left")
         position = Position(rawValue: rawPosition) ?? .left
         shouldContinuouslyCheck = CommandLine.arguments.contains(SettingsManager.ShouldContinuouslyCheckKey) ?
             true : UserDefaultsManager.getBool(for: SettingsManager.ShouldContinuouslyCheckKey, defaultValue: false)
