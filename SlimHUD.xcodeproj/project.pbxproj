@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA12B65829CEBD9E0027D6B0 /* LaunchAtLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */; };
+		FA12B65A29CEBE630027D6B0 /* StyleSettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12B65929CEBE630027D6B0 /* StyleSettingsUITests.swift */; };
 		FA1A024D29CE7FA100365137 /* SwiftImage in Frameworks */ = {isa = PBXBuildFile; productRef = FA1A024C29CE7FA100365137 /* SwiftImage */; };
 		FA1EA41E29C7327600C474AF /* ShadowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EA41D29C7327600C474AF /* ShadowType.swift */; };
 		FA22D04E2985DC2300821D1C /* LogicError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22D04D2985DC2300821D1C /* LogicError.swift */; };
@@ -28,7 +30,6 @@
 		FA64B5A52966579D00600F85 /* release.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A12966579D00600F85 /* release.yml */; };
 		FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A22966579D00600F85 /* xcode-build.yml */; };
 		FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A32966579D00600F85 /* swift-lint.yml */; };
-		FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B5AA2966645100600F85 /* SinglePopover.swift */; };
 		FA767E75297C5DAD0006E091 /* HudAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */; };
 		FA7811E32975EFE500FEE1AA /* AnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */; };
 		FA7811E52975FE9400FEE1AA /* HudAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E42975FE9400FEE1AA /* HudAnimator.swift */; };
@@ -107,6 +108,8 @@
 /* Begin PBXFileReference section */
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginTests.swift; sourceTree = "<group>"; };
+		FA12B65929CEBE630027D6B0 /* StyleSettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSettingsUITests.swift; sourceTree = "<group>"; };
 		FA1EA41D29C7327600C474AF /* ShadowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowType.swift; sourceTree = "<group>"; };
 		FA22D04D2985DC2300821D1C /* LogicError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicError.swift; sourceTree = "<group>"; };
 		FA232B492981DE6000F96E51 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +128,6 @@
 		FA64B5A12966579D00600F85 /* release.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = release.yml; sourceTree = "<group>"; };
 		FA64B5A22966579D00600F85 /* xcode-build.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-build.yml"; sourceTree = "<group>"; };
 		FA64B5A32966579D00600F85 /* swift-lint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "swift-lint.yml"; sourceTree = "<group>"; };
-		FA64B5AA2966645100600F85 /* SinglePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePopover.swift; sourceTree = "<group>"; };
 		FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimatorTests.swift; sourceTree = "<group>"; };
 		FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStyle.swift; sourceTree = "<group>"; };
 		FA7811E42975FE9400FEE1AA /* HudAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimator.swift; sourceTree = "<group>"; };
@@ -233,14 +235,6 @@
 			path = .github/workflows;
 			sourceTree = "<group>";
 		};
-		FA64B5A92966643600600F85 /* SinglePopover */ = {
-			isa = PBXGroup;
-			children = (
-				FA64B5AA2966645100600F85 /* SinglePopover.swift */,
-			);
-			path = SinglePopover;
-			sourceTree = "<group>";
-		};
 		FA95EDE82956FCBF005B39CD = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +289,8 @@
 			children = (
 				FA95EE832957448E005B39CD /* Utils */,
 				FA95EE8129574471005B39CD /* SettingsUITests.swift */,
+				FA12B65929CEBE630027D6B0 /* StyleSettingsUITests.swift */,
+				FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */,
 				FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITests.swift */,
 				FA56F6DF29666AB1008177B1 /* HudsUITests.swift */,
 			);
@@ -395,7 +391,6 @@
 				FA95EE6C29573F36005B39CD /* Hud.swift */,
 				FA95EE632956FEEA005B39CD /* Settings */,
 				FA95EE6629573EE5005B39CD /* BarView */,
-				FA64B5A92966643600600F85 /* SinglePopover */,
 				FA95EE6E29573F47005B39CD /* Kauntey Suryawanshi */,
 			);
 			path = Views;
@@ -625,7 +620,6 @@
 				FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */,
 				FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */,
 				FA22D04E2985DC2300821D1C /* LogicError.swift in Sources */,
-				FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */,
 				FA1EA41E29C7327600C474AF /* ShadowType.swift in Sources */,
 				FA322FC6297F506200E8F31A /* EdgeSelector.swift in Sources */,
 				FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */,
@@ -688,8 +682,10 @@
 				FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */,
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
+				FA12B65829CEBD9E0027D6B0 /* LaunchAtLoginTests.swift in Sources */,
 				FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */,
 				FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITests.swift in Sources */,
+				FA12B65A29CEBE630027D6B0 /* StyleSettingsUITests.swift in Sources */,
 				FA95EE8229574471005B39CD /* SettingsUITests.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,
 			);
