@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA1A024D29CE7FA100365137 /* SwiftImage in Frameworks */ = {isa = PBXBuildFile; productRef = FA1A024C29CE7FA100365137 /* SwiftImage */; };
 		FA1EA41E29C7327600C474AF /* ShadowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EA41D29C7327600C474AF /* ShadowType.swift */; };
 		FA22D04E2985DC2300821D1C /* LogicError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22D04D2985DC2300821D1C /* LogicError.swift */; };
 		FA232B4A2981DE6000F96E51 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B492981DE6000F96E51 /* ConfigViewController.swift */; };
@@ -207,12 +208,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1A024D29CE7FA100365137 /* SwiftImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA1A024E29CE80E100365137 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA64B5A02966579D00600F85 /* workflows */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +251,7 @@
 				FA95EE052956FCC1005B39CD /* SlimHUDTests */,
 				FA95EE0F2956FCC1005B39CD /* SlimHUDUITests */,
 				FA95EDF22956FCBF005B39CD /* Products */,
+				FA1A024E29CE80E100365137 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -505,9 +515,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA1A025229CE812F00365137 /* PBXTargetDependency */,
 				FA95EE0E2956FCC1005B39CD /* PBXTargetDependency */,
 			);
 			name = SlimHUDUITests;
+			packageProductDependencies = (
+				FA1A024C29CE7FA100365137 /* SwiftImage */,
+			);
 			productName = SlimHUDUITests;
 			productReference = FA95EE0C2956FCC1005B39CD /* SlimHUDUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -547,6 +561,7 @@
 			packageReferences = (
 				FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */,
 				FAD154E3296F8CFF00AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */,
+				FA1A024B29CE7FA100365137 /* XCRemoteSwiftPackageReference "swift-image" */,
 			);
 			productRefGroup = FA95EDF22956FCBF005B39CD /* Products */;
 			projectDirPath = "";
@@ -683,6 +698,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FA1A025229CE812F00365137 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = FA1A025129CE812F00365137 /* SwiftImage */;
+		};
 		FA95EE042956FCC1005B39CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FA95EDF02956FCBF005B39CD /* SlimHUD */;
@@ -991,6 +1010,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA1A024B29CE7FA100365137 /* XCRemoteSwiftPackageReference "swift-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/koher/swift-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.1;
+			};
+		};
 		FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -1010,6 +1037,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA1A024C29CE7FA100365137 /* SwiftImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1A024B29CE7FA100365137 /* XCRemoteSwiftPackageReference "swift-image" */;
+			productName = SwiftImage;
+		};
+		FA1A025129CE812F00365137 /* SwiftImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1A024B29CE7FA100365137 /* XCRemoteSwiftPackageReference "swift-image" */;
+			productName = SwiftImage;
+		};
 		FA95EE232956FD3A005B39CD /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */;

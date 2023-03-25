@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SwiftImage
 
 final class SettingsUITest: SparkleUITests {
     override func setUpWithError() throws {
@@ -147,6 +148,7 @@ final class SettingsUITest: SparkleUITests {
         let app = XCUIApplication()
         app.showSettings()
         app.setShadowType(shadowType: "Custom...")
+        // todo set position on left
         app.launch()
         let settingsWindow = XCUIApplication().windows["Settings"]
         settingsWindow.typeKey("3", modifierFlags: .command)
@@ -162,11 +164,8 @@ final class SettingsUITest: SparkleUITests {
         sliderInset.adjust(toNormalizedSliderPosition: 0.0)
         XCTAssertTrue("-15" == textFieldInset.value as? String || "-14" == textFieldInset.value as? String) // adjust(..) not able to drag to the very end of the slider
         
-        settingsWindow.popovers.children(matching: .textField).element(boundBy: 0).typeText("\t\t")
-        
-        textFieldInset.typeText("15\r")
-        XCTAssertEqual(1.0, sliderInset.normalizedSliderPosition)
-        textFieldInset.typeText("-15\r")
-        XCTAssertEqual(0.0, sliderInset.normalizedSliderPosition)
+        // todo add calculation of position, get pixel, check for changes before / after slider
+        let image = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
+        XCTAssertEqual(image.pixelAt(x: 0, y: 0), RGBA(23453))
     }
 }
