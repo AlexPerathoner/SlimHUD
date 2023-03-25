@@ -1,4 +1,6 @@
-# Developer documentation
+
+# Developer documentation
+
 
 This directory contains developer documentation for SlimHUD.
 
@@ -37,7 +39,7 @@ Bars with a float value between 0 and 1. They are used to display the current va
 ### Customization
 Each HUD and Bar has a set of customizable properties. Most can be changed for each HUD individually, but some are global (see configs in Design tab).
 
-## Architecture
+## Architecture
 
 ### Controllers
 > connect UI elements to SettingsManager
@@ -47,6 +49,8 @@ Each HUD and Bar has a set of customizable properties. Most can be changed for e
 
 ### Services
 > handle the logic of the HUDs
+
+TODO: add as graph
 
 - KeyPressObserver: main class, listens for media key presses and notifies the ChangesObserver
 - **SettingsManager**: stores all settings, reads them from the user defaults on launch and writes them to the user defaults when they change
