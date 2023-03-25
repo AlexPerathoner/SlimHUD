@@ -1,5 +1,5 @@
 //
-//  ShadowViewController.swift
+//  ShadowPopupViewController.swift
 //  SlimHUD
 //
 //  Created by Alex Perathoner on 24/03/23.
@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class ShadowViewController: NSViewController {
+class ShadowPopupViewController: NSViewController {
     weak var delegate: HudsControllerInterface?
     var settingsManager = SettingsManager.getInstance()
 
@@ -42,7 +42,7 @@ class ShadowViewController: NSViewController {
 
     @IBAction func radiusText(_ sender: NSTextField) {
         if let newValue = Int(sender.stringValue) {
-            if newValue > 0 {
+            if newValue >= 0 {
                 setRadius(newValue)
                 radiusSlider.integerValue = newValue
             } else {

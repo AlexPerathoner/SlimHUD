@@ -100,7 +100,7 @@ class DesignViewController: NSViewController {
         setShadowType(shadowType)
         if shadowType == .view {
             let storyboard = NSStoryboard(name: "Settings", bundle: nil)
-            if let shadowVC = storyboard.instantiateController(withIdentifier: "shadow") as? ShadowViewController {
+            if let shadowVC = storyboard.instantiateController(withIdentifier: "shadow") as? ShadowPopupViewController {
                 self.present(shadowVC, asPopoverRelativeTo: sender.frame, of: sender, preferredEdge: .maxX, behavior: .transient)
             }
         }

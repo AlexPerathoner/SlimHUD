@@ -102,7 +102,7 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertTrue(isKeyboardHudVisible(app: app))
     }
 
-    func testOpenCustomShadowPopup() throws {
+    func testOpenShadowPopup() throws {
         let app = XCUIApplication()
         app.showSettings()
         app.setShadowType(shadowType: "Standard")
@@ -117,5 +117,56 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertTrue(settingsWindow.popovers.count > 0)
 
         XCTAssertEqual(2, settingsWindow.popovers.children(matching: .slider).count)
+        
+    }
+    
+    func testChangeValuesInShadowPopupRadiusInput() throws {
+        let app = XCUIApplication()
+        app.showSettings()
+        app.setShadowType(shadowType: "Custom...")
+        app.launch()
+        let settingsWindow = XCUIApplication().windows["Settings"]
+        settingsWindow.typeKey("3", modifierFlags: .command)
+        settingsWindow.popUpButtons["Custom..."].click()
+        settingsWindow.menuItems["Custom..."].click()
+        
+        let textFieldRadius = settingsWindow.popovers.children(matching: .textField).element(boundBy: 0)
+        let sliderRadius = settingsWindow.popovers.children(matching: .slider).element(boundBy: 0)
+        sliderRadius.adjust(toNormalizedSliderPosition: 0.5)
+        sliderRadius.adjust(toNormalizedSliderPosition: 1.0)
+        XCTAssertTrue("30" == textFieldRadius.value as? String || "29" == textFieldRadius.value as? String) // adjust(..) not able to drag to the very end of the slider
+        sliderRadius.adjust(toNormalizedSliderPosition: 0.0)
+        XCTAssertTrue("0" == textFieldRadius.value as? String || "1" == textFieldRadius.value as? String) // adjust(..) not able to drag to the very end of the slider
+        textFieldRadius.typeText("30\r")
+        XCTAssertEqual(1.0, sliderRadius.normalizedSliderPosition)
+        textFieldRadius.typeText("0\r")
+        XCTAssertEqual(0.0, sliderRadius.normalizedSliderPosition)
+    }
+    
+    func testChangeValuesInShadowPopupInsetInput() throws {
+        let app = XCUIApplication()
+        app.showSettings()
+        app.setShadowType(shadowType: "Custom...")
+        app.launch()
+        let settingsWindow = XCUIApplication().windows["Settings"]
+        settingsWindow.typeKey("3", modifierFlags: .command)
+        settingsWindow.popUpButtons["Custom..."].click()
+        settingsWindow.menuItems["Custom..."].click()
+        
+        
+        let textFieldInset = settingsWindow.popovers.children(matching: .textField).element(boundBy: 1)
+        let sliderInset = settingsWindow.popovers.children(matching: .slider).element(boundBy: 1)
+        sliderInset.adjust(toNormalizedSliderPosition: 0.5)
+        sliderInset.adjust(toNormalizedSliderPosition: 1.0)
+        XCTAssertTrue("15" == textFieldInset.value as? String || "14" == textFieldInset.value as? String) // adjust(..) not able to drag to the very end of the slider
+        sliderInset.adjust(toNormalizedSliderPosition: 0.0)
+        XCTAssertTrue("-15" == textFieldInset.value as? String || "-14" == textFieldInset.value as? String) // adjust(..) not able to drag to the very end of the slider
+        
+        settingsWindow.popovers.children(matching: .textField).element(boundBy: 0).typeText("\t\t")
+        
+        textFieldInset.typeText("15\r")
+        XCTAssertEqual(1.0, sliderInset.normalizedSliderPosition)
+        textFieldInset.typeText("-15\r")
+        XCTAssertEqual(0.0, sliderInset.normalizedSliderPosition)
     }
 }

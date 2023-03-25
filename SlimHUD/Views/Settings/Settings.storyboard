@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Lls-Rj-kcl">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1423,10 +1422,10 @@
             </objects>
             <point key="canvasLocation" x="1634" y="-57"/>
         </scene>
-        <!--Shadow View Controller-->
+        <!--Shadow Popup View Controller-->
         <scene sceneID="d7i-2G-XF2">
             <objects>
-                <viewController storyboardIdentifier="shadow" id="uAX-N9-VNc" customClass="ShadowViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shadow" id="uAX-N9-VNc" customClass="ShadowPopupViewController" customModule="SlimHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="P6O-yR-jda">
                         <rect key="frame" x="0.0" y="0.0" width="401" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
