@@ -373,9 +373,6 @@ jobs:
           target_branch: ${{ steps.comment-branch.outputs.base_ref }}
           github_token: ${{ github.token }}
           message: "Release version v${{ steps.info.outputs.new_version }}"
-      - uses: geekyeggo/delete-artifact@v2 # delete artifacts
-        with:
-          name: "*"
       - name: Add success reactions # Adding reactions to comment depending on result
         if: ${{ contains(join(needs.*.result, ','), 'success') }}
         uses: peter-evans/create-or-update-comment@v2
