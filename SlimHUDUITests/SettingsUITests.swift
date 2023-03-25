@@ -123,7 +123,7 @@ final class SettingsUITest: SparkleUITests {
     func testChangeValuesInShadowPopupRadiusInput() throws {
         let visibleFrame = NSScreen.screens[0].visibleFrame
         let position = NSPoint(x: 16, y: (visibleFrame.height/2))
-        
+
         let app = XCUIApplication()
         app.showSettings()
         app.setShadowType(shadowType: "Custom...")
@@ -146,10 +146,10 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertTrue("0" == textFieldRadius.value as? String || "1" == textFieldRadius.value as? String)
         textFieldRadius.typeText("30\r")
         XCTAssertEqual(1.0, sliderRadius.normalizedSliderPosition)
-        
+
         let firstColor = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
             .pixelAt(x: Int(position.x), y: Int(position.y))
-        
+
         textFieldRadius.typeText("0\r")
         XCTAssertEqual(0.0, sliderRadius.normalizedSliderPosition)
         let screenImage = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
@@ -160,7 +160,7 @@ final class SettingsUITest: SparkleUITests {
     func testChangeValuesInShadowPopupInsetInput() throws {
         let visibleFrame = NSScreen.screens[0].visibleFrame
         let position = NSPoint(x: 7, y: (visibleFrame.height/2))
-        
+
         let app = XCUIApplication()
         app.showSettings()
         app.setShadowType(shadowType: "Custom...")
@@ -175,10 +175,10 @@ final class SettingsUITest: SparkleUITests {
         let textFieldInset = settingsWindow.popovers.children(matching: .textField).element(boundBy: 1)
         let sliderInset = settingsWindow.popovers.children(matching: .slider).element(boundBy: 1)
         sliderInset.adjust(toNormalizedSliderPosition: 0.5)
-        
+
         let firstColor = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
             .pixelAt(x: Int(position.x), y: Int(position.y))
-        
+
         sliderInset.adjust(toNormalizedSliderPosition: 1.0)
         // adjust(..) not able to drag to the very end of the slider
         XCTAssertTrue("15" == textFieldInset.value as? String || "14" == textFieldInset.value as? String)
