@@ -34,7 +34,7 @@ jobs:
           -test-iterations 20 -retry-tests-on-failure \
           CODE_SIGNING_ALLOWED=NO || exit 1
       - name: Post test results
-        uses: AlexPerathoner/xcresulttool@v1.7.0
+        uses: AlexPerathoner/xcresulttool-alternative-action@v0.2
         if: ${{ (success() || failure()) && github.event_name == 'pull_request' }}
         with:
           path: "TestResults.xcresult"
