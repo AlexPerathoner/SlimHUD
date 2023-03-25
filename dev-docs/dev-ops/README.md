@@ -19,10 +19,10 @@ UI tests are
 For these reasons the current configuration is as follow:
 - Pushes to `develop` and pull requests to `develop` run `xcode-build.yml` which runs the UI tests.
     - Being flaky, failing UI tests are tried again up to 20 times. If they fail 20 times, they are marked as failed by the `xcodebuild` exit code.
-- Once the tests ran in `xcode-build.yml`, another check is created with the name "Unit Test Results". This check:
+- Once the tests ran in `xcode-build.yml`, another check is created with the name "Test Results". This check:
     - ..includes a report of all tests and the coverage. 
     - ..will always succeed, independently of the result of any test. This is because tests which have failed multiple times, and then succeeded, are marked as failed (multiple times) in the report.
-- If tests do fail, the `xcode-build.yml` job will fail, and the "Unit Test Results" check will be marked as successful. In `xcode-build.yml`'s logs, the failed tests will be listed. In the "Unit Test Results" check, there will be additional information about the failed tests (including screenshots, for UI tests).
+- If tests do fail, the `xcode-build.yml` job will fail, and the "Test Results" check will be marked as successful. In `xcode-build.yml`'s logs, the failed tests will be listed. In the "Test Results" check, there will be additional information about the failed tests (including screenshots, for UI tests).
 
 ## Releasing
 
