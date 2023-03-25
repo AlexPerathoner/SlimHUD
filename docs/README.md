@@ -4,7 +4,7 @@
 
 Every day you change your volume or brightness and an ugly and unbelievably old overlay animation appears. *SlimHUD* is what you need.
 
-<img align="left" style="padding-right:10%" height="30%" src="simple-hud.png">
+<img align="left" height="40%" src="simple-hud.png">
 
 ## Installation
 
