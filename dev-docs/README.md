@@ -50,7 +50,10 @@ Each HUD and Bar has a set of customizable properties. Most can be changed for e
 ### Services
 > handle the logic of the HUDs
 
-TODO: add as graph
+![services](services.png)
+
+<details>
+  <summary>Description of summary</summary>
 
 - KeyPressObserver: main class, listens for media key presses and notifies the ChangesObserver
 - **SettingsManager**: stores all settings, reads them from the user defaults on launch and writes them to the user defaults when they change
@@ -65,3 +68,7 @@ TODO: add as graph
     - IconManager: used by the Displayer to retrieve the icons for the HUDs
 - OSDUIManager: used by the AppDelegate to hide the default MacOS HUDs when SlimHUD is launched and to show them again when SlimHUD quits
 - UpdaterDelegate: used by Sparkle to get the channel to update from
+
+</details>
+
+Reality is more complex, but this gives a good overview of the main functioning. Classes that differ from the diagram could / should probably be refactored.
