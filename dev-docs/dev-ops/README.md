@@ -54,7 +54,7 @@ For these reasons the current configuration is as follow:
     9. Merge `master` into `develop` to keep them in sync. This is needed because a beta release is created directly on `master`.
 2. Build and export
     1. Replace version in project with version in `ReleaseNotes.md`.
-    2. Install provisioning profiles and signing certificates. See [release.yml](../.github/workflows/release.yml) for more info.
+    2. Install provisioning profiles and signing certificates. See [release.yml](/.github/workflows/release.yml) for more info.
     3. Use latest Xcode version
     4. Build and archive the project.
     5. Export the archive as a `.zip` file.
