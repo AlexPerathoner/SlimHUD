@@ -5,6 +5,19 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>1.5.1</title>
+            <pubDate>Sat, 25 Mar 2023 18:25:11 +0000</pubDate>
+            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
+            <sparkle:version>1.5.1</sparkle:version>
+            <sparkle:shortVersionString>1.5.1</sparkle:shortVersionString>
+            <description><![CDATA[<h1>Background bar</h1>
+<ul>
+<li>Better visibility of the bar by adding custom shadows</li>
+</ul>]]></description>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.1/SlimHUD.zip" length="5739888" type="application/octet-stream" sparkle:edSignature="M7NUDbHkhzqff08KlggMuBrqWOL3omogy7G3VPH5L4gRLYd7N4ER2N+hJQPBRwuqXYLrH6+UGi5YzH2QAmXlCQ=="/>
+        </item>
+        <item>
             <title>1.5.0</title>
             <pubDate>Thu, 16 Mar 2023 17:49:13 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
@@ -33,22 +46,6 @@
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.2/SlimHUD.zip" length="5509837" type="application/octet-stream" sparkle:edSignature="mZFX7e2tn8UdIDbsNyPqR5kMZzKNwKVZM7YPD2MJE5N+DtH/oCAcHYTN7cHtZ9w0pwWAGL19hSOphsyzexQCDw=="/>
-        </item>
-        <item>
-            <title>1.4.1</title>
-            <pubDate>Wed, 11 Jan 2023 04:54:48 +0000</pubDate>
-            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
-            <sparkle:version>1.4.1</sparkle:version>
-            <sparkle:shortVersionString>1.4.1</sparkle:shortVersionString>
-            <description><![CDATA[<h1>Fixes</h1>
-<ul>
-<li>Add option to make inside bar flat or round</li>
-<li>Fix bug: icons not centered</li>
-<li>Fix bug: HUDs not resizable</li>
-<li>Fix bug: popovers memory leak in settings window</li>
-</ul>]]></description>
-            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.1/SlimHUD.zip" length="5459927" type="application/octet-stream" sparkle:edSignature="KWwaRCplJKyt7fnAVsvEhu75uPE1Cp3rUhiCcMj4WZqrnue2oThPchk9vLDBJT1be0tt5qo/IyhojhXuJgrtCQ=="/>
         </item>
         <item>
             <title>Added support to MacOS 10.13</title>
