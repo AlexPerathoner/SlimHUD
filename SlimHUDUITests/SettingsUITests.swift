@@ -158,7 +158,7 @@ final class SettingsUITest: SparkleUITests {
         let secondColor = screenImage.pixelAt(x: Int(position.x), y: Int(position.y))
         XCTAssertNotEqual(firstColor, secondColor)
     }
-    
+
     func testChangeValuesInShadowPopupInsetInput() throws {
         let visibleFrame = NSScreen.screens[0].visibleFrame
         let position = NSPoint(x: 7, y: (visibleFrame.height/2))
@@ -179,7 +179,7 @@ final class SettingsUITest: SparkleUITests {
         sliderInset.adjust(toNormalizedSliderPosition: 0.5)
 
         sliderInset.adjust(toNormalizedSliderPosition: 1.0)
-        
+
         let firstColor = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
             .pixelAt(x: Int(position.x), y: Int(position.y))
         // adjust(..) not able to drag to the very end of the slider
