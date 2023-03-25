@@ -12,8 +12,4 @@ extension Bool {
     func toStateValue() -> NSControl.StateValue {
         return self ? .on : .off
     }
-
-    func toInt() -> Int {
-        return self ? 1 : 0
-    }
 }

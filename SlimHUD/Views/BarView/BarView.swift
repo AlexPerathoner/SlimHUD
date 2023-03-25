@@ -14,6 +14,8 @@ class BarView: NSView {
     @IBOutlet weak var bar: ProgressBar!
     @IBOutlet private var icon: NSImageView!
 
+    private var shadowView: NSView!
+
     override func awakeFromNib() {
         if let icon = icon { // not set in
             icon.wantsLayer = true
@@ -71,4 +73,57 @@ class BarView: NSView {
         }
     }
 
+    public func setupShadowAsView(radius: Int, color: NSColor = .black, inset: Int = 5) {
+        disableShadowView()
+
+        let shadowFrame = calculateShadowFrame(shadowInset: inset)
+        shadowView = NSView(frame: shadowFrame)
+        shadowView.wantsLayer = true
+        shadowView.layer?.cornerRadius = (min(self.frame.height, self.frame.width) - CGFloat(inset * 2)) / 2.2 // rounded rectangle
+        shadowView.layer?.backgroundColor = color.cgColor
+        if radius > 0 {
+            shadowView.layer?.mask = createMaskLayer(shadowFrame: shadowFrame, shadowRadius: radius)
+        }
+        self.addSubview(shadowView, positioned: .below, relativeTo: icon.isHidden ? bar : self)
+    }
+    public func disableShadowView() {
+        if shadowView != nil {
+            shadowView.removeFromSuperview()
+            shadowView = nil
+        }
+    }
+    private func createMaskLayer(shadowFrame: NSRect, shadowRadius: Int) -> CALayer {
+        let verticalGradientLength = CGFloat(shadowRadius) / shadowFrame.height * 1.5 // only because it looks better
+        let verticalGradient = CAGradientLayer()
+        verticalGradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        verticalGradient.endPoint = CGPoint(x: 0.0, y: 1.0)
+        verticalGradient.colors = [NSColor.clear.withAlphaComponent(0.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor,
+                                   NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(0.0).cgColor]
+        verticalGradient.locations = [NSNumber(value: 0.0), NSNumber(value: verticalGradientLength),
+                                      NSNumber(value: 1-verticalGradientLength), NSNumber(value: 1.0)]
+        verticalGradient.frame = shadowView.bounds
+
+        let horizontalGradientLength = CGFloat(shadowRadius) / shadowFrame.width
+        let horizontalGradient = CAGradientLayer()
+        horizontalGradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        horizontalGradient.endPoint = CGPoint(x: 1.0, y: 0.0)
+        horizontalGradient.colors = [NSColor.clear.withAlphaComponent(0.0).cgColor, NSColor.clear.withAlphaComponent(1.0).cgColor,
+                                     NSColor.clear.withAlphaComponent(1.0).cgColor, NSColor.clear.withAlphaComponent(0.0).cgColor]
+        horizontalGradient.locations = [NSNumber(value: 0.0), NSNumber(value: horizontalGradientLength),
+                                        NSNumber(value: 1-horizontalGradientLength), NSNumber(value: 1.0)]
+        horizontalGradient.frame = shadowView.bounds
+        verticalGradient.mask = horizontalGradient
+
+        return verticalGradient.flatten()
+    }
+
+    private func calculateShadowFrame(shadowInset: Int) -> NSRect {
+        if icon.isHidden {
+            return bar.frame.insetBy(dx: CGFloat(-20+(shadowInset)), dy: CGFloat(-20+shadowInset))
+        } else {
+            let size = self.frame.insetBy(dx: CGFloat(shadowInset), dy: CGFloat(shadowInset)).size
+            let origin = NSPoint(x: CGFloat(shadowInset), y: CGFloat(shadowInset))
+            return NSRect(origin: origin, size: size)
+        }
+    }
 }

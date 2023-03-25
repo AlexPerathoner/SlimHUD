@@ -102,16 +102,22 @@ class Displayer: HudsControllerInterface {
         }
     }
 
-    func updateShadows(enabled: Bool) {
-        volumeHud.setShadow(enabled, Constants.ShadowRadius)
-        brightnessHud.setShadow(enabled, Constants.ShadowRadius)
-        keyboardHud.setShadow(enabled, Constants.ShadowRadius)
+    func updateShadows() {
+        volumeHud.setShadow(type: settingsManager.shadowType,
+                            radius: settingsManager.shadowRadius, color: settingsManager.shadowColor,
+                            inset: settingsManager.shadowInset)
+        brightnessHud.setShadow(type: settingsManager.shadowType,
+                                radius: settingsManager.shadowRadius, color: settingsManager.shadowColor,
+                                inset: settingsManager.shadowInset)
+        keyboardHud.setShadow(type: settingsManager.shadowType,
+                              radius: settingsManager.shadowRadius, color: settingsManager.shadowColor,
+                              inset: settingsManager.shadowInset)
     }
 
-    func hideIcon(isHidden: Bool) {
-        volumeHud.hideIcon(isHidden: isHidden)
-        brightnessHud.hideIcon(isHidden: isHidden)
-        keyboardHud.hideIcon(isHidden: isHidden)
+    func updateIconsVisibility() {
+        volumeHud.hideIcon(isHidden: !settingsManager.shouldShowIcons)
+        brightnessHud.hideIcon(isHidden: !settingsManager.shouldShowIcons)
+        keyboardHud.hideIcon(isHidden: !settingsManager.shouldShowIcons)
     }
 
     func setVolumeBackgroundColor(color: NSColor) {
@@ -139,8 +145,8 @@ class Displayer: HudsControllerInterface {
     func updateAllAttributes() {
         setHeight(height: CGFloat(settingsManager.barHeight))
         setThickness(thickness: CGFloat(settingsManager.barThickness))
-        hideIcon(isHidden: !settingsManager.shouldShowIcons)
-        updateShadows(enabled: settingsManager.shouldShowShadows)
+        updateIconsVisibility()
+        updateShadows()
         setVolumeBackgroundColor(color: settingsManager.volumeBackgroundColor)
         setBrightnessBackgroundColor(color: settingsManager.brightnessBackgroundColor)
         setKeyboardBackgroundColor(color: settingsManager.keyboardBackgroundColor)

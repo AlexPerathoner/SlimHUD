@@ -1,5 +1,5 @@
 //
-//  ConfigSettingsTest.swift
+//  ConfigSettingsUITest.swift
 //  SlimHUDUITests
 //
 //  Created by Alex Perathoner on 04/03/23.

@@ -36,5 +36,4 @@ class UITestsUtils: XCTestCase {
             || app.windows.containing(.image, identifier: "key 2").element.waitForExistence(timeout: 1)
             || app.windows.containing(.image, identifier: "key 3").element.waitForExistence(timeout: 1)
     }
-
 }

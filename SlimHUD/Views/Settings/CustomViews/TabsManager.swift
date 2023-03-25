@@ -24,7 +24,6 @@ class TabsManager: NSView {
     }
 
     override func awakeFromNib() {
-        print(self.view?.frame)
         // swiftlint:disable:next force_cast
         (NSApplication.shared.delegate as! AppDelegate).settingsViewTabsManager = self
         if configVC == nil {

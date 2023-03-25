@@ -21,7 +21,7 @@ class CustomView: NSView {
     @IBInspectable var cornerRadius: CGFloat = 0
 
     override func awakeFromNib() {
-        setupShadow(enabled: shadowed, shadowRadius: 2, color: shadowColor.cgColor)
+        setupShadow(enabled: shadowed, shadowRadius: 2, color: shadowColor)
         layer?.backgroundColor = NSColor(named: backgroundColorName)?.cgColor
         layer?.cornerRadius = cornerRadius
         DistributedNotificationCenter.default.addObserver(self,

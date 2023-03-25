@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
+		FA12B65829CEBD9E0027D6B0 /* LaunchAtLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */; };
+		FA12B65A29CEBE630027D6B0 /* StyleSettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12B65929CEBE630027D6B0 /* StyleSettingsUITests.swift */; };
+		FA1A024D29CE7FA100365137 /* SwiftImage in Frameworks */ = {isa = PBXBuildFile; productRef = FA1A024C29CE7FA100365137 /* SwiftImage */; };
+		FA1EA41E29C7327600C474AF /* ShadowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EA41D29C7327600C474AF /* ShadowType.swift */; };
 		FA22D04E2985DC2300821D1C /* LogicError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22D04D2985DC2300821D1C /* LogicError.swift */; };
 		FA232B4A2981DE6000F96E51 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B492981DE6000F96E51 /* ConfigViewController.swift */; };
 		FA232B4C2981E1FC00F96E51 /* TabsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA232B4B2981E1FC00F96E51 /* TabsManager.swift */; };
@@ -18,6 +22,7 @@
 		FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */; };
 		FA322FC4297F485700E8F31A /* StandardLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA322FC3297F485700E8F31A /* StandardLabel.swift */; };
 		FA322FC6297F506200E8F31A /* EdgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA322FC5297F506200E8F31A /* EdgeSelector.swift */; };
+		FA55A5EA29CCFF7D00415378 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55A5E929CCFF7D00415378 /* CALayer.swift */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
 		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
 		FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */; };
@@ -25,8 +30,6 @@
 		FA64B5A52966579D00600F85 /* release.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A12966579D00600F85 /* release.yml */; };
 		FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A22966579D00600F85 /* xcode-build.yml */; };
 		FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A32966579D00600F85 /* swift-lint.yml */; };
-		FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */; };
-		FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64B5AA2966645100600F85 /* SinglePopover.swift */; };
 		FA767E75297C5DAD0006E091 /* HudAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */; };
 		FA7811E32975EFE500FEE1AA /* AnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */; };
 		FA7811E52975FE9400FEE1AA /* HudAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7811E42975FE9400FEE1AA /* HudAnimator.swift */; };
@@ -65,10 +68,11 @@
 		FA95EE7A295741D2005B39CD /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE79295741D2005B39CD /* BarView.xib */; };
 		FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE7B295741DE005B39CD /* MainMenu.storyboard */; };
 		FA95EE7E295741E6005B39CD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA95EE7D295741E6005B39CD /* Settings.storyboard */; };
-		FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8129574471005B39CD /* SettingsUITest.swift */; };
+		FA95EE8229574471005B39CD /* SettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8129574471005B39CD /* SettingsUITests.swift */; };
 		FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE8429574495005B39CD /* SparkleUITests.swift */; };
 		FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE872957589E005B39CD /* PositionManagerTests.swift */; };
 		FA95EE8A295758B1005B39CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95EE89295758B1005B39CD /* Constants.swift */; };
+		FA98AB4429CD194500D3F92A /* ShadowPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98AB4329CD194500D3F92A /* ShadowPopupViewController.swift */; };
 		FA9A815829882EBF00C282C9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A815729882EBF00C282C9 /* SettingsViewController.swift */; };
 		FAB5AA37295AF0FF00060CB6 /* SensorMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */; };
 		FAB5AA39295B031900060CB6 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */; };
@@ -77,7 +81,7 @@
 		FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDE692297F1BD300EDF165 /* TabsView.swift */; };
 		FAD154E5296F8CFF00AC8BBB /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = FAD154E4296F8CFF00AC8BBB /* MediaKeyTap */; };
 		FAD49D0E29B38E680034A8D8 /* StatusItemCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */; };
-		FAD49D1029B398ED0034A8D8 /* ConfigSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0F29B398ED0034A8D8 /* ConfigSettingsTest.swift */; };
+		FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITests.swift */; };
 		FAF1A5132970F80E00C8D5DB /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1A5122970F80E00C8D5DB /* IconManager.swift */; };
 		FAFC579E29675F3E00C32A80 /* AppleScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */; };
 		FAFC57A029675F7700C32A80 /* AppleScriptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC579F29675F7700C32A80 /* AppleScriptError.swift */; };
@@ -104,6 +108,9 @@
 /* Begin PBXFileReference section */
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginTests.swift; sourceTree = "<group>"; };
+		FA12B65929CEBE630027D6B0 /* StyleSettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSettingsUITests.swift; sourceTree = "<group>"; };
+		FA1EA41D29C7327600C474AF /* ShadowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowType.swift; sourceTree = "<group>"; };
 		FA22D04D2985DC2300821D1C /* LogicError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicError.swift; sourceTree = "<group>"; };
 		FA232B492981DE6000F96E51 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		FA232B4B2981E1FC00F96E51 /* TabsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsManager.swift; sourceTree = "<group>"; };
@@ -113,6 +120,7 @@
 		FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		FA322FC3297F485700E8F31A /* StandardLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLabel.swift; sourceTree = "<group>"; };
 		FA322FC5297F506200E8F31A /* EdgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeSelector.swift; sourceTree = "<group>"; };
+		FA55A5E929CCFF7D00415378 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
 		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
 		FA56F6EC2966773F008177B1 /* AAAUITestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAUITestSetup.swift; sourceTree = "<group>"; };
@@ -120,8 +128,6 @@
 		FA64B5A12966579D00600F85 /* release.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = release.yml; sourceTree = "<group>"; };
 		FA64B5A22966579D00600F85 /* xcode-build.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-build.yml"; sourceTree = "<group>"; };
 		FA64B5A32966579D00600F85 /* swift-lint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "swift-lint.yml"; sourceTree = "<group>"; };
-		FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "xcode-ui-tests.yml"; sourceTree = "<group>"; };
-		FA64B5AA2966645100600F85 /* SinglePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePopover.swift; sourceTree = "<group>"; };
 		FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimatorTests.swift; sourceTree = "<group>"; };
 		FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStyle.swift; sourceTree = "<group>"; };
 		FA7811E42975FE9400FEE1AA /* HudAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimator.swift; sourceTree = "<group>"; };
@@ -164,10 +170,11 @@
 		FA95EE79295741D2005B39CD /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
 		FA95EE7B295741DE005B39CD /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		FA95EE7D295741E6005B39CD /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		FA95EE8129574471005B39CD /* SettingsUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITest.swift; sourceTree = "<group>"; };
+		FA95EE8129574471005B39CD /* SettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITests.swift; sourceTree = "<group>"; };
 		FA95EE8429574495005B39CD /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
 		FA95EE872957589E005B39CD /* PositionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionManagerTests.swift; sourceTree = "<group>"; };
 		FA95EE89295758B1005B39CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA98AB4329CD194500D3F92A /* ShadowPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPopupViewController.swift; sourceTree = "<group>"; };
 		FA9A815729882EBF00C282C9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FAB5AA36295AF0FF00060CB6 /* SensorMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMethod.swift; sourceTree = "<group>"; };
 		FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
@@ -175,7 +182,7 @@
 		FACDE68E297F105600EDF165 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
 		FACDE692297F1BD300EDF165 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemCreator.swift; sourceTree = "<group>"; };
-		FAD49D0F29B398ED0034A8D8 /* ConfigSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSettingsTest.swift; sourceTree = "<group>"; };
+		FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSettingsUITests.swift; sourceTree = "<group>"; };
 		FAF1A5122970F80E00C8D5DB /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
 		FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptRunner.swift; sourceTree = "<group>"; };
 		FAFC579F29675F7700C32A80 /* AppleScriptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptError.swift; sourceTree = "<group>"; };
@@ -203,30 +210,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1A024D29CE7FA100365137 /* SwiftImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA1A024E29CE80E100365137 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA64B5A02966579D00600F85 /* workflows */ = {
 			isa = PBXGroup;
 			children = (
 				FA64B5A12966579D00600F85 /* release.yml */,
 				FA64B5A22966579D00600F85 /* xcode-build.yml */,
 				FA64B5A32966579D00600F85 /* swift-lint.yml */,
-				FA64B5A42966579D00600F85 /* xcode-ui-tests.yml */,
 			);
 			name = workflows;
 			path = .github/workflows;
-			sourceTree = "<group>";
-		};
-		FA64B5A92966643600600F85 /* SinglePopover */ = {
-			isa = PBXGroup;
-			children = (
-				FA64B5AA2966645100600F85 /* SinglePopover.swift */,
-			);
-			path = SinglePopover;
 			sourceTree = "<group>";
 		};
 		FA95EDE82956FCBF005B39CD = {
@@ -239,6 +245,7 @@
 				FA95EE052956FCC1005B39CD /* SlimHUDTests */,
 				FA95EE0F2956FCC1005B39CD /* SlimHUDUITests */,
 				FA95EDF22956FCBF005B39CD /* Products */,
+				FA1A024E29CE80E100365137 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -281,8 +288,10 @@
 			isa = PBXGroup;
 			children = (
 				FA95EE832957448E005B39CD /* Utils */,
-				FA95EE8129574471005B39CD /* SettingsUITest.swift */,
-				FAD49D0F29B398ED0034A8D8 /* ConfigSettingsTest.swift */,
+				FA95EE8129574471005B39CD /* SettingsUITests.swift */,
+				FA12B65929CEBE630027D6B0 /* StyleSettingsUITests.swift */,
+				FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */,
+				FAD49D0F29B398ED0034A8D8 /* ConfigSettingsUITests.swift */,
 				FA56F6DF29666AB1008177B1 /* HudsUITests.swift */,
 			);
 			path = SlimHUDUITests;
@@ -307,6 +316,7 @@
 				FA232B512981E6D800F96E51 /* StyleViewController.swift */,
 				FA232B4F2981E6CA00F96E51 /* DesignViewController.swift */,
 				FA232B4D2981E6A900F96E51 /* AboutViewController.swift */,
+				FA98AB4329CD194500D3F92A /* ShadowPopupViewController.swift */,
 			);
 			path = SettingsViewController;
 			sourceTree = "<group>";
@@ -343,6 +353,7 @@
 				FA95EE562956FE91005B39CD /* BoolExtension.swift */,
 				FA95EE5A2956FEA9005B39CD /* NSSegmentedControlExtension.swift */,
 				FAB5AA38295B031900060CB6 /* UserDefaultsExtension.swift */,
+				FA55A5E929CCFF7D00415378 /* CALayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +369,7 @@
 				FA64B59E296638DA00600F85 /* Alert.swift */,
 				FA7811E22975EFE500FEE1AA /* AnimationStyle.swift */,
 				FAD49D0D29B38E680034A8D8 /* StatusItemCreator.swift */,
+				FA1EA41D29C7327600C474AF /* ShadowType.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -379,7 +391,6 @@
 				FA95EE6C29573F36005B39CD /* Hud.swift */,
 				FA95EE632956FEEA005B39CD /* Settings */,
 				FA95EE6629573EE5005B39CD /* BarView */,
-				FA64B5A92966643600600F85 /* SinglePopover */,
 				FA95EE6E29573F47005B39CD /* Kauntey Suryawanshi */,
 			);
 			path = Views;
@@ -499,9 +510,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA1A025229CE812F00365137 /* PBXTargetDependency */,
 				FA95EE0E2956FCC1005B39CD /* PBXTargetDependency */,
 			);
 			name = SlimHUDUITests;
+			packageProductDependencies = (
+				FA1A024C29CE7FA100365137 /* SwiftImage */,
+			);
 			productName = SlimHUDUITests;
 			productReference = FA95EE0C2956FCC1005B39CD /* SlimHUDUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -541,6 +556,7 @@
 			packageReferences = (
 				FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */,
 				FAD154E3296F8CFF00AC8BBB /* XCRemoteSwiftPackageReference "MediaKeyTap" */,
+				FA1A024B29CE7FA100365137 /* XCRemoteSwiftPackageReference "swift-image" */,
 			);
 			productRefGroup = FA95EDF22956FCBF005B39CD /* Products */;
 			projectDirPath = "";
@@ -562,7 +578,6 @@
 				FA95EE7C295741DE005B39CD /* MainMenu.storyboard in Resources */,
 				FA64B5A62966579D00600F85 /* xcode-build.yml in Resources */,
 				FA0E03882966331A004066FF /* README.md in Resources */,
-				FA64B5A82966579D00600F85 /* xcode-ui-tests.yml in Resources */,
 				FA64B5A52966579D00600F85 /* release.yml in Resources */,
 				FA95EE7A295741D2005B39CD /* BarView.xib in Resources */,
 				FA64B5A72966579D00600F85 /* swift-lint.yml in Resources */,
@@ -599,12 +614,13 @@
 				FA95EE3E2956FDFB005B39CD /* ChangesObserver.swift in Sources */,
 				FA95EE212956FCF0005B39CD /* HudsControllerInterface.swift in Sources */,
 				FA95EE6D29573F36005B39CD /* Hud.swift in Sources */,
+				FA55A5EA29CCFF7D00415378 /* CALayer.swift in Sources */,
 				FA95EE5E2956FEC3005B39CD /* Constants.swift in Sources */,
 				FA95EE572956FE91005B39CD /* BoolExtension.swift in Sources */,
 				FA95EE282956FD54005B39CD /* SettingsWindowController.swift in Sources */,
 				FA95EE7029573F55005B39CD /* ProgressBar.swift in Sources */,
 				FA22D04E2985DC2300821D1C /* LogicError.swift in Sources */,
-				FA64B5AB2966645100600F85 /* SinglePopover.swift in Sources */,
+				FA1EA41E29C7327600C474AF /* ShadowType.swift in Sources */,
 				FA322FC6297F506200E8F31A /* EdgeSelector.swift in Sources */,
 				FA95EE362956FDCD005B39CD /* KeyPressObserver.swift in Sources */,
 				FA8B1A4B296E70D80015AAEB /* UpdaterDelegate.swift in Sources */,
@@ -640,6 +656,7 @@
 				FA232B4C2981E1FC00F96E51 /* TabsManager.swift in Sources */,
 				FACDE68F297F105600EDF165 /* TabItemView.swift in Sources */,
 				FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */,
+				FA98AB4429CD194500D3F92A /* ShadowPopupViewController.swift in Sources */,
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
 				FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */,
 				FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */,
@@ -665,9 +682,11 @@
 				FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */,
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
+				FA12B65829CEBD9E0027D6B0 /* LaunchAtLoginTests.swift in Sources */,
 				FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */,
-				FAD49D1029B398ED0034A8D8 /* ConfigSettingsTest.swift in Sources */,
-				FA95EE8229574471005B39CD /* SettingsUITest.swift in Sources */,
+				FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITests.swift in Sources */,
+				FA12B65A29CEBE630027D6B0 /* StyleSettingsUITests.swift in Sources */,
+				FA95EE8229574471005B39CD /* SettingsUITests.swift in Sources */,
 				FA95EE8529574495005B39CD /* SparkleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,6 +694,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FA1A025229CE812F00365137 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = FA1A025129CE812F00365137 /* SwiftImage */;
+		};
 		FA95EE042956FCC1005B39CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FA95EDF02956FCBF005B39CD /* SlimHUD */;
@@ -810,7 +833,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.4.2;
+				CURRENT_PROJECT_VERSION = 1.5.0;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -825,7 +848,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.4.2;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -842,7 +865,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.4.2;
+				CURRENT_PROJECT_VERSION = 1.5.0;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -857,7 +880,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.4.2;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -873,11 +896,11 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.2;
+				CURRENT_PROJECT_VERSION = 1.5.0;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.4.2;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -894,11 +917,11 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.2;
+				CURRENT_PROJECT_VERSION = 1.5.0;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.4.2;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -912,10 +935,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.2;
+				CURRENT_PROJECT_VERSION = 1.5.0;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.4.2;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUDUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -929,10 +952,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.2;
+				CURRENT_PROJECT_VERSION = 1.5.0;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.4.2;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUDUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -983,6 +1006,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA1A024B29CE7FA100365137 /* XCRemoteSwiftPackageReference "swift-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/koher/swift-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.1;
+			};
+		};
 		FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -1002,6 +1033,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA1A024C29CE7FA100365137 /* SwiftImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1A024B29CE7FA100365137 /* XCRemoteSwiftPackageReference "swift-image" */;
+			productName = SwiftImage;
+		};
+		FA1A025129CE812F00365137 /* SwiftImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1A024B29CE7FA100365137 /* XCRemoteSwiftPackageReference "swift-image" */;
+			productName = SwiftImage;
+		};
 		FA95EE232956FD3A005B39CD /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA95EE222956FD3A005B39CD /* XCRemoteSwiftPackageReference "Sparkle" */;
