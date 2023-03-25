@@ -13,7 +13,7 @@ final class HudsUITest: SparkleUITests {
         let app = XCUIApplication()
         app.shouldContinuouslyCheck()
         app.launch()
-        
+
         XCTAssert(app.windows.count == 0)
         DispatchQueue.global().async {
             do {
