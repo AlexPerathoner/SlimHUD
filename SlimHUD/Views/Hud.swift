@@ -8,35 +8,39 @@
 import AppKit
 
 class Hud: NSView {
-    
+
     private var animationStyle = AnimationStyle.slide
-    
+
     /// The NSView that is going to be displayed when show() is called
     private var barView: BarView = NSView.fromNib(name: BarView.BarViewNibFileName, type: BarView.self)
     private var originPosition: CGPoint
     private var screenEdge: Position = .left
-    
+
     private var hudView: NSView! { // TODO: check why not using self
         return windowController?.window?.contentView
     }
-    
+
     private var shadowType: ShadowType = .nsshadow
     private var shadowColor: NSColor = .black
     private var shadowRadius: Int = 0
     private var shadowInset: Int = 5
-    
+
     private var windowController: NSWindowController?
-    
+
+    // flags to handle animation cancel (hud will show while hiding)
+    private var animatingOut = false
+    private var canceledAnimationOut = false
+
     private override init(frame frameRect: NSRect) {
         originPosition = .zero
         super.init(frame: frameRect)
         commonInit()
     }
-    
+
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func commonInit() {
         isHidden = true
         let window = NSWindow(contentRect: DisplayManager.getScreenFrame(),
@@ -47,26 +51,30 @@ class Hud: NSView {
         window.animationBehavior = .none
         windowController = NSWindowController(window: window)
     }
-    
+
     func setBarView(barView: BarView) {
         self.barView = barView
     }
-    
+
     func show() {
-        if isHidden {
+        if isHidden || animatingOut {
             self.isHidden = false
+            if animatingOut {
+                HudAnimator.cancel(barView: barView)
+                canceledAnimationOut = true
+            }
             guard let hudView = hudView else { return }
             if hudView.subviews.isEmpty {
                 hudView.addSubview(barView)
             }
             windowController?.showWindow(self)
-            
+
             if animationStyle.requiresInMovement() {
                 barView.setFrameOrigin(HudAnimator.getAnimationFrameOrigin(originPosition: originPosition, screenEdge: screenEdge))
             } else {
                 barView.setFrameOrigin(originPosition)
             }
-            
+
             switch animationStyle {
             case .none: HudAnimator.popIn(barView: barView)
             case .slide: HudAnimator.slideIn(barView: barView, originPosition: originPosition)
@@ -78,9 +86,10 @@ class Hud: NSView {
             }
         }
     }
-    
+
     func hide(animated: Bool) {
         if !isHidden {
+            animatingOut = true
             if animated {
                 switch animationStyle {
                 case .none: HudAnimator.popOut(barView: barView, completion: commonAnimationOutCompletion)
@@ -100,36 +109,44 @@ class Hud: NSView {
             }
         }
     }
+    /// HudAnimator.cancel() completes the running animations immediately, so this completion is always being called
+    /// We need to check if it has been called because the hud really closed, or because it was canceled
+    /// Only if really ended (wasn't canceled), we close the windowController (otherwise it would make the hud disappear for some frames)
     private func commonAnimationOutCompletion() {
         self.isHidden = true
-        self.windowController?.close()
+        if !canceledAnimationOut {
+            self.windowController?.close()
+        }
+        // reset all flags
+        animatingOut = false
+        canceledAnimationOut = false
     }
-    
+
     @objc private func hideDelayed(_ animated: AnyObject?) {
         hide(animated: (animated as? AnimationStyle) != AnimationStyle.none)
     }
-    
+
     public func dismiss(delay: TimeInterval) {
         if !isHidden {
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideDelayed(_:)), object: animationStyle)
         }
         self.perform(#selector(hideDelayed(_:)), with: animationStyle, afterDelay: delay)
     }
-    
+
     public func hideIcon(isHidden: Bool) {
         barView.hideIcon(isHidden: isHidden)
         updateShadow()
     }
-    
+
     @available(macOS 10.14, *)
     public func setIconTint(_ color: NSColor) {
         barView.setIconTint(color)
     }
-    
+
     public func setIconImage(icon: NSImage, force: Bool = false) {
         barView.setIconImage(icon: icon, force: force)
     }
-    
+
     public func setShadow(type: ShadowType, radius: Int, color: NSColor, inset: Int = 5) {
         shadowType = type
         shadowColor = color

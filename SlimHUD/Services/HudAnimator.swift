@@ -12,6 +12,10 @@ class HudAnimator {
     private static let GrowFactorComplementary: CGFloat = (1-GrowShrinkFactor) / 2
     private static let ShrinkFactorComplementary: CGFloat = (1-1/GrowShrinkFactor) / 2
 
+    public static func cancel(barView: BarView) {
+        barView.layer?.removeAllAnimations()
+    }
+
     public static func popIn(barView: BarView) {
         barView.alphaValue = 1
     }
