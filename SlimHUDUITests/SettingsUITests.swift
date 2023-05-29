@@ -192,4 +192,5 @@ final class SettingsUITest: SparkleUITests {
             .pixelAt(x: Int(position.x), y: Int(position.y))
         XCTAssertNotEqual(firstColor, secondColor)
     }
+
 }
