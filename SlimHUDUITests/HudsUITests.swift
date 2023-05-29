@@ -17,7 +17,11 @@ final class HudsUITest: SparkleUITests {
 
         XCTAssert(app.windows.count == 0)
         DispatchQueue.global().async {
-            try! self.changeVolume()
+            do {
+                try self.changeVolume()
+            } catch {
+                fatalError("Could not run change volume script")
+            }
         }
         sleep(1)
         XCTAssertTrue(isVolumeHudVisible(app: app))
@@ -47,7 +51,11 @@ final class HudsUITest: SparkleUITests {
         sleep(1)
 
         DispatchQueue.global().async {
-            try! self.changeVolume()
+            do {
+                try self.changeVolume()
+            } catch {
+                fatalError("Could not run change volume script")
+            }
         }
         sleep(1)
         XCTAssertTrue(isVolumeHudVisible(app: app))
