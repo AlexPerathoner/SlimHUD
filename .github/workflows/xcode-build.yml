@@ -33,7 +33,7 @@ jobs:
       - name: Collect Workflow Telemetry
         uses: AlexPerathoner/workflow-telemetry-action@v0.7
         with:
-          metric_frequency: 5
+          metric_frequency_thousands_of_second: 200
       - name: Build and Test
         continue-on-error: true
         id: run-tests
