@@ -99,7 +99,7 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "showSettingsAtLaunch"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
    </LaunchAction>
