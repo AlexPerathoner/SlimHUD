@@ -48,7 +48,7 @@ class PositionManager {
         setBarsOrientation(isHorizontal: isHudHorizontal)
         setHudsPosition(originPosition: originPosition, screenEdge: screenEdge)
 
-        NSLog("screenFrame is \(screenFrame) \(originPosition)")
+        NSLog("screenFrame is \(screenFrame).\n Origin of hud: \(originPosition).\n Notch present: \(DisplayManager.hasNotch())")
     }
 
     static func calculateHUDsOriginPosition(hudPosition: Position, dockPosition: Position,
@@ -67,8 +67,22 @@ class PositionManager {
             position = CGPoint(x: (screenFrame.width/2) - (barViewFrame.height/2),
                                y: yDockHeight + barViewFrame.width)
         case .top:
+            var paddingFromTop: CGFloat = 0
+            if DisplayManager.hasNotch() {
+                paddingFromTop = DisplayManager.getNotchThickness()
+            } else {
+                if !isInFullscreen {
+                    paddingFromTop = DisplayManager.getMenuBarVisibleThickness()
+                }
+            }
+            #if DEBUG
+                print("is full scren \(isInFullscreen)")
+                print("Has notch: \(DisplayManager.hasNotch())")
+                print("Padding from top: \(paddingFromTop)")
+                print("Position calculation: screenFrame.height \(screenFrame.height) - pad \(paddingFromTop)")
+            #endif
             position = CGPoint(x: (screenFrame.width/2) - (barViewFrame.height/2),
-                           y: screenFrame.height - (isInFullscreen ? 0 : DisplayManager.getMenuBarThickness()))
+                           y: screenFrame.height - paddingFromTop)
         }
         return position
     }
