@@ -19,13 +19,13 @@ final class StyleSettingsUITests: UITestsUtils {
         if checkBox.value as? Int == 1 {
             checkBox.click()
             XCTAssertFalse(isVolumeHudVisible(app: app))
-            sleep(1)
+            usleep(100000) // 0.1s
             checkBox.click()
             XCTAssertTrue(isVolumeHudVisible(app: app))
         } else {
             checkBox.click()
             XCTAssertTrue(isVolumeHudVisible(app: app))
-            sleep(1)
+            usleep(100000) // 0.1s
             checkBox.click()
             XCTAssertFalse(isVolumeHudVisible(app: app))
         }

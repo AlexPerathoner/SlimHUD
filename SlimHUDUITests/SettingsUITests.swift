@@ -120,7 +120,7 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertEqual(2, settingsWindow.popovers.children(matching: .slider).count)
     }
 
-    func testChangeValuesInShadowPopupRadiusInput() throws {
+    func testChangeValuesInShadowPopupRadiusInput() throws { // todo: check why failed - flaky?,, also check for actual radius of bar
         let visibleFrame = NSScreen.screens[0].visibleFrame
         let position = NSPoint(x: 7, y: (visibleFrame.height/2))
 

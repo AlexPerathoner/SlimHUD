@@ -50,7 +50,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
         NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
                                                object: NSApplication.shared,
-                                               queue: OperationQueue.main) { _ -> Void in
+                                               queue: OperationQueue.main) { _ in
             self.positionManager.setupHUDsPosition(isFullscreen: false)
             self.changesObserver.resetTemporarelyDisabledBars()
         }
