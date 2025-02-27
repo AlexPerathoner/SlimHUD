@@ -23,6 +23,50 @@ final class HudsUITest: SparkleUITests {
         XCTAssertTrue(isVolumeHudVisible(app: app))
     }
 
+    func testKeyVolumePress() throws {
+        let app = XCUIApplication()
+        app.shouldContinuouslyCheck()
+        app.launch()
+
+        XCTAssert(app.windows.count == 0)
+        DispatchQueue.global().async {
+
+            let NX_KEYTYPE_SOUND_UP: UInt32 = 0
+            let NX_KEYTYPE_SOUND_DOWN: UInt32 = 1
+
+            func HIDPostAuxKey(key: UInt32) {
+                func doKey(down: Bool) {
+                    let flags = NSEvent.ModifierFlags(rawValue: (down ? 0xa00 : 0xb00))
+                    let data1 = Int((key<<16) | (down ? 0xa00 : 0xb00))
+
+                    let ev = NSEvent.otherEvent(with: NSEvent.EventType.systemDefined,
+                                                location: NSPoint(x: 0, y: 0),
+                                                modifierFlags: flags,
+                                                timestamp: 0,
+                                                windowNumber: 0,
+                                                context: nil,
+                                                subtype: 8,
+                                                data1: data1,
+                                                data2: -1)
+                    let cev = ev?.cgEvent
+                    cev?.post(tap: CGEventTapLocation.cghidEventTap)
+                }
+                doKey(down: true)
+                doKey(down: false)
+            }
+
+            for _ in 1...3 {
+                HIDPostAuxKey(key: NX_KEYTYPE_SOUND_UP)
+                usleep(500000)
+                HIDPostAuxKey(key: NX_KEYTYPE_SOUND_DOWN)
+                usleep(500000)
+            }
+        }
+
+        sleep(1)
+        XCTAssertTrue(isVolumeHudVisible(app: app))
+    }
+
     private func changeVolume() throws {
         let task = Process()
         task.launchPath = "/usr/bin/osascript"
