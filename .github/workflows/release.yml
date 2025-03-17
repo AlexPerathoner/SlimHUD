@@ -106,7 +106,7 @@ jobs:
 
   archive:
     name: Build and export app
-    runs-on: macos-12
+    runs-on: macos-latest
     needs: preparation
     steps:
       - uses: actions/download-artifact@master # download all previously generated artifacts
@@ -176,7 +176,7 @@ jobs:
 
   pre-release:
     name: Create pre-release
-    runs-on: macos-12
+    runs-on: macos-latest
     needs: archive
     if: ${{ contains(github.event.comment.body, 'beta') }}
     steps:
@@ -256,7 +256,7 @@ jobs:
 
   release:
     name: "Create Release"
-    runs-on: macos-12
+    runs-on: macos-latest
     needs: archive
     if: ${{ !contains(github.event.comment.body, 'beta') }}
     steps:
@@ -327,7 +327,7 @@ jobs:
 
   upgrade-brew:
     name: Upgrade Homebrew formula
-    runs-on: macos-12
+    runs-on: macos-latest
     needs: [release]
     steps:
       - uses: actions/download-artifact@master # download all previously generated artifacts
