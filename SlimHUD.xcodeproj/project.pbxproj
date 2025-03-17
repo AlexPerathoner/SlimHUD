@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA095EAD2D8896DB006F6531 /* SystemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA095EAC2D8896DA006F6531 /* SystemObserver.swift */; };
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
 		FA12B65829CEBD9E0027D6B0 /* LaunchAtLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */; };
@@ -107,6 +108,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA095EAC2D8896DA006F6531 /* SystemObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemObserver.swift; sourceTree = "<group>"; };
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginTests.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 		FA95EE322956FDB2005B39CD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FA095EAC2D8896DA006F6531 /* SystemObserver.swift */,
 				FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */,
 				FA7811E42975FE9400FEE1AA /* HudAnimator.swift */,
 				FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */,
@@ -614,6 +617,7 @@
 				FA95EE422956FE14005B39CD /* VolumeManager.swift in Sources */,
 				FA95EE532956FE7C005B39CD /* NSControlExtension.swift in Sources */,
 				FA95EE7229573F63005B39CD /* DeterminateAnimation.swift in Sources */,
+				FA095EAD2D8896DB006F6531 /* SystemObserver.swift in Sources */,
 				FA95EE3E2956FDFB005B39CD /* ChangesObserver.swift in Sources */,
 				FA95EE212956FCF0005B39CD /* HudsControllerInterface.swift in Sources */,
 				FA95EE6D29573F36005B39CD /* Hud.swift in Sources */,
@@ -837,7 +841,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.5.0;
+				CURRENT_PROJECT_VERSION = 1.5.2;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -852,7 +856,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -869,7 +873,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.5.0;
+				CURRENT_PROJECT_VERSION = 1.5.2;
 				DEVELOPMENT_TEAM = XX9N244QQT;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -884,7 +888,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
