@@ -24,7 +24,7 @@ env:
 
 jobs:
   unit-tests-run:
-    runs-on: macos-12
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
