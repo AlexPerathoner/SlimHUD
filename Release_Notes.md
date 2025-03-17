@@ -1,3 +1,6 @@
+# 1.5.2 - Deep Sleep Hook
+* Rehide System HUD after sleep / monitor changes / lid changes
+
 # 1.5.1 - Background bar
 * Better visibility of the bar by adding custom shadows
 

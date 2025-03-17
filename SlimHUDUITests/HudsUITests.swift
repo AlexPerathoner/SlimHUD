@@ -8,6 +8,8 @@
 import Foundation
 import XCTest
 
+// swiftlint:disable this identifier_name
+// swiftlint:disable this force_try
 final class HudsUITest: SparkleUITests {
 
     func testTriggerVolumeHud() throws {

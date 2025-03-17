@@ -24,6 +24,7 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
     lazy var positionManager = PositionManager(volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
     lazy var displayer = Displayer(positionManager: positionManager, volumeHud: volumeHud, brightnessHud: brightnessHud, keyboardHud: keyboardHud)
     lazy var changesObserver = ChangesObserver(positionManager: positionManager, displayer: displayer)
+    lazy var systemObserver = SystemObserver()
 
     weak var settingsViewTabsManager: TabsManager?
 
@@ -47,12 +48,14 @@ class AppDelegate: NSWindowController, NSApplicationDelegate {
 
         // continuous check - 0.2 should not take more than 1/800 CPU
         changesObserver.startObserving()
+        systemObserver.setupObservers()
 
         NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
                                                object: NSApplication.shared,
                                                queue: OperationQueue.main) { _ in
             self.positionManager.setupHUDsPosition(isFullscreen: false)
             self.changesObserver.resetTemporarelyDisabledBars()
+            OSDUIManager.stop()
         }
 
         OSDUIManager.stop()

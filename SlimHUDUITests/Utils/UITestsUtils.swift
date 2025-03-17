@@ -7,6 +7,7 @@
 
 import XCTest
 
+// swiftlint:disable identifier_name
 class UITestsUtils: XCTestCase {
     public func addScreenshot(window: XCUIElement, name: String) {
         let attachment = XCTAttachment(screenshot: window.screenshot())
@@ -70,20 +71,16 @@ class UITestsUtils: XCTestCase {
     let KEYS = ["volume no", "volume 0", "volume 1", "volume 2", "volume 3", "sun 0", "sun 1", "sun 2", "sun 3", "key 0", "key 1", "key 2", "key 3"]
 
     private func findBarFrame(_ app: XCUIApplication) -> CGRect {
-        for key in KEYS {
-            if app.windows.containing(.image, identifier: key).children(matching: .any).allElementsBoundByIndex.count > 0 {
-                return app.windows.containing(.image, identifier: key).children(matching: .any).element.frame
-            }
+        for key in KEYS where app.windows.containing(.image, identifier: key).children(matching: .any).allElementsBoundByIndex.count > 0 {
+            return app.windows.containing(.image, identifier: key).children(matching: .any).element.frame
         }
         XCTFail("Could not find bar frame")
         return .null
     }
 
     private func getScreenSize(_ app: XCUIApplication) -> CGRect {
-        for key in KEYS {
-            if app.windows.containing(.image, identifier: key).allElementsBoundByIndex.count > 0 {
-                return app.windows.containing(.image, identifier: key).element.frame
-            }
+        for key in KEYS where app.windows.containing(.image, identifier: key).allElementsBoundByIndex.count > 0 {
+            return app.windows.containing(.image, identifier: key).element.frame
         }
         XCTFail("Could not find bar frame")
         return .null
