@@ -5,6 +5,20 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>1.5.2</title>
+            <pubDate>Mon, 17 Mar 2025 22:08:48 +0000</pubDate>
+            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1.5.2</sparkle:version>
+            <sparkle:shortVersionString>1.5.2</sparkle:shortVersionString>
+            <description><![CDATA[<h1>Deep Sleep Hook</h1>
+<ul>
+<li>Rehide System HUD after sleep / monitor changes / lid changes</li>
+</ul>]]></description>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.2-beta/SlimHUD.zip" length="5789335" type="application/octet-stream" sparkle:edSignature="FIQffYIrnzo2zVnqJXQ4/TE6+hKitvglpPv44QnfE3KN+sRdDFOOQjsB/EQWTdjLlxhh8OcZYfNZte3L7289AQ=="/>
+        </item>
+        <item>
             <title>1.5.1</title>
             <pubDate>Sat, 25 Mar 2023 18:25:11 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
