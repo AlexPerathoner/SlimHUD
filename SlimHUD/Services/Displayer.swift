@@ -16,6 +16,7 @@ class Displayer: HudsControllerInterface {
     private var keyboardHud: Hud
 
     public var temporarelyEnableAllBars = false
+    var spaceObserver: NSObjectProtocol?
 
     init(positionManager: PositionManager, volumeHud: Hud, brightnessHud: Hud, keyboardHud: Hud) {
         self.positionManager = positionManager
@@ -26,6 +27,21 @@ class Displayer: HudsControllerInterface {
         volumeHud.setIconImage(icon: IconManager.getStandardVolumeIcon(isMuted: VolumeManager.isMuted()))
         brightnessHud.setIconImage(icon: IconManager.getStandardBrightnessIcon())
         keyboardHud.setIconImage(icon: IconManager.getStandardKeyboardIcon())
+
+        self.spaceObserver = NSWorkspace.shared.notificationCenter.addObserver(
+                    forName: NSWorkspace.activeSpaceDidChangeNotification,
+                    object: nil,
+                    queue: .main) { [weak self] _ in
+                        if let self = self {
+                            self.hideAll()
+                        }
+                }
+    }
+
+    func hideAll() {
+        volumeHud.hide(animated: false)
+        brightnessHud.hide(animated: false)
+        keyboardHud.hide(animated: false)
     }
 
     func showVolumeHUD() {
