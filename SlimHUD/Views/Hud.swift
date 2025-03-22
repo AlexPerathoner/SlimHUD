@@ -60,8 +60,8 @@ class Hud: NSView {
         if isHidden || animatingOut {
             self.isHidden = false
             if animatingOut {
-                HudAnimator.cancel(barView: barView)
                 canceledAnimationOut = true
+                return
             }
             guard let hudView = hudView else { return }
             if hudView.subviews.isEmpty {

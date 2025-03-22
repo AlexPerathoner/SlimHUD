@@ -1,5 +1,7 @@
 # 1.5.2 - Deep Sleep Hook
 * Rehide System HUD after sleep / monitor changes / lid changes
+* Fixed side grow in/out animation that would sometimes get stuck at half
+* Fixed an issue that prevented internal monitor brightness retrieval after an external monitor was connected
 
 # 1.5.1 - Background bar
 * Better visibility of the bar by adding custom shadows
