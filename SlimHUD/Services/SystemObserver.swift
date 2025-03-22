@@ -57,10 +57,12 @@ class SystemObserver: NSObject {
 
     @objc func lidStateChanged(_ notification: Notification) {
         OSDUIManager.stop()
+        DisplayManager.resetMethod()
     }
 
     @objc func displayConfigurationChanged(_ notification: Notification) {
         OSDUIManager.stop()
+        DisplayManager.resetMethod()
     }
 
     func registerForSleepWakeNotifications() {

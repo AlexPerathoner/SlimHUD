@@ -16,6 +16,12 @@ class DisplayManager {
 
     private static var method = SensorMethod.standard
 
+    // When the monitor settings change we should invoke this to try all methods again
+    // example: connects an external monitor with which brightness doesn't work, then disconnects it. Now the internal monitor should be recognised, but the old allFailed status would still be there
+    static func resetMethod() {
+        method = .standard
+    }
+
     static func getDisplayBrightness() throws -> Float {
         switch DisplayManager.method {
         case .standard:
