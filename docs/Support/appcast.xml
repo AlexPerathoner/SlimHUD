@@ -5,6 +5,23 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>1.5.2</title>
+            <pubDate>Sat, 22 Mar 2025 17:41:01 +0000</pubDate>
+            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1.5.2</sparkle:version>
+            <sparkle:shortVersionString>1.5.2</sparkle:shortVersionString>
+            <description><![CDATA[<h1>Deep Sleep Hook</h1>
+<ul>
+<li>Rehide System HUD after sleep / monitor changes / lid changes</li>
+<li>Fixed side grow in/out animation that would sometimes get stuck at half</li>
+<li>Fixed an issue that prevented internal monitor brightness retrieval after an external monitor was connected</li>
+<li>Fixed an issue that was preventing the huds from being shown when changing to a full screen application</li>
+</ul>]]></description>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.2-beta/SlimHUD.zip" length="5790801" type="application/octet-stream" sparkle:edSignature="6rRXE1wL7e6aPWZo++5rkLAWYCUH63L6+6uP30zc96+6Lr7gqO+NQkCuXJFEffkN+eQT++BCnpkLyBxdVHlvAA=="/>
+        </item>
+        <item>
             <title>1.5.1</title>
             <pubDate>Sat, 25 Mar 2023 18:25:11 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
