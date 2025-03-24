@@ -296,7 +296,9 @@ jobs:
           rm -rf Release/*.plist
       - name: Preparate Sparkle # generate Sparkle release notes (convert Markdown to HTML), remove beta item if present
         run: |
-          pip3 install -r Configuration/requirements.txt
+          python3 -m venv penv
+          source penv/bin/activate
+          python3 -m pip install -r Configuration/requirements.txt
           python3 ./Configuration/generate_html_for_sparkle_release.py
           mv Release/latest_changes.html Release/${{ env.projname }}.html
           python3 ./Configuration/remove_last_item_appcast.py
