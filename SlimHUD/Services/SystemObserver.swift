@@ -13,6 +13,7 @@ class SystemObserver: NSObject {
     private var sleepNotificationPort: IONotificationPortRef?
     private var sleepNotifierReference: io_object_t = 0
     private var wakeNotifierReference: io_object_t = 0
+    private var timer: Timer?
 
     override init() {
         super.init()
@@ -53,6 +54,12 @@ class SystemObserver: NSObject {
             name: NSApplication.didChangeScreenParametersNotification,
             object: nil
         )
+
+        // sometimes the macOS Huds still show up randomly after a while, this should usually prevent that
+        timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: { _ in
+            OSDUIManager.stop()
+            DisplayManager.resetMethod()
+        })
     }
 
     @objc func lidStateChanged(_ notification: Notification) {
@@ -73,9 +80,27 @@ class SystemObserver: NSObject {
             name: NSWorkspace.didWakeNotification,
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(receiveSleepNote(_:)),
+            name: NSWorkspace.willSleepNotification,
+            object: nil
+        )
     }
 
     @objc func receiveWakeNote(_ notification: Notification) {
         OSDUIManager.stop()
+        timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: { _ in
+            OSDUIManager.stop()
+            DisplayManager.resetMethod()
+        })
+    }
+
+    @objc func receiveSleepNote(_ notification: Notification) {
+        // don't prevent sleep
+        if let t = timer {
+            t.invalidate()
+        }
+        timer = nil
     }
 }
