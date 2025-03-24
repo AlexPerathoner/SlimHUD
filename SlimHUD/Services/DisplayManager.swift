@@ -7,6 +7,7 @@
 
 import Foundation
 import Cocoa
+import CoreGraphics
 
 class DisplayManager {
     private init() {}
@@ -14,6 +15,13 @@ class DisplayManager {
     private static var useM1DisplayBrightnessMethod = false
 
     private static var method = SensorMethod.standard
+
+    // When the monitor settings change we should invoke this to try all methods again
+    // example: connects an external monitor with which brightness doesn't work, then disconnects it. Now the internal
+    //   monitor should be recognised, but the old allFailed status would still be there
+    static func resetMethod() {
+        method = .standard
+    }
 
     static func getDisplayBrightness() throws -> Float {
         switch DisplayManager.method {
@@ -71,6 +79,41 @@ class DisplayManager {
         throw SensorError.Display.notSilicon
     }
 
+    static func isInternalDisplay(_ screen: NSScreen) -> Bool {
+        // Retrieve the screen's display ID
+        guard let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID else {
+            return false
+        }
+
+        // Use CoreGraphics API to check if the display is built-in
+        let isBuiltIn = CGDisplayIsBuiltin(screenNumber) != 0
+        return isBuiltIn
+    }
+
+    /* https://github.com/AlexPerathoner/SlimHUD/issues/145
+     Used to check if the internal screen
+     */
+    static func hasNotch() -> Bool {
+        guard let mainScreen = NSScreen.main else {
+            return false
+        }
+        // todo multiple monitors: will have to deal with following situation
+        // slimhud should appear on internal screen with notch, but main screen is external one
+        if !isInternalDisplay(mainScreen) {
+            // for now, if not the focus is not on the internal display,
+
+        }
+
+        // Get the safe area insets of the main screen
+        if #available(macOS 12.0, *) {
+            let safeAreaInsets = mainScreen.safeAreaInsets
+            // A device with a notch will have non-zero safe area insets at the top
+            return safeAreaInsets.top > 0
+        } else {
+            return false
+        }
+    }
+
     /* Note the difference between NSScreen.main and NSScreen.screens[0]:
      * NSScreen.main is the "key" screen, where the currently frontmost window resides.
      * NSScreen.screens[0] is the screen which has a menu bar, and is chosen in the Preferences > monitor settings
@@ -87,7 +130,7 @@ class DisplayManager {
         return getZeroScreen().visibleFrame
     }
 
-    static func getMenuBarThickness() -> CGFloat {
+    static func getMenuBarVisibleThickness() -> CGFloat {
         let screenFrame = getScreenFrame()
         let visibleFrame = getVisibleScreenFrame()
         var menuBarThickness: CGFloat = 0
@@ -95,6 +138,29 @@ class DisplayManager {
             menuBarThickness = NSStatusBar.system.thickness
         }
         return menuBarThickness
+    }
+
+    static func getNotchThickness() -> CGFloat {
+        // todo duplicated code from hasNotch() - refactor when solving multiple monitors
+        guard let mainScreen = NSScreen.main else {
+            return 0
+        }
+        // todo multiple monitors: will have to deal with following situation
+        // slimhud should appear on internal screen with notch, but main screen is external one
+        if !isInternalDisplay(mainScreen) {
+            // for now, if not the focus is not on the internal display,
+
+        }
+
+        // Get the safe area insets of the main screen
+        if #available(macOS 12.0, *) {
+            let safeAreaInsets = mainScreen.safeAreaInsets
+            if safeAreaInsets.top == 0 {
+                return 0
+            }
+            return safeAreaInsets.top
+        }
+        return 0
     }
 
     static func getDockHeight() -> (xDockHeight: CGFloat, yDockHeight: CGFloat) {

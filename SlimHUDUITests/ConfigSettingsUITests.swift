@@ -11,10 +11,10 @@ final class ConfigSettingsUITest: SparkleUITests {
     let app = XCUIApplication()
     override func setUpWithError() throws {
         continueAfterFailure = false
-        app.showSettings()
+        app.showSettings() // TODO: add option to make settings non saved (state should be always same when starting - don't save settings when closing app)
         app.launch()
     }
-
+// TODO: error in logs: This method should not be called on the main thread as it may lead to UI unresponsiveness, find out whihc
     func testHideStatusItem() throws {
         let checkBox = app.windows["Settings"].children(matching: .checkBox).element(boundBy: 2)
 
@@ -40,26 +40,36 @@ final class ConfigSettingsUITest: SparkleUITests {
         let coordinate = settingsWindow.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
 
         let normalisedLeft = coordinate.withOffset(CGVector(dx: 240, dy: 170))
-        normalisedLeft.click()
-
-        XCTAssertEqual(settingsWindow.children(matching: .radioButton).matching(identifier: "Left").firstMatch.value as? Int, 1)
+        clickAndCheck(normalisedLeft, settingsWindow.children(matching: .radioButton).matching(identifier: "Left"), 1)
+        XCTAssertEqual(getWindowEdge(app: app), .left)
 
         let normalisedRight = coordinate.withOffset(CGVector(dx: 320, dy: 170))
-        normalisedRight.click()
-        XCTAssertEqual(settingsWindow.children(matching: .radioButton).matching(identifier: "Right").firstMatch.value as? Int, 1)
+        clickAndCheck(normalisedRight, settingsWindow.children(matching: .radioButton).matching(identifier: "Right"), 1)
+        XCTAssertEqual(getWindowEdge(app: app), .right)
 
         let normalisedTop = coordinate.withOffset(CGVector(dx: 290, dy: 150))
-        normalisedTop.click()
-        XCTAssertEqual(settingsWindow.children(matching: .radioButton).matching(identifier: "Top").firstMatch.value as? Int, 1)
+        clickAndCheck(normalisedTop, settingsWindow.children(matching: .radioButton).matching(identifier: "Top"), 1)
+        XCTAssertEqual(getWindowEdge(app: app), .top)
 
         let normalisedBottom = coordinate.withOffset(CGVector(dx: 290, dy: 180))
-        normalisedBottom.click()
-        XCTAssertEqual(settingsWindow.children(matching: .radioButton).matching(identifier: "Bottom").firstMatch.value as? Int, 1)
+        clickAndCheck(normalisedBottom, settingsWindow.children(matching: .radioButton).matching(identifier: "Bottom"), 1)
+        XCTAssertEqual(getWindowEdge(app: app), .bottom)
 
         XCTAssertFalse(settingsWindow.children(matching: .radioButton).matching(identifier: "Left").firstMatch.isSelected)
         XCTAssertFalse(settingsWindow.children(matching: .radioButton).matching(identifier: "Top").firstMatch.isSelected)
         XCTAssertFalse(settingsWindow.children(matching: .radioButton).matching(identifier: "Right").firstMatch.isSelected)
-
     }
 
+    private func clickAndCheck(_ element: XCUICoordinate, _ actual: XCUIElementQuery, _ expected: Int?) {
+        element.click()
+        var limit = 5
+        var actValue = actual.firstMatch.value as? Int
+        while actValue != expected && limit > 0 {
+            element.click()
+            usleep(100000) // 0.1s
+            limit -= 1
+            actValue = actual.firstMatch.value as? Int
+        }
+        XCTAssertEqual(actValue, expected)
+    }
 }

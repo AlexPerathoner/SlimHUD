@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA095EAD2D8896DB006F6531 /* SystemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA095EAC2D8896DA006F6531 /* SystemObserver.swift */; };
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
 		FA12B65829CEBD9E0027D6B0 /* LaunchAtLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */; };
@@ -22,6 +23,7 @@
 		FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */; };
 		FA322FC4297F485700E8F31A /* StandardLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA322FC3297F485700E8F31A /* StandardLabel.swift */; };
 		FA322FC6297F506200E8F31A /* EdgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA322FC5297F506200E8F31A /* EdgeSelector.swift */; };
+		FA5023582BD5467C0051496C /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5023572BD5467C0051496C /* TestUtils.swift */; };
 		FA55A5EA29CCFF7D00415378 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55A5E929CCFF7D00415378 /* CALayer.swift */; };
 		FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DD29666815008177B1 /* UITestsUtils.swift */; };
 		FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6DF29666AB1008177B1 /* HudsUITests.swift */; };
@@ -106,6 +108,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA095EAC2D8896DA006F6531 /* SystemObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemObserver.swift; sourceTree = "<group>"; };
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FA12B65729CEBD9E0027D6B0 /* LaunchAtLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginTests.swift; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 		FA2D3DE12971EC2B00ABADDE /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		FA322FC3297F485700E8F31A /* StandardLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLabel.swift; sourceTree = "<group>"; };
 		FA322FC5297F506200E8F31A /* EdgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeSelector.swift; sourceTree = "<group>"; };
+		FA5023572BD5467C0051496C /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		FA55A5E929CCFF7D00415378 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		FA56F6DD29666815008177B1 /* UITestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsUtils.swift; sourceTree = "<group>"; };
 		FA56F6DF29666AB1008177B1 /* HudsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudsUITests.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 		FA95EE322956FDB2005B39CD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FA095EAC2D8896DA006F6531 /* SystemObserver.swift */,
 				FAFC579D29675F3E00C32A80 /* AppleScriptRunner.swift */,
 				FA7811E42975FE9400FEE1AA /* HudAnimator.swift */,
 				FA95EE352956FDCD005B39CD /* KeyPressObserver.swift */,
@@ -431,6 +436,7 @@
 				FA95EE8429574495005B39CD /* SparkleUITests.swift */,
 				FA56F6DD29666815008177B1 /* UITestsUtils.swift */,
 				FAFC57A12967668500C32A80 /* XCUIApplicationExtension.swift */,
+				FA5023572BD5467C0051496C /* TestUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -611,6 +617,7 @@
 				FA95EE422956FE14005B39CD /* VolumeManager.swift in Sources */,
 				FA95EE532956FE7C005B39CD /* NSControlExtension.swift in Sources */,
 				FA95EE7229573F63005B39CD /* DeterminateAnimation.swift in Sources */,
+				FA095EAD2D8896DB006F6531 /* SystemObserver.swift in Sources */,
 				FA95EE3E2956FDFB005B39CD /* ChangesObserver.swift in Sources */,
 				FA95EE212956FCF0005B39CD /* HudsControllerInterface.swift in Sources */,
 				FA95EE6D29573F36005B39CD /* Hud.swift in Sources */,
@@ -682,6 +689,7 @@
 				FA56F6DE29666815008177B1 /* UITestsUtils.swift in Sources */,
 				FA56F6E029666AB1008177B1 /* HudsUITests.swift in Sources */,
 				FA56F6ED2966773F008177B1 /* AAAUITestSetup.swift in Sources */,
+				FA5023582BD5467C0051496C /* TestUtils.swift in Sources */,
 				FA12B65829CEBD9E0027D6B0 /* LaunchAtLoginTests.swift in Sources */,
 				FAFC57A22967668500C32A80 /* XCUIApplicationExtension.swift in Sources */,
 				FAD49D1029B398ED0034A8D8 /* ConfigSettingsUITests.swift in Sources */,

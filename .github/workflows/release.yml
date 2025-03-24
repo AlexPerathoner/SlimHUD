@@ -42,6 +42,7 @@ jobs:
       - name: Save deployment id
         uses: actions/upload-artifact@master
         with:
+          name: artifacts1
           path: |
             deployment_id
             env
@@ -85,6 +86,7 @@ jobs:
       - name: Save generated info
         uses: actions/upload-artifact@master
         with:
+          name: artifacts2
           path: |
             new_version
             title
@@ -106,7 +108,7 @@ jobs:
 
   archive:
     name: Build and export app
-    runs-on: macos-12
+    runs-on: macos-latest
     needs: preparation
     steps:
       - uses: actions/download-artifact@master # download all previously generated artifacts
@@ -115,8 +117,8 @@ jobs:
       - name: Parse info generated in preparation job
         id: info
         run: |
-          echo "new_version=$(cat artifacts/artifact/new_version)" >> $GITHUB_OUTPUT
-          echo "title=$(cat artifacts/artifact/title)" >> $GITHUB_OUTPUT
+          echo "new_version=$(cat artifacts/artifacts2/new_version)" >> $GITHUB_OUTPUT
+          echo "title=$(cat artifacts/artifacts2/title)" >> $GITHUB_OUTPUT
       - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
         id: comment-branch
       - uses: actions/checkout@v3
@@ -158,7 +160,7 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
       - name: Switch Xcode version # Force Xcode version (macOS runner has multiple Xcode versions installed)
         run: |
-          sudo xcode-select -s "/Applications/Xcode_14.2.app"
+          sudo xcode-select -s "/Applications/Xcode_16.2.app"
           /usr/bin/xcodebuild -version
       - name: Build and archive # create archive
         run: xcodebuild clean archive -project ${{ env.projname }}.xcodeproj -scheme ${{ env.projname }} -archivePath ${{ env.projname }}
@@ -176,7 +178,7 @@ jobs:
 
   pre-release:
     name: Create pre-release
-    runs-on: macos-12
+    runs-on: macos-latest
     needs: archive
     if: ${{ contains(github.event.comment.body, 'beta') }}
     steps:
@@ -192,11 +194,11 @@ jobs:
       - name: Parse info generated in preparation job
         id: info
         run: |
-          echo "new_version=$(cat artifacts/artifact/new_version)" >> $GITHUB_OUTPUT
-          echo "title=$(cat artifacts/artifact/title)" >> $GITHUB_OUTPUT
-          mv artifacts/artifact/new_version new_version
-          mv artifacts/artifact/title title
-          mv artifacts/artifact/latest_changes latest_changes
+          echo "new_version=$(cat artifacts/artifacts2/new_version)" >> $GITHUB_OUTPUT
+          echo "title=$(cat artifacts/artifacts2/title)" >> $GITHUB_OUTPUT
+          mv artifacts/artifacts2/new_version new_version
+          mv artifacts/artifacts2/title title
+          mv artifacts/artifacts2/latest_changes latest_changes
           mkdir Release
           mv artifacts/app/${{ env.projname }}.zip Release/
       - name: Prepare Sparkle update creation # Import Sparkle private key, remove unnecessary files in Release folder
@@ -206,7 +208,9 @@ jobs:
           echo -n "$PRIVATE_SPARKLE_KEY" > ./Configuration/sparkle_private_key
       - name: Generate Sparkle notes # generate Sparkle release notes (convert Markdown to HTML)
         run: |
-          pip3 install -r Configuration/requirements.txt
+          python3 -m venv penv
+          source penv/bin/activate
+          python3 -m pip install -r Configuration/requirements.txt
           python3 ./Configuration/generate_html_for_sparkle_release.py
           mv Release/latest_changes.html Release/${{ env.projname }}.html
       - name: Update appcast # generate / update appcast.xml with edDSA key
@@ -256,7 +260,7 @@ jobs:
 
   release:
     name: "Create Release"
-    runs-on: macos-12
+    runs-on: macos-latest
     needs: archive
     if: ${{ !contains(github.event.comment.body, 'beta') }}
     steps:
@@ -272,11 +276,11 @@ jobs:
       - name: Parse info generated in preparation job
         id: info
         run: |
-          echo "new_version=$(cat artifacts/artifact/new_version)" >> $GITHUB_OUTPUT
-          echo "title=$(cat artifacts/artifact/title)" >> $GITHUB_OUTPUT
-          mv artifacts/artifact/new_version new_version
-          mv artifacts/artifact/title title
-          mv artifacts/artifact/latest_changes latest_changes
+          echo "new_version=$(cat artifacts/artifacts2/new_version)" >> $GITHUB_OUTPUT
+          echo "title=$(cat artifacts/artifacts2/title)" >> $GITHUB_OUTPUT
+          mv artifacts/artifacts2/new_version new_version
+          mv artifacts/artifacts2/title title
+          mv artifacts/artifacts2/latest_changes latest_changes
           mkdir Release
           mv artifacts/app/${{ env.projname }}.zip Release/
       - name: Override versions in project # set new version in project
@@ -292,7 +296,9 @@ jobs:
           rm -rf Release/*.plist
       - name: Preparate Sparkle # generate Sparkle release notes (convert Markdown to HTML), remove beta item if present
         run: |
-          pip3 install -r Configuration/requirements.txt
+          python3 -m venv penv
+          source penv/bin/activate
+          python3 -m pip install -r Configuration/requirements.txt
           python3 ./Configuration/generate_html_for_sparkle_release.py
           mv Release/latest_changes.html Release/${{ env.projname }}.html
           python3 ./Configuration/remove_last_item_appcast.py
@@ -327,7 +333,7 @@ jobs:
 
   upgrade-brew:
     name: Upgrade Homebrew formula
-    runs-on: macos-12
+    runs-on: macos-latest
     needs: [release]
     steps:
       - uses: actions/download-artifact@master # download all previously generated artifacts
@@ -336,7 +342,7 @@ jobs:
       - name: Parse info generated in preparation job
         id: info
         run: |
-          echo "new_version=$(cat artifacts/artifact/new_version)" >> $GITHUB_OUTPUT
+          echo "new_version=$(cat artifacts/artifacts2/new_version)" >> $GITHUB_OUTPUT
       - name: Update brew formula # update brew formula
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.BREW_TOKEN }}
@@ -355,9 +361,9 @@ jobs:
       - name: Parse info generated in preparation job
         id: info
         run: |
-          echo "new_version=$(cat artifacts/artifact/new_version)" >> $GITHUB_OUTPUT
-          echo "deployment_id=$(cat artifacts/artifact/deployment_id)" >> $GITHUB_OUTPUT
-          echo "env=$(cat artifacts/artifact/env)" >> $GITHUB_OUTPUT
+          echo "new_version=$(cat artifacts/artifacts2/new_version)" >> $GITHUB_OUTPUT
+          echo "deployment_id=$(cat artifacts/artifacts1/deployment_id)" >> $GITHUB_OUTPUT
+          echo "env=$(cat artifacts/artifacts1/env)" >> $GITHUB_OUTPUT
       - uses: xt0rted/pull-request-comment-branch@v1 # check out branch of PR
         id: comment-branch
       - uses: actions/checkout@v3 # checkout again, because the previous checkout is detached
@@ -373,9 +379,6 @@ jobs:
           target_branch: ${{ steps.comment-branch.outputs.base_ref }}
           github_token: ${{ github.token }}
           message: "Release version v${{ steps.info.outputs.new_version }}"
-      - uses: geekyeggo/delete-artifact@v2 # delete artifacts
-        with:
-          name: "*"
       - name: Add success reactions # Adding reactions to comment depending on result
         if: ${{ contains(join(needs.*.result, ','), 'success') }}
         uses: peter-evans/create-or-update-comment@v2

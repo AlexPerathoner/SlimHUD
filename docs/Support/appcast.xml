@@ -6,9 +6,8 @@
         <language>en</language>
         <item>
             <title>1.5.2</title>
-            <pubDate>Sat, 22 Mar 2025 17:41:01 +0000</pubDate>
+            <pubDate>Mon, 24 Mar 2025 19:30:50 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
-            <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>1.5.2</sparkle:version>
             <sparkle:shortVersionString>1.5.2</sparkle:shortVersionString>
             <description><![CDATA[<h1>Deep Sleep Hook</h1>
@@ -19,7 +18,7 @@
 <li>Fixed an issue that was preventing the huds from being shown when changing to a full screen application</li>
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.2-beta/SlimHUD.zip" length="5790801" type="application/octet-stream" sparkle:edSignature="6rRXE1wL7e6aPWZo++5rkLAWYCUH63L6+6uP30zc96+6Lr7gqO+NQkCuXJFEffkN+eQT++BCnpkLyBxdVHlvAA=="/>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.2/SlimHUD.zip" length="5792000" type="application/octet-stream" sparkle:edSignature="Sq7sgKeKlUsdbit1HmvYWbh9o2JjaqwKOrw5/l5qyCX8IMI+oBK1CvJbcd7ym0V4p61+TKOEBQf17jtkJyF/Cg=="/>
         </item>
         <item>
             <title>1.5.1</title>
@@ -49,20 +48,6 @@
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.0/SlimHUD.zip" length="6016059" type="application/octet-stream" sparkle:edSignature="7wM9yHZBRKhr2SsieQVJpjOPG3TECJ00lFezm1aF0BNbyuUKqeL1KzXBWReVmfsfV4V1x72+uX7H3h2uH5RaCQ=="/>
-        </item>
-        <item>
-            <title>1.4.2</title>
-            <pubDate>Thu, 12 Jan 2023 11:28:42 +0000</pubDate>
-            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
-            <sparkle:version>1.4.2</sparkle:version>
-            <sparkle:shortVersionString>1.4.2</sparkle:shortVersionString>
-            <description><![CDATA[<h1>Improved non-continous checks</h1>
-<ul>
-<li>Show system HUDs after SlimHUD quit</li>
-<li>Fix: HUDs didn't always appear when pressing keys</li>
-</ul>]]></description>
-            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.4.2/SlimHUD.zip" length="5509837" type="application/octet-stream" sparkle:edSignature="mZFX7e2tn8UdIDbsNyPqR5kMZzKNwKVZM7YPD2MJE5N+DtH/oCAcHYTN7cHtZ9w0pwWAGL19hSOphsyzexQCDw=="/>
         </item>
         <item>
             <title>Added support to MacOS 10.13</title>

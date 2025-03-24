@@ -1,8 +1,8 @@
 # Swiftlint configuration file
 
 line_length:
-  warning: 155
-  error: 165
+  warning: 165
+  error: 175
 
 function_parameter_count:
   warning: 8

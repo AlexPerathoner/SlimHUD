@@ -55,8 +55,7 @@ class LoginItemsList: NSObject {
 
         // Iterate through login items to find one for given path
         NSLog("App URL: \(path)")
-        for index in (0..<loginItems.count)  // CFArrayGetCount(loginItems)
-        {
+        for index in (0..<loginItems.count) {
 
             // swiftlint:disable:next force_cast
             let nextLoginItem: LSSharedFileListItem = loginItems.object(at: index) as! LSSharedFileListItem
