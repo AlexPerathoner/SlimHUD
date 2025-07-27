@@ -2,8 +2,7 @@
 * Added blurred background effect;
 * Fixed an issue that could cause the hud to be displayed below the menu bar or Dock in some circumstances;
 * Changed the behavior of the hud to be displayed in a stationary position when Mission Control is activated;
-
-Thanks to @zorth64 for implementing all these new fixes and features!
+* Thanks to @zorth64 for implementing all these new fixes and features!
 
 # 1.5.2 - Deep Sleep Hook
 * Rehide System HUD after sleep / monitor changes / lid changes
