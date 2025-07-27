@@ -5,6 +5,22 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>1.5.3</title>
+            <pubDate>Sun, 27 Jul 2025 16:48:55 +0000</pubDate>
+            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1.5.3</sparkle:version>
+            <sparkle:shortVersionString>1.5.3</sparkle:shortVersionString>
+            <description><![CDATA[<h1>Blur effect on background bars</h1>
+<ul>
+<li>Added blurred background effect;</li>
+<li>Fixed an issue that could cause the hud to be displayed below the menu bar or Dock in some circumstances;</li>
+<li>Changed the behavior of the hud to be displayed in a stationary position when Mission Control is activated;</li>
+</ul>]]></description>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.3-beta/SlimHUD.zip" length="5807707" type="application/octet-stream" sparkle:edSignature="msLsSgGwNoo470xgIBz4IauJEUsGBgMQ0/xsl/BoY6smdtfEROWAn/NQb9rOc6Twri2fKH5N0t60fyDu43riAQ=="/>
+        </item>
+        <item>
             <title>1.5.2</title>
             <pubDate>Mon, 24 Mar 2025 19:30:50 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
