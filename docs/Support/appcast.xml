@@ -6,9 +6,8 @@
         <language>en</language>
         <item>
             <title>1.5.3</title>
-            <pubDate>Sun, 27 Jul 2025 16:48:55 +0000</pubDate>
+            <pubDate>Sun, 27 Jul 2025 16:56:08 +0000</pubDate>
             <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
-            <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>1.5.3</sparkle:version>
             <sparkle:shortVersionString>1.5.3</sparkle:shortVersionString>
             <description><![CDATA[<h1>Blur effect on background bars</h1>
@@ -16,9 +15,10 @@
 <li>Added blurred background effect;</li>
 <li>Fixed an issue that could cause the hud to be displayed below the menu bar or Dock in some circumstances;</li>
 <li>Changed the behavior of the hud to be displayed in a stationary position when Mission Control is activated;</li>
+<li>Thanks to @zorth64 for implementing all these new fixes and features!</li>
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.3-beta/SlimHUD.zip" length="5807707" type="application/octet-stream" sparkle:edSignature="msLsSgGwNoo470xgIBz4IauJEUsGBgMQ0/xsl/BoY6smdtfEROWAn/NQb9rOc6Twri2fKH5N0t60fyDu43riAQ=="/>
+            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.3/SlimHUD.zip" length="5807759" type="application/octet-stream" sparkle:edSignature="2AtSo4x9C6VibQxemSqHOv85Fw+MDg7fz4uAdCF6fLFyK6c/ErKvbXV5R2P1hcJ8OBrC6JT2yQ51DSYzKM+kDQ=="/>
         </item>
         <item>
             <title>1.5.2</title>
@@ -48,22 +48,6 @@
 </ul>]]></description>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.1/SlimHUD.zip" length="5739888" type="application/octet-stream" sparkle:edSignature="M7NUDbHkhzqff08KlggMuBrqWOL3omogy7G3VPH5L4gRLYd7N4ER2N+hJQPBRwuqXYLrH6+UGi5YzH2QAmXlCQ=="/>
-        </item>
-        <item>
-            <title>1.5.0</title>
-            <pubDate>Thu, 16 Mar 2023 17:49:13 +0000</pubDate>
-            <link>https://github.com/AlexPerathoner/SlimHUD/releases</link>
-            <sparkle:version>1.5.0</sparkle:version>
-            <sparkle:shortVersionString>1.5.0</sparkle:shortVersionString>
-            <description><![CDATA[<h1>New look</h1>
-<ul>
-<li>Icons change depending on value</li>
-<li>Add multiple in-out animation styles</li>
-<li>New look for the settings window</li>
-<li>Add option to hide the menu bar icon</li>
-</ul>]]></description>
-            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/AlexPerathoner/SlimHUD/releases/download/v1.5.0/SlimHUD.zip" length="6016059" type="application/octet-stream" sparkle:edSignature="7wM9yHZBRKhr2SsieQVJpjOPG3TECJ00lFezm1aF0BNbyuUKqeL1KzXBWReVmfsfV4V1x72+uX7H3h2uH5RaCQ=="/>
         </item>
         <item>
             <title>Added support to MacOS 10.13</title>
