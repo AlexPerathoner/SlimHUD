@@ -1,4 +1,4 @@
-# 1.5.3 - 
+# 1.5.3 - Blur effect on background bars
 * Added blurred background effect;
 * Fixed an issue that could cause the hud to be displayed below the menu bar or Dock in some circumstances;
 * Changed the behavior of the hud to be displayed in a stationary position when Mission Control is activated;
