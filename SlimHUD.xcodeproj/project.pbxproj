@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54CD36742E307B03003B7522 /* BackdropLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CD36732E307B03003B7522 /* BackdropLayerView.swift */; };
 		FA095EAD2D8896DB006F6531 /* SystemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA095EAC2D8896DA006F6531 /* SystemObserver.swift */; };
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
 		FA0E03882966331A004066FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038729663319004066FF /* README.md */; };
@@ -108,6 +109,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		54CD366F2E307A22003B7522 /* CABackdropLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CABackdropLayer.h; sourceTree = "<group>"; };
+		54CD36702E307A22003B7522 /* CAFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAFilter.h; sourceTree = "<group>"; };
+		54CD36712E307A22003B7522 /* CAPropertyInfo-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CAPropertyInfo-Protocol.h"; sourceTree = "<group>"; };
+		54CD36722E307A22003B7522 /* SlimHUD-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SlimHUD-Bridging-Header.h"; sourceTree = "<group>"; };
+		54CD36732E307B03003B7522 /* BackdropLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropLayerView.swift; sourceTree = "<group>"; };
 		FA095EAC2D8896DA006F6531 /* SystemObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemObserver.swift; sourceTree = "<group>"; };
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -221,6 +227,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54CD366E2E307943003B7522 /* PrivateHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				54CD366F2E307A22003B7522 /* CABackdropLayer.h */,
+				54CD36702E307A22003B7522 /* CAFilter.h */,
+				54CD36712E307A22003B7522 /* CAPropertyInfo-Protocol.h */,
+				54CD36722E307A22003B7522 /* SlimHUD-Bridging-Header.h */,
+			);
+			path = PrivateHeaders;
+			sourceTree = "<group>";
+		};
 		FA1A024E29CE80E100365137 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +283,7 @@
 		FA95EDF32956FCBF005B39CD /* SlimHUD */ = {
 			isa = PBXGroup;
 			children = (
+				54CD366E2E307943003B7522 /* PrivateHeaders */,
 				FA95EDF42956FCBF005B39CD /* AppDelegate.swift */,
 				FA95EE1F2956FCDA005B39CD /* Controllers */,
 				FA95EE4B2956FE50005B39CD /* Extensions */,
@@ -392,6 +410,7 @@
 		FA95EE622956FEE4005B39CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54CD36732E307B03003B7522 /* BackdropLayerView.swift */,
 				FA95EE7B295741DE005B39CD /* MainMenu.storyboard */,
 				FA95EE6C29573F36005B39CD /* Hud.swift */,
 				FA95EE632956FEEA005B39CD /* Settings */,
@@ -665,6 +684,7 @@
 				FA95EDF52956FCBF005B39CD /* AppDelegate.swift in Sources */,
 				FA98AB4429CD194500D3F92A /* ShadowPopupViewController.swift in Sources */,
 				FA95EE512956FE73005B39CD /* NSButtonExtension.swift in Sources */,
+				54CD36742E307B03003B7522 /* BackdropLayerView.swift in Sources */,
 				FA2D3DE22971EC2B00ABADDE /* MainMenuController.swift in Sources */,
 				FACDE693297F1BD300EDF165 /* TabsView.swift in Sources */,
 				FA232B4E2981E6A900F96E51 /* AboutViewController.swift in Sources */,
@@ -860,6 +880,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SlimHUD/PrivateHeaders/SlimHUD-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -892,6 +913,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpera.SlimHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SlimHUD/PrivateHeaders/SlimHUD-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

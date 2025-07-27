@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,6 +13,9 @@
             <rect key="frame" x="0.0" y="0.0" width="257" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="v52-mF-Hd2" userLabel="BackdropLayer" customClass="BackdropLayerView" customModule="SlimHUD" customModuleProvider="target">
+                    <rect key="frame" x="20" y="42" width="217" height="218"/>
+                </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="OEc-3L-76X" customClass="ProgressBar" customModule="SlimHUD" customModuleProvider="target">
                     <rect key="frame" x="20" y="42" width="217" height="218"/>
                 </customView>
@@ -26,14 +29,19 @@
                 </imageView>
             </subviews>
             <constraints>
+                <constraint firstItem="v52-mF-Hd2" firstAttribute="trailing" secondItem="OEc-3L-76X" secondAttribute="trailing" id="1uF-I3-pqY"/>
                 <constraint firstItem="5Ds-vC-v05" firstAttribute="top" secondItem="OEc-3L-76X" secondAttribute="bottom" constant="8" symbolic="YES" id="3LE-Xo-yfP"/>
                 <constraint firstItem="OEc-3L-76X" firstAttribute="centerX" secondItem="5Ds-vC-v05" secondAttribute="centerX" id="5At-CI-5eD"/>
+                <constraint firstItem="v52-mF-Hd2" firstAttribute="top" secondItem="OEc-3L-76X" secondAttribute="top" id="6KV-Ee-uA8"/>
                 <constraint firstItem="OEc-3L-76X" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="8yT-fY-Ad8"/>
+                <constraint firstItem="5Ds-vC-v05" firstAttribute="top" secondItem="v52-mF-Hd2" secondAttribute="bottom" constant="8" symbolic="YES" id="C9f-kK-vcv"/>
                 <constraint firstAttribute="bottom" secondItem="5Ds-vC-v05" secondAttribute="bottom" constant="13" id="LbX-F7-iJE"/>
                 <constraint firstItem="OEc-3L-76X" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="N3n-Wx-5GZ"/>
+                <constraint firstItem="v52-mF-Hd2" firstAttribute="leading" secondItem="OEc-3L-76X" secondAttribute="leading" id="V0h-rT-3lT"/>
                 <constraint firstAttribute="trailing" secondItem="OEc-3L-76X" secondAttribute="trailing" constant="20" symbolic="YES" id="vX7-cr-d5D"/>
             </constraints>
             <connections>
+                <outlet property="backdropLayer" destination="v52-mF-Hd2" id="GMJ-HZ-p8a"/>
                 <outlet property="bar" destination="OEc-3L-76X" id="zCC-bE-hnn"/>
                 <outlet property="icon" destination="5Ds-vC-v05" id="pMb-Sz-xS9"/>
             </connections>

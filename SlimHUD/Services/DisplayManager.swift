@@ -198,21 +198,25 @@ class DisplayManager {
         //        })
         //        return windows.contains("Window Server") || windows.contains("Dock")
 
+        var foundFullScreenWindow = false
+
         for window in windows {
-            if let windowName = window[kCGWindowOwnerName] as? String {
-                // if Window Server or Dock are visible the user is certainly not using fullscreen
-                if windowName == "Window Server" || windowName == "Dock" {
-                    return false
-                }
-                if window[kCGWindowBounds]?["Height"] as? CGFloat ?? 0 == screenSize.height &&
-                    window[kCGWindowBounds]?["Width"] as? CGFloat ?? 0 == screenSize.width &&
-                    windowName != "SlimHUD" {
-                    return true
+            guard let windowName = window[kCGWindowOwnerName] as? String else { continue }
+            // if Window Server or Dock are visible the user is certainly not using fullscreen
+            if windowName == "Window Server" || windowName == "Dock" {
+                return false
+            }
+            if let bounds = window[kCGWindowBounds] as? [String: Any],
+               let height = bounds["Height"] as? CGFloat,
+               let width = bounds["Width"] as? CGFloat {
+
+                if height == screenSize.height && width == screenSize.width && windowName != "SlimHUD" {
+                    foundFullScreenWindow = true
                 }
             }
         }
 
-        return true
+        return foundFullScreenWindow
     }
 
 }

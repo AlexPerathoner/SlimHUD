@@ -47,6 +47,7 @@ class Hud: NSView {
                               styleMask: .borderless, backing: .buffered, defer: true,
                               screen: DisplayManager.getZeroScreen())
         window.level = .floating
+        window.collectionBehavior.insert([.stationary])
         window.backgroundColor = .clear
         window.animationBehavior = .none
         windowController = NSWindowController(window: window)
@@ -177,10 +178,13 @@ class Hud: NSView {
         barView.bar.progressLayer.frame.size.width = thickness // setting up inner layer
         if flatBar {
             barView.bar.progressLayer.cornerRadius = 0
+            barView.backdropLayer.cornerRadius = 0
         } else {
             barView.bar.progressLayer.cornerRadius = thickness/2
+            barView.backdropLayer.cornerRadius = thickness/2
         }
         barView.bar.layer?.cornerRadius = thickness/2 // setting up outer layer
+        barView.backdropLayer.cornerRadius = thickness/2
         barView.bar.frame.size.width = thickness
         updateShadow()
     }
