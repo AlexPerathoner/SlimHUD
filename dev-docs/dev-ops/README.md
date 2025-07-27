@@ -8,7 +8,7 @@ List of CI jobs:
 
 In addition to these jobs, [SonarCloud](https://sonarcloud.io/project/overview?id=alexpera_slimhud) is used to analyze the code quality. It is triggered inside the `xcode-build.yml` job.
 
-## Testing
+## Testing
 
 ### UI Tests
 
