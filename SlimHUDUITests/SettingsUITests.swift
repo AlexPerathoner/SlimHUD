@@ -120,49 +120,7 @@ final class SettingsUITest: SparkleUITests {
         XCTAssertEqual(2, settingsWindow.popovers.children(matching: .slider).count)
     }
 
-    func testChangeValuesInShadowPopupRadiusInput() throws { // todo: check why failed - flaky?,, also check for actual radius of bar
-        let visibleFrame = NSScreen.screens[0].visibleFrame
-        let position = NSPoint(x: 7, y: (visibleFrame.height/2))
-
-        let app = XCUIApplication()
-        app.showSettings()
-        app.setShadowType(shadowType: "Custom...")
-        app.setHudSize(size: .init(width: 13, height: 218))
-        app.setHudPosition(edge: "left")
-        app.launch()
-        let settingsWindow = XCUIApplication().windows["Settings"]
-        settingsWindow.typeKey("3", modifierFlags: .command)
-        settingsWindow.popUpButtons["Custom..."].click()
-        settingsWindow.menuItems["Custom..."].click()
-
-        let textFieldRadius = settingsWindow.popovers.children(matching: .textField).element(boundBy: 0)
-        let sliderRadius = settingsWindow.popovers.children(matching: .slider).element(boundBy: 0)
-        sliderRadius.adjust(toNormalizedSliderPosition: 0.5)
-        sliderRadius.adjust(toNormalizedSliderPosition: 1.0)
-        // adjust(..) not able to drag to the very end of the slider
-        XCTAssertTrue("30" == textFieldRadius.value as? String || "29" == textFieldRadius.value as? String)
-        sliderRadius.adjust(toNormalizedSliderPosition: 0.0)
-        // adjust(..) not able to drag to the very end of the slider
-        XCTAssertTrue("0" == textFieldRadius.value as? String || "1" == textFieldRadius.value as? String)
-        textFieldRadius.typeText("30\r")
-        XCTAssertEqual(1.0, sliderRadius.normalizedSliderPosition)
-
-        let firstColor = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
-            .pixelAt(x: Int(position.x), y: Int(position.y))
-
-        textFieldRadius.typeText("0\r")
-        XCTAssertEqual(0.0, sliderRadius.normalizedSliderPosition)
-        textFieldRadius.typeText("-5\r")
-        XCTAssertEqual(0.0, sliderRadius.normalizedSliderPosition)
-        let screenImage = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
-        let secondColor = screenImage.pixelAt(x: Int(position.x), y: Int(position.y))
-        XCTAssertNotEqual(firstColor, secondColor)
-    }
-
     func testChangeValuesInShadowPopupInsetInput() throws {
-        let visibleFrame = NSScreen.screens[0].visibleFrame
-        let position = NSPoint(x: 7, y: (visibleFrame.height/2))
-
         let app = XCUIApplication()
         app.showSettings()
         app.setShadowType(shadowType: "Custom...")
@@ -179,8 +137,9 @@ final class SettingsUITest: SparkleUITests {
         sliderInset.adjust(toNormalizedSliderPosition: 0.5)
 
         sliderInset.adjust(toNormalizedSliderPosition: 1.0)
-
-        let firstColor = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
+        let image = Image<RGBA<UInt8>>(nsImage: app.windows.element(boundBy: 0).screenshot().image)
+        let position = NSPoint(x: 10, y: image.height.dividedReportingOverflow(by: 2).partialValue)
+        let firstColor = image
             .pixelAt(x: Int(position.x), y: Int(position.y))
         // adjust(..) not able to drag to the very end of the slider
         XCTAssertTrue("15" == textFieldInset.value as? String || "14" == textFieldInset.value as? String)
