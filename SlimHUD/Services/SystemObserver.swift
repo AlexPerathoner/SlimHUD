@@ -98,8 +98,8 @@ class SystemObserver: NSObject {
 
     @objc func receiveSleepNote(_ notification: Notification) {
         // don't prevent sleep
-        if let t = timer {
-            t.invalidate()
+        if let timer = timer {
+            timer.invalidate()
         }
         timer = nil
     }
