@@ -13,7 +13,8 @@ class BarView: NSView {
 
     @IBOutlet weak var bar: ProgressBar!
     @IBOutlet private var icon: NSImageView!
-
+    @IBOutlet weak var backdropLayer: BackdropLayerView!
+    
     private var shadowView: NSView!
 
     override func awakeFromNib() {
