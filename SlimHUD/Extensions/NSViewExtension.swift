@@ -14,7 +14,7 @@ extension NSView {
                         (self.frame.origin.y + (self.frame.size.height / 2)))
     }
 
-    func setAnchorPoint (anchorPoint: CGPoint) {
+    func setAnchorPoint(anchorPoint: CGPoint) {
         if let layer = self.layer {
             var newPoint = CGPoint(x: self.bounds.size.width * anchorPoint.x, y: self.bounds.size.height * anchorPoint.y)
             var oldPoint = CGPoint(x: self.bounds.size.width * layer.anchorPoint.x, y: self.bounds.size.height * layer.anchorPoint.y)

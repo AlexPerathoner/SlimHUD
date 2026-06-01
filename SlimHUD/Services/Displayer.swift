@@ -97,8 +97,7 @@ class Displayer: HudsControllerInterface {
                 self.keyboardHud.setProgress(progress: progress)
                 self.keyboardHud.setIconImage(icon: IconManager.getKeyboardIcon(for: progress))
             } catch {
-                self.keyboardHud.setProgress(progress: 0.5)
-                NSLog("Failed to retrieve display brightness. See https://github.com/AlexPerathoner/SlimHUD/issues/60")
+                NSLog("Failed to retrieve keyboard brightness. Keyboard HUD may not be supported on this hardware.")
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

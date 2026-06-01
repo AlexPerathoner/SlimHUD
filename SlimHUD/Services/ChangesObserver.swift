@@ -85,6 +85,7 @@ class ChangesObserver {
         displayer.showBrightnessHUD()
     }
     @objc func showKeyboardHUD() {
+        guard !temporarelyDisabledBars.keyboardBar else { return }
         displayer.showKeyboardHUD()
     }
 

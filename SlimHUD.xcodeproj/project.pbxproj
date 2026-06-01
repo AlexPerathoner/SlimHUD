@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		493D4B56D1450BC6105250F5 /* KeyboardManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B7A46EFB83E7EA2B858A2F /* KeyboardManagerTests.swift */; };
 		54CD36742E307B03003B7522 /* BackdropLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CD36732E307B03003B7522 /* BackdropLayerView.swift */; };
 		FA095EAD2D8896DB006F6531 /* SystemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA095EAC2D8896DA006F6531 /* SystemObserver.swift */; };
 		FA0E038629663300004066FF /* Release_Notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FA0E038529663300004066FF /* Release_Notes.md */; };
@@ -114,6 +115,7 @@
 		54CD36712E307A22003B7522 /* CAPropertyInfo-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CAPropertyInfo-Protocol.h"; sourceTree = "<group>"; };
 		54CD36722E307A22003B7522 /* SlimHUD-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SlimHUD-Bridging-Header.h"; sourceTree = "<group>"; };
 		54CD36732E307B03003B7522 /* BackdropLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropLayerView.swift; sourceTree = "<group>"; };
+		68B7A46EFB83E7EA2B858A2F /* KeyboardManagerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyboardManagerTests.swift; sourceTree = "<group>"; };
 		FA095EAC2D8896DA006F6531 /* SystemObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemObserver.swift; sourceTree = "<group>"; };
 		FA0E038529663300004066FF /* Release_Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Release_Notes.md; sourceTree = "<group>"; };
 		FA0E038729663319004066FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 			children = (
 				FA95EE872957589E005B39CD /* PositionManagerTests.swift */,
 				FA767E74297C5DAD0006E091 /* HudAnimatorTests.swift */,
+				68B7A46EFB83E7EA2B858A2F /* KeyboardManagerTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				FA95EE882957589E005B39CD /* PositionManagerTests.swift in Sources */,
 				FA95EE8A295758B1005B39CD /* Constants.swift in Sources */,
 				FA767E75297C5DAD0006E091 /* HudAnimatorTests.swift in Sources */,
+				493D4B56D1450BC6105250F5 /* KeyboardManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,6 +31,8 @@ class DisplayManager {
             } catch {
                 method = .m1
             }
+        case .lmu:
+            method = .m1
         case .m1:
             do {
                 return try getM1DisplayBrightness()

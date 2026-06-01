@@ -9,6 +9,7 @@ import Foundation
 
 enum SensorMethod {
     case standard
+    case lmu
     // swiftlint:disable:next identifier_name
     case m1
     case allFailed

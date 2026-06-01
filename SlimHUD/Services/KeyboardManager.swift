@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import IOKit
 
 class KeyboardManager {
     private init() {}
@@ -13,12 +14,19 @@ class KeyboardManager {
     private static let MaxKeyboardBrightness: Float = 342
 
     private static var method = SensorMethod.standard
+    private static var lmuDataPort: io_connect_t = 0
 
     static func getKeyboardBrightness() throws -> Float {
         switch KeyboardManager.method {
         case .standard:
             do {
                 return try getKeyboardBrightnessProportioned(raw: getRawKeyboardBrightness())
+            } catch {
+                method = .lmu
+            }
+        case .lmu:
+            do {
+                return try getLMUKeyboardBrightness()
             } catch {
                 method = .m1
             }
@@ -34,8 +42,13 @@ class KeyboardManager {
         return try getKeyboardBrightness()
     }
 
+    static func resetMethodForTesting() {
+        method = .standard
+        lmuDataPort = 0
+    }
+
     // Raw value of sensor is non linear, correcting it
-    private static func getKeyboardBrightnessProportioned(raw: Float) -> Float {
+    static func getKeyboardBrightnessProportioned(raw: Float) -> Float {
         if raw <= 0.07 {
             return 0
         }
@@ -56,6 +69,37 @@ class KeyboardManager {
             return result / KeyboardManager.MaxKeyboardBrightness
         }
         throw SensorError.Keyboard.notStandard
+    }
+
+    // Uses AppleLMUController — works on older Intel Macs (pre-2015) where
+    // AppleHIDKeyboardEventDriverV2 is unavailable or doesn't expose KeyboardBacklightBrightness.
+    private static func getLMUKeyboardBrightness() throws -> Float {
+        if lmuDataPort == 0 {
+            let serviceObject = IOServiceGetMatchingService(kIOMasterPortDefault,
+                                                            IOServiceMatching("AppleLMUController"))
+            guard serviceObject != 0 else {
+                throw SensorError.Keyboard.notStandard
+            }
+            let kr = IOServiceOpen(serviceObject, mach_task_self_, 0, &lmuDataPort)
+            IOObjectRelease(serviceObject)
+            guard kr == KERN_SUCCESS else {
+                throw SensorError.Keyboard.notStandard
+            }
+        }
+
+        let kGetLEDBrightnessID: UInt32 = 1
+        let inputs: [UInt64] = [0]
+        var outputCount: UInt32 = 1
+        var outputValue: UInt64 = 0
+
+        let kr = IOConnectCallScalarMethod(lmuDataPort, kGetLEDBrightnessID,
+                                           inputs, UInt32(inputs.count),
+                                           &outputValue, &outputCount)
+        guard kr == KERN_SUCCESS else {
+            throw SensorError.Keyboard.notStandard
+        }
+
+        return Float(outputValue) / Float(0xfff)
     }
 
     private static func getM1KeyboardBrightness() throws -> Float {
